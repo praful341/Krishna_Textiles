@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <section name="Krishna_Textiles.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+    </sectionGroup>
+  </configSections>
+  <connectionStrings>
+    <add name="localhost_Krishna_Textiles_Connection" connectionString="XpoProvider=MSSqlServer;data source=192.168.1.112;user id=sa;password=admin@123;initial catalog=Krishna_Textiles;Persist Security Info=true" />
+  </connectionStrings>
+  <appSettings>
+    
+    <!--Local Connection-->
+    <add key="ServerHostName" value="NK1T6IfIwbuV5glzAH0t5w==" />    
+    <add key="ServerServiceName" value="Jh7nbLbJC7ycI1lzS7YN4h/A9PwAY1Cu" />    
+    <add key="ServerUserName" value="1DwL2KYsao4=" />
+    <add key="ServerPassWord" value="1m1aoLWd69HR1weotAkwaw==" />
+    <!--End Connection-->
+
+    <!--Live Connection-->
+    <!--<add key="ServerHostName" value="MF+l9a5MB3FJlo8viYAky6as6Lk+lSz0" />
+    <add key="ServerServiceName" value="obeP3tcDnyRRVFNwLGxrcqZDhDhx3nlz" />
+    <add key="ServerUserName" value="obeP3tcDnyRRVFNwLGxrciaz0X1tDIAG" />
+    <add key="ServerPassWord" value="YmYSMfHi5M2r3dpS3VWvjA==" />-->
+    <!--End Connection-->
+    
+    
+    <add key="ServerPath" value="\\192.168.1.112\derpsharing" />
+    <add key="ClientSettingsProvider.ServiceUri" value="" />
+  </appSettings>
+  <startup useLegacyV2RuntimeActivationPolicy="true">
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+    <supportedRuntime version="v2.0" />
+  </startup>
+  <userSettings>
+    <Krishna_Textiles.Properties.Settings>
+      <setting name="UPLOADED_FILENAME" serializeAs="String">
+        <value>FilePath</value>
+      </setting>
+      <setting name="ORIGINAL_FILENAME" serializeAs="String">
+        <value>FileName</value>
+      </setting>
+      <setting name="UPLOAD_BY_USERNAME" serializeAs="String">
+        <value>Size</value>
+      </setting>
+    </Krishna_Textiles.Properties.Settings>
+  </userSettings>
+  <system.web>
+    <membership defaultProvider="ClientAuthenticationMembershipProvider">
+      <providers>
+        <add name="ClientAuthenticationMembershipProvider" type="System.Web.ClientServices.Providers.ClientFormsAuthenticationMembershipProvider, System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" serviceUri="" />
+      </providers>
+    </membership>
+    <roleManager defaultProvider="ClientRoleProvider" enabled="true">
+      <providers>
+        <add name="ClientRoleProvider" type="System.Web.ClientServices.Providers.ClientRoleProvider, System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" serviceUri="" cacheTimeout="86400" />
+      </providers>
+    </roleManager>
+  </system.web>
+</configuration>

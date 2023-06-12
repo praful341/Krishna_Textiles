@@ -1,0 +1,65 @@
+﻿---------Krishna_Textiles -------------------------------------
+Masters:
+
+1)Company Master - done
+2)Branch Master - done
+3)Location Master - done
+4)Department Master - done
+5)Process Master - Done
+6)Employee Master -Done
+7)Rate Master(For managing hourly rates/OT rates) - New Development Discussion Point
+8)Designation Master - Done
+9)Attendance Master - New Development Discussion Point
+10)Shift Master - Done
+
+Entry :
+Screens:
+1)Employee Registration Entry - No
+2)Attendance Dashboard(Add,Edit,View and Delete) -  no
+3)OT Maintainance - no
+4)GatePass Entry with print -no
+5)Salary Calculation - no
+
+Dashboard
+Reports:
+1)Employee Report - no
+2)Attendance Report - no
+3)Machine Data Report - no
+4)Salary Report - no
+
+1) EnNo,Date,Time same not inserted if new then inserted - Do Mayur Bhai
+2) employee Master add enrollment no.-Done
+3) Add Salary in Employee master.-Done
+4) Ledger Report in Krishna_Textiles.
+5) Dynamic Setting in Employee form.-Done
+6) Add new 6 employee.-Done
+-------------------END Krishna_Textiles -----------------------------------
+
+----------------------------------------------------------------	
+
+Date : 15-Dec-20 Praful
+
+Table     : 1) MST_Sub_Manager - Done
+			2) MST_Employee - Done
+				Field Added - sub_ledger_id int
+							- pager_no varchar(50)
+
+SP Name : 1) MST_Sub_Manager - Done
+		  2) MST_Sub_Manager_GetData - Done
+		  3) MST_Sub_Manager_Save - Done
+		  4) MST_HrEmployee_GetData - Done
+		  5) MST_Employee_Save - Done
+
+----------------------------------------------------------------	
+
+Date : 15-Dec-20 Praful
+
+Table     : 1) HR_MST_Gatepass -  work_id int - Done
+			2) MST_Sub_Manager -  manager_id int - Done
+
+SP Name : 1) MST_HR_GatePass_Save - Done
+		  2) MST_HR_GatePass_GetData - Done
+		  3) MST_Sub_Manager_GetData - Done
+		  4) MST_Sub_Manager_Save - Done
+		  5) MST_Manager_Sub_Manager_GetData - Done
+
