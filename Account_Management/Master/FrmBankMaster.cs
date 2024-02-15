@@ -9,6 +9,7 @@ namespace Account_Management
 {
     public partial class FrmBankMaster : DevExpress.XtraEditors.XtraForm
     {
+        int i = 0;
         BLL.FormEvents objBOFormEvents = new BLL.FormEvents();
         BLL.Validation Val = new BLL.Validation();
         BankMaster objBank = new BankMaster();
