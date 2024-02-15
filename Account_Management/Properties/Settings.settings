@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Account_Management.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="UPLOADED_FILENAME" Type="System.String" Scope="User">
+      <Value Profile="(Default)">FilePath</Value>
+    </Setting>
+    <Setting Name="ORIGINAL_FILENAME" Type="System.String" Scope="User">
+      <Value Profile="(Default)">FileName</Value>
+    </Setting>
+    <Setting Name="UPLOAD_BY_USERNAME" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Size</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
