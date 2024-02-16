@@ -8,6 +8,7 @@ namespace Account_Management.Master
 {
     public partial class FrmItemHSNMaster : DevExpress.XtraEditors.XtraForm
     {
+
         BLL.FormEvents objBOFormEvents = new BLL.FormEvents();
 
         BLL.Validation Val = new BLL.Validation();
