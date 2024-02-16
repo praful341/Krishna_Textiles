@@ -46,6 +46,7 @@ namespace BLL.FunctionClasses.Master
             Request.AddParams("@age", pClsProperty.age, DbType.Int32);
             Request.AddParams("@sub_process_id", pClsProperty.sub_process_id, DbType.Int32);
             Request.AddParams("@salary", pClsProperty.salary, DbType.Int64);
+            Request.AddParams("@pancard_no", pClsProperty.pancard_no, DbType.String);
 
             Request.CommandText = BLL.TPV.SProc.MST_Employee_Save;
             Request.CommandType = CommandType.StoredProcedure;

@@ -24,6 +24,7 @@ namespace BLL.FunctionClasses.Master
             Request.AddParams("@ip_address", GlobalDec.gStrComputerIP, DbType.String);
             Request.AddParams("@entry_date", Val.DBDate(GlobalDec.gStr_SystemDate), DbType.Date);
             Request.AddParams("@entry_time", GlobalDec.gStr_SystemTime, DbType.String);
+            Request.AddParams("@active", pClsProperty.active, DbType.Int32);
 
             Request.CommandText = BLL.TPV.SProc.MST_Courier_Save;
             Request.CommandType = CommandType.StoredProcedure;
@@ -41,10 +42,10 @@ namespace BLL.FunctionClasses.Master
             Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
             return DTab;
         }
-        public string ISExists(string CourierName, Int64 CourierId)
+        public string ISExists(string CourierName, decimal Weight, decimal Rate, Int64 CourierId)
         {
             Validation Val = new Validation();
-            return Val.ToString(Ope.FindText(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, "MST_Courier", "courier_name", "AND courier_name = '" + CourierName + "' AND NOT courier_id =" + CourierId));
+            return Val.ToString(Ope.FindText(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, "MST_Courier", "courier_name", "AND courier_name = '" + CourierName + "' AND weight = '" + Weight + "' AND rate = '" + Rate + "' AND NOT courier_id =" + CourierId));
         }
     }
 }

@@ -153,6 +153,9 @@
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.txtPancardNo = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
+            this.clmPancardNo = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TabRegisterDetail)).BeginInit();
@@ -200,6 +203,7 @@
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPancardNo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl5
@@ -230,6 +234,8 @@
             this.tblGeneralDetail.Appearance.PageClient.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.tblGeneralDetail.Appearance.PageClient.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.tblGeneralDetail.Appearance.PageClient.Options.UseBorderColor = true;
+            this.tblGeneralDetail.Controls.Add(this.txtPancardNo);
+            this.tblGeneralDetail.Controls.Add(this.labelControl31);
             this.tblGeneralDetail.Controls.Add(this.txtSalary);
             this.tblGeneralDetail.Controls.Add(this.labelControl29);
             this.tblGeneralDetail.Controls.Add(this.labelControl28);
@@ -299,13 +305,13 @@
             // txtSalary
             // 
             this.txtSalary.EnterMoveNextControl = true;
-            this.txtSalary.Location = new System.Drawing.Point(415, 58);
+            this.txtSalary.Location = new System.Drawing.Point(415, 85);
             this.txtSalary.Name = "txtSalary";
             this.txtSalary.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSalary.Properties.Appearance.Options.UseFont = true;
             this.txtSalary.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSalary.Size = new System.Drawing.Size(187, 22);
-            this.txtSalary.TabIndex = 462;
+            this.txtSalary.TabIndex = 13;
             this.txtSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalary_KeyPress);
             // 
             // labelControl29
@@ -314,7 +320,7 @@
             this.labelControl29.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl29.Appearance.Options.UseFont = true;
             this.labelControl29.Appearance.Options.UseForeColor = true;
-            this.labelControl29.Location = new System.Drawing.Point(311, 61);
+            this.labelControl29.Location = new System.Drawing.Point(311, 89);
             this.labelControl29.Name = "labelControl29";
             this.labelControl29.Size = new System.Drawing.Size(41, 16);
             this.labelControl29.TabIndex = 463;
@@ -500,7 +506,7 @@
             this.txtAadharNo.Properties.Appearance.Options.UseFont = true;
             this.txtAadharNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAadharNo.Size = new System.Drawing.Size(187, 22);
-            this.txtAadharNo.TabIndex = 18;
+            this.txtAadharNo.TabIndex = 11;
             // 
             // labelControl6
             // 
@@ -586,7 +592,7 @@
             this.txtMobile.Properties.Appearance.Options.UseFont = true;
             this.txtMobile.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMobile.Size = new System.Drawing.Size(187, 22);
-            this.txtMobile.TabIndex = 17;
+            this.txtMobile.TabIndex = 10;
             this.txtMobile.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMobile_KeyPress);
             // 
             // labelControl18
@@ -894,9 +900,9 @@
             this.labelControl7.Appearance.Options.UseForeColor = true;
             this.labelControl7.Location = new System.Drawing.Point(5, 89);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(87, 16);
+            this.labelControl7.Size = new System.Drawing.Size(57, 16);
             this.labelControl7.TabIndex = 67;
-            this.labelControl7.Text = "Emp SurName";
+            this.labelControl7.Text = "SurName";
             // 
             // txtMName
             // 
@@ -917,9 +923,9 @@
             this.labelControl4.Appearance.Options.UseForeColor = true;
             this.labelControl4.Location = new System.Drawing.Point(5, 63);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(76, 16);
+            this.labelControl4.Size = new System.Drawing.Size(80, 16);
             this.labelControl4.TabIndex = 65;
-            this.labelControl4.Text = "Emp MName";
+            this.labelControl4.Text = "Middle Name";
             // 
             // lueDepartment
             // 
@@ -1126,9 +1132,9 @@
             this.labelControl2.Appearance.Options.UseForeColor = true;
             this.labelControl2.Location = new System.Drawing.Point(5, 37);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(71, 16);
+            this.labelControl2.Size = new System.Drawing.Size(67, 16);
             this.labelControl2.TabIndex = 55;
-            this.labelControl2.Text = "Emp FName";
+            this.labelControl2.Text = "First Name";
             // 
             // panelControl6
             // 
@@ -1265,7 +1271,8 @@
             this.clmsubprocess_id,
             this.clmsubprocess_name,
             this.clmSalary,
-            this.clmDesignation});
+            this.clmDesignation,
+            this.clmPancardNo});
             this.dgvEmployeeMaster.GridControl = this.grdEmployeeMaster;
             this.dgvEmployeeMaster.Name = "dgvEmployeeMaster";
             this.dgvEmployeeMaster.OptionsBehavior.Editable = false;
@@ -1345,7 +1352,7 @@
             this.clmActive.Name = "clmActive";
             this.clmActive.OptionsColumn.AllowEdit = false;
             this.clmActive.Visible = true;
-            this.clmActive.VisibleIndex = 13;
+            this.clmActive.VisibleIndex = 14;
             // 
             // clmmiddlename
             // 
@@ -1531,7 +1538,7 @@
             this.clmSalary.FieldName = "salary";
             this.clmSalary.Name = "clmSalary";
             this.clmSalary.Visible = true;
-            this.clmSalary.VisibleIndex = 12;
+            this.clmSalary.VisibleIndex = 13;
             // 
             // clmDesignation
             // 
@@ -1673,6 +1680,36 @@
             this.panelControl1.Size = new System.Drawing.Size(733, 22);
             this.panelControl1.TabIndex = 13;
             // 
+            // txtPancardNo
+            // 
+            this.txtPancardNo.EnterMoveNextControl = true;
+            this.txtPancardNo.Location = new System.Drawing.Point(415, 59);
+            this.txtPancardNo.Name = "txtPancardNo";
+            this.txtPancardNo.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPancardNo.Properties.Appearance.Options.UseFont = true;
+            this.txtPancardNo.Size = new System.Drawing.Size(187, 20);
+            this.txtPancardNo.TabIndex = 12;
+            // 
+            // labelControl31
+            // 
+            this.labelControl31.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl31.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl31.Appearance.Options.UseFont = true;
+            this.labelControl31.Appearance.Options.UseForeColor = true;
+            this.labelControl31.Location = new System.Drawing.Point(311, 63);
+            this.labelControl31.Name = "labelControl31";
+            this.labelControl31.Size = new System.Drawing.Size(86, 16);
+            this.labelControl31.TabIndex = 465;
+            this.labelControl31.Text = "Pancard  No";
+            // 
+            // clmPancardNo
+            // 
+            this.clmPancardNo.Caption = "PanCard";
+            this.clmPancardNo.FieldName = "pancard_no";
+            this.clmPancardNo.Name = "clmPancardNo";
+            this.clmPancardNo.Visible = true;
+            this.clmPancardNo.VisibleIndex = 12;
+            // 
             // FrmEmployeeMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1738,6 +1775,7 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPancardNo.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1867,5 +1905,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl29;
         private DevExpress.XtraGrid.Columns.GridColumn clmSalary;
         private DevExpress.XtraGrid.Columns.GridColumn clmDesignation;
+        private DevExpress.XtraEditors.TextEdit txtPancardNo;
+        private DevExpress.XtraEditors.LabelControl labelControl31;
+        private DevExpress.XtraGrid.Columns.GridColumn clmPancardNo;
     }
 }

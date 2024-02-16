@@ -25,6 +25,7 @@ namespace BLL.FunctionClasses.Master
             Request.AddParams("@ip_address", GlobalDec.gStrComputerIP, DbType.String);
             Request.AddParams("@entry_date", Val.DBDate(GlobalDec.gStr_SystemDate), DbType.Date);
             Request.AddParams("@entry_time", GlobalDec.gStr_SystemTime, DbType.String);
+            Request.AddParams("@type", pClsProperty.type, DbType.String);
 
             Request.CommandText = BLL.TPV.SProc.MST_Ledger_Group_Master_Save;
             Request.CommandType = CommandType.StoredProcedure;
@@ -53,10 +54,10 @@ namespace BLL.FunctionClasses.Master
             return DTab;
         }
 
-        public string ISExists(string LedgerGroupName, Int64 LedgerGroupID)
+        public string ISExists(string type, string LedgerGroupName, Int64 LedgerGroupID)
         {
             Validation Val = new Validation();
-            return Val.ToString(Ope.FindText(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, "MST_Ledger_Group", "ledger_group_name", "AND ledger_group_name = '" + LedgerGroupName + "' AND NOT ledger_group_id =" + LedgerGroupID));
+            return Val.ToString(Ope.FindText(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, "MST_Ledger_Group", "ledger_group_name", "AND ledger_group_name = '" + LedgerGroupName + "' AND type = '" + type + "' AND NOT ledger_group_id =" + LedgerGroupID));
         }
         #endregion
     }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.DTSGSTDate = new DevExpress.XtraEditors.DateEdit();
             this.txtSGSTRate = new DevExpress.XtraEditors.TextEdit();
@@ -80,6 +80,9 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.txtGSTRate = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DTSGSTDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -107,11 +110,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGSTRate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl5
             // 
+            this.panelControl5.Controls.Add(this.txtGSTRate);
             this.panelControl5.Controls.Add(this.DTSGSTDate);
+            this.panelControl5.Controls.Add(this.labelControl9);
             this.panelControl5.Controls.Add(this.txtSGSTRate);
             this.panelControl5.Controls.Add(this.labelControl7);
             this.panelControl5.Controls.Add(this.labelControl8);
@@ -144,7 +150,7 @@
             // 
             this.DTSGSTDate.EditValue = null;
             this.DTSGSTDate.EnterMoveNextControl = true;
-            this.DTSGSTDate.Location = new System.Drawing.Point(274, 147);
+            this.DTSGSTDate.Location = new System.Drawing.Point(622, 193);
             this.DTSGSTDate.Name = "DTSGSTDate";
             this.DTSGSTDate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DTSGSTDate.Properties.Appearance.Options.UseFont = true;
@@ -159,17 +165,19 @@
             this.DTSGSTDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.DTSGSTDate.Size = new System.Drawing.Size(98, 20);
             this.DTSGSTDate.TabIndex = 8;
+            this.DTSGSTDate.Visible = false;
             // 
             // txtSGSTRate
             // 
             this.txtSGSTRate.EnterMoveNextControl = true;
-            this.txtSGSTRate.Location = new System.Drawing.Point(101, 145);
+            this.txtSGSTRate.Location = new System.Drawing.Point(449, 191);
             this.txtSGSTRate.Name = "txtSGSTRate";
             this.txtSGSTRate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSGSTRate.Properties.Appearance.Options.UseFont = true;
             this.txtSGSTRate.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSGSTRate.Size = new System.Drawing.Size(93, 20);
             this.txtSGSTRate.TabIndex = 7;
+            this.txtSGSTRate.Visible = false;
             // 
             // labelControl7
             // 
@@ -177,11 +185,12 @@
             this.labelControl7.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl7.Appearance.Options.UseFont = true;
             this.labelControl7.Appearance.Options.UseForeColor = true;
-            this.labelControl7.Location = new System.Drawing.Point(14, 148);
+            this.labelControl7.Location = new System.Drawing.Point(362, 194);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(70, 17);
             this.labelControl7.TabIndex = 77;
             this.labelControl7.Text = "SGST Rate";
+            this.labelControl7.Visible = false;
             // 
             // labelControl8
             // 
@@ -189,17 +198,18 @@
             this.labelControl8.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl8.Appearance.Options.UseFont = true;
             this.labelControl8.Appearance.Options.UseForeColor = true;
-            this.labelControl8.Location = new System.Drawing.Point(197, 146);
+            this.labelControl8.Location = new System.Drawing.Point(545, 192);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(71, 17);
             this.labelControl8.TabIndex = 76;
             this.labelControl8.Text = "SGST Date";
+            this.labelControl8.Visible = false;
             // 
             // DTCGSTDate
             // 
             this.DTCGSTDate.EditValue = null;
             this.DTCGSTDate.EnterMoveNextControl = true;
-            this.DTCGSTDate.Location = new System.Drawing.Point(274, 117);
+            this.DTCGSTDate.Location = new System.Drawing.Point(622, 163);
             this.DTCGSTDate.Name = "DTCGSTDate";
             this.DTCGSTDate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DTCGSTDate.Properties.Appearance.Options.UseFont = true;
@@ -214,17 +224,19 @@
             this.DTCGSTDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.DTCGSTDate.Size = new System.Drawing.Size(98, 20);
             this.DTCGSTDate.TabIndex = 6;
+            this.DTCGSTDate.Visible = false;
             // 
             // txtCGSTRate
             // 
             this.txtCGSTRate.EnterMoveNextControl = true;
-            this.txtCGSTRate.Location = new System.Drawing.Point(100, 115);
+            this.txtCGSTRate.Location = new System.Drawing.Point(448, 161);
             this.txtCGSTRate.Name = "txtCGSTRate";
             this.txtCGSTRate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCGSTRate.Properties.Appearance.Options.UseFont = true;
             this.txtCGSTRate.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCGSTRate.Size = new System.Drawing.Size(93, 20);
             this.txtCGSTRate.TabIndex = 5;
+            this.txtCGSTRate.Visible = false;
             // 
             // labelControl5
             // 
@@ -232,11 +244,12 @@
             this.labelControl5.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Appearance.Options.UseForeColor = true;
-            this.labelControl5.Location = new System.Drawing.Point(15, 116);
+            this.labelControl5.Location = new System.Drawing.Point(363, 162);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(71, 17);
             this.labelControl5.TabIndex = 75;
             this.labelControl5.Text = "CGST Rate";
+            this.labelControl5.Visible = false;
             // 
             // labelControl6
             // 
@@ -244,17 +257,18 @@
             this.labelControl6.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl6.Appearance.Options.UseFont = true;
             this.labelControl6.Appearance.Options.UseForeColor = true;
-            this.labelControl6.Location = new System.Drawing.Point(199, 118);
+            this.labelControl6.Location = new System.Drawing.Point(547, 164);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(72, 17);
             this.labelControl6.TabIndex = 74;
             this.labelControl6.Text = "CGST Date";
+            this.labelControl6.Visible = false;
             // 
             // DTIGSTDate
             // 
             this.DTIGSTDate.EditValue = null;
             this.DTIGSTDate.EnterMoveNextControl = true;
-            this.DTIGSTDate.Location = new System.Drawing.Point(274, 89);
+            this.DTIGSTDate.Location = new System.Drawing.Point(622, 135);
             this.DTIGSTDate.Name = "DTIGSTDate";
             this.DTIGSTDate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DTIGSTDate.Properties.Appearance.Options.UseFont = true;
@@ -269,17 +283,19 @@
             this.DTIGSTDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.DTIGSTDate.Size = new System.Drawing.Size(98, 20);
             this.DTIGSTDate.TabIndex = 4;
+            this.DTIGSTDate.Visible = false;
             // 
             // txtIGSTRate
             // 
             this.txtIGSTRate.EnterMoveNextControl = true;
-            this.txtIGSTRate.Location = new System.Drawing.Point(101, 87);
+            this.txtIGSTRate.Location = new System.Drawing.Point(449, 133);
             this.txtIGSTRate.Name = "txtIGSTRate";
             this.txtIGSTRate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIGSTRate.Properties.Appearance.Options.UseFont = true;
             this.txtIGSTRate.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtIGSTRate.Size = new System.Drawing.Size(93, 20);
             this.txtIGSTRate.TabIndex = 3;
+            this.txtIGSTRate.Visible = false;
             // 
             // labelControl1
             // 
@@ -287,11 +303,12 @@
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Location = new System.Drawing.Point(14, 90);
+            this.labelControl1.Location = new System.Drawing.Point(362, 136);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(67, 17);
             this.labelControl1.TabIndex = 73;
             this.labelControl1.Text = "IGST Rate";
+            this.labelControl1.Visible = false;
             // 
             // labelControl3
             // 
@@ -299,39 +316,42 @@
             this.labelControl3.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Appearance.Options.UseForeColor = true;
-            this.labelControl3.Location = new System.Drawing.Point(200, 90);
+            this.labelControl3.Location = new System.Drawing.Point(548, 136);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(68, 17);
             this.labelControl3.TabIndex = 72;
             this.labelControl3.Text = "IGST Date";
+            this.labelControl3.Visible = false;
             // 
             // txtRemark
             // 
             this.txtRemark.EditValue = "";
             this.txtRemark.EnterMoveNextControl = true;
-            this.txtRemark.Location = new System.Drawing.Point(100, 214);
+            this.txtRemark.Location = new System.Drawing.Point(448, 260);
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRemark.Properties.Appearance.Options.UseFont = true;
             this.txtRemark.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtRemark.Size = new System.Drawing.Size(238, 60);
             this.txtRemark.TabIndex = 10;
+            this.txtRemark.Visible = false;
             // 
             // labelControl26
             // 
             this.labelControl26.Appearance.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl26.Appearance.Options.UseFont = true;
-            this.labelControl26.Location = new System.Drawing.Point(15, 214);
+            this.labelControl26.Location = new System.Drawing.Point(363, 260);
             this.labelControl26.Name = "labelControl26";
             this.labelControl26.Size = new System.Drawing.Size(56, 17);
             this.labelControl26.TabIndex = 71;
             this.labelControl26.Text = "Remark";
+            this.labelControl26.Visible = false;
             // 
             // RBtnStatus
             // 
             this.RBtnStatus.EditValue = 1;
             this.RBtnStatus.EnterMoveNextControl = true;
-            this.RBtnStatus.Location = new System.Drawing.Point(101, 177);
+            this.RBtnStatus.Location = new System.Drawing.Point(449, 223);
             this.RBtnStatus.Name = "RBtnStatus";
             this.RBtnStatus.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.RBtnStatus.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -343,26 +363,28 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(0, "Deactive")});
             this.RBtnStatus.Size = new System.Drawing.Size(176, 30);
             this.RBtnStatus.TabIndex = 9;
+            this.RBtnStatus.Visible = false;
             // 
             // labelControl25
             // 
             this.labelControl25.Appearance.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl25.Appearance.Options.UseFont = true;
-            this.labelControl25.Location = new System.Drawing.Point(15, 184);
+            this.labelControl25.Location = new System.Drawing.Point(363, 230);
             this.labelControl25.Name = "labelControl25";
             this.labelControl25.Size = new System.Drawing.Size(42, 17);
             this.labelControl25.TabIndex = 70;
             this.labelControl25.Text = "Status";
+            this.labelControl25.Visible = false;
             // 
             // txtHSNCode
             // 
             this.txtHSNCode.EnterMoveNextControl = true;
-            this.txtHSNCode.Location = new System.Drawing.Point(101, 31);
+            this.txtHSNCode.Location = new System.Drawing.Point(82, 43);
             this.txtHSNCode.Name = "txtHSNCode";
             this.txtHSNCode.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHSNCode.Properties.Appearance.Options.UseFont = true;
             this.txtHSNCode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtHSNCode.Size = new System.Drawing.Size(271, 20);
+            this.txtHSNCode.Size = new System.Drawing.Size(174, 20);
             this.txtHSNCode.TabIndex = 1;
             // 
             // labelControl4
@@ -371,7 +393,7 @@
             this.labelControl4.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl4.Appearance.Options.UseFont = true;
             this.labelControl4.Appearance.Options.UseForeColor = true;
-            this.labelControl4.Location = new System.Drawing.Point(15, 34);
+            this.labelControl4.Location = new System.Drawing.Point(6, 44);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(67, 17);
             this.labelControl4.TabIndex = 69;
@@ -380,27 +402,28 @@
             // txtHSNName
             // 
             this.txtHSNName.EnterMoveNextControl = true;
-            this.txtHSNName.Location = new System.Drawing.Point(101, 59);
+            this.txtHSNName.Location = new System.Drawing.Point(449, 105);
             this.txtHSNName.Name = "txtHSNName";
             this.txtHSNName.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHSNName.Properties.Appearance.Options.UseFont = true;
             this.txtHSNName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtHSNName.Size = new System.Drawing.Size(271, 20);
             this.txtHSNName.TabIndex = 2;
+            this.txtHSNName.Visible = false;
             // 
             // txtHSNID
             // 
             this.txtHSNID.EditValue = "0";
             this.txtHSNID.Enabled = false;
             this.txtHSNID.EnterMoveNextControl = true;
-            this.txtHSNID.Location = new System.Drawing.Point(101, 3);
+            this.txtHSNID.Location = new System.Drawing.Point(82, 15);
             this.txtHSNID.Name = "txtHSNID";
             this.txtHSNID.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHSNID.Properties.Appearance.Options.UseFont = true;
             this.txtHSNID.Properties.Appearance.Options.UseTextOptions = true;
             this.txtHSNID.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.txtHSNID.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtHSNID.Size = new System.Drawing.Size(271, 20);
+            this.txtHSNID.Size = new System.Drawing.Size(174, 20);
             this.txtHSNID.TabIndex = 0;
             // 
             // labelControl2
@@ -409,11 +432,12 @@
             this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Appearance.Options.UseForeColor = true;
-            this.labelControl2.Location = new System.Drawing.Point(14, 60);
+            this.labelControl2.Location = new System.Drawing.Point(362, 106);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(71, 17);
             this.labelControl2.TabIndex = 62;
             this.labelControl2.Text = "HSN Name";
+            this.labelControl2.Visible = false;
             // 
             // lblCompanyCode
             // 
@@ -421,7 +445,7 @@
             this.lblCompanyCode.Appearance.ForeColor = System.Drawing.Color.Black;
             this.lblCompanyCode.Appearance.Options.UseFont = true;
             this.lblCompanyCode.Appearance.Options.UseForeColor = true;
-            this.lblCompanyCode.Location = new System.Drawing.Point(15, 6);
+            this.lblCompanyCode.Location = new System.Drawing.Point(6, 16);
             this.lblCompanyCode.Name = "lblCompanyCode";
             this.lblCompanyCode.Size = new System.Drawing.Size(48, 17);
             this.lblCompanyCode.TabIndex = 63;
@@ -436,7 +460,7 @@
             this.panelControl6.Location = new System.Drawing.Point(2, 344);
             this.panelControl6.Name = "panelControl6";
             this.panelControl6.Size = new System.Drawing.Size(725, 48);
-            this.panelControl6.TabIndex = 9;
+            this.panelControl6.TabIndex = 3;
             // 
             // btnExit
             // 
@@ -446,7 +470,7 @@
             this.btnExit.Location = new System.Drawing.Point(229, 7);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(102, 32);
-            this.btnExit.TabIndex = 13;
+            this.btnExit.TabIndex = 2;
             this.btnExit.Text = "&Exit";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -458,7 +482,7 @@
             this.btnClear.Location = new System.Drawing.Point(121, 7);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(102, 32);
-            this.btnClear.TabIndex = 12;
+            this.btnClear.TabIndex = 1;
             this.btnClear.Text = "&Clear";
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
@@ -470,7 +494,7 @@
             this.btnSave.Location = new System.Drawing.Point(13, 7);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(102, 32);
-            this.btnSave.TabIndex = 11;
+            this.btnSave.TabIndex = 0;
             this.btnSave.Text = "&Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -505,11 +529,11 @@
             this.dgvItemHSNMaster.Appearance.ColumnFilterButton.Options.UseBackColor = true;
             this.dgvItemHSNMaster.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
             this.dgvItemHSNMaster.Appearance.ColumnFilterButton.Options.UseForeColor = true;
-            this.dgvItemHSNMaster.Appearance.FooterPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvItemHSNMaster.Appearance.FooterPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
             this.dgvItemHSNMaster.Appearance.FooterPanel.Options.UseFont = true;
-            this.dgvItemHSNMaster.Appearance.HeaderPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvItemHSNMaster.Appearance.HeaderPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
             this.dgvItemHSNMaster.Appearance.HeaderPanel.Options.UseFont = true;
-            this.dgvItemHSNMaster.Appearance.Row.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvItemHSNMaster.Appearance.Row.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
             this.dgvItemHSNMaster.Appearance.Row.Options.UseFont = true;
             this.dgvItemHSNMaster.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
@@ -522,7 +546,8 @@
             this.gridColumn7,
             this.gridColumn8,
             this.gridColumn10,
-            this.gridColumn12});
+            this.gridColumn12,
+            this.gridColumn11});
             this.dgvItemHSNMaster.GridControl = this.grdItemHSNMaster;
             this.dgvItemHSNMaster.Name = "dgvItemHSNMaster";
             this.dgvItemHSNMaster.OptionsBehavior.Editable = false;
@@ -547,6 +572,7 @@
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 1;
+            this.gridColumn9.Width = 239;
             // 
             // gridColumn2
             // 
@@ -557,7 +583,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 0;
-            this.gridColumn2.Width = 139;
+            this.gridColumn2.Width = 210;
             // 
             // gridColumn3
             // 
@@ -641,8 +667,8 @@
             // 
             // SHERE_PER
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.SHERE_PER.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.SHERE_PER.DefaultCellStyle = dataGridViewCellStyle2;
             this.SHERE_PER.HeaderText = "Shere(%)";
             this.SHERE_PER.Name = "SHERE_PER";
             this.SHERE_PER.Width = 88;
@@ -689,6 +715,36 @@
             this.dockPanel1_Container.Size = new System.Drawing.Size(250, 408);
             this.dockPanel1_Container.TabIndex = 0;
             // 
+            // txtGSTRate
+            // 
+            this.txtGSTRate.EnterMoveNextControl = true;
+            this.txtGSTRate.Location = new System.Drawing.Point(82, 69);
+            this.txtGSTRate.Name = "txtGSTRate";
+            this.txtGSTRate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGSTRate.Properties.Appearance.Options.UseFont = true;
+            this.txtGSTRate.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtGSTRate.Size = new System.Drawing.Size(174, 20);
+            this.txtGSTRate.TabIndex = 2;
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl9.Appearance.Options.UseFont = true;
+            this.labelControl9.Location = new System.Drawing.Point(6, 71);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(64, 16);
+            this.labelControl9.TabIndex = 16;
+            this.labelControl9.Text = "GST Rate";
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "GST Rate";
+            this.gridColumn11.FieldName = "gst_rate";
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.VisibleIndex = 2;
+            this.gridColumn11.Width = 243;
+            // 
             // FrmItemHSNMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -733,6 +789,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtGSTRate.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -789,5 +846,8 @@
         private DevExpress.XtraEditors.TextEdit txtHSNID;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl lblCompanyCode;
+        private DevExpress.XtraEditors.TextEdit txtGSTRate;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
     }
 }

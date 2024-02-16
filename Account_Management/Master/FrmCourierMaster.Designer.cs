@@ -30,6 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
+            this.txtRate = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.txtWeight = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.txtTrackingLink = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtMobileNo2 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtMobileNo1 = new DevExpress.XtraEditors.TextEdit();
@@ -85,21 +91,21 @@
             this.clmCourierName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmMobileNo1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmMobileNo2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmTrackingLink = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmWeight = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmRate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.txtTrackingLink = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.txtWeight = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.txtRate = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.clmTrackingLink = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clmWeight = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clmRate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.RBtnStatus = new DevExpress.XtraEditors.RadioGroup();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.clmActive = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTrackingLink.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMobileNo2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMobileNo1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCourierName.Properties)).BeginInit();
@@ -115,13 +121,13 @@
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTrackingLink.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RBtnStatus.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl5
             // 
+            this.panelControl5.Controls.Add(this.RBtnStatus);
+            this.panelControl5.Controls.Add(this.labelControl7);
             this.panelControl5.Controls.Add(this.txtRate);
             this.panelControl5.Controls.Add(this.labelControl6);
             this.panelControl5.Controls.Add(this.txtWeight);
@@ -141,6 +147,75 @@
             this.panelControl5.Name = "panelControl5";
             this.panelControl5.Size = new System.Drawing.Size(623, 411);
             this.panelControl5.TabIndex = 13;
+            // 
+            // txtRate
+            // 
+            this.txtRate.EnterMoveNextControl = true;
+            this.txtRate.Location = new System.Drawing.Point(126, 136);
+            this.txtRate.Name = "txtRate";
+            this.txtRate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRate.Properties.Appearance.Options.UseFont = true;
+            this.txtRate.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtRate.Size = new System.Drawing.Size(187, 20);
+            this.txtRate.TabIndex = 5;
+            this.txtRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRate_KeyPress);
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl6.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl6.Appearance.Options.UseFont = true;
+            this.labelControl6.Appearance.Options.UseForeColor = true;
+            this.labelControl6.Location = new System.Drawing.Point(6, 138);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(33, 16);
+            this.labelControl6.TabIndex = 428;
+            this.labelControl6.Text = "Rate";
+            // 
+            // txtWeight
+            // 
+            this.txtWeight.EnterMoveNextControl = true;
+            this.txtWeight.Location = new System.Drawing.Point(126, 110);
+            this.txtWeight.Name = "txtWeight";
+            this.txtWeight.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWeight.Properties.Appearance.Options.UseFont = true;
+            this.txtWeight.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtWeight.Size = new System.Drawing.Size(187, 20);
+            this.txtWeight.TabIndex = 4;
+            this.txtWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWeight_KeyPress);
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl5.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl5.Appearance.Options.UseFont = true;
+            this.labelControl5.Appearance.Options.UseForeColor = true;
+            this.labelControl5.Location = new System.Drawing.Point(6, 112);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(51, 16);
+            this.labelControl5.TabIndex = 426;
+            this.labelControl5.Text = "Weight";
+            // 
+            // txtTrackingLink
+            // 
+            this.txtTrackingLink.EnterMoveNextControl = true;
+            this.txtTrackingLink.Location = new System.Drawing.Point(126, 84);
+            this.txtTrackingLink.Name = "txtTrackingLink";
+            this.txtTrackingLink.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTrackingLink.Properties.Appearance.Options.UseFont = true;
+            this.txtTrackingLink.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtTrackingLink.Size = new System.Drawing.Size(187, 20);
+            this.txtTrackingLink.TabIndex = 3;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Location = new System.Drawing.Point(6, 86);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(94, 16);
+            this.labelControl4.TabIndex = 424;
+            this.labelControl4.Text = "Tracking Link";
             // 
             // txtMobileNo2
             // 
@@ -603,7 +678,8 @@
             this.clmMobileNo2,
             this.clmTrackingLink,
             this.clmWeight,
-            this.clmRate});
+            this.clmRate,
+            this.clmActive});
             this.dgvCourierMaster.GridControl = this.grdCourierMaster;
             this.dgvCourierMaster.Name = "dgvCourierMaster";
             this.dgvCourierMaster.OptionsBehavior.Editable = false;
@@ -652,6 +728,30 @@
             this.clmMobileNo2.VisibleIndex = 2;
             this.clmMobileNo2.Width = 417;
             // 
+            // clmTrackingLink
+            // 
+            this.clmTrackingLink.Caption = "Tracking Link";
+            this.clmTrackingLink.FieldName = "tracking_link";
+            this.clmTrackingLink.Name = "clmTrackingLink";
+            this.clmTrackingLink.Visible = true;
+            this.clmTrackingLink.VisibleIndex = 3;
+            // 
+            // clmWeight
+            // 
+            this.clmWeight.Caption = "Weight";
+            this.clmWeight.FieldName = "weight";
+            this.clmWeight.Name = "clmWeight";
+            this.clmWeight.Visible = true;
+            this.clmWeight.VisibleIndex = 4;
+            // 
+            // clmRate
+            // 
+            this.clmRate.Caption = "Rate";
+            this.clmRate.FieldName = "rate";
+            this.clmRate.Name = "clmRate";
+            this.clmRate.Visible = true;
+            this.clmRate.VisibleIndex = 5;
+            // 
             // dockManager1
             // 
             this.dockManager1.Form = this;
@@ -694,98 +794,40 @@
             this.panelControl1.Size = new System.Drawing.Size(623, 22);
             this.panelControl1.TabIndex = 13;
             // 
-            // txtTrackingLink
+            // RBtnStatus
             // 
-            this.txtTrackingLink.EnterMoveNextControl = true;
-            this.txtTrackingLink.Location = new System.Drawing.Point(126, 84);
-            this.txtTrackingLink.Name = "txtTrackingLink";
-            this.txtTrackingLink.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTrackingLink.Properties.Appearance.Options.UseFont = true;
-            this.txtTrackingLink.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtTrackingLink.Size = new System.Drawing.Size(187, 20);
-            this.txtTrackingLink.TabIndex = 3;
+            this.RBtnStatus.EditValue = 1;
+            this.RBtnStatus.EnterMoveNextControl = true;
+            this.RBtnStatus.Location = new System.Drawing.Point(126, 162);
+            this.RBtnStatus.Name = "RBtnStatus";
+            this.RBtnStatus.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.RBtnStatus.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.RBtnStatus.Properties.Appearance.Options.UseBackColor = true;
+            this.RBtnStatus.Properties.Appearance.Options.UseFont = true;
+            this.RBtnStatus.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.RBtnStatus.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Active"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(0, "Deactive")});
+            this.RBtnStatus.Size = new System.Drawing.Size(176, 30);
+            this.RBtnStatus.TabIndex = 429;
             // 
-            // labelControl4
+            // labelControl7
             // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(6, 86);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(94, 16);
-            this.labelControl4.TabIndex = 424;
-            this.labelControl4.Text = "Tracking Link";
+            this.labelControl7.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl7.Appearance.Options.UseFont = true;
+            this.labelControl7.Location = new System.Drawing.Point(6, 168);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(47, 16);
+            this.labelControl7.TabIndex = 430;
+            this.labelControl7.Text = "Status";
             // 
-            // txtWeight
+            // clmActive
             // 
-            this.txtWeight.EnterMoveNextControl = true;
-            this.txtWeight.Location = new System.Drawing.Point(126, 110);
-            this.txtWeight.Name = "txtWeight";
-            this.txtWeight.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWeight.Properties.Appearance.Options.UseFont = true;
-            this.txtWeight.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtWeight.Size = new System.Drawing.Size(187, 20);
-            this.txtWeight.TabIndex = 4;
-            this.txtWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWeight_KeyPress);
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Appearance.Options.UseForeColor = true;
-            this.labelControl5.Location = new System.Drawing.Point(6, 112);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(51, 16);
-            this.labelControl5.TabIndex = 426;
-            this.labelControl5.Text = "Weight";
-            // 
-            // txtRate
-            // 
-            this.txtRate.EnterMoveNextControl = true;
-            this.txtRate.Location = new System.Drawing.Point(126, 136);
-            this.txtRate.Name = "txtRate";
-            this.txtRate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRate.Properties.Appearance.Options.UseFont = true;
-            this.txtRate.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtRate.Size = new System.Drawing.Size(187, 20);
-            this.txtRate.TabIndex = 5;
-            this.txtRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRate_KeyPress);
-            // 
-            // labelControl6
-            // 
-            this.labelControl6.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Appearance.Options.UseForeColor = true;
-            this.labelControl6.Location = new System.Drawing.Point(6, 138);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(33, 16);
-            this.labelControl6.TabIndex = 428;
-            this.labelControl6.Text = "Rate";
-            // 
-            // clmTrackingLink
-            // 
-            this.clmTrackingLink.Caption = "Tracking Link";
-            this.clmTrackingLink.FieldName = "tracking_link";
-            this.clmTrackingLink.Name = "clmTrackingLink";
-            this.clmTrackingLink.Visible = true;
-            this.clmTrackingLink.VisibleIndex = 3;
-            // 
-            // clmWeight
-            // 
-            this.clmWeight.Caption = "Weight";
-            this.clmWeight.FieldName = "weight";
-            this.clmWeight.Name = "clmWeight";
-            this.clmWeight.Visible = true;
-            this.clmWeight.VisibleIndex = 4;
-            // 
-            // clmRate
-            // 
-            this.clmRate.Caption = "Rate";
-            this.clmRate.FieldName = "rate";
-            this.clmRate.Name = "clmRate";
-            this.clmRate.Visible = true;
-            this.clmRate.VisibleIndex = 5;
+            this.clmActive.Caption = "Active";
+            this.clmActive.FieldName = "active";
+            this.clmActive.Name = "clmActive";
+            this.clmActive.Visible = true;
+            this.clmActive.VisibleIndex = 6;
             // 
             // FrmCourierMaster
             // 
@@ -806,6 +848,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
             this.panelControl5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTrackingLink.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMobileNo2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMobileNo1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCourierName.Properties)).EndInit();
@@ -822,9 +867,7 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTrackingLink.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RBtnStatus.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -900,5 +943,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn clmTrackingLink;
         private DevExpress.XtraGrid.Columns.GridColumn clmWeight;
         private DevExpress.XtraGrid.Columns.GridColumn clmRate;
+        private DevExpress.XtraEditors.RadioGroup RBtnStatus;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraGrid.Columns.GridColumn clmActive;
     }
 }

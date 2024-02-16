@@ -36,5 +36,6 @@ namespace BLL.PropertyClasses.Master
         public string dob { get; set; }
         public int age { get; set; }
         public Int64 salary { get; set; }
+        public string pancard_no { get; set; }
     }
 }

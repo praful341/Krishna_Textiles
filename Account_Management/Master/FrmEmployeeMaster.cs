@@ -125,6 +125,7 @@ namespace Account_Management.Master
                 txtRefMob.Text = "";
                 txtMobile.Text = "";
                 txtAadharNo.Text = "";
+                txtPancardNo.Text = "";
                 txtSalary.Text = "";
                 dtpJoiningDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
                 dtpJoiningDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
@@ -229,6 +230,7 @@ namespace Account_Management.Master
                         txtMobile.Text = Val.ToString(Drow["employee_mobile"]);
                         chkActive.Checked = Val.ToBoolean(Drow["active"]);
                         txtAadharNo.Text = Val.ToString(Drow["aadhar_no"]);
+                        txtPancardNo.Text = Val.ToString(Drow["pancard_no"]);
                         dtpLeaveDate.EditValue = Val.DBDate(Drow["leave_date"].ToString());
                         dtpDOB.EditValue = Val.DBDate(Drow["dob"].ToString());
                         txtAge.EditValue = Val.ToInt(Drow["age"]);
@@ -309,6 +311,7 @@ namespace Account_Management.Master
                 EmpMasterProperty.dob = Val.DBDate(dtpDOB.Text);
                 EmpMasterProperty.age = Val.ToInt(txtAge.Text);
                 EmpMasterProperty.salary = Val.ToInt64(txtSalary.Text);
+                EmpMasterProperty.pancard_no = Val.ToString(txtPancardNo.Text);
 
                 int IntRes = objEmp.Save(EmpMasterProperty);
                 if (IntRes == -1)

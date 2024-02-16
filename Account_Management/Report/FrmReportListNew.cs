@@ -93,8 +93,8 @@ namespace Account_Management.Report
         {
             if (dgvSearch.FocusedRowHandle != -1)
             {
-                string StrForm = Convert.ToString(dgvSearch.GetRowCellValue(dgvSearch.FocusedRowHandle, "form_name"));
-                string StrReportCode = Convert.ToString(dgvSearch.GetRowCellValue(dgvSearch.FocusedRowHandle, "report_code"));
+                string StrForm = Val.ToString(dgvSearch.GetRowCellValue(dgvSearch.FocusedRowHandle, "form_name"));
+                string StrReportCode = Val.ToString(dgvSearch.GetRowCellValue(dgvSearch.FocusedRowHandle, "report_code"));
 
                 if (StrForm == "" && StrReportCode == "")
                     return;

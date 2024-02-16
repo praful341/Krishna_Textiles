@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
+            this.lueType = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtLedgerGroupName = new DevExpress.XtraEditors.TextEdit();
             this.txtLedgerGroupCode = new DevExpress.XtraEditors.TextEdit();
             this.RBtnStatus = new DevExpress.XtraEditors.RadioGroup();
@@ -62,8 +64,10 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLedgerGroupName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLedgerGroupCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RBtnStatus.Properties)).BeginInit();
@@ -84,6 +88,8 @@
             // 
             // panelControl5
             // 
+            this.panelControl5.Controls.Add(this.lueType);
+            this.panelControl5.Controls.Add(this.labelControl1);
             this.panelControl5.Controls.Add(this.txtLedgerGroupName);
             this.panelControl5.Controls.Add(this.txtLedgerGroupCode);
             this.panelControl5.Controls.Add(this.RBtnStatus);
@@ -99,37 +105,68 @@
             this.panelControl5.Size = new System.Drawing.Size(615, 407);
             this.panelControl5.TabIndex = 13;
             // 
+            // lueType
+            // 
+            this.lueType.EnterMoveNextControl = true;
+            this.lueType.Location = new System.Drawing.Point(129, 40);
+            this.lueType.Name = "lueType";
+            this.lueType.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lueType.Properties.Appearance.Options.UseFont = true;
+            this.lueType.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.lueType.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lueType.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
+            this.lueType.Properties.AppearanceDropDownHeader.Options.UseFont = true;
+            this.lueType.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            this.lueType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueType.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("type", "Type")});
+            this.lueType.Properties.NullText = "";
+            this.lueType.Properties.ShowHeader = false;
+            this.lueType.Size = new System.Drawing.Size(187, 20);
+            this.lueType.TabIndex = 1;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(17, 45);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(35, 16);
+            this.labelControl1.TabIndex = 12;
+            this.labelControl1.Text = "Type";
+            // 
             // txtLedgerGroupName
             // 
             this.txtLedgerGroupName.EnterMoveNextControl = true;
-            this.txtLedgerGroupName.Location = new System.Drawing.Point(167, 42);
+            this.txtLedgerGroupName.Location = new System.Drawing.Point(129, 69);
             this.txtLedgerGroupName.Name = "txtLedgerGroupName";
             this.txtLedgerGroupName.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLedgerGroupName.Properties.Appearance.Options.UseFont = true;
             this.txtLedgerGroupName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtLedgerGroupName.Size = new System.Drawing.Size(250, 20);
-            this.txtLedgerGroupName.TabIndex = 1;
+            this.txtLedgerGroupName.Size = new System.Drawing.Size(187, 20);
+            this.txtLedgerGroupName.TabIndex = 2;
             // 
             // txtLedgerGroupCode
             // 
             this.txtLedgerGroupCode.EditValue = "0";
             this.txtLedgerGroupCode.Enabled = false;
             this.txtLedgerGroupCode.EnterMoveNextControl = true;
-            this.txtLedgerGroupCode.Location = new System.Drawing.Point(167, 14);
+            this.txtLedgerGroupCode.Location = new System.Drawing.Point(129, 14);
             this.txtLedgerGroupCode.Name = "txtLedgerGroupCode";
             this.txtLedgerGroupCode.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLedgerGroupCode.Properties.Appearance.Options.UseFont = true;
             this.txtLedgerGroupCode.Properties.Appearance.Options.UseTextOptions = true;
             this.txtLedgerGroupCode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.txtLedgerGroupCode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtLedgerGroupCode.Size = new System.Drawing.Size(250, 20);
+            this.txtLedgerGroupCode.Size = new System.Drawing.Size(187, 20);
             this.txtLedgerGroupCode.TabIndex = 0;
             // 
             // RBtnStatus
             // 
             this.RBtnStatus.EditValue = 1;
             this.RBtnStatus.EnterMoveNextControl = true;
-            this.RBtnStatus.Location = new System.Drawing.Point(167, 71);
+            this.RBtnStatus.Location = new System.Drawing.Point(129, 98);
             this.RBtnStatus.Name = "RBtnStatus";
             this.RBtnStatus.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.RBtnStatus.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
@@ -139,26 +176,26 @@
             this.RBtnStatus.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Active"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(0, "Deactive")});
-            this.RBtnStatus.Size = new System.Drawing.Size(176, 30);
-            this.RBtnStatus.TabIndex = 2;
+            this.RBtnStatus.Size = new System.Drawing.Size(187, 30);
+            this.RBtnStatus.TabIndex = 3;
             // 
             // txtRemark
             // 
             this.txtRemark.EditValue = "";
             this.txtRemark.EnterMoveNextControl = true;
-            this.txtRemark.Location = new System.Drawing.Point(167, 107);
+            this.txtRemark.Location = new System.Drawing.Point(129, 134);
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRemark.Properties.Appearance.Options.UseFont = true;
             this.txtRemark.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtRemark.Size = new System.Drawing.Size(250, 49);
-            this.txtRemark.TabIndex = 3;
+            this.txtRemark.Size = new System.Drawing.Size(187, 49);
+            this.txtRemark.TabIndex = 4;
             // 
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(17, 109);
+            this.labelControl4.Location = new System.Drawing.Point(17, 136);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(55, 16);
             this.labelControl4.TabIndex = 11;
@@ -168,7 +205,7 @@
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(17, 79);
+            this.labelControl3.Location = new System.Drawing.Point(17, 104);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(47, 16);
             this.labelControl3.TabIndex = 10;
@@ -183,7 +220,7 @@
             this.panelControl6.Location = new System.Drawing.Point(2, 357);
             this.panelControl6.Name = "panelControl6";
             this.panelControl6.Size = new System.Drawing.Size(611, 48);
-            this.panelControl6.TabIndex = 4;
+            this.panelControl6.TabIndex = 5;
             // 
             // btnExit
             // 
@@ -225,11 +262,11 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(17, 45);
+            this.labelControl2.Location = new System.Drawing.Point(17, 72);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(143, 16);
+            this.labelControl2.Size = new System.Drawing.Size(89, 16);
             this.labelControl2.TabIndex = 4;
-            this.labelControl2.Text = "Ledger Group Name";
+            this.labelControl2.Text = "Group Name";
             // 
             // lblLedgerGroupCode
             // 
@@ -237,9 +274,9 @@
             this.lblLedgerGroupCode.Appearance.Options.UseFont = true;
             this.lblLedgerGroupCode.Location = new System.Drawing.Point(17, 17);
             this.lblLedgerGroupCode.Name = "lblLedgerGroupCode";
-            this.lblLedgerGroupCode.Size = new System.Drawing.Size(138, 16);
+            this.lblLedgerGroupCode.Size = new System.Drawing.Size(84, 16);
             this.lblLedgerGroupCode.TabIndex = 4;
-            this.lblLedgerGroupCode.Text = "Ledger Group Code";
+            this.lblLedgerGroupCode.Text = "Group Code";
             // 
             // panelControl4
             // 
@@ -276,13 +313,14 @@
             this.dgvLedgerGroupMaster.Appearance.FooterPanel.Options.UseFont = true;
             this.dgvLedgerGroupMaster.Appearance.HeaderPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
             this.dgvLedgerGroupMaster.Appearance.HeaderPanel.Options.UseFont = true;
-            this.dgvLedgerGroupMaster.Appearance.Row.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvLedgerGroupMaster.Appearance.Row.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
             this.dgvLedgerGroupMaster.Appearance.Row.Options.UseFont = true;
             this.dgvLedgerGroupMaster.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
             this.gridColumn3,
-            this.gridColumn4});
+            this.gridColumn4,
+            this.gridColumn5});
             this.dgvLedgerGroupMaster.GridControl = this.grdLedgerGroupMaster;
             this.dgvLedgerGroupMaster.Name = "dgvLedgerGroupMaster";
             this.dgvLedgerGroupMaster.OptionsBehavior.Editable = false;
@@ -306,7 +344,8 @@
             this.gridColumn2.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 0;
+            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 262;
             // 
             // gridColumn3
             // 
@@ -321,6 +360,7 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 2;
+            this.gridColumn4.Width = 266;
             // 
             // grdLedgerGroupMaster
             // 
@@ -429,6 +469,15 @@
             this.dockPanel1_Container.Size = new System.Drawing.Size(293, 413);
             this.dockPanel1_Container.TabIndex = 0;
             // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Type";
+            this.gridColumn5.FieldName = "type";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 0;
+            this.gridColumn5.Width = 164;
+            // 
             // FrmLedgerGroupMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -447,6 +496,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
             this.panelControl5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLedgerGroupName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLedgerGroupCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RBtnStatus.Properties)).EndInit();
@@ -502,5 +552,8 @@
         private System.Windows.Forms.ToolStripMenuItem MNExportHTML;
         private System.Windows.Forms.ToolStripMenuItem MNExportRTF;
         private System.Windows.Forms.ToolStripMenuItem MNExportCSV;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LookUpEdit lueType;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
     }
 }

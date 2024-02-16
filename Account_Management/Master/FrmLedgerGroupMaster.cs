@@ -13,10 +13,12 @@ namespace Account_Management.Master
         BLL.FormEvents objBOFormEvents = new BLL.FormEvents();
         BLL.Validation Val = new BLL.Validation();
         LedgerGroupMaster ObjLedgerGroup = new LedgerGroupMaster();
+        DataTable m_dtbType;
 
         public FrmLedgerGroupMaster()
         {
             InitializeComponent();
+            m_dtbType = new DataTable();
         }
         public void ShowForm()
         {
@@ -46,7 +48,8 @@ namespace Account_Management.Master
             txtLedgerGroupName.Text = "";
             txtRemark.Text = "";
             RBtnStatus.SelectedIndex = 0;
-            txtLedgerGroupName.Focus();
+            lueType.EditValue = null;
+            lueType.Focus();
         }
 
         #region Validation
@@ -59,7 +62,7 @@ namespace Account_Management.Master
                 txtLedgerGroupName.Focus();
                 return false;
             }
-            if (!ObjLedgerGroup.ISExists(txtLedgerGroupName.Text, Val.ToInt64(txtLedgerGroupCode.EditValue)).ToString().Trim().Equals(string.Empty))
+            if (!ObjLedgerGroup.ISExists(Val.ToString(lueType.Text), txtLedgerGroupName.Text, Val.ToInt64(txtLedgerGroupCode.EditValue)).ToString().Trim().Equals(string.Empty))
             {
                 Global.Confirm("Ledger Group Name Already Exist.");
                 txtLedgerGroupName.Focus();
@@ -84,6 +87,7 @@ namespace Account_Management.Master
             LedgerGroupMasterProperty.ledger_group_name = txtLedgerGroupName.Text;
             LedgerGroupMasterProperty.remark = txtRemark.Text;
             LedgerGroupMasterProperty.active = Val.ToInt(RBtnStatus.Text);
+            LedgerGroupMasterProperty.type = Val.ToString(lueType.Text);
 
             int IntRes = ObjLedgerGroup.Save(LedgerGroupMasterProperty);
             if (IntRes == -1)
@@ -116,15 +120,34 @@ namespace Account_Management.Master
 
         private void FrmCountryMaster_Load(object sender, EventArgs e)
         {
+            m_dtbType.Columns.Add("type");
+            m_dtbType.Rows.Add("Assets");
+            m_dtbType.Rows.Add("Liabilities");
+            m_dtbType.Rows.Add("Income");
+            m_dtbType.Rows.Add("Expense");
+
+            lueType.Properties.DataSource = m_dtbType;
+            lueType.Properties.ValueMember = "type";
+            lueType.Properties.DisplayMember = "type";
+
             GetData();
             btnClear_Click(btnClear, null);
         }
-
-        private void dgvItemGroupMaster_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        private void dgvLedgerGroupMaster_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-
+            if (e.RowHandle >= 0)
+            {
+                if (e.Clicks == 2)
+                {
+                    DataRow Drow = dgvLedgerGroupMaster.GetDataRow(e.RowHandle);
+                    txtLedgerGroupCode.Text = Val.ToString(Drow["ledger_group_id"]);
+                    txtLedgerGroupName.Text = Val.ToString(Drow["ledger_group_name"]);
+                    RBtnStatus.EditValue = Val.ToInt32(Drow["active"]);
+                    txtRemark.Text = Val.ToString(Drow["remark"]);
+                    lueType.Text = Val.ToString(Drow["type"]);
+                }
+            }
         }
-
         private void Export(string format, string dlgHeader, string dlgFilter)
         {
             try
@@ -212,21 +235,6 @@ namespace Account_Management.Master
         private void MNExportHTML_Click(object sender, EventArgs e)
         {
             Export("html", "Export to HTML", "Html files (*.html)|*.html|Htm files (*.htm)|*.htm");
-        }
-
-        private void dgvLedgerGroupMaster_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
-        {
-            if (e.RowHandle >= 0)
-            {
-                if (e.Clicks == 2)
-                {
-                    DataRow Drow = dgvLedgerGroupMaster.GetDataRow(e.RowHandle);
-                    txtLedgerGroupCode.Text = Convert.ToString(Drow["ledger_group_id"]);
-                    txtLedgerGroupName.Text = Convert.ToString(Drow["ledger_group_name"]);
-                    RBtnStatus.EditValue = Convert.ToInt32(Drow["active"]);
-                    txtRemark.Text = Convert.ToString(Drow["remark"]);
-                }
-            }
         }
     }
 }

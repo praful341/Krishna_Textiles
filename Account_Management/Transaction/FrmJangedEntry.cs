@@ -52,13 +52,13 @@ namespace Account_Management.Transaction
         DataTable m_dtbStockCarat = new DataTable();
         DataTable m_dtbAssorts = new DataTable();
         DataTable m_dtbSieve = new DataTable();
-        DataTable m_dtbSaleDetails = new DataTable();
+        DataTable m_dtbJangedDetails = new DataTable();
         DataTable m_dtbCurrencyType = new DataTable();
         DataTable m_dtbDetails = new DataTable();
         DataTable m_dtbSeller = new DataTable();
 
 
-        int m_invoice_detail_id;
+        int m_janged_detail_id;
         int m_srno;
         int m_update_srno;
         int m_numCurrency_id;
@@ -113,11 +113,11 @@ namespace Account_Management.Transaction
             m_dtbStockCarat = new DataTable();
             m_dtbAssorts = new DataTable();
             m_dtbSieve = new DataTable();
-            m_dtbSaleDetails = new DataTable();
+            m_dtbJangedDetails = new DataTable();
             m_dtbCurrencyType = new DataTable();
             m_dtbDetails = new DataTable();
 
-            m_invoice_detail_id = 0;
+            m_janged_detail_id = 0;
             m_srno = 0;
             m_update_srno = 0;
             m_numCurrency_id = 0;
@@ -329,7 +329,7 @@ namespace Account_Management.Transaction
                 else
                 {
                     ClearDetails();
-                    ttlbSaleInvoice.SelectedTabPage = tblSaledetail;
+                    ttlbSaleInvoice.SelectedTabPage = tblJangeddetail;
                 }
             }
             catch (Exception ex)
@@ -489,7 +489,7 @@ namespace Account_Management.Transaction
                 {
                     decimal Dis_amt = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtDiscountPer.Text) / 100, 0);
                     txtDiscountAmt.Text = Dis_amt.ToString();
-                    decimal Net_Amount = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text) - Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtInterestAmt.Text) + Val.ToDecimal(txtShippingCharge.Text), 0);
+                    decimal Net_Amount = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text) - Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
                     txtNetAmount.Text = Net_Amount.ToString();
 
                     txtBrokeragePer_EditValueChanged(null, null);
@@ -505,11 +505,11 @@ namespace Account_Management.Transaction
         {
             try
             {
-                if (!m_blncheckevents)
-                {
-                    decimal Brokerage_amt = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) - Val.ToDecimal(txtDiscountAmt.Text)) * Val.ToDecimal(txtBrokeragePer.Text) / 100, 0);
-                    txtBrokerageAmt.Text = Brokerage_amt.ToString();
-                }
+                //if (!m_blncheckevents)
+                //{
+                //    decimal Brokerage_amt = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) - Val.ToDecimal(txtDiscountAmt.Text)) * Val.ToDecimal(txtBrokeragePer.Text) / 100, 0);
+                //    txtBrokerageAmt.Text = Brokerage_amt.ToString();
+                //}
             }
             catch (Exception ex)
             {
@@ -521,13 +521,13 @@ namespace Account_Management.Transaction
         {
             try
             {
-                if (!m_blncheckevents)
-                {
-                    decimal Interest_amt = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) - Val.ToDecimal(txtDiscountAmt.Text)) * Val.ToDecimal(txtInterestPer.Text) / 100, 0);
-                    txtInterestAmt.Text = Interest_amt.ToString();
-                    decimal Net_Amount = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text) - Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtInterestAmt.Text) + Val.ToDecimal(txtShippingCharge.Text), 0);
-                    txtNetAmount.Text = Net_Amount.ToString();
-                }
+                //if (!m_blncheckevents)
+                //{
+                //    decimal Interest_amt = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) - Val.ToDecimal(txtDiscountAmt.Text)) * Val.ToDecimal(txtInterestPer.Text) / 100, 0);
+                //    txtInterestAmt.Text = Interest_amt.ToString();
+                //    decimal Net_Amount = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text) - Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtInterestAmt.Text) + Val.ToDecimal(txtShippingCharge.Text), 0);
+                //    txtNetAmount.Text = Net_Amount.ToString();
+                //}
 
             }
             catch (Exception ex)
@@ -542,7 +542,7 @@ namespace Account_Management.Transaction
             {
                 if (Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) != 0)
                 {
-                    decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtInterestAmt.Text) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text)) - (Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
+                    decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text)) - (Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
                     txtNetAmount.Text = Shipping_Charge.ToString();
                 }
             }
@@ -562,7 +562,7 @@ namespace Account_Management.Transaction
                 decimal CGST_amt = Math.Round(Val.ToDecimal(GrossAmt - DiscountAmt) * Val.ToDecimal(txtCGSTPer.Text) / 100, 0);
                 txtCGSTAmt.Text = CGST_amt.ToString();
 
-                decimal Net_Amount = Math.Round((Val.ToDecimal(GrossAmt) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text) - Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtInterestAmt.Text) + Val.ToDecimal(txtShippingCharge.Text), 0);
+                decimal Net_Amount = Math.Round((Val.ToDecimal(GrossAmt) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text) - Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
                 txtNetAmount.Text = Net_Amount.ToString();
             }
             catch (Exception ex)
@@ -580,7 +580,7 @@ namespace Account_Management.Transaction
 
                 decimal SGST_amt = Math.Round(Val.ToDecimal(GrossAmt - DiscountAmt) * Val.ToDecimal(txtSGSTPer.Text) / 100, 0);
                 txtSGSTAmt.Text = SGST_amt.ToString();
-                decimal Net_Amount = Math.Round((Val.ToDecimal(GrossAmt) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text) - Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtInterestAmt.Text) + Val.ToDecimal(txtShippingCharge.Text), 0);
+                decimal Net_Amount = Math.Round((Val.ToDecimal(GrossAmt) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text) - Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
                 txtNetAmount.Text = Net_Amount.ToString();
             }
             catch (Exception ex)
@@ -598,7 +598,7 @@ namespace Account_Management.Transaction
 
                 decimal IGST_amt = Math.Round(Val.ToDecimal(GrossAmt - DiscountAmt) * Val.ToDecimal(txtIGSTPer.Text) / 100, 0);
                 txtIGSTAmt.Text = IGST_amt.ToString();
-                decimal Net_Amount = Math.Round((Val.ToDecimal(GrossAmt) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text) - Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtInterestAmt.Text) + Val.ToDecimal(txtShippingCharge.Text), 0);
+                decimal Net_Amount = Math.Round((Val.ToDecimal(GrossAmt) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text) - Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
                 txtNetAmount.Text = Net_Amount.ToString();
             }
             catch (Exception ex)
@@ -607,11 +607,6 @@ namespace Account_Management.Transaction
                 return;
             }
         }
-        private void lblFormatSample_Click(object sender, EventArgs e)
-        {
-            Global.CopyFormat(System.Windows.Forms.Application.StartupPath + @"\FORMAT\Sale_Invoice.xlsx", "Sale_Invoice.xlsx", "xlsx");
-        }
-
         private void txtCGSTPer_KeyUp(object sender, KeyEventArgs e)
         {
             txtCGSTPer.Select();
@@ -665,11 +660,11 @@ namespace Account_Management.Transaction
                     int IntCounter = 0;
                     int Count = 0;
                     int FlagCount = 1;
-                    int TotalCount = m_dtbSaleDetails.Rows.Count;
+                    int TotalCount = m_dtbJangedDetails.Rows.Count;
                     Int32 Flag = 0;
-                    foreach (DataRow drw in m_dtbSaleDetails.Rows)
+                    foreach (DataRow drw in m_dtbJangedDetails.Rows)
                     {
-                        objJangedEntryProperty.invoice_detail_id = Val.ToInt(drw["invoice_detail_id"]);
+                        objJangedEntryProperty.invoice_detail_id = Val.ToInt(drw["janged_detail_id"]);
                         objJangedEntryProperty.assort_id = Val.ToInt(drw["assort_id"]);
                         objJangedEntryProperty.sieve_id = Val.ToInt(drw["sieve_id"]);
                         objJangedEntryProperty.pcs = Val.ToInt(drw["pcs"]);
@@ -804,7 +799,7 @@ namespace Account_Management.Transaction
 
 
                     objJangedEntryProperty.total_pcs = Math.Round(Val.ToDecimal(clmPcs.SummaryItem.SummaryValue), 3);
-                    objJangedEntryProperty.total_carat = Math.Round(Val.ToDecimal(clmDetCarat.SummaryItem.SummaryValue), 3);
+                    // objJangedEntryProperty.total_carat = Math.Round(Val.ToDecimal(clmDetCarat.SummaryItem.SummaryValue), 3);
 
                     objJangedEntryProperty.Gross_Amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue), 3);
 
@@ -815,12 +810,8 @@ namespace Account_Management.Transaction
                     objJangedEntryProperty.igst_rate = Val.ToDecimal(txtIGSTPer.Text);
                     objJangedEntryProperty.igst_amount = Val.ToDecimal(txtIGSTAmt.Text);
 
-                    objJangedEntryProperty.Brokerage_Per = Val.ToDecimal(txtBrokeragePer.Text);
-                    objJangedEntryProperty.Brokerage_Amt = Val.ToDecimal(txtBrokerageAmt.Text);
                     objJangedEntryProperty.Discount_Per = Val.ToDecimal(txtDiscountPer.Text);
                     objJangedEntryProperty.Discount_Amt = Val.ToDecimal(txtDiscountAmt.Text);
-                    objJangedEntryProperty.Interest_Per = Val.ToDecimal(txtInterestPer.Text);
-                    objJangedEntryProperty.Interest_Amt = Val.ToDecimal(txtInterestAmt.Text);
                     objJangedEntryProperty.Shipping_Charge = Val.ToDecimal(txtShippingCharge.Text);
 
                     objJangedEntryProperty.net_amount = Val.ToDecimal(txtNetAmount.Text);
@@ -829,16 +820,16 @@ namespace Account_Management.Transaction
                     //objJangedEntryProperty.exchange_rate = Val.ToDecimal(txtExchangeRate.Text);
                     //objJangedEntryProperty.Seller_ID = Val.ToInt(lueSeller.EditValue);
 
-                    //int IntRes = objSaleInvoice.Save(objSaleInvoiceProperty, m_dtbSaleDetails);
+                    //int IntRes = objSaleInvoice.Save(objSaleInvoiceProperty, m_dtbJangedDetails);
                     objJangedEntryProperty = objJangedEntry.Save(objJangedEntryProperty, DLL.GlobalDec.EnumTran.Start, Conn);
 
                     Int64 NewmInvoiceid = Val.ToInt64(objJangedEntryProperty.invoice_id);
 
                     int IntCounter = 0;
                     int Count = 0;
-                    int TotalCount = m_dtbSaleDetails.Rows.Count;
+                    int TotalCount = m_dtbJangedDetails.Rows.Count;
 
-                    foreach (DataRow drw in m_dtbSaleDetails.Rows)
+                    foreach (DataRow drw in m_dtbJangedDetails.Rows)
                     {
                         objJangedEntryProperty = new Janged_EntryProperty();
                         objJangedEntryProperty.invoice_id = Val.ToInt32(NewmInvoiceid);
@@ -947,15 +938,15 @@ namespace Account_Management.Transaction
         {
             try
             {
-                if (Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) > 0 && Val.ToDecimal(clmDetCarat.SummaryItem.SummaryValue) > 0)
-                {
-                    m_numSummDetRate = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) / Val.ToDecimal(clmDetCarat.SummaryItem.SummaryValue)), 2, MidpointRounding.AwayFromZero);
+                //if (Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) > 0 && Val.ToDecimal(clmDetCarat.SummaryItem.SummaryValue) > 0)
+                //{
+                //    m_numSummDetRate = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) / Val.ToDecimal(clmDetCarat.SummaryItem.SummaryValue)), 2, MidpointRounding.AwayFromZero);
 
-                }
-                else
-                {
-                    m_numSummDetRate = 0;
-                }
+                //}
+                //else
+                //{
+                //    m_numSummDetRate = 0;
+                //}
                 if (((DevExpress.XtraGrid.GridSummaryItem)e.Item).FieldName == "rate")
                 {
                     if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Finalize)
@@ -990,12 +981,8 @@ namespace Account_Management.Transaction
 
 
                         txtShippingCharge.Text = Val.ToString(Drow["shipping"]);
-                        txtBrokeragePer.Text = Val.ToString(Drow["brokerage_per"]);
-                        txtBrokerageAmt.Text = Val.ToString(Drow["brokerage_amount"]);
                         txtDiscountPer.Text = Val.ToString(Drow["discount_per"]);
                         txtDiscountAmt.Text = Val.ToString(Drow["discount_amount"]);
-                        txtInterestPer.Text = Val.ToString(Drow["interest_per"]);
-                        txtInterestAmt.Text = Val.ToString(Drow["interest_amount"]);
                         txtCGSTPer.Text = Val.ToString(Drow["cgst_per"]);
                         txtCGSTAmt.Text = Val.ToString(Drow["cgst_amount"]);
                         txtSGSTPer.Text = Val.ToString(Drow["sgst_per"]);
@@ -1004,10 +991,10 @@ namespace Account_Management.Transaction
                         txtIGSTAmt.Text = Val.ToString(Drow["igst_amount"]);
                         txtNetAmount.Text = Val.ToString(Drow["net_amount"]);
 
-                        m_dtbSaleDetails = objJangedEntry.GetDataDetails(Val.ToInt(lblMode.Tag));
-                        grdJangedDetails.DataSource = m_dtbSaleDetails;
+                        m_dtbJangedDetails = objJangedEntry.GetDataDetails(Val.ToInt(lblMode.Tag));
+                        grdJangedDetails.DataSource = m_dtbJangedDetails;
 
-                        ttlbSaleInvoice.SelectedTabPage = tblSaledetail;
+                        ttlbSaleInvoice.SelectedTabPage = tblJangeddetail;
                         txtInvoiceNo.Focus();
                         m_IsValid = false;
                         m_IsUpdate = true;
@@ -1040,7 +1027,7 @@ namespace Account_Management.Transaction
                         txtAmount.Text = Val.ToString(Drow["amount"]);
 
                         m_numcarat = Val.ToDecimal(Drow["carat"]);
-                        m_invoice_detail_id = Val.ToInt(Drow["invoice_detail_id"]);
+                        m_janged_detail_id = Val.ToInt(Drow["janged_detail_id"]);
                         m_update_srno = Val.ToInt(Drow["sr_no"]);
                         m_IsValid = true;
                     }
@@ -1151,31 +1138,31 @@ namespace Account_Management.Transaction
                     blnReturn = false;
                     return blnReturn;
                 }
-                objJangedEntry = new JangedEntry();
-                DataTable p_dtbDetail = new DataTable();
+                //objJangedEntry = new JangedEntry();
+                //DataTable p_dtbDetail = new DataTable();
 
-                //p_dtbDetail = objSaleInvoice.GetCheckPriceList(m_numCurrency_id, Val.ToInt(GlobalDec.gEmployeeProperty.rate_type_id));
-                p_dtbDetail = objJangedEntry.GetCheckPriceList(Val.ToInt(GlobalDec.gEmployeeProperty.currency_id), Val.ToInt(GlobalDec.gEmployeeProperty.rate_type_id));
+                ////p_dtbDetail = objSaleInvoice.GetCheckPriceList(m_numCurrency_id, Val.ToInt(GlobalDec.gEmployeeProperty.rate_type_id));
+                //p_dtbDetail = objJangedEntry.GetCheckPriceList(Val.ToInt(GlobalDec.gEmployeeProperty.currency_id), Val.ToInt(GlobalDec.gEmployeeProperty.rate_type_id));
 
-                if (p_dtbDetail.Rows.Count <= 0)
-                {
-                    Global.Message("Selected currency type price not found in master please check", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    blnReturn = false;
-                    return blnReturn;
-                }
+                //if (p_dtbDetail.Rows.Count <= 0)
+                //{
+                //    Global.Message("Selected currency type price not found in master please check", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    blnReturn = false;
+                //    return blnReturn;
+                //}
 
-                decimal numStockCarat = 0;
+                //decimal numStockCarat = 0;
                 if (btnAdd.Text == "&Add")
                 {
                     //DataTable m_dtbStockCarat = new DataTable();
                     objJangedEntry = new JangedEntry();
                     //m_dtbStockCarat = objSaleInvoice.GetStockCarat(GlobalDec.gEmployeeProperty.company_id, GlobalDec.gEmployeeProperty.branch_id, GlobalDec.gEmployeeProperty.location_id, GlobalDec.gEmployeeProperty.department_id, Val.ToInt(lueAssortName.EditValue), Val.ToInt(lueSieveName.EditValue));                    
-                    if (m_dtbStockCarat.Rows.Count > 0)
-                    {
-                        numStockCarat = Val.ToDecimal(m_dtbStockCarat.Rows[0]["stock_carat"]);
-                    }
+                    //if (m_dtbStockCarat.Rows.Count > 0)
+                    //{
+                    //    numStockCarat = Val.ToDecimal(m_dtbStockCarat.Rows[0]["stock_carat"]);
+                    //}
 
-                    DataRow[] dr = m_dtbSaleDetails.Select("item_id = " + Val.ToInt(lueItem.EditValue) + " AND color_id = " + Val.ToInt(LueColor.EditValue) + " AND size_id = " + Val.ToInt(LueSize.EditValue));
+                    DataRow[] dr = m_dtbJangedDetails.Select("item_id = " + Val.ToInt(lueItem.EditValue) + " AND color_id = " + Val.ToInt(LueColor.EditValue) + " AND size_id = " + Val.ToInt(LueSize.EditValue) + " AND unit_id = " + Val.ToInt(LueUnit.EditValue));
 
                     if (dr.Count() == 1)
                     {
@@ -1184,13 +1171,13 @@ namespace Account_Management.Transaction
                         blnReturn = false;
                         return blnReturn;
                     }
-                    DataRow drwNew = m_dtbSaleDetails.NewRow();
+                    DataRow drwNew = m_dtbJangedDetails.NewRow();
                     decimal numRate = Val.ToDecimal(txtRate.Text);
                     decimal numAmount = Val.ToDecimal(txtAmount.Text);
                     int numPcs = Val.ToInt(txtPcs.Text);
 
-                    drwNew["invoice_id"] = Val.ToInt(0);
-                    drwNew["invoice_detail_id"] = Val.ToInt(0);
+                    drwNew["janged_id"] = Val.ToInt(0);
+                    drwNew["janged_detail_id"] = Val.ToInt(0);
 
                     drwNew["color_id"] = Val.ToInt(LueColor.EditValue);
                     drwNew["color_name"] = Val.ToString(LueColor.Text);
@@ -1212,7 +1199,7 @@ namespace Account_Management.Transaction
                     m_srno = m_srno + 1;
                     drwNew["sr_no"] = Val.ToInt(m_srno);
 
-                    m_dtbSaleDetails.Rows.Add(drwNew);
+                    m_dtbJangedDetails.Rows.Add(drwNew);
 
                     dgvJangedDetails.MoveLast();
 
@@ -1223,8 +1210,8 @@ namespace Account_Management.Transaction
                     decimal IGST_amt = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtIGSTPer.Text) / 100, 0);
                     txtIGSTAmt.Text = IGST_amt.ToString();
 
-                    decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtInterestAmt.Text) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text)) - (Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
-                    txtNetAmount.Text = Shipping_Charge.ToString();
+                    //decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtInterestAmt.Text) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text)) - (Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
+                    //txtNetAmount.Text = Shipping_Charge.ToString();
                 }
                 else if (btnAdd.Text == "&Update")
                 {
@@ -1237,33 +1224,33 @@ namespace Account_Management.Transaction
 
                     objJangedEntry = new JangedEntry();
 
-                    if (m_dtbSaleDetails.Select("item_id ='" + Val.ToInt(lueItem.EditValue) + "' AND color_id ='" + Val.ToInt(LueColor.EditValue) + "'").Length > 0)
+                    if (m_dtbJangedDetails.Select("item_id ='" + Val.ToInt(lueItem.EditValue) + "' AND color_id ='" + Val.ToInt(LueColor.EditValue) + "' AND size_id ='" + Val.ToInt(LueSize.EditValue) + "' AND unit_id ='" + Val.ToInt(LueUnit.EditValue) + "'").Length > 0)
                     {
-                        for (int i = 0; i < m_dtbSaleDetails.Rows.Count; i++)
+                        for (int i = 0; i < m_dtbJangedDetails.Rows.Count; i++)
                         {
-                            if (m_dtbSaleDetails.Select("invoice_detail_id ='" + m_invoice_detail_id + "' AND sr_no = '" + m_update_srno + "'").Length > 0)
+                            if (m_dtbJangedDetails.Select("janged_detail_id ='" + m_janged_detail_id + "' AND sr_no = '" + m_update_srno + "'").Length > 0)
                             {
-                                if (m_dtbSaleDetails.Rows[m_update_srno - 1]["invoice_detail_id"].ToString() == m_invoice_detail_id.ToString())
+                                if (m_dtbJangedDetails.Rows[m_update_srno - 1]["janged_detail_id"].ToString() == m_janged_detail_id.ToString())
                                 {
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["rate"] = Val.ToDecimal(txtRate.Text);
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["flag"] = 1;
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["amount"] = Math.Round(Val.ToDecimal(txtPcs.Text) * Val.ToDecimal(txtRate.Text), 3);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["rate"] = Val.ToDecimal(txtRate.Text);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["flag"] = 1;
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["amount"] = Math.Round(Val.ToDecimal(txtPcs.Text) * Val.ToDecimal(txtRate.Text), 3);
 
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["item_id"] = Val.ToInt(lueItem.EditValue);
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["item_name"] = Val.ToString(lueItem.Text);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["item_id"] = Val.ToInt(lueItem.EditValue);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["item_name"] = Val.ToString(lueItem.Text);
 
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["color_id"] = Val.ToInt(LueColor.EditValue);
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["color_name"] = Val.ToString(LueColor.Text);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["color_id"] = Val.ToInt(LueColor.EditValue);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["color_name"] = Val.ToString(LueColor.Text);
 
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["size_id"] = Val.ToInt(LueSize.EditValue);
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["size_name"] = Val.ToString(LueSize.Text);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["size_id"] = Val.ToInt(LueSize.EditValue);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["size_name"] = Val.ToString(LueSize.Text);
 
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["unit_id"] = Val.ToInt(LueUnit.EditValue);
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["unit_name"] = Val.ToString(LueUnit.Text);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["unit_id"] = Val.ToInt(LueUnit.EditValue);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["unit_name"] = Val.ToString(LueUnit.Text);
 
-                                    decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtInterestAmt.Text) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text)) - (Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
-                                    txtNetAmount.Text = Shipping_Charge.ToString();
+                                    //decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtInterestAmt.Text) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text)) - (Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
+                                    //txtNetAmount.Text = Shipping_Charge.ToString();
                                     break;
                                 }
                             }
@@ -1272,28 +1259,28 @@ namespace Account_Management.Transaction
                     }
                     else
                     {
-                        for (int i = 0; i < m_dtbSaleDetails.Rows.Count; i++)
+                        for (int i = 0; i < m_dtbJangedDetails.Rows.Count; i++)
                         {
-                            if (m_dtbSaleDetails.Select("invoice_detail_id ='" + m_invoice_detail_id + "' AND sr_no = '" + m_update_srno + "'").Length > 0)
+                            if (m_dtbJangedDetails.Select("janged_detail_id ='" + m_janged_detail_id + "' AND sr_no = '" + m_update_srno + "'").Length > 0)
                             {
-                                if (m_dtbSaleDetails.Rows[m_update_srno - 1]["invoice_detail_id"].ToString() == m_invoice_detail_id.ToString())
+                                if (m_dtbJangedDetails.Rows[m_update_srno - 1]["janged_detail_id"].ToString() == m_janged_detail_id.ToString())
                                 {
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["rate"] = Val.ToDecimal(txtRate.Text);
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["flag"] = 1;
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["item_id"] = Val.ToInt(lueItem.EditValue);
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["color_id"] = Val.ToInt(LueColor.EditValue);
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["size_id"] = Val.ToInt(LueSize.EditValue);
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["unit_id"] = Val.ToInt(LueUnit.EditValue);
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["item_name"] = Val.ToString(lueItem.Text);
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["color_name"] = Val.ToString(LueColor.Text);
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["size_name"] = Val.ToString(LueSize.Text);
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["unit_name"] = Val.ToString(LueUnit.Text);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["rate"] = Val.ToDecimal(txtRate.Text);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["flag"] = 1;
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["item_id"] = Val.ToInt(lueItem.EditValue);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["color_id"] = Val.ToInt(LueColor.EditValue);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["size_id"] = Val.ToInt(LueSize.EditValue);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["unit_id"] = Val.ToInt(LueUnit.EditValue);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["item_name"] = Val.ToString(lueItem.Text);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["color_name"] = Val.ToString(LueColor.Text);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["size_name"] = Val.ToString(LueSize.Text);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["unit_name"] = Val.ToString(LueUnit.Text);
 
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["amount"] = Math.Round(Val.ToDecimal(txtPcs.Text) * Val.ToDecimal(txtRate.Text), 3);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["amount"] = Math.Round(Val.ToDecimal(txtPcs.Text) * Val.ToDecimal(txtRate.Text), 3);
 
-                                    decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtInterestAmt.Text) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text)) - (Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
-                                    txtNetAmount.Text = Shipping_Charge.ToString();
+                                    //decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtInterestAmt.Text) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text)) - (Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
+                                    //txtNetAmount.Text = Shipping_Charge.ToString();
                                 }
                             }
                         }
@@ -1319,7 +1306,7 @@ namespace Account_Management.Transaction
             {
                 if (m_blnsave)
                 {
-                    if (m_dtbSaleDetails.Rows.Count == 0)
+                    if (m_dtbJangedDetails.Rows.Count == 0)
                     {
                         lstError.Add(new ListError(22, "Record"));
                         if (!blnFocus)
@@ -1453,11 +1440,8 @@ namespace Account_Management.Transaction
                 txtPcs.Text = string.Empty;
                 txtRate.Text = string.Empty;
                 txtAmount.Text = string.Empty;
-                txtBrokerageAmt.Text = string.Empty;
                 txtDiscountPer.Text = string.Empty;
                 txtDiscountAmt.Text = string.Empty;
-                txtInterestPer.Text = string.Empty;
-                txtInterestAmt.Text = string.Empty;
                 txtShippingCharge.Text = string.Empty;
                 txtNetAmount.Text = string.Empty;
                 txtCGSTPer.Text = string.Empty;
@@ -1486,50 +1470,38 @@ namespace Account_Management.Transaction
             bool blnReturn = true;
             try
             {
-                if (m_dtbSaleDetails.Rows.Count > 0)
-                    m_dtbSaleDetails.Rows.Clear();
+                if (m_dtbJangedDetails.Rows.Count > 0)
+                    m_dtbJangedDetails.Rows.Clear();
 
-                m_dtbSaleDetails = new DataTable();
+                m_dtbJangedDetails = new DataTable();
 
-                m_dtbSaleDetails.Columns.Add("sr_no", typeof(int));
-                m_dtbSaleDetails.Columns.Add("invoice_detail_id", typeof(int));
-                m_dtbSaleDetails.Columns.Add("invoice_id", typeof(int));
-                m_dtbSaleDetails.Columns.Add("assort_id", typeof(int));
-                m_dtbSaleDetails.Columns.Add("assort_name", typeof(string));
-                m_dtbSaleDetails.Columns.Add("sieve_id", typeof(int));
-                m_dtbSaleDetails.Columns.Add("sieve_name", typeof(string));
-                m_dtbSaleDetails.Columns.Add("sub_sieve_id", typeof(int));
-                m_dtbSaleDetails.Columns.Add("sub_sieve_name", typeof(string));
-                m_dtbSaleDetails.Columns.Add("pcs", typeof(int)).DefaultValue = 0;
-                m_dtbSaleDetails.Columns.Add("carat", typeof(decimal)).DefaultValue = 0;
-                m_dtbSaleDetails.Columns.Add("rate", typeof(decimal)).DefaultValue = 0;
-                m_dtbSaleDetails.Columns.Add("amount", typeof(decimal)).DefaultValue = 0;
-                m_dtbSaleDetails.Columns.Add("discount", typeof(decimal)).DefaultValue = 0;
-                m_dtbSaleDetails.Columns.Add("remarks", typeof(string));
-                m_dtbSaleDetails.Columns.Add("old_pcs", typeof(int)).DefaultValue = 0;
-                m_dtbSaleDetails.Columns.Add("old_carat", typeof(decimal));
-                m_dtbSaleDetails.Columns.Add("flag", typeof(int)).DefaultValue = 0;
-                m_dtbSaleDetails.Columns.Add("old_assort_id", typeof(int));
-                m_dtbSaleDetails.Columns.Add("old_sieve_id", typeof(int));
-                m_dtbSaleDetails.Columns.Add("old_sub_sieve_id", typeof(int));
-                m_dtbSaleDetails.Columns.Add("old_assort_name", typeof(string));
-                m_dtbSaleDetails.Columns.Add("old_sieve_name", typeof(string));
-                m_dtbSaleDetails.Columns.Add("old_sub_sieve_name", typeof(string));
-                m_dtbSaleDetails.Columns.Add("current_rate", typeof(decimal)).DefaultValue = 0;
-                m_dtbSaleDetails.Columns.Add("current_amount", typeof(decimal)).DefaultValue = 0;
+                m_dtbJangedDetails.Columns.Add("sr_no", typeof(int));
+                m_dtbJangedDetails.Columns.Add("janged_detail_id", typeof(int));
+                m_dtbJangedDetails.Columns.Add("janged_id", typeof(int));
+                m_dtbJangedDetails.Columns.Add("item_id", typeof(int));
+                m_dtbJangedDetails.Columns.Add("item_name", typeof(string));
+                m_dtbJangedDetails.Columns.Add("color_id", typeof(int));
+                m_dtbJangedDetails.Columns.Add("color_name", typeof(string));
+                m_dtbJangedDetails.Columns.Add("size_id", typeof(int));
+                m_dtbJangedDetails.Columns.Add("size_name", typeof(string));
+                m_dtbJangedDetails.Columns.Add("unit_id", typeof(int));
+                m_dtbJangedDetails.Columns.Add("unit_name", typeof(string));
+                m_dtbJangedDetails.Columns.Add("pcs", typeof(int)).DefaultValue = 0;
+                m_dtbJangedDetails.Columns.Add("rate", typeof(decimal)).DefaultValue = 0;
+                m_dtbJangedDetails.Columns.Add("amount", typeof(decimal)).DefaultValue = 0;
+                m_dtbJangedDetails.Columns.Add("remarks", typeof(string));
+                m_dtbJangedDetails.Columns.Add("old_pcs", typeof(int)).DefaultValue = 0;
+                m_dtbJangedDetails.Columns.Add("flag", typeof(int)).DefaultValue = 0;
+                m_dtbJangedDetails.Columns.Add("old_item_id", typeof(int));
+                m_dtbJangedDetails.Columns.Add("old_color_id", typeof(int));
+                m_dtbJangedDetails.Columns.Add("old_size_id", typeof(int));
+                m_dtbJangedDetails.Columns.Add("old_unit_id", typeof(int));
+                m_dtbJangedDetails.Columns.Add("old_item_name", typeof(string));
+                m_dtbJangedDetails.Columns.Add("old_color_name", typeof(string));
+                m_dtbJangedDetails.Columns.Add("old_size_name", typeof(string));
+                m_dtbJangedDetails.Columns.Add("old_unit_name", typeof(string));
 
-                m_dtbSaleDetails.Columns.Add("rej_carat", typeof(decimal)).DefaultValue = 0;
-                m_dtbSaleDetails.Columns.Add("rej_percentage", typeof(decimal)).DefaultValue = 0;
-                m_dtbSaleDetails.Columns.Add("old_rej_carat", typeof(decimal)).DefaultValue = 0;
-                m_dtbSaleDetails.Columns.Add("old_rej_percentage", typeof(decimal)).DefaultValue = 0;
-                m_dtbSaleDetails.Columns.Add("loss_carat", typeof(decimal)).DefaultValue = 0;
-                m_dtbSaleDetails.Columns.Add("old_loss_carat", typeof(decimal)).DefaultValue = 0;
-                m_dtbSaleDetails.Columns.Add("is_memo", typeof(int)).DefaultValue = 0;
-
-                m_dtbSaleDetails.Columns.Add("purchase_rate", typeof(decimal)).DefaultValue = 0;
-                m_dtbSaleDetails.Columns.Add("purchase_amount", typeof(decimal)).DefaultValue = 0;
-
-                grdJangedDetails.DataSource = m_dtbSaleDetails;
+                grdJangedDetails.DataSource = m_dtbJangedDetails;
                 grdJangedDetails.Refresh();
             }
             catch (Exception ex)
@@ -1577,108 +1549,108 @@ namespace Account_Management.Transaction
                 objJangedEntry = new JangedEntry();
                 if (m_dtbMemoData.Rows.Count > 0)
                 {
-                    DataTable SaleDet = new DataTable();
+                    DataTable JangedDet = new DataTable();
 
-                    SaleDet.Columns.Add("invoice_detail_id");
-                    SaleDet.Columns.Add("assort_id");
-                    SaleDet.Columns.Add("assort_name");
-                    SaleDet.Columns.Add("sieve_id");
-                    SaleDet.Columns.Add("sieve_name");
-                    SaleDet.Columns.Add("sub_sieve_id");
-                    SaleDet.Columns.Add("sub_sieve_name");
-                    SaleDet.Columns.Add("pcs");
-                    SaleDet.Columns.Add("carat");
-                    SaleDet.Columns.Add("rate");
-                    SaleDet.Columns.Add("amount");
-                    SaleDet.Columns.Add("old_carat");
-                    SaleDet.Columns.Add("old_pcs");
-                    SaleDet.Columns.Add("flag");
-                    SaleDet.Columns.Add("sr_no");
-                    SaleDet.Columns.Add("old_assort_id");
-                    SaleDet.Columns.Add("old_sieve_id");
-                    SaleDet.Columns.Add("old_sub_sieve_id");
-                    SaleDet.Columns.Add("current_rate");
-                    SaleDet.Columns.Add("current_amount");
-                    SaleDet.Columns.Add("discount");
+                    JangedDet.Columns.Add("invoice_detail_id");
+                    JangedDet.Columns.Add("assort_id");
+                    JangedDet.Columns.Add("assort_name");
+                    JangedDet.Columns.Add("sieve_id");
+                    JangedDet.Columns.Add("sieve_name");
+                    JangedDet.Columns.Add("sub_sieve_id");
+                    JangedDet.Columns.Add("sub_sieve_name");
+                    JangedDet.Columns.Add("pcs");
+                    JangedDet.Columns.Add("carat");
+                    JangedDet.Columns.Add("rate");
+                    JangedDet.Columns.Add("amount");
+                    JangedDet.Columns.Add("old_carat");
+                    JangedDet.Columns.Add("old_pcs");
+                    JangedDet.Columns.Add("flag");
+                    JangedDet.Columns.Add("sr_no");
+                    JangedDet.Columns.Add("old_assort_id");
+                    JangedDet.Columns.Add("old_sieve_id");
+                    JangedDet.Columns.Add("old_sub_sieve_id");
+                    JangedDet.Columns.Add("current_rate");
+                    JangedDet.Columns.Add("current_amount");
+                    JangedDet.Columns.Add("discount");
 
-                    SaleDet.Columns.Add("rej_pcs");
-                    SaleDet.Columns.Add("rej_carat");
+                    JangedDet.Columns.Add("rej_pcs");
+                    JangedDet.Columns.Add("rej_carat");
 
-                    SaleDet.Columns.Add("old_rej_carat");
-                    SaleDet.Columns.Add("rej_percentage");
-                    SaleDet.Columns.Add("old_rej_percentage");
+                    JangedDet.Columns.Add("old_rej_carat");
+                    JangedDet.Columns.Add("rej_percentage");
+                    JangedDet.Columns.Add("old_rej_percentage");
 
-                    SaleDet.Columns.Add("loss_carat");
-                    SaleDet.Columns.Add("old_loss_carat");
-                    SaleDet.Columns.Add("is_memo");
+                    JangedDet.Columns.Add("loss_carat");
+                    JangedDet.Columns.Add("old_loss_carat");
+                    JangedDet.Columns.Add("is_memo");
 
-                    SaleDet.Columns.Add("purchase_rate");
-                    SaleDet.Columns.Add("purchase_amount");
+                    JangedDet.Columns.Add("purchase_rate");
+                    JangedDet.Columns.Add("purchase_amount");
 
-                    SaleDet.Columns.Add("broker_per");
-                    SaleDet.Columns.Add("broker_amt");
+                    JangedDet.Columns.Add("broker_per");
+                    JangedDet.Columns.Add("broker_amt");
 
-                    lueGSTRate.EditValue = Convert.ToInt32(m_dtbMemoData.Rows[0]["party_id"]);
-                    lueParty.EditValue = Convert.ToInt32(m_dtbMemoData.Rows[0]["party_id"]);
-                    txtInvoiceNo.Text = Convert.ToString(m_dtbMemoData.Rows[0]["memo_no"]);
-                    txtDiscountPer.Text = Convert.ToString(m_dtbMemoData.Rows[0]["discount_per"]);
-                    txtDiscountAmt.Text = Convert.ToString(m_dtbMemoData.Rows[0]["discount_amt"]);
+                    lueGSTRate.EditValue = Val.ToInt32(m_dtbMemoData.Rows[0]["party_id"]);
+                    lueParty.EditValue = Val.ToInt32(m_dtbMemoData.Rows[0]["party_id"]);
+                    txtInvoiceNo.Text = Val.ToString(m_dtbMemoData.Rows[0]["memo_no"]);
+                    txtDiscountPer.Text = Val.ToString(m_dtbMemoData.Rows[0]["discount_per"]);
+                    txtDiscountAmt.Text = Val.ToString(m_dtbMemoData.Rows[0]["discount_amt"]);
 
-                    lblMode.Tag = Convert.ToInt32(m_dtbMemoData.Rows[0]["invoice_id"]);
+                    lblMode.Tag = Val.ToInt32(m_dtbMemoData.Rows[0]["invoice_id"]);
 
                     int i = 0;
                     foreach (DataRow DRow in m_dtbMemoData.Rows)
                     {
                         if (Convert.ToDecimal(DRow["rec_carat"]) > 0)
                         {
-                            SaleDet.Rows.Add();
-                            SaleDet.Rows[i]["invoice_detail_id"] = Val.ToInt(DRow["invoice_detail_id"]);
-                            SaleDet.Rows[i]["assort_id"] = Val.ToInt(DRow["assort_id"]);
-                            SaleDet.Rows[i]["sieve_id"] = Val.ToInt(DRow["sieve_id"]);
-                            SaleDet.Rows[i]["sub_sieve_id"] = Val.ToInt(DRow["sub_sieve_id"]);
-                            SaleDet.Rows[i]["assort_name"] = Val.ToString(DRow["assort_name"]);
-                            SaleDet.Rows[i]["sieve_name"] = Val.ToString(DRow["sieve_name"]);
-                            SaleDet.Rows[i]["sub_sieve_name"] = Val.ToString(DRow["sub_sieve_name"]);
-                            SaleDet.Rows[i]["pcs"] = Val.ToInt(DRow["rec_pcs"]);
-                            SaleDet.Rows[i]["carat"] = Val.ToDecimal(DRow["rec_carat"]);
-                            SaleDet.Rows[i]["rate"] = Val.ToDecimal(DRow["rate"]);
-                            SaleDet.Rows[i]["amount"] = Val.ToDecimal(DRow["sale_amount"]);
-                            SaleDet.Rows[i]["old_carat"] = 0;
-                            SaleDet.Rows[i]["old_pcs"] = 0;
-                            SaleDet.Rows[i]["old_rej_carat"] = 0;
-                            SaleDet.Rows[i]["old_rej_percentage"] = 0;
-                            SaleDet.Rows[i]["flag"] = Convert.ToInt32(DRow["invoice_id"]) == 0 ? 0 : 1;
-                            SaleDet.Rows[i]["sr_no"] = i + 1;
-                            SaleDet.Rows[i]["old_assort_id"] = Val.ToInt(0);
-                            SaleDet.Rows[i]["old_sieve_id"] = Val.ToInt(0);
-                            SaleDet.Rows[i]["old_sub_sieve_id"] = Val.ToInt(0);
-                            SaleDet.Rows[i]["current_rate"] = Val.ToDecimal(DRow["current_rate"]);
-                            SaleDet.Rows[i]["current_amount"] = Math.Round(Val.ToDecimal(DRow["rec_carat"]) * Val.ToDecimal(DRow["current_rate"]), 3);
-                            SaleDet.Rows[i]["discount"] = 0;
+                            JangedDet.Rows.Add();
+                            JangedDet.Rows[i]["invoice_detail_id"] = Val.ToInt(DRow["invoice_detail_id"]);
+                            JangedDet.Rows[i]["assort_id"] = Val.ToInt(DRow["assort_id"]);
+                            JangedDet.Rows[i]["sieve_id"] = Val.ToInt(DRow["sieve_id"]);
+                            JangedDet.Rows[i]["sub_sieve_id"] = Val.ToInt(DRow["sub_sieve_id"]);
+                            JangedDet.Rows[i]["assort_name"] = Val.ToString(DRow["assort_name"]);
+                            JangedDet.Rows[i]["sieve_name"] = Val.ToString(DRow["sieve_name"]);
+                            JangedDet.Rows[i]["sub_sieve_name"] = Val.ToString(DRow["sub_sieve_name"]);
+                            JangedDet.Rows[i]["pcs"] = Val.ToInt(DRow["rec_pcs"]);
+                            JangedDet.Rows[i]["carat"] = Val.ToDecimal(DRow["rec_carat"]);
+                            JangedDet.Rows[i]["rate"] = Val.ToDecimal(DRow["rate"]);
+                            JangedDet.Rows[i]["amount"] = Val.ToDecimal(DRow["sale_amount"]);
+                            JangedDet.Rows[i]["old_carat"] = 0;
+                            JangedDet.Rows[i]["old_pcs"] = 0;
+                            JangedDet.Rows[i]["old_rej_carat"] = 0;
+                            JangedDet.Rows[i]["old_rej_percentage"] = 0;
+                            JangedDet.Rows[i]["flag"] = Val.ToInt32(DRow["invoice_id"]) == 0 ? 0 : 1;
+                            JangedDet.Rows[i]["sr_no"] = i + 1;
+                            JangedDet.Rows[i]["old_assort_id"] = Val.ToInt(0);
+                            JangedDet.Rows[i]["old_sieve_id"] = Val.ToInt(0);
+                            JangedDet.Rows[i]["old_sub_sieve_id"] = Val.ToInt(0);
+                            JangedDet.Rows[i]["current_rate"] = Val.ToDecimal(DRow["current_rate"]);
+                            JangedDet.Rows[i]["current_amount"] = Math.Round(Val.ToDecimal(DRow["rec_carat"]) * Val.ToDecimal(DRow["current_rate"]), 3);
+                            JangedDet.Rows[i]["discount"] = 0;
 
-                            SaleDet.Rows[i]["rej_pcs"] = 0;
-                            SaleDet.Rows[i]["rej_carat"] = 0;
-                            SaleDet.Rows[i]["rej_percentage"] = 0;
+                            JangedDet.Rows[i]["rej_pcs"] = 0;
+                            JangedDet.Rows[i]["rej_carat"] = 0;
+                            JangedDet.Rows[i]["rej_percentage"] = 0;
 
-                            SaleDet.Rows[i]["loss_carat"] = Val.ToDecimal(DRow["loss_carat"]);
-                            SaleDet.Rows[i]["old_loss_carat"] = Val.ToDecimal(0);
-                            SaleDet.Rows[i]["is_memo"] = Val.ToInt(1);
+                            JangedDet.Rows[i]["loss_carat"] = Val.ToDecimal(DRow["loss_carat"]);
+                            JangedDet.Rows[i]["old_loss_carat"] = Val.ToDecimal(0);
+                            JangedDet.Rows[i]["is_memo"] = Val.ToInt(1);
 
-                            SaleDet.Rows[i]["purchase_rate"] = Val.ToDecimal(DRow["purchase_rate"]);
-                            SaleDet.Rows[i]["purchase_amount"] = Val.ToDecimal(DRow["purchase_amount"]);
+                            JangedDet.Rows[i]["purchase_rate"] = Val.ToDecimal(DRow["purchase_rate"]);
+                            JangedDet.Rows[i]["purchase_amount"] = Val.ToDecimal(DRow["purchase_amount"]);
                             if (Convert.ToInt32(DRow["invoice_id"]) > 0)
                             {
-                                lblMode.Tag = lblMode.Tag = Convert.ToInt32(DRow["invoice_id"]);
+                                lblMode.Tag = lblMode.Tag = Val.ToInt32(DRow["invoice_id"]);
                             }
 
                             i++;
                         }
                     }
 
-                    grdJangedDetails.DataSource = SaleDet;
+                    grdJangedDetails.DataSource = JangedDet;
 
-                    ttlbSaleInvoice.SelectedTabPage = tblSaledetail;
-                    m_dtbSaleDetails = SaleDet;
+                    ttlbSaleInvoice.SelectedTabPage = tblJangeddetail;
+                    m_dtbJangedDetails = JangedDet;
                     txtInvoiceNo.Focus();
 
                     txtCGSTPer_EditValueChanged(null, null);
@@ -1874,6 +1846,11 @@ namespace Account_Management.Transaction
                 frmCnt.ShowDialog();
                 Global.LOOKUPGSTRate(lueGSTRate);
             }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

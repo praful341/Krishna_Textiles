@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.TabRegisterDetail = new DevExpress.XtraTab.XtraTabControl();
             this.tblGeneral = new DevExpress.XtraTab.XtraTabPage();
@@ -119,6 +119,13 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MainGrdItemMaster = new DevExpress.XtraGrid.GridControl();
             this.LEDGER_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LEDGER_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -127,13 +134,6 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TabRegisterDetail)).BeginInit();
@@ -322,7 +322,7 @@
             // txtSaleRate
             // 
             this.txtSaleRate.EnterMoveNextControl = true;
-            this.txtSaleRate.Location = new System.Drawing.Point(162, 214);
+            this.txtSaleRate.Location = new System.Drawing.Point(131, 214);
             this.txtSaleRate.Name = "txtSaleRate";
             this.txtSaleRate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSaleRate.Properties.Appearance.Options.UseFont = true;
@@ -345,7 +345,7 @@
             // LookupHSNCode
             // 
             this.LookupHSNCode.EnterMoveNextControl = true;
-            this.LookupHSNCode.Location = new System.Drawing.Point(162, 158);
+            this.LookupHSNCode.Location = new System.Drawing.Point(131, 158);
             this.LookupHSNCode.Name = "LookupHSNCode";
             this.LookupHSNCode.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LookupHSNCode.Properties.Appearance.Options.UseFont = true;
@@ -531,7 +531,7 @@
             // LookupItemGroup
             // 
             this.LookupItemGroup.EnterMoveNextControl = true;
-            this.LookupItemGroup.Location = new System.Drawing.Point(162, 102);
+            this.LookupItemGroup.Location = new System.Drawing.Point(131, 102);
             this.LookupItemGroup.Name = "LookupItemGroup";
             this.LookupItemGroup.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LookupItemGroup.Properties.Appearance.Options.UseFont = true;
@@ -585,9 +585,9 @@
             this.labelControl3.Appearance.Options.UseForeColor = true;
             this.labelControl3.Location = new System.Drawing.Point(13, 103);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(82, 16);
+            this.labelControl3.Size = new System.Drawing.Size(43, 16);
             this.labelControl3.TabIndex = 41;
-            this.labelControl3.Text = "Item Group";
+            this.labelControl3.Text = "Group";
             // 
             // labelControl1
             // 
@@ -606,7 +606,7 @@
             // 
             this.txtRemark.EditValue = "";
             this.txtRemark.EnterMoveNextControl = true;
-            this.txtRemark.Location = new System.Drawing.Point(162, 278);
+            this.txtRemark.Location = new System.Drawing.Point(131, 278);
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRemark.Properties.Appearance.Options.UseFont = true;
@@ -628,7 +628,7 @@
             // 
             this.RbtStatus.EditValue = 1;
             this.RbtStatus.EnterMoveNextControl = true;
-            this.RbtStatus.Location = new System.Drawing.Point(162, 242);
+            this.RbtStatus.Location = new System.Drawing.Point(131, 242);
             this.RbtStatus.Name = "RbtStatus";
             this.RbtStatus.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.RbtStatus.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -666,7 +666,7 @@
             // txtLastPurchase
             // 
             this.txtLastPurchase.EnterMoveNextControl = true;
-            this.txtLastPurchase.Location = new System.Drawing.Point(162, 186);
+            this.txtLastPurchase.Location = new System.Drawing.Point(131, 186);
             this.txtLastPurchase.Name = "txtLastPurchase";
             this.txtLastPurchase.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLastPurchase.Properties.Appearance.Options.UseFont = true;
@@ -695,14 +695,14 @@
             this.labelControl11.Appearance.Options.UseForeColor = true;
             this.labelControl11.Location = new System.Drawing.Point(13, 187);
             this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(143, 16);
+            this.labelControl11.Size = new System.Drawing.Size(104, 16);
             this.labelControl11.TabIndex = 32;
-            this.labelControl11.Text = "Item Purchase Rate";
+            this.labelControl11.Text = "Purchase Rate";
             // 
             // txtShortName
             // 
             this.txtShortName.EnterMoveNextControl = true;
-            this.txtShortName.Location = new System.Drawing.Point(162, 71);
+            this.txtShortName.Location = new System.Drawing.Point(131, 71);
             this.txtShortName.Name = "txtShortName";
             this.txtShortName.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtShortName.Properties.Appearance.Options.UseFont = true;
@@ -718,14 +718,14 @@
             this.labelControl4.Appearance.Options.UseForeColor = true;
             this.labelControl4.Location = new System.Drawing.Point(13, 72);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(124, 16);
+            this.labelControl4.Size = new System.Drawing.Size(85, 16);
             this.labelControl4.TabIndex = 18;
-            this.labelControl4.Text = "Item Short Name";
+            this.labelControl4.Text = "Short Name";
             // 
             // txtItemName
             // 
             this.txtItemName.EnterMoveNextControl = true;
-            this.txtItemName.Location = new System.Drawing.Point(162, 42);
+            this.txtItemName.Location = new System.Drawing.Point(131, 42);
             this.txtItemName.Name = "txtItemName";
             this.txtItemName.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemName.Properties.Appearance.Options.UseFont = true;
@@ -739,7 +739,7 @@
             this.txtItemCode.EditValue = "0";
             this.txtItemCode.Enabled = false;
             this.txtItemCode.EnterMoveNextControl = true;
-            this.txtItemCode.Location = new System.Drawing.Point(162, 13);
+            this.txtItemCode.Location = new System.Drawing.Point(131, 13);
             this.txtItemCode.Name = "txtItemCode";
             this.txtItemCode.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemCode.Properties.Appearance.Options.UseFont = true;
@@ -757,9 +757,9 @@
             this.labelControl2.Appearance.Options.UseForeColor = true;
             this.labelControl2.Location = new System.Drawing.Point(13, 45);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(81, 16);
+            this.labelControl2.Size = new System.Drawing.Size(42, 16);
             this.labelControl2.TabIndex = 5;
-            this.labelControl2.Text = "Item Name";
+            this.labelControl2.Text = "Name";
             // 
             // lblCompanyCode
             // 
@@ -769,15 +769,15 @@
             this.lblCompanyCode.Appearance.Options.UseForeColor = true;
             this.lblCompanyCode.Location = new System.Drawing.Point(13, 16);
             this.lblCompanyCode.Name = "lblCompanyCode";
-            this.lblCompanyCode.Size = new System.Drawing.Size(76, 16);
+            this.lblCompanyCode.Size = new System.Drawing.Size(37, 16);
             this.lblCompanyCode.TabIndex = 6;
-            this.lblCompanyCode.Text = "Item Code";
+            this.lblCompanyCode.Text = "Code";
             // 
             // CmbUnitType
             // 
             this.CmbUnitType.EditValue = "";
             this.CmbUnitType.EnterMoveNextControl = true;
-            this.CmbUnitType.Location = new System.Drawing.Point(162, 130);
+            this.CmbUnitType.Location = new System.Drawing.Point(131, 130);
             this.CmbUnitType.Name = "CmbUnitType";
             this.CmbUnitType.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbUnitType.Properties.Appearance.Options.UseFont = true;
@@ -810,7 +810,7 @@
             this.tblOpeningStock.Controls.Add(this.dgvOpeningStock);
             this.tblOpeningStock.Name = "tblOpeningStock";
             this.tblOpeningStock.PageVisible = false;
-            this.tblOpeningStock.Size = new System.Drawing.Size(719, 552);
+            this.tblOpeningStock.Size = new System.Drawing.Size(432, 552);
             this.tblOpeningStock.Text = "OPENING STOCK";
             // 
             // dgvOpeningStock
@@ -827,7 +827,7 @@
             this.RepQuantity,
             this.RepLocal,
             this.RepDate});
-            this.dgvOpeningStock.Size = new System.Drawing.Size(719, 552);
+            this.dgvOpeningStock.Size = new System.Drawing.Size(432, 552);
             this.dgvOpeningStock.TabIndex = 179;
             this.dgvOpeningStock.UseEmbeddedNavigator = true;
             this.dgvOpeningStock.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1163,7 +1163,7 @@
             this.tblLocWiseItemName.Controls.Add(this.dgvItemGrid);
             this.tblLocWiseItemName.Name = "tblLocWiseItemName";
             this.tblLocWiseItemName.PageVisible = false;
-            this.tblLocWiseItemName.Size = new System.Drawing.Size(719, 552);
+            this.tblLocWiseItemName.Size = new System.Drawing.Size(432, 552);
             this.tblLocWiseItemName.Text = "LOCATION WISE ITEM NAME";
             // 
             // dgvItemGrid
@@ -1180,7 +1180,7 @@
             this.repositoryItemTextEdit3,
             this.repositoryItemTextEdit4,
             this.repositoryItemTextEdit5});
-            this.dgvItemGrid.Size = new System.Drawing.Size(719, 552);
+            this.dgvItemGrid.Size = new System.Drawing.Size(432, 552);
             this.dgvItemGrid.TabIndex = 180;
             this.dgvItemGrid.UseEmbeddedNavigator = true;
             this.dgvItemGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1636,80 +1636,6 @@
             this.gridColumn4.VisibleIndex = 7;
             this.gridColumn4.Width = 73;
             // 
-            // MainGrdItemMaster
-            // 
-            this.MainGrdItemMaster.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainGrdItemMaster.Location = new System.Drawing.Point(0, 0);
-            this.MainGrdItemMaster.MainView = this.GrdDetItemMaster;
-            this.MainGrdItemMaster.Name = "MainGrdItemMaster";
-            this.MainGrdItemMaster.Size = new System.Drawing.Size(537, 646);
-            this.MainGrdItemMaster.TabIndex = 14;
-            this.MainGrdItemMaster.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.GrdDetItemMaster});
-            // 
-            // LEDGER_NAME
-            // 
-            this.LEDGER_NAME.HeaderText = "Ledger Name";
-            this.LEDGER_NAME.Name = "LEDGER_NAME";
-            this.LEDGER_NAME.Width = 106;
-            // 
-            // LEDGER_CODE
-            // 
-            this.LEDGER_CODE.HeaderText = "Ledger Code";
-            this.LEDGER_CODE.Name = "LEDGER_CODE";
-            this.LEDGER_CODE.Visible = false;
-            this.LEDGER_CODE.Width = 102;
-            // 
-            // SHERE_PER
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.SHERE_PER.DefaultCellStyle = dataGridViewCellStyle6;
-            this.SHERE_PER.HeaderText = "Shere(%)";
-            this.SHERE_PER.Name = "SHERE_PER";
-            this.SHERE_PER.Width = 88;
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(562, 0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(442, 22);
-            this.panelControl1.TabIndex = 13;
-            // 
-            // dockManager1
-            // 
-            this.dockManager1.Form = this;
-            this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
-            this.dockPanel1});
-            this.dockManager1.TopZIndexControls.AddRange(new string[] {
-            "DevExpress.XtraBars.BarDockControl",
-            "DevExpress.XtraBars.StandaloneBarDockControl",
-            "System.Windows.Forms.StatusBar",
-            "System.Windows.Forms.MenuStrip",
-            "System.Windows.Forms.StatusStrip",
-            "DevExpress.XtraBars.Ribbon.RibbonStatusBar",
-            "DevExpress.XtraBars.Ribbon.RibbonControl"});
-            // 
-            // dockPanel1
-            // 
-            this.dockPanel1.Controls.Add(this.dockPanel1_Container);
-            this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
-            this.dockPanel1.ID = new System.Guid("8a71fb4c-fec4-407d-b130-ac4ec9f22e88");
-            this.dockPanel1.Location = new System.Drawing.Point(0, 0);
-            this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.Options.ShowCloseButton = false;
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(546, 200);
-            this.dockPanel1.Size = new System.Drawing.Size(546, 673);
-            this.dockPanel1.Text = "Item Master";
-            // 
-            // dockPanel1_Container
-            // 
-            this.dockPanel1_Container.Controls.Add(this.MainGrdItemMaster);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
-            this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(537, 646);
-            this.dockPanel1_Container.TabIndex = 0;
-            // 
             // gridColumn16
             // 
             this.gridColumn16.Caption = "Short Name";
@@ -1769,6 +1695,80 @@
             this.gridColumn29.Name = "gridColumn29";
             this.gridColumn29.Visible = true;
             this.gridColumn29.VisibleIndex = 6;
+            // 
+            // MainGrdItemMaster
+            // 
+            this.MainGrdItemMaster.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainGrdItemMaster.Location = new System.Drawing.Point(0, 0);
+            this.MainGrdItemMaster.MainView = this.GrdDetItemMaster;
+            this.MainGrdItemMaster.Name = "MainGrdItemMaster";
+            this.MainGrdItemMaster.Size = new System.Drawing.Size(537, 646);
+            this.MainGrdItemMaster.TabIndex = 14;
+            this.MainGrdItemMaster.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.GrdDetItemMaster});
+            // 
+            // LEDGER_NAME
+            // 
+            this.LEDGER_NAME.HeaderText = "Ledger Name";
+            this.LEDGER_NAME.Name = "LEDGER_NAME";
+            this.LEDGER_NAME.Width = 106;
+            // 
+            // LEDGER_CODE
+            // 
+            this.LEDGER_CODE.HeaderText = "Ledger Code";
+            this.LEDGER_CODE.Name = "LEDGER_CODE";
+            this.LEDGER_CODE.Visible = false;
+            this.LEDGER_CODE.Width = 102;
+            // 
+            // SHERE_PER
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.SHERE_PER.DefaultCellStyle = dataGridViewCellStyle2;
+            this.SHERE_PER.HeaderText = "Shere(%)";
+            this.SHERE_PER.Name = "SHERE_PER";
+            this.SHERE_PER.Width = 88;
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(562, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(442, 22);
+            this.panelControl1.TabIndex = 13;
+            // 
+            // dockManager1
+            // 
+            this.dockManager1.Form = this;
+            this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
+            this.dockPanel1});
+            this.dockManager1.TopZIndexControls.AddRange(new string[] {
+            "DevExpress.XtraBars.BarDockControl",
+            "DevExpress.XtraBars.StandaloneBarDockControl",
+            "System.Windows.Forms.StatusBar",
+            "System.Windows.Forms.MenuStrip",
+            "System.Windows.Forms.StatusStrip",
+            "DevExpress.XtraBars.Ribbon.RibbonStatusBar",
+            "DevExpress.XtraBars.Ribbon.RibbonControl"});
+            // 
+            // dockPanel1
+            // 
+            this.dockPanel1.Controls.Add(this.dockPanel1_Container);
+            this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
+            this.dockPanel1.ID = new System.Guid("8a71fb4c-fec4-407d-b130-ac4ec9f22e88");
+            this.dockPanel1.Location = new System.Drawing.Point(0, 0);
+            this.dockPanel1.Name = "dockPanel1";
+            this.dockPanel1.Options.ShowCloseButton = false;
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(546, 200);
+            this.dockPanel1.Size = new System.Drawing.Size(546, 673);
+            this.dockPanel1.Text = "Item Master";
+            // 
+            // dockPanel1_Container
+            // 
+            this.dockPanel1_Container.Controls.Add(this.MainGrdItemMaster);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
+            this.dockPanel1_Container.Name = "dockPanel1_Container";
+            this.dockPanel1_Container.Size = new System.Drawing.Size(537, 646);
+            this.dockPanel1_Container.TabIndex = 0;
             // 
             // FrmItemMaster
             // 

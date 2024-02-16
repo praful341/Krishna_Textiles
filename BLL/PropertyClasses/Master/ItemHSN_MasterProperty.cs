@@ -15,5 +15,6 @@ namespace BLL.PropertyClasses.Master
         public double cgst_rate { get; set; }
         public int active { get; set; }
         public string remark { get; set; }
+        public decimal gst_rate { get; set; }
     }
 }

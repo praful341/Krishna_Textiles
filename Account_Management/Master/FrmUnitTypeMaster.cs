@@ -120,10 +120,10 @@ namespace Account_Management.Master
                 if (e.Clicks == 2)
                 {
                     DataRow Drow = dgvUnitTypeMaster.GetDataRow(e.RowHandle);
-                    txtUnitTypeCode.Text = Convert.ToString(Drow["unit_id"]);
-                    txtUnitTypeName.Text = Convert.ToString(Drow["unit_name"]);
-                    RBtnStatus.EditValue = Convert.ToInt32(Drow["active"]);
-                    txtRemark.Text = Convert.ToString(Drow["remark"]);
+                    txtUnitTypeCode.Text = Val.ToString(Drow["unit_id"]);
+                    txtUnitTypeName.Text = Val.ToString(Drow["unit_name"]);
+                    RBtnStatus.EditValue = Val.ToInt32(Drow["active"]);
+                    txtRemark.Text = Val.ToString(Drow["remark"]);
                     txtUnitTypeName.Focus();
                 }
             }

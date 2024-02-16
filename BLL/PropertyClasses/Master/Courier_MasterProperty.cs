@@ -11,5 +11,6 @@ namespace BLL.PropertyClasses.Master
         public string tracking_link { get; set; }
         public decimal? weight { get; set; }
         public decimal? rate { get; set; }
+        public int active { get; set; }
     }
 }

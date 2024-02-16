@@ -51,7 +51,6 @@ namespace Account_Management
             _NextEnteredControl = new Control();
             _tabControls = new List<Control>();
 
-
             objParty = new PartyMaster();
 
             DtControlSettings = new DataTable();
@@ -399,7 +398,7 @@ namespace Account_Management
                 btnAadharDownload.Tag = lblPanPath.Text;
                 if (lblPanPath.Text != string.Empty)
                 {
-                    Global.CopyFormat(Convert.ToString(btnAadharDownload.Tag), txtPartyName.Text + "_AADHAR", Path.GetExtension(lblAadharPath.Text));
+                    Global.CopyFormat(Val.ToString(btnAadharDownload.Tag), txtPartyName.Text + "_AADHAR", Path.GetExtension(lblAadharPath.Text));
                 }
                 else
                 {
@@ -420,7 +419,7 @@ namespace Account_Management
                 btnPanDownload.Tag = lblPanPath.Text;
                 if (lblPanPath.Text != string.Empty)
                 {
-                    Global.CopyFormat(Convert.ToString(btnPanDownload.Tag), txtPartyName.Text + "_PANCARD", Path.GetExtension(lblPanPath.Text));
+                    Global.CopyFormat(Val.ToString(btnPanDownload.Tag), txtPartyName.Text + "_PANCARD", Path.GetExtension(lblPanPath.Text));
                 }
                 else
                 {
@@ -617,14 +616,14 @@ namespace Account_Management
 
 
                 p_dtbPartyId = objParty.Save(PartyMasterProperty, Party_id);
-                if (p_dtbPartyId.Rows.Count > 0 && (Convert.ToString(srcpathAadhar) != string.Empty || Convert.ToString(srcpathPan) != string.Empty))
+                if (p_dtbPartyId.Rows.Count > 0 && (Val.ToString(srcpathAadhar) != string.Empty || Val.ToString(srcpathPan) != string.Empty))
                 {
-                    PartyMasterProperty.party_id = Convert.ToInt32(p_dtbPartyId.Rows[0][0]);
-                    if (Convert.ToString(srcpathAadhar) != string.Empty)
+                    PartyMasterProperty.party_id = Val.ToInt32(p_dtbPartyId.Rows[0][0]);
+                    if (Val.ToString(srcpathAadhar) != string.Empty)
                     {
                         PartyMasterProperty.aadhar_path = pathString + "\\" + PartyMasterProperty.party_id + "_AADHAR" + Path.GetExtension(srcpathAadhar);
                     }
-                    if (Convert.ToString(srcpathPan) != string.Empty)
+                    if (Val.ToString(srcpathPan) != string.Empty)
                     {
                         PartyMasterProperty.pan_path = pathString + "\\" + PartyMasterProperty.party_id + "_PANCARD" + Path.GetExtension(srcpathPan);
                     }
@@ -640,8 +639,8 @@ namespace Account_Management
                             PartyMasterProperty.aadhar_path = null;
 
                             File.Delete(pathString + "\\" + PartyMasterProperty.party_id + "_AADHAR" + Path.GetExtension(m_OldAadharPath));
-                            PartyMasterProperty.party_id = Convert.ToInt32(Val.ToInt(lblMode.Tag));
-                            if (Convert.ToString(srcpathAadhar) != string.Empty)
+                            PartyMasterProperty.party_id = Val.ToInt32(Val.ToInt(lblMode.Tag));
+                            if (Val.ToString(srcpathAadhar) != string.Empty)
                             {
                                 PartyMasterProperty.aadhar_path = pathString + "\\" + PartyMasterProperty.party_id + "_AADHAR" + Path.GetExtension(srcpathAadhar);
                             }
@@ -652,7 +651,7 @@ namespace Account_Management
                         {
                             PartyMasterProperty.pan_path = null;
                             File.Delete(pathString + "\\" + PartyMasterProperty.party_id + "_PANCARD" + Path.GetExtension(m_OldPanPath));
-                            if (Convert.ToString(srcpathPan) != string.Empty)
+                            if (Val.ToString(srcpathPan) != string.Empty)
                             {
                                 PartyMasterProperty.pan_path = pathString + "\\" + PartyMasterProperty.party_id + "_PANCARD" + Path.GetExtension(srcpathPan);
                             }

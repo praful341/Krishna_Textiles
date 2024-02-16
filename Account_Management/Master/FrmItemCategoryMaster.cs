@@ -1,6 +1,6 @@
-﻿using BLL.FunctionClasses.Master;
+﻿using Account_Management.Class;
+using BLL.FunctionClasses.Master;
 using BLL.PropertyClasses.Master;
-using Account_Management.Class;
 using System;
 using System.Data;
 
@@ -129,12 +129,12 @@ namespace Account_Management.Master
                 if (e.Clicks == 2)
                 {
                     DataRow Drow = dgvItemCategoryMaster.GetDataRow(e.RowHandle);
-                    txtItemCategoryCode.Text = Convert.ToString(Drow["item_category_id"]);
-                    txtItemCategoryName.Text = Convert.ToString(Drow["item_category_name"]);
-                    RBtnStatus.EditValue = Convert.ToInt32(Drow["active"]);
-                    RbtnConsumable.EditValue = Convert.ToInt32(Drow["is_consumable"]);
-                    RbtnRepairable.EditValue = Convert.ToInt32(Drow["is_repairable"]);
-                    txtRemark.Text = Convert.ToString(Drow["remark"]);
+                    txtItemCategoryCode.Text = Val.ToString(Drow["item_category_id"]);
+                    txtItemCategoryName.Text = Val.ToString(Drow["item_category_name"]);
+                    RBtnStatus.EditValue = Val.ToInt32(Drow["active"]);
+                    RbtnConsumable.EditValue = Val.ToInt32(Drow["is_consumable"]);
+                    RbtnRepairable.EditValue = Val.ToInt32(Drow["is_repairable"]);
+                    txtRemark.Text = Val.ToString(Drow["remark"]);
                     txtItemCategoryName.Focus();
                 }
             }

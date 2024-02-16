@@ -102,6 +102,7 @@ namespace Account_Management.Master
                 txtTrackingLink.Text = "";
                 txtWeight.Text = "";
                 txtRate.Text = "";
+                RBtnStatus.SelectedIndex = 0;
                 txtCourierName.Focus();
             }
             catch (Exception ex)
@@ -134,6 +135,7 @@ namespace Account_Management.Master
                         txtTrackingLink.Text = Val.ToString(Drow["tracking_link"]);
                         txtWeight.Text = Val.ToString(Drow["weight"]);
                         txtRate.Text = Val.ToString(Drow["rate"]);
+                        RBtnStatus.EditValue = Val.ToInt32(Drow["active"]);
                         txtCourierName.Focus();
                     }
                 }
@@ -168,6 +170,7 @@ namespace Account_Management.Master
                 CourierMasterProperty.tracking_link = Val.ToString(txtTrackingLink.Text);
                 CourierMasterProperty.weight = Val.ToDecimal(txtWeight.Text);
                 CourierMasterProperty.rate = Val.ToDecimal(txtRate.Text);
+                CourierMasterProperty.active = Val.ToInt(RBtnStatus.Text);
 
                 int IntRes = objCourier.Save(CourierMasterProperty);
                 if (IntRes == -1)
@@ -215,10 +218,28 @@ namespace Account_Management.Master
                         txtCourierName.Focus();
                     }
                 }
-
-                if (!objCourier.ISExists(txtCourierName.Text, Val.ToInt64(lblMode.Tag)).ToString().Trim().Equals(string.Empty))
+                if (txtWeight.Text == string.Empty || txtWeight.Text == "0")
                 {
-                    lstError.Add(new ListError(23, "Courier Name"));
+                    lstError.Add(new ListError(12, "Weight"));
+                    if (!blnFocus)
+                    {
+                        blnFocus = true;
+                        txtWeight.Focus();
+                    }
+                }
+                if (txtRate.Text == string.Empty || txtRate.Text == "0")
+                {
+                    lstError.Add(new ListError(12, "Rate"));
+                    if (!blnFocus)
+                    {
+                        blnFocus = true;
+                        txtRate.Focus();
+                    }
+                }
+
+                if (!objCourier.ISExists(txtCourierName.Text, Val.ToDecimal(txtWeight.Text), Val.ToDecimal(txtRate.Text), Val.ToInt64(lblMode.Tag)).ToString().Trim().Equals(string.Empty))
+                {
+                    lstError.Add(new ListError(23, "Courier Name And Weight And Rate"));
                     if (!blnFocus)
                     {
                         blnFocus = true;

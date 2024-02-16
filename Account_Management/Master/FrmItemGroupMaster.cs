@@ -127,10 +127,10 @@ namespace Account_Management.Master
                 if (e.Clicks == 2)
                 {
                     DataRow Drow = dgvItemGroupMaster.GetDataRow(e.RowHandle);
-                    txtItemGroupCode.Text = Convert.ToString(Drow["item_group_id"]);
-                    txtItemGroupName.Text = Convert.ToString(Drow["item_group_name"]);
-                    RBtnStatus.EditValue = Convert.ToInt32(Drow["active"]);
-                    txtRemark.Text = Convert.ToString(Drow["remark"]);
+                    txtItemGroupCode.Text = Val.ToString(Drow["item_group_id"]);
+                    txtItemGroupName.Text = Val.ToString(Drow["item_group_name"]);
+                    RBtnStatus.EditValue = Val.ToInt32(Drow["active"]);
+                    txtRemark.Text = Val.ToString(Drow["remark"]);
                 }
             }
         }

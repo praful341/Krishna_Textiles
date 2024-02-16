@@ -90,6 +90,7 @@ namespace Account_Management.Master
                 dtpTAN.Properties.Mask.EditMask = "dd/MMM/yyyy";
                 dtpTAN.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpTAN.Properties.CharacterCasing = CharacterCasing.Upper;
+                txtCompanyName.Focus();
                 btnClear_Click(btnClear, null);
             }
             catch (Exception ex)
@@ -134,7 +135,7 @@ namespace Account_Management.Master
                 txtPhone1.Text = "";
                 txtPhone2.Text = "";
                 txtSTNo.Text = "";
-                txtNatOfBuss.Text = "";
+                txtAddress3.Text = "";
                 txtCSTNo.Text = "";
                 txtTANNo.Text = "";
                 txtAccNo.Text = "";
@@ -155,7 +156,7 @@ namespace Account_Management.Master
                 txtAddress3.Text = "";
                 txtAddress4.Text = "";
 
-                TabRegisterDetail.SelectedTabPageIndex = 0;
+                //TabRegisterDetail.SelectedTabPageIndex = 0;
                 txtCompanyName.Focus();
             }
             catch (Exception ex)
@@ -224,7 +225,7 @@ namespace Account_Management.Master
                         txtAddress1.Text = Val.ToString(Drow["address"]);
                         txtPhone1.Text = Val.ToString(Drow["phone1"]);
                         txtPhone2.Text = Val.ToString(Drow["phone2"]);
-                        txtNatOfBuss.Text = Val.ToString(Drow["nature_of_business"]);
+                        txtAddress3.Text = Val.ToString(Drow["nature_of_business"]);
                         txtSTNo.Text = Val.ToString(Drow["service_tax_no"]);
                         txtCSTNo.Text = Val.ToString(Drow["cst_no"]);
                         txtTANNo.Text = Val.ToString(Drow["tan_no"]);
@@ -247,7 +248,7 @@ namespace Account_Management.Master
                         txtAddress3.Text = Val.ToString(Drow["address3"]);
                         txtAddress4.Text = Val.ToString(Drow["address4"]);
 
-                        txtShortName.Focus();
+                        txtCompanyName.Focus();
                     }
                 }
             }
@@ -292,7 +293,7 @@ namespace Account_Management.Master
                 CompMasterProperty.phone2 = Val.ToString(txtPhone2.Text).ToUpper();
                 CompMasterProperty.service_tax_no = Val.ToString(txtSTNo.Text).ToUpper();
                 CompMasterProperty.cst_no = Val.ToString(txtCSTNo.Text).ToUpper();
-                CompMasterProperty.nature_of_business = Val.ToString(txtNatOfBuss.Text).ToUpper();
+                CompMasterProperty.nature_of_business = Val.ToString(txtAddress3.Text).ToUpper();
                 CompMasterProperty.tan_no = Val.ToString(txtTANNo.Text).ToUpper();
                 CompMasterProperty.tds_circle = Val.ToString(txtTDSNo.Text).ToUpper();
                 CompMasterProperty.service_tax_date = Val.DBDate(dtpST.Text).ToUpper();
@@ -318,7 +319,7 @@ namespace Account_Management.Master
                 if (IntRes == -1)
                 {
                     Global.Confirm("Error In Save Company Details");
-                    TabRegisterDetail.SelectedTabPageIndex = 0;
+                    //TabRegisterDetail.SelectedTabPageIndex = 0;
                     txtCompanyName.Focus();
                 }
                 else
@@ -326,13 +327,13 @@ namespace Account_Management.Master
                     if (Val.ToInt(lblMode.Tag) == 0)
                     {
                         Global.Confirm("Company Details Data Save Successfully");
-                        TabRegisterDetail.SelectedTabPageIndex = 0;
+                        //TabRegisterDetail.SelectedTabPageIndex = 0;
                         txtCompanyName.Focus();
                     }
                     else
                     {
                         Global.Confirm("Company Details Data Update Successfully");
-                        TabRegisterDetail.SelectedTabPageIndex = 0;
+                        //TabRegisterDetail.SelectedTabPageIndex = 0;
                         txtCompanyName.Focus();
                     }
                 }
@@ -351,7 +352,7 @@ namespace Account_Management.Master
         }
         private void BtnNext_Click(object sender, EventArgs e)
         {
-            TabRegisterDetail.SelectedTabPageIndex = TabRegisterDetail.SelectedTabPageIndex + 1;
+            //TabRegisterDetail.SelectedTabPageIndex = TabRegisterDetail.SelectedTabPageIndex + 1;
         }
         private bool ValidateDetails()
         {
@@ -517,11 +518,11 @@ namespace Account_Management.Master
 
         private void txtPhone1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                BtnNext_Click(null, null);
-                txtSTNo.Focus();
-            }
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    BtnNext_Click(null, null);
+            //    txtSTNo.Focus();
+            //}
         }
 
         private void txtPhone1_KeyPress(object sender, KeyPressEventArgs e)

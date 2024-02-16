@@ -123,10 +123,10 @@ namespace Account_Management.Master
                 if (e.Clicks == 2)
                 {
                     DataRow Drow = dgvGSTMaster.GetDataRow(e.RowHandle);
-                    txtGSTCode.Text = Convert.ToString(Drow["gst_id"]);
-                    txtGSTName.Text = Convert.ToString(Drow["gst_name"]);
-                    txtGSTRate.Text = Convert.ToString(Drow["gst_rate"]);
-                    RBtnStatus.EditValue = Convert.ToInt32(Drow["active"]);
+                    txtGSTCode.Text = Val.ToString(Drow["gst_id"]);
+                    txtGSTName.Text = Val.ToString(Drow["gst_name"]);
+                    txtGSTRate.Text = Val.ToString(Drow["gst_rate"]);
+                    RBtnStatus.EditValue = Val.ToInt32(Drow["active"]);
                     txtGSTName.Focus();
                 }
             }

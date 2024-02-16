@@ -1,6 +1,6 @@
-﻿using BLL.FunctionClasses.Report;
+﻿using Account_Management.Search;
+using BLL.FunctionClasses.Report;
 using BLL.PropertyClasses.Report;
-using Account_Management.Search;
 using System;
 using System.Data;
 using System.Linq;
@@ -950,7 +950,7 @@ namespace Account_Management.Report
             if (dt != null && dt.Rows.Count == 1)
             {
                 dgvNewReportt.AddNewRow();
-                string Field = Convert.ToString(dgvNewReportt.GetRowCellValue(dgvNewReportt.FocusedRowHandle, "field_name"));
+                string Field = Val.ToString(dgvNewReportt.GetRowCellValue(dgvNewReportt.FocusedRowHandle, "field_name"));
                 dgvNewReportt.SetRowCellValue(dgvNewReportt.FocusedRowHandle, "field_name", Field);
             }
         }

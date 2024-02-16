@@ -1,6 +1,6 @@
-﻿using BLL.FunctionClasses.Master;
+﻿using Account_Management.Class;
+using BLL.FunctionClasses.Master;
 using BLL.PropertyClasses.Master;
-using Account_Management.Class;
 using System;
 using System.Data;
 
@@ -49,6 +49,7 @@ namespace Account_Management.Master
             txtRemark.Text = "";
             RBtnStatus.SelectedIndex = 0;
             txtHSNCode.Text = "";
+            txtGSTRate.Text = "";
             DTCGSTDate.EditValue = null;
             DTIGSTDate.EditValue = null;
             DTSGSTDate.EditValue = null;
@@ -145,6 +146,7 @@ namespace Account_Management.Master
             ItemHSNMasterProperty.cgst_rate = Val.Val(txtCGSTRate.Text);
             ItemHSNMasterProperty.sgst_date = Val.DBDate(DTSGSTDate.Text);
             ItemHSNMasterProperty.sgst_rate = Val.Val(txtSGSTRate.Text);
+            ItemHSNMasterProperty.gst_rate = Val.ToDecimal(txtGSTRate.Text);
 
             int IntRes = objItemHSN.Save(ItemHSNMasterProperty);
             if (IntRes == -1)
@@ -189,11 +191,11 @@ namespace Account_Management.Master
                 if (e.Clicks == 2)
                 {
                     DataRow Drow = dgvItemHSNMaster.GetDataRow(e.RowHandle);
-                    txtHSNID.Text = Convert.ToString(Drow["hsn_id"]);
-                    txtHSNName.Text = Convert.ToString(Drow["hsn_name"]);
-                    RBtnStatus.EditValue = Convert.ToInt32(Drow["active"]);
-                    txtRemark.Text = Convert.ToString(Drow["remark"]);
-                    txtHSNCode.Text = Convert.ToString(Drow["hsn_code"]);
+                    txtHSNID.Text = Val.ToString(Drow["hsn_id"]);
+                    txtHSNName.Text = Val.ToString(Drow["hsn_name"]);
+                    RBtnStatus.EditValue = Val.ToInt32(Drow["active"]);
+                    txtRemark.Text = Val.ToString(Drow["remark"]);
+                    txtHSNCode.Text = Val.ToString(Drow["hsn_code"]);
                     txtIGSTRate.Text = Val.ToString(Drow["igst_rate"].ToString());
                     DTIGSTDate.Text = Val.ToString(Drow["igst_DATE"].ToString());
                     txtSGSTRate.Text = Val.ToString(Drow["sgst_rate"].ToString());

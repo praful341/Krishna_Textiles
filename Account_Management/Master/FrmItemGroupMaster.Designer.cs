@@ -102,7 +102,7 @@
             // txtItemGroupName
             // 
             this.txtItemGroupName.EnterMoveNextControl = true;
-            this.txtItemGroupName.Location = new System.Drawing.Point(161, 42);
+            this.txtItemGroupName.Location = new System.Drawing.Point(94, 43);
             this.txtItemGroupName.Name = "txtItemGroupName";
             this.txtItemGroupName.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemGroupName.Properties.Appearance.Options.UseFont = true;
@@ -115,7 +115,7 @@
             this.txtItemGroupCode.EditValue = "0";
             this.txtItemGroupCode.Enabled = false;
             this.txtItemGroupCode.EnterMoveNextControl = true;
-            this.txtItemGroupCode.Location = new System.Drawing.Point(161, 14);
+            this.txtItemGroupCode.Location = new System.Drawing.Point(94, 15);
             this.txtItemGroupCode.Name = "txtItemGroupCode";
             this.txtItemGroupCode.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemGroupCode.Properties.Appearance.Options.UseFont = true;
@@ -129,7 +129,7 @@
             // 
             this.RBtnStatus.EditValue = 1;
             this.RBtnStatus.EnterMoveNextControl = true;
-            this.RBtnStatus.Location = new System.Drawing.Point(161, 71);
+            this.RBtnStatus.Location = new System.Drawing.Point(94, 72);
             this.RBtnStatus.Name = "RBtnStatus";
             this.RBtnStatus.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.RBtnStatus.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
@@ -146,7 +146,7 @@
             // 
             this.txtRemark.EditValue = "";
             this.txtRemark.EnterMoveNextControl = true;
-            this.txtRemark.Location = new System.Drawing.Point(161, 107);
+            this.txtRemark.Location = new System.Drawing.Point(94, 108);
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRemark.Properties.Appearance.Options.UseFont = true;
@@ -227,9 +227,9 @@
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Location = new System.Drawing.Point(17, 45);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(128, 16);
+            this.labelControl2.Size = new System.Drawing.Size(42, 16);
             this.labelControl2.TabIndex = 4;
-            this.labelControl2.Text = "Item Group Name";
+            this.labelControl2.Text = "Name";
             // 
             // lblCategoryCode
             // 
@@ -237,9 +237,9 @@
             this.lblCategoryCode.Appearance.Options.UseFont = true;
             this.lblCategoryCode.Location = new System.Drawing.Point(17, 17);
             this.lblCategoryCode.Name = "lblCategoryCode";
-            this.lblCategoryCode.Size = new System.Drawing.Size(123, 16);
+            this.lblCategoryCode.Size = new System.Drawing.Size(37, 16);
             this.lblCategoryCode.TabIndex = 4;
-            this.lblCategoryCode.Text = "Item Group Code";
+            this.lblCategoryCode.Text = "Code";
             // 
             // panelControl4
             // 

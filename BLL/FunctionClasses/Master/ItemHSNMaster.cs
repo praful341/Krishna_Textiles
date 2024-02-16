@@ -30,6 +30,7 @@ namespace BLL.FunctionClasses.Master
             Request.AddParams("@ip_address", GlobalDec.gStrComputerIP, DbType.String);
             Request.AddParams("@entry_date", Val.DBDate(GlobalDec.gStr_SystemDate), DbType.Date);
             Request.AddParams("@entry_time", GlobalDec.gStr_SystemTime, DbType.String);
+            Request.AddParams("@gst_rate", pClsProperty.gst_rate, DbType.Decimal);
 
             Request.CommandText = BLL.TPV.SProc.MST_HSN_Master_Save;
             Request.CommandType = CommandType.StoredProcedure;

@@ -272,7 +272,7 @@
             this.lueDepartment.Name = "lueDepartment";
             this.lueDepartment.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueDepartment.Properties.Appearance.Options.UseFont = true;
-            this.lueDepartment.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9F);
+            this.lueDepartment.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
             this.lueDepartment.Properties.AppearanceDropDown.Options.UseFont = true;
             this.lueDepartment.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
             this.lueDepartment.Properties.AppearanceDropDownHeader.Options.UseFont = true;
@@ -306,7 +306,7 @@
             this.lueBranch.Name = "lueBranch";
             this.lueBranch.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueBranch.Properties.Appearance.Options.UseFont = true;
-            this.lueBranch.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9F);
+            this.lueBranch.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
             this.lueBranch.Properties.AppearanceDropDown.Options.UseFont = true;
             this.lueBranch.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
             this.lueBranch.Properties.AppearanceDropDownHeader.Options.UseFont = true;
@@ -340,7 +340,7 @@
             this.lueCompany.Name = "lueCompany";
             this.lueCompany.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueCompany.Properties.Appearance.Options.UseFont = true;
-            this.lueCompany.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9F);
+            this.lueCompany.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
             this.lueCompany.Properties.AppearanceDropDown.Options.UseFont = true;
             this.lueCompany.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
             this.lueCompany.Properties.AppearanceDropDownHeader.Options.UseFont = true;
@@ -362,7 +362,7 @@
             this.lueLocation.Name = "lueLocation";
             this.lueLocation.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueLocation.Properties.Appearance.Options.UseFont = true;
-            this.lueLocation.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9F);
+            this.lueLocation.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
             this.lueLocation.Properties.AppearanceDropDown.Options.UseFont = true;
             this.lueLocation.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
             this.lueLocation.Properties.AppearanceDropDownHeader.Options.UseFont = true;
@@ -408,7 +408,7 @@
             this.lueUserType.Name = "lueUserType";
             this.lueUserType.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueUserType.Properties.Appearance.Options.UseFont = true;
-            this.lueUserType.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.lueUserType.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
             this.lueUserType.Properties.AppearanceDropDown.Options.UseFont = true;
             this.lueUserType.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
             this.lueUserType.Properties.AppearanceDropDownHeader.Options.UseFont = true;
@@ -479,7 +479,7 @@
             this.lueRoleId.Name = "lueRoleId";
             this.lueRoleId.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueRoleId.Properties.Appearance.Options.UseFont = true;
-            this.lueRoleId.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.lueRoleId.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
             this.lueRoleId.Properties.AppearanceDropDown.Options.UseFont = true;
             this.lueRoleId.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
             this.lueRoleId.Properties.AppearanceDropDownHeader.Options.UseFont = true;

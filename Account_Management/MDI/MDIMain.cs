@@ -93,11 +93,11 @@ namespace Account_Management.MDI
                     for (int i = 0; i < dtMenuNames.Rows.Count; i++)
                     {
                         ribbonPage2[i] = new RibbonPage();
-                        //ribbonPage2[i].Text = Convert.ToString(dtMenuNames.Rows[i]["main_menu"]);
-                        ribbonPage2[i].Text = Convert.ToString(dtMenuNames.Rows[i]["Menu_Head"]);
+                        //ribbonPage2[i].Text = Val.ToString(dtMenuNames.Rows[i]["main_menu"]);
+                        ribbonPage2[i].Text = Val.ToString(dtMenuNames.Rows[i]["Menu_Head"]);
                         ribbonPage2[i].Name = "Pg" + (i + 1).ToString();
-                        //GenerateGroup(ribbonPage2[i], Convert.ToString(dtMenuNames.Rows[i]["main_menu"]));
-                        GenerateGroup(ribbonPage2[i], Convert.ToString(dtMenuNames.Rows[i]["Menu_Head"]));
+                        //GenerateGroup(ribbonPage2[i], Val.ToString(dtMenuNames.Rows[i]["main_menu"]));
+                        GenerateGroup(ribbonPage2[i], Val.ToString(dtMenuNames.Rows[i]["Menu_Head"]));
                     }
                     ribbonControl1.Pages.AddRange(ribbonPage2);
                 }
@@ -127,11 +127,11 @@ namespace Account_Management.MDI
                     for (int j = 0; j < dtPage.Rows.Count; j++)
                     {
                         pgrp[j] = new RibbonPageGroup();
-                        pgrp[j].Text = Convert.ToString(dtPage.Rows[j]["sub_menu"]);
+                        pgrp[j].Text = Val.ToString(dtPage.Rows[j]["sub_menu"]);
                         pgrp[j].Name = "Grp" + (j + 1).ToString();
                         pgrp[j].ShowCaptionButton = false;
-                        GenerateBtn(pgrp[j], Menu_, Convert.ToString(dtPage.Rows[j]["sub_menu"]));
-                        GenerateCombo(pgrp[j], Menu_, Convert.ToString(dtPage.Rows[j]["sub_menu"]));
+                        GenerateBtn(pgrp[j], Menu_, Val.ToString(dtPage.Rows[j]["sub_menu"]));
+                        GenerateCombo(pgrp[j], Menu_, Val.ToString(dtPage.Rows[j]["sub_menu"]));
                     }
                     pg_.Groups.AddRange(pgrp);
                 }
@@ -156,12 +156,12 @@ namespace Account_Management.MDI
                     BarButtonItem[] barbtn = new BarButtonItem[dtPage.Rows.Count];
                     for (int t = 0; t < dtPage.Rows.Count; t++)
                     {
-                        barbtn[t] = new BarButtonItem(ribbonControl1.Manager, Convert.ToString(dtPage.Rows[t]["caption"]));
+                        barbtn[t] = new BarButtonItem(ribbonControl1.Manager, Val.ToString(dtPage.Rows[t]["caption"]));
                         barbtn[t].Name = "Btn" + (t + 1).ToString();
-                        barbtn[t].Caption = Convert.ToString(dtPage.Rows[t]["caption"]);
-                        barbtn[t].Tag = Convert.ToString(dtPage.Rows[t]["form_name"]);
-                        barbtn[t].Description = Convert.ToString(dtPage.Rows[t]["form_id"]);
-                        if (Convert.ToString(dtPage.Rows[t]["icon"]) != "")
+                        barbtn[t].Caption = Val.ToString(dtPage.Rows[t]["caption"]);
+                        barbtn[t].Tag = Val.ToString(dtPage.Rows[t]["form_name"]);
+                        barbtn[t].Description = Val.ToString(dtPage.Rows[t]["form_id"]);
+                        if (Val.ToString(dtPage.Rows[t]["icon"]) != "")
                         {
                             barbtn[t].RibbonStyle = RibbonItemStyles.All;
                             barbtn[t].LargeWidth = 75;
@@ -195,50 +195,50 @@ namespace Account_Management.MDI
                     for (int t = 0; t < dtPage.Rows.Count; t++)
                     {
                         DataTable dtBtns = new DataTable();
-                        //if (DTForm.Select("Menu_Head='" + Menu_ + "'  AND  sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Convert.ToString(dtPage.Rows[t]["parent_btn_name"]) + "'").Length > 0)
+                        //if (DTForm.Select("Menu_Head='" + Menu_ + "'  AND  sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Val.ToString(dtPage.Rows[t]["parent_btn_name"]) + "'").Length > 0)
                         //{
-                        //   dtBtns = DTForm.Select("Menu_Head='" + Menu_ + "' AND sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Convert.ToString(dtPage.Rows[t]["parent_btn_name"]) + "'").CopyToDataTable();
+                        //   dtBtns = DTForm.Select("Menu_Head='" + Menu_ + "' AND sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Val.ToString(dtPage.Rows[t]["parent_btn_name"]) + "'").CopyToDataTable();
                         //}
-                        if (DTForm.Select("form_group_name='" + FormTypeStr + "' AND Menu_Head='" + Menu_ + "'  AND  sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Convert.ToString(dtPage.Rows[t]["parent_btn_name"]) + "'").Length > 0)
+                        if (DTForm.Select("form_group_name='" + FormTypeStr + "' AND Menu_Head='" + Menu_ + "'  AND  sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Val.ToString(dtPage.Rows[t]["parent_btn_name"]) + "'").Length > 0)
                         {
-                            dtBtns = DTForm.Select("form_group_name='" + FormTypeStr + "' AND Menu_Head='" + Menu_ + "' AND sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Convert.ToString(dtPage.Rows[t]["parent_btn_name"]) + "'").CopyToDataTable();
+                            dtBtns = DTForm.Select("form_group_name='" + FormTypeStr + "' AND Menu_Head='" + Menu_ + "' AND sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Val.ToString(dtPage.Rows[t]["parent_btn_name"]) + "'").CopyToDataTable();
                         }
 
-                        barbtn[t] = new BarSubItem(ribbonControl1.Manager, Convert.ToString(dtPage.Rows[t]["parent_btn_name"]));
+                        barbtn[t] = new BarSubItem(ribbonControl1.Manager, Val.ToString(dtPage.Rows[t]["parent_btn_name"]));
                         barbtn[t].Id = Ribbon.Manager.GetNewItemId();  // (t + 1);
                         barbtn[t].Name = "Combo" + (t + 1).ToString();
-                        barbtn[t].Caption = Convert.ToString(dtPage.Rows[t]["parent_btn_name"]);
+                        barbtn[t].Caption = Val.ToString(dtPage.Rows[t]["parent_btn_name"]);
                         barbtn[t].RibbonStyle = RibbonItemStyles.All;
                         barbtn[t].LargeWidth = 99;
-                        if (Convert.ToString(dtBtns.Rows[0]["icon"]) != "")
+                        if (Val.ToString(dtBtns.Rows[0]["icon"]) != "")
                         {
                             barbtn[t].ImageIndex = Val.ToInt(dtBtns.Rows[0]["icon"]);
                             barbtn[t].LargeImageIndex = Val.ToInt(dtBtns.Rows[0]["icon"]);
                         }
-                        if (DTForm.Select("form_group_name='" + FormTypeStr + "' AND Menu_Head='" + Menu_ + "' AND  sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Convert.ToString(dtPage.Rows[t]["parent_btn_name"]) + "' AND level1 IS NOT NULL").Length > 0)
+                        if (DTForm.Select("form_group_name='" + FormTypeStr + "' AND Menu_Head='" + Menu_ + "' AND  sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Val.ToString(dtPage.Rows[t]["parent_btn_name"]) + "' AND level1 IS NOT NULL").Length > 0)
                         {
-                            GetLevel1(barbtn[t], Menu_, SubMenu_, Convert.ToString(dtPage.Rows[t]["parent_btn_name"]));
+                            GetLevel1(barbtn[t], Menu_, SubMenu_, Val.ToString(dtPage.Rows[t]["parent_btn_name"]));
                         }
-                        //if (DTForm.Select("Menu_Head='" + Menu_ + "' AND  sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Convert.ToString(dtPage.Rows[t]["parent_btn_name"]) + "' AND level1 IS NOT NULL").Length > 0)
+                        //if (DTForm.Select("Menu_Head='" + Menu_ + "' AND  sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Val.ToString(dtPage.Rows[t]["parent_btn_name"]) + "' AND level1 IS NOT NULL").Length > 0)
                         //{
-                        //    GetLevel1(barbtn[t], Menu_, SubMenu_, Convert.ToString(dtPage.Rows[t]["parent_btn_name"]));
+                        //    GetLevel1(barbtn[t], Menu_, SubMenu_, Val.ToString(dtPage.Rows[t]["parent_btn_name"]));
                         //}
-                        //if (DTForm.Select("Menu_Head='" + Menu_ + "' AND  sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Convert.ToString(dtPage.Rows[t]["parent_btn_name"]) + "'  AND level1 IS NULL").Length > 0)
+                        //if (DTForm.Select("Menu_Head='" + Menu_ + "' AND  sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Val.ToString(dtPage.Rows[t]["parent_btn_name"]) + "'  AND level1 IS NULL").Length > 0)
                         //{
-                        if (DTForm.Select("form_group_name='" + FormTypeStr + "' AND Menu_Head='" + Menu_ + "' AND  sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Convert.ToString(dtPage.Rows[t]["parent_btn_name"]) + "'  AND level1 IS NULL").Length > 0)
+                        if (DTForm.Select("form_group_name='" + FormTypeStr + "' AND Menu_Head='" + Menu_ + "' AND  sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Val.ToString(dtPage.Rows[t]["parent_btn_name"]) + "'  AND level1 IS NULL").Length > 0)
                         {
                             dtBtns = new DataTable();
-                            //dtBtns = DTForm.Select("Menu_Head='" + Menu_ + "' AND  sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Convert.ToString(dtPage.Rows[t]["parent_btn_name"]) + "'  AND level1 IS NULL").CopyToDataTable();
-                            dtBtns = DTForm.Select("form_group_name='" + FormTypeStr + "' AND Menu_Head='" + Menu_ + "' AND  sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Convert.ToString(dtPage.Rows[t]["parent_btn_name"]) + "'  AND level1 IS NULL").CopyToDataTable();
+                            //dtBtns = DTForm.Select("Menu_Head='" + Menu_ + "' AND  sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Val.ToString(dtPage.Rows[t]["parent_btn_name"]) + "'  AND level1 IS NULL").CopyToDataTable();
+                            dtBtns = DTForm.Select("form_group_name='" + FormTypeStr + "' AND Menu_Head='" + Menu_ + "' AND  sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Val.ToString(dtPage.Rows[t]["parent_btn_name"]) + "'  AND level1 IS NULL").CopyToDataTable();
                             BarButtonItem[] Cmbbtn = new BarButtonItem[dtBtns.Rows.Count];
                             for (int z = 0; z < dtBtns.Rows.Count; z++)
                             {
-                                Cmbbtn[z] = new BarButtonItem(ribbonControl1.Manager, Convert.ToString(dtBtns.Rows[z]["caption"]));
+                                Cmbbtn[z] = new BarButtonItem(ribbonControl1.Manager, Val.ToString(dtBtns.Rows[z]["caption"]));
                                 Cmbbtn[z].Id = Ribbon.Manager.GetNewItemId(); //  (z + 1);
                                 Cmbbtn[z].Name = "CBtn" + (z + 1).ToString();
-                                Cmbbtn[z].Caption = Convert.ToString(dtBtns.Rows[z]["caption"]);
-                                Cmbbtn[z].Description = Convert.ToString(dtBtns.Rows[z]["form_id"]);
-                                Cmbbtn[z].Tag = Convert.ToString(dtBtns.Rows[z]["form_name"]);
+                                Cmbbtn[z].Caption = Val.ToString(dtBtns.Rows[z]["caption"]);
+                                Cmbbtn[z].Description = Val.ToString(dtBtns.Rows[z]["form_id"]);
+                                Cmbbtn[z].Tag = Val.ToString(dtBtns.Rows[z]["form_name"]);
                                 Cmbbtn[z].ItemClick += new ItemClickEventHandler(MDIMain_ItemClick);
                             }
                             barbtn[t].AddItems(Cmbbtn);
@@ -269,27 +269,27 @@ namespace Account_Management.MDI
                     for (int t = 0; t < dtPage.Rows.Count; t++)
                     {
                         DataTable dtBtns = new DataTable();
-                        //dtBtns = DTForm.AsEnumerable().Where(m => m.Field<string>("sub_menu") == SubMenu_ && m.Field<string>("parent_btn_name") == Parent_ && m.Field<string>("level1") == Convert.ToString(dtPage.Rows[t]["level1"])).CopyToDataTable();
-                        dtBtns = DTForm.AsEnumerable().Where(m => m.Field<string>("form_group_name") == FormTypeStr && m.Field<string>("sub_menu") == SubMenu_ && m.Field<string>("parent_btn_name") == Parent_ && m.Field<string>("level1") == Convert.ToString(dtPage.Rows[t]["level1"])).CopyToDataTable();
+                        //dtBtns = DTForm.AsEnumerable().Where(m => m.Field<string>("sub_menu") == SubMenu_ && m.Field<string>("parent_btn_name") == Parent_ && m.Field<string>("level1") == Val.ToString(dtPage.Rows[t]["level1"])).CopyToDataTable();
+                        dtBtns = DTForm.AsEnumerable().Where(m => m.Field<string>("form_group_name") == FormTypeStr && m.Field<string>("sub_menu") == SubMenu_ && m.Field<string>("parent_btn_name") == Parent_ && m.Field<string>("level1") == Val.ToString(dtPage.Rows[t]["level1"])).CopyToDataTable();
 
-                        barbtn[t] = new BarSubItem(ribbonControl1.Manager, Convert.ToString(dtPage.Rows[t]["level1"]));
+                        barbtn[t] = new BarSubItem(ribbonControl1.Manager, Val.ToString(dtPage.Rows[t]["level1"]));
                         barbtn[t].Id = Ribbon.Manager.GetNewItemId();  // (t + 1);
                         barbtn[t].Name = "L1Combo" + (t + 1).ToString();
-                        barbtn[t].Caption = Convert.ToString(dtPage.Rows[t]["level1"]);
+                        barbtn[t].Caption = Val.ToString(dtPage.Rows[t]["level1"]);
                         barbtn[t].RibbonStyle = RibbonItemStyles.All;
                         barbtn[t].LargeWidth = 99;
-                        if (Convert.ToString(dtBtns.Rows[0]["icon"]) != "")
+                        if (Val.ToString(dtBtns.Rows[0]["icon"]) != "")
                         {
                             barbtn[t].ImageIndex = Val.ToInt(dtBtns.Rows[0]["icon"]);
                             barbtn[t].LargeImageIndex = Val.ToInt(dtBtns.Rows[0]["icon"]);
                         }
                         //if (DTForm.Select("Menu_Head='" + Menu_ + "' AND sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Parent_ + "' AND level1 IS NOT NULL AND level2 IS NOT NULL").Length > 0)
                         //{
-                        //    GetLevel2(barbtn[t], Menu_, SubMenu_, Parent_, Convert.ToString(dtPage.Rows[t]["level1"]));
+                        //    GetLevel2(barbtn[t], Menu_, SubMenu_, Parent_, Val.ToString(dtPage.Rows[t]["level1"]));
                         //}
                         if (DTForm.Select("form_group_name='" + FormTypeStr + "' AND Menu_Head='" + Menu_ + "' AND sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Parent_ + "' AND level1 IS NOT NULL AND level2 IS NOT NULL").Length > 0)
                         {
-                            GetLevel2(barbtn[t], Menu_, SubMenu_, Parent_, Convert.ToString(dtPage.Rows[t]["level1"]));
+                            GetLevel2(barbtn[t], Menu_, SubMenu_, Parent_, Val.ToString(dtPage.Rows[t]["level1"]));
                         }
 
                         //if (DTForm.Select("Menu_Head='" + Menu_ + "' AND sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Parent_ + "' AND level1 IS NOT NULL AND level2 IS NULL").Length > 0)
@@ -297,17 +297,17 @@ namespace Account_Management.MDI
                         if (DTForm.Select("form_group_name='" + FormTypeStr + "' AND Menu_Head='" + Menu_ + "' AND sub_menu='" + SubMenu_ + "' AND parent_btn_name='" + Parent_ + "' AND level1 IS NOT NULL AND level2 IS NULL").Length > 0)
                         {
                             dtBtns = new DataTable();
-                            //dtBtns = DTForm.AsEnumerable().Where(m => m.Field<string>("sub_menu") == SubMenu_ && m.Field<string>("parent_btn_name") == Parent_ && m.Field<string>("level1") == Convert.ToString(dtPage.Rows[t]["level1"]) && m.Field<string>("level2") == null).CopyToDataTable();
-                            dtBtns = DTForm.AsEnumerable().Where(m => m.Field<string>("form_group_name") == FormTypeStr && m.Field<string>("sub_menu") == SubMenu_ && m.Field<string>("parent_btn_name") == Parent_ && m.Field<string>("level1") == Convert.ToString(dtPage.Rows[t]["level1"]) && m.Field<string>("level2") == null).CopyToDataTable();
+                            //dtBtns = DTForm.AsEnumerable().Where(m => m.Field<string>("sub_menu") == SubMenu_ && m.Field<string>("parent_btn_name") == Parent_ && m.Field<string>("level1") == Val.ToString(dtPage.Rows[t]["level1"]) && m.Field<string>("level2") == null).CopyToDataTable();
+                            dtBtns = DTForm.AsEnumerable().Where(m => m.Field<string>("form_group_name") == FormTypeStr && m.Field<string>("sub_menu") == SubMenu_ && m.Field<string>("parent_btn_name") == Parent_ && m.Field<string>("level1") == Val.ToString(dtPage.Rows[t]["level1"]) && m.Field<string>("level2") == null).CopyToDataTable();
                             BarButtonItem[] Cmbbtn = new BarButtonItem[dtBtns.Rows.Count];
                             for (int z = 0; z < dtBtns.Rows.Count; z++)
                             {
-                                Cmbbtn[z] = new BarButtonItem(ribbonControl1.Manager, Convert.ToString(dtBtns.Rows[z]["caption"]));
+                                Cmbbtn[z] = new BarButtonItem(ribbonControl1.Manager, Val.ToString(dtBtns.Rows[z]["caption"]));
                                 Cmbbtn[z].Id = Ribbon.Manager.GetNewItemId();
                                 Cmbbtn[z].Name = "CBtn" + (z + 1).ToString();
-                                Cmbbtn[z].Caption = Convert.ToString(dtBtns.Rows[z]["caption"]);
-                                Cmbbtn[z].Description = Convert.ToString(dtBtns.Rows[z]["form_id"]);
-                                Cmbbtn[z].Tag = Convert.ToString(dtBtns.Rows[z]["form_name"]);
+                                Cmbbtn[z].Caption = Val.ToString(dtBtns.Rows[z]["caption"]);
+                                Cmbbtn[z].Description = Val.ToString(dtBtns.Rows[z]["form_id"]);
+                                Cmbbtn[z].Tag = Val.ToString(dtBtns.Rows[z]["form_name"]);
                                 Cmbbtn[z].ItemClick += new ItemClickEventHandler(MDIMain_ItemClick);
                             }
                             barbtn[t].AddItems(Cmbbtn);
@@ -338,16 +338,16 @@ namespace Account_Management.MDI
                     for (int t = 0; t < dtPage.Rows.Count; t++)
                     {
                         DataTable dtBtns = new DataTable();
-                        //dtBtns = DTForm.AsEnumerable().Where(m => m.Field<string>("sub_menu") == SubMenu_ && m.Field<string>("parent_btn_name") == Parent_ && m.Field<string>("level1") == Level1_ && m.Field<string>("level2") == Convert.ToString(dtPage.Rows[t]["level2"])).CopyToDataTable();
-                        dtBtns = DTForm.AsEnumerable().Where(m => m.Field<string>("form_group_name") == FormTypeStr && m.Field<string>("sub_menu") == SubMenu_ && m.Field<string>("parent_btn_name") == Parent_ && m.Field<string>("level1") == Level1_ && m.Field<string>("level2") == Convert.ToString(dtPage.Rows[t]["level2"])).CopyToDataTable();
+                        //dtBtns = DTForm.AsEnumerable().Where(m => m.Field<string>("sub_menu") == SubMenu_ && m.Field<string>("parent_btn_name") == Parent_ && m.Field<string>("level1") == Level1_ && m.Field<string>("level2") == Val.ToString(dtPage.Rows[t]["level2"])).CopyToDataTable();
+                        dtBtns = DTForm.AsEnumerable().Where(m => m.Field<string>("form_group_name") == FormTypeStr && m.Field<string>("sub_menu") == SubMenu_ && m.Field<string>("parent_btn_name") == Parent_ && m.Field<string>("level1") == Level1_ && m.Field<string>("level2") == Val.ToString(dtPage.Rows[t]["level2"])).CopyToDataTable();
 
-                        barbtn[t] = new BarSubItem(ribbonControl1.Manager, Convert.ToString(dtPage.Rows[t]["level2"]));
+                        barbtn[t] = new BarSubItem(ribbonControl1.Manager, Val.ToString(dtPage.Rows[t]["level2"]));
                         barbtn[t].Id = Ribbon.Manager.GetNewItemId();  // (t + 1);
                         barbtn[t].Name = "L2Combo" + (t + 1).ToString();
-                        barbtn[t].Caption = Convert.ToString(dtPage.Rows[t]["level2"]);
+                        barbtn[t].Caption = Val.ToString(dtPage.Rows[t]["level2"]);
                         barbtn[t].RibbonStyle = RibbonItemStyles.All;
                         barbtn[t].LargeWidth = 99;
-                        if (Convert.ToString(dtBtns.Rows[0]["icon"]) != "")
+                        if (Val.ToString(dtBtns.Rows[0]["icon"]) != "")
                         {
                             barbtn[t].ImageIndex = Val.ToInt(dtBtns.Rows[0]["icon"]);
                             barbtn[t].LargeImageIndex = Val.ToInt(dtBtns.Rows[0]["icon"]);
@@ -355,12 +355,12 @@ namespace Account_Management.MDI
                         BarButtonItem[] Cmbbtn = new BarButtonItem[dtBtns.Rows.Count];
                         for (int z = 0; z < dtBtns.Rows.Count; z++)
                         {
-                            Cmbbtn[z] = new BarButtonItem(ribbonControl1.Manager, Convert.ToString(dtBtns.Rows[z]["caption"]));
+                            Cmbbtn[z] = new BarButtonItem(ribbonControl1.Manager, Val.ToString(dtBtns.Rows[z]["caption"]));
                             Cmbbtn[z].Id = Ribbon.Manager.GetNewItemId();
                             Cmbbtn[z].Name = "CBtn" + (z + 1).ToString();
-                            Cmbbtn[z].Caption = Convert.ToString(dtBtns.Rows[z]["caption"]);
-                            Cmbbtn[z].Description = Convert.ToString(dtBtns.Rows[z]["form_id"]);
-                            Cmbbtn[z].Tag = Convert.ToString(dtBtns.Rows[z]["form_name"]);
+                            Cmbbtn[z].Caption = Val.ToString(dtBtns.Rows[z]["caption"]);
+                            Cmbbtn[z].Description = Val.ToString(dtBtns.Rows[z]["form_id"]);
+                            Cmbbtn[z].Tag = Val.ToString(dtBtns.Rows[z]["form_name"]);
                             Cmbbtn[z].ItemClick += new ItemClickEventHandler(MDIMain_ItemClick);
                         }
                         barbtn[t].AddItems(Cmbbtn);
