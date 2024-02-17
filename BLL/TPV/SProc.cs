@@ -124,12 +124,18 @@
         public static string MST_Item_Cat_Master_GetData = "MST_Item_Cat_Master_GetData";
         public static string MST_Item_Cat_Master_Search_GetData = "MST_Item_Cat_Master_Search_GetData";
 
-        #endregion "Master"    
-
-        #region "Master"
         public static string MST_Party_Save = "MST_Party_Save";
         public static string MST_Party_GetData = "MST_Party_GetData";
         public static string MST_Party_Update = "MST_Party_Update";
+
+        #endregion "Master"    
+
+        #region "Transaction"
+
+        public static string TRN_Janged_Entry_GetData = "TRN_Janged_Entry_GetData";
+        public static string TRN_Janged_Entry_GetDetailsData = "TRN_Janged_Entry_GetDetailsData";
+        public static string TRN_janged_Save = "TRN_janged_Save";
+        public static string TRN_Janged_Details_Save = "TRN_Janged_Details_Save";
 
         #endregion
 

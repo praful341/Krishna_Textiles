@@ -316,28 +316,6 @@ namespace Account_Management.Transaction
         #endregion
 
         #region Events
-        private void FrmSaleInvoice_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!LoadDefaults())
-                {
-                    btnAdd.Enabled = false;
-                    btnClear.Enabled = false;
-                    btnSave.Enabled = false;
-                }
-                else
-                {
-                    ClearDetails();
-                    ttlbSaleInvoice.SelectedTabPage = tblJangeddetail;
-                }
-            }
-            catch (Exception ex)
-            {
-                Global.Message(ex.ToString());
-                return;
-            }
-        }
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (AddInGrid())
@@ -354,7 +332,6 @@ namespace Account_Management.Transaction
                 m_IsValid = true;
                 m_blncheckevents = false;
                 txtDiscountPer_EditValueChanged(null, null);
-                txtBrokeragePer_EditValueChanged(null, null);
                 m_blncheckevents = true;
             }
         }
@@ -412,13 +389,6 @@ namespace Account_Management.Transaction
                 return;
             }
 
-            while (objJangedEntry.ISExistsInvoiceNo(Val.ToString(txtInvoiceNo.Text)) == true && lblMode.Text == "Add Mode" && Val.ToInt(lblMode.Tag) == 0)
-            {
-                Global.Message("this Invoice No already Created please check invoice No");
-                btnSave.Enabled = true;
-                return;
-            }
-
             DialogResult result = MessageBox.Show("Do you want to save data?", "Confirmation", MessageBoxButtons.YesNoCancel);
             if (result != DialogResult.Yes)
             {
@@ -428,13 +398,9 @@ namespace Account_Management.Transaction
 
             DevExpress.Data.CurrencyDataController.DisableThreadingProblemsDetection = true;
             panelProgress.Visible = true;
-            backgroundWorker_SaleInvoice.RunWorkerAsync();
+            backgroundWorker_JangedEntry.RunWorkerAsync();
 
             btnSave.Enabled = true;
-        }
-        private void btnClear_Click_1(object sender, EventArgs e)
-        {
-            ClearDetails();
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -477,7 +443,7 @@ namespace Account_Management.Transaction
 
             DevExpress.Data.CurrencyDataController.DisableThreadingProblemsDetection = true;
             panelProgress.Visible = true;
-            backgroundWorker_SaleDelete.RunWorkerAsync();
+            backgroundWorker_JangedDelete.RunWorkerAsync();
 
             btnDelete.Enabled = true;
         }
@@ -487,48 +453,11 @@ namespace Account_Management.Transaction
             {
                 if (!m_blncheckevents)
                 {
-                    decimal Dis_amt = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtDiscountPer.Text) / 100, 0);
-                    txtDiscountAmt.Text = Dis_amt.ToString();
-                    decimal Net_Amount = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text) - Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
+                    decimal Dis_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtDiscountPer.Text) / 100, 0);
+                    txtDiscountAmount.Text = Dis_amount.ToString();
+                    decimal Net_Amount = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtCGSTAmount.Text) + Val.ToDecimal(txtSGSTAmount.Text) + Val.ToDecimal(txtIGSTAmount.Text) - Val.ToDecimal(txtDiscountAmount.Text)) + Val.ToDecimal(txtRoundOff.Text), 0);
                     txtNetAmount.Text = Net_Amount.ToString();
-
-                    txtBrokeragePer_EditValueChanged(null, null);
                 }
-            }
-            catch (Exception ex)
-            {
-                General.ShowErrors(ex.ToString());
-                return;
-            }
-        }
-        private void txtBrokeragePer_EditValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                //if (!m_blncheckevents)
-                //{
-                //    decimal Brokerage_amt = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) - Val.ToDecimal(txtDiscountAmt.Text)) * Val.ToDecimal(txtBrokeragePer.Text) / 100, 0);
-                //    txtBrokerageAmt.Text = Brokerage_amt.ToString();
-                //}
-            }
-            catch (Exception ex)
-            {
-                General.ShowErrors(ex.ToString());
-                return;
-            }
-        }
-        private void txtInterestPer_EditValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                //if (!m_blncheckevents)
-                //{
-                //    decimal Interest_amt = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) - Val.ToDecimal(txtDiscountAmt.Text)) * Val.ToDecimal(txtInterestPer.Text) / 100, 0);
-                //    txtInterestAmt.Text = Interest_amt.ToString();
-                //    decimal Net_Amount = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text) - Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtInterestAmt.Text) + Val.ToDecimal(txtShippingCharge.Text), 0);
-                //    txtNetAmount.Text = Net_Amount.ToString();
-                //}
-
             }
             catch (Exception ex)
             {
@@ -542,7 +471,7 @@ namespace Account_Management.Transaction
             {
                 if (Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) != 0)
                 {
-                    decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text)) - (Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
+                    decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtCGSTAmount.Text) + Val.ToDecimal(txtSGSTAmount.Text) + Val.ToDecimal(txtIGSTAmount.Text)) - (Val.ToDecimal(txtDiscountAmount.Text)) + Val.ToDecimal(txtRoundOff.Text), 0);
                     txtNetAmount.Text = Shipping_Charge.ToString();
                 }
             }
@@ -556,13 +485,13 @@ namespace Account_Management.Transaction
         {
             try
             {
-                decimal GrossAmt = Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue);
-                decimal DiscountAmt = Val.ToDecimal(txtDiscountAmt.Text);
+                decimal GrossAmount = Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue);
+                decimal DiscountAmount = Val.ToDecimal(txtDiscountAmount.Text);
 
-                decimal CGST_amt = Math.Round(Val.ToDecimal(GrossAmt - DiscountAmt) * Val.ToDecimal(txtCGSTPer.Text) / 100, 0);
-                txtCGSTAmt.Text = CGST_amt.ToString();
+                decimal CGST_amount = Math.Round(Val.ToDecimal(GrossAmount - DiscountAmount) * Val.ToDecimal(txtCGSTPer.Text) / 100, 0);
+                txtCGSTAmount.Text = CGST_amount.ToString();
 
-                decimal Net_Amount = Math.Round((Val.ToDecimal(GrossAmt) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text) - Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
+                decimal Net_Amount = Math.Round((Val.ToDecimal(GrossAmount) + Val.ToDecimal(txtCGSTAmount.Text) + Val.ToDecimal(txtSGSTAmount.Text) + Val.ToDecimal(txtIGSTAmount.Text) - Val.ToDecimal(txtDiscountAmount.Text)) + Val.ToDecimal(txtRoundOff.Text), 0);
                 txtNetAmount.Text = Net_Amount.ToString();
             }
             catch (Exception ex)
@@ -575,12 +504,12 @@ namespace Account_Management.Transaction
         {
             try
             {
-                decimal GrossAmt = Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue);
-                decimal DiscountAmt = Val.ToDecimal(txtDiscountAmt.Text);
+                decimal GrossAmount = Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue);
+                decimal DiscountAmount = Val.ToDecimal(txtDiscountAmount.Text);
 
-                decimal SGST_amt = Math.Round(Val.ToDecimal(GrossAmt - DiscountAmt) * Val.ToDecimal(txtSGSTPer.Text) / 100, 0);
-                txtSGSTAmt.Text = SGST_amt.ToString();
-                decimal Net_Amount = Math.Round((Val.ToDecimal(GrossAmt) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text) - Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
+                decimal SGST_amount = Math.Round(Val.ToDecimal(GrossAmount - DiscountAmount) * Val.ToDecimal(txtSGSTPer.Text) / 100, 0);
+                txtSGSTAmount.Text = SGST_amount.ToString();
+                decimal Net_Amount = Math.Round((Val.ToDecimal(GrossAmount) + Val.ToDecimal(txtCGSTAmount.Text) + Val.ToDecimal(txtSGSTAmount.Text) + Val.ToDecimal(txtIGSTAmount.Text) - Val.ToDecimal(txtDiscountAmount.Text)) + Val.ToDecimal(txtRoundOff.Text), 0);
                 txtNetAmount.Text = Net_Amount.ToString();
             }
             catch (Exception ex)
@@ -593,12 +522,12 @@ namespace Account_Management.Transaction
         {
             try
             {
-                decimal GrossAmt = Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue);
-                decimal DiscountAmt = Val.ToDecimal(txtDiscountAmt.Text);
+                decimal GrossAmount = Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue);
+                decimal DiscountAmount = Val.ToDecimal(txtDiscountAmount.Text);
 
-                decimal IGST_amt = Math.Round(Val.ToDecimal(GrossAmt - DiscountAmt) * Val.ToDecimal(txtIGSTPer.Text) / 100, 0);
-                txtIGSTAmt.Text = IGST_amt.ToString();
-                decimal Net_Amount = Math.Round((Val.ToDecimal(GrossAmt) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text) - Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
+                decimal IGST_amount = Math.Round(Val.ToDecimal(GrossAmount - DiscountAmount) * Val.ToDecimal(txtIGSTPer.Text) / 100, 0);
+                txtIGSTAmount.Text = IGST_amount.ToString();
+                decimal Net_Amount = Math.Round((Val.ToDecimal(GrossAmount) + Val.ToDecimal(txtCGSTAmount.Text) + Val.ToDecimal(txtSGSTAmount.Text) + Val.ToDecimal(txtIGSTAmount.Text) - Val.ToDecimal(txtDiscountAmount.Text)) + Val.ToDecimal(txtRoundOff.Text), 0);
                 txtNetAmount.Text = Net_Amount.ToString();
             }
             catch (Exception ex)
@@ -641,429 +570,8 @@ namespace Account_Management.Transaction
             Pen pen = new Pen(Color.FromArgb(255, 191, 219, 255), 2);
             e.Graphics.DrawLine(pen, 0, 85, 1500, 85);
         }
-        private void backgroundWorker_SaleDelete_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
-            Conn = new BeginTranConnection(true, false);
-
-            Janged_EntryProperty objJangedEntryProperty = new Janged_EntryProperty();
-            JangedEntry objJangedEntry = new JangedEntry();
-            DataTable dtbMemoRecDelete = new DataTable();
-            try
-            {
-                if (Val.ToInt(lblMode.Tag) != 0)
-                {
-                    IntRes = 0;
-                    objJangedEntryProperty.invoice_id = Val.ToInt(lblMode.Tag);
-                    dtbMemoRecDelete = objJangedEntry.GetMemoReceiveData(Val.ToInt(lblMode.Tag));
-
-
-                    int IntCounter = 0;
-                    int Count = 0;
-                    int FlagCount = 1;
-                    int TotalCount = m_dtbJangedDetails.Rows.Count;
-                    Int32 Flag = 0;
-                    foreach (DataRow drw in m_dtbJangedDetails.Rows)
-                    {
-                        objJangedEntryProperty.invoice_detail_id = Val.ToInt(drw["janged_detail_id"]);
-                        objJangedEntryProperty.assort_id = Val.ToInt(drw["assort_id"]);
-                        objJangedEntryProperty.sieve_id = Val.ToInt(drw["sieve_id"]);
-                        objJangedEntryProperty.pcs = Val.ToInt(drw["pcs"]);
-                        objJangedEntryProperty.carat = Val.ToDecimal(drw["carat"]);
-
-                        if (FlagCount == TotalCount)
-                        {
-                            Flag = 1;
-                        }
-
-                        IntRes = objJangedEntry.Delete(objJangedEntryProperty, Flag, DLL.GlobalDec.EnumTran.Continue, Conn);
-
-                        FlagCount++;
-                        Count++;
-                        IntCounter++;
-                        IntRes++;
-                        SetControlPropertyValue(lblProgressCount, "Text", Count.ToString() + "" + "/" + "" + TotalCount.ToString() + " Completed....");
-                    }
-
-                    if (IntRes > 0)
-                    {
-                        objJangedEntry = new JangedEntry();
-                        objJangedEntryProperty = new Janged_EntryProperty();
-
-                        foreach (DataRow drw in dtbMemoRecDelete.Rows)
-                        {
-                            objJangedEntryProperty.memo_id = Val.ToInt(drw["memo_id"]);
-                            objJangedEntryProperty.rej_carat = Val.ToDecimal(drw["rejection_carat"]);
-                            objJangedEntryProperty.carat = Val.ToDecimal(drw["return_carat"]);
-                            objJangedEntryProperty.assort_id = Val.ToInt(drw["assort_id"]);
-                            objJangedEntryProperty.sieve_id = Val.ToInt(drw["sieve_id"]);
-
-                            IntRes = objJangedEntry.Delete_MemoRecive_Details(objJangedEntryProperty, Flag, DLL.GlobalDec.EnumTran.Continue, Conn);
-                        }
-                    }
-
-                    Conn.Inter1.Commit();
-                }
-                else
-                {
-                    Global.Message("Invoice ID not found");
-                    Conn.Inter1.Rollback();
-                    Conn = null;
-                    return;
-                }
-            }
-            catch (Exception ex)
-            {
-                IntRes = -1;
-                Conn.Inter1.Rollback();
-                Conn = null;
-                General.ShowErrors(ex.ToString());
-                if (ex.InnerException != null)
-                {
-                    Global.Message(ex.InnerException.ToString());
-                }
-            }
-            finally
-            {
-                objJangedEntryProperty = null;
-            }
-        }
-        private void backgroundWorker_SaleDelete_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
-        {
-            try
-            {
-                panelProgress.Visible = false;
-                if (IntRes > 0)
-                {
-                    if (Val.ToInt(lblMode.Tag) == 0)
-                    {
-                        Global.Confirm("Sale Invoice Data Delete Successfully");
-                        ClearDetails();
-                    }
-                    else
-                    {
-                        Global.Confirm("Sale Invoice Data Delete Successfully");
-                        ClearDetails();
-                    }
-                }
-                else
-                {
-                    Global.Confirm("Error In Sale Invoice Delete");
-                    txtInvoiceNo.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                Global.Message(ex.ToString());
-                Global.Message(ex.InnerException.ToString());
-            }
-        }
-        private void backgroundWorker_SaleInvoice_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
-            try
-            {
-                Cursor.Current = Cursors.Default;
-                Conn = new BeginTranConnection(true, false);
-
-                Janged_EntryProperty objJangedEntryProperty = new Janged_EntryProperty();
-                JangedEntry objJangedEntry = new JangedEntry();
-                try
-                {
-                    IntRes = 0;
-
-                    objJangedEntryProperty.invoice_id = Val.ToInt(lblMode.Tag);
-                    objJangedEntryProperty.invoice_No = Val.ToString(txtInvoiceNo.Text);
-                    objJangedEntryProperty.company_id = Val.ToInt(GlobalDec.gEmployeeProperty.company_id);
-                    objJangedEntryProperty.branch_id = Val.ToInt(GlobalDec.gEmployeeProperty.branch_id);
-                    objJangedEntryProperty.location_id = Val.ToInt(GlobalDec.gEmployeeProperty.location_id);
-                    objJangedEntryProperty.department_id = Val.ToInt(GlobalDec.gEmployeeProperty.department_id);
-
-                    objJangedEntryProperty.invoice_date = Val.DBDate(dtpJangedDate.Text);
-                    //objJangedEntryProperty.delivery_type_id = Val.ToInt(lueDeliveryType.EditValue);
-                    //objJangedEntryProperty.remarks = Val.ToString(txtEntry.Text);
-
-                    objJangedEntryProperty.form_id = m_numForm_id;
-
-                    objJangedEntryProperty.Bill_To_Party_Id = Val.ToInt(lueGSTRate.EditValue);
-                    objJangedEntryProperty.Shipped_To_Party_Id = Val.ToInt(lueParty.EditValue);
-                    //objJangedEntryProperty.Refrenace_Id = Val.ToInt(lueReferance.EditValue);
-
-                    //objJangedEntryProperty.Broker_Id = Val.ToInt(lueBroker.EditValue);
-                    //objJangedEntryProperty.Term_Days = Val.ToInt(txtTermDays.EditValue);
-                    //objJangedEntryProperty.Add_On_Days = Val.ToInt(txtAddOnDays.EditValue);
-                    //objJangedEntryProperty.due_date = Val.DBDate(dtpDueDate.Text);
-                    //objJangedEntryProperty.demand_master_id = Val.ToInt(lblDemandNo.Tag);
-                    //objJangedEntryProperty.memo_master_id = Val.ToInt(lueMemoNo.EditValue);
-
-                    //objJangedEntryProperty.final_Term_Days = Val.ToInt(txtFinalTermDays.EditValue);
-                    //objJangedEntryProperty.final_due_date = Val.DBDate(dtpFinalDueDate.Text);
-
-
-                    objJangedEntryProperty.total_pcs = Math.Round(Val.ToDecimal(clmPcs.SummaryItem.SummaryValue), 3);
-                    // objJangedEntryProperty.total_carat = Math.Round(Val.ToDecimal(clmDetCarat.SummaryItem.SummaryValue), 3);
-
-                    objJangedEntryProperty.Gross_Amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue), 3);
-
-                    objJangedEntryProperty.cgst_rate = Val.ToDecimal(txtCGSTPer.Text);
-                    objJangedEntryProperty.cgst_amount = Val.ToDecimal(txtCGSTAmt.Text);
-                    objJangedEntryProperty.sgst_rate = Val.ToDecimal(txtSGSTPer.Text);
-                    objJangedEntryProperty.sgst_amount = Val.ToDecimal(txtSGSTAmt.Text);
-                    objJangedEntryProperty.igst_rate = Val.ToDecimal(txtIGSTPer.Text);
-                    objJangedEntryProperty.igst_amount = Val.ToDecimal(txtIGSTAmt.Text);
-
-                    objJangedEntryProperty.Discount_Per = Val.ToDecimal(txtDiscountPer.Text);
-                    objJangedEntryProperty.Discount_Amt = Val.ToDecimal(txtDiscountAmt.Text);
-                    objJangedEntryProperty.Shipping_Charge = Val.ToDecimal(txtShippingCharge.Text);
-
-                    objJangedEntryProperty.net_amount = Val.ToDecimal(txtNetAmount.Text);
-                    //objJangedEntryProperty.Currency_Type = lueCurrency.Text;
-                    objJangedEntryProperty.Currency_ID = Val.ToInt(m_numCurrency_id);
-                    //objJangedEntryProperty.exchange_rate = Val.ToDecimal(txtExchangeRate.Text);
-                    //objJangedEntryProperty.Seller_ID = Val.ToInt(lueSeller.EditValue);
-
-                    //int IntRes = objSaleInvoice.Save(objSaleInvoiceProperty, m_dtbJangedDetails);
-                    objJangedEntryProperty = objJangedEntry.Save(objJangedEntryProperty, DLL.GlobalDec.EnumTran.Start, Conn);
-
-                    Int64 NewmInvoiceid = Val.ToInt64(objJangedEntryProperty.invoice_id);
-
-                    int IntCounter = 0;
-                    int Count = 0;
-                    int TotalCount = m_dtbJangedDetails.Rows.Count;
-
-                    foreach (DataRow drw in m_dtbJangedDetails.Rows)
-                    {
-                        objJangedEntryProperty = new Janged_EntryProperty();
-                        objJangedEntryProperty.invoice_id = Val.ToInt32(NewmInvoiceid);
-                        objJangedEntryProperty.invoice_detail_id = Val.ToInt(drw["invoice_detail_id"]);
-                        objJangedEntryProperty.assort_id = Val.ToInt(drw["assort_id"]);
-                        objJangedEntryProperty.sieve_id = Val.ToInt(drw["sieve_id"]);
-                        objJangedEntryProperty.sub_sieve_id = Val.ToInt(drw["sub_sieve_id"]);
-                        objJangedEntryProperty.pcs = Val.ToInt(drw["pcs"]);
-                        objJangedEntryProperty.carat = Val.ToDecimal(drw["carat"]);
-                        objJangedEntryProperty.rate = Val.ToDecimal(drw["rate"]);
-                        objJangedEntryProperty.amount = Val.ToDecimal(drw["amount"]);
-                        objJangedEntryProperty.discount = Val.ToDecimal(drw["discount"]);
-
-                        objJangedEntryProperty.rej_carat = Val.ToDecimal(drw["rej_carat"]);
-                        objJangedEntryProperty.rej_percentage = Val.ToDecimal(drw["rej_percentage"]);
-
-                        objJangedEntryProperty.old_carat = Val.ToDecimal(drw["old_carat"]);
-                        objJangedEntryProperty.old_pcs = Val.ToInt(drw["old_pcs"]);
-                        objJangedEntryProperty.old_rej_carat = Val.ToDecimal(drw["old_rej_carat"]);
-                        objJangedEntryProperty.old_rej_percentage = Val.ToInt(drw["old_rej_percentage"]);
-                        objJangedEntryProperty.flag = Val.ToInt(drw["flag"]);
-                        objJangedEntryProperty.old_assort_id = Val.ToInt(drw["old_assort_id"]);
-                        objJangedEntryProperty.old_sieve_id = Val.ToInt(drw["old_sieve_id"]);
-                        objJangedEntryProperty.old_sub_sieve_id = Val.ToInt(drw["old_sub_sieve_id"]);
-                        objJangedEntryProperty.current_rate = Val.ToDecimal(drw["current_rate"]);
-                        objJangedEntryProperty.current_amount = Val.ToDecimal(drw["current_amount"]);
-                        objJangedEntryProperty.old_sieve_id = Val.ToInt(drw["old_sieve_id"]);
-                        objJangedEntryProperty.Currency_ID = Val.ToInt(m_numCurrency_id);
-                        objJangedEntryProperty.loss_carat = Val.ToDecimal(drw["loss_carat"]);
-                        objJangedEntryProperty.old_loss_carat = Val.ToDecimal(drw["old_loss_carat"]);
-                        objJangedEntryProperty.is_memo = Val.ToInt(drw["is_memo"]);
-
-                        objJangedEntryProperty.purchase_rate = Val.ToDecimal(drw["purchase_rate"]);
-                        objJangedEntryProperty.purchase_amount = Val.ToDecimal(drw["purchase_amount"]);
-
-
-                        IntRes = objJangedEntry.Save_Detail(objJangedEntryProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
-
-                        Count++;
-                        IntCounter++;
-                        IntRes++;
-                        SetControlPropertyValue(lblProgressCount, "Text", Count.ToString() + "" + "/" + "" + TotalCount.ToString() + " Completed....");
-                    }
-                    Conn.Inter1.Commit();
-                }
-                catch (Exception ex)
-                {
-                    IntRes = -1;
-                    Conn.Inter1.Rollback();
-                    Conn = null;
-                    General.ShowErrors(ex.ToString());
-                    return;
-                }
-                finally
-                {
-                    objJangedEntryProperty = null;
-                }
-            }
-            catch (Exception ex)
-            {
-                IntRes = -1;
-                Conn.Inter1.Rollback();
-                Conn = null;
-                Global.Message(ex.ToString());
-                if (ex.InnerException != null)
-                {
-                    Global.Message(ex.InnerException.ToString());
-                }
-            }
-        }
-        private void backgroundWorker_SaleInvoice_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
-        {
-            try
-            {
-                panelProgress.Visible = false;
-                if (IntRes > 0)
-                {
-                    if (Val.ToInt(lblMode.Tag) == 0)
-                    {
-                        Global.Confirm("Sale Invoice Data Save Successfully");
-                        ClearDetails();
-                        PopulateDetails();
-                    }
-                    else
-                    {
-                        Global.Confirm("Sale Invoice Data Update Successfully");
-                        ClearDetails();
-                        PopulateDetails();
-                    }
-                }
-                else
-                {
-                    Global.Confirm("Error In Sale Invoice");
-                    txtInvoiceNo.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                Global.Message(ex.ToString());
-                Global.Message(ex.InnerException.ToString());
-            }
-        }
 
         #region "Grid Events" 
-        private void dgvSalesDetails_CustomSummaryCalculate(object sender, DevExpress.Data.CustomSummaryEventArgs e)
-        {
-            try
-            {
-                //if (Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) > 0 && Val.ToDecimal(clmDetCarat.SummaryItem.SummaryValue) > 0)
-                //{
-                //    m_numSummDetRate = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) / Val.ToDecimal(clmDetCarat.SummaryItem.SummaryValue)), 2, MidpointRounding.AwayFromZero);
-
-                //}
-                //else
-                //{
-                //    m_numSummDetRate = 0;
-                //}
-                if (((DevExpress.XtraGrid.GridSummaryItem)e.Item).FieldName == "rate")
-                {
-                    if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Finalize)
-                        e.TotalValue = m_numSummDetRate;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                BLL.General.ShowErrors(ex);
-            }
-        }
-        private void dgvSaleInvoice_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
-        {
-            try
-            {
-                objJangedEntry = new JangedEntry();
-                if (e.RowHandle >= 0)
-                {
-                    if (e.Clicks == 2)
-                    {
-                        m_blncheckevents = true;
-
-                        DataRow Drow = dgvJangedInvoice.GetDataRow(e.RowHandle);
-                        lblMode.Text = "Edit Mode";
-                        lblMode.Tag = Val.ToInt32(Drow["invoice_id"]);
-
-                        dtpJangedDate.Text = Val.DBDate(Val.ToString(Drow["invoice_date"]));
-                        txtInvoiceNo.Text = Val.ToString(Drow["invoice_no"]);
-                        lueGSTRate.EditValue = Val.ToInt(Drow["billed_to_party_id"]);
-                        lueParty.EditValue = Val.ToInt(Drow["shipped_to_party_id"]);
-
-
-                        txtShippingCharge.Text = Val.ToString(Drow["shipping"]);
-                        txtDiscountPer.Text = Val.ToString(Drow["discount_per"]);
-                        txtDiscountAmt.Text = Val.ToString(Drow["discount_amount"]);
-                        txtCGSTPer.Text = Val.ToString(Drow["cgst_per"]);
-                        txtCGSTAmt.Text = Val.ToString(Drow["cgst_amount"]);
-                        txtSGSTPer.Text = Val.ToString(Drow["sgst_per"]);
-                        txtSGSTAmt.Text = Val.ToString(Drow["sgst_amount"]);
-                        txtIGSTPer.Text = Val.ToString(Drow["igst_per"]);
-                        txtIGSTAmt.Text = Val.ToString(Drow["igst_amount"]);
-                        txtNetAmount.Text = Val.ToString(Drow["net_amount"]);
-
-                        m_dtbJangedDetails = objJangedEntry.GetDataDetails(Val.ToInt(lblMode.Tag));
-                        grdJangedDetails.DataSource = m_dtbJangedDetails;
-
-                        ttlbSaleInvoice.SelectedTabPage = tblJangeddetail;
-                        txtInvoiceNo.Focus();
-                        m_IsValid = false;
-                        m_IsUpdate = true;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                BLL.General.ShowErrors(ex);
-                return;
-            }
-        }
-        private void dgvSalesDetails_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
-        {
-            try
-            {
-                if (e.RowHandle >= 0)
-                {
-                    if (e.Clicks == 2)
-                    {
-                        DataRow Drow = dgvJangedDetails.GetDataRow(e.RowHandle);
-                        btnAdd.Text = "&Update";
-                        //lueSieveName.Text = Val.ToString(Drow["sieve_name"]);
-                        LueColor.EditValue = Val.ToInt32(Drow["color_id"]);
-                        LueSize.EditValue = Val.ToInt32(Drow["size_id"]);
-                        LueUnit.EditValue = Val.ToInt32(Drow["unit_id"]);
-                        lueItem.EditValue = Val.ToInt32(Drow["item_id"]);
-                        txtPcs.Text = Val.ToString(Drow["pcs"]);
-                        txtRate.Text = Val.ToString(Drow["rate"]);
-                        txtAmount.Text = Val.ToString(Drow["amount"]);
-
-                        m_numcarat = Val.ToDecimal(Drow["carat"]);
-                        m_janged_detail_id = Val.ToInt(Drow["janged_detail_id"]);
-                        m_update_srno = Val.ToInt(Drow["sr_no"]);
-                        m_IsValid = true;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                BLL.General.ShowErrors(ex);
-                return;
-            }
-        }
-        private void dgvSaleInvoice_CustomSummaryCalculate(object sender, DevExpress.Data.CustomSummaryEventArgs e)
-        {
-            try
-            {
-                if (Val.ToDecimal(clmTotalAmount.SummaryItem.SummaryValue) > 0 && Val.ToDecimal(clmTotalCarat.SummaryItem.SummaryValue) > 0)
-                {
-                    m_numSummRate = Math.Round((Val.ToDecimal(clmTotalAmount.SummaryItem.SummaryValue) / Val.ToDecimal(clmTotalCarat.SummaryItem.SummaryValue)), 2, MidpointRounding.AwayFromZero);
-
-                }
-                else
-                {
-                    m_numSummRate = 0;
-                }
-                if (((DevExpress.XtraGrid.GridSummaryItem)e.Item).FieldName == "rate")
-                {
-                    if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Finalize)
-                        e.TotalValue = m_numSummRate;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                BLL.General.ShowErrors(ex);
-            }
-        }
         #endregion
 
         #endregion
@@ -1107,6 +615,7 @@ namespace Account_Management.Transaction
                 dtpJangedDate.Properties.CharacterCasing = CharacterCasing.Upper;
                 dtpJangedDate.EditValue = DateTime.Now;
 
+                btnClear_Click(null, null);
                 btnSearch_Click(null, null);
             }
             catch (Exception ex)
@@ -1203,14 +712,14 @@ namespace Account_Management.Transaction
 
                     dgvJangedDetails.MoveLast();
 
-                    decimal CGST_amt = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtCGSTPer.Text) / 100, 0);
-                    txtCGSTAmt.Text = CGST_amt.ToString();
-                    decimal SGST_amt = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtSGSTPer.Text) / 100, 0);
-                    txtSGSTAmt.Text = SGST_amt.ToString();
-                    decimal IGST_amt = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtIGSTPer.Text) / 100, 0);
-                    txtIGSTAmt.Text = IGST_amt.ToString();
+                    decimal CGST_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtCGSTPer.Text) / 100, 0);
+                    txtCGSTAmount.Text = CGST_amount.ToString();
+                    decimal SGST_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtSGSTPer.Text) / 100, 0);
+                    txtSGSTAmount.Text = SGST_amount.ToString();
+                    decimal IGST_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtIGSTPer.Text) / 100, 0);
+                    txtIGSTAmount.Text = IGST_amount.ToString();
 
-                    //decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtInterestAmt.Text) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text)) - (Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
+                    //decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtInterestAmount.Text) + Val.ToDecimal(txtCGSTAmount.Text) + Val.ToDecimal(txtSGSTAmount.Text) + Val.ToDecimal(txtIGSTAmount.Text)) - (Val.ToDecimal(txtDiscountAmount.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
                     //txtNetAmount.Text = Shipping_Charge.ToString();
                 }
                 else if (btnAdd.Text == "&Update")
@@ -1249,7 +758,7 @@ namespace Account_Management.Transaction
                                     m_dtbJangedDetails.Rows[m_update_srno - 1]["unit_id"] = Val.ToInt(LueUnit.EditValue);
                                     m_dtbJangedDetails.Rows[m_update_srno - 1]["unit_name"] = Val.ToString(LueUnit.Text);
 
-                                    //decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtInterestAmt.Text) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text)) - (Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
+                                    //decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtInterestAmount.Text) + Val.ToDecimal(txtCGSTAmount.Text) + Val.ToDecimal(txtSGSTAmount.Text) + Val.ToDecimal(txtIGSTAmount.Text)) - (Val.ToDecimal(txtDiscountAmount.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
                                     //txtNetAmount.Text = Shipping_Charge.ToString();
                                     break;
                                 }
@@ -1279,7 +788,7 @@ namespace Account_Management.Transaction
 
                                     m_dtbJangedDetails.Rows[m_update_srno - 1]["amount"] = Math.Round(Val.ToDecimal(txtPcs.Text) * Val.ToDecimal(txtRate.Text), 3);
 
-                                    //decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtInterestAmt.Text) + Val.ToDecimal(txtCGSTAmt.Text) + Val.ToDecimal(txtSGSTAmt.Text) + Val.ToDecimal(txtIGSTAmt.Text)) - (Val.ToDecimal(txtDiscountAmt.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
+                                    //decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtInterestAmount.Text) + Val.ToDecimal(txtCGSTAmount.Text) + Val.ToDecimal(txtSGSTAmount.Text) + Val.ToDecimal(txtIGSTAmount.Text)) - (Val.ToDecimal(txtDiscountAmount.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
                                     //txtNetAmount.Text = Shipping_Charge.ToString();
                                 }
                             }
@@ -1325,7 +834,7 @@ namespace Account_Management.Transaction
                     var result = DateTime.Compare(Convert.ToDateTime(dtpJangedDate.Text), DateTime.Today);
                     if (result > 0)
                     {
-                        lstError.Add(new ListError(5, " Invoice Date Not Be Greater Than Today Date"));
+                        lstError.Add(new ListError(5, " Janged Date Not Be Greater Than Today Date"));
                         if (!blnFocus)
                         {
                             blnFocus = true;
@@ -1415,23 +924,22 @@ namespace Account_Management.Transaction
             bool blnReturn = true;
             try
             {
-                if (!GenerateSaleInvoiceDetails())
+                if (!GenerateJangedEntryDetails())
                 {
                     blnReturn = false;
                     return blnReturn;
                 }
-
                 lblMode.Tag = null;
                 lueGSTRate.EditValue = System.DBNull.Value;
                 lueParty.EditValue = System.DBNull.Value;
 
-                txtInvoiceNo.Text = string.Empty;
+                txtVoucherNo.Text = string.Empty;
                 lueItem.EditValue = System.DBNull.Value;
                 LueColor.EditValue = System.DBNull.Value;
                 LueSize.EditValue = System.DBNull.Value;
                 LueUnit.EditValue = System.DBNull.Value;
-                txtSearchInvoice.Text = string.Empty;
-                lueBillToParty.EditValue = System.DBNull.Value;
+                txtSearchVoucherNo.Text = string.Empty;
+                lueJangedLedger.EditValue = System.DBNull.Value;
                 dtpJangedDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
                 dtpJangedDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
                 dtpJangedDate.Properties.Mask.UseMaskAsDisplayFormat = true;
@@ -1441,19 +949,21 @@ namespace Account_Management.Transaction
                 txtRate.Text = string.Empty;
                 txtAmount.Text = string.Empty;
                 txtDiscountPer.Text = string.Empty;
-                txtDiscountAmt.Text = string.Empty;
-                txtShippingCharge.Text = string.Empty;
+                txtDiscountAmount.Text = string.Empty;
+                txtRoundOff.Text = string.Empty;
                 txtNetAmount.Text = string.Empty;
                 txtCGSTPer.Text = string.Empty;
-                txtCGSTAmt.Text = string.Empty;
+                txtCGSTAmount.Text = string.Empty;
                 txtSGSTPer.Text = string.Empty;
-                txtSGSTAmt.Text = string.Empty;
+                txtSGSTAmount.Text = string.Empty;
                 txtIGSTPer.Text = string.Empty;
-                txtIGSTAmt.Text = string.Empty;
+                txtIGSTAmount.Text = string.Empty;
                 btnAdd.Text = "&Add";
-                txtInvoiceNo.Focus();
+                txtVoucherNo.Focus();
                 m_srno = 0;
                 m_IsValid = false;
+                objJangedEntry = new JangedEntry();
+                txtVoucherNo.Text = objJangedEntry.FindNewID().ToString();
 
                 m_IsUpdate = true;
                 lblMode.Text = "Add Mode";
@@ -1465,7 +975,7 @@ namespace Account_Management.Transaction
             }
             return blnReturn;
         }
-        private bool GenerateSaleInvoiceDetails()
+        private bool GenerateJangedEntryDetails()
         {
             bool blnReturn = true;
             try
@@ -1513,159 +1023,34 @@ namespace Account_Management.Transaction
         }
         private bool PopulateDetails()
         {
-            //objJangedEntry = new JangedEntry();
+            objJangedEntry = new JangedEntry();
             bool blnReturn = true;
-            //DateTime datFromDate = DateTime.MinValue;
-            //DateTime datToDate = DateTime.MinValue;
-            //try
-            //{
-            //    m_dtbDetails = objJangedEntry.GetData(Val.DBDate(dtpFromDate.Text), Val.DBDate(dtpToDate.Text), Val.ToString(txtSearchInvoice.Text), Val.ToInt32(lueBillToParty.EditValue));
-
-            //    if (m_dtbDetails.Rows.Count == 0)
-            //    {
-            //        Global.Message("Data Not Found");
-            //        blnReturn = false;
-            //    }
-
-            //    grdJangedInvoice.DataSource = m_dtbDetails;
-            //    dgvJangedInvoice.BestFitColumns();
-            //}
-            //catch (Exception ex)
-            //{
-            //    BLL.General.ShowErrors(ex);
-            //blnReturn = false;
-            //}
-            //finally
-            //{
-            //    objJangedEntry = null;
-            //}
-
-            return blnReturn;
-        }
-        private void FillMemoToSale()
-        {
+            DateTime datFromDate = DateTime.MinValue;
+            DateTime datToDate = DateTime.MinValue;
             try
             {
-                objJangedEntry = new JangedEntry();
-                if (m_dtbMemoData.Rows.Count > 0)
+                m_dtbDetails = objJangedEntry.GetData(Val.DBDate(dtpFromDate.Text), Val.DBDate(dtpToDate.Text), Val.ToInt64(txtSearchVoucherNo.Text), Val.ToInt32(lueJangedLedger.EditValue));
+
+                if (m_dtbDetails.Rows.Count == 0)
                 {
-                    DataTable JangedDet = new DataTable();
-
-                    JangedDet.Columns.Add("invoice_detail_id");
-                    JangedDet.Columns.Add("assort_id");
-                    JangedDet.Columns.Add("assort_name");
-                    JangedDet.Columns.Add("sieve_id");
-                    JangedDet.Columns.Add("sieve_name");
-                    JangedDet.Columns.Add("sub_sieve_id");
-                    JangedDet.Columns.Add("sub_sieve_name");
-                    JangedDet.Columns.Add("pcs");
-                    JangedDet.Columns.Add("carat");
-                    JangedDet.Columns.Add("rate");
-                    JangedDet.Columns.Add("amount");
-                    JangedDet.Columns.Add("old_carat");
-                    JangedDet.Columns.Add("old_pcs");
-                    JangedDet.Columns.Add("flag");
-                    JangedDet.Columns.Add("sr_no");
-                    JangedDet.Columns.Add("old_assort_id");
-                    JangedDet.Columns.Add("old_sieve_id");
-                    JangedDet.Columns.Add("old_sub_sieve_id");
-                    JangedDet.Columns.Add("current_rate");
-                    JangedDet.Columns.Add("current_amount");
-                    JangedDet.Columns.Add("discount");
-
-                    JangedDet.Columns.Add("rej_pcs");
-                    JangedDet.Columns.Add("rej_carat");
-
-                    JangedDet.Columns.Add("old_rej_carat");
-                    JangedDet.Columns.Add("rej_percentage");
-                    JangedDet.Columns.Add("old_rej_percentage");
-
-                    JangedDet.Columns.Add("loss_carat");
-                    JangedDet.Columns.Add("old_loss_carat");
-                    JangedDet.Columns.Add("is_memo");
-
-                    JangedDet.Columns.Add("purchase_rate");
-                    JangedDet.Columns.Add("purchase_amount");
-
-                    JangedDet.Columns.Add("broker_per");
-                    JangedDet.Columns.Add("broker_amt");
-
-                    lueGSTRate.EditValue = Val.ToInt32(m_dtbMemoData.Rows[0]["party_id"]);
-                    lueParty.EditValue = Val.ToInt32(m_dtbMemoData.Rows[0]["party_id"]);
-                    txtInvoiceNo.Text = Val.ToString(m_dtbMemoData.Rows[0]["memo_no"]);
-                    txtDiscountPer.Text = Val.ToString(m_dtbMemoData.Rows[0]["discount_per"]);
-                    txtDiscountAmt.Text = Val.ToString(m_dtbMemoData.Rows[0]["discount_amt"]);
-
-                    lblMode.Tag = Val.ToInt32(m_dtbMemoData.Rows[0]["invoice_id"]);
-
-                    int i = 0;
-                    foreach (DataRow DRow in m_dtbMemoData.Rows)
-                    {
-                        if (Convert.ToDecimal(DRow["rec_carat"]) > 0)
-                        {
-                            JangedDet.Rows.Add();
-                            JangedDet.Rows[i]["invoice_detail_id"] = Val.ToInt(DRow["invoice_detail_id"]);
-                            JangedDet.Rows[i]["assort_id"] = Val.ToInt(DRow["assort_id"]);
-                            JangedDet.Rows[i]["sieve_id"] = Val.ToInt(DRow["sieve_id"]);
-                            JangedDet.Rows[i]["sub_sieve_id"] = Val.ToInt(DRow["sub_sieve_id"]);
-                            JangedDet.Rows[i]["assort_name"] = Val.ToString(DRow["assort_name"]);
-                            JangedDet.Rows[i]["sieve_name"] = Val.ToString(DRow["sieve_name"]);
-                            JangedDet.Rows[i]["sub_sieve_name"] = Val.ToString(DRow["sub_sieve_name"]);
-                            JangedDet.Rows[i]["pcs"] = Val.ToInt(DRow["rec_pcs"]);
-                            JangedDet.Rows[i]["carat"] = Val.ToDecimal(DRow["rec_carat"]);
-                            JangedDet.Rows[i]["rate"] = Val.ToDecimal(DRow["rate"]);
-                            JangedDet.Rows[i]["amount"] = Val.ToDecimal(DRow["sale_amount"]);
-                            JangedDet.Rows[i]["old_carat"] = 0;
-                            JangedDet.Rows[i]["old_pcs"] = 0;
-                            JangedDet.Rows[i]["old_rej_carat"] = 0;
-                            JangedDet.Rows[i]["old_rej_percentage"] = 0;
-                            JangedDet.Rows[i]["flag"] = Val.ToInt32(DRow["invoice_id"]) == 0 ? 0 : 1;
-                            JangedDet.Rows[i]["sr_no"] = i + 1;
-                            JangedDet.Rows[i]["old_assort_id"] = Val.ToInt(0);
-                            JangedDet.Rows[i]["old_sieve_id"] = Val.ToInt(0);
-                            JangedDet.Rows[i]["old_sub_sieve_id"] = Val.ToInt(0);
-                            JangedDet.Rows[i]["current_rate"] = Val.ToDecimal(DRow["current_rate"]);
-                            JangedDet.Rows[i]["current_amount"] = Math.Round(Val.ToDecimal(DRow["rec_carat"]) * Val.ToDecimal(DRow["current_rate"]), 3);
-                            JangedDet.Rows[i]["discount"] = 0;
-
-                            JangedDet.Rows[i]["rej_pcs"] = 0;
-                            JangedDet.Rows[i]["rej_carat"] = 0;
-                            JangedDet.Rows[i]["rej_percentage"] = 0;
-
-                            JangedDet.Rows[i]["loss_carat"] = Val.ToDecimal(DRow["loss_carat"]);
-                            JangedDet.Rows[i]["old_loss_carat"] = Val.ToDecimal(0);
-                            JangedDet.Rows[i]["is_memo"] = Val.ToInt(1);
-
-                            JangedDet.Rows[i]["purchase_rate"] = Val.ToDecimal(DRow["purchase_rate"]);
-                            JangedDet.Rows[i]["purchase_amount"] = Val.ToDecimal(DRow["purchase_amount"]);
-                            if (Convert.ToInt32(DRow["invoice_id"]) > 0)
-                            {
-                                lblMode.Tag = lblMode.Tag = Val.ToInt32(DRow["invoice_id"]);
-                            }
-
-                            i++;
-                        }
-                    }
-
-                    grdJangedDetails.DataSource = JangedDet;
-
-                    ttlbSaleInvoice.SelectedTabPage = tblJangeddetail;
-                    m_dtbJangedDetails = JangedDet;
-                    txtInvoiceNo.Focus();
-
-                    txtCGSTPer_EditValueChanged(null, null);
-                    txtSGSTPer_EditValueChanged(null, null);
-                    txtDiscountPer_EditValueChanged(null, null);
-                    txtBrokeragePer_EditValueChanged(null, null);
-
-                    m_IsValid = true;
+                    Global.Message("Data Not Found");
+                    blnReturn = false;
                 }
+
+                grdJangedEntry.DataSource = m_dtbDetails;
+                dgvJangedEntry.BestFitColumns();
             }
             catch (Exception ex)
             {
                 BLL.General.ShowErrors(ex);
-                return;
+                blnReturn = false;
             }
+            finally
+            {
+                objJangedEntry = null;
+            }
+
+            return blnReturn;
         }
         public void SetControlPropertyValue(Control oControl, string propName, object propValue)
         {
@@ -1735,25 +1120,25 @@ namespace Account_Management.Transaction
                     switch (format)
                     {
                         case "pdf":
-                            dgvJangedInvoice.ExportToPdf(Filepath);
+                            dgvJangedEntry.ExportToPdf(Filepath);
                             break;
                         case "xls":
-                            dgvJangedInvoice.ExportToXls(Filepath);
+                            dgvJangedEntry.ExportToXls(Filepath);
                             break;
                         case "xlsx":
-                            dgvJangedInvoice.ExportToXlsx(Filepath);
+                            dgvJangedEntry.ExportToXlsx(Filepath);
                             break;
                         case "rtf":
-                            dgvJangedInvoice.ExportToRtf(Filepath);
+                            dgvJangedEntry.ExportToRtf(Filepath);
                             break;
                         case "txt":
-                            dgvJangedInvoice.ExportToText(Filepath);
+                            dgvJangedEntry.ExportToText(Filepath);
                             break;
                         case "html":
-                            dgvJangedInvoice.ExportToHtml(Filepath);
+                            dgvJangedEntry.ExportToHtml(Filepath);
                             break;
                         case "csv":
-                            dgvJangedInvoice.ExportToCsv(Filepath);
+                            dgvJangedEntry.ExportToCsv(Filepath);
                             break;
                     }
 
@@ -1818,17 +1203,6 @@ namespace Account_Management.Transaction
             Export("csv", "Export Report to CSVB", "csv (*.csv)|*.csv");
         }
         #endregion
-
-        private void dgvSaleInvoice_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
-        {
-            if (e.RowHandle >= 0)
-            {
-                if (Val.ToInt(dgvJangedInvoice.GetRowCellValue(e.RowHandle, "flag_color")) == 1)
-                {
-                    e.Appearance.BackColor = Color.FromArgb(248, 210, 210);
-                }
-            }
-        }
         private void lueParty_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             if (e.Button.Index == 1)
@@ -1847,10 +1221,453 @@ namespace Account_Management.Transaction
                 Global.LOOKUPGSTRate(lueGSTRate);
             }
         }
-
-        private void btnPrint_Click(object sender, EventArgs e)
+        private void dgvJangedDetails_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
+            try
+            {
+                if (e.RowHandle >= 0)
+                {
+                    if (e.Clicks == 2)
+                    {
+                        DataRow Drow = dgvJangedDetails.GetDataRow(e.RowHandle);
+                        btnAdd.Text = "&Update";
+                        //lueSieveName.Text = Val.ToString(Drow["sieve_name"]);
+                        LueColor.EditValue = Val.ToInt32(Drow["color_id"]);
+                        LueSize.EditValue = Val.ToInt32(Drow["size_id"]);
+                        LueUnit.EditValue = Val.ToInt64(Drow["unit_id"]);
+                        lueItem.EditValue = Val.ToInt32(Drow["item_id"]);
+                        txtPcs.Text = Val.ToString(Drow["pcs"]);
+                        txtRate.Text = Val.ToString(Drow["rate"]);
+                        txtAmount.Text = Val.ToString(Drow["amount"]);
 
+                        //m_numcarat = Val.ToDecimal(Drow["carat"]);
+                        m_janged_detail_id = Val.ToInt(Drow["janged_detail_id"]);
+                        m_update_srno = Val.ToInt(Drow["sr_no"]);
+                        m_IsValid = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                BLL.General.ShowErrors(ex);
+                return;
+            }
+        }
+
+        private void dgvJangedDetails_CustomSummaryCalculate(object sender, DevExpress.Data.CustomSummaryEventArgs e)
+        {
+            try
+            {
+                //if (Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) > 0 && Val.ToDecimal(clmDetCarat.SummaryItem.SummaryValue) > 0)
+                //{
+                //    m_numSummDetRate = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) / Val.ToDecimal(clmDetCarat.SummaryItem.SummaryValue)), 2, MidpointRounding.AwayFromZero);
+
+                //}
+                //else
+                //{
+                //    m_numSummDetRate = 0;
+                //}
+                if (((DevExpress.XtraGrid.GridSummaryItem)e.Item).FieldName == "rate")
+                {
+                    if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Finalize)
+                        e.TotalValue = m_numSummDetRate;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                BLL.General.ShowErrors(ex);
+            }
+        }
+
+        private void FrmJangedEntry_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!LoadDefaults())
+                {
+                    btnAdd.Enabled = false;
+                    btnClear.Enabled = false;
+                    btnSave.Enabled = false;
+                }
+                else
+                {
+                    ClearDetails();
+                    ttlbJagedInvoice.SelectedTabPage = tblJangeddetail;
+                }
+            }
+            catch (Exception ex)
+            {
+                Global.Message(ex.ToString());
+                return;
+            }
+        }
+
+        private void backgroundWorker_JangedEntry_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            try
+            {
+                Cursor.Current = Cursors.Default;
+                Conn = new BeginTranConnection(true, false);
+
+                Janged_EntryProperty objJangedEntryProperty = new Janged_EntryProperty();
+                JangedEntry objJangedEntry = new JangedEntry();
+                try
+                {
+                    IntRes = 0;
+
+                    objJangedEntryProperty.janged_id = Val.ToInt(lblMode.Tag);
+                    objJangedEntryProperty.voucher_no = Val.ToInt32(txtVoucherNo.Text);
+                    objJangedEntryProperty.company_id = Val.ToInt(GlobalDec.gEmployeeProperty.company_id);
+                    objJangedEntryProperty.branch_id = Val.ToInt(GlobalDec.gEmployeeProperty.branch_id);
+                    objJangedEntryProperty.location_id = Val.ToInt(GlobalDec.gEmployeeProperty.location_id);
+                    objJangedEntryProperty.department_id = Val.ToInt(GlobalDec.gEmployeeProperty.department_id);
+
+                    objJangedEntryProperty.janged_date = Val.DBDate(dtpJangedDate.Text);
+                    objJangedEntryProperty.gst_id = Val.ToInt(lueGSTRate.EditValue);
+                    objJangedEntryProperty.purchase_bill_no = Val.ToString(txtPurchaseBill.Text);
+                    objJangedEntryProperty.remarks = Val.ToString(txtRemark.Text);
+
+                    objJangedEntryProperty.form_id = m_numForm_id;
+
+                    objJangedEntryProperty.ledger_id = Val.ToInt(lueParty.EditValue);
+                    //objJangedEntryProperty.Refrenace_Id = Val.ToInt(lueReferance.EditValue);
+
+                    //objJangedEntryProperty.Broker_Id = Val.ToInt(lueBroker.EditValue);
+                    //objJangedEntryProperty.Term_Days = Val.ToInt(txtTermDays.EditValue);
+                    //objJangedEntryProperty.Add_On_Days = Val.ToInt(txtAddOnDays.EditValue);
+                    //objJangedEntryProperty.due_date = Val.DBDate(dtpDueDate.Text);
+                    //objJangedEntryProperty.demand_master_id = Val.ToInt(lblDemandNo.Tag);
+                    //objJangedEntryProperty.memo_master_id = Val.ToInt(lueMemoNo.EditValue);
+
+                    //objJangedEntryProperty.final_Term_Days = Val.ToInt(txtFinalTermDays.EditValue);
+                    //objJangedEntryProperty.final_due_date = Val.DBDate(dtpFinalDueDate.Text);
+
+
+                    objJangedEntryProperty.total_pcs = Val.ToInt64(clmPcs.SummaryItem.SummaryValue);
+                    // objJangedEntryProperty.total_carat = Math.Round(Val.ToDecimal(clmDetCarat.SummaryItem.SummaryValue), 3);
+
+                    objJangedEntryProperty.gross_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue), 3);
+
+                    objJangedEntryProperty.cgst_rate = Val.ToDecimal(txtCGSTPer.Text);
+                    objJangedEntryProperty.cgst_amount = Val.ToDecimal(txtCGSTAmount.Text);
+                    objJangedEntryProperty.sgst_rate = Val.ToDecimal(txtSGSTPer.Text);
+                    objJangedEntryProperty.sgst_amount = Val.ToDecimal(txtSGSTAmount.Text);
+                    objJangedEntryProperty.igst_rate = Val.ToDecimal(txtIGSTPer.Text);
+                    objJangedEntryProperty.igst_amount = Val.ToDecimal(txtIGSTAmount.Text);
+
+                    objJangedEntryProperty.discount_per = Val.ToDecimal(txtDiscountPer.Text);
+                    objJangedEntryProperty.discount_amount = Val.ToDecimal(txtDiscountAmount.Text);
+                    objJangedEntryProperty.round_of_amount = Val.ToDecimal(txtRoundOff.Text);
+
+                    objJangedEntryProperty.net_amount = Val.ToDecimal(txtNetAmount.Text);
+
+                    //int IntRes = objSaleInvoice.Save(objSaleInvoiceProperty, m_dtbJangedDetails);
+                    objJangedEntryProperty = objJangedEntry.Save(objJangedEntryProperty, DLL.GlobalDec.EnumTran.Start, Conn);
+
+                    Int64 NewmJangedid = Val.ToInt64(objJangedEntryProperty.janged_id);
+
+                    int IntCounter = 0;
+                    int Count = 0;
+                    int TotalCount = m_dtbJangedDetails.Rows.Count;
+
+                    foreach (DataRow drw in m_dtbJangedDetails.Rows)
+                    {
+                        objJangedEntryProperty = new Janged_EntryProperty();
+                        objJangedEntryProperty.janged_id = Val.ToInt32(NewmJangedid);
+                        objJangedEntryProperty.janged_detail_id = Val.ToInt(drw["janged_detail_id"]);
+                        objJangedEntryProperty.sr_no = Val.ToInt(drw["sr_no"]);
+                        objJangedEntryProperty.item_id = Val.ToInt(drw["item_id"]);
+                        objJangedEntryProperty.color_id = Val.ToInt(drw["color_id"]);
+                        objJangedEntryProperty.size_id = Val.ToInt(drw["size_id"]);
+                        objJangedEntryProperty.unit_id = Val.ToInt(drw["unit_id"]);
+                        objJangedEntryProperty.pcs = Val.ToInt(drw["pcs"]);
+                        objJangedEntryProperty.rate = Val.ToDecimal(drw["rate"]);
+                        objJangedEntryProperty.amount = Val.ToDecimal(drw["amount"]);
+
+                        objJangedEntryProperty.old_pcs = Val.ToInt(drw["old_pcs"]);
+                        objJangedEntryProperty.flag = Val.ToInt(drw["flag"]);
+
+                        IntRes = objJangedEntry.Save_Detail(objJangedEntryProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
+
+                        Count++;
+                        IntCounter++;
+                        IntRes++;
+                        SetControlPropertyValue(lblProgressCount, "Text", Count.ToString() + "" + "/" + "" + TotalCount.ToString() + " Completed....");
+                    }
+                    Conn.Inter1.Commit();
+                }
+                catch (Exception ex)
+                {
+                    IntRes = -1;
+                    Conn.Inter1.Rollback();
+                    Conn = null;
+                    General.ShowErrors(ex.ToString());
+                    return;
+                }
+                finally
+                {
+                    objJangedEntryProperty = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                IntRes = -1;
+                Conn.Inter1.Rollback();
+                Conn = null;
+                Global.Message(ex.ToString());
+                if (ex.InnerException != null)
+                {
+                    Global.Message(ex.InnerException.ToString());
+                }
+            }
+        }
+
+        private void backgroundWorker_JangedEntry_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            try
+            {
+                panelProgress.Visible = false;
+                if (IntRes > 0)
+                {
+                    if (Val.ToInt(lblMode.Tag) == 0)
+                    {
+                        Global.Confirm("Janged Entry Data Save Successfully");
+                        ClearDetails();
+                        PopulateDetails();
+                    }
+                    else
+                    {
+                        Global.Confirm("Janged Entry Data Update Successfully");
+                        ClearDetails();
+                        PopulateDetails();
+                    }
+                }
+                else
+                {
+                    Global.Confirm("Error In Janged Entry");
+                    txtVoucherNo.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                Global.Message(ex.ToString());
+                Global.Message(ex.InnerException.ToString());
+            }
+        }
+
+        private void backgroundWorker_JangedDelete_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            Conn = new BeginTranConnection(true, false);
+
+            Janged_EntryProperty objJangedEntryProperty = new Janged_EntryProperty();
+            JangedEntry objJangedEntry = new JangedEntry();
+            DataTable dtbMemoRecDelete = new DataTable();
+            try
+            {
+                if (Val.ToInt(lblMode.Tag) != 0)
+                {
+                    IntRes = 0;
+                    objJangedEntryProperty.janged_id = Val.ToInt(lblMode.Tag);
+
+                    int IntCounter = 0;
+                    int Count = 0;
+                    int FlagCount = 1;
+                    int TotalCount = m_dtbJangedDetails.Rows.Count;
+                    Int32 Flag = 0;
+                    foreach (DataRow drw in m_dtbJangedDetails.Rows)
+                    {
+                        //objJangedEntryProperty.janged_detail_id = Val.ToInt(drw["janged_detail_id"]);
+                        //objJangedEntryProperty.assort_id = Val.ToInt(drw["assort_id"]);
+                        //objJangedEntryProperty.sieve_id = Val.ToInt(drw["sieve_id"]);
+                        //objJangedEntryProperty.pcs = Val.ToInt(drw["pcs"]);
+                        //objJangedEntryProperty.carat = Val.ToDecimal(drw["carat"]);
+
+                        if (FlagCount == TotalCount)
+                        {
+                            Flag = 1;
+                        }
+
+                        IntRes = objJangedEntry.Delete(objJangedEntryProperty, Flag, DLL.GlobalDec.EnumTran.Continue, Conn);
+
+                        FlagCount++;
+                        Count++;
+                        IntCounter++;
+                        IntRes++;
+                        SetControlPropertyValue(lblProgressCount, "Text", Count.ToString() + "" + "/" + "" + TotalCount.ToString() + " Completed....");
+                    }
+
+                    Conn.Inter1.Commit();
+                }
+                else
+                {
+                    Global.Message("Invoice ID not found");
+                    Conn.Inter1.Rollback();
+                    Conn = null;
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                IntRes = -1;
+                Conn.Inter1.Rollback();
+                Conn = null;
+                General.ShowErrors(ex.ToString());
+                if (ex.InnerException != null)
+                {
+                    Global.Message(ex.InnerException.ToString());
+                }
+            }
+            finally
+            {
+                objJangedEntryProperty = null;
+            }
+        }
+        private void backgroundWorker_JangedDelete_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            try
+            {
+                panelProgress.Visible = false;
+                if (IntRes > 0)
+                {
+                    if (Val.ToInt(lblMode.Tag) == 0)
+                    {
+                        Global.Confirm("Janged Data Delete Successfully");
+                        ClearDetails();
+                    }
+                    else
+                    {
+                        Global.Confirm("Janged Data Delete Successfully");
+                        ClearDetails();
+                    }
+                }
+                else
+                {
+                    Global.Confirm("Error In Janged Entry Delete");
+                    txtVoucherNo.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                Global.Message(ex.ToString());
+                Global.Message(ex.InnerException.ToString());
+            }
+        }
+        private void dgvJangedEntry_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            try
+            {
+                objJangedEntry = new JangedEntry();
+                if (e.RowHandle >= 0)
+                {
+                    if (e.Clicks == 2)
+                    {
+                        m_blncheckevents = true;
+
+                        DataRow Drow = dgvJangedEntry.GetDataRow(e.RowHandle);
+                        lblMode.Text = "Edit Mode";
+                        lblMode.Tag = Val.ToInt32(Drow["janged_id"]);
+
+                        dtpJangedDate.Text = Val.DBDate(Val.ToString(Drow["janged_date"]));
+                        txtVoucherNo.Text = Val.ToString(Drow["voucher_no"]);
+                        lueGSTRate.EditValue = Val.ToInt64(Drow["gst_id"]);
+                        lueParty.EditValue = Val.ToInt(Drow["ledger_id"]);
+
+                        txtRemark.Text = Val.ToString(Drow["remarks"]);
+                        txtPurchaseBill.Text = Val.ToString(Drow["purchase_bill_no"]);
+                        txtRoundOff.Text = Val.ToString(Drow["round_of_amount"]);
+                        txtDiscountPer.Text = Val.ToString(Drow["discount_per"]);
+                        txtDiscountAmount.Text = Val.ToString(Drow["discount_amount"]);
+                        txtCGSTPer.Text = Val.ToString(Drow["cgst_per"]);
+                        txtCGSTAmount.Text = Val.ToString(Drow["cgst_amount"]);
+                        txtSGSTPer.Text = Val.ToString(Drow["sgst_per"]);
+                        txtSGSTAmount.Text = Val.ToString(Drow["sgst_amount"]);
+                        txtIGSTPer.Text = Val.ToString(Drow["igst_per"]);
+                        txtIGSTAmount.Text = Val.ToString(Drow["igst_amount"]);
+                        txtNetAmount.Text = Val.ToString(Drow["net_amount"]);
+
+                        m_dtbJangedDetails = objJangedEntry.GetDataDetails(Val.ToInt(lblMode.Tag));
+                        grdJangedDetails.DataSource = m_dtbJangedDetails;
+
+                        ttlbJagedInvoice.SelectedTabPage = tblJangeddetail;
+                        txtVoucherNo.Focus();
+                        m_IsValid = false;
+                        m_IsUpdate = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                BLL.General.ShowErrors(ex);
+                return;
+            }
+        }
+        private void dgvJangedEntry_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            if (e.RowHandle >= 0)
+            {
+                if (Val.ToInt(dgvJangedEntry.GetRowCellValue(e.RowHandle, "flag_color")) == 1)
+                {
+                    e.Appearance.BackColor = Color.FromArgb(248, 210, 210);
+                }
+            }
+        }
+        private void dgvJangedEntry_CustomSummaryCalculate(object sender, DevExpress.Data.CustomSummaryEventArgs e)
+        {
+            try
+            {
+                //if (Val.ToDecimal(clmTotalAmount.SummaryItem.SummaryValue) > 0 && Val.ToDecimal(clmTotalCarat.SummaryItem.SummaryValue) > 0)
+                //{
+                //    m_numSummRate = Math.Round((Val.ToDecimal(clmTotalAmount.SummaryItem.SummaryValue) / Val.ToDecimal(clmTotalCarat.SummaryItem.SummaryValue)), 2, MidpointRounding.AwayFromZero);
+
+                //}
+                //else
+                //{
+                //    m_numSummRate = 0;
+                //}
+                //if (((DevExpress.XtraGrid.GridSummaryItem)e.Item).FieldName == "rate")
+                //{
+                //    if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Finalize)
+                //        e.TotalValue = m_numSummRate;
+                //}
+
+            }
+            catch (Exception ex)
+            {
+                BLL.General.ShowErrors(ex);
+            }
+        }
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearDetails();
+        }
+        private void lueGSTRate_Validated(object sender, EventArgs e)
+        {
+            GSTMaster objGSTRate = new GSTMaster();
+            DataTable GSTRate = objGSTRate.GetData();
+            DataTable DTab_ProductionType = GSTRate.Select("gst_id = '" + Val.ToInt64(lueGSTRate.EditValue) + "'").CopyToDataTable();
+
+            if (DTab_ProductionType.Rows[0]["gst_name"].ToString() == "IGST")
+            {
+                txtIGSTPer.Text = DTab_ProductionType.Rows[0]["gst_rate"].ToString();
+                txtCGSTPer.Text = "0";
+                txtCGSTAmount.Text = "0";
+                txtSGSTPer.Text = "0";
+                txtSGSTAmount.Text = "0";
+                txtCGSTPer.Enabled = false;
+                txtCGSTAmount.Enabled = false;
+                txtSGSTPer.Enabled = false;
+                txtSGSTAmount.Enabled = false;
+            }
+            else if (DTab_ProductionType.Rows[0]["gst_name"].ToString() == "CGST/SGST")
+            {
+                txtCGSTPer.Text = DTab_ProductionType.Rows[0]["gst_rate"].ToString();
+                txtSGSTPer.Text = DTab_ProductionType.Rows[0]["gst_rate"].ToString();
+                txtIGSTPer.Text = "0";
+                txtIGSTAmount.Text = "0";
+                txtIGSTPer.Enabled = false;
+                txtIGSTAmount.Enabled = false;
+            }
         }
     }
 }

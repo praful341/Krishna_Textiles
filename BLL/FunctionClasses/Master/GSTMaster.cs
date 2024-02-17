@@ -42,6 +42,18 @@ namespace BLL.FunctionClasses.Master
             Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
             return DTab;
         }
+        public DataTable GetData_GSTRate(Int64 GST_Id)
+        {
+            DataTable DTab = new DataTable();
+            Request Request = new Request();
+
+            Request.AddParams("@gst_id", GST_Id, DbType.Int32, ParameterDirection.Input);
+
+            Request.CommandText = BLL.TPV.SProc.MST_GST_Master_GetData;
+            Request.CommandType = CommandType.StoredProcedure;
+            Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
+            return DTab;
+        }
 
         public DataTable GetData_Search()
         {
