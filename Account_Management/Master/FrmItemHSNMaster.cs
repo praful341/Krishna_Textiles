@@ -197,6 +197,7 @@ namespace Account_Management.Master
                     RBtnStatus.EditValue = Val.ToInt32(Drow["active"]);
                     txtRemark.Text = Val.ToString(Drow["remark"]);
                     txtHSNCode.Text = Val.ToString(Drow["hsn_code"]);
+                    txtGSTRate.Text = Val.ToString(Drow["gst_rate"]);
                     txtIGSTRate.Text = Val.ToString(Drow["igst_rate"].ToString());
                     DTIGSTDate.Text = Val.ToString(Drow["igst_DATE"].ToString());
                     txtSGSTRate.Text = Val.ToString(Drow["sgst_rate"].ToString());
