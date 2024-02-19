@@ -74,7 +74,6 @@ namespace BLL.FunctionClasses.Transaction
             }
             return pClsProperty;
         }
-
         public int Save_Detail(Janged_EntryProperty pClsProperty, DLL.GlobalDec.EnumTran pEnum = DLL.GlobalDec.EnumTran.WithCommit, BeginTranConnection Conn = null)
         {
             try
@@ -95,26 +94,16 @@ namespace BLL.FunctionClasses.Transaction
                 RequestDetails.AddParams("@form_id", pClsProperty.form_id, DbType.Int32);
                 RequestDetails.AddParams("@user_id", GlobalDec.gEmployeeProperty.user_id, DbType.Int32);
                 RequestDetails.AddParams("@ip_address", GlobalDec.gStrComputerIP, DbType.String);
-                //RequestDetails.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int32);
-                //RequestDetails.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int32);
-                //RequestDetails.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int32);
-                //RequestDetails.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int32);
                 RequestDetails.AddParams("@old_pcs", pClsProperty.old_pcs, DbType.Int32);
                 RequestDetails.AddParams("@flag", pClsProperty.flag, DbType.Int32);
-                //RequestDetails.AddParams("@old_item_id", pClsProperty.old_item_id, DbType.Int32);
-                //RequestDetails.AddParams("@old_color_id", pClsProperty.old_color_id, DbType.Int32);
-                //RequestDetails.AddParams("@old_size_id", pClsProperty.old_size_id, DbType.Int32);
-                //RequestDetails.AddParams("@old_unit_id", pClsProperty.old_unit_id, DbType.Int32);
                 RequestDetails.AddParams("@entry_date", Val.DBDate(BLL.GlobalDec.gStrServerDate), DbType.Date);
                 RequestDetails.AddParams("@entry_time", GlobalDec.gStr_SystemTime, DbType.String);
 
                 RequestDetails.CommandText = BLL.TPV.SProc.TRN_Janged_Details_Save;
                 RequestDetails.CommandType = CommandType.StoredProcedure;
 
-                if (Conn != null)
-                    IntRes = Conn.Inter1.ExecuteNonQuery(DBConnections.ConnectionString, DBConnections.ProviderName, RequestDetails, pEnum);
-                else
-                    IntRes = Ope.ExecuteNonQuery(DBConnections.ConnectionString, DBConnections.ProviderName, RequestDetails);
+                IntRes = Conn.Inter1.ExecuteNonQuery(DBConnections.ConnectionString, DBConnections.ProviderName, RequestDetails, pEnum);
+                //IntRes = Conn.Inter1.ExecuteNonQuery(DBConnections.ConnectionString, DBConnections.ProviderName, RequestDetails, pEnum);
                 return IntRes;
             }
             catch (Exception ex)
@@ -122,7 +111,6 @@ namespace BLL.FunctionClasses.Transaction
                 throw ex;
             }
         }
-
         public int Delete(Janged_EntryProperty pClsProperty, Int32 flag, DLL.GlobalDec.EnumTran pEnum = DLL.GlobalDec.EnumTran.WithCommit, BeginTranConnection Conn = null)
         {
             try
@@ -131,19 +119,11 @@ namespace BLL.FunctionClasses.Transaction
                 int IntRes = 0;
                 Request RequestDetails = new Request();
 
-                //RequestDetails.AddParams("@invoice_id", pClsProperty.invoice_id, DbType.Int32);
-                //RequestDetails.AddParams("@invoice_detail_id", pClsProperty.invoice_detail_id, DbType.Int32);
-                //RequestDetails.AddParams("@flag", flag, DbType.Int32);
-                //RequestDetails.AddParams("@assort_id", pClsProperty.assort_id, DbType.Int32);
-                //RequestDetails.AddParams("@sieve_id", pClsProperty.sieve_id, DbType.Int32);
-                //RequestDetails.AddParams("@pcs", pClsProperty.pcs, DbType.Int32);
-                //RequestDetails.AddParams("@carat", pClsProperty.carat, DbType.Decimal);
-                //RequestDetails.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int32);
-                //RequestDetails.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int32);
-                //RequestDetails.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int32);
-                //RequestDetails.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int32);
+                RequestDetails.AddParams("@janged_id", pClsProperty.janged_id, DbType.Int32);
+                RequestDetails.AddParams("@janged_detail_id", pClsProperty.janged_detail_id, DbType.Int32);
+                RequestDetails.AddParams("@flag", flag, DbType.Int32);
 
-                //RequestDetails.CommandText = BLL.TPV.SProc.TRN_Sale_Invoice_Delete;
+                RequestDetails.CommandText = BLL.TPV.SProc.TRN_Janged_Entry_Delete;
                 RequestDetails.CommandType = CommandType.StoredProcedure;
 
                 if (Conn != null)
@@ -175,7 +155,6 @@ namespace BLL.FunctionClasses.Transaction
             Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
             return DTab;
         }
-
         public DataTable GetDataDetails(int p_numID)
         {
             DataTable DTab = new DataTable();
@@ -194,39 +173,6 @@ namespace BLL.FunctionClasses.Transaction
                 BLL.General.ShowErrors(ex);
                 return DTab;
             }
-        }
-
-        public DataTable GetInvoiceNo()
-        {
-            DataTable DTab = new DataTable();
-            Request Request = new Request();
-            //Request.CommandText = BLL.TPV.SProc.TRN_InvoiceNo_GetData;
-            Request.CommandType = CommandType.StoredProcedure;
-            Request.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int32);
-            Request.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int32);
-            Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int32);
-            Request.AddParams("@Department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int32);
-
-            Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
-            return DTab;
-        }
-
-        public DataTable GetSellerName(string p_strDesignation)
-        {
-            DataTable DTab = new DataTable();
-            Request Request = new Request();
-            //Request.CommandText = BLL.TPV.SProc.MST_Seller_GetData;
-            Request.CommandType = CommandType.StoredProcedure;
-            Request.AddParams("@active", 1, DbType.Int32);
-            Request.AddParams("@designation", p_strDesignation, DbType.String);
-
-            Request.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int32);
-            Request.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int32);
-            Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int32);
-            Request.AddParams("@Department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int32);
-
-            Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
-            return DTab;
         }
         public int FindNewID()
         {

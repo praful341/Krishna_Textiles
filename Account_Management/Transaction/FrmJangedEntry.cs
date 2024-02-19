@@ -153,18 +153,18 @@ namespace Account_Management.Transaction
 
             // for Dynamic Setting By Praful On 01022020
 
-            //if (Global.HideFormControls(Val.ToInt(ObjPer.form_id), this) != "")
-            //{
-            //    Global.Message("Select First User Setting...Please Contact to Administrator...");
-            //    return;
-            //}
+            if (Global.HideFormControls(Val.ToInt(ObjPer.form_id), this) != "")
+            {
+                Global.Message("Select First User Setting...Please Contact to Administrator...");
+                return;
+            }
 
-            //ControlSettingDT(Val.ToInt(ObjPer.form_id), this);
-            //AddGotFocusListener(this);
-            //this.KeyPreview = true;
+            ControlSettingDT(Val.ToInt(ObjPer.form_id), this);
+            AddGotFocusListener(this);
+            this.KeyPreview = true;
 
-            //TabControlsToList(this.Controls);
-            //_tabControls = _tabControls.OrderBy(x => x.TabIndex).ToList();
+            TabControlsToList(this.Controls);
+            _tabControls = _tabControls.OrderBy(x => x.TabIndex).ToList();
 
             // End for Dynamic Setting By Praful On 01022020
 
@@ -958,13 +958,15 @@ namespace Account_Management.Transaction
                 txtSGSTAmount.Text = string.Empty;
                 txtIGSTPer.Text = string.Empty;
                 txtIGSTAmount.Text = string.Empty;
+                txtRemark.Text = string.Empty;
+                txtPurchaseBill.Text = string.Empty;
                 btnAdd.Text = "&Add";
                 txtVoucherNo.Focus();
                 m_srno = 0;
                 m_IsValid = false;
                 objJangedEntry = new JangedEntry();
                 txtVoucherNo.Text = objJangedEntry.FindNewID().ToString();
-
+                txtPurchaseBill.Focus();
                 m_IsUpdate = true;
                 lblMode.Text = "Add Mode";
             }
@@ -1477,11 +1479,7 @@ namespace Account_Management.Transaction
                     Int32 Flag = 0;
                     foreach (DataRow drw in m_dtbJangedDetails.Rows)
                     {
-                        //objJangedEntryProperty.janged_detail_id = Val.ToInt(drw["janged_detail_id"]);
-                        //objJangedEntryProperty.assort_id = Val.ToInt(drw["assort_id"]);
-                        //objJangedEntryProperty.sieve_id = Val.ToInt(drw["sieve_id"]);
-                        //objJangedEntryProperty.pcs = Val.ToInt(drw["pcs"]);
-                        //objJangedEntryProperty.carat = Val.ToDecimal(drw["carat"]);
+                        objJangedEntryProperty.janged_detail_id = Val.ToInt(drw["janged_detail_id"]);
 
                         if (FlagCount == TotalCount)
                         {
@@ -1534,11 +1532,13 @@ namespace Account_Management.Transaction
                     {
                         Global.Confirm("Janged Data Delete Successfully");
                         ClearDetails();
+                        btnSearch_Click(null, null);
                     }
                     else
                     {
                         Global.Confirm("Janged Data Delete Successfully");
                         ClearDetails();
+                        btnSearch_Click(null, null);
                     }
                 }
                 else
@@ -1571,7 +1571,7 @@ namespace Account_Management.Transaction
                         dtpJangedDate.Text = Val.DBDate(Val.ToString(Drow["janged_date"]));
                         txtVoucherNo.Text = Val.ToString(Drow["voucher_no"]);
                         lueGSTRate.EditValue = Val.ToInt64(Drow["gst_id"]);
-                        lueParty.EditValue = Val.ToInt(Drow["ledger_id"]);
+                        lueParty.EditValue = Val.ToInt64(Drow["ledger_id"]);
 
                         txtRemark.Text = Val.ToString(Drow["remarks"]);
                         txtPurchaseBill.Text = Val.ToString(Drow["purchase_bill_no"]);
@@ -1590,7 +1590,7 @@ namespace Account_Management.Transaction
                         grdJangedDetails.DataSource = m_dtbJangedDetails;
 
                         ttlbJagedInvoice.SelectedTabPage = tblJangeddetail;
-                        txtVoucherNo.Focus();
+                        txtPurchaseBill.Focus();
                         m_IsValid = false;
                         m_IsUpdate = true;
                     }

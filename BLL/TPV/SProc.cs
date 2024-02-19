@@ -136,6 +136,7 @@
         public static string TRN_Janged_Entry_GetDetailsData = "TRN_Janged_Entry_GetDetailsData";
         public static string TRN_janged_Save = "TRN_janged_Save";
         public static string TRN_Janged_Details_Save = "TRN_Janged_Details_Save";
+        public static string TRN_Janged_Entry_Delete = "TRN_Janged_Entry_Delete";
 
         #endregion
 

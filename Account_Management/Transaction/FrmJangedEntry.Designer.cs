@@ -1995,7 +1995,6 @@
             this.btnDelete.Size = new System.Drawing.Size(102, 32);
             this.btnDelete.TabIndex = 30;
             this.btnDelete.Text = "&Delete";
-            this.btnDelete.Visible = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // panelControl4
