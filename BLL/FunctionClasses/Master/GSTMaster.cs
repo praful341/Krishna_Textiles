@@ -15,10 +15,11 @@ namespace BLL.FunctionClasses.Master
         {
             Request Request = new Request();
 
-            Request.AddParams("@gst_id", pClsProperty.gst_id, DbType.Int64, ParameterDirection.Input);
-            Request.AddParams("@gst_name", pClsProperty.gst_name, DbType.String, ParameterDirection.Input);
-            Request.AddParams("@active", pClsProperty.active, DbType.Int32, ParameterDirection.Input);
-            Request.AddParams("@gst_rate", pClsProperty.gst_rate, DbType.Decimal, ParameterDirection.Input);
+            Request.AddParams("@gst_id", pClsProperty.gst_id, DbType.Int64);
+            Request.AddParams("@gst_name", pClsProperty.gst_name, DbType.String);
+            Request.AddParams("@active", pClsProperty.active, DbType.Int32);
+            Request.AddParams("@gst_rate", pClsProperty.gst_rate, DbType.Decimal);
+            Request.AddParams("@type", pClsProperty.type, DbType.String);
 
             Request.AddParams("@user_id", GlobalDec.gEmployeeProperty.user_id, DbType.Int32);
             Request.AddParams("@ip_address", GlobalDec.gStrComputerIP, DbType.String);
@@ -35,7 +36,7 @@ namespace BLL.FunctionClasses.Master
             DataTable DTab = new DataTable();
             Request Request = new Request();
 
-            Request.AddParams("@active", 1, DbType.Int32, ParameterDirection.Input);
+            Request.AddParams("@active", 1, DbType.Int32);
 
             Request.CommandText = BLL.TPV.SProc.MST_GST_Master_GetData;
             Request.CommandType = CommandType.StoredProcedure;
@@ -47,7 +48,7 @@ namespace BLL.FunctionClasses.Master
             DataTable DTab = new DataTable();
             Request Request = new Request();
 
-            Request.AddParams("@gst_id", GST_Id, DbType.Int32, ParameterDirection.Input);
+            Request.AddParams("@gst_id", GST_Id, DbType.Int32);
 
             Request.CommandText = BLL.TPV.SProc.MST_GST_Master_GetData;
             Request.CommandType = CommandType.StoredProcedure;

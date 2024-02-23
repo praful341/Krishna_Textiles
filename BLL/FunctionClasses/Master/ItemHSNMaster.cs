@@ -15,17 +15,17 @@ namespace BLL.FunctionClasses.Master
         {
             Request Request = new Request();
 
-            Request.AddParams("@hsn_id", pClsProperty.hsn_id, DbType.Int64, ParameterDirection.Input);
-            Request.AddParams("@hsn_code", pClsProperty.hsn_code, DbType.String, ParameterDirection.Input);
-            Request.AddParams("@hsn_name", pClsProperty.hsn_name, DbType.String, ParameterDirection.Input);
-            Request.AddParams("@igst_date", pClsProperty.igst_date, DbType.Date, ParameterDirection.Input);
-            Request.AddParams("@igst_rate", pClsProperty.igst_rate, DbType.Double, ParameterDirection.Input);
-            Request.AddParams("@sgst_date", pClsProperty.sgst_date, DbType.Date, ParameterDirection.Input);
-            Request.AddParams("@sgst_rate", pClsProperty.sgst_rate, DbType.Double, ParameterDirection.Input);
-            Request.AddParams("@cgst_date", pClsProperty.cgst_date, DbType.Date, ParameterDirection.Input);
-            Request.AddParams("@cgst_rate", pClsProperty.cgst_rate, DbType.Double, ParameterDirection.Input);
-            Request.AddParams("@remark", pClsProperty.remark, DbType.String, ParameterDirection.Input);
-            Request.AddParams("@active", pClsProperty.active, DbType.Int32, ParameterDirection.Input);
+            Request.AddParams("@hsn_id", pClsProperty.hsn_id, DbType.Int64);
+            Request.AddParams("@hsn_code", pClsProperty.hsn_code, DbType.String);
+            Request.AddParams("@hsn_name", pClsProperty.hsn_name, DbType.String);
+            Request.AddParams("@igst_date", pClsProperty.igst_date, DbType.Date);
+            Request.AddParams("@igst_rate", pClsProperty.igst_rate, DbType.Double);
+            Request.AddParams("@sgst_date", pClsProperty.sgst_date, DbType.Date);
+            Request.AddParams("@sgst_rate", pClsProperty.sgst_rate, DbType.Double);
+            Request.AddParams("@cgst_date", pClsProperty.cgst_date, DbType.Date);
+            Request.AddParams("@cgst_rate", pClsProperty.cgst_rate, DbType.Double);
+            Request.AddParams("@remark", pClsProperty.remark, DbType.String);
+            Request.AddParams("@active", pClsProperty.active, DbType.Int32);
             Request.AddParams("@user_id", GlobalDec.gEmployeeProperty.user_id, DbType.Int32);
             Request.AddParams("@ip_address", GlobalDec.gStrComputerIP, DbType.String);
             Request.AddParams("@entry_date", Val.DBDate(GlobalDec.gStr_SystemDate), DbType.Date);
@@ -42,7 +42,7 @@ namespace BLL.FunctionClasses.Master
             DataTable DTab = new DataTable();
             Request Request = new Request();
 
-            Request.AddParams("@active", 1, DbType.Int32, ParameterDirection.Input);
+            Request.AddParams("@active", 1, DbType.Int32);
 
             Request.CommandText = BLL.TPV.SProc.MST_HSN_Master_GetData;
             Request.CommandType = CommandType.StoredProcedure;
@@ -55,7 +55,7 @@ namespace BLL.FunctionClasses.Master
             DataTable DTab = new DataTable();
             Request Request = new Request();
 
-            Request.AddParams("@active", 1, DbType.Int32, ParameterDirection.Input);
+            Request.AddParams("@active", 1, DbType.Int32);
 
             Request.CommandText = BLL.TPV.SProc.MST_Unit_Master_GetData;
             Request.CommandType = CommandType.StoredProcedure;

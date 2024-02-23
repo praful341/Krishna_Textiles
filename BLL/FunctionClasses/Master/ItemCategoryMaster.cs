@@ -14,12 +14,12 @@ namespace BLL.FunctionClasses.Master
         {
             Request Request = new Request();
 
-            Request.AddParams("@item_category_id", pClsProperty.item_category_id, DbType.Int32, ParameterDirection.Input);
-            Request.AddParams("@item_category_name", pClsProperty.item_category_name, DbType.String, ParameterDirection.Input);
-            Request.AddParams("@remark", pClsProperty.remark, DbType.String, ParameterDirection.Input);
-            Request.AddParams("@active", pClsProperty.active, DbType.Int32, ParameterDirection.Input);
-            Request.AddParams("@is_consumable", pClsProperty.is_consumable, DbType.Int32, ParameterDirection.Input);
-            Request.AddParams("@is_repairable", pClsProperty.is_repairable, DbType.Int32, ParameterDirection.Input);
+            Request.AddParams("@item_category_id", pClsProperty.item_category_id, DbType.Int32);
+            Request.AddParams("@item_category_name", pClsProperty.item_category_name, DbType.String);
+            Request.AddParams("@remark", pClsProperty.remark, DbType.String);
+            Request.AddParams("@active", pClsProperty.active, DbType.Int32);
+            Request.AddParams("@is_consumable", pClsProperty.is_consumable, DbType.Int32);
+            Request.AddParams("@is_repairable", pClsProperty.is_repairable, DbType.Int32);
 
             Request.CommandText = BLL.TPV.SProc.MST_Item_Cat_Master_Save;
             Request.CommandType = CommandType.StoredProcedure;
@@ -32,7 +32,7 @@ namespace BLL.FunctionClasses.Master
             DataTable DTab = new DataTable();
             Request Request = new Request();
 
-            Request.AddParams("@active", 1, DbType.Int32, ParameterDirection.Input);
+            Request.AddParams("@active", 1, DbType.Int32);
 
             Request.CommandText = BLL.TPV.SProc.MST_Item_Cat_Master_GetData;
             Request.CommandType = CommandType.StoredProcedure;

@@ -44,24 +44,24 @@ namespace BLL.FunctionClasses.Master
             {
                 Request Request = new Request();
 
-                Request.AddParams("@item_id", pClsProperty.item_id, DbType.Int64, ParameterDirection.Input);
-                Request.AddParams("@item_name", pClsProperty.item_name, DbType.String, ParameterDirection.Input);
-                Request.AddParams("@item_shortname", pClsProperty.item_shortname, DbType.String, ParameterDirection.Input);
-                Request.AddParams("@item_group_id", pClsProperty.item_group_id, DbType.Int64, ParameterDirection.Input);
-                Request.AddParams("@item_category_id", pClsProperty.item_category_id, DbType.Int64, ParameterDirection.Input);
-                Request.AddParams("@active", pClsProperty.active, DbType.Int64, ParameterDirection.Input);
-                Request.AddParams("@remark", pClsProperty.remark, DbType.String, ParameterDirection.Input);
-                Request.AddParams("@unit_id", pClsProperty.unit_id, DbType.Int64, ParameterDirection.Input);
-                Request.AddParams("@last_purchase_rate", pClsProperty.last_purchase_rate, DbType.Double, ParameterDirection.Input);
-                Request.AddParams("@item_codification", pClsProperty.item_codification, DbType.String, ParameterDirection.Input);
-                Request.AddParams("@disc_per", pClsProperty.disc_per, DbType.Double, ParameterDirection.Input);
-                Request.AddParams("@company_id", pClsProperty.company_id, DbType.Int64, ParameterDirection.Input);
-                Request.AddParams("@branch_id", pClsProperty.branch_id, DbType.Int64, ParameterDirection.Input);
-                Request.AddParams("@location_id", pClsProperty.location_id, DbType.Int64, ParameterDirection.Input);
-                Request.AddParams("@hsn_id", pClsProperty.hsn_id, DbType.Int64, ParameterDirection.Input);
-                Request.AddParams("@sale_rate", pClsProperty.sale_rate, DbType.Decimal, ParameterDirection.Input);
-                Request.AddParams("@stock_limit", pClsProperty.sale_rate, DbType.Decimal, ParameterDirection.Input);
-                Request.AddParams("@pcs_in_box", pClsProperty.sale_rate, DbType.Decimal, ParameterDirection.Input);
+                Request.AddParams("@item_id", pClsProperty.item_id, DbType.Int64);
+                Request.AddParams("@item_name", pClsProperty.item_name, DbType.String);
+                Request.AddParams("@item_shortname", pClsProperty.item_shortname, DbType.String);
+                Request.AddParams("@item_group_id", pClsProperty.item_group_id, DbType.Int64);
+                Request.AddParams("@item_category_id", pClsProperty.item_category_id, DbType.Int64);
+                Request.AddParams("@active", pClsProperty.active, DbType.Int64);
+                Request.AddParams("@remark", pClsProperty.remark, DbType.String);
+                Request.AddParams("@unit_id", pClsProperty.unit_id, DbType.Int64);
+                Request.AddParams("@last_purchase_rate", pClsProperty.last_purchase_rate, DbType.Double);
+                Request.AddParams("@item_codification", pClsProperty.item_codification, DbType.String);
+                Request.AddParams("@disc_per", pClsProperty.disc_per, DbType.Double);
+                Request.AddParams("@company_id", pClsProperty.company_id, DbType.Int64);
+                Request.AddParams("@branch_id", pClsProperty.branch_id, DbType.Int64);
+                Request.AddParams("@location_id", pClsProperty.location_id, DbType.Int64);
+                Request.AddParams("@hsn_id", pClsProperty.hsn_id, DbType.Int64);
+                Request.AddParams("@sale_rate", pClsProperty.sale_rate, DbType.Decimal);
+                Request.AddParams("@stock_limit", pClsProperty.sale_rate, DbType.Decimal);
+                Request.AddParams("@pcs_in_box", pClsProperty.sale_rate, DbType.Decimal);
 
                 Request.CommandText = BLL.TPV.SProc.MST_Item_Master_Save;
                 Request.CommandType = CommandType.StoredProcedure;
@@ -104,7 +104,7 @@ namespace BLL.FunctionClasses.Master
         public int Delete(Item_MasterProperty pClsProperty)
         {
             Request Request = new Request();
-            Request.AddParams("@item_id", pClsProperty.item_id, DbType.Int64, ParameterDirection.Input);
+            Request.AddParams("@item_id", pClsProperty.item_id, DbType.Int64);
             Request.CommandText = BLL.TPV.SProc.MST_Item_Master_Delete;
             Request.CommandType = CommandType.StoredProcedure;
             return Ope.ExecuteNonQuery(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, Request);

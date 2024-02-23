@@ -15,10 +15,10 @@ namespace BLL.FunctionClasses.Master
         {
             Request Request = new Request();
 
-            Request.AddParams("@unit_id", pClsProperty.unit_id, DbType.Int64, ParameterDirection.Input);
-            Request.AddParams("@unit_name", pClsProperty.unit_name, DbType.String, ParameterDirection.Input);
-            Request.AddParams("@active", pClsProperty.active, DbType.Int32, ParameterDirection.Input);
-            Request.AddParams("@remark", pClsProperty.remark, DbType.String, ParameterDirection.Input);
+            Request.AddParams("@unit_id", pClsProperty.unit_id, DbType.Int64);
+            Request.AddParams("@unit_name", pClsProperty.unit_name, DbType.String);
+            Request.AddParams("@active", pClsProperty.active, DbType.Int32);
+            Request.AddParams("@remark", pClsProperty.remark, DbType.String);
 
             Request.AddParams("@user_id", GlobalDec.gEmployeeProperty.user_id, DbType.Int32);
             Request.AddParams("@ip_address", GlobalDec.gStrComputerIP, DbType.String);
@@ -35,7 +35,7 @@ namespace BLL.FunctionClasses.Master
             DataTable DTab = new DataTable();
             Request Request = new Request();
 
-            Request.AddParams("@active", 1, DbType.Int32, ParameterDirection.Input);
+            Request.AddParams("@active", 1, DbType.Int32);
 
             Request.CommandText = BLL.TPV.SProc.MST_Unit_Master_GetData;
             Request.CommandType = CommandType.StoredProcedure;

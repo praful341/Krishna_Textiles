@@ -138,6 +138,8 @@
         public static string TRN_Janged_Details_Save = "TRN_Janged_Details_Save";
         public static string TRN_Janged_Entry_Delete = "TRN_Janged_Entry_Delete";
 
+        public static string TRN_Janged_Voucher_Entry_GetData = "TRN_Janged_Voucher_Entry_GetData";
+
         #endregion
 
         #region "Reports"

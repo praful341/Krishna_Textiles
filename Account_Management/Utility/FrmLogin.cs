@@ -46,9 +46,9 @@ namespace Account_Management
             //    txtUserName.Text = "PRAFUL";
             //    txtPassword.Text = "123";
             //}
-            txtUserName.Text = "PRAFUL";
-            txtPassword.Text = "123";
-            btnLogin_Click(null, null);
+            //txtUserName.Text = "PRAFUL";
+            //txtPassword.Text = "123";
+            //btnLogin_Click(null, null);
 
             try
             {

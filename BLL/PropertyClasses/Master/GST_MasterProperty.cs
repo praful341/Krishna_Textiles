@@ -8,5 +8,6 @@ namespace BLL.PropertyClasses.Master
         public string gst_name { get; set; }
         public decimal gst_rate { get; set; }
         public int active { get; set; }
+        public string type { get; set; }
     }
 }

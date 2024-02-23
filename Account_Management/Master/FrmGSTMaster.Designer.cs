@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
+            this.lueType = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtGSTRate = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtGSTName = new DevExpress.XtraEditors.TextEdit();
@@ -50,6 +52,7 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdGSTMaster = new DevExpress.XtraGrid.GridControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
@@ -57,6 +60,7 @@
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGSTRate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGSTName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGSTCode.Properties)).BeginInit();
@@ -76,6 +80,8 @@
             // 
             // panelControl5
             // 
+            this.panelControl5.Controls.Add(this.lueType);
+            this.panelControl5.Controls.Add(this.labelControl4);
             this.panelControl5.Controls.Add(this.txtGSTRate);
             this.panelControl5.Controls.Add(this.labelControl1);
             this.panelControl5.Controls.Add(this.txtGSTName);
@@ -86,10 +92,41 @@
             this.panelControl5.Controls.Add(this.labelControl2);
             this.panelControl5.Controls.Add(this.lblGSTCode);
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl5.Location = new System.Drawing.Point(313, 22);
+            this.panelControl5.Location = new System.Drawing.Point(431, 22);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(615, 407);
+            this.panelControl5.Size = new System.Drawing.Size(497, 407);
             this.panelControl5.TabIndex = 13;
+            // 
+            // lueType
+            // 
+            this.lueType.EnterMoveNextControl = true;
+            this.lueType.Location = new System.Drawing.Point(148, 94);
+            this.lueType.Name = "lueType";
+            this.lueType.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lueType.Properties.Appearance.Options.UseFont = true;
+            this.lueType.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.lueType.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lueType.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
+            this.lueType.Properties.AppearanceDropDownHeader.Options.UseFont = true;
+            this.lueType.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            this.lueType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueType.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("type", "Type")});
+            this.lueType.Properties.NullText = "";
+            this.lueType.Properties.ShowHeader = false;
+            this.lueType.Size = new System.Drawing.Size(187, 20);
+            this.lueType.TabIndex = 3;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Location = new System.Drawing.Point(17, 98);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(35, 16);
+            this.labelControl4.TabIndex = 13;
+            this.labelControl4.Text = "Type";
             // 
             // txtGSTRate
             // 
@@ -143,7 +180,7 @@
             // 
             this.RBtnStatus.EditValue = 1;
             this.RBtnStatus.EnterMoveNextControl = true;
-            this.RBtnStatus.Location = new System.Drawing.Point(148, 94);
+            this.RBtnStatus.Location = new System.Drawing.Point(148, 120);
             this.RBtnStatus.Name = "RBtnStatus";
             this.RBtnStatus.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.RBtnStatus.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
@@ -153,14 +190,14 @@
             this.RBtnStatus.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Active"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(0, "Deactive")});
-            this.RBtnStatus.Size = new System.Drawing.Size(176, 30);
-            this.RBtnStatus.TabIndex = 3;
+            this.RBtnStatus.Size = new System.Drawing.Size(187, 30);
+            this.RBtnStatus.TabIndex = 4;
             // 
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(17, 100);
+            this.labelControl3.Location = new System.Drawing.Point(17, 126);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(47, 16);
             this.labelControl3.TabIndex = 10;
@@ -174,8 +211,8 @@
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl6.Location = new System.Drawing.Point(2, 357);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(611, 48);
-            this.panelControl6.TabIndex = 4;
+            this.panelControl6.Size = new System.Drawing.Size(493, 48);
+            this.panelControl6.TabIndex = 5;
             // 
             // btnExit
             // 
@@ -236,9 +273,9 @@
             // panelControl4
             // 
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl4.Location = new System.Drawing.Point(313, 429);
+            this.panelControl4.Location = new System.Drawing.Point(431, 429);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(615, 11);
+            this.panelControl4.Size = new System.Drawing.Size(497, 11);
             this.panelControl4.TabIndex = 12;
             // 
             // panelControl3
@@ -252,7 +289,7 @@
             // panelControl2
             // 
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelControl2.Location = new System.Drawing.Point(302, 0);
+            this.panelControl2.Location = new System.Drawing.Point(420, 0);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(11, 440);
             this.panelControl2.TabIndex = 10;
@@ -274,7 +311,8 @@
             this.gridColumn1,
             this.gridColumn2,
             this.gridColumn3,
-            this.gridColumn4});
+            this.gridColumn4,
+            this.gridColumn5});
             this.dgvGSTMaster.GridControl = this.grdGSTMaster;
             this.dgvGSTMaster.Name = "dgvGSTMaster";
             this.dgvGSTMaster.OptionsBehavior.Editable = false;
@@ -299,7 +337,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 0;
-            this.gridColumn2.Width = 134;
+            this.gridColumn2.Width = 115;
             // 
             // gridColumn3
             // 
@@ -307,8 +345,8 @@
             this.gridColumn3.FieldName = "active";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
-            this.gridColumn3.Width = 76;
+            this.gridColumn3.VisibleIndex = 3;
+            this.gridColumn3.Width = 45;
             // 
             // gridColumn4
             // 
@@ -317,7 +355,16 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 1;
-            this.gridColumn4.Width = 65;
+            this.gridColumn4.Width = 105;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Type";
+            this.gridColumn5.FieldName = "type";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 2;
+            this.gridColumn5.Width = 94;
             // 
             // grdGSTMaster
             // 
@@ -325,7 +372,7 @@
             this.grdGSTMaster.Location = new System.Drawing.Point(0, 0);
             this.grdGSTMaster.MainView = this.dgvGSTMaster;
             this.grdGSTMaster.Name = "grdGSTMaster";
-            this.grdGSTMaster.Size = new System.Drawing.Size(293, 413);
+            this.grdGSTMaster.Size = new System.Drawing.Size(411, 413);
             this.grdGSTMaster.TabIndex = 14;
             this.grdGSTMaster.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvGSTMaster});
@@ -333,9 +380,9 @@
             // panelControl1
             // 
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(313, 0);
+            this.panelControl1.Location = new System.Drawing.Point(431, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(615, 22);
+            this.panelControl1.Size = new System.Drawing.Size(497, 22);
             this.panelControl1.TabIndex = 13;
             // 
             // dockManager1
@@ -360,8 +407,8 @@
             this.dockPanel1.Location = new System.Drawing.Point(0, 0);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.Options.ShowCloseButton = false;
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(302, 200);
-            this.dockPanel1.Size = new System.Drawing.Size(302, 440);
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(420, 200);
+            this.dockPanel1.Size = new System.Drawing.Size(420, 440);
             this.dockPanel1.Text = "GST Master";
             // 
             // dockPanel1_Container
@@ -369,7 +416,7 @@
             this.dockPanel1_Container.Controls.Add(this.grdGSTMaster);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(293, 413);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(411, 413);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // FrmGSTMaster
@@ -390,6 +437,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
             this.panelControl5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGSTRate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGSTName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGSTCode.Properties)).EndInit();
@@ -437,5 +485,8 @@
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraEditors.TextEdit txtGSTRate;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.LookUpEdit lueType;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
     }
 }
