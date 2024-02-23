@@ -11,10 +11,12 @@ namespace Account_Management.Master
         BLL.FormEvents objBOFormEvents = new BLL.FormEvents();
         BLL.Validation Val = new BLL.Validation();
         GSTMaster objGSTMaster = new GSTMaster();
+        DataTable m_dtbType;
 
         public FrmGSTMaster()
         {
             InitializeComponent();
+            m_dtbType = new DataTable();
         }
         public void ShowForm()
         {
@@ -42,6 +44,7 @@ namespace Account_Management.Master
             txtGSTCode.Text = "0";
             txtGSTName.Text = "";
             txtGSTRate.Text = "";
+            lueType.EditValue = null;
             RBtnStatus.SelectedIndex = 0;
             txtGSTName.Focus();
         }
@@ -54,6 +57,12 @@ namespace Account_Management.Master
             {
                 Global.Confirm("GST Name Is Required");
                 txtGSTName.Focus();
+                return false;
+            }
+            if (lueType.Text == "")
+            {
+                Global.Confirm("Type Is Required");
+                lueType.Focus();
                 return false;
             }
             if (!objGSTMaster.ISExists(txtGSTName.Text, Val.ToInt64(txtGSTCode.EditValue)).ToString().Trim().Equals(string.Empty))
@@ -81,6 +90,7 @@ namespace Account_Management.Master
             GSTMasterProperty.gst_name = txtGSTName.Text;
             GSTMasterProperty.active = Val.ToInt(RBtnStatus.Text);
             GSTMasterProperty.gst_rate = Val.ToDecimal(txtGSTRate.Text);
+            GSTMasterProperty.type = Val.ToString(lueType.Text);
 
             int IntRes = objGSTMaster.Save(GSTMasterProperty);
             if (IntRes == -1)
@@ -112,6 +122,14 @@ namespace Account_Management.Master
 
         private void FrmCountryMaster_Load(object sender, EventArgs e)
         {
+            m_dtbType.Columns.Add("type");
+            m_dtbType.Rows.Add("LocalState");
+            m_dtbType.Rows.Add("InterState");
+
+            lueType.Properties.DataSource = m_dtbType;
+            lueType.Properties.ValueMember = "type";
+            lueType.Properties.DisplayMember = "type";
+
             GetData();
             btnClear_Click(btnClear, null);
         }
@@ -127,6 +145,7 @@ namespace Account_Management.Master
                     txtGSTName.Text = Val.ToString(Drow["gst_name"]);
                     txtGSTRate.Text = Val.ToString(Drow["gst_rate"]);
                     RBtnStatus.EditValue = Val.ToInt32(Drow["active"]);
+                    lueType.Text = Val.ToString(Drow["type"]);
                     txtGSTName.Focus();
                 }
             }

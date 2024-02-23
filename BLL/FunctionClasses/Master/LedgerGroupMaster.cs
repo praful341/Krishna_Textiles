@@ -16,10 +16,10 @@ namespace BLL.FunctionClasses.Master
         {
             Request Request = new Request();
 
-            Request.AddParams("@ledger_group_id", pClsProperty.ledger_group_id, DbType.Int64, ParameterDirection.Input);
-            Request.AddParams("@ledger_group_name", pClsProperty.ledger_group_name, DbType.String, ParameterDirection.Input);
-            Request.AddParams("@remark", pClsProperty.remark, DbType.String, ParameterDirection.Input);
-            Request.AddParams("@active", pClsProperty.active, DbType.Int32, ParameterDirection.Input);
+            Request.AddParams("@ledger_group_id", pClsProperty.ledger_group_id, DbType.Int64);
+            Request.AddParams("@ledger_group_name", pClsProperty.ledger_group_name, DbType.String);
+            Request.AddParams("@remark", pClsProperty.remark, DbType.String);
+            Request.AddParams("@active", pClsProperty.active, DbType.Int32);
 
             Request.AddParams("@user_id", GlobalDec.gEmployeeProperty.user_id, DbType.Int32);
             Request.AddParams("@ip_address", GlobalDec.gStrComputerIP, DbType.String);
@@ -36,7 +36,7 @@ namespace BLL.FunctionClasses.Master
             DataTable DTab = new DataTable();
             Request Request = new Request();
 
-            Request.AddParams("@active", 1, DbType.Int32, ParameterDirection.Input);
+            Request.AddParams("@active", 1, DbType.Int32);
 
             Request.CommandText = BLL.TPV.SProc.MST_Ledger_Group_Master_GetData;
             Request.CommandType = CommandType.StoredProcedure;

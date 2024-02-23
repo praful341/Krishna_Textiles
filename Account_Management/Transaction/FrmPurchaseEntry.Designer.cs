@@ -1,6 +1,6 @@
 ﻿namespace Account_Management.Transaction
 {
-    partial class FrmJangedEntry
+    partial class FrmPurchaseEntry
     {
         /// <summary>
         /// Required designer variable.
@@ -167,6 +167,12 @@
             this.label25 = new System.Windows.Forms.Label();
             this.txtDiscountPer = new DevExpress.XtraEditors.TextEdit();
             this.label26 = new System.Windows.Forms.Label();
+            this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
+            this.lblEntry = new DevExpress.XtraEditors.LabelControl();
+            this.btnExit = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.btnClear = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.LueUnit = new DevExpress.XtraEditors.LookUpEdit();
             this.label15 = new System.Windows.Forms.Label();
@@ -217,12 +223,6 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.backgroundWorker_JangedEntry = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker_JangedDelete = new System.ComponentModel.BackgroundWorker();
-            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
-            this.btnClear = new DevExpress.XtraEditors.SimpleButton();
-            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
-            this.btnExit = new DevExpress.XtraEditors.SimpleButton();
-            this.lblEntry = new DevExpress.XtraEditors.LabelControl();
-            this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).BeginInit();
@@ -263,6 +263,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNetAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiscountAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiscountPer.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
+            this.panelControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LueUnit.Properties)).BeginInit();
@@ -281,8 +283,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpJangedDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
-            this.panelControl6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl3
@@ -950,7 +950,7 @@
             this.dgvJangedEntry.Appearance.FooterPanel.Options.UseFont = true;
             this.dgvJangedEntry.Appearance.HeaderPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
             this.dgvJangedEntry.Appearance.HeaderPanel.Options.UseFont = true;
-            this.dgvJangedEntry.Appearance.Row.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
+            this.dgvJangedEntry.Appearance.Row.Font = new System.Drawing.Font("Cambria", 9F);
             this.dgvJangedEntry.Appearance.Row.Options.UseFont = true;
             this.dgvJangedEntry.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.clmDetJangedId,
@@ -1208,20 +1208,18 @@
             // lueJangedLedger
             // 
             this.lueJangedLedger.EnterMoveNextControl = true;
-            this.lueJangedLedger.Location = new System.Drawing.Point(710, 12);
+            this.lueJangedLedger.Location = new System.Drawing.Point(698, 12);
             this.lueJangedLedger.Name = "lueJangedLedger";
             this.lueJangedLedger.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueJangedLedger.Properties.Appearance.Options.UseFont = true;
-            this.lueJangedLedger.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.lueJangedLedger.Properties.AppearanceDropDown.Options.UseFont = true;
             this.lueJangedLedger.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
             this.lueJangedLedger.Properties.AppearanceDropDownHeader.Options.UseFont = true;
             this.lueJangedLedger.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.lueJangedLedger.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lueJangedLedger.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ledger_name", "Ledger Name"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ledger_id", "Ledger ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("party_name", "Party Name"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("party_id", "Party ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lueJangedLedger.Properties.NullText = "";
             this.lueJangedLedger.Properties.ShowHeader = false;
             this.lueJangedLedger.Size = new System.Drawing.Size(229, 20);
@@ -1231,7 +1229,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label33.Location = new System.Drawing.Point(649, 14);
+            this.label33.Location = new System.Drawing.Point(637, 14);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(58, 16);
             this.label33.TabIndex = 28;
@@ -1240,7 +1238,7 @@
             // txtSearchVoucherNo
             // 
             this.txtSearchVoucherNo.EnterMoveNextControl = true;
-            this.txtSearchVoucherNo.Location = new System.Drawing.Point(510, 12);
+            this.txtSearchVoucherNo.Location = new System.Drawing.Point(498, 12);
             this.txtSearchVoucherNo.Name = "txtSearchVoucherNo";
             this.txtSearchVoucherNo.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchVoucherNo.Properties.Appearance.Options.UseFont = true;
@@ -1251,7 +1249,7 @@
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label34.Location = new System.Drawing.Point(415, 14);
+            this.label34.Location = new System.Drawing.Point(403, 14);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(91, 16);
             this.label34.TabIndex = 27;
@@ -1262,7 +1260,7 @@
             this.btnSearch.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Appearance.Options.UseFont = true;
             this.btnSearch.ImageOptions.Image = global::Account_Management.Properties.Resources.Search;
-            this.btnSearch.Location = new System.Drawing.Point(959, 5);
+            this.btnSearch.Location = new System.Drawing.Point(947, 5);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(102, 32);
             this.btnSearch.TabIndex = 4;
@@ -1272,7 +1270,7 @@
             // dtpToDate
             // 
             this.dtpToDate.EditValue = null;
-            this.dtpToDate.Location = new System.Drawing.Point(295, 12);
+            this.dtpToDate.Location = new System.Drawing.Point(292, 12);
             this.dtpToDate.Name = "dtpToDate";
             this.dtpToDate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
             this.dtpToDate.Properties.Appearance.Options.UseFont = true;
@@ -1282,7 +1280,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpToDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpToDate.Size = new System.Drawing.Size(115, 20);
+            this.dtpToDate.Size = new System.Drawing.Size(108, 20);
             this.dtpToDate.TabIndex = 3;
             // 
             // dtpFromDate
@@ -1298,14 +1296,14 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpFromDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpFromDate.Size = new System.Drawing.Size(115, 20);
+            this.dtpFromDate.Size = new System.Drawing.Size(108, 20);
             this.dtpFromDate.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(219, 12);
+            this.label2.Location = new System.Drawing.Point(213, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 16);
             this.label2.TabIndex = 1;
@@ -1400,7 +1398,7 @@
             this.dgvJangedDetails.Appearance.FooterPanel.Options.UseFont = true;
             this.dgvJangedDetails.Appearance.HeaderPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
             this.dgvJangedDetails.Appearance.HeaderPanel.Options.UseFont = true;
-            this.dgvJangedDetails.Appearance.Row.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
+            this.dgvJangedDetails.Appearance.Row.Font = new System.Drawing.Font("Cambria", 9F);
             this.dgvJangedDetails.Appearance.Row.Options.UseFont = true;
             this.dgvJangedDetails.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.clmjangedDetailID,
@@ -1666,7 +1664,7 @@
             this.txtIGSTAmount.EnterMoveNextControl = true;
             this.txtIGSTAmount.Location = new System.Drawing.Point(400, 37);
             this.txtIGSTAmount.Name = "txtIGSTAmount";
-            this.txtIGSTAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIGSTAmount.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIGSTAmount.Properties.Appearance.Options.UseFont = true;
             this.txtIGSTAmount.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtIGSTAmount.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -1692,7 +1690,7 @@
             this.txtIGSTPer.EnterMoveNextControl = true;
             this.txtIGSTPer.Location = new System.Drawing.Point(400, 11);
             this.txtIGSTPer.Name = "txtIGSTPer";
-            this.txtIGSTPer.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIGSTPer.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIGSTPer.Properties.Appearance.Options.UseFont = true;
             this.txtIGSTPer.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtIGSTPer.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -1717,7 +1715,7 @@
             this.txtSGSTAmount.EnterMoveNextControl = true;
             this.txtSGSTAmount.Location = new System.Drawing.Point(249, 37);
             this.txtSGSTAmount.Name = "txtSGSTAmount";
-            this.txtSGSTAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSGSTAmount.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSGSTAmount.Properties.Appearance.Options.UseFont = true;
             this.txtSGSTAmount.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtSGSTAmount.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -1743,7 +1741,7 @@
             this.txtSGSTPer.EnterMoveNextControl = true;
             this.txtSGSTPer.Location = new System.Drawing.Point(249, 11);
             this.txtSGSTPer.Name = "txtSGSTPer";
-            this.txtSGSTPer.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSGSTPer.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSGSTPer.Properties.Appearance.Options.UseFont = true;
             this.txtSGSTPer.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtSGSTPer.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -1768,7 +1766,7 @@
             this.txtCGSTAmount.EnterMoveNextControl = true;
             this.txtCGSTAmount.Location = new System.Drawing.Point(92, 37);
             this.txtCGSTAmount.Name = "txtCGSTAmount";
-            this.txtCGSTAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCGSTAmount.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCGSTAmount.Properties.Appearance.Options.UseFont = true;
             this.txtCGSTAmount.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtCGSTAmount.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -1794,7 +1792,7 @@
             this.txtCGSTPer.EnterMoveNextControl = true;
             this.txtCGSTPer.Location = new System.Drawing.Point(92, 11);
             this.txtCGSTPer.Name = "txtCGSTPer";
-            this.txtCGSTPer.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCGSTPer.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCGSTPer.Properties.Appearance.Options.UseFont = true;
             this.txtCGSTPer.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtCGSTPer.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -1820,7 +1818,7 @@
             this.txtRoundOff.EnterMoveNextControl = true;
             this.txtRoundOff.Location = new System.Drawing.Point(840, 11);
             this.txtRoundOff.Name = "txtRoundOff";
-            this.txtRoundOff.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRoundOff.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRoundOff.Properties.Appearance.Options.UseFont = true;
             this.txtRoundOff.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtRoundOff.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -1847,7 +1845,7 @@
             this.txtNetAmount.Location = new System.Drawing.Point(840, 37);
             this.txtNetAmount.Name = "txtNetAmount";
             this.txtNetAmount.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txtNetAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.txtNetAmount.Properties.Appearance.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
             this.txtNetAmount.Properties.Appearance.Options.UseBackColor = true;
             this.txtNetAmount.Properties.Appearance.Options.UseFont = true;
             this.txtNetAmount.Properties.Appearance.Options.UseTextOptions = true;
@@ -1858,7 +1856,7 @@
             this.txtNetAmount.Properties.Mask.EditMask = "f0";
             this.txtNetAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtNetAmount.Properties.ReadOnly = true;
-            this.txtNetAmount.Size = new System.Drawing.Size(132, 20);
+            this.txtNetAmount.Size = new System.Drawing.Size(132, 22);
             this.txtNetAmount.TabIndex = 10;
             // 
             // label29
@@ -1876,15 +1874,15 @@
             this.txtDiscountAmount.EnterMoveNextControl = true;
             this.txtDiscountAmount.Location = new System.Drawing.Point(583, 37);
             this.txtDiscountAmount.Name = "txtDiscountAmount";
-            this.txtDiscountAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiscountAmount.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiscountAmount.Properties.Appearance.Options.UseFont = true;
             this.txtDiscountAmount.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtDiscountAmount.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtDiscountAmount.Properties.Mask.EditMask = "f0";
             this.txtDiscountAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtDiscountAmount.Properties.ReadOnly = true;
             this.txtDiscountAmount.Size = new System.Drawing.Size(132, 20);
             this.txtDiscountAmount.TabIndex = 4;
-            this.txtDiscountAmount.EditValueChanged += new System.EventHandler(this.txtDiscountAmount_EditValueChanged);
             this.txtDiscountAmount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDiscountAmt_KeyDown);
             // 
             // label25
@@ -1902,7 +1900,7 @@
             this.txtDiscountPer.EnterMoveNextControl = true;
             this.txtDiscountPer.Location = new System.Drawing.Point(583, 11);
             this.txtDiscountPer.Name = "txtDiscountPer";
-            this.txtDiscountPer.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiscountPer.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiscountPer.Properties.Appearance.Options.UseFont = true;
             this.txtDiscountPer.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtDiscountPer.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -1922,6 +1920,82 @@
             this.label26.Size = new System.Drawing.Size(106, 16);
             this.label26.TabIndex = 42;
             this.label26.Text = "Discount (%)";
+            // 
+            // panelControl6
+            // 
+            this.panelControl6.Controls.Add(this.lblEntry);
+            this.panelControl6.Controls.Add(this.btnExit);
+            this.panelControl6.Controls.Add(this.btnSave);
+            this.panelControl6.Controls.Add(this.btnClear);
+            this.panelControl6.Controls.Add(this.btnDelete);
+            this.panelControl6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl6.Location = new System.Drawing.Point(0, 668);
+            this.panelControl6.Name = "panelControl6";
+            this.panelControl6.Size = new System.Drawing.Size(1267, 46);
+            this.panelControl6.TabIndex = 24;
+            // 
+            // lblEntry
+            // 
+            this.lblEntry.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblEntry.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEntry.Appearance.Options.UseFont = true;
+            this.lblEntry.Location = new System.Drawing.Point(-93, 8);
+            this.lblEntry.Name = "lblEntry";
+            this.lblEntry.Size = new System.Drawing.Size(26, 13);
+            this.lblEntry.TabIndex = 23;
+            this.lblEntry.Text = "Entry";
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Appearance.Options.UseFont = true;
+            this.btnExit.ImageOptions.Image = global::Account_Management.Properties.Resources.Exit;
+            this.btnExit.Location = new System.Drawing.Point(1035, 8);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(102, 32);
+            this.btnExit.TabIndex = 6;
+            this.btnExit.Text = "E&xit";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Appearance.Options.UseFont = true;
+            this.btnSave.ImageOptions.Image = global::Account_Management.Properties.Resources.Save;
+            this.btnSave.Location = new System.Drawing.Point(818, 8);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(102, 32);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.Text = "&Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClear.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Appearance.Options.UseFont = true;
+            this.btnClear.ImageOptions.Image = global::Account_Management.Properties.Resources.Clear;
+            this.btnClear.Location = new System.Drawing.Point(926, 8);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(102, 32);
+            this.btnClear.TabIndex = 5;
+            this.btnClear.Text = "&Clear";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Appearance.Options.UseFont = true;
+            this.btnDelete.ImageOptions.Image = global::Account_Management.Properties.Resources.Close;
+            this.btnDelete.Location = new System.Drawing.Point(1143, 8);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(102, 32);
+            this.btnDelete.TabIndex = 30;
+            this.btnDelete.Text = "&Delete";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // panelControl4
             // 
@@ -2320,6 +2394,7 @@
             this.txtVoucherNo.Properties.Appearance.Options.UseFont = true;
             this.txtVoucherNo.Size = new System.Drawing.Size(102, 20);
             this.txtVoucherNo.TabIndex = 0;
+            this.txtVoucherNo.Validated += new System.EventHandler(this.txtVoucherNo_Validated);
             // 
             // lblInvoiceNo
             // 
@@ -2630,84 +2705,7 @@
             this.backgroundWorker_JangedDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_JangedDelete_DoWork);
             this.backgroundWorker_JangedDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_JangedDelete_RunWorkerCompleted);
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Appearance.Options.UseFont = true;
-            this.btnDelete.ImageOptions.Image = global::Account_Management.Properties.Resources.Close;
-            this.btnDelete.Location = new System.Drawing.Point(1143, 8);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(102, 32);
-            this.btnDelete.TabIndex = 30;
-            this.btnDelete.Text = "&Delete";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClear.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Appearance.Options.UseFont = true;
-            this.btnClear.ImageOptions.Image = global::Account_Management.Properties.Resources.Clear;
-            this.btnClear.Location = new System.Drawing.Point(926, 8);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(102, 32);
-            this.btnClear.TabIndex = 5;
-            this.btnClear.Text = "&Clear";
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.ImageOptions.Image = global::Account_Management.Properties.Resources.Save;
-            this.btnSave.Location = new System.Drawing.Point(818, 8);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(102, 32);
-            this.btnSave.TabIndex = 4;
-            this.btnSave.Text = "&Save";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Appearance.Options.UseFont = true;
-            this.btnExit.ImageOptions.Image = global::Account_Management.Properties.Resources.Exit;
-            this.btnExit.Location = new System.Drawing.Point(1035, 8);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(102, 32);
-            this.btnExit.TabIndex = 6;
-            this.btnExit.Text = "E&xit";
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // lblEntry
-            // 
-            this.lblEntry.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblEntry.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEntry.Appearance.Options.UseFont = true;
-            this.lblEntry.Location = new System.Drawing.Point(-93, 8);
-            this.lblEntry.Name = "lblEntry";
-            this.lblEntry.Size = new System.Drawing.Size(26, 13);
-            this.lblEntry.TabIndex = 23;
-            this.lblEntry.Text = "Entry";
-            this.lblEntry.Visible = false;
-            // 
-            // panelControl6
-            // 
-            this.panelControl6.Controls.Add(this.lblEntry);
-            this.panelControl6.Controls.Add(this.btnExit);
-            this.panelControl6.Controls.Add(this.btnSave);
-            this.panelControl6.Controls.Add(this.btnClear);
-            this.panelControl6.Controls.Add(this.btnDelete);
-            this.panelControl6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl6.Location = new System.Drawing.Point(0, 668);
-            this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(1267, 46);
-            this.panelControl6.TabIndex = 24;
-            // 
-            // FrmJangedEntry
+            // FrmPurchaseEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -2718,9 +2716,9 @@
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmJangedEntry";
+            this.Name = "FrmPurchaseEntry";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Janged Entry";
+            this.Text = "Purchase Entry";
             this.Load += new System.EventHandler(this.FrmJangedEntry_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
@@ -2765,6 +2763,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNetAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiscountAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiscountPer.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
+            this.panelControl6.ResumeLayout(false);
+            this.panelControl6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             this.panelControl4.PerformLayout();
@@ -2784,9 +2785,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpJangedDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
-            this.panelControl6.ResumeLayout(false);
-            this.panelControl6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2882,13 +2880,18 @@
         private System.Windows.Forms.Label label18;
         private DevExpress.XtraEditors.TextEdit txtRate;
         private System.Windows.Forms.Label label17;
+        private DevExpress.XtraEditors.SimpleButton btnExit;
+        private DevExpress.XtraEditors.SimpleButton btnClear;
+        private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
+        private DevExpress.XtraEditors.LabelControl lblEntry;
         private DevExpress.XtraEditors.LabelControl lblMode;
         private DevExpress.XtraGrid.Columns.GridColumn clmPcs;
         private DevExpress.XtraEditors.TextEdit txtPcs;
         private System.Windows.Forms.Label label3;
         private DevExpress.XtraEditors.TextEdit txtVoucherNo;
         private System.Windows.Forms.Label lblInvoiceNo;
+        private DevExpress.XtraEditors.PanelControl panelControl6;
         private DevExpress.XtraEditors.LookUpEdit lueGSTRate;
         private DevExpress.XtraEditors.PanelControl panelControl7;
         private DevExpress.XtraEditors.PanelControl panelControl8;
@@ -2923,6 +2926,7 @@
         private DevExpress.XtraEditors.LookUpEdit lueParty;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.Windows.Forms.Label label32;
+        private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraGrid.Columns.GridColumn clmOldPcs;
         private DevExpress.XtraGrid.Columns.GridColumn clmflag;
         private DevExpress.XtraGrid.Columns.GridColumn clmolditemid;
@@ -2980,11 +2984,5 @@
         private DevExpress.XtraGrid.Columns.GridColumn clmUnitName;
         private DevExpress.XtraGrid.Columns.GridColumn clmOldUnitName;
         private DevExpress.XtraGrid.Columns.GridColumn clmOldUnitID;
-        private DevExpress.XtraEditors.PanelControl panelControl6;
-        private DevExpress.XtraEditors.LabelControl lblEntry;
-        private DevExpress.XtraEditors.SimpleButton btnExit;
-        private DevExpress.XtraEditors.SimpleButton btnSave;
-        private DevExpress.XtraEditors.SimpleButton btnClear;
-        private DevExpress.XtraEditors.SimpleButton btnDelete;
     }
 }

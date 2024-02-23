@@ -129,6 +129,7 @@
     <Compile Include="FunctionClasses\Report\NewReportMaster.cs" />
     <Compile Include="FunctionClasses\Report\ReportParams.cs" />
     <Compile Include="FunctionClasses\Transaction\JangedEntry.cs" />
+    <Compile Include="FunctionClasses\Transaction\PurchaseEntry.cs" />
     <Compile Include="FunctionClasses\Utility\EmailSendUtility.cs" />
     <Compile Include="FunctionClasses\Utility\Login.cs" />
     <Compile Include="FunctionClasses\Utility\Settings.cs" />
@@ -175,6 +176,7 @@
     <Compile Include="PropertyClasses\Master\User_MasterProperty.cs" />
     <Compile Include="PropertyClasses\Report\New_Report_MasterProperty.cs" />
     <Compile Include="PropertyClasses\Transaction\Janged_EntryProperty.cs" />
+    <Compile Include="PropertyClasses\Transaction\Purchase_EntryProperty.cs" />
     <Compile Include="PropertyClasses\Utility\ReportParams_Property.cs" />
     <Compile Include="PropertyClasses\Utility\Settings_Property.cs" />
     <Compile Include="PropertyClasses\Utility\UserAuthenticationProperty.cs" />
