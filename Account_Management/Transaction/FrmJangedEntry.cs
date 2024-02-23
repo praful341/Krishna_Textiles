@@ -1597,6 +1597,7 @@ namespace Account_Management.Transaction
         {
             ClearDetails();
         }
+
         private void lueGSTRate_Validated(object sender, EventArgs e)
         {
             GSTMaster objGSTRate = new GSTMaster();
