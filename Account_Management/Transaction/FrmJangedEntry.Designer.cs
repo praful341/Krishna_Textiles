@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.repositoryItemPictureEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.clmInternalTransferID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmTransferDate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -74,7 +73,7 @@
             this.tblJangedList = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.grdJangedEntry = new DevExpress.XtraGrid.GridControl();
-            this.ContextMNExport = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ContextMNExport = new System.Windows.Forms.ContextMenuStrip();
             this.MNExportExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.MNExportPDF = new System.Windows.Forms.ToolStripMenuItem();
             this.MNExportTEXT = new System.Windows.Forms.ToolStripMenuItem();
@@ -167,6 +166,12 @@
             this.label25 = new System.Windows.Forms.Label();
             this.txtDiscountPer = new DevExpress.XtraEditors.TextEdit();
             this.label26 = new System.Windows.Forms.Label();
+            this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
+            this.lblEntry = new DevExpress.XtraEditors.LabelControl();
+            this.btnExit = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.btnClear = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.LueUnit = new DevExpress.XtraEditors.LookUpEdit();
             this.label15 = new System.Windows.Forms.Label();
@@ -217,12 +222,6 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.backgroundWorker_JangedEntry = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker_JangedDelete = new System.ComponentModel.BackgroundWorker();
-            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
-            this.btnClear = new DevExpress.XtraEditors.SimpleButton();
-            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
-            this.btnExit = new DevExpress.XtraEditors.SimpleButton();
-            this.lblEntry = new DevExpress.XtraEditors.LabelControl();
-            this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).BeginInit();
@@ -263,6 +262,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNetAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiscountAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiscountPer.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
+            this.panelControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LueUnit.Properties)).BeginInit();
@@ -281,8 +282,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpJangedDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
-            this.panelControl6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl3
@@ -1336,9 +1335,9 @@
             this.panelControl7.Controls.Add(this.panelProgress);
             this.panelControl7.Controls.Add(this.grdJangedDetails);
             this.panelControl7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl7.Location = new System.Drawing.Point(0, 113);
+            this.panelControl7.Location = new System.Drawing.Point(0, 77);
             this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(1267, 492);
+            this.panelControl7.Size = new System.Drawing.Size(1267, 528);
             this.panelControl7.TabIndex = 25;
             // 
             // panelProgress
@@ -1384,7 +1383,7 @@
             this.grdJangedDetails.Location = new System.Drawing.Point(2, 2);
             this.grdJangedDetails.MainView = this.dgvJangedDetails;
             this.grdJangedDetails.Name = "grdJangedDetails";
-            this.grdJangedDetails.Size = new System.Drawing.Size(1263, 488);
+            this.grdJangedDetails.Size = new System.Drawing.Size(1263, 524);
             this.grdJangedDetails.TabIndex = 0;
             this.grdJangedDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvJangedDetails});
@@ -1519,7 +1518,7 @@
             // 
             // clmPcs
             // 
-            this.clmPcs.Caption = "Pcs";
+            this.clmPcs.Caption = "Qty";
             this.clmPcs.FieldName = "pcs";
             this.clmPcs.Name = "clmPcs";
             this.clmPcs.OptionsColumn.AllowEdit = false;
@@ -1818,7 +1817,7 @@
             // txtRoundOff
             // 
             this.txtRoundOff.EnterMoveNextControl = true;
-            this.txtRoundOff.Location = new System.Drawing.Point(840, 11);
+            this.txtRoundOff.Location = new System.Drawing.Point(815, 11);
             this.txtRoundOff.Name = "txtRoundOff";
             this.txtRoundOff.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRoundOff.Properties.Appearance.Options.UseFont = true;
@@ -1834,7 +1833,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.label31.Location = new System.Drawing.Point(725, 12);
+            this.label31.Location = new System.Drawing.Point(700, 12);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(109, 16);
             this.label31.TabIndex = 52;
@@ -1843,8 +1842,9 @@
             // txtNetAmount
             // 
             this.txtNetAmount.EditValue = "0";
+            this.txtNetAmount.Enabled = false;
             this.txtNetAmount.EnterMoveNextControl = true;
-            this.txtNetAmount.Location = new System.Drawing.Point(840, 37);
+            this.txtNetAmount.Location = new System.Drawing.Point(815, 37);
             this.txtNetAmount.Name = "txtNetAmount";
             this.txtNetAmount.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txtNetAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
@@ -1865,7 +1865,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.label29.Location = new System.Drawing.Point(725, 38);
+            this.label29.Location = new System.Drawing.Point(700, 38);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(94, 16);
             this.label29.TabIndex = 50;
@@ -1874,7 +1874,7 @@
             // txtDiscountAmount
             // 
             this.txtDiscountAmount.EnterMoveNextControl = true;
-            this.txtDiscountAmount.Location = new System.Drawing.Point(583, 37);
+            this.txtDiscountAmount.Location = new System.Drawing.Point(559, 37);
             this.txtDiscountAmount.Name = "txtDiscountAmount";
             this.txtDiscountAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiscountAmount.Properties.Appearance.Options.UseFont = true;
@@ -1893,14 +1893,15 @@
             this.label25.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
             this.label25.Location = new System.Drawing.Point(477, 38);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(105, 16);
+            this.label25.Size = new System.Drawing.Size(77, 16);
             this.label25.TabIndex = 44;
-            this.label25.Text = "Discount Amt";
+            this.label25.Text = "Disc. Amt";
             // 
             // txtDiscountPer
             // 
+            this.txtDiscountPer.Enabled = false;
             this.txtDiscountPer.EnterMoveNextControl = true;
-            this.txtDiscountPer.Location = new System.Drawing.Point(583, 11);
+            this.txtDiscountPer.Location = new System.Drawing.Point(559, 11);
             this.txtDiscountPer.Name = "txtDiscountPer";
             this.txtDiscountPer.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiscountPer.Properties.Appearance.Options.UseFont = true;
@@ -1919,9 +1920,88 @@
             this.label26.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
             this.label26.Location = new System.Drawing.Point(477, 12);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(106, 16);
+            this.label26.Size = new System.Drawing.Size(74, 16);
             this.label26.TabIndex = 42;
-            this.label26.Text = "Discount (%)";
+            this.label26.Text = "Disc.(%)";
+            // 
+            // panelControl6
+            // 
+            this.panelControl6.Controls.Add(this.lblEntry);
+            this.panelControl6.Controls.Add(this.btnExit);
+            this.panelControl6.Controls.Add(this.btnSave);
+            this.panelControl6.Controls.Add(this.btnClear);
+            this.panelControl6.Controls.Add(this.btnDelete);
+            this.panelControl6.Controls.Add(this.txtRemark);
+            this.panelControl6.Controls.Add(this.labelControl10);
+            this.panelControl6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl6.Location = new System.Drawing.Point(0, 668);
+            this.panelControl6.Name = "panelControl6";
+            this.panelControl6.Size = new System.Drawing.Size(1267, 46);
+            this.panelControl6.TabIndex = 24;
+            // 
+            // lblEntry
+            // 
+            this.lblEntry.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblEntry.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEntry.Appearance.Options.UseFont = true;
+            this.lblEntry.Location = new System.Drawing.Point(-93, 8);
+            this.lblEntry.Name = "lblEntry";
+            this.lblEntry.Size = new System.Drawing.Size(26, 13);
+            this.lblEntry.TabIndex = 23;
+            this.lblEntry.Text = "Entry";
+            this.lblEntry.Visible = false;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Appearance.Options.UseFont = true;
+            this.btnExit.ImageOptions.Image = global::Account_Management.Properties.Resources.Exit;
+            this.btnExit.Location = new System.Drawing.Point(1035, 8);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(102, 32);
+            this.btnExit.TabIndex = 6;
+            this.btnExit.Text = "E&xit";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Appearance.Options.UseFont = true;
+            this.btnSave.ImageOptions.Image = global::Account_Management.Properties.Resources.Save;
+            this.btnSave.Location = new System.Drawing.Point(818, 8);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(102, 32);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.Text = "&Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClear.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Appearance.Options.UseFont = true;
+            this.btnClear.ImageOptions.Image = global::Account_Management.Properties.Resources.Clear;
+            this.btnClear.Location = new System.Drawing.Point(926, 8);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(102, 32);
+            this.btnClear.TabIndex = 5;
+            this.btnClear.Text = "&Clear";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Appearance.Options.UseFont = true;
+            this.btnDelete.ImageOptions.Image = global::Account_Management.Properties.Resources.Close;
+            this.btnDelete.Location = new System.Drawing.Point(1143, 8);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(102, 32);
+            this.btnDelete.TabIndex = 30;
+            this.btnDelete.Text = "&Delete";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // panelControl4
             // 
@@ -1931,8 +2011,6 @@
             this.panelControl4.Controls.Add(this.label8);
             this.panelControl4.Controls.Add(this.LueColor);
             this.panelControl4.Controls.Add(this.label6);
-            this.panelControl4.Controls.Add(this.txtRemark);
-            this.panelControl4.Controls.Add(this.labelControl10);
             this.panelControl4.Controls.Add(this.labelControl2);
             this.panelControl4.Controls.Add(this.txtPurchaseBill);
             this.panelControl4.Controls.Add(this.labelControl9);
@@ -1959,14 +2037,14 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl4.Location = new System.Drawing.Point(0, 0);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1267, 113);
+            this.panelControl4.Size = new System.Drawing.Size(1267, 77);
             this.panelControl4.TabIndex = 0;
             this.panelControl4.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl4_Paint);
             // 
             // LueUnit
             // 
             this.LueUnit.EnterMoveNextControl = true;
-            this.LueUnit.Location = new System.Drawing.Point(521, 78);
+            this.LueUnit.Location = new System.Drawing.Point(570, 41);
             this.LueUnit.Name = "LueUnit";
             this.LueUnit.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LueUnit.Properties.Appearance.Options.UseFont = true;
@@ -1989,7 +2067,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(477, 79);
+            this.label15.Location = new System.Drawing.Point(526, 43);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(37, 16);
             this.label15.TabIndex = 512;
@@ -1998,7 +2076,7 @@
             // LueSize
             // 
             this.LueSize.EnterMoveNextControl = true;
-            this.LueSize.Location = new System.Drawing.Point(370, 78);
+            this.LueSize.Location = new System.Drawing.Point(419, 41);
             this.LueSize.Name = "LueSize";
             this.LueSize.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LueSize.Properties.Appearance.Options.UseFont = true;
@@ -2021,7 +2099,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(326, 79);
+            this.label8.Location = new System.Drawing.Point(375, 43);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 16);
             this.label8.TabIndex = 510;
@@ -2030,7 +2108,7 @@
             // LueColor
             // 
             this.LueColor.EnterMoveNextControl = true;
-            this.LueColor.Location = new System.Drawing.Point(221, 78);
+            this.LueColor.Location = new System.Drawing.Point(270, 41);
             this.LueColor.Name = "LueColor";
             this.LueColor.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LueColor.Properties.Appearance.Options.UseFont = true;
@@ -2053,7 +2131,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(169, 79);
+            this.label6.Location = new System.Drawing.Point(218, 43);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 16);
             this.label6.TabIndex = 508;
@@ -2063,20 +2141,20 @@
             // 
             this.txtRemark.EditValue = "";
             this.txtRemark.EnterMoveNextControl = true;
-            this.txtRemark.Location = new System.Drawing.Point(615, 35);
+            this.txtRemark.Location = new System.Drawing.Point(72, 8);
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRemark.Properties.Appearance.Options.UseFont = true;
             this.txtRemark.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtRemark.Properties.MaxLength = 100;
-            this.txtRemark.Size = new System.Drawing.Size(447, 32);
+            this.txtRemark.Size = new System.Drawing.Size(659, 32);
             this.txtRemark.TabIndex = 506;
             // 
             // labelControl10
             // 
             this.labelControl10.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl10.Appearance.Options.UseFont = true;
-            this.labelControl10.Location = new System.Drawing.Point(545, 36);
+            this.labelControl10.Location = new System.Drawing.Point(11, 15);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(55, 16);
             this.labelControl10.TabIndex = 507;
@@ -2088,16 +2166,16 @@
             this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Appearance.Options.UseForeColor = true;
-            this.labelControl2.Location = new System.Drawing.Point(545, 10);
+            this.labelControl2.Location = new System.Drawing.Point(506, 9);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(64, 16);
+            this.labelControl2.Size = new System.Drawing.Size(28, 16);
             this.labelControl2.TabIndex = 505;
-            this.labelControl2.Text = "GST Rate";
+            this.labelControl2.Text = "GST";
             // 
             // txtPurchaseBill
             // 
             this.txtPurchaseBill.EnterMoveNextControl = true;
-            this.txtPurchaseBill.Location = new System.Drawing.Point(450, 8);
+            this.txtPurchaseBill.Location = new System.Drawing.Point(411, 7);
             this.txtPurchaseBill.Name = "txtPurchaseBill";
             this.txtPurchaseBill.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPurchaseBill.Properties.Appearance.Options.UseFont = true;
@@ -2113,14 +2191,14 @@
             this.labelControl9.Appearance.Options.UseForeColor = true;
             this.labelControl9.Location = new System.Drawing.Point(350, 9);
             this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(93, 16);
+            this.labelControl9.Size = new System.Drawing.Size(55, 16);
             this.labelControl9.TabIndex = 504;
-            this.labelControl9.Text = "Purchase Bill";
+            this.labelControl9.Text = "Pur. Bill";
             // 
             // txtPcs
             // 
             this.txtPcs.EnterMoveNextControl = true;
-            this.txtPcs.Location = new System.Drawing.Point(655, 78);
+            this.txtPcs.Location = new System.Drawing.Point(704, 41);
             this.txtPcs.Name = "txtPcs";
             this.txtPcs.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPcs.Properties.Appearance.Options.UseFont = true;
@@ -2131,18 +2209,18 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(622, 79);
+            this.label3.Location = new System.Drawing.Point(671, 43);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 16);
+            this.label3.Size = new System.Drawing.Size(34, 16);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Pcs";
+            this.label3.Text = "Qty";
             // 
             // btnAdd
             // 
             this.btnAdd.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Appearance.Options.UseFont = true;
             this.btnAdd.ImageOptions.Image = global::Account_Management.Properties.Resources.Add_final;
-            this.btnAdd.Location = new System.Drawing.Point(1011, 73);
+            this.btnAdd.Location = new System.Drawing.Point(1034, 36);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(92, 32);
             this.btnAdd.TabIndex = 7;
@@ -2153,7 +2231,7 @@
             // 
             this.txtAmount.Enabled = false;
             this.txtAmount.EnterMoveNextControl = true;
-            this.txtAmount.Location = new System.Drawing.Point(926, 77);
+            this.txtAmount.Location = new System.Drawing.Point(949, 41);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmount.Properties.Appearance.Options.UseFont = true;
@@ -2164,11 +2242,11 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(855, 79);
+            this.label18.Location = new System.Drawing.Point(904, 43);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(65, 16);
+            this.label18.Size = new System.Drawing.Size(43, 16);
             this.label18.TabIndex = 10;
-            this.label18.Text = "Amount";
+            this.label18.Text = "Amt.";
             // 
             // labelControl3
             // 
@@ -2178,7 +2256,7 @@
             this.labelControl3.Appearance.Options.UseBackColor = true;
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Appearance.Options.UseForeColor = true;
-            this.labelControl3.Location = new System.Drawing.Point(253, 8);
+            this.labelControl3.Location = new System.Drawing.Point(253, 9);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(13, 16);
             this.labelControl3.TabIndex = 466;
@@ -2187,7 +2265,7 @@
             // txtRate
             // 
             this.txtRate.EnterMoveNextControl = true;
-            this.txtRate.Location = new System.Drawing.Point(770, 78);
+            this.txtRate.Location = new System.Drawing.Point(819, 41);
             this.txtRate.Name = "txtRate";
             this.txtRate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRate.Properties.Appearance.Options.UseFont = true;
@@ -2199,7 +2277,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label17.Location = new System.Drawing.Point(723, 79);
+            this.label17.Location = new System.Drawing.Point(772, 43);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(41, 16);
             this.label17.TabIndex = 8;
@@ -2208,7 +2286,7 @@
             // lueParty
             // 
             this.lueParty.EnterMoveNextControl = true;
-            this.lueParty.Location = new System.Drawing.Point(816, 7);
+            this.lueParty.Location = new System.Drawing.Point(741, 7);
             this.lueParty.Name = "lueParty";
             this.lueParty.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueParty.Properties.Appearance.Options.UseFont = true;
@@ -2237,7 +2315,7 @@
             this.labelControl1.Appearance.Options.UseBackColor = true;
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Location = new System.Drawing.Point(801, 7);
+            this.labelControl1.Location = new System.Drawing.Point(726, 9);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(13, 16);
             this.labelControl1.TabIndex = 39;
@@ -2246,7 +2324,7 @@
             // lueItem
             // 
             this.lueItem.EnterMoveNextControl = true;
-            this.lueItem.Location = new System.Drawing.Point(47, 78);
+            this.lueItem.Location = new System.Drawing.Point(47, 41);
             this.lueItem.Name = "lueItem";
             this.lueItem.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueItem.Properties.Appearance.Options.UseFont = true;
@@ -2262,14 +2340,14 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("item_id", "Item ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lueItem.Properties.NullText = "";
             this.lueItem.Properties.ShowHeader = false;
-            this.lueItem.Size = new System.Drawing.Size(116, 20);
+            this.lueItem.Size = new System.Drawing.Size(165, 20);
             this.lueItem.TabIndex = 0;
             // 
             // label32
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label32.Location = new System.Drawing.Point(753, 9);
+            this.label32.Location = new System.Drawing.Point(678, 9);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(47, 16);
             this.label32.TabIndex = 38;
@@ -2279,7 +2357,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(5, 79);
+            this.label14.Location = new System.Drawing.Point(5, 43);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(43, 16);
             this.label14.TabIndex = 0;
@@ -2288,7 +2366,7 @@
             // lueGSTRate
             // 
             this.lueGSTRate.EnterMoveNextControl = true;
-            this.lueGSTRate.Location = new System.Drawing.Point(615, 9);
+            this.lueGSTRate.Location = new System.Drawing.Point(540, 7);
             this.lueGSTRate.Name = "lueGSTRate";
             this.lueGSTRate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueGSTRate.Properties.Appearance.Options.UseFont = true;
@@ -2314,7 +2392,7 @@
             // 
             this.txtVoucherNo.Enabled = false;
             this.txtVoucherNo.EnterMoveNextControl = true;
-            this.txtVoucherNo.Location = new System.Drawing.Point(266, 8);
+            this.txtVoucherNo.Location = new System.Drawing.Point(266, 7);
             this.txtVoucherNo.Name = "txtVoucherNo";
             this.txtVoucherNo.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVoucherNo.Properties.Appearance.Options.UseFont = true;
@@ -2351,7 +2429,7 @@
             this.labelControl5.Appearance.Options.UseBackColor = true;
             this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Appearance.Options.UseForeColor = true;
-            this.labelControl5.Location = new System.Drawing.Point(46, 8);
+            this.labelControl5.Location = new System.Drawing.Point(46, 9);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(13, 16);
             this.labelControl5.TabIndex = 4;
@@ -2630,83 +2708,6 @@
             this.backgroundWorker_JangedDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_JangedDelete_DoWork);
             this.backgroundWorker_JangedDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_JangedDelete_RunWorkerCompleted);
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Appearance.Options.UseFont = true;
-            this.btnDelete.ImageOptions.Image = global::Account_Management.Properties.Resources.Close;
-            this.btnDelete.Location = new System.Drawing.Point(1143, 8);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(102, 32);
-            this.btnDelete.TabIndex = 30;
-            this.btnDelete.Text = "&Delete";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClear.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Appearance.Options.UseFont = true;
-            this.btnClear.ImageOptions.Image = global::Account_Management.Properties.Resources.Clear;
-            this.btnClear.Location = new System.Drawing.Point(926, 8);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(102, 32);
-            this.btnClear.TabIndex = 5;
-            this.btnClear.Text = "&Clear";
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.ImageOptions.Image = global::Account_Management.Properties.Resources.Save;
-            this.btnSave.Location = new System.Drawing.Point(818, 8);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(102, 32);
-            this.btnSave.TabIndex = 4;
-            this.btnSave.Text = "&Save";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Appearance.Options.UseFont = true;
-            this.btnExit.ImageOptions.Image = global::Account_Management.Properties.Resources.Exit;
-            this.btnExit.Location = new System.Drawing.Point(1035, 8);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(102, 32);
-            this.btnExit.TabIndex = 6;
-            this.btnExit.Text = "E&xit";
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // lblEntry
-            // 
-            this.lblEntry.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblEntry.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEntry.Appearance.Options.UseFont = true;
-            this.lblEntry.Location = new System.Drawing.Point(-93, 8);
-            this.lblEntry.Name = "lblEntry";
-            this.lblEntry.Size = new System.Drawing.Size(26, 13);
-            this.lblEntry.TabIndex = 23;
-            this.lblEntry.Text = "Entry";
-            this.lblEntry.Visible = false;
-            // 
-            // panelControl6
-            // 
-            this.panelControl6.Controls.Add(this.lblEntry);
-            this.panelControl6.Controls.Add(this.btnExit);
-            this.panelControl6.Controls.Add(this.btnSave);
-            this.panelControl6.Controls.Add(this.btnClear);
-            this.panelControl6.Controls.Add(this.btnDelete);
-            this.panelControl6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl6.Location = new System.Drawing.Point(0, 668);
-            this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(1267, 46);
-            this.panelControl6.TabIndex = 24;
-            // 
             // FrmJangedEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2765,6 +2766,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNetAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiscountAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiscountPer.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
+            this.panelControl6.ResumeLayout(false);
+            this.panelControl6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             this.panelControl4.PerformLayout();
@@ -2784,9 +2788,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpJangedDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
-            this.panelControl6.ResumeLayout(false);
-            this.panelControl6.PerformLayout();
             this.ResumeLayout(false);
 
         }
