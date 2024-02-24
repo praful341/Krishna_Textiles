@@ -1205,7 +1205,7 @@ namespace Account_Management.Transaction
                         LueColor.EditValue = Val.ToInt64(Drow["color_id"]);
                         LueSize.EditValue = Val.ToInt64(Drow["size_id"]);
                         LueUnit.EditValue = Val.ToInt64(Drow["unit_id"]);
-                        lueItem.EditValue = Val.ToInt32(Drow["item_id"]);
+                        lueItem.EditValue = Val.ToInt64(Drow["item_id"]);
                         txtPcs.Text = Val.ToString(Drow["pcs"]);
                         txtRate.Text = Val.ToString(Drow["rate"]);
                         txtAmount.Text = Val.ToString(Drow["amount"]);
