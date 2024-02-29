@@ -729,11 +729,11 @@
     <Compile Include="Transaction\FrmJangedEntry.Designer.cs">
       <DependentUpon>FrmJangedEntry.cs</DependentUpon>
     </Compile>
-    <Compile Include="Transaction\FrmPurchaseEntry.cs">
+    <Compile Include="Transaction\FrmPurchase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transaction\FrmPurchaseEntry.Designer.cs">
-      <DependentUpon>FrmPurchaseEntry.cs</DependentUpon>
+    <Compile Include="Transaction\FrmPurchase.Designer.cs">
+      <DependentUpon>FrmPurchase.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ContReportGroupSelectDev.cs">
       <SubType>UserControl</SubType>
@@ -908,8 +908,8 @@
     <EmbeddedResource Include="Transaction\FrmJangedEntry.resx">
       <DependentUpon>FrmJangedEntry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transaction\FrmPurchaseEntry.resx">
-      <DependentUpon>FrmPurchaseEntry.cs</DependentUpon>
+    <EmbeddedResource Include="Transaction\FrmPurchase.resx">
+      <DependentUpon>FrmPurchase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ContReportGroupSelectDev.resx">
       <DependentUpon>ContReportGroupSelectDev.cs</DependentUpon>

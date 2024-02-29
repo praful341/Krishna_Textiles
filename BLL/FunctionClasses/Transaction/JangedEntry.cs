@@ -44,7 +44,7 @@ namespace BLL.FunctionClasses.Transaction
                 Request.AddParams("@entry_date", Val.DBDate(BLL.GlobalDec.gStrServerDate), DbType.Date);
                 Request.AddParams("@entry_time", GlobalDec.gStr_SystemTime, DbType.String);
                 Request.AddParams("@form_id", pClsProperty.form_id, DbType.Int64);
-                Request.AddParams("@fin_year_id", GlobalDec.gFinancialYear, DbType.String);
+                Request.AddParams("@fin_year_id", GlobalDec.gEmployeeProperty.gFinancialYear_Code, DbType.Int64);
 
                 Request.CommandText = BLL.TPV.SProc.TRN_janged_Save;
                 Request.CommandType = CommandType.StoredProcedure;

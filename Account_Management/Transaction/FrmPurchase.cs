@@ -20,7 +20,7 @@ using static Account_Management.Class.Global;
 
 namespace Account_Management.Transaction
 {
-    public partial class FrmJangedEntry : DevExpress.XtraEditors.XtraForm
+    public partial class FrmPurchase : DevExpress.XtraEditors.XtraForm
     {
         #region Data Member
         BLL.BeginTranConnection Conn;
@@ -32,16 +32,16 @@ namespace Account_Management.Transaction
         private List<Control> _tabControls;
         public delegate void SetControlValueCallback(Control oControl, string propName, object propValue);
 
-        JangedEntry objJangedEntry = new JangedEntry();
+        Purchase objPurchase = new Purchase();
         UserAuthentication objUserAuthentication = new UserAuthentication();
         //AssortMaster objAssort = new AssortMaster();
         //SieveMaster objSieve = new SieveMaster();
         //RateMaster objRate = new RateMaster();
 
         DataTable DtControlSettings = new DataTable();
-        DataTable m_dtbJangedDetails = new DataTable();
+        DataTable m_dtbPurchaseDetails = new DataTable();
         DataTable m_dtbDetails = new DataTable();
-
+        DataSet m_dtbVoucher_JangedDetail = new DataSet();
 
         int m_janged_detail_id;
         int m_srno;
@@ -58,7 +58,7 @@ namespace Account_Management.Transaction
         #endregion
 
         #region Constructor
-        public FrmJangedEntry()
+        public FrmPurchase()
         {
             InitializeComponent();
 
@@ -69,7 +69,7 @@ namespace Account_Management.Transaction
             _NextEnteredControl = new Control();
             _tabControls = new List<Control>();
 
-            objJangedEntry = new JangedEntry();
+            objPurchase = new Purchase();
             objUserAuthentication = new UserAuthentication();
 
             DtControlSettings = new DataTable();
@@ -258,7 +258,7 @@ namespace Account_Management.Transaction
             objBOFormEvents.FormKeyDown = true;
             objBOFormEvents.FormResize = true;
             objBOFormEvents.FormClosing = true;
-            objBOFormEvents.ObjToDispose.Add(objJangedEntry);
+            objBOFormEvents.ObjToDispose.Add(objPurchase);
             objBOFormEvents.ObjToDispose.Add(Val);
             objBOFormEvents.ObjToDispose.Add(objBOFormEvents);
 
@@ -351,7 +351,7 @@ namespace Account_Management.Transaction
 
             DevExpress.Data.CurrencyDataController.DisableThreadingProblemsDetection = true;
             panelProgress.Visible = true;
-            backgroundWorker_JangedEntry.RunWorkerAsync();
+            backgroundWorker_PurchaseEntry.RunWorkerAsync();
 
             btnSave.Enabled = true;
         }
@@ -396,7 +396,7 @@ namespace Account_Management.Transaction
 
             DevExpress.Data.CurrencyDataController.DisableThreadingProblemsDetection = true;
             panelProgress.Visible = true;
-            backgroundWorker_JangedDelete.RunWorkerAsync();
+            backgroundWorker_PurchaseDelete.RunWorkerAsync();
 
             btnDelete.Enabled = true;
         }
@@ -563,11 +563,11 @@ namespace Account_Management.Transaction
                 dtpToDate.Properties.CharacterCasing = CharacterCasing.Upper;
                 dtpToDate.EditValue = DateTime.Now;
 
-                dtpJangedDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpJangedDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
-                dtpJangedDate.Properties.Mask.UseMaskAsDisplayFormat = true;
-                dtpJangedDate.Properties.CharacterCasing = CharacterCasing.Upper;
-                dtpJangedDate.EditValue = DateTime.Now;
+                dtpPurchaseDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
+                dtpPurchaseDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpPurchaseDate.Properties.Mask.UseMaskAsDisplayFormat = true;
+                dtpPurchaseDate.Properties.CharacterCasing = CharacterCasing.Upper;
+                dtpPurchaseDate.EditValue = DateTime.Now;
 
                 btnClear_Click(null, null);
                 btnSearch_Click(null, null);
@@ -618,14 +618,14 @@ namespace Account_Management.Transaction
                 if (btnAdd.Text == "&Add")
                 {
                     //DataTable m_dtbStockCarat = new DataTable();
-                    objJangedEntry = new JangedEntry();
+                    objPurchase = new Purchase();
                     //m_dtbStockCarat = objSaleInvoice.GetStockCarat(GlobalDec.gEmployeeProperty.company_id, GlobalDec.gEmployeeProperty.branch_id, GlobalDec.gEmployeeProperty.location_id, GlobalDec.gEmployeeProperty.department_id, Val.ToInt(lueAssortName.EditValue), Val.ToInt(lueSieveName.EditValue));                    
                     //if (m_dtbStockCarat.Rows.Count > 0)
                     //{
                     //    numStockCarat = Val.ToDecimal(m_dtbStockCarat.Rows[0]["stock_carat"]);
                     //}
 
-                    DataRow[] dr = m_dtbJangedDetails.Select("item_id = " + Val.ToInt(lueItem.EditValue) + " AND color_id = " + Val.ToInt(LueColor.EditValue) + " AND size_id = " + Val.ToInt(LueSize.EditValue));
+                    DataRow[] dr = m_dtbPurchaseDetails.Select("item_id = " + Val.ToInt(lueItem.EditValue) + " AND color_id = " + Val.ToInt(LueColor.EditValue) + " AND size_id = " + Val.ToInt(LueSize.EditValue) + " AND unit_id = " + Val.ToInt(LueUnit.EditValue));
 
                     if (dr.Count() == 1)
                     {
@@ -634,13 +634,15 @@ namespace Account_Management.Transaction
                         blnReturn = false;
                         return blnReturn;
                     }
-                    DataRow drwNew = m_dtbJangedDetails.NewRow();
+                    DataRow drwNew = m_dtbPurchaseDetails.NewRow();
                     decimal numRate = Val.ToDecimal(txtRate.Text);
                     decimal numAmount = Val.ToDecimal(txtAmount.Text);
                     int numPcs = Val.ToInt(txtPcs.Text);
 
-                    drwNew["janged_id"] = Val.ToInt(0);
-                    drwNew["janged_detail_id"] = Val.ToInt(0);
+                    drwNew["purchase_id"] = Val.ToInt(0);
+                    drwNew["purchase_detail_id"] = Val.ToInt(0);
+
+                    drwNew["janged_id"] = Val.ToInt(lblJanged_ID.Text);
 
                     drwNew["color_id"] = Val.ToInt(LueColor.EditValue);
                     drwNew["color_name"] = Val.ToString(LueColor.Text);
@@ -662,9 +664,9 @@ namespace Account_Management.Transaction
                     m_srno = m_srno + 1;
                     drwNew["sr_no"] = Val.ToInt(m_srno);
 
-                    m_dtbJangedDetails.Rows.Add(drwNew);
+                    m_dtbPurchaseDetails.Rows.Add(drwNew);
 
-                    dgvJangedDetails.MoveLast();
+                    dgvPurchaseDetails.MoveLast();
 
                     decimal CGST_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtCGSTPer.Text) / 100, 2);
                     txtCGSTAmount.Text = CGST_amount.ToString();
@@ -688,35 +690,33 @@ namespace Account_Management.Transaction
                         return blnReturn;
                     }
 
-                    objJangedEntry = new JangedEntry();
+                    objPurchase = new Purchase();
 
-                    if (m_dtbJangedDetails.Select("item_id ='" + Val.ToInt(lueItem.EditValue) + "' AND color_id ='" + Val.ToInt(LueColor.EditValue) + "' AND size_id ='" + Val.ToInt(LueSize.EditValue) + "'").Length > 0)
+                    if (m_dtbPurchaseDetails.Select("item_id ='" + Val.ToInt(lueItem.EditValue) + "' AND color_id ='" + Val.ToInt(LueColor.EditValue) + "' AND size_id ='" + Val.ToInt(LueSize.EditValue) + "' AND unit_id ='" + Val.ToInt(LueUnit.EditValue) + "'").Length > 0)
                     {
-                        for (int i = 0; i < m_dtbJangedDetails.Rows.Count; i++)
+                        for (int i = 0; i < m_dtbPurchaseDetails.Rows.Count; i++)
                         {
-                            if (m_dtbJangedDetails.Select("janged_detail_id ='" + m_janged_detail_id + "' AND sr_no = '" + m_update_srno + "'").Length > 0)
+                            if (m_dtbPurchaseDetails.Select("purchase_detail_id ='" + m_janged_detail_id + "' AND sr_no = '" + m_update_srno + "'").Length > 0)
                             {
-                                if (m_dtbJangedDetails.Rows[m_update_srno - 1]["janged_detail_id"].ToString() == m_janged_detail_id.ToString())
+                                if (m_dtbPurchaseDetails.Rows[m_update_srno - 1]["purchase_detail_id"].ToString() == m_janged_detail_id.ToString())
                                 {
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["rate"] = Val.ToDecimal(txtRate.Text);
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["flag"] = 1;
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["amount"] = Math.Round(Val.ToDecimal(txtPcs.Text) * Val.ToDecimal(txtRate.Text), 3);
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["rate"] = Val.ToDecimal(txtRate.Text);
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["flag"] = 1;
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["amount"] = Math.Round(Val.ToDecimal(txtPcs.Text) * Val.ToDecimal(txtRate.Text), 3);
 
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["item_id"] = Val.ToInt(lueItem.EditValue);
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["item_name"] = Val.ToString(lueItem.Text);
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["item_id"] = Val.ToInt(lueItem.EditValue);
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["item_name"] = Val.ToString(lueItem.Text);
 
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["color_id"] = Val.ToInt(LueColor.EditValue);
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["color_name"] = Val.ToString(LueColor.Text);
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["color_id"] = Val.ToInt(LueColor.EditValue);
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["color_name"] = Val.ToString(LueColor.Text);
 
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["size_id"] = Val.ToInt(LueSize.EditValue);
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["size_name"] = Val.ToString(LueSize.Text);
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["size_id"] = Val.ToInt(LueSize.EditValue);
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["size_name"] = Val.ToString(LueSize.Text);
 
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["unit_id"] = Val.ToInt(LueUnit.EditValue);
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["unit_name"] = Val.ToString(LueUnit.Text);
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["unit_id"] = Val.ToInt(LueUnit.EditValue);
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["unit_name"] = Val.ToString(LueUnit.Text);
 
-                                    //decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtInterestAmount.Text) + Val.ToDecimal(txtCGSTAmount.Text) + Val.ToDecimal(txtSGSTAmount.Text) + Val.ToDecimal(txtIGSTAmount.Text)) - (Val.ToDecimal(txtDiscountAmount.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
-                                    //txtNetAmount.Text = Shipping_Charge.ToString();
                                     break;
                                 }
                             }
@@ -725,34 +725,31 @@ namespace Account_Management.Transaction
                     }
                     else
                     {
-                        for (int i = 0; i < m_dtbJangedDetails.Rows.Count; i++)
+                        for (int i = 0; i < m_dtbPurchaseDetails.Rows.Count; i++)
                         {
-                            if (m_dtbJangedDetails.Select("janged_detail_id ='" + m_janged_detail_id + "' AND sr_no = '" + m_update_srno + "'").Length > 0)
+                            if (m_dtbPurchaseDetails.Select("purchase_detail_id ='" + m_janged_detail_id + "' AND sr_no = '" + m_update_srno + "'").Length > 0)
                             {
-                                if (m_dtbJangedDetails.Rows[m_update_srno - 1]["janged_detail_id"].ToString() == m_janged_detail_id.ToString())
+                                if (m_dtbPurchaseDetails.Rows[m_update_srno - 1]["purchase_detail_id"].ToString() == m_janged_detail_id.ToString())
                                 {
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["rate"] = Val.ToDecimal(txtRate.Text);
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["flag"] = 1;
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["item_id"] = Val.ToInt(lueItem.EditValue);
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["color_id"] = Val.ToInt(LueColor.EditValue);
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["size_id"] = Val.ToInt(LueSize.EditValue);
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["unit_id"] = Val.ToInt(LueUnit.EditValue);
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["item_name"] = Val.ToString(lueItem.Text);
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["color_name"] = Val.ToString(LueColor.Text);
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["size_name"] = Val.ToString(LueSize.Text);
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["unit_name"] = Val.ToString(LueUnit.Text);
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["rate"] = Val.ToDecimal(txtRate.Text);
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["flag"] = 1;
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["item_id"] = Val.ToInt(lueItem.EditValue);
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["color_id"] = Val.ToInt(LueColor.EditValue);
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["size_id"] = Val.ToInt(LueSize.EditValue);
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["unit_id"] = Val.ToInt(LueUnit.EditValue);
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["item_name"] = Val.ToString(lueItem.Text);
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["color_name"] = Val.ToString(LueColor.Text);
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["size_name"] = Val.ToString(LueSize.Text);
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["unit_name"] = Val.ToString(LueUnit.Text);
 
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["amount"] = Math.Round(Val.ToDecimal(txtPcs.Text) * Val.ToDecimal(txtRate.Text), 3);
-
-                                    //decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtInterestAmount.Text) + Val.ToDecimal(txtCGSTAmount.Text) + Val.ToDecimal(txtSGSTAmount.Text) + Val.ToDecimal(txtIGSTAmount.Text)) - (Val.ToDecimal(txtDiscountAmount.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
-                                    //txtNetAmount.Text = Shipping_Charge.ToString();
+                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["amount"] = Math.Round(Val.ToDecimal(txtPcs.Text) * Val.ToDecimal(txtRate.Text), 3);
                                 }
                             }
                         }
                         btnAdd.Text = "&Add";
                     }
-                    dgvJangedDetails.MoveLast();
+                    dgvPurchaseDetails.MoveLast();
                     m_IsUpdate = false;
                 }
             }
@@ -772,7 +769,7 @@ namespace Account_Management.Transaction
             {
                 if (m_blnsave)
                 {
-                    if (m_dtbJangedDetails.Rows.Count == 0)
+                    if (m_dtbPurchaseDetails.Rows.Count == 0)
                     {
                         lstError.Add(new ListError(22, "Record"));
                         if (!blnFocus)
@@ -780,7 +777,7 @@ namespace Account_Management.Transaction
                             blnFocus = true;
                         }
                     }
-                    if (dgvJangedDetails == null)
+                    if (dgvPurchaseDetails == null)
                     {
                         lstError.Add(new ListError(22, "Record"));
                         if (!blnFocus)
@@ -788,14 +785,14 @@ namespace Account_Management.Transaction
                             blnFocus = true;
                         }
                     }
-                    var result = DateTime.Compare(Convert.ToDateTime(dtpJangedDate.Text), DateTime.Today);
+                    var result = DateTime.Compare(Convert.ToDateTime(dtpPurchaseDate.Text), DateTime.Today);
                     if (result > 0)
                     {
-                        lstError.Add(new ListError(5, " Janged Date Not Be Greater Than Today Date"));
+                        lstError.Add(new ListError(5, " Purchase Date Not Be Greater Than Today Date"));
                         if (!blnFocus)
                         {
                             blnFocus = true;
-                            dtpJangedDate.Focus();
+                            dtpPurchaseDate.Focus();
                         }
                     }
                 }
@@ -906,11 +903,12 @@ namespace Account_Management.Transaction
                 LueUnit.EditValue = System.DBNull.Value;
                 txtSearchVoucherNo.Text = string.Empty;
                 lueJangedLedger.EditValue = System.DBNull.Value;
-                dtpJangedDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpJangedDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
-                dtpJangedDate.Properties.Mask.UseMaskAsDisplayFormat = true;
-                dtpJangedDate.Properties.CharacterCasing = CharacterCasing.Upper;
-                dtpJangedDate.EditValue = DateTime.Now;
+                dtpPurchaseDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
+                dtpPurchaseDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpPurchaseDate.Properties.Mask.UseMaskAsDisplayFormat = true;
+                dtpPurchaseDate.Properties.CharacterCasing = CharacterCasing.Upper;
+                dtpPurchaseDate.EditValue = DateTime.Now;
+                lblJanged_ID.Text = "0";
                 txtPcs.Text = string.Empty;
                 txtRate.Text = string.Empty;
                 txtAmount.Text = string.Empty;
@@ -926,11 +924,12 @@ namespace Account_Management.Transaction
                 txtIGSTAmount.Text = string.Empty;
                 txtRemark.Text = string.Empty;
                 txtPurchaseBill.Text = string.Empty;
+                txtVoucherNo.Enabled = true;
                 btnAdd.Text = "&Add";
                 txtVoucherNo.Focus();
                 m_srno = 0;
-                objJangedEntry = new JangedEntry();
-                txtVoucherNo.Text = objJangedEntry.FindNewID().ToString();
+                //objPurchase = new Purchase();
+                //txtVoucherNo.Text = objPurchase.FindNewID().ToString();
                 m_IsUpdate = true;
                 lblMode.Text = "Add Mode";
 
@@ -950,39 +949,41 @@ namespace Account_Management.Transaction
             bool blnReturn = true;
             try
             {
-                if (m_dtbJangedDetails.Rows.Count > 0)
-                    m_dtbJangedDetails.Rows.Clear();
+                if (m_dtbPurchaseDetails.Rows.Count > 0)
+                    m_dtbPurchaseDetails.Rows.Clear();
 
-                m_dtbJangedDetails = new DataTable();
+                m_dtbPurchaseDetails = new DataTable();
 
-                m_dtbJangedDetails.Columns.Add("sr_no", typeof(int));
-                m_dtbJangedDetails.Columns.Add("janged_detail_id", typeof(int));
-                m_dtbJangedDetails.Columns.Add("janged_id", typeof(int));
-                m_dtbJangedDetails.Columns.Add("item_id", typeof(int));
-                m_dtbJangedDetails.Columns.Add("item_name", typeof(string));
-                m_dtbJangedDetails.Columns.Add("color_id", typeof(int));
-                m_dtbJangedDetails.Columns.Add("color_name", typeof(string));
-                m_dtbJangedDetails.Columns.Add("size_id", typeof(int));
-                m_dtbJangedDetails.Columns.Add("size_name", typeof(string));
-                m_dtbJangedDetails.Columns.Add("unit_id", typeof(int));
-                m_dtbJangedDetails.Columns.Add("unit_name", typeof(string));
-                m_dtbJangedDetails.Columns.Add("pcs", typeof(int)).DefaultValue = 0;
-                m_dtbJangedDetails.Columns.Add("rate", typeof(decimal)).DefaultValue = 0;
-                m_dtbJangedDetails.Columns.Add("amount", typeof(decimal)).DefaultValue = 0;
-                m_dtbJangedDetails.Columns.Add("remarks", typeof(string));
-                m_dtbJangedDetails.Columns.Add("old_pcs", typeof(int)).DefaultValue = 0;
-                m_dtbJangedDetails.Columns.Add("flag", typeof(int)).DefaultValue = 0;
-                m_dtbJangedDetails.Columns.Add("old_item_id", typeof(int));
-                m_dtbJangedDetails.Columns.Add("old_color_id", typeof(int));
-                m_dtbJangedDetails.Columns.Add("old_size_id", typeof(int));
-                m_dtbJangedDetails.Columns.Add("old_unit_id", typeof(int));
-                m_dtbJangedDetails.Columns.Add("old_item_name", typeof(string));
-                m_dtbJangedDetails.Columns.Add("old_color_name", typeof(string));
-                m_dtbJangedDetails.Columns.Add("old_size_name", typeof(string));
-                m_dtbJangedDetails.Columns.Add("old_unit_name", typeof(string));
+                m_dtbPurchaseDetails.Columns.Add("sr_no", typeof(int));
+                m_dtbPurchaseDetails.Columns.Add("purchase_detail_id", typeof(int));
+                m_dtbPurchaseDetails.Columns.Add("purchase_id", typeof(int));
+                m_dtbPurchaseDetails.Columns.Add("janged_detail_id", typeof(int));
+                m_dtbPurchaseDetails.Columns.Add("janged_id", typeof(int));
+                m_dtbPurchaseDetails.Columns.Add("item_id", typeof(int));
+                m_dtbPurchaseDetails.Columns.Add("item_name", typeof(string));
+                m_dtbPurchaseDetails.Columns.Add("color_id", typeof(int));
+                m_dtbPurchaseDetails.Columns.Add("color_name", typeof(string));
+                m_dtbPurchaseDetails.Columns.Add("size_id", typeof(int));
+                m_dtbPurchaseDetails.Columns.Add("size_name", typeof(string));
+                m_dtbPurchaseDetails.Columns.Add("unit_id", typeof(int));
+                m_dtbPurchaseDetails.Columns.Add("unit_name", typeof(string));
+                m_dtbPurchaseDetails.Columns.Add("pcs", typeof(int)).DefaultValue = 0;
+                m_dtbPurchaseDetails.Columns.Add("rate", typeof(decimal)).DefaultValue = 0;
+                m_dtbPurchaseDetails.Columns.Add("amount", typeof(decimal)).DefaultValue = 0;
+                m_dtbPurchaseDetails.Columns.Add("remarks", typeof(string));
+                m_dtbPurchaseDetails.Columns.Add("old_pcs", typeof(int)).DefaultValue = 0;
+                m_dtbPurchaseDetails.Columns.Add("flag", typeof(int)).DefaultValue = 0;
+                m_dtbPurchaseDetails.Columns.Add("old_item_id", typeof(int));
+                m_dtbPurchaseDetails.Columns.Add("old_color_id", typeof(int));
+                m_dtbPurchaseDetails.Columns.Add("old_size_id", typeof(int));
+                m_dtbPurchaseDetails.Columns.Add("old_unit_id", typeof(int));
+                m_dtbPurchaseDetails.Columns.Add("old_item_name", typeof(string));
+                m_dtbPurchaseDetails.Columns.Add("old_color_name", typeof(string));
+                m_dtbPurchaseDetails.Columns.Add("old_size_name", typeof(string));
+                m_dtbPurchaseDetails.Columns.Add("old_unit_name", typeof(string));
 
-                grdJangedDetails.DataSource = m_dtbJangedDetails;
-                grdJangedDetails.Refresh();
+                grdPurchaseDetails.DataSource = m_dtbPurchaseDetails;
+                grdPurchaseDetails.Refresh();
             }
             catch (Exception ex)
             {
@@ -993,22 +994,16 @@ namespace Account_Management.Transaction
         }
         private bool PopulateDetails()
         {
-            objJangedEntry = new JangedEntry();
+            objPurchase = new Purchase();
             bool blnReturn = true;
             DateTime datFromDate = DateTime.MinValue;
             DateTime datToDate = DateTime.MinValue;
             try
             {
-                m_dtbDetails = objJangedEntry.GetData(Val.DBDate(dtpFromDate.Text), Val.DBDate(dtpToDate.Text), Val.ToInt64(txtSearchVoucherNo.Text), Val.ToInt32(lueJangedLedger.EditValue));
+                m_dtbDetails = objPurchase.GetData(Val.DBDate(dtpFromDate.Text), Val.DBDate(dtpToDate.Text), Val.ToInt64(txtSearchVoucherNo.Text), Val.ToInt32(lueJangedLedger.EditValue));
 
-                //if (m_dtbDetails.t.Rows.Count == 0)
-                //{
-                //    Global.Message("Data Not Found");
-                //    blnReturn = false;
-                //}
-
-                grdJangedEntry.DataSource = m_dtbDetails;
-                dgvJangedEntry.BestFitColumns();
+                grdPurchaseEntry.DataSource = m_dtbDetails;
+                dgvPurchaseEntry.BestFitColumns();
             }
             catch (Exception ex)
             {
@@ -1017,7 +1012,7 @@ namespace Account_Management.Transaction
             }
             finally
             {
-                objJangedEntry = null;
+                objPurchase = null;
             }
 
             return blnReturn;
@@ -1090,25 +1085,25 @@ namespace Account_Management.Transaction
                     switch (format)
                     {
                         case "pdf":
-                            dgvJangedEntry.ExportToPdf(Filepath);
+                            dgvPurchaseEntry.ExportToPdf(Filepath);
                             break;
                         case "xls":
-                            dgvJangedEntry.ExportToXls(Filepath);
+                            dgvPurchaseEntry.ExportToXls(Filepath);
                             break;
                         case "xlsx":
-                            dgvJangedEntry.ExportToXlsx(Filepath);
+                            dgvPurchaseEntry.ExportToXlsx(Filepath);
                             break;
                         case "rtf":
-                            dgvJangedEntry.ExportToRtf(Filepath);
+                            dgvPurchaseEntry.ExportToRtf(Filepath);
                             break;
                         case "txt":
-                            dgvJangedEntry.ExportToText(Filepath);
+                            dgvPurchaseEntry.ExportToText(Filepath);
                             break;
                         case "html":
-                            dgvJangedEntry.ExportToHtml(Filepath);
+                            dgvPurchaseEntry.ExportToHtml(Filepath);
                             break;
                         case "csv":
-                            dgvJangedEntry.ExportToCsv(Filepath);
+                            dgvPurchaseEntry.ExportToCsv(Filepath);
                             break;
                     }
 
@@ -1191,7 +1186,7 @@ namespace Account_Management.Transaction
                 Global.LOOKUPGSTRate(lueGSTRate);
             }
         }
-        private void dgvJangedDetails_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        private void dgvPurchaseDetails_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             try
             {
@@ -1199,11 +1194,11 @@ namespace Account_Management.Transaction
                 {
                     if (e.Clicks == 2)
                     {
-                        DataRow Drow = dgvJangedDetails.GetDataRow(e.RowHandle);
+                        DataRow Drow = dgvPurchaseDetails.GetDataRow(e.RowHandle);
                         btnAdd.Text = "&Update";
                         //lueSieveName.Text = Val.ToString(Drow["sieve_name"]);
-                        LueColor.EditValue = Val.ToInt32(Drow["color_id"]);
-                        LueSize.EditValue = Val.ToInt32(Drow["size_id"]);
+                        LueColor.EditValue = Val.ToInt64(Drow["color_id"]);
+                        LueSize.EditValue = Val.ToInt64(Drow["size_id"]);
                         LueUnit.EditValue = Val.ToInt64(Drow["unit_id"]);
                         lueItem.EditValue = Val.ToInt64(Drow["item_id"]);
                         txtPcs.Text = Val.ToString(Drow["pcs"]);
@@ -1222,34 +1217,22 @@ namespace Account_Management.Transaction
                 return;
             }
         }
-
-        private void dgvJangedDetails_CustomSummaryCalculate(object sender, DevExpress.Data.CustomSummaryEventArgs e)
+        private void dgvPurchaseDetails_CustomSummaryCalculate(object sender, DevExpress.Data.CustomSummaryEventArgs e)
         {
             try
             {
-                //if (Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) > 0 && Val.ToDecimal(clmDetCarat.SummaryItem.SummaryValue) > 0)
-                //{
-                //    m_numSummDetRate = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) / Val.ToDecimal(clmDetCarat.SummaryItem.SummaryValue)), 2, MidpointRounding.AwayFromZero);
-
-                //}
-                //else
-                //{
-                //    m_numSummDetRate = 0;
-                //}
                 if (((DevExpress.XtraGrid.GridSummaryItem)e.Item).FieldName == "rate")
                 {
                     if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Finalize)
                         e.TotalValue = m_numSummDetRate;
                 }
-
             }
             catch (Exception ex)
             {
                 BLL.General.ShowErrors(ex);
             }
         }
-
-        private void FrmJangedEntry_Load(object sender, EventArgs e)
+        private void FrmPurchase_Load(object sender, EventArgs e)
         {
             try
             {
@@ -1262,7 +1245,7 @@ namespace Account_Management.Transaction
                 else
                 {
                     ClearDetails();
-                    ttlbJagedInvoice.SelectedTabPage = tblJangeddetail;
+                    ttlbPurchaseInvoice.SelectedTabPage = tblPurchasedetail;
                 }
             }
             catch (Exception ex)
@@ -1271,93 +1254,80 @@ namespace Account_Management.Transaction
                 return;
             }
         }
-
-        private void backgroundWorker_JangedEntry_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        private void backgroundWorker_PurchaseEntry_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             try
             {
                 Cursor.Current = Cursors.Default;
                 Conn = new BeginTranConnection(true, false);
 
-                Janged_EntryProperty objJangedEntryProperty = new Janged_EntryProperty();
-                JangedEntry objJangedEntry = new JangedEntry();
+                Purchase_Property objPurchaseProperty = new Purchase_Property();
+                Purchase objPurchase = new Purchase();
                 try
                 {
                     IntRes = 0;
 
-                    objJangedEntryProperty.janged_id = Val.ToInt(lblMode.Tag);
-                    objJangedEntryProperty.voucher_no = Val.ToInt32(txtVoucherNo.Text);
-                    objJangedEntryProperty.company_id = Val.ToInt(GlobalDec.gEmployeeProperty.company_id);
-                    objJangedEntryProperty.branch_id = Val.ToInt(GlobalDec.gEmployeeProperty.branch_id);
-                    objJangedEntryProperty.location_id = Val.ToInt(GlobalDec.gEmployeeProperty.location_id);
-                    objJangedEntryProperty.department_id = Val.ToInt(GlobalDec.gEmployeeProperty.department_id);
+                    objPurchaseProperty.purchase_id = Val.ToInt(lblMode.Tag);
+                    objPurchaseProperty.janged_id = Val.ToInt(lblJanged_ID.Text);
+                    objPurchaseProperty.voucher_no = Val.ToInt32(txtVoucherNo.Text);
+                    objPurchaseProperty.purchase_date = Val.DBDate(dtpPurchaseDate.Text);
+                    objPurchaseProperty.gst_id = Val.ToInt(lueGSTRate.EditValue);
+                    objPurchaseProperty.purchase_bill_no = Val.ToString(txtPurchaseBill.Text);
+                    objPurchaseProperty.remarks = Val.ToString(txtRemark.Text);
 
-                    objJangedEntryProperty.janged_date = Val.DBDate(dtpJangedDate.Text);
-                    objJangedEntryProperty.gst_id = Val.ToInt(lueGSTRate.EditValue);
-                    objJangedEntryProperty.purchase_bill_no = Val.ToString(txtPurchaseBill.Text);
-                    objJangedEntryProperty.remarks = Val.ToString(txtRemark.Text);
+                    objPurchaseProperty.form_id = m_numForm_id;
 
-                    objJangedEntryProperty.form_id = m_numForm_id;
+                    objPurchaseProperty.ledger_id = Val.ToInt(lueParty.EditValue);
 
-                    objJangedEntryProperty.ledger_id = Val.ToInt(lueParty.EditValue);
-                    //objJangedEntryProperty.Refrenace_Id = Val.ToInt(lueReferance.EditValue);
+                    objPurchaseProperty.total_pcs = Val.ToInt64(clmPcs.SummaryItem.SummaryValue);
 
-                    //objJangedEntryProperty.Broker_Id = Val.ToInt(lueBroker.EditValue);
-                    //objJangedEntryProperty.Term_Days = Val.ToInt(txtTermDays.EditValue);
-                    //objJangedEntryProperty.Add_On_Days = Val.ToInt(txtAddOnDays.EditValue);
-                    //objJangedEntryProperty.due_date = Val.DBDate(dtpDueDate.Text);
-                    //objJangedEntryProperty.demand_master_id = Val.ToInt(lblDemandNo.Tag);
-                    //objJangedEntryProperty.memo_master_id = Val.ToInt(lueMemoNo.EditValue);
+                    objPurchaseProperty.gross_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue), 3);
 
-                    //objJangedEntryProperty.final_Term_Days = Val.ToInt(txtFinalTermDays.EditValue);
-                    //objJangedEntryProperty.final_due_date = Val.DBDate(dtpFinalDueDate.Text);
+                    objPurchaseProperty.cgst_rate = Val.ToDecimal(txtCGSTPer.Text);
+                    objPurchaseProperty.cgst_amount = Val.ToDecimal(txtCGSTAmount.Text);
+                    objPurchaseProperty.sgst_rate = Val.ToDecimal(txtSGSTPer.Text);
+                    objPurchaseProperty.sgst_amount = Val.ToDecimal(txtSGSTAmount.Text);
+                    objPurchaseProperty.igst_rate = Val.ToDecimal(txtIGSTPer.Text);
+                    objPurchaseProperty.igst_amount = Val.ToDecimal(txtIGSTAmount.Text);
 
+                    objPurchaseProperty.discount_per = Val.ToDecimal(txtDiscountPer.Text);
+                    objPurchaseProperty.discount_amount = Val.ToDecimal(txtDiscountAmount.Text);
+                    objPurchaseProperty.round_of_amount = Val.ToDecimal(txtRoundOff.Text);
 
-                    objJangedEntryProperty.total_pcs = Val.ToInt64(clmPcs.SummaryItem.SummaryValue);
-                    // objJangedEntryProperty.total_carat = Math.Round(Val.ToDecimal(clmDetCarat.SummaryItem.SummaryValue), 3);
+                    objPurchaseProperty.net_amount = Val.ToDecimal(txtNetAmount.Text);
 
-                    objJangedEntryProperty.gross_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue), 3);
+                    objPurchaseProperty = objPurchase.Save(objPurchaseProperty, DLL.GlobalDec.EnumTran.Start, Conn);
 
-                    objJangedEntryProperty.cgst_rate = Val.ToDecimal(txtCGSTPer.Text);
-                    objJangedEntryProperty.cgst_amount = Val.ToDecimal(txtCGSTAmount.Text);
-                    objJangedEntryProperty.sgst_rate = Val.ToDecimal(txtSGSTPer.Text);
-                    objJangedEntryProperty.sgst_amount = Val.ToDecimal(txtSGSTAmount.Text);
-                    objJangedEntryProperty.igst_rate = Val.ToDecimal(txtIGSTPer.Text);
-                    objJangedEntryProperty.igst_amount = Val.ToDecimal(txtIGSTAmount.Text);
-
-                    objJangedEntryProperty.discount_per = Val.ToDecimal(txtDiscountPer.Text);
-                    objJangedEntryProperty.discount_amount = Val.ToDecimal(txtDiscountAmount.Text);
-                    objJangedEntryProperty.round_of_amount = Val.ToDecimal(txtRoundOff.Text);
-
-                    objJangedEntryProperty.net_amount = Val.ToDecimal(txtNetAmount.Text);
-
-                    //int IntRes = objSaleInvoice.Save(objSaleInvoiceProperty, m_dtbJangedDetails);
-                    objJangedEntryProperty = objJangedEntry.Save(objJangedEntryProperty, DLL.GlobalDec.EnumTran.Start, Conn);
-
-                    Int64 NewmJangedid = Val.ToInt64(objJangedEntryProperty.janged_id);
+                    Int64 NewmPurchaseid = Val.ToInt64(objPurchaseProperty.purchase_id);
 
                     int IntCounter = 0;
                     int Count = 0;
-                    int TotalCount = m_dtbJangedDetails.Rows.Count;
+                    int TotalCount = m_dtbPurchaseDetails.Rows.Count;
 
-                    foreach (DataRow drw in m_dtbJangedDetails.Rows)
+                    foreach (DataRow drw in m_dtbPurchaseDetails.Rows)
                     {
-                        objJangedEntryProperty = new Janged_EntryProperty();
-                        objJangedEntryProperty.janged_id = Val.ToInt32(NewmJangedid);
-                        objJangedEntryProperty.janged_detail_id = Val.ToInt(drw["janged_detail_id"]);
-                        objJangedEntryProperty.sr_no = Val.ToInt(drw["sr_no"]);
-                        objJangedEntryProperty.item_id = Val.ToInt(drw["item_id"]);
-                        objJangedEntryProperty.color_id = Val.ToInt(drw["color_id"]);
-                        objJangedEntryProperty.size_id = Val.ToInt(drw["size_id"]);
-                        objJangedEntryProperty.unit_id = Val.ToInt(drw["unit_id"]);
-                        objJangedEntryProperty.pcs = Val.ToInt(drw["pcs"]);
-                        objJangedEntryProperty.rate = Val.ToDecimal(drw["rate"]);
-                        objJangedEntryProperty.amount = Val.ToDecimal(drw["amount"]);
+                        objPurchaseProperty = new Purchase_Property();
+                        objPurchaseProperty.purchase_id = Val.ToInt64(NewmPurchaseid);
+                        objPurchaseProperty.janged_id = Val.ToInt64(lblJanged_ID.Text);
+                        objPurchaseProperty.purchase_detail_id = Val.ToInt64(drw["purchase_detail_id"]);
+                        objPurchaseProperty.janged_detail_id = Val.ToInt64(drw["janged_detail_id"]);
+                        objPurchaseProperty.sr_no = Val.ToInt(drw["sr_no"]);
+                        objPurchaseProperty.item_id = Val.ToInt64(drw["item_id"]);
+                        objPurchaseProperty.color_id = Val.ToInt64(drw["color_id"]);
+                        objPurchaseProperty.size_id = Val.ToInt64(drw["size_id"]);
+                        objPurchaseProperty.unit_id = Val.ToInt64(drw["unit_id"]);
+                        objPurchaseProperty.pcs = Val.ToInt(drw["pcs"]);
+                        objPurchaseProperty.rate = Val.ToDecimal(drw["rate"]);
+                        objPurchaseProperty.amount = Val.ToDecimal(drw["amount"]);
 
-                        objJangedEntryProperty.old_pcs = Val.ToInt(drw["old_pcs"]);
-                        objJangedEntryProperty.flag = Val.ToInt(drw["flag"]);
+                        objPurchaseProperty.old_item_id = Val.ToInt64(drw["old_item_id"]);
+                        objPurchaseProperty.old_color_id = Val.ToInt64(drw["old_color_id"]);
+                        objPurchaseProperty.old_size_id = Val.ToInt64(drw["old_size_id"]);
 
-                        IntRes = objJangedEntry.Save_Detail(objJangedEntryProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
+                        objPurchaseProperty.old_pcs = Val.ToInt(drw["old_pcs"]);
+                        objPurchaseProperty.flag = Val.ToInt(drw["flag"]);
+
+                        IntRes = objPurchase.Save_Detail(objPurchaseProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
 
                         Count++;
                         IntCounter++;
@@ -1376,7 +1346,7 @@ namespace Account_Management.Transaction
                 }
                 finally
                 {
-                    objJangedEntryProperty = null;
+                    objPurchaseProperty = null;
                 }
             }
             catch (Exception ex)
@@ -1392,7 +1362,7 @@ namespace Account_Management.Transaction
             }
         }
 
-        private void backgroundWorker_JangedEntry_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        private void backgroundWorker_PurchaseEntry_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             try
             {
@@ -1401,20 +1371,20 @@ namespace Account_Management.Transaction
                 {
                     if (Val.ToInt(lblMode.Tag) == 0)
                     {
-                        Global.Confirm("Janged Entry Data Save Successfully");
+                        Global.Confirm("Purchase Data Save Successfully");
                         ClearDetails();
                         PopulateDetails();
                     }
                     else
                     {
-                        Global.Confirm("Janged Entry Data Update Successfully");
+                        Global.Confirm("Purchase Data Update Successfully");
                         ClearDetails();
                         PopulateDetails();
                     }
                 }
                 else
                 {
-                    Global.Confirm("Error In Janged Entry");
+                    Global.Confirm("Error In Purchase Data");
                     txtVoucherNo.Focus();
                 }
             }
@@ -1424,36 +1394,35 @@ namespace Account_Management.Transaction
                 Global.Message(ex.InnerException.ToString());
             }
         }
-
-        private void backgroundWorker_JangedDelete_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        private void backgroundWorker_PurchaseDelete_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             Conn = new BeginTranConnection(true, false);
 
-            Janged_EntryProperty objJangedEntryProperty = new Janged_EntryProperty();
-            JangedEntry objJangedEntry = new JangedEntry();
+            Purchase_Property objPurchaseProperty = new Purchase_Property();
+            Purchase objPurchase = new Purchase();
             DataTable dtbMemoRecDelete = new DataTable();
             try
             {
                 if (Val.ToInt(lblMode.Tag) != 0)
                 {
                     IntRes = 0;
-                    objJangedEntryProperty.janged_id = Val.ToInt(lblMode.Tag);
+                    objPurchaseProperty.purchase_id = Val.ToInt(lblMode.Tag);
 
                     int IntCounter = 0;
                     int Count = 0;
                     int FlagCount = 1;
-                    int TotalCount = m_dtbJangedDetails.Rows.Count;
+                    int TotalCount = m_dtbPurchaseDetails.Rows.Count;
                     Int32 Flag = 0;
-                    foreach (DataRow drw in m_dtbJangedDetails.Rows)
+                    foreach (DataRow drw in m_dtbPurchaseDetails.Rows)
                     {
-                        objJangedEntryProperty.janged_detail_id = Val.ToInt(drw["janged_detail_id"]);
+                        objPurchaseProperty.purchase_detail_id = Val.ToInt(drw["purchase_detail_id"]);
 
                         if (FlagCount == TotalCount)
                         {
                             Flag = 1;
                         }
 
-                        IntRes = objJangedEntry.Delete(objJangedEntryProperty, Flag, DLL.GlobalDec.EnumTran.Continue, Conn);
+                        IntRes = objPurchase.Delete(objPurchaseProperty, Flag, DLL.GlobalDec.EnumTran.Continue, Conn);
 
                         FlagCount++;
                         Count++;
@@ -1466,7 +1435,7 @@ namespace Account_Management.Transaction
                 }
                 else
                 {
-                    Global.Message("Invoice ID not found");
+                    Global.Message("Purchase ID not found");
                     Conn.Inter1.Rollback();
                     Conn = null;
                     return;
@@ -1485,10 +1454,11 @@ namespace Account_Management.Transaction
             }
             finally
             {
-                objJangedEntryProperty = null;
+                objPurchaseProperty = null;
             }
         }
-        private void backgroundWorker_JangedDelete_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+
+        private void backgroundWorker_PurchaseDelete_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             try
             {
@@ -1497,20 +1467,20 @@ namespace Account_Management.Transaction
                 {
                     if (Val.ToInt(lblMode.Tag) == 0)
                     {
-                        Global.Confirm("Janged Data Delete Successfully");
+                        Global.Confirm("Purchase Data Delete Successfully");
                         ClearDetails();
                         btnSearch_Click(null, null);
                     }
                     else
                     {
-                        Global.Confirm("Janged Data Delete Successfully");
+                        Global.Confirm("Purchase Data Delete Successfully");
                         ClearDetails();
                         btnSearch_Click(null, null);
                     }
                 }
                 else
                 {
-                    Global.Confirm("Error In Janged Entry Delete");
+                    Global.Confirm("Error In Purchase Data Delete");
                     txtVoucherNo.Focus();
                 }
             }
@@ -1520,25 +1490,26 @@ namespace Account_Management.Transaction
                 Global.Message(ex.InnerException.ToString());
             }
         }
-        private void dgvJangedEntry_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        private void dgvPurchaseEntry_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             try
             {
-                objJangedEntry = new JangedEntry();
+                objPurchase = new Purchase();
                 if (e.RowHandle >= 0)
                 {
                     if (e.Clicks == 2)
                     {
                         m_blncheckevents = true;
 
-                        DataRow Drow = dgvJangedEntry.GetDataRow(e.RowHandle);
+                        DataRow Drow = dgvPurchaseEntry.GetDataRow(e.RowHandle);
                         lblMode.Text = "Edit Mode";
-                        lblMode.Tag = Val.ToInt32(Drow["janged_id"]);
+                        lblMode.Tag = Val.ToInt64(Drow["purchase_id"]);
 
-                        dtpJangedDate.Text = Val.DBDate(Val.ToString(Drow["janged_date"]));
+                        lblJanged_ID.Text = Val.ToString(Drow["janged_id"]);
+                        dtpPurchaseDate.Text = Val.DBDate(Val.ToString(Drow["janged_date"]));
                         txtVoucherNo.Text = Val.ToString(Drow["voucher_no"]);
                         lueGSTRate.EditValue = Val.ToInt64(Drow["gst_id"]);
-                        lueParty.EditValue = Val.ToInt32(Drow["ledger_id"]);
+                        lueParty.EditValue = Val.ToInt64(Drow["ledger_id"]);
 
                         txtRemark.Text = Val.ToString(Drow["remarks"]);
                         txtPurchaseBill.Text = Val.ToString(Drow["purchase_bill_no"]);
@@ -1553,11 +1524,12 @@ namespace Account_Management.Transaction
                         txtIGSTAmount.Text = Val.ToString(Drow["igst_amount"]);
                         txtNetAmount.Text = Val.ToString(Drow["net_amount"]);
 
-                        m_dtbJangedDetails = objJangedEntry.GetDataDetails(Val.ToInt(lblMode.Tag));
-                        grdJangedDetails.DataSource = m_dtbJangedDetails;
+                        m_dtbPurchaseDetails = objPurchase.GetDataDetails(Val.ToInt(lblMode.Tag));
+                        grdPurchaseDetails.DataSource = m_dtbPurchaseDetails;
 
-                        ttlbJagedInvoice.SelectedTabPage = tblJangeddetail;
+                        ttlbPurchaseInvoice.SelectedTabPage = tblPurchasedetail;
                         txtPurchaseBill.Focus();
+                        txtVoucherNo.Enabled = false;
                         m_IsUpdate = true;
                     }
                 }
@@ -1568,46 +1540,20 @@ namespace Account_Management.Transaction
                 return;
             }
         }
-        private void dgvJangedEntry_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        private void dgvPurchaseEntry_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
         {
             if (e.RowHandle >= 0)
             {
-                if (Val.ToInt(dgvJangedEntry.GetRowCellValue(e.RowHandle, "flag_color")) == 1)
+                if (Val.ToInt(dgvPurchaseEntry.GetRowCellValue(e.RowHandle, "flag_color")) == 1)
                 {
                     e.Appearance.BackColor = Color.FromArgb(248, 210, 210);
                 }
-            }
-        }
-        private void dgvJangedEntry_CustomSummaryCalculate(object sender, DevExpress.Data.CustomSummaryEventArgs e)
-        {
-            try
-            {
-                //if (Val.ToDecimal(clmTotalAmount.SummaryItem.SummaryValue) > 0 && Val.ToDecimal(clmTotalCarat.SummaryItem.SummaryValue) > 0)
-                //{
-                //    m_numSummRate = Math.Round((Val.ToDecimal(clmTotalAmount.SummaryItem.SummaryValue) / Val.ToDecimal(clmTotalCarat.SummaryItem.SummaryValue)), 2, MidpointRounding.AwayFromZero);
-
-                //}
-                //else
-                //{
-                //    m_numSummRate = 0;
-                //}
-                //if (((DevExpress.XtraGrid.GridSummaryItem)e.Item).FieldName == "rate")
-                //{
-                //    if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Finalize)
-                //        e.TotalValue = m_numSummRate;
-                //}
-
-            }
-            catch (Exception ex)
-            {
-                BLL.General.ShowErrors(ex);
             }
         }
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearDetails();
         }
-
         private void lueGSTRate_Validated(object sender, EventArgs e)
         {
             GSTMaster objGSTRate = new GSTMaster();
@@ -1643,7 +1589,6 @@ namespace Account_Management.Transaction
                 }
             }
         }
-
         private void txtDiscountAmount_EditValueChanged(object sender, EventArgs e)
         {
             try
@@ -1667,6 +1612,61 @@ namespace Account_Management.Transaction
             {
                 General.ShowErrors(ex.ToString());
                 return;
+            }
+        }
+        private void txtVoucherNo_Validated(object sender, EventArgs e)
+        {
+            if (txtVoucherNo.Text != "")
+            {
+                objPurchase = new Purchase();
+
+                //DataTable DTab_Purchase_Vch_No = objPurchase.Purchase_Voucher_No_GetData(Val.ToInt64(txtVoucherNo.Text)); 
+
+                m_dtbVoucher_JangedDetail = objPurchase.Janged_Voucher_GetData(Val.ToInt64(txtVoucherNo.Text));
+                if (m_dtbVoucher_JangedDetail.Tables[2].Rows[0]["voucher_no"].ToString() == "0")
+                {
+                    if (m_dtbVoucher_JangedDetail.Tables[0].Rows.Count > 0)
+                    {
+                        lblMode.Text = "Add Mode";
+                        lblMode.Tag = Val.ToInt32(0);
+
+                        lblJanged_ID.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["janged_id"]);
+                        txtPurchaseBill.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["purchase_bill_no"]);
+                        lueGSTRate.EditValue = Val.ToInt64(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["gst_id"]);
+                        lueParty.EditValue = Val.ToInt64(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["ledger_id"]);
+                        txtRemark.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["remarks"]);
+
+                        grdPurchaseDetails.DataSource = m_dtbVoucher_JangedDetail.Tables[1];
+                        m_dtbPurchaseDetails = m_dtbVoucher_JangedDetail.Tables[1];
+
+                        txtCGSTPer.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["cgst_per"]);
+                        txtCGSTAmount.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["cgst_amount"]);
+                        txtSGSTPer.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["sgst_per"]);
+                        txtSGSTAmount.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["sgst_amount"]);
+                        txtIGSTPer.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["igst_per"]);
+                        txtIGSTAmount.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["igst_amount"]);
+                        txtDiscountPer.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["discount_per"]);
+                        txtDiscountAmount.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["discount_amount"]);
+                        txtRoundOff.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["round_of_amount"]);
+                        txtNetAmount.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["net_amount"]);
+                    }
+                    else
+                    {
+                        Global.Message("Voucher No Data Not Found");
+                        return;
+                    }
+                }
+                else
+                {
+                    Global.Message("Voucher No Already Purchase.");
+                    btnClear_Click(null, null);
+                    txtVoucherNo.Focus();
+                    return;
+                }
+            }
+            else
+            {
+                txtVoucherNo.Focus();
             }
         }
     }

@@ -14,10 +14,10 @@ namespace BLL.PropertyClasses.Master
         public int active { get; set; }
         public string remark { get; set; }
         public Int64 unit_id { get; set; }
-        public double last_purchase_rate { get; set; }
+        public decimal last_purchase_rate { get; set; }
         public string item_codification { get; set; }
         public double disc_per { get; set; }
-        public double sale_rate { get; set; }
+        public decimal sale_rate { get; set; }
         public int stock_limit { get; set; }
         public int pcs_in_box { get; set; }
         public Int64 company_id { get; set; }

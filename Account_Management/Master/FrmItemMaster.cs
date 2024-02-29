@@ -2,7 +2,6 @@
 using BLL.FunctionClasses.Master;
 using BLL.PropertyClasses.Master;
 using System;
-using System.Collections;
 using System.Data;
 using System.Windows.Forms;
 
@@ -177,14 +176,19 @@ namespace Account_Management.Master
             {
                 return;
             }
-
             Item_MasterProperty ItemMasterProperty = new Item_MasterProperty();
 
             ItemMasterProperty.item_id = Val.ToInt(txtItemCode.Text);
-            ItemMasterProperty = SaveItemMaster();
-
-            ArrayList AL = new ArrayList();
-            ArrayList ALItem = new ArrayList();
+            ItemMasterProperty.item_id = Val.ToInt64(txtItemCode.EditValue);
+            ItemMasterProperty.item_name = txtItemName.Text;
+            ItemMasterProperty.item_shortname = Val.ToString(txtShortName.Text);
+            ItemMasterProperty.item_group_id = Val.ToInt64(LookupItemGroup.EditValue);
+            ItemMasterProperty.active = Val.ToInt(RbtStatus.Text);
+            ItemMasterProperty.remark = txtRemark.Text;
+            ItemMasterProperty.unit_id = Val.ToInt64(CmbUnitType.EditValue);
+            ItemMasterProperty.last_purchase_rate = Val.ToDecimal(txtLastPurchase.Text);
+            ItemMasterProperty.hsn_id = Val.ToInt64(LookupHSNCode.EditValue);
+            ItemMasterProperty.sale_rate = Val.ToDecimal(txtSaleRate.Text);
 
             int IntRes = ObjItem.SaveItem(ItemMasterProperty);
 
@@ -200,34 +204,6 @@ namespace Account_Management.Master
                 Global.Message("Erro In Item Save");
             }
         }
-
-        public Item_MasterProperty SaveItemMaster()
-        {
-            Item_MasterProperty ItemMasterProperty = new Item_MasterProperty();
-
-            ItemMasterProperty.company_id = Val.ToInt64(LookupCompany.EditValue);
-            ItemMasterProperty.branch_id = Val.ToInt64(LookupBranch.EditValue);
-            ItemMasterProperty.location_id = Val.ToInt64(LookupLocation.EditValue);
-
-            ItemMasterProperty.item_id = Val.ToInt64(txtItemCode.EditValue);
-            ItemMasterProperty.item_name = txtItemName.Text;
-            ItemMasterProperty.item_shortname = Val.ToString(txtShortName.Text);
-            ItemMasterProperty.item_codification = Val.ToString(txtItemCodification.Text);
-            ItemMasterProperty.item_group_id = Val.ToInt64(LookupItemGroup.EditValue);
-            ItemMasterProperty.item_category_id = Val.ToInt64(lookUpCategoryName.EditValue);
-            ItemMasterProperty.active = Val.ToInt(RbtStatus.Text);
-            ItemMasterProperty.remark = txtRemark.Text;
-            ItemMasterProperty.unit_id = Val.ToInt64(CmbUnitType.EditValue);
-            ItemMasterProperty.last_purchase_rate = Val.Val(txtLastPurchase.Text);
-            ItemMasterProperty.disc_per = Val.Val(txtDiscPer.Text);
-            ItemMasterProperty.hsn_id = Val.ToInt64(LookupHSNCode.EditValue);
-            ItemMasterProperty.sale_rate = Val.Val(txtSaleRate.Text);
-            ItemMasterProperty.stock_limit = Val.ToInt(txtStockLimit.Text);
-            ItemMasterProperty.pcs_in_box = Val.ToInt(txtPCSInBox.Text);
-
-            return ItemMasterProperty;
-        }
-
         private void LookupItemGroup_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             if (e.Button.Index == 1)

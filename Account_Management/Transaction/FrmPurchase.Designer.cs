@@ -1,6 +1,6 @@
 ﻿namespace Account_Management.Transaction
 {
-    partial class FrmJangedEntry
+    partial class FrmPurchase
     {
         /// <summary>
         /// Required designer variable.
@@ -70,10 +70,10 @@
             this.clmCarats = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmRate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmAmount = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ttlbJagedInvoice = new DevExpress.XtraTab.XtraTabControl();
-            this.tblJangedList = new DevExpress.XtraTab.XtraTabPage();
+            this.ttlbPurchaseInvoice = new DevExpress.XtraTab.XtraTabControl();
+            this.tblPurchaseList = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.grdJangedEntry = new DevExpress.XtraGrid.GridControl();
+            this.grdPurchaseEntry = new DevExpress.XtraGrid.GridControl();
             this.ContextMNExport = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.MNExportExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.MNExportPDF = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,7 +81,7 @@
             this.MNExportHTML = new System.Windows.Forms.ToolStripMenuItem();
             this.MNExportRTF = new System.Windows.Forms.ToolStripMenuItem();
             this.MNExportCSV = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgvJangedEntry = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dgvPurchaseEntry = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.clmDetJangedId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -117,15 +117,15 @@
             this.dtpFromDate = new DevExpress.XtraEditors.DateEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tblJangeddetail = new DevExpress.XtraTab.XtraTabPage();
+            this.tblPurchasedetail = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
             this.panelProgress = new DevExpress.XtraEditors.PanelControl();
             this.lblProgressCount = new System.Windows.Forms.Label();
             this.SaveProgressBar = new DevExpress.XtraEditors.MarqueeProgressBarControl();
-            this.grdJangedDetails = new DevExpress.XtraGrid.GridControl();
-            this.dgvJangedDetails = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.clmPurchaseDetailID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clmPurchaseID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdPurchaseDetails = new DevExpress.XtraGrid.GridControl();
+            this.dgvPurchaseDetails = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.clmjangedDetailID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmJangedID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmItemID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmItemName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmColorID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -148,6 +148,8 @@
             this.clmSrNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmOldUnitName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmOldUnitID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmPurchaseID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmpurchaseDetailID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
             this.txtIGSTAmount = new DevExpress.XtraEditors.TextEdit();
             this.label12 = new System.Windows.Forms.Label();
@@ -178,6 +180,8 @@
             this.txtRemark = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.lblJanged_ID = new DevExpress.XtraEditors.LabelControl();
             this.LueUnit = new DevExpress.XtraEditors.LookUpEdit();
             this.label15 = new System.Windows.Forms.Label();
             this.LueSize = new DevExpress.XtraEditors.LookUpEdit();
@@ -205,7 +209,7 @@
             this.lblInvoiceNo = new System.Windows.Forms.Label();
             this.lblMode = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.dtpJangedDate = new DevExpress.XtraEditors.DateEdit();
+            this.dtpPurchaseDate = new DevExpress.XtraEditors.DateEdit();
             this.label11 = new System.Windows.Forms.Label();
             this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.clmDetailID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -223,21 +227,20 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.backgroundWorker_JangedEntry = new System.ComponentModel.BackgroundWorker();
-            this.backgroundWorker_JangedDelete = new System.ComponentModel.BackgroundWorker();
-            this.clmJangedID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.backgroundWorker_PurchaseEntry = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker_PurchaseDelete = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptcDelete)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ttlbJagedInvoice)).BeginInit();
-            this.ttlbJagedInvoice.SuspendLayout();
-            this.tblJangedList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ttlbPurchaseInvoice)).BeginInit();
+            this.ttlbPurchaseInvoice.SuspendLayout();
+            this.tblPurchaseList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdJangedEntry)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPurchaseEntry)).BeginInit();
             this.ContextMNExport.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvJangedEntry)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPurchaseEntry)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueJangedLedger.Properties)).BeginInit();
@@ -246,14 +249,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpToDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFromDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFromDate.Properties)).BeginInit();
-            this.tblJangeddetail.SuspendLayout();
+            this.tblPurchasedetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
             this.panelControl7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelProgress)).BeginInit();
             this.panelProgress.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SaveProgressBar.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdJangedDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvJangedDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPurchaseDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPurchaseDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
             this.panelControl8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtIGSTAmount.Properties)).BeginInit();
@@ -282,8 +285,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueItem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueGSTRate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVoucherNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpJangedDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpJangedDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpPurchaseDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpPurchaseDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).BeginInit();
             this.SuspendLayout();
@@ -844,47 +847,47 @@
             this.clmAmount.Visible = true;
             this.clmAmount.VisibleIndex = 13;
             // 
-            // ttlbJagedInvoice
+            // ttlbPurchaseInvoice
             // 
-            this.ttlbJagedInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ttlbJagedInvoice.Location = new System.Drawing.Point(0, 0);
-            this.ttlbJagedInvoice.Name = "ttlbJagedInvoice";
-            this.ttlbJagedInvoice.SelectedTabPage = this.tblJangedList;
-            this.ttlbJagedInvoice.Size = new System.Drawing.Size(1273, 742);
-            this.ttlbJagedInvoice.TabIndex = 0;
-            this.ttlbJagedInvoice.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.tblJangedList,
-            this.tblJangeddetail});
+            this.ttlbPurchaseInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ttlbPurchaseInvoice.Location = new System.Drawing.Point(0, 0);
+            this.ttlbPurchaseInvoice.Name = "ttlbPurchaseInvoice";
+            this.ttlbPurchaseInvoice.SelectedTabPage = this.tblPurchaseList;
+            this.ttlbPurchaseInvoice.Size = new System.Drawing.Size(1273, 742);
+            this.ttlbPurchaseInvoice.TabIndex = 0;
+            this.ttlbPurchaseInvoice.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.tblPurchaseList,
+            this.tblPurchasedetail});
             // 
-            // tblJangedList
+            // tblPurchaseList
             // 
-            this.tblJangedList.Controls.Add(this.panelControl1);
-            this.tblJangedList.Controls.Add(this.panelControl2);
-            this.tblJangedList.Name = "tblJangedList";
-            this.tblJangedList.Size = new System.Drawing.Size(1267, 714);
-            this.tblJangedList.Text = "List";
+            this.tblPurchaseList.Controls.Add(this.panelControl1);
+            this.tblPurchaseList.Controls.Add(this.panelControl2);
+            this.tblPurchaseList.Name = "tblPurchaseList";
+            this.tblPurchaseList.Size = new System.Drawing.Size(1267, 714);
+            this.tblPurchaseList.Text = "List";
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.grdJangedEntry);
+            this.panelControl1.Controls.Add(this.grdPurchaseEntry);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 43);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1267, 671);
             this.panelControl1.TabIndex = 3;
             // 
-            // grdJangedEntry
+            // grdPurchaseEntry
             // 
-            this.grdJangedEntry.ContextMenuStrip = this.ContextMNExport;
-            this.grdJangedEntry.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdJangedEntry.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grdJangedEntry.Location = new System.Drawing.Point(2, 2);
-            this.grdJangedEntry.MainView = this.dgvJangedEntry;
-            this.grdJangedEntry.Name = "grdJangedEntry";
-            this.grdJangedEntry.Size = new System.Drawing.Size(1263, 667);
-            this.grdJangedEntry.TabIndex = 18;
-            this.grdJangedEntry.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dgvJangedEntry});
+            this.grdPurchaseEntry.ContextMenuStrip = this.ContextMNExport;
+            this.grdPurchaseEntry.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdPurchaseEntry.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grdPurchaseEntry.Location = new System.Drawing.Point(2, 2);
+            this.grdPurchaseEntry.MainView = this.dgvPurchaseEntry;
+            this.grdPurchaseEntry.Name = "grdPurchaseEntry";
+            this.grdPurchaseEntry.Size = new System.Drawing.Size(1263, 667);
+            this.grdPurchaseEntry.TabIndex = 18;
+            this.grdPurchaseEntry.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dgvPurchaseEntry});
             // 
             // ContextMNExport
             // 
@@ -942,20 +945,20 @@
             this.MNExportCSV.Text = "To CSV";
             this.MNExportCSV.Click += new System.EventHandler(this.MNExportCSV_Click);
             // 
-            // dgvJangedEntry
+            // dgvPurchaseEntry
             // 
-            this.dgvJangedEntry.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.dgvJangedEntry.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.dgvJangedEntry.Appearance.ColumnFilterButton.Options.UseBackColor = true;
-            this.dgvJangedEntry.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
-            this.dgvJangedEntry.Appearance.ColumnFilterButton.Options.UseForeColor = true;
-            this.dgvJangedEntry.Appearance.FooterPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dgvJangedEntry.Appearance.FooterPanel.Options.UseFont = true;
-            this.dgvJangedEntry.Appearance.HeaderPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dgvJangedEntry.Appearance.HeaderPanel.Options.UseFont = true;
-            this.dgvJangedEntry.Appearance.Row.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
-            this.dgvJangedEntry.Appearance.Row.Options.UseFont = true;
-            this.dgvJangedEntry.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.dgvPurchaseEntry.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.dgvPurchaseEntry.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.dgvPurchaseEntry.Appearance.ColumnFilterButton.Options.UseBackColor = true;
+            this.dgvPurchaseEntry.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
+            this.dgvPurchaseEntry.Appearance.ColumnFilterButton.Options.UseForeColor = true;
+            this.dgvPurchaseEntry.Appearance.FooterPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dgvPurchaseEntry.Appearance.FooterPanel.Options.UseFont = true;
+            this.dgvPurchaseEntry.Appearance.HeaderPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dgvPurchaseEntry.Appearance.HeaderPanel.Options.UseFont = true;
+            this.dgvPurchaseEntry.Appearance.Row.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
+            this.dgvPurchaseEntry.Appearance.Row.Options.UseFont = true;
+            this.dgvPurchaseEntry.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.clmDetJangedId,
             this.gridColumn13,
             this.gridColumn16,
@@ -981,18 +984,17 @@
             this.ClmFinalTermsDays,
             this.gridColumn11,
             this.gridColumn12});
-            this.dgvJangedEntry.GridControl = this.grdJangedEntry;
-            this.dgvJangedEntry.Name = "dgvJangedEntry";
-            this.dgvJangedEntry.OptionsBehavior.Editable = false;
-            this.dgvJangedEntry.OptionsBehavior.ReadOnly = true;
-            this.dgvJangedEntry.OptionsCustomization.AllowQuickHideColumns = false;
-            this.dgvJangedEntry.OptionsView.ColumnAutoWidth = false;
-            this.dgvJangedEntry.OptionsView.ShowAutoFilterRow = true;
-            this.dgvJangedEntry.OptionsView.ShowFooter = true;
-            this.dgvJangedEntry.OptionsView.ShowGroupPanel = false;
-            this.dgvJangedEntry.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.dgvJangedEntry_RowClick);
-            this.dgvJangedEntry.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.dgvJangedEntry_RowCellStyle);
-            this.dgvJangedEntry.CustomSummaryCalculate += new DevExpress.Data.CustomSummaryEventHandler(this.dgvJangedEntry_CustomSummaryCalculate);
+            this.dgvPurchaseEntry.GridControl = this.grdPurchaseEntry;
+            this.dgvPurchaseEntry.Name = "dgvPurchaseEntry";
+            this.dgvPurchaseEntry.OptionsBehavior.Editable = false;
+            this.dgvPurchaseEntry.OptionsBehavior.ReadOnly = true;
+            this.dgvPurchaseEntry.OptionsCustomization.AllowQuickHideColumns = false;
+            this.dgvPurchaseEntry.OptionsView.ColumnAutoWidth = false;
+            this.dgvPurchaseEntry.OptionsView.ShowAutoFilterRow = true;
+            this.dgvPurchaseEntry.OptionsView.ShowFooter = true;
+            this.dgvPurchaseEntry.OptionsView.ShowGroupPanel = false;
+            this.dgvPurchaseEntry.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.dgvPurchaseEntry_RowClick);
+            this.dgvPurchaseEntry.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.dgvPurchaseEntry_RowCellStyle);
             // 
             // clmDetJangedId
             // 
@@ -1364,20 +1366,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "From Date : ";
             // 
-            // tblJangeddetail
+            // tblPurchasedetail
             // 
-            this.tblJangeddetail.Controls.Add(this.panelControl7);
-            this.tblJangeddetail.Controls.Add(this.panelControl8);
-            this.tblJangeddetail.Controls.Add(this.panelControl6);
-            this.tblJangeddetail.Controls.Add(this.panelControl4);
-            this.tblJangeddetail.Name = "tblJangeddetail";
-            this.tblJangeddetail.Size = new System.Drawing.Size(1267, 714);
-            this.tblJangeddetail.Text = "Entry Details";
+            this.tblPurchasedetail.Controls.Add(this.panelControl7);
+            this.tblPurchasedetail.Controls.Add(this.panelControl8);
+            this.tblPurchasedetail.Controls.Add(this.panelControl6);
+            this.tblPurchasedetail.Controls.Add(this.panelControl4);
+            this.tblPurchasedetail.Name = "tblPurchasedetail";
+            this.tblPurchasedetail.Size = new System.Drawing.Size(1267, 714);
+            this.tblPurchasedetail.Text = "Entry Details";
             // 
             // panelControl7
             // 
             this.panelControl7.Controls.Add(this.panelProgress);
-            this.panelControl7.Controls.Add(this.grdJangedDetails);
+            this.panelControl7.Controls.Add(this.grdPurchaseDetails);
             this.panelControl7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl7.Location = new System.Drawing.Point(0, 77);
             this.panelControl7.Name = "panelControl7";
@@ -1420,34 +1422,34 @@
             this.SaveProgressBar.Size = new System.Drawing.Size(273, 25);
             this.SaveProgressBar.TabIndex = 0;
             // 
-            // grdJangedDetails
+            // grdPurchaseDetails
             // 
-            this.grdJangedDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdJangedDetails.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grdJangedDetails.Location = new System.Drawing.Point(2, 2);
-            this.grdJangedDetails.MainView = this.dgvJangedDetails;
-            this.grdJangedDetails.Name = "grdJangedDetails";
-            this.grdJangedDetails.Size = new System.Drawing.Size(1263, 524);
-            this.grdJangedDetails.TabIndex = 0;
-            this.grdJangedDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dgvJangedDetails});
+            this.grdPurchaseDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdPurchaseDetails.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grdPurchaseDetails.Location = new System.Drawing.Point(2, 2);
+            this.grdPurchaseDetails.MainView = this.dgvPurchaseDetails;
+            this.grdPurchaseDetails.Name = "grdPurchaseDetails";
+            this.grdPurchaseDetails.Size = new System.Drawing.Size(1263, 524);
+            this.grdPurchaseDetails.TabIndex = 0;
+            this.grdPurchaseDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dgvPurchaseDetails});
             // 
-            // dgvJangedDetails
+            // dgvPurchaseDetails
             // 
-            this.dgvJangedDetails.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.dgvJangedDetails.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.dgvJangedDetails.Appearance.ColumnFilterButton.Options.UseBackColor = true;
-            this.dgvJangedDetails.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
-            this.dgvJangedDetails.Appearance.ColumnFilterButton.Options.UseForeColor = true;
-            this.dgvJangedDetails.Appearance.FooterPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dgvJangedDetails.Appearance.FooterPanel.Options.UseFont = true;
-            this.dgvJangedDetails.Appearance.HeaderPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dgvJangedDetails.Appearance.HeaderPanel.Options.UseFont = true;
-            this.dgvJangedDetails.Appearance.Row.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
-            this.dgvJangedDetails.Appearance.Row.Options.UseFont = true;
-            this.dgvJangedDetails.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.clmPurchaseDetailID,
-            this.clmPurchaseID,
+            this.dgvPurchaseDetails.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.dgvPurchaseDetails.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.dgvPurchaseDetails.Appearance.ColumnFilterButton.Options.UseBackColor = true;
+            this.dgvPurchaseDetails.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
+            this.dgvPurchaseDetails.Appearance.ColumnFilterButton.Options.UseForeColor = true;
+            this.dgvPurchaseDetails.Appearance.FooterPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dgvPurchaseDetails.Appearance.FooterPanel.Options.UseFont = true;
+            this.dgvPurchaseDetails.Appearance.HeaderPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dgvPurchaseDetails.Appearance.HeaderPanel.Options.UseFont = true;
+            this.dgvPurchaseDetails.Appearance.Row.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
+            this.dgvPurchaseDetails.Appearance.Row.Options.UseFont = true;
+            this.dgvPurchaseDetails.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.clmjangedDetailID,
+            this.clmJangedID,
             this.clmItemID,
             this.clmItemName,
             this.clmColorID,
@@ -1470,33 +1472,34 @@
             this.clmSrNo,
             this.clmOldUnitName,
             this.clmOldUnitID,
-            this.clmJangedID});
-            this.dgvJangedDetails.GridControl = this.grdJangedDetails;
-            this.dgvJangedDetails.Name = "dgvJangedDetails";
-            this.dgvJangedDetails.OptionsBehavior.Editable = false;
-            this.dgvJangedDetails.OptionsBehavior.ReadOnly = true;
-            this.dgvJangedDetails.OptionsCustomization.AllowQuickHideColumns = false;
-            this.dgvJangedDetails.OptionsView.ColumnAutoWidth = false;
-            this.dgvJangedDetails.OptionsView.ShowAutoFilterRow = true;
-            this.dgvJangedDetails.OptionsView.ShowFooter = true;
-            this.dgvJangedDetails.OptionsView.ShowGroupPanel = false;
-            this.dgvJangedDetails.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.dgvJangedDetails_RowClick);
-            this.dgvJangedDetails.CustomSummaryCalculate += new DevExpress.Data.CustomSummaryEventHandler(this.dgvJangedDetails_CustomSummaryCalculate);
+            this.clmPurchaseID,
+            this.clmpurchaseDetailID});
+            this.dgvPurchaseDetails.GridControl = this.grdPurchaseDetails;
+            this.dgvPurchaseDetails.Name = "dgvPurchaseDetails";
+            this.dgvPurchaseDetails.OptionsBehavior.Editable = false;
+            this.dgvPurchaseDetails.OptionsBehavior.ReadOnly = true;
+            this.dgvPurchaseDetails.OptionsCustomization.AllowQuickHideColumns = false;
+            this.dgvPurchaseDetails.OptionsView.ColumnAutoWidth = false;
+            this.dgvPurchaseDetails.OptionsView.ShowAutoFilterRow = true;
+            this.dgvPurchaseDetails.OptionsView.ShowFooter = true;
+            this.dgvPurchaseDetails.OptionsView.ShowGroupPanel = false;
+            this.dgvPurchaseDetails.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.dgvPurchaseDetails_RowClick);
+            this.dgvPurchaseDetails.CustomSummaryCalculate += new DevExpress.Data.CustomSummaryEventHandler(this.dgvPurchaseDetails_CustomSummaryCalculate);
             // 
-            // clmPurchaseDetailID
+            // clmjangedDetailID
             // 
-            this.clmPurchaseDetailID.Caption = "PurchaseDetailID";
-            this.clmPurchaseDetailID.FieldName = "purchase_detail_id";
-            this.clmPurchaseDetailID.Name = "clmPurchaseDetailID";
-            this.clmPurchaseDetailID.OptionsColumn.AllowEdit = false;
+            this.clmjangedDetailID.Caption = "JangedDetailID";
+            this.clmjangedDetailID.FieldName = "janged_detail_id";
+            this.clmjangedDetailID.Name = "clmjangedDetailID";
+            this.clmjangedDetailID.OptionsColumn.AllowEdit = false;
             // 
-            // clmPurchaseID
+            // clmJangedID
             // 
-            this.clmPurchaseID.Caption = "Purchase ID";
-            this.clmPurchaseID.FieldName = "purchase_id";
-            this.clmPurchaseID.Name = "clmPurchaseID";
-            this.clmPurchaseID.OptionsColumn.AllowEdit = false;
-            this.clmPurchaseID.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.clmJangedID.Caption = "Janged ID";
+            this.clmJangedID.FieldName = "janged_id";
+            this.clmJangedID.Name = "clmJangedID";
+            this.clmJangedID.OptionsColumn.AllowEdit = false;
+            this.clmJangedID.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
             // 
             // clmItemID
@@ -1676,6 +1679,18 @@
             this.clmOldUnitID.FieldName = "old_unit_id";
             this.clmOldUnitID.Name = "clmOldUnitID";
             this.clmOldUnitID.OptionsColumn.AllowEdit = false;
+            // 
+            // clmPurchaseID
+            // 
+            this.clmPurchaseID.Caption = "PurchaseID";
+            this.clmPurchaseID.FieldName = "purchase_id";
+            this.clmPurchaseID.Name = "clmPurchaseID";
+            // 
+            // clmpurchaseDetailID
+            // 
+            this.clmpurchaseDetailID.Caption = "PurchaseDetailID";
+            this.clmpurchaseDetailID.FieldName = "purchase_detail_id";
+            this.clmpurchaseDetailID.Name = "clmpurchaseDetailID";
             // 
             // panelControl8
             // 
@@ -2076,6 +2091,8 @@
             // 
             // panelControl4
             // 
+            this.panelControl4.Controls.Add(this.labelControl4);
+            this.panelControl4.Controls.Add(this.lblJanged_ID);
             this.panelControl4.Controls.Add(this.LueUnit);
             this.panelControl4.Controls.Add(this.label15);
             this.panelControl4.Controls.Add(this.LueSize);
@@ -2103,7 +2120,7 @@
             this.panelControl4.Controls.Add(this.lblInvoiceNo);
             this.panelControl4.Controls.Add(this.lblMode);
             this.panelControl4.Controls.Add(this.labelControl5);
-            this.panelControl4.Controls.Add(this.dtpJangedDate);
+            this.panelControl4.Controls.Add(this.dtpPurchaseDate);
             this.panelControl4.Controls.Add(this.label11);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl4.Location = new System.Drawing.Point(0, 0);
@@ -2111,6 +2128,30 @@
             this.panelControl4.Size = new System.Drawing.Size(1267, 77);
             this.panelControl4.TabIndex = 0;
             this.panelControl4.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl4_Paint);
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Appearance.Options.UseForeColor = true;
+            this.labelControl4.Location = new System.Drawing.Point(993, 11);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(75, 13);
+            this.labelControl4.TabIndex = 514;
+            this.labelControl4.Text = "Janged No :";
+            // 
+            // lblJanged_ID
+            // 
+            this.lblJanged_ID.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJanged_ID.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lblJanged_ID.Appearance.Options.UseFont = true;
+            this.lblJanged_ID.Appearance.Options.UseForeColor = true;
+            this.lblJanged_ID.Location = new System.Drawing.Point(1074, 11);
+            this.lblJanged_ID.Name = "lblJanged_ID";
+            this.lblJanged_ID.Size = new System.Drawing.Size(69, 13);
+            this.lblJanged_ID.TabIndex = 513;
+            this.lblJanged_ID.Text = "Janged_ID";
             // 
             // LueUnit
             // 
@@ -2438,7 +2479,6 @@
             // 
             // txtVoucherNo
             // 
-            this.txtVoucherNo.Enabled = false;
             this.txtVoucherNo.EnterMoveNextControl = true;
             this.txtVoucherNo.Location = new System.Drawing.Point(266, 7);
             this.txtVoucherNo.Name = "txtVoucherNo";
@@ -2446,6 +2486,7 @@
             this.txtVoucherNo.Properties.Appearance.Options.UseFont = true;
             this.txtVoucherNo.Size = new System.Drawing.Size(80, 20);
             this.txtVoucherNo.TabIndex = 1;
+            this.txtVoucherNo.Validated += new System.EventHandler(this.txtVoucherNo_Validated);
             // 
             // lblInvoiceNo
             // 
@@ -2463,7 +2504,7 @@
             this.lblMode.Appearance.ForeColor = System.Drawing.Color.Red;
             this.lblMode.Appearance.Options.UseFont = true;
             this.lblMode.Appearance.Options.UseForeColor = true;
-            this.lblMode.Location = new System.Drawing.Point(1182, 11);
+            this.lblMode.Location = new System.Drawing.Point(1182, 48);
             this.lblMode.Name = "lblMode";
             this.lblMode.Size = new System.Drawing.Size(63, 13);
             this.lblMode.TabIndex = 12;
@@ -2483,22 +2524,22 @@
             this.labelControl5.TabIndex = 4;
             this.labelControl5.Text = "* ";
             // 
-            // dtpJangedDate
+            // dtpPurchaseDate
             // 
-            this.dtpJangedDate.EditValue = null;
-            this.dtpJangedDate.EnterMoveNextControl = true;
-            this.dtpJangedDate.Location = new System.Drawing.Point(61, 7);
-            this.dtpJangedDate.Name = "dtpJangedDate";
-            this.dtpJangedDate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.dtpJangedDate.Properties.Appearance.Options.UseFont = true;
-            this.dtpJangedDate.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.dtpJangedDate.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.dtpJangedDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtpPurchaseDate.EditValue = null;
+            this.dtpPurchaseDate.EnterMoveNextControl = true;
+            this.dtpPurchaseDate.Location = new System.Drawing.Point(61, 7);
+            this.dtpPurchaseDate.Name = "dtpPurchaseDate";
+            this.dtpPurchaseDate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.dtpPurchaseDate.Properties.Appearance.Options.UseFont = true;
+            this.dtpPurchaseDate.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.dtpPurchaseDate.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.dtpPurchaseDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpJangedDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtpPurchaseDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpJangedDate.Size = new System.Drawing.Size(119, 20);
-            this.dtpJangedDate.TabIndex = 0;
+            this.dtpPurchaseDate.Size = new System.Drawing.Size(119, 20);
+            this.dtpPurchaseDate.TabIndex = 0;
             // 
             // label11
             // 
@@ -2746,51 +2787,43 @@
             this.gridColumn9.VisibleIndex = 5;
             this.gridColumn9.Width = 150;
             // 
-            // backgroundWorker_JangedEntry
+            // backgroundWorker_PurchaseEntry
             // 
-            this.backgroundWorker_JangedEntry.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_JangedEntry_DoWork);
-            this.backgroundWorker_JangedEntry.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_JangedEntry_RunWorkerCompleted);
+            this.backgroundWorker_PurchaseEntry.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_PurchaseEntry_DoWork);
+            this.backgroundWorker_PurchaseEntry.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_PurchaseEntry_RunWorkerCompleted);
             // 
-            // backgroundWorker_JangedDelete
+            // backgroundWorker_PurchaseDelete
             // 
-            this.backgroundWorker_JangedDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_JangedDelete_DoWork);
-            this.backgroundWorker_JangedDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_JangedDelete_RunWorkerCompleted);
+            this.backgroundWorker_PurchaseDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_PurchaseDelete_DoWork);
+            this.backgroundWorker_PurchaseDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_PurchaseDelete_RunWorkerCompleted);
             // 
-            // clmJangedID
-            // 
-            this.clmJangedID.Caption = "Janged ID";
-            this.clmJangedID.FieldName = "janged_id";
-            this.clmJangedID.Name = "clmJangedID";
-            this.clmJangedID.Visible = true;
-            this.clmJangedID.VisibleIndex = 8;
-            // 
-            // FrmJangedEntry
+            // FrmPurchase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 742);
-            this.Controls.Add(this.ttlbJagedInvoice);
+            this.Controls.Add(this.ttlbPurchaseInvoice);
             this.Controls.Add(this.panelControl3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmJangedEntry";
+            this.Name = "FrmPurchase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Janged Entry";
-            this.Load += new System.EventHandler(this.FrmJangedEntry_Load);
+            this.Text = "Purchase";
+            this.Load += new System.EventHandler(this.FrmPurchase_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptcDelete)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ttlbJagedInvoice)).EndInit();
-            this.ttlbJagedInvoice.ResumeLayout(false);
-            this.tblJangedList.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ttlbPurchaseInvoice)).EndInit();
+            this.ttlbPurchaseInvoice.ResumeLayout(false);
+            this.tblPurchaseList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdJangedEntry)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPurchaseEntry)).EndInit();
             this.ContextMNExport.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvJangedEntry)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPurchaseEntry)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
@@ -2800,15 +2833,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpToDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFromDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFromDate.Properties)).EndInit();
-            this.tblJangeddetail.ResumeLayout(false);
+            this.tblPurchasedetail.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
             this.panelControl7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelProgress)).EndInit();
             this.panelProgress.ResumeLayout(false);
             this.panelProgress.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SaveProgressBar.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdJangedDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvJangedDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPurchaseDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPurchaseDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
             this.panelControl8.ResumeLayout(false);
             this.panelControl8.PerformLayout();
@@ -2840,8 +2873,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueItem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueGSTRate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVoucherNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpJangedDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpJangedDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpPurchaseDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpPurchaseDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).EndInit();
             this.ResumeLayout(false);
@@ -2851,11 +2884,11 @@
         #endregion
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraBars.Docking.DockManager dockManager1;
-        private DevExpress.XtraTab.XtraTabControl ttlbJagedInvoice;
-        private DevExpress.XtraTab.XtraTabPage tblJangedList;
+        private DevExpress.XtraTab.XtraTabControl ttlbPurchaseInvoice;
+        private DevExpress.XtraTab.XtraTabPage tblPurchaseList;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraTab.XtraTabPage tblJangeddetail;
+        private DevExpress.XtraTab.XtraTabPage tblPurchasedetail;
         private DevExpress.XtraEditors.PanelControl panelControl4;
         private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit2;
         private DevExpress.XtraGrid.Columns.GridColumn clmInternalTransferID;
@@ -2917,16 +2950,16 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
-        private DevExpress.XtraGrid.GridControl grdJangedEntry;
-        private DevExpress.XtraGrid.Views.Grid.GridView dgvJangedEntry;
+        private DevExpress.XtraGrid.GridControl grdPurchaseEntry;
+        private DevExpress.XtraGrid.Views.Grid.GridView dgvPurchaseEntry;
         private DevExpress.XtraGrid.Columns.GridColumn clmDetJangedId;
-        private DevExpress.XtraEditors.DateEdit dtpJangedDate;
+        private DevExpress.XtraEditors.DateEdit dtpPurchaseDate;
         private System.Windows.Forms.Label label11;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraGrid.GridControl grdJangedDetails;
-        private DevExpress.XtraGrid.Views.Grid.GridView dgvJangedDetails;
-        private DevExpress.XtraGrid.Columns.GridColumn clmPurchaseDetailID;
-        private DevExpress.XtraGrid.Columns.GridColumn clmPurchaseID;
+        private DevExpress.XtraGrid.GridControl grdPurchaseDetails;
+        private DevExpress.XtraGrid.Views.Grid.GridView dgvPurchaseDetails;
+        private DevExpress.XtraGrid.Columns.GridColumn clmjangedDetailID;
+        private DevExpress.XtraGrid.Columns.GridColumn clmJangedID;
         private DevExpress.XtraGrid.Columns.GridColumn clmItemID;
         private DevExpress.XtraGrid.Columns.GridColumn clmItemName;
         private DevExpress.XtraGrid.Columns.GridColumn clmColorID;
@@ -2992,7 +3025,7 @@
         private DevExpress.XtraEditors.PanelControl panelProgress;
         private System.Windows.Forms.Label lblProgressCount;
         private DevExpress.XtraEditors.MarqueeProgressBarControl SaveProgressBar;
-        private System.ComponentModel.BackgroundWorker backgroundWorker_JangedEntry;
+        private System.ComponentModel.BackgroundWorker backgroundWorker_PurchaseEntry;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private System.Windows.Forms.Label label33;
         private DevExpress.XtraEditors.TextEdit txtSearchVoucherNo;
@@ -3002,7 +3035,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn40;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn25;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn31;
-        private System.ComponentModel.BackgroundWorker backgroundWorker_JangedDelete;
+        private System.ComponentModel.BackgroundWorker backgroundWorker_PurchaseDelete;
         private DevExpress.XtraGrid.Columns.GridColumn clmEntryBy;
         private DevExpress.XtraGrid.Columns.GridColumn clmEntryDate;
         private DevExpress.XtraGrid.Columns.GridColumn clmEntryTime;
@@ -3045,6 +3078,9 @@
         private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
-        private DevExpress.XtraGrid.Columns.GridColumn clmJangedID;
+        private DevExpress.XtraEditors.LabelControl lblJanged_ID;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraGrid.Columns.GridColumn clmPurchaseID;
+        private DevExpress.XtraGrid.Columns.GridColumn clmpurchaseDetailID;
     }
 }
