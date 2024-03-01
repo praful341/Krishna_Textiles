@@ -21,8 +21,6 @@ namespace BLL.FunctionClasses.Report
             Request.AddParams("@department_id", ReportParams_Property.department_id, DbType.String);
             Request.AddParams("@datFromDate", ReportParams_Property.From_Date, DbType.Date);
             Request.AddParams("@datToDate", ReportParams_Property.To_Date, DbType.Date);
-            Request.AddParams("@rate_type_id", GlobalDec.gEmployeeProperty.rate_type_id, DbType.Int32);
-            Request.AddParams("@currency_id", GlobalDec.gEmployeeProperty.currency_id, DbType.Int32);
 
             Request.CommandType = CommandType.StoredProcedure;
             Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);

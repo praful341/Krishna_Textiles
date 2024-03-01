@@ -148,6 +148,7 @@
             this.clmSrNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmOldUnitName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmOldUnitID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmJangedID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
             this.txtIGSTAmount = new DevExpress.XtraEditors.TextEdit();
             this.label12 = new System.Windows.Forms.Label();
@@ -225,7 +226,6 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.backgroundWorker_JangedEntry = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker_JangedDelete = new System.ComponentModel.BackgroundWorker();
-            this.clmJangedID = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).BeginInit();
@@ -1677,6 +1677,14 @@
             this.clmOldUnitID.Name = "clmOldUnitID";
             this.clmOldUnitID.OptionsColumn.AllowEdit = false;
             // 
+            // clmJangedID
+            // 
+            this.clmJangedID.Caption = "Janged ID";
+            this.clmJangedID.FieldName = "janged_id";
+            this.clmJangedID.Name = "clmJangedID";
+            this.clmJangedID.Visible = true;
+            this.clmJangedID.VisibleIndex = 8;
+            // 
             // panelControl8
             // 
             this.panelControl8.Controls.Add(this.txtIGSTAmount);
@@ -1718,7 +1726,7 @@
             this.txtIGSTAmount.Properties.Mask.EditMask = "f0";
             this.txtIGSTAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtIGSTAmount.Properties.ReadOnly = true;
-            this.txtIGSTAmount.Size = new System.Drawing.Size(71, 20);
+            this.txtIGSTAmount.Size = new System.Drawing.Size(94, 20);
             this.txtIGSTAmount.TabIndex = 62;
             // 
             // label12
@@ -1743,7 +1751,7 @@
             this.txtIGSTPer.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtIGSTPer.Properties.Mask.EditMask = "f3";
             this.txtIGSTPer.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtIGSTPer.Size = new System.Drawing.Size(71, 20);
+            this.txtIGSTPer.Size = new System.Drawing.Size(94, 20);
             this.txtIGSTPer.TabIndex = 2;
             this.txtIGSTPer.EditValueChanged += new System.EventHandler(this.txtIGSTPer_EditValueChanged);
             // 
@@ -1865,7 +1873,7 @@
             // txtRoundOff
             // 
             this.txtRoundOff.EnterMoveNextControl = true;
-            this.txtRoundOff.Location = new System.Drawing.Point(815, 11);
+            this.txtRoundOff.Location = new System.Drawing.Point(800, 11);
             this.txtRoundOff.Name = "txtRoundOff";
             this.txtRoundOff.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRoundOff.Properties.Appearance.Options.UseFont = true;
@@ -1881,7 +1889,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.label31.Location = new System.Drawing.Point(700, 12);
+            this.label31.Location = new System.Drawing.Point(685, 12);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(109, 16);
             this.label31.TabIndex = 52;
@@ -1892,7 +1900,7 @@
             this.txtNetAmount.EditValue = "0";
             this.txtNetAmount.Enabled = false;
             this.txtNetAmount.EnterMoveNextControl = true;
-            this.txtNetAmount.Location = new System.Drawing.Point(815, 37);
+            this.txtNetAmount.Location = new System.Drawing.Point(800, 37);
             this.txtNetAmount.Name = "txtNetAmount";
             this.txtNetAmount.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txtNetAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
@@ -1913,7 +1921,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.label29.Location = new System.Drawing.Point(700, 38);
+            this.label29.Location = new System.Drawing.Point(685, 38);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(94, 16);
             this.label29.TabIndex = 50;
@@ -1922,7 +1930,7 @@
             // txtDiscountAmount
             // 
             this.txtDiscountAmount.EnterMoveNextControl = true;
-            this.txtDiscountAmount.Location = new System.Drawing.Point(559, 37);
+            this.txtDiscountAmount.Location = new System.Drawing.Point(585, 37);
             this.txtDiscountAmount.Name = "txtDiscountAmount";
             this.txtDiscountAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiscountAmount.Properties.Appearance.Options.UseFont = true;
@@ -1930,7 +1938,7 @@
             this.txtDiscountAmount.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtDiscountAmount.Properties.Mask.EditMask = "f0";
             this.txtDiscountAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtDiscountAmount.Size = new System.Drawing.Size(132, 20);
+            this.txtDiscountAmount.Size = new System.Drawing.Size(94, 20);
             this.txtDiscountAmount.TabIndex = 0;
             this.txtDiscountAmount.EditValueChanged += new System.EventHandler(this.txtDiscountAmount_EditValueChanged);
             this.txtDiscountAmount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDiscountAmt_KeyDown);
@@ -1939,7 +1947,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label25.Location = new System.Drawing.Point(477, 38);
+            this.label25.Location = new System.Drawing.Point(503, 38);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(77, 16);
             this.label25.TabIndex = 44;
@@ -1949,7 +1957,7 @@
             // 
             this.txtDiscountPer.Enabled = false;
             this.txtDiscountPer.EnterMoveNextControl = true;
-            this.txtDiscountPer.Location = new System.Drawing.Point(559, 11);
+            this.txtDiscountPer.Location = new System.Drawing.Point(585, 11);
             this.txtDiscountPer.Name = "txtDiscountPer";
             this.txtDiscountPer.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiscountPer.Properties.Appearance.Options.UseFont = true;
@@ -1957,7 +1965,7 @@
             this.txtDiscountPer.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtDiscountPer.Properties.Mask.EditMask = "f3";
             this.txtDiscountPer.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtDiscountPer.Size = new System.Drawing.Size(132, 20);
+            this.txtDiscountPer.Size = new System.Drawing.Size(94, 20);
             this.txtDiscountPer.TabIndex = 3;
             this.txtDiscountPer.EditValueChanged += new System.EventHandler(this.txtDiscountPer_EditValueChanged);
             this.txtDiscountPer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDiscountPer_KeyDown);
@@ -1966,7 +1974,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label26.Location = new System.Drawing.Point(477, 12);
+            this.label26.Location = new System.Drawing.Point(503, 12);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(74, 16);
             this.label26.TabIndex = 42;
@@ -2755,14 +2763,6 @@
             // 
             this.backgroundWorker_JangedDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_JangedDelete_DoWork);
             this.backgroundWorker_JangedDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_JangedDelete_RunWorkerCompleted);
-            // 
-            // clmJangedID
-            // 
-            this.clmJangedID.Caption = "Janged ID";
-            this.clmJangedID.FieldName = "janged_id";
-            this.clmJangedID.Name = "clmJangedID";
-            this.clmJangedID.Visible = true;
-            this.clmJangedID.VisibleIndex = 8;
             // 
             // FrmJangedEntry
             // 

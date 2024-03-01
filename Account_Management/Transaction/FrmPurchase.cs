@@ -933,9 +933,9 @@ namespace Account_Management.Transaction
                 m_IsUpdate = true;
                 lblMode.Text = "Add Mode";
 
-                txtPurchaseBill.Enabled = true;
-                lueGSTRate.Enabled = true;
-                lueParty.Enabled = true;
+                //txtPurchaseBill.Enabled = true;
+                //lueGSTRate.Enabled = true;
+                //lueParty.Enabled = true;
             }
             catch (Exception ex)
             {
