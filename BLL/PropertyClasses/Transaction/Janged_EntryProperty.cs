@@ -26,6 +26,8 @@ namespace BLL.PropertyClasses.Transaction
         public decimal round_of_amount { get; set; }
         public int form_id { get; set; }
         public int ledger_id { get; set; }
+        public int term_days { get; set; }
+        public string due_date { get; set; }
 
         #endregion
 

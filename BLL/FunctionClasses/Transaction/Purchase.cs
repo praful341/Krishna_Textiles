@@ -54,6 +54,8 @@ namespace BLL.FunctionClasses.Transaction
                 Request.AddParams("@update_ip_address", GlobalDec.gStrComputerIP, DbType.String);
 
                 Request.AddParams("@form_id", pClsProperty.form_id, DbType.Int64);
+                Request.AddParams("@term_days", pClsProperty.term_days, DbType.Int32);
+                Request.AddParams("@due_date", pClsProperty.due_date, DbType.Date);
 
                 Request.CommandText = BLL.TPV.SProc.TRN_Purchase_Save;
                 Request.CommandType = CommandType.StoredProcedure;

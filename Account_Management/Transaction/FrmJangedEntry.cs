@@ -926,6 +926,7 @@ namespace Account_Management.Transaction
                 txtIGSTAmount.Text = string.Empty;
                 txtRemark.Text = string.Empty;
                 txtPurchaseBill.Text = string.Empty;
+                txtTermDays.Text = "";
                 btnAdd.Text = "&Add";
                 txtVoucherNo.Focus();
                 m_srno = 0;
@@ -1296,6 +1297,8 @@ namespace Account_Management.Transaction
                     objJangedEntryProperty.gst_id = Val.ToInt(lueGSTRate.EditValue);
                     objJangedEntryProperty.purchase_bill_no = Val.ToString(txtPurchaseBill.Text);
                     objJangedEntryProperty.remarks = Val.ToString(txtRemark.Text);
+                    objJangedEntryProperty.term_days = Val.ToInt32(txtTermDays.Text);
+                    objJangedEntryProperty.due_date = Val.DBDate(DTPDueDate.Text);
 
                     objJangedEntryProperty.form_id = m_numForm_id;
 
@@ -1552,6 +1555,8 @@ namespace Account_Management.Transaction
                         txtIGSTPer.Text = Val.ToString(Drow["igst_per"]);
                         txtIGSTAmount.Text = Val.ToString(Drow["igst_amount"]);
                         txtNetAmount.Text = Val.ToString(Drow["net_amount"]);
+                        txtTermDays.Text = Val.ToString(Drow["term_days"]);
+                        DTPDueDate.Text = Val.ToString(Drow["due_date"]);
 
                         m_dtbJangedDetails = objJangedEntry.GetDataDetails(Val.ToInt(lblMode.Tag));
                         grdJangedDetails.DataSource = m_dtbJangedDetails;
@@ -1607,7 +1612,6 @@ namespace Account_Management.Transaction
         {
             ClearDetails();
         }
-
         private void lueGSTRate_Validated(object sender, EventArgs e)
         {
             GSTMaster objGSTRate = new GSTMaster();
@@ -1643,7 +1647,6 @@ namespace Account_Management.Transaction
                 }
             }
         }
-
         private void txtDiscountAmount_EditValueChanged(object sender, EventArgs e)
         {
             try
@@ -1667,6 +1670,26 @@ namespace Account_Management.Transaction
             {
                 General.ShowErrors(ex.ToString());
                 return;
+            }
+        }
+        private void txtTermDays_EditValueChanged(object sender, EventArgs e)
+        {
+            if (dtpJangedDate.Text.Length <= 0 || txtTermDays.Text == "")
+            {
+                txtTermDays.Text = "";
+                DTPDueDate.EditValue = null;
+            }
+            else
+            {
+                DateTime Date = Convert.ToDateTime(dtpJangedDate.EditValue).AddDays(Val.ToDouble(txtTermDays.Text));
+                DTPDueDate.EditValue = Val.DBDDDate(Date.ToShortDateString());
+            }
+        }
+        private void txtTermDays_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

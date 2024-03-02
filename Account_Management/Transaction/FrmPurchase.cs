@@ -925,6 +925,7 @@ namespace Account_Management.Transaction
                 txtRemark.Text = string.Empty;
                 txtPurchaseBill.Text = string.Empty;
                 txtVoucherNo.Enabled = true;
+                txtTermDays.Text = "";
                 btnAdd.Text = "&Add";
                 txtVoucherNo.Focus();
                 m_srno = 0;
@@ -1296,6 +1297,9 @@ namespace Account_Management.Transaction
 
                     objPurchaseProperty.net_amount = Val.ToDecimal(txtNetAmount.Text);
 
+                    objPurchaseProperty.term_days = Val.ToInt32(txtTermDays.Text);
+                    objPurchaseProperty.due_date = Val.DBDate(DTPDueDate.Text);
+
                     objPurchaseProperty = objPurchase.Save(objPurchaseProperty, DLL.GlobalDec.EnumTran.Start, Conn);
 
                     Int64 NewmPurchaseid = Val.ToInt64(objPurchaseProperty.purchase_id);
@@ -1523,6 +1527,8 @@ namespace Account_Management.Transaction
                         txtIGSTPer.Text = Val.ToString(Drow["igst_per"]);
                         txtIGSTAmount.Text = Val.ToString(Drow["igst_amount"]);
                         txtNetAmount.Text = Val.ToString(Drow["net_amount"]);
+                        txtTermDays.Text = Val.ToString(Drow["term_days"]);
+                        DTPDueDate.Text = Val.ToString(Drow["due_date"]);
 
                         m_dtbPurchaseDetails = objPurchase.GetDataDetails(Val.ToInt(lblMode.Tag));
                         grdPurchaseDetails.DataSource = m_dtbPurchaseDetails;
@@ -1635,6 +1641,8 @@ namespace Account_Management.Transaction
                         lueGSTRate.EditValue = Val.ToInt64(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["gst_id"]);
                         lueParty.EditValue = Val.ToInt64(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["ledger_id"]);
                         txtRemark.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["remarks"]);
+                        txtTermDays.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["term_days"]);
+                        DTPDueDate.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["due_date"]);
 
                         grdPurchaseDetails.DataSource = m_dtbVoucher_JangedDetail.Tables[1];
                         m_dtbPurchaseDetails = m_dtbVoucher_JangedDetail.Tables[1];
@@ -1667,6 +1675,28 @@ namespace Account_Management.Transaction
             else
             {
                 txtVoucherNo.Focus();
+            }
+        }
+
+        private void txtTermDays_EditValueChanged(object sender, EventArgs e)
+        {
+            if (dtpPurchaseDate.Text.Length <= 0 || txtTermDays.Text == "")
+            {
+                txtTermDays.Text = "";
+                DTPDueDate.EditValue = null;
+            }
+            else
+            {
+                DateTime Date = Convert.ToDateTime(dtpPurchaseDate.EditValue).AddDays(Val.ToDouble(txtTermDays.Text));
+                DTPDueDate.EditValue = Val.DBDDDate(Date.ToShortDateString());
+            }
+        }
+
+        private void txtTermDays_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

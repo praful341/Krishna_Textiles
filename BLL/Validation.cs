@@ -259,6 +259,10 @@ namespace BLL
         {
             return ToDate(pStrDate, DateFormat.DDMMMYYYY);
         }
+        public string DBDDDate(string pStrDate)
+        {
+            return ToDate(pStrDate, DateFormat.DDMMYY);
+        }
 
         public string DBTime(string pStrDate)
         {
