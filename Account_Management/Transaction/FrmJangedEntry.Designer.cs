@@ -107,6 +107,8 @@
             this.ClmFinalTermsDays = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.lueJangedLedger = new DevExpress.XtraEditors.LookUpEdit();
             this.label33 = new System.Windows.Forms.Label();
@@ -179,8 +181,12 @@
             this.txtRemark = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.DTPDueDate = new DevExpress.XtraEditors.DateEdit();
             this.LueUnit = new DevExpress.XtraEditors.LookUpEdit();
+            this.txtTermDays = new DevExpress.XtraEditors.TextEdit();
             this.label15 = new System.Windows.Forms.Label();
+            this.lblTerms = new DevExpress.XtraEditors.LabelControl();
             this.LueSize = new DevExpress.XtraEditors.LookUpEdit();
             this.label8 = new System.Windows.Forms.Label();
             this.LueColor = new DevExpress.XtraEditors.LookUpEdit();
@@ -226,12 +232,6 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.backgroundWorker_JangedEntry = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker_JangedDelete = new System.ComponentModel.BackgroundWorker();
-            this.DTPDueDate = new DevExpress.XtraEditors.DateEdit();
-            this.txtTermDays = new DevExpress.XtraEditors.TextEdit();
-            this.lblTerms = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).BeginInit();
@@ -277,7 +277,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPDueDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPDueDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LueUnit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTermDays.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LueSize.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LueColor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPurchaseBill.Properties)).BeginInit();
@@ -292,9 +295,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpJangedDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DTPDueDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DTPDueDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTermDays.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl3
@@ -1242,6 +1242,24 @@
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 8;
             // 
+            // gridColumn14
+            // 
+            this.gridColumn14.Caption = "T. Days";
+            this.gridColumn14.FieldName = "term_days";
+            this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.Visible = true;
+            this.gridColumn14.VisibleIndex = 5;
+            this.gridColumn14.Width = 53;
+            // 
+            // gridColumn15
+            // 
+            this.gridColumn15.Caption = "Due Date";
+            this.gridColumn15.FieldName = "due_date";
+            this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.Visible = true;
+            this.gridColumn15.VisibleIndex = 6;
+            this.gridColumn15.Width = 96;
+            // 
             // panelControl2
             // 
             this.panelControl2.Controls.Add(this.lueJangedLedger);
@@ -2135,6 +2153,40 @@
             this.panelControl4.TabIndex = 0;
             this.panelControl4.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl4_Paint);
             // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Appearance.Options.UseForeColor = true;
+            this.labelControl4.Location = new System.Drawing.Point(1090, 9);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(43, 15);
+            this.labelControl4.TabIndex = 513;
+            this.labelControl4.Text = "D. Date";
+            // 
+            // DTPDueDate
+            // 
+            this.DTPDueDate.EditValue = null;
+            this.DTPDueDate.Enabled = false;
+            this.DTPDueDate.EnterMoveNextControl = true;
+            this.DTPDueDate.Location = new System.Drawing.Point(1137, 7);
+            this.DTPDueDate.Name = "DTPDueDate";
+            this.DTPDueDate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DTPDueDate.Properties.Appearance.Options.UseFont = true;
+            this.DTPDueDate.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.DTPDueDate.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.DTPDueDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DTPDueDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DTPDueDate.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.DTPDueDate.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.Optimistic;
+            this.DTPDueDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
+            this.DTPDueDate.Size = new System.Drawing.Size(130, 20);
+            this.DTPDueDate.TabIndex = 33;
+            this.DTPDueDate.TabStop = false;
+            // 
             // LueUnit
             // 
             this.LueUnit.EnterMoveNextControl = true;
@@ -2157,6 +2209,22 @@
             this.LueUnit.Size = new System.Drawing.Size(99, 20);
             this.LueUnit.TabIndex = 8;
             // 
+            // txtTermDays
+            // 
+            this.txtTermDays.EnterMoveNextControl = true;
+            this.txtTermDays.Location = new System.Drawing.Point(1035, 7);
+            this.txtTermDays.Name = "txtTermDays";
+            this.txtTermDays.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTermDays.Properties.Appearance.Options.UseFont = true;
+            this.txtTermDays.Properties.Mask.EditMask = "\\d+";
+            this.txtTermDays.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtTermDays.Properties.Mask.ShowPlaceHolders = false;
+            this.txtTermDays.Properties.MaxLength = 4;
+            this.txtTermDays.Size = new System.Drawing.Size(51, 20);
+            this.txtTermDays.TabIndex = 32;
+            this.txtTermDays.EditValueChanged += new System.EventHandler(this.txtTermDays_EditValueChanged);
+            this.txtTermDays.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTermDays_KeyPress);
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -2166,6 +2234,18 @@
             this.label15.Size = new System.Drawing.Size(37, 16);
             this.label15.TabIndex = 512;
             this.label15.Text = "Unit";
+            // 
+            // lblTerms
+            // 
+            this.lblTerms.Appearance.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTerms.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lblTerms.Appearance.Options.UseFont = true;
+            this.lblTerms.Appearance.Options.UseForeColor = true;
+            this.lblTerms.Location = new System.Drawing.Point(960, 9);
+            this.lblTerms.Name = "lblTerms";
+            this.lblTerms.Size = new System.Drawing.Size(71, 15);
+            this.lblTerms.TabIndex = 34;
+            this.lblTerms.Text = "Terms Days";
             // 
             // LueSize
             // 
@@ -2275,6 +2355,7 @@
             this.txtPcs.Properties.Appearance.Options.UseFont = true;
             this.txtPcs.Size = new System.Drawing.Size(65, 20);
             this.txtPcs.TabIndex = 9;
+            this.txtPcs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPcs_KeyPress);
             // 
             // label3
             // 
@@ -2779,86 +2860,6 @@
             this.backgroundWorker_JangedDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_JangedDelete_DoWork);
             this.backgroundWorker_JangedDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_JangedDelete_RunWorkerCompleted);
             // 
-            // DTPDueDate
-            // 
-            this.DTPDueDate.EditValue = null;
-            this.DTPDueDate.Enabled = false;
-            this.DTPDueDate.EnterMoveNextControl = true;
-            this.DTPDueDate.Location = new System.Drawing.Point(1137, 7);
-            this.DTPDueDate.Name = "DTPDueDate";
-            this.DTPDueDate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DTPDueDate.Properties.Appearance.Options.UseFont = true;
-            this.DTPDueDate.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.DTPDueDate.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.DTPDueDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DTPDueDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DTPDueDate.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.DTPDueDate.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.Optimistic;
-            this.DTPDueDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
-            this.DTPDueDate.Size = new System.Drawing.Size(130, 20);
-            this.DTPDueDate.TabIndex = 33;
-            this.DTPDueDate.TabStop = false;
-            // 
-            // txtTermDays
-            // 
-            this.txtTermDays.EnterMoveNextControl = true;
-            this.txtTermDays.Location = new System.Drawing.Point(1035, 7);
-            this.txtTermDays.Name = "txtTermDays";
-            this.txtTermDays.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTermDays.Properties.Appearance.Options.UseFont = true;
-            this.txtTermDays.Properties.Mask.EditMask = "\\d+";
-            this.txtTermDays.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtTermDays.Properties.Mask.ShowPlaceHolders = false;
-            this.txtTermDays.Properties.MaxLength = 4;
-            this.txtTermDays.Size = new System.Drawing.Size(51, 20);
-            this.txtTermDays.TabIndex = 32;
-            this.txtTermDays.EditValueChanged += new System.EventHandler(this.txtTermDays_EditValueChanged);
-            this.txtTermDays.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTermDays_KeyPress);
-            // 
-            // lblTerms
-            // 
-            this.lblTerms.Appearance.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTerms.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.lblTerms.Appearance.Options.UseFont = true;
-            this.lblTerms.Appearance.Options.UseForeColor = true;
-            this.lblTerms.Location = new System.Drawing.Point(960, 9);
-            this.lblTerms.Name = "lblTerms";
-            this.lblTerms.Size = new System.Drawing.Size(71, 15);
-            this.lblTerms.TabIndex = 34;
-            this.lblTerms.Text = "Terms Days";
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Appearance.Options.UseForeColor = true;
-            this.labelControl4.Location = new System.Drawing.Point(1090, 9);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(43, 15);
-            this.labelControl4.TabIndex = 513;
-            this.labelControl4.Text = "D. Date";
-            // 
-            // gridColumn14
-            // 
-            this.gridColumn14.Caption = "T. Days";
-            this.gridColumn14.FieldName = "term_days";
-            this.gridColumn14.Name = "gridColumn14";
-            this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 5;
-            this.gridColumn14.Width = 53;
-            // 
-            // gridColumn15
-            // 
-            this.gridColumn15.Caption = "Due Date";
-            this.gridColumn15.FieldName = "due_date";
-            this.gridColumn15.Name = "gridColumn15";
-            this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 6;
-            this.gridColumn15.Width = 96;
-            // 
             // FrmJangedEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2924,7 +2925,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             this.panelControl4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPDueDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPDueDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LueUnit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTermDays.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LueSize.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LueColor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPurchaseBill.Properties)).EndInit();
@@ -2939,9 +2943,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpJangedDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DTPDueDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DTPDueDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTermDays.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
