@@ -1203,8 +1203,8 @@ namespace Account_Management.Transaction
                         DataRow Drow = dgvJangedDetails.GetDataRow(e.RowHandle);
                         btnAdd.Text = "&Update";
                         //lueSieveName.Text = Val.ToString(Drow["sieve_name"]);
-                        LueColor.EditValue = Val.ToInt32(Drow["color_id"]);
-                        LueSize.EditValue = Val.ToInt32(Drow["size_id"]);
+                        LueColor.EditValue = Val.ToInt64(Drow["color_id"]);
+                        LueSize.EditValue = Val.ToInt64(Drow["size_id"]);
                         LueUnit.EditValue = Val.ToInt64(Drow["unit_id"]);
                         lueItem.EditValue = Val.ToInt64(Drow["item_id"]);
                         txtPcs.Text = Val.ToString(Drow["pcs"]);
