@@ -43,7 +43,7 @@ namespace Account_Management.Transaction
         DataTable m_dtbDetails = new DataTable();
         DataSet m_dtbVoucher_JangedDetail = new DataSet();
 
-        int m_janged_detail_id;
+        int m_purchase_detail_id;
         int m_srno;
         int m_update_srno;
         int m_numForm_id;
@@ -75,7 +75,7 @@ namespace Account_Management.Transaction
             DtControlSettings = new DataTable();
             m_dtbDetails = new DataTable();
 
-            m_janged_detail_id = 0;
+            m_purchase_detail_id = 0;
             m_srno = 0;
             m_update_srno = 0;
             m_numForm_id = 0;
@@ -696,9 +696,9 @@ namespace Account_Management.Transaction
                     {
                         for (int i = 0; i < m_dtbPurchaseDetails.Rows.Count; i++)
                         {
-                            if (m_dtbPurchaseDetails.Select("purchase_detail_id ='" + m_janged_detail_id + "' AND sr_no = '" + m_update_srno + "'").Length > 0)
+                            if (m_dtbPurchaseDetails.Select("purchase_detail_id ='" + m_purchase_detail_id + "' AND sr_no = '" + m_update_srno + "'").Length > 0)
                             {
-                                if (m_dtbPurchaseDetails.Rows[m_update_srno - 1]["purchase_detail_id"].ToString() == m_janged_detail_id.ToString())
+                                if (m_dtbPurchaseDetails.Rows[m_update_srno - 1]["purchase_detail_id"].ToString() == m_purchase_detail_id.ToString())
                                 {
                                     m_dtbPurchaseDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
                                     m_dtbPurchaseDetails.Rows[m_update_srno - 1]["rate"] = Val.ToDecimal(txtRate.Text);
@@ -727,9 +727,9 @@ namespace Account_Management.Transaction
                     {
                         for (int i = 0; i < m_dtbPurchaseDetails.Rows.Count; i++)
                         {
-                            if (m_dtbPurchaseDetails.Select("purchase_detail_id ='" + m_janged_detail_id + "' AND sr_no = '" + m_update_srno + "'").Length > 0)
+                            if (m_dtbPurchaseDetails.Select("purchase_detail_id ='" + m_purchase_detail_id + "' AND sr_no = '" + m_update_srno + "'").Length > 0)
                             {
-                                if (m_dtbPurchaseDetails.Rows[m_update_srno - 1]["purchase_detail_id"].ToString() == m_janged_detail_id.ToString())
+                                if (m_dtbPurchaseDetails.Rows[m_update_srno - 1]["purchase_detail_id"].ToString() == m_purchase_detail_id.ToString())
                                 {
                                     m_dtbPurchaseDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
                                     m_dtbPurchaseDetails.Rows[m_update_srno - 1]["rate"] = Val.ToDecimal(txtRate.Text);
@@ -1207,7 +1207,7 @@ namespace Account_Management.Transaction
                         txtAmount.Text = Val.ToString(Drow["amount"]);
 
                         //m_numcarat = Val.ToDecimal(Drow["carat"]);
-                        m_janged_detail_id = Val.ToInt(Drow["janged_detail_id"]);
+                        m_purchase_detail_id = Val.ToInt(Drow["purchase_detail_id"]);
                         m_update_srno = Val.ToInt(Drow["sr_no"]);
                     }
                 }

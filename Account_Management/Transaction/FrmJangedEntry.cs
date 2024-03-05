@@ -1541,7 +1541,7 @@ namespace Account_Management.Transaction
                         dtpJangedDate.Text = Val.DBDate(Val.ToString(Drow["janged_date"]));
                         txtVoucherNo.Text = Val.ToString(Drow["voucher_no"]);
                         lueGSTRate.EditValue = Val.ToInt64(Drow["gst_id"]);
-                        lueParty.EditValue = Val.ToInt32(Drow["ledger_id"]);
+                        lueParty.EditValue = Val.ToInt64(Drow["ledger_id"]);
 
                         txtRemark.Text = Val.ToString(Drow["remarks"]);
                         txtPurchaseBill.Text = Val.ToString(Drow["purchase_bill_no"]);
