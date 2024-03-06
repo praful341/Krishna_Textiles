@@ -1,8 +1,5 @@
 ﻿using DLL;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace BLL
 {
@@ -19,7 +16,7 @@ namespace BLL
             }
         }
 
-        public BeginTranConnection(Boolean IsConn, Boolean IsDeveloperConn,Boolean IsIL)
+        public BeginTranConnection(Boolean IsConn, Boolean IsDeveloperConn, Boolean IsIL)
         {
             if (IsConn)
             {
