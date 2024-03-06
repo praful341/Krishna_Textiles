@@ -2161,16 +2161,16 @@
             this.labelControl4.Appearance.Options.UseForeColor = true;
             this.labelControl4.Location = new System.Drawing.Point(1090, 9);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(43, 15);
+            this.labelControl4.Size = new System.Drawing.Size(55, 15);
             this.labelControl4.TabIndex = 513;
-            this.labelControl4.Text = "D. Date";
+            this.labelControl4.Text = "Due Date";
             // 
             // DTPDueDate
             // 
             this.DTPDueDate.EditValue = null;
             this.DTPDueDate.Enabled = false;
             this.DTPDueDate.EnterMoveNextControl = true;
-            this.DTPDueDate.Location = new System.Drawing.Point(1137, 7);
+            this.DTPDueDate.Location = new System.Drawing.Point(1151, 7);
             this.DTPDueDate.Name = "DTPDueDate";
             this.DTPDueDate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DTPDueDate.Properties.Appearance.Options.UseFont = true;
@@ -2183,7 +2183,7 @@
             this.DTPDueDate.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.DTPDueDate.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.Optimistic;
             this.DTPDueDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
-            this.DTPDueDate.Size = new System.Drawing.Size(130, 20);
+            this.DTPDueDate.Size = new System.Drawing.Size(116, 20);
             this.DTPDueDate.TabIndex = 33;
             this.DTPDueDate.TabStop = false;
             // 
@@ -2212,7 +2212,7 @@
             // txtTermDays
             // 
             this.txtTermDays.EnterMoveNextControl = true;
-            this.txtTermDays.Location = new System.Drawing.Point(1035, 7);
+            this.txtTermDays.Location = new System.Drawing.Point(1031, 7);
             this.txtTermDays.Name = "txtTermDays";
             this.txtTermDays.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTermDays.Properties.Appearance.Options.UseFont = true;
@@ -2220,7 +2220,7 @@
             this.txtTermDays.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtTermDays.Properties.Mask.ShowPlaceHolders = false;
             this.txtTermDays.Properties.MaxLength = 4;
-            this.txtTermDays.Size = new System.Drawing.Size(51, 20);
+            this.txtTermDays.Size = new System.Drawing.Size(55, 20);
             this.txtTermDays.TabIndex = 32;
             this.txtTermDays.EditValueChanged += new System.EventHandler(this.txtTermDays_EditValueChanged);
             this.txtTermDays.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTermDays_KeyPress);
@@ -2243,9 +2243,9 @@
             this.lblTerms.Appearance.Options.UseForeColor = true;
             this.lblTerms.Location = new System.Drawing.Point(960, 9);
             this.lblTerms.Name = "lblTerms";
-            this.lblTerms.Size = new System.Drawing.Size(71, 15);
+            this.lblTerms.Size = new System.Drawing.Size(65, 15);
             this.lblTerms.TabIndex = 34;
-            this.lblTerms.Text = "Terms Days";
+            this.lblTerms.Text = "Term Days";
             // 
             // LueSize
             // 

@@ -182,5 +182,16 @@ namespace BLL.FunctionClasses.Transaction
             IntRes = Ope.FindNewID(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, "TRN_Janged", "isnull(MAX(voucher_no),0)", "");
             return IntRes;
         }
+        public DataTable Purchase_Voucher_GetData(Int64 voucher_no)
+        {
+            DataTable DTab = new DataTable();
+            Request Request = new Request();
+            Request.CommandText = BLL.TPV.SProc.TRN_Purchase_Voucher_No_GetData;
+            Request.CommandType = CommandType.StoredProcedure;
+            Request.AddParams("@voucher_no", voucher_no, DbType.Int64);
+
+            Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
+            return DTab;
+        }
     }
 }
