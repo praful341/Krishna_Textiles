@@ -2281,6 +2281,7 @@
             // 
             // txtPurchaseAmount
             // 
+            this.txtPurchaseAmount.Enabled = false;
             this.txtPurchaseAmount.EnterMoveNextControl = true;
             this.txtPurchaseAmount.Location = new System.Drawing.Point(938, 105);
             this.txtPurchaseAmount.Name = "txtPurchaseAmount";
@@ -2620,6 +2621,7 @@
             // 
             // txtSaleAmount
             // 
+            this.txtSaleAmount.Enabled = false;
             this.txtSaleAmount.EnterMoveNextControl = true;
             this.txtSaleAmount.Location = new System.Drawing.Point(771, 103);
             this.txtSaleAmount.Name = "txtSaleAmount";
@@ -2853,6 +2855,7 @@
             // 
             // CmbSaleType
             // 
+            this.CmbSaleType.EnterMoveNextControl = true;
             this.CmbSaleType.Location = new System.Drawing.Point(259, 6);
             this.CmbSaleType.Name = "CmbSaleType";
             this.CmbSaleType.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

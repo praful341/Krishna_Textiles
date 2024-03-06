@@ -43,7 +43,7 @@ namespace Account_Management.Transaction
         DataTable m_dtbDetails = new DataTable();
         DataSet m_dtbVoucher_JangedDetail = new DataSet();
 
-        int m_janged_detail_id;
+        int m_invoice_detail_id;
         int m_srno;
         int m_update_srno;
         int m_numForm_id;
@@ -76,7 +76,7 @@ namespace Account_Management.Transaction
             DtControlSettings = new DataTable();
             m_dtbDetails = new DataTable();
 
-            m_janged_detail_id = 0;
+            m_invoice_detail_id = 0;
             m_srno = 0;
             m_update_srno = 0;
             m_numForm_id = 0;
@@ -105,18 +105,18 @@ namespace Account_Management.Transaction
 
             // for Dynamic Setting By Praful On 01022020
 
-            //if (Global.HideFormControls(Val.ToInt(ObjPer.form_id), this) != "")
-            //{
-            //    Global.Message("Select First User Setting...Please Contact to Administrator...");
-            //    return;
-            //}
+            if (Global.HideFormControls(Val.ToInt(ObjPer.form_id), this) != "")
+            {
+                Global.Message("Select First User Setting...Please Contact to Administrator...");
+                return;
+            }
 
-            //ControlSettingDT(Val.ToInt(ObjPer.form_id), this);
-            //AddGotFocusListener(this);
-            //this.KeyPreview = true;
+            ControlSettingDT(Val.ToInt(ObjPer.form_id), this);
+            AddGotFocusListener(this);
+            this.KeyPreview = true;
 
-            //TabControlsToList(this.Controls);
-            //_tabControls = _tabControls.OrderBy(x => x.TabIndex).ToList();
+            TabControlsToList(this.Controls);
+            _tabControls = _tabControls.OrderBy(x => x.TabIndex).ToList();
 
             // End for Dynamic Setting By Praful On 01022020
 
@@ -686,9 +686,9 @@ namespace Account_Management.Transaction
                     {
                         for (int i = 0; i < m_dtbSaleDetails.Rows.Count; i++)
                         {
-                            if (m_dtbSaleDetails.Select("invoice_detail_id ='" + m_janged_detail_id + "' AND sr_no = '" + m_update_srno + "'").Length > 0)
+                            if (m_dtbSaleDetails.Select("invoice_detail_id ='" + m_invoice_detail_id + "' AND sr_no = '" + m_update_srno + "'").Length > 0)
                             {
-                                if (m_dtbSaleDetails.Rows[m_update_srno - 1]["invoice_detail_id"].ToString() == m_janged_detail_id.ToString())
+                                if (m_dtbSaleDetails.Rows[m_update_srno - 1]["invoice_detail_id"].ToString() == m_invoice_detail_id.ToString())
                                 {
                                     m_dtbSaleDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
                                     m_dtbSaleDetails.Rows[m_update_srno - 1]["sale_rate"] = Val.ToDecimal(txtSaleRate.Text);
@@ -719,9 +719,9 @@ namespace Account_Management.Transaction
                     {
                         for (int i = 0; i < m_dtbSaleDetails.Rows.Count; i++)
                         {
-                            if (m_dtbSaleDetails.Select("invoice_detail_id ='" + m_janged_detail_id + "' AND sr_no = '" + m_update_srno + "'").Length > 0)
+                            if (m_dtbSaleDetails.Select("invoice_detail_id ='" + m_invoice_detail_id + "' AND sr_no = '" + m_update_srno + "'").Length > 0)
                             {
-                                if (m_dtbSaleDetails.Rows[m_update_srno - 1]["invoice_detail_id"].ToString() == m_janged_detail_id.ToString())
+                                if (m_dtbSaleDetails.Rows[m_update_srno - 1]["invoice_detail_id"].ToString() == m_invoice_detail_id.ToString())
                                 {
                                     m_dtbSaleDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
                                     m_dtbSaleDetails.Rows[m_update_srno - 1]["sale_rate"] = Val.ToDecimal(txtSaleRate.Text);
@@ -1629,6 +1629,9 @@ namespace Account_Management.Transaction
                         txtSaleAmount.Text = Val.ToString(Drow["sale_amount"]);
                         txtPurchaseRate.Text = Val.ToString(Drow["purchase_rate"]);
                         txtPurchaseAmount.Text = Val.ToString(Drow["purchase_amount"]);
+
+                        m_invoice_detail_id = Val.ToInt(Drow["invoice_detail_id"]);
+
                         m_update_srno = Val.ToInt(Drow["sr_no"]);
                     }
                 }
