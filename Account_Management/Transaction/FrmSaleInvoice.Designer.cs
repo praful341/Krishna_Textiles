@@ -111,6 +111,8 @@
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmEmployeeName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmEmployeeID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.lueJangedLedger = new DevExpress.XtraEditors.LookUpEdit();
             this.label33 = new System.Windows.Forms.Label();
@@ -249,8 +251,6 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.backgroundWorker_SaleInvoice = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker_SaleInvoiceDelete = new System.ComponentModel.BackgroundWorker();
-            this.clmEmployeeName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clmEmployeeID = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).BeginInit();
@@ -1306,6 +1306,21 @@
             this.gridColumn17.Visible = true;
             this.gridColumn17.VisibleIndex = 8;
             // 
+            // clmEmployeeName
+            // 
+            this.clmEmployeeName.Caption = "Employee";
+            this.clmEmployeeName.FieldName = "employee_name";
+            this.clmEmployeeName.Name = "clmEmployeeName";
+            this.clmEmployeeName.Visible = true;
+            this.clmEmployeeName.VisibleIndex = 2;
+            this.clmEmployeeName.Width = 170;
+            // 
+            // clmEmployeeID
+            // 
+            this.clmEmployeeID.Caption = "Employee ID";
+            this.clmEmployeeID.FieldName = "employee_id";
+            this.clmEmployeeID.Name = "clmEmployeeID";
+            // 
             // panelControl2
             // 
             this.panelControl2.Controls.Add(this.lueJangedLedger);
@@ -2267,7 +2282,7 @@
             // txtPurchaseAmount
             // 
             this.txtPurchaseAmount.EnterMoveNextControl = true;
-            this.txtPurchaseAmount.Location = new System.Drawing.Point(1032, 101);
+            this.txtPurchaseAmount.Location = new System.Drawing.Point(938, 105);
             this.txtPurchaseAmount.Name = "txtPurchaseAmount";
             this.txtPurchaseAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPurchaseAmount.Properties.Appearance.Options.UseFont = true;
@@ -2278,7 +2293,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(952, 101);
+            this.label10.Location = new System.Drawing.Point(858, 105);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(76, 16);
             this.label10.TabIndex = 526;
@@ -2287,7 +2302,7 @@
             // txtPurchaseRate
             // 
             this.txtPurchaseRate.EnterMoveNextControl = true;
-            this.txtPurchaseRate.Location = new System.Drawing.Point(1032, 71);
+            this.txtPurchaseRate.Location = new System.Drawing.Point(938, 75);
             this.txtPurchaseRate.Name = "txtPurchaseRate";
             this.txtPurchaseRate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPurchaseRate.Properties.Appearance.Options.UseFont = true;
@@ -2299,7 +2314,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label16.Location = new System.Drawing.Point(952, 73);
+            this.label16.Location = new System.Drawing.Point(858, 77);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(74, 16);
             this.label16.TabIndex = 525;
@@ -2441,7 +2456,7 @@
             // LueUnit
             // 
             this.LueUnit.EnterMoveNextControl = true;
-            this.LueUnit.Location = new System.Drawing.Point(573, 99);
+            this.LueUnit.Location = new System.Drawing.Point(502, 99);
             this.LueUnit.Name = "LueUnit";
             this.LueUnit.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LueUnit.Properties.Appearance.Options.UseFont = true;
@@ -2457,14 +2472,14 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("unit_id", "Unit ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.LueUnit.Properties.NullText = "";
             this.LueUnit.Properties.ShowHeader = false;
-            this.LueUnit.Size = new System.Drawing.Size(99, 20);
+            this.LueUnit.Size = new System.Drawing.Size(83, 20);
             this.LueUnit.TabIndex = 8;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(529, 101);
+            this.label15.Location = new System.Drawing.Point(458, 101);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(37, 16);
             this.label15.TabIndex = 512;
@@ -2473,7 +2488,7 @@
             // LueSize
             // 
             this.LueSize.EnterMoveNextControl = true;
-            this.LueSize.Location = new System.Drawing.Point(422, 99);
+            this.LueSize.Location = new System.Drawing.Point(370, 99);
             this.LueSize.Name = "LueSize";
             this.LueSize.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LueSize.Properties.Appearance.Options.UseFont = true;
@@ -2489,14 +2504,14 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("size_id", "Size ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.LueSize.Properties.NullText = "";
             this.LueSize.Properties.ShowHeader = false;
-            this.LueSize.Size = new System.Drawing.Size(99, 20);
+            this.LueSize.Size = new System.Drawing.Size(83, 20);
             this.LueSize.TabIndex = 7;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(378, 101);
+            this.label8.Location = new System.Drawing.Point(326, 101);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 16);
             this.label8.TabIndex = 510;
@@ -2505,7 +2520,7 @@
             // LueColor
             // 
             this.LueColor.EnterMoveNextControl = true;
-            this.LueColor.Location = new System.Drawing.Point(273, 99);
+            this.LueColor.Location = new System.Drawing.Point(237, 99);
             this.LueColor.Name = "LueColor";
             this.LueColor.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LueColor.Properties.Appearance.Options.UseFont = true;
@@ -2521,14 +2536,14 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("color_id", "Color ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.LueColor.Properties.NullText = "";
             this.LueColor.Properties.ShowHeader = false;
-            this.LueColor.Size = new System.Drawing.Size(99, 20);
+            this.LueColor.Size = new System.Drawing.Size(83, 20);
             this.LueColor.TabIndex = 6;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(221, 101);
+            this.label6.Location = new System.Drawing.Point(185, 101);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 16);
             this.label6.TabIndex = 508;
@@ -2572,7 +2587,7 @@
             // txtPcs
             // 
             this.txtPcs.EnterMoveNextControl = true;
-            this.txtPcs.Location = new System.Drawing.Point(707, 99);
+            this.txtPcs.Location = new System.Drawing.Point(617, 99);
             this.txtPcs.Name = "txtPcs";
             this.txtPcs.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPcs.Properties.Appearance.Options.UseFont = true;
@@ -2585,7 +2600,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(674, 101);
+            this.label3.Location = new System.Drawing.Point(584, 101);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 16);
             this.label3.TabIndex = 4;
@@ -2596,7 +2611,7 @@
             this.btnAdd.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Appearance.Options.UseFont = true;
             this.btnAdd.ImageOptions.Image = global::Account_Management.Properties.Resources.Add_final;
-            this.btnAdd.Location = new System.Drawing.Point(1117, 92);
+            this.btnAdd.Location = new System.Drawing.Point(1023, 87);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(92, 32);
             this.btnAdd.TabIndex = 12;
@@ -2606,7 +2621,7 @@
             // txtSaleAmount
             // 
             this.txtSaleAmount.EnterMoveNextControl = true;
-            this.txtSaleAmount.Location = new System.Drawing.Point(865, 99);
+            this.txtSaleAmount.Location = new System.Drawing.Point(771, 103);
             this.txtSaleAmount.Name = "txtSaleAmount";
             this.txtSaleAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSaleAmount.Properties.Appearance.Options.UseFont = true;
@@ -2617,7 +2632,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(783, 101);
+            this.label18.Location = new System.Drawing.Point(689, 105);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(78, 16);
             this.label18.TabIndex = 10;
@@ -2640,7 +2655,7 @@
             // txtSaleRate
             // 
             this.txtSaleRate.EnterMoveNextControl = true;
-            this.txtSaleRate.Location = new System.Drawing.Point(865, 69);
+            this.txtSaleRate.Location = new System.Drawing.Point(771, 73);
             this.txtSaleRate.Name = "txtSaleRate";
             this.txtSaleRate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSaleRate.Properties.Appearance.Options.UseFont = true;
@@ -2652,7 +2667,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label17.Location = new System.Drawing.Point(783, 73);
+            this.label17.Location = new System.Drawing.Point(689, 77);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(76, 16);
             this.label17.TabIndex = 8;
@@ -2715,7 +2730,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("item_id", "Item ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lueItem.Properties.NullText = "";
             this.lueItem.Properties.ShowHeader = false;
-            this.lueItem.Size = new System.Drawing.Size(165, 20);
+            this.lueItem.Size = new System.Drawing.Size(129, 20);
             this.lueItem.TabIndex = 5;
             // 
             // label32
@@ -2732,7 +2747,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(8, 101);
+            this.label14.Location = new System.Drawing.Point(4, 101);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(43, 16);
             this.label14.TabIndex = 0;
@@ -3099,21 +3114,6 @@
             // 
             this.backgroundWorker_SaleInvoiceDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_SaleInvoiceDelete_DoWork);
             this.backgroundWorker_SaleInvoiceDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_SaleInvoiceDelete_RunWorkerCompleted);
-            // 
-            // clmEmployeeName
-            // 
-            this.clmEmployeeName.Caption = "Employee";
-            this.clmEmployeeName.FieldName = "employee_name";
-            this.clmEmployeeName.Name = "clmEmployeeName";
-            this.clmEmployeeName.Visible = true;
-            this.clmEmployeeName.VisibleIndex = 2;
-            this.clmEmployeeName.Width = 170;
-            // 
-            // clmEmployeeID
-            // 
-            this.clmEmployeeID.Caption = "Employee ID";
-            this.clmEmployeeID.FieldName = "employee_id";
-            this.clmEmployeeID.Name = "clmEmployeeID";
             // 
             // FrmSaleInvoice
             // 
