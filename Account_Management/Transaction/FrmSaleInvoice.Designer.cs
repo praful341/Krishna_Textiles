@@ -1835,7 +1835,7 @@
             // txtShippingCharge
             // 
             this.txtShippingCharge.EnterMoveNextControl = true;
-            this.txtShippingCharge.Location = new System.Drawing.Point(841, 11);
+            this.txtShippingCharge.Location = new System.Drawing.Point(802, 11);
             this.txtShippingCharge.Name = "txtShippingCharge";
             this.txtShippingCharge.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtShippingCharge.Properties.Appearance.Options.UseFont = true;
@@ -1843,7 +1843,7 @@
             this.txtShippingCharge.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtShippingCharge.Properties.Mask.EditMask = "f0";
             this.txtShippingCharge.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtShippingCharge.Size = new System.Drawing.Size(132, 20);
+            this.txtShippingCharge.Size = new System.Drawing.Size(93, 20);
             this.txtShippingCharge.TabIndex = 65;
             this.txtShippingCharge.EditValueChanged += new System.EventHandler(this.txtShippingCharge_EditValueChanged);
             this.txtShippingCharge.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtShippingCharge_KeyDown);
@@ -1878,7 +1878,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label19.Location = new System.Drawing.Point(713, 12);
+            this.label19.Location = new System.Drawing.Point(674, 12);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(126, 16);
             this.label19.TabIndex = 68;
@@ -2018,7 +2018,7 @@
             // txtRoundOff
             // 
             this.txtRoundOff.EnterMoveNextControl = true;
-            this.txtRoundOff.Location = new System.Drawing.Point(841, 37);
+            this.txtRoundOff.Location = new System.Drawing.Point(802, 37);
             this.txtRoundOff.Name = "txtRoundOff";
             this.txtRoundOff.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRoundOff.Properties.Appearance.Options.UseFont = true;
@@ -2026,7 +2026,7 @@
             this.txtRoundOff.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtRoundOff.Properties.Mask.EditMask = "f2";
             this.txtRoundOff.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtRoundOff.Size = new System.Drawing.Size(132, 20);
+            this.txtRoundOff.Size = new System.Drawing.Size(93, 20);
             this.txtRoundOff.TabIndex = 1;
             this.txtRoundOff.EditValueChanged += new System.EventHandler(this.txtShippingCharge_EditValueChanged);
             // 
@@ -2034,7 +2034,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.label31.Location = new System.Drawing.Point(713, 38);
+            this.label31.Location = new System.Drawing.Point(674, 38);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(109, 16);
             this.label31.TabIndex = 52;
@@ -2045,7 +2045,7 @@
             this.txtNetAmount.EditValue = "0";
             this.txtNetAmount.Enabled = false;
             this.txtNetAmount.EnterMoveNextControl = true;
-            this.txtNetAmount.Location = new System.Drawing.Point(1075, 37);
+            this.txtNetAmount.Location = new System.Drawing.Point(994, 37);
             this.txtNetAmount.Name = "txtNetAmount";
             this.txtNetAmount.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txtNetAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
@@ -2066,7 +2066,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.label29.Location = new System.Drawing.Point(979, 38);
+            this.label29.Location = new System.Drawing.Point(898, 38);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(94, 16);
             this.label29.TabIndex = 50;
@@ -2083,7 +2083,7 @@
             this.txtDiscountAmount.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtDiscountAmount.Properties.Mask.EditMask = "f0";
             this.txtDiscountAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtDiscountAmount.Size = new System.Drawing.Size(132, 20);
+            this.txtDiscountAmount.Size = new System.Drawing.Size(93, 20);
             this.txtDiscountAmount.TabIndex = 0;
             this.txtDiscountAmount.EditValueChanged += new System.EventHandler(this.txtDiscountAmount_EditValueChanged);
             this.txtDiscountAmount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDiscountAmt_KeyDown);
@@ -2110,7 +2110,7 @@
             this.txtDiscountPer.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtDiscountPer.Properties.Mask.EditMask = "f3";
             this.txtDiscountPer.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtDiscountPer.Size = new System.Drawing.Size(132, 20);
+            this.txtDiscountPer.Size = new System.Drawing.Size(93, 20);
             this.txtDiscountPer.TabIndex = 3;
             this.txtDiscountPer.EditValueChanged += new System.EventHandler(this.txtDiscountPer_EditValueChanged);
             this.txtDiscountPer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDiscountPer_KeyDown);
@@ -2283,7 +2283,7 @@
             // 
             this.txtPurchaseAmount.Enabled = false;
             this.txtPurchaseAmount.EnterMoveNextControl = true;
-            this.txtPurchaseAmount.Location = new System.Drawing.Point(938, 105);
+            this.txtPurchaseAmount.Location = new System.Drawing.Point(938, 99);
             this.txtPurchaseAmount.Name = "txtPurchaseAmount";
             this.txtPurchaseAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPurchaseAmount.Properties.Appearance.Options.UseFont = true;
@@ -2294,7 +2294,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(858, 105);
+            this.label10.Location = new System.Drawing.Point(858, 101);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(76, 16);
             this.label10.TabIndex = 526;
@@ -2303,7 +2303,7 @@
             // txtPurchaseRate
             // 
             this.txtPurchaseRate.EnterMoveNextControl = true;
-            this.txtPurchaseRate.Location = new System.Drawing.Point(938, 75);
+            this.txtPurchaseRate.Location = new System.Drawing.Point(938, 73);
             this.txtPurchaseRate.Name = "txtPurchaseRate";
             this.txtPurchaseRate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPurchaseRate.Properties.Appearance.Options.UseFont = true;
@@ -2315,7 +2315,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label16.Location = new System.Drawing.Point(858, 77);
+            this.label16.Location = new System.Drawing.Point(858, 75);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(74, 16);
             this.label16.TabIndex = 525;
@@ -2612,7 +2612,7 @@
             this.btnAdd.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Appearance.Options.UseFont = true;
             this.btnAdd.ImageOptions.Image = global::Account_Management.Properties.Resources.Add_final;
-            this.btnAdd.Location = new System.Drawing.Point(1023, 87);
+            this.btnAdd.Location = new System.Drawing.Point(1023, 85);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(92, 32);
             this.btnAdd.TabIndex = 12;
@@ -2623,7 +2623,7 @@
             // 
             this.txtSaleAmount.Enabled = false;
             this.txtSaleAmount.EnterMoveNextControl = true;
-            this.txtSaleAmount.Location = new System.Drawing.Point(771, 103);
+            this.txtSaleAmount.Location = new System.Drawing.Point(771, 99);
             this.txtSaleAmount.Name = "txtSaleAmount";
             this.txtSaleAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSaleAmount.Properties.Appearance.Options.UseFont = true;
@@ -2634,7 +2634,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(689, 105);
+            this.label18.Location = new System.Drawing.Point(689, 101);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(78, 16);
             this.label18.TabIndex = 10;
@@ -2669,7 +2669,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label17.Location = new System.Drawing.Point(689, 77);
+            this.label17.Location = new System.Drawing.Point(689, 75);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(76, 16);
             this.label17.TabIndex = 8;

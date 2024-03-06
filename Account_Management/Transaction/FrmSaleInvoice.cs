@@ -745,6 +745,19 @@ namespace Account_Management.Transaction
                     }
                     dgvSaleDetails.MoveLast();
                     m_IsUpdate = false;
+
+                    decimal CGST_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtCGSTPer.Text) / 100, 2);
+                    txtCGSTAmount.Text = CGST_amount.ToString();
+                    decimal SGST_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtSGSTPer.Text) / 100, 2);
+                    txtSGSTAmount.Text = SGST_amount.ToString();
+                    decimal IGST_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtIGSTPer.Text) / 100, 2);
+                    txtIGSTAmount.Text = IGST_amount.ToString();
+
+                    //decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtInterestAmount.Text) + Val.ToDecimal(txtCGSTAmount.Text) + Val.ToDecimal(txtSGSTAmount.Text) + Val.ToDecimal(txtIGSTAmount.Text)) - (Val.ToDecimal(txtDiscountAmount.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
+                    //txtNetAmount.Text = Shipping_Charge.ToString();
+
+                    decimal Net_Amount = Math.Round((Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtCGSTAmount.Text) + Val.ToDecimal(txtSGSTAmount.Text) + Val.ToDecimal(txtIGSTAmount.Text) + Val.ToDecimal(txtShippingCharge.Text) - Val.ToDecimal(txtDiscountAmount.Text)) + Val.ToDecimal(txtRoundOff.Text), 2);
+                    txtNetAmount.Text = Net_Amount.ToString();
                 }
             }
             catch (Exception ex)
@@ -1728,6 +1741,9 @@ namespace Account_Management.Transaction
                         txtSGSTAmount.Text = Val.ToString(Drow["sgst_amount"]);
                         txtIGSTPer.Text = Val.ToString(Drow["igst_per"]);
                         txtIGSTAmount.Text = Val.ToString(Drow["igst_amount"]);
+                        
+                        txtShippingCharge.Text = Val.ToString(Drow["shipping_amount"]);
+
                         txtNetAmount.Text = Val.ToString(Drow["net_amount"]);
                         txtTermDays.Text = Val.ToString(Drow["term_days"]);
                         DTPDueDate.Text = Val.ToString(Drow["due_date"]);
