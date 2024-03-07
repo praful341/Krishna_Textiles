@@ -951,7 +951,7 @@ namespace Account_Management.Transaction
                 txtRemark.Text = string.Empty;
                 txtWeight.Text = string.Empty;
                 txtPinCode.Text = string.Empty;
-                txtOrderNo.Enabled = true;
+                //txtOrderNo.Enabled = true;
                 txtTermDays.Text = "";
                 btnAdd.Text = "&Add";
                 txtOrderNo.Focus();
