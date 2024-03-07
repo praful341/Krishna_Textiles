@@ -159,6 +159,7 @@
         public static string TRN_SaleInvoice_Details_Save = "TRN_SaleInvoice_Details_Save";
         public static string TRN_SaleInvoice_GetData = "TRN_SaleInvoice_GetData";
         public static string TRN_SaleInvoice_GetDetailsData = "TRN_SaleInvoice_GetDetailsData";
+        public static string TRN_Generate_OrderNo = "TRN_Generate_OrderNo";
 
         #endregion Sale Invoice Entry
 

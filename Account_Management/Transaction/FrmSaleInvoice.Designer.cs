@@ -2871,6 +2871,7 @@
             this.CmbSaleType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.CmbSaleType.Size = new System.Drawing.Size(110, 20);
             this.CmbSaleType.TabIndex = 519;
+            this.CmbSaleType.SelectedIndexChanged += new System.EventHandler(this.CmbSaleType_SelectedIndexChanged);
             // 
             // repositoryItemPictureEdit1
             // 

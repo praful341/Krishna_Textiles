@@ -184,6 +184,8 @@ namespace BLL.FunctionClasses.Transaction
             Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
             return DTab;
         }
+
+
         public DataTable GetDataDetails(int p_numID)
         {
             DataTable DTab = new DataTable();
@@ -193,6 +195,30 @@ namespace BLL.FunctionClasses.Transaction
                 Request.CommandText = BLL.TPV.SProc.TRN_SaleInvoice_GetDetailsData;
                 Request.CommandType = CommandType.StoredProcedure;
                 Request.AddParams("@p_numInvoice_ID", p_numID, DbType.Int64);
+
+                Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
+                return DTab;
+            }
+            catch (Exception ex)
+            {
+                BLL.General.ShowErrors(ex);
+                return DTab;
+            }
+        }
+
+        public DataTable GetOrderData(string p_SaleType, string p_PreFix)
+        {
+            DataTable DTab = new DataTable();
+            try
+            {
+                Request Request = new Request();
+                Request.CommandText = BLL.TPV.SProc.TRN_Generate_OrderNo;
+                Request.CommandType = CommandType.StoredProcedure;
+                Request.AddParams("@sale_type", p_SaleType, DbType.String);
+                Request.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int32);
+                Request.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int32);
+                Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int32);
+                Request.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int32);
 
                 Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
                 return DTab;

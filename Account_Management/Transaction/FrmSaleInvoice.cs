@@ -1741,7 +1741,7 @@ namespace Account_Management.Transaction
                         txtSGSTAmount.Text = Val.ToString(Drow["sgst_amount"]);
                         txtIGSTPer.Text = Val.ToString(Drow["igst_per"]);
                         txtIGSTAmount.Text = Val.ToString(Drow["igst_amount"]);
-                        
+
                         txtShippingCharge.Text = Val.ToString(Drow["shipping_amount"]);
 
                         txtNetAmount.Text = Val.ToString(Drow["net_amount"]);
@@ -1781,6 +1781,27 @@ namespace Account_Management.Transaction
         private void txtShippingCharge_EditValueChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void CmbSaleType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable m_dtb = new DataTable();
+                objSaleInvoice = new SaleInvoice();
+
+                m_dtb = objSaleInvoice.GetOrderData(CmbSaleType.Text, "AA");
+
+                if (m_dtb.Rows.Count > 0)
+                {
+                    txtOrderNo.Text = Val.ToString(m_dtb.Rows[0]["order_no"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                BLL.General.ShowErrors(ex);
+                return;
+            }
         }
     }
 }
