@@ -521,7 +521,7 @@ namespace Account_Management.Transaction
         private void panelControl4_Paint(object sender, PaintEventArgs e)
         {
             Pen pen = new Pen(Color.FromArgb(255, 191, 219, 255), 2);
-            e.Graphics.DrawLine(pen, 0, 85, 1500, 85);
+            e.Graphics.DrawLine(pen, 0, 62, 1500, 62);
         }
 
         #region "Grid Events" 
@@ -901,6 +901,7 @@ namespace Account_Management.Transaction
                 LueColor.EditValue = System.DBNull.Value;
                 LueSize.EditValue = System.DBNull.Value;
                 LueUnit.EditValue = System.DBNull.Value;
+                CmbPurchaseFirm.SelectedIndex = -1;
                 txtSearchVoucherNo.Text = string.Empty;
                 lueJangedLedger.EditValue = System.DBNull.Value;
                 dtpPurchaseDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
@@ -1275,6 +1276,7 @@ namespace Account_Management.Transaction
                     objPurchaseProperty.gst_id = Val.ToInt(lueGSTRate.EditValue);
                     objPurchaseProperty.purchase_bill_no = Val.ToString(txtPurchaseBill.Text);
                     objPurchaseProperty.remarks = Val.ToString(txtRemark.Text);
+                    objPurchaseProperty.purchase_firm = Val.ToString(CmbPurchaseFirm.Text);
 
                     objPurchaseProperty.form_id = m_numForm_id;
 
@@ -1514,6 +1516,7 @@ namespace Account_Management.Transaction
                         txtVoucherNo.Text = Val.ToString(Drow["voucher_no"]);
                         lueGSTRate.EditValue = Val.ToInt64(Drow["gst_id"]);
                         lueParty.EditValue = Val.ToInt64(Drow["ledger_id"]);
+                        CmbPurchaseFirm.Text = Val.ToString(Drow["purchase_firm"]);
 
                         txtRemark.Text = Val.ToString(Drow["remarks"]);
                         txtPurchaseBill.Text = Val.ToString(Drow["purchase_bill_no"]);
@@ -1643,6 +1646,7 @@ namespace Account_Management.Transaction
                         txtRemark.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["remarks"]);
                         txtTermDays.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["term_days"]);
                         DTPDueDate.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["due_date"]);
+                        CmbPurchaseFirm.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["purchase_firm"]);
 
                         grdPurchaseDetails.DataSource = m_dtbVoucher_JangedDetail.Tables[1];
                         m_dtbPurchaseDetails = m_dtbVoucher_JangedDetail.Tables[1];

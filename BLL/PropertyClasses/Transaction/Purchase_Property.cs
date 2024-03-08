@@ -10,6 +10,7 @@ namespace BLL.PropertyClasses.Transaction
         public int location_id { get; set; }
         public int department_id { get; set; }
         public string purchase_date { get; set; }
+        public string purchase_firm { get; set; }
         public Int64 gst_id { get; set; }
         public Int64 total_pcs { get; set; }
         public decimal gross_amount { get; set; }

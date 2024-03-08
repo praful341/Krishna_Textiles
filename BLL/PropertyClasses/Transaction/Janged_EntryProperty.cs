@@ -14,6 +14,7 @@ namespace BLL.PropertyClasses.Transaction
         public Int64 total_pcs { get; set; }
         public decimal gross_amount { get; set; }
         public string purchase_bill_no { get; set; }
+        public string purchase_firm { get; set; }
         public decimal cgst_rate { get; set; }
         public decimal cgst_amount { get; set; }
         public decimal sgst_rate { get; set; }

@@ -235,6 +235,9 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.backgroundWorker_PurchaseEntry = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker_PurchaseDelete = new System.ComponentModel.BackgroundWorker();
+            this.CmbPurchaseFirm = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.label10 = new System.Windows.Forms.Label();
+            this.ClmPurchaseFirm = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).BeginInit();
@@ -298,6 +301,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpPurchaseDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CmbPurchaseFirm.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl3
@@ -994,7 +998,8 @@
             this.gridColumn11,
             this.gridColumn12,
             this.gridColumn14,
-            this.gridColumn15});
+            this.gridColumn15,
+            this.ClmPurchaseFirm});
             this.dgvPurchaseEntry.GridControl = this.grdPurchaseEntry;
             this.dgvPurchaseEntry.Name = "dgvPurchaseEntry";
             this.dgvPurchaseEntry.OptionsBehavior.Editable = false;
@@ -1062,7 +1067,7 @@
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.AllowEdit = false;
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 15;
+            this.gridColumn10.VisibleIndex = 16;
             this.gridColumn10.Width = 104;
             // 
             // gridColumn40
@@ -1091,7 +1096,7 @@
             this.cgst_amount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.cgst_amount.Visible = true;
-            this.cgst_amount.VisibleIndex = 9;
+            this.cgst_amount.VisibleIndex = 10;
             // 
             // gridColumn34
             // 
@@ -1109,7 +1114,7 @@
             this.gridColumn35.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn35.Visible = true;
-            this.gridColumn35.VisibleIndex = 10;
+            this.gridColumn35.VisibleIndex = 11;
             // 
             // gridColumn36
             // 
@@ -1127,7 +1132,7 @@
             this.gridColumn37.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn37.Visible = true;
-            this.gridColumn37.VisibleIndex = 11;
+            this.gridColumn37.VisibleIndex = 12;
             // 
             // clmNetAmount
             // 
@@ -1138,7 +1143,7 @@
             this.clmNetAmount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.clmNetAmount.Visible = true;
-            this.clmNetAmount.VisibleIndex = 14;
+            this.clmNetAmount.VisibleIndex = 15;
             this.clmNetAmount.Width = 99;
             // 
             // gridColumn25
@@ -1162,7 +1167,7 @@
             this.clmEntryBy.Name = "clmEntryBy";
             this.clmEntryBy.OptionsColumn.AllowEdit = false;
             this.clmEntryBy.Visible = true;
-            this.clmEntryBy.VisibleIndex = 16;
+            this.clmEntryBy.VisibleIndex = 17;
             this.clmEntryBy.Width = 71;
             // 
             // clmEntryDate
@@ -1172,7 +1177,7 @@
             this.clmEntryDate.Name = "clmEntryDate";
             this.clmEntryDate.OptionsColumn.AllowEdit = false;
             this.clmEntryDate.Visible = true;
-            this.clmEntryDate.VisibleIndex = 17;
+            this.clmEntryDate.VisibleIndex = 18;
             this.clmEntryDate.Width = 76;
             // 
             // clmEntryTime
@@ -1182,7 +1187,7 @@
             this.clmEntryTime.Name = "clmEntryTime";
             this.clmEntryTime.OptionsColumn.AllowEdit = false;
             this.clmEntryTime.Visible = true;
-            this.clmEntryTime.VisibleIndex = 18;
+            this.clmEntryTime.VisibleIndex = 19;
             this.clmEntryTime.Width = 104;
             // 
             // clmIP
@@ -1192,7 +1197,7 @@
             this.clmIP.Name = "clmIP";
             this.clmIP.OptionsColumn.AllowEdit = false;
             this.clmIP.Visible = true;
-            this.clmIP.VisibleIndex = 19;
+            this.clmIP.VisibleIndex = 20;
             this.clmIP.Width = 107;
             // 
             // gridColumn38
@@ -1211,7 +1216,7 @@
             this.gridColumn44.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn44.Visible = true;
-            this.gridColumn44.VisibleIndex = 12;
+            this.gridColumn44.VisibleIndex = 13;
             // 
             // ClmFinalTermsDays
             // 
@@ -1221,7 +1226,7 @@
             this.ClmFinalTermsDays.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.ClmFinalTermsDays.Visible = true;
-            this.ClmFinalTermsDays.VisibleIndex = 13;
+            this.ClmFinalTermsDays.VisibleIndex = 14;
             this.ClmFinalTermsDays.Width = 94;
             // 
             // gridColumn11
@@ -1232,7 +1237,7 @@
             this.gridColumn11.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 7;
+            this.gridColumn11.VisibleIndex = 8;
             // 
             // gridColumn12
             // 
@@ -1242,7 +1247,7 @@
             this.gridColumn12.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 8;
+            this.gridColumn12.VisibleIndex = 9;
             // 
             // gridColumn14
             // 
@@ -1250,7 +1255,7 @@
             this.gridColumn14.FieldName = "term_days";
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 5;
+            this.gridColumn14.VisibleIndex = 6;
             this.gridColumn14.Width = 52;
             // 
             // gridColumn15
@@ -1259,7 +1264,7 @@
             this.gridColumn15.FieldName = "due_date";
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 6;
+            this.gridColumn15.VisibleIndex = 7;
             this.gridColumn15.Width = 96;
             // 
             // panelControl2
@@ -1410,9 +1415,9 @@
             this.panelControl7.Controls.Add(this.panelProgress);
             this.panelControl7.Controls.Add(this.grdPurchaseDetails);
             this.panelControl7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl7.Location = new System.Drawing.Point(0, 77);
+            this.panelControl7.Location = new System.Drawing.Point(0, 100);
             this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(1267, 528);
+            this.panelControl7.Size = new System.Drawing.Size(1267, 505);
             this.panelControl7.TabIndex = 25;
             // 
             // panelProgress
@@ -1458,7 +1463,7 @@
             this.grdPurchaseDetails.Location = new System.Drawing.Point(2, 2);
             this.grdPurchaseDetails.MainView = this.dgvPurchaseDetails;
             this.grdPurchaseDetails.Name = "grdPurchaseDetails";
-            this.grdPurchaseDetails.Size = new System.Drawing.Size(1263, 524);
+            this.grdPurchaseDetails.Size = new System.Drawing.Size(1263, 501);
             this.grdPurchaseDetails.TabIndex = 0;
             this.grdPurchaseDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvPurchaseDetails});
@@ -2120,6 +2125,8 @@
             // 
             // panelControl4
             // 
+            this.panelControl4.Controls.Add(this.CmbPurchaseFirm);
+            this.panelControl4.Controls.Add(this.label10);
             this.panelControl4.Controls.Add(this.labelControl6);
             this.panelControl4.Controls.Add(this.DTPDueDate);
             this.panelControl4.Controls.Add(this.txtTermDays);
@@ -2158,7 +2165,7 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl4.Location = new System.Drawing.Point(0, 0);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1267, 77);
+            this.panelControl4.Size = new System.Drawing.Size(1267, 100);
             this.panelControl4.TabIndex = 0;
             this.panelControl4.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl4_Paint);
             // 
@@ -2168,7 +2175,7 @@
             this.labelControl6.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl6.Appearance.Options.UseFont = true;
             this.labelControl6.Appearance.Options.UseForeColor = true;
-            this.labelControl6.Location = new System.Drawing.Point(1079, 9);
+            this.labelControl6.Location = new System.Drawing.Point(739, 39);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(55, 15);
             this.labelControl6.TabIndex = 518;
@@ -2179,7 +2186,7 @@
             this.DTPDueDate.EditValue = null;
             this.DTPDueDate.Enabled = false;
             this.DTPDueDate.EnterMoveNextControl = true;
-            this.DTPDueDate.Location = new System.Drawing.Point(1140, 7);
+            this.DTPDueDate.Location = new System.Drawing.Point(800, 37);
             this.DTPDueDate.Name = "DTPDueDate";
             this.DTPDueDate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DTPDueDate.Properties.Appearance.Options.UseFont = true;
@@ -2199,7 +2206,7 @@
             // txtTermDays
             // 
             this.txtTermDays.EnterMoveNextControl = true;
-            this.txtTermDays.Location = new System.Drawing.Point(1020, 7);
+            this.txtTermDays.Location = new System.Drawing.Point(680, 37);
             this.txtTermDays.Name = "txtTermDays";
             this.txtTermDays.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTermDays.Properties.Appearance.Options.UseFont = true;
@@ -2218,7 +2225,7 @@
             this.lblTerms.Appearance.ForeColor = System.Drawing.Color.Black;
             this.lblTerms.Appearance.Options.UseFont = true;
             this.lblTerms.Appearance.Options.UseForeColor = true;
-            this.lblTerms.Location = new System.Drawing.Point(949, 9);
+            this.lblTerms.Location = new System.Drawing.Point(609, 39);
             this.lblTerms.Name = "lblTerms";
             this.lblTerms.Size = new System.Drawing.Size(65, 15);
             this.lblTerms.TabIndex = 517;
@@ -2230,7 +2237,7 @@
             this.labelControl4.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl4.Appearance.Options.UseFont = true;
             this.labelControl4.Appearance.Options.UseForeColor = true;
-            this.labelControl4.Location = new System.Drawing.Point(1132, 41);
+            this.labelControl4.Location = new System.Drawing.Point(1132, 62);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(75, 13);
             this.labelControl4.TabIndex = 514;
@@ -2242,7 +2249,7 @@
             this.lblJanged_ID.Appearance.ForeColor = System.Drawing.Color.Red;
             this.lblJanged_ID.Appearance.Options.UseFont = true;
             this.lblJanged_ID.Appearance.Options.UseForeColor = true;
-            this.lblJanged_ID.Location = new System.Drawing.Point(1213, 41);
+            this.lblJanged_ID.Location = new System.Drawing.Point(1214, 62);
             this.lblJanged_ID.Name = "lblJanged_ID";
             this.lblJanged_ID.Size = new System.Drawing.Size(69, 13);
             this.lblJanged_ID.TabIndex = 513;
@@ -2251,7 +2258,7 @@
             // LueUnit
             // 
             this.LueUnit.EnterMoveNextControl = true;
-            this.LueUnit.Location = new System.Drawing.Point(570, 41);
+            this.LueUnit.Location = new System.Drawing.Point(570, 69);
             this.LueUnit.Name = "LueUnit";
             this.LueUnit.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LueUnit.Properties.Appearance.Options.UseFont = true;
@@ -2274,7 +2281,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(526, 43);
+            this.label15.Location = new System.Drawing.Point(526, 71);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(37, 16);
             this.label15.TabIndex = 512;
@@ -2283,7 +2290,7 @@
             // LueSize
             // 
             this.LueSize.EnterMoveNextControl = true;
-            this.LueSize.Location = new System.Drawing.Point(419, 41);
+            this.LueSize.Location = new System.Drawing.Point(419, 69);
             this.LueSize.Name = "LueSize";
             this.LueSize.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LueSize.Properties.Appearance.Options.UseFont = true;
@@ -2306,7 +2313,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(375, 43);
+            this.label8.Location = new System.Drawing.Point(375, 71);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 16);
             this.label8.TabIndex = 510;
@@ -2315,7 +2322,7 @@
             // LueColor
             // 
             this.LueColor.EnterMoveNextControl = true;
-            this.LueColor.Location = new System.Drawing.Point(270, 41);
+            this.LueColor.Location = new System.Drawing.Point(270, 69);
             this.LueColor.Name = "LueColor";
             this.LueColor.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LueColor.Properties.Appearance.Options.UseFont = true;
@@ -2338,7 +2345,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(218, 43);
+            this.label6.Location = new System.Drawing.Point(218, 71);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 16);
             this.label6.TabIndex = 508;
@@ -2382,7 +2389,7 @@
             // txtPcs
             // 
             this.txtPcs.EnterMoveNextControl = true;
-            this.txtPcs.Location = new System.Drawing.Point(704, 41);
+            this.txtPcs.Location = new System.Drawing.Point(704, 69);
             this.txtPcs.Name = "txtPcs";
             this.txtPcs.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPcs.Properties.Appearance.Options.UseFont = true;
@@ -2394,7 +2401,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(671, 43);
+            this.label3.Location = new System.Drawing.Point(671, 71);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 16);
             this.label3.TabIndex = 4;
@@ -2405,7 +2412,7 @@
             this.btnAdd.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Appearance.Options.UseFont = true;
             this.btnAdd.ImageOptions.Image = global::Account_Management.Properties.Resources.Add_final;
-            this.btnAdd.Location = new System.Drawing.Point(1034, 36);
+            this.btnAdd.Location = new System.Drawing.Point(1034, 64);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(92, 32);
             this.btnAdd.TabIndex = 12;
@@ -2416,7 +2423,7 @@
             // 
             this.txtAmount.Enabled = false;
             this.txtAmount.EnterMoveNextControl = true;
-            this.txtAmount.Location = new System.Drawing.Point(949, 41);
+            this.txtAmount.Location = new System.Drawing.Point(949, 69);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmount.Properties.Appearance.Options.UseFont = true;
@@ -2427,7 +2434,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(904, 43);
+            this.label18.Location = new System.Drawing.Point(904, 71);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(43, 16);
             this.label18.TabIndex = 10;
@@ -2450,7 +2457,7 @@
             // txtRate
             // 
             this.txtRate.EnterMoveNextControl = true;
-            this.txtRate.Location = new System.Drawing.Point(819, 41);
+            this.txtRate.Location = new System.Drawing.Point(819, 69);
             this.txtRate.Name = "txtRate";
             this.txtRate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRate.Properties.Appearance.Options.UseFont = true;
@@ -2462,7 +2469,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label17.Location = new System.Drawing.Point(772, 43);
+            this.label17.Location = new System.Drawing.Point(772, 71);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(41, 16);
             this.label17.TabIndex = 8;
@@ -2471,7 +2478,7 @@
             // lueParty
             // 
             this.lueParty.EnterMoveNextControl = true;
-            this.lueParty.Location = new System.Drawing.Point(700, 7);
+            this.lueParty.Location = new System.Drawing.Point(68, 37);
             this.lueParty.Name = "lueParty";
             this.lueParty.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueParty.Properties.Appearance.Options.UseFont = true;
@@ -2500,7 +2507,7 @@
             this.labelControl1.Appearance.Options.UseBackColor = true;
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Location = new System.Drawing.Point(685, 9);
+            this.labelControl1.Location = new System.Drawing.Point(53, 39);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(13, 16);
             this.labelControl1.TabIndex = 39;
@@ -2509,7 +2516,7 @@
             // lueItem
             // 
             this.lueItem.EnterMoveNextControl = true;
-            this.lueItem.Location = new System.Drawing.Point(47, 41);
+            this.lueItem.Location = new System.Drawing.Point(47, 69);
             this.lueItem.Name = "lueItem";
             this.lueItem.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueItem.Properties.Appearance.Options.UseFont = true;
@@ -2532,7 +2539,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label32.Location = new System.Drawing.Point(637, 9);
+            this.label32.Location = new System.Drawing.Point(5, 39);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(47, 16);
             this.label32.TabIndex = 38;
@@ -2542,7 +2549,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(5, 43);
+            this.label14.Location = new System.Drawing.Point(5, 71);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(43, 16);
             this.label14.TabIndex = 0;
@@ -2600,7 +2607,7 @@
             this.lblMode.Appearance.ForeColor = System.Drawing.Color.Red;
             this.lblMode.Appearance.Options.UseFont = true;
             this.lblMode.Appearance.Options.UseForeColor = true;
-            this.lblMode.Location = new System.Drawing.Point(1132, 60);
+            this.lblMode.Location = new System.Drawing.Point(1132, 81);
             this.lblMode.Name = "lblMode";
             this.lblMode.Size = new System.Drawing.Size(63, 13);
             this.lblMode.TabIndex = 12;
@@ -2893,6 +2900,45 @@
             this.backgroundWorker_PurchaseDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_PurchaseDelete_DoWork);
             this.backgroundWorker_PurchaseDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_PurchaseDelete_RunWorkerCompleted);
             // 
+            // CmbPurchaseFirm
+            // 
+            this.CmbPurchaseFirm.EnterMoveNextControl = true;
+            this.CmbPurchaseFirm.Location = new System.Drawing.Point(438, 37);
+            this.CmbPurchaseFirm.Name = "CmbPurchaseFirm";
+            this.CmbPurchaseFirm.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbPurchaseFirm.Properties.Appearance.Options.UseFont = true;
+            this.CmbPurchaseFirm.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.CmbPurchaseFirm.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.CmbPurchaseFirm.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CmbPurchaseFirm.Properties.Items.AddRange(new object[] {
+            "Keya Fesion",
+            "CK Text",
+            "Saurastra Saree"});
+            this.CmbPurchaseFirm.Properties.PopupSizeable = true;
+            this.CmbPurchaseFirm.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.CmbPurchaseFirm.Size = new System.Drawing.Size(165, 20);
+            this.CmbPurchaseFirm.TabIndex = 522;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label10.Location = new System.Drawing.Point(320, 39);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(112, 16);
+            this.label10.TabIndex = 521;
+            this.label10.Text = "Purchase Firm";
+            // 
+            // ClmPurchaseFirm
+            // 
+            this.ClmPurchaseFirm.Caption = "Pur. Firm";
+            this.ClmPurchaseFirm.FieldName = "purchase_firm";
+            this.ClmPurchaseFirm.Name = "ClmPurchaseFirm";
+            this.ClmPurchaseFirm.Visible = true;
+            this.ClmPurchaseFirm.VisibleIndex = 5;
+            this.ClmPurchaseFirm.Width = 107;
+            // 
             // FrmPurchase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2976,6 +3022,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpPurchaseDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CmbPurchaseFirm.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3187,5 +3234,8 @@
         private DevExpress.XtraEditors.LabelControl lblTerms;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
+        private DevExpress.XtraEditors.ComboBoxEdit CmbPurchaseFirm;
+        private System.Windows.Forms.Label label10;
+        private DevExpress.XtraGrid.Columns.GridColumn ClmPurchaseFirm;
     }
 }

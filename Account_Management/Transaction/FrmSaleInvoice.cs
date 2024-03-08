@@ -509,7 +509,7 @@ namespace Account_Management.Transaction
         private void panelControl4_Paint(object sender, PaintEventArgs e)
         {
             Pen pen = new Pen(Color.FromArgb(255, 191, 219, 255), 2);
-            e.Graphics.DrawLine(pen, 0, 85, 1500, 85);
+            e.Graphics.DrawLine(pen, 0, 65, 1500, 65);
         }
 
         #region "Grid Events" 

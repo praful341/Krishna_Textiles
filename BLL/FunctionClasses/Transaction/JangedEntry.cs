@@ -20,6 +20,7 @@ namespace BLL.FunctionClasses.Transaction
                 Request.AddParams("@voucher_No", pClsProperty.voucher_no, DbType.Int64);
                 Request.AddParams("@janged_date", pClsProperty.janged_date, DbType.Date);
                 Request.AddParams("@purchase_bill_no", pClsProperty.purchase_bill_no, DbType.String);
+                Request.AddParams("@purchase_firm", pClsProperty.purchase_firm, DbType.String);
                 Request.AddParams("@company_id", pClsProperty.company_id, DbType.Int32);
                 Request.AddParams("@branch_id", pClsProperty.branch_id, DbType.Int32);
                 Request.AddParams("@location_id", pClsProperty.location_id, DbType.Int32);
