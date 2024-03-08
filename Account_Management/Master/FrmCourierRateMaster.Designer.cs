@@ -1,6 +1,6 @@
 ﻿namespace Account_Management.Master
 {
-    partial class FrmCourierMaster
+    partial class FrmCourierRateMaster
     {
         /// <summary>
         /// Required designer variable.
@@ -30,18 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
-            this.RBtnStatus = new DevExpress.XtraEditors.RadioGroup();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.txtTrackingLink = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.txtMobileNo2 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.txtMobileNo1 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.txtCourierName = new DevExpress.XtraEditors.TextEdit();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
-            this.lblMode = new DevExpress.XtraEditors.LabelControl();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
@@ -76,7 +66,6 @@
             this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.grdCourierMaster = new DevExpress.XtraGrid.GridControl();
             this.ContextMNExport = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.MNExportExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.MNExportPDF = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,155 +73,51 @@
             this.MNExportHTML = new System.Windows.Forms.ToolStripMenuItem();
             this.MNExportRTF = new System.Windows.Forms.ToolStripMenuItem();
             this.MNExportCSV = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgvCourierMaster = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.clmCourierId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clmCourierName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clmMobileNo1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clmMobileNo2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clmTrackingLink = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clmWeight = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clmRate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clmActive = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
-            this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.LueCourierName = new DevExpress.XtraEditors.LookUpEdit();
+            this.GrdCourierRate = new DevExpress.XtraGrid.GridControl();
+            this.dgvCourierRate = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.RepLookUpUnit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.ClmWeight = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.RepQuantity = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.ClmRate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.RepRate = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.repositoryItemTextEdit8 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.RepDiscount = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.RepRemark = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.ClmCourierRateID = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RBtnStatus.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTrackingLink.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMobileNo2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMobileNo1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCourierName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
             this.panelControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdCourierMaster)).BeginInit();
             this.ContextMNExport.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCourierMaster)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
-            this.dockPanel1.SuspendLayout();
-            this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LueCourierName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GrdCourierRate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCourierRate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepLookUpUnit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepQuantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepRate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepDiscount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepRemark)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl5
             // 
-            this.panelControl5.Controls.Add(this.RBtnStatus);
-            this.panelControl5.Controls.Add(this.labelControl7);
-            this.panelControl5.Controls.Add(this.txtTrackingLink);
-            this.panelControl5.Controls.Add(this.labelControl4);
-            this.panelControl5.Controls.Add(this.txtMobileNo2);
-            this.panelControl5.Controls.Add(this.labelControl1);
-            this.panelControl5.Controls.Add(this.txtMobileNo1);
-            this.panelControl5.Controls.Add(this.labelControl11);
-            this.panelControl5.Controls.Add(this.labelControl3);
-            this.panelControl5.Controls.Add(this.txtCourierName);
+            this.panelControl5.Controls.Add(this.GrdCourierRate);
             this.panelControl5.Controls.Add(this.panelControl6);
-            this.panelControl5.Controls.Add(this.labelControl2);
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl5.Location = new System.Drawing.Point(277, 22);
+            this.panelControl5.Location = new System.Drawing.Point(11, 40);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(623, 411);
+            this.panelControl5.Size = new System.Drawing.Size(1274, 622);
             this.panelControl5.TabIndex = 13;
-            // 
-            // RBtnStatus
-            // 
-            this.RBtnStatus.EditValue = 1;
-            this.RBtnStatus.EnterMoveNextControl = true;
-            this.RBtnStatus.Location = new System.Drawing.Point(126, 110);
-            this.RBtnStatus.Name = "RBtnStatus";
-            this.RBtnStatus.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.RBtnStatus.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.RBtnStatus.Properties.Appearance.Options.UseBackColor = true;
-            this.RBtnStatus.Properties.Appearance.Options.UseFont = true;
-            this.RBtnStatus.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.RBtnStatus.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Active"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(0, "Deactive")});
-            this.RBtnStatus.Size = new System.Drawing.Size(176, 30);
-            this.RBtnStatus.TabIndex = 429;
-            // 
-            // labelControl7
-            // 
-            this.labelControl7.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(6, 116);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(47, 16);
-            this.labelControl7.TabIndex = 430;
-            this.labelControl7.Text = "Status";
-            // 
-            // txtTrackingLink
-            // 
-            this.txtTrackingLink.EnterMoveNextControl = true;
-            this.txtTrackingLink.Location = new System.Drawing.Point(126, 84);
-            this.txtTrackingLink.Name = "txtTrackingLink";
-            this.txtTrackingLink.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTrackingLink.Properties.Appearance.Options.UseFont = true;
-            this.txtTrackingLink.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtTrackingLink.Size = new System.Drawing.Size(187, 20);
-            this.txtTrackingLink.TabIndex = 3;
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(6, 86);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(94, 16);
-            this.labelControl4.TabIndex = 424;
-            this.labelControl4.Text = "Tracking Link";
-            // 
-            // txtMobileNo2
-            // 
-            this.txtMobileNo2.EnterMoveNextControl = true;
-            this.txtMobileNo2.Location = new System.Drawing.Point(126, 58);
-            this.txtMobileNo2.Name = "txtMobileNo2";
-            this.txtMobileNo2.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMobileNo2.Properties.Appearance.Options.UseFont = true;
-            this.txtMobileNo2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMobileNo2.Size = new System.Drawing.Size(187, 20);
-            this.txtMobileNo2.TabIndex = 2;
-            this.txtMobileNo2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMobileNo2_KeyPress);
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Location = new System.Drawing.Point(6, 60);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(83, 16);
-            this.labelControl1.TabIndex = 422;
-            this.labelControl1.Text = "Mobile No 2";
-            // 
-            // txtMobileNo1
-            // 
-            this.txtMobileNo1.EnterMoveNextControl = true;
-            this.txtMobileNo1.Location = new System.Drawing.Point(126, 32);
-            this.txtMobileNo1.Name = "txtMobileNo1";
-            this.txtMobileNo1.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMobileNo1.Properties.Appearance.Options.UseFont = true;
-            this.txtMobileNo1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMobileNo1.Size = new System.Drawing.Size(187, 20);
-            this.txtMobileNo1.TabIndex = 1;
-            this.txtMobileNo1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMobileNo1_KeyPress);
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl11.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl11.Appearance.Options.UseFont = true;
-            this.labelControl11.Appearance.Options.UseForeColor = true;
-            this.labelControl11.Location = new System.Drawing.Point(6, 34);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(83, 16);
-            this.labelControl11.TabIndex = 420;
-            this.labelControl11.Text = "Mobile No 1";
             // 
             // labelControl3
             // 
@@ -240,47 +125,22 @@
             this.labelControl3.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Appearance.Options.UseForeColor = true;
-            this.labelControl3.Location = new System.Drawing.Point(114, 6);
+            this.labelControl3.Location = new System.Drawing.Point(115, 12);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(8, 16);
             this.labelControl3.TabIndex = 418;
             this.labelControl3.Text = "*";
             // 
-            // txtCourierName
-            // 
-            this.txtCourierName.EnterMoveNextControl = true;
-            this.txtCourierName.Location = new System.Drawing.Point(126, 6);
-            this.txtCourierName.Name = "txtCourierName";
-            this.txtCourierName.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCourierName.Properties.Appearance.Options.UseFont = true;
-            this.txtCourierName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCourierName.Size = new System.Drawing.Size(187, 20);
-            this.txtCourierName.TabIndex = 0;
-            // 
             // panelControl6
             // 
-            this.panelControl6.Controls.Add(this.lblMode);
             this.panelControl6.Controls.Add(this.btnExit);
             this.panelControl6.Controls.Add(this.btnClear);
             this.panelControl6.Controls.Add(this.btnSave);
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl6.Location = new System.Drawing.Point(2, 361);
+            this.panelControl6.Location = new System.Drawing.Point(2, 572);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(619, 48);
+            this.panelControl6.Size = new System.Drawing.Size(1270, 48);
             this.panelControl6.TabIndex = 6;
-            // 
-            // lblMode
-            // 
-            this.lblMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMode.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMode.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lblMode.Appearance.Options.UseFont = true;
-            this.lblMode.Appearance.Options.UseForeColor = true;
-            this.lblMode.Location = new System.Drawing.Point(217, 17);
-            this.lblMode.Name = "lblMode";
-            this.lblMode.Size = new System.Drawing.Size(63, 13);
-            this.lblMode.TabIndex = 0;
-            this.lblMode.Text = "Add Mode";
             // 
             // btnExit
             // 
@@ -288,7 +148,7 @@
             this.btnExit.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Appearance.Options.UseFont = true;
             this.btnExit.ImageOptions.Image = global::Account_Management.Properties.Resources.Exit;
-            this.btnExit.Location = new System.Drawing.Point(510, 8);
+            this.btnExit.Location = new System.Drawing.Point(1161, 8);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(102, 32);
             this.btnExit.TabIndex = 2;
@@ -301,7 +161,7 @@
             this.btnClear.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Appearance.Options.UseFont = true;
             this.btnClear.ImageOptions.Image = global::Account_Management.Properties.Resources.Clear;
-            this.btnClear.Location = new System.Drawing.Point(402, 8);
+            this.btnClear.Location = new System.Drawing.Point(1053, 8);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(102, 32);
             this.btnClear.TabIndex = 1;
@@ -314,7 +174,7 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.ImageOptions.Image = global::Account_Management.Properties.Resources.Save;
-            this.btnSave.Location = new System.Drawing.Point(294, 8);
+            this.btnSave.Location = new System.Drawing.Point(945, 8);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(102, 32);
             this.btnSave.TabIndex = 0;
@@ -325,7 +185,7 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(6, 8);
+            this.labelControl2.Location = new System.Drawing.Point(6, 12);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(99, 16);
             this.labelControl2.TabIndex = 41;
@@ -334,25 +194,25 @@
             // panelControl4
             // 
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl4.Location = new System.Drawing.Point(277, 433);
+            this.panelControl4.Location = new System.Drawing.Point(11, 662);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(623, 11);
+            this.panelControl4.Size = new System.Drawing.Size(1274, 11);
             this.panelControl4.TabIndex = 12;
             // 
             // panelControl3
             // 
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl3.Location = new System.Drawing.Point(900, 0);
+            this.panelControl3.Location = new System.Drawing.Point(1285, 0);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(11, 444);
+            this.panelControl3.Size = new System.Drawing.Size(11, 673);
             this.panelControl3.TabIndex = 11;
             // 
             // panelControl2
             // 
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelControl2.Location = new System.Drawing.Point(266, 0);
+            this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(11, 444);
+            this.panelControl2.Size = new System.Drawing.Size(11, 673);
             this.panelControl2.TabIndex = 10;
             // 
             // gridColumn1
@@ -559,19 +419,6 @@
             this.gridColumn27.Visible = true;
             this.gridColumn27.VisibleIndex = 8;
             // 
-            // grdCourierMaster
-            // 
-            this.grdCourierMaster.ContextMenuStrip = this.ContextMNExport;
-            this.grdCourierMaster.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdCourierMaster.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grdCourierMaster.Location = new System.Drawing.Point(0, 0);
-            this.grdCourierMaster.MainView = this.dgvCourierMaster;
-            this.grdCourierMaster.Name = "grdCourierMaster";
-            this.grdCourierMaster.Size = new System.Drawing.Size(257, 417);
-            this.grdCourierMaster.TabIndex = 15;
-            this.grdCourierMaster.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dgvCourierMaster});
-            // 
             // ContextMNExport
             // 
             this.ContextMNExport.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold);
@@ -627,113 +474,9 @@
             this.MNExportCSV.Text = "To CSV";
             this.MNExportCSV.Click += new System.EventHandler(this.MNExportCSV_Click);
             // 
-            // dgvCourierMaster
-            // 
-            this.dgvCourierMaster.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.dgvCourierMaster.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.dgvCourierMaster.Appearance.ColumnFilterButton.Options.UseBackColor = true;
-            this.dgvCourierMaster.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
-            this.dgvCourierMaster.Appearance.ColumnFilterButton.Options.UseForeColor = true;
-            this.dgvCourierMaster.Appearance.FooterPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dgvCourierMaster.Appearance.FooterPanel.Options.UseFont = true;
-            this.dgvCourierMaster.Appearance.HeaderPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dgvCourierMaster.Appearance.HeaderPanel.Options.UseFont = true;
-            this.dgvCourierMaster.Appearance.Row.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-            this.dgvCourierMaster.Appearance.Row.Options.UseFont = true;
-            this.dgvCourierMaster.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.clmCourierId,
-            this.clmCourierName,
-            this.clmMobileNo1,
-            this.clmMobileNo2,
-            this.clmTrackingLink,
-            this.clmWeight,
-            this.clmRate,
-            this.clmActive});
-            this.dgvCourierMaster.GridControl = this.grdCourierMaster;
-            this.dgvCourierMaster.Name = "dgvCourierMaster";
-            this.dgvCourierMaster.OptionsBehavior.Editable = false;
-            this.dgvCourierMaster.OptionsBehavior.ReadOnly = true;
-            this.dgvCourierMaster.OptionsCustomization.AllowQuickHideColumns = false;
-            this.dgvCourierMaster.OptionsView.ColumnAutoWidth = false;
-            this.dgvCourierMaster.OptionsView.ShowAutoFilterRow = true;
-            this.dgvCourierMaster.OptionsView.ShowFooter = true;
-            this.dgvCourierMaster.OptionsView.ShowGroupPanel = false;
-            this.dgvCourierMaster.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.dgvCourierMaster_RowClick);
-            // 
-            // clmCourierId
-            // 
-            this.clmCourierId.Caption = "Courier Id";
-            this.clmCourierId.FieldName = "courier_id";
-            this.clmCourierId.Name = "clmCourierId";
-            this.clmCourierId.OptionsColumn.AllowEdit = false;
-            // 
-            // clmCourierName
-            // 
-            this.clmCourierName.Caption = "Courier Name";
-            this.clmCourierName.FieldName = "courier_name";
-            this.clmCourierName.Name = "clmCourierName";
-            this.clmCourierName.OptionsColumn.AllowEdit = false;
-            this.clmCourierName.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
-            this.clmCourierName.Visible = true;
-            this.clmCourierName.VisibleIndex = 0;
-            this.clmCourierName.Width = 156;
-            // 
-            // clmMobileNo1
-            // 
-            this.clmMobileNo1.Caption = "Mobile No 1";
-            this.clmMobileNo1.FieldName = "mobile_no_1";
-            this.clmMobileNo1.Name = "clmMobileNo1";
-            this.clmMobileNo1.Visible = true;
-            this.clmMobileNo1.VisibleIndex = 1;
-            this.clmMobileNo1.Width = 119;
-            // 
-            // clmMobileNo2
-            // 
-            this.clmMobileNo2.Caption = "Mobile No 2";
-            this.clmMobileNo2.FieldName = "mobile_no_2";
-            this.clmMobileNo2.Name = "clmMobileNo2";
-            this.clmMobileNo2.Visible = true;
-            this.clmMobileNo2.VisibleIndex = 2;
-            this.clmMobileNo2.Width = 417;
-            // 
-            // clmTrackingLink
-            // 
-            this.clmTrackingLink.Caption = "Tracking Link";
-            this.clmTrackingLink.FieldName = "tracking_link";
-            this.clmTrackingLink.Name = "clmTrackingLink";
-            this.clmTrackingLink.Visible = true;
-            this.clmTrackingLink.VisibleIndex = 3;
-            // 
-            // clmWeight
-            // 
-            this.clmWeight.Caption = "Weight";
-            this.clmWeight.FieldName = "weight";
-            this.clmWeight.Name = "clmWeight";
-            this.clmWeight.Visible = true;
-            this.clmWeight.VisibleIndex = 4;
-            // 
-            // clmRate
-            // 
-            this.clmRate.Caption = "Rate";
-            this.clmRate.FieldName = "rate";
-            this.clmRate.Name = "clmRate";
-            this.clmRate.Visible = true;
-            this.clmRate.VisibleIndex = 5;
-            // 
-            // clmActive
-            // 
-            this.clmActive.Caption = "Active";
-            this.clmActive.FieldName = "active";
-            this.clmActive.Name = "clmActive";
-            this.clmActive.Visible = true;
-            this.clmActive.VisibleIndex = 6;
-            // 
             // dockManager1
             // 
             this.dockManager1.Form = this;
-            this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
-            this.dockPanel1});
             this.dockManager1.TopZIndexControls.AddRange(new string[] {
             "DevExpress.XtraBars.BarDockControl",
             "DevExpress.XtraBars.StandaloneBarDockControl",
@@ -743,71 +486,223 @@
             "DevExpress.XtraBars.Ribbon.RibbonStatusBar",
             "DevExpress.XtraBars.Ribbon.RibbonControl"});
             // 
-            // dockPanel1
-            // 
-            this.dockPanel1.Controls.Add(this.dockPanel1_Container);
-            this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
-            this.dockPanel1.ID = new System.Guid("49dff30a-35cb-4b26-9a30-0798ce873f2a");
-            this.dockPanel1.Location = new System.Drawing.Point(0, 0);
-            this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.Options.ShowCloseButton = false;
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(266, 200);
-            this.dockPanel1.Size = new System.Drawing.Size(266, 444);
-            this.dockPanel1.Text = "Courier Master";
-            // 
-            // dockPanel1_Container
-            // 
-            this.dockPanel1_Container.Controls.Add(this.grdCourierMaster);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
-            this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(257, 417);
-            this.dockPanel1_Container.TabIndex = 0;
-            // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.LueCourierName);
+            this.panelControl1.Controls.Add(this.labelControl2);
+            this.panelControl1.Controls.Add(this.labelControl3);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(277, 0);
+            this.panelControl1.Location = new System.Drawing.Point(11, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(623, 22);
+            this.panelControl1.Size = new System.Drawing.Size(1274, 40);
             this.panelControl1.TabIndex = 13;
             // 
-            // FrmCourierMaster
+            // LueCourierName
+            // 
+            this.LueCourierName.EnterMoveNextControl = true;
+            this.LueCourierName.Location = new System.Drawing.Point(129, 9);
+            this.LueCourierName.Name = "LueCourierName";
+            this.LueCourierName.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LueCourierName.Properties.Appearance.Options.UseFont = true;
+            this.LueCourierName.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.LueCourierName.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.LueCourierName.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
+            this.LueCourierName.Properties.AppearanceDropDownHeader.Options.UseFont = true;
+            this.LueCourierName.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            this.LueCourierName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.LueCourierName.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("courier_name", "Courier"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("courier_id", "Courier ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.LueCourierName.Properties.NullText = "";
+            this.LueCourierName.Properties.ShowHeader = false;
+            this.LueCourierName.Size = new System.Drawing.Size(211, 20);
+            this.LueCourierName.TabIndex = 419;
+            this.LueCourierName.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.LueCourierName_ButtonClick);
+            this.LueCourierName.Validated += new System.EventHandler(this.LueCourierName_Validated);
+            // 
+            // GrdCourierRate
+            // 
+            this.GrdCourierRate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GrdCourierRate.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GrdCourierRate.Location = new System.Drawing.Point(2, 2);
+            this.GrdCourierRate.MainView = this.dgvCourierRate;
+            this.GrdCourierRate.Name = "GrdCourierRate";
+            this.GrdCourierRate.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.RepLookUpUnit,
+            this.RepRate,
+            this.repositoryItemTextEdit8,
+            this.RepRemark,
+            this.RepQuantity,
+            this.RepDiscount});
+            this.GrdCourierRate.Size = new System.Drawing.Size(1270, 570);
+            this.GrdCourierRate.TabIndex = 7;
+            this.GrdCourierRate.UseEmbeddedNavigator = true;
+            this.GrdCourierRate.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dgvCourierRate});
+            // 
+            // dgvCourierRate
+            // 
+            this.dgvCourierRate.Appearance.FooterPanel.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold);
+            this.dgvCourierRate.Appearance.FooterPanel.Options.UseFont = true;
+            this.dgvCourierRate.Appearance.GroupFooter.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold);
+            this.dgvCourierRate.Appearance.GroupFooter.Options.UseFont = true;
+            this.dgvCourierRate.Appearance.GroupPanel.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold);
+            this.dgvCourierRate.Appearance.GroupPanel.Options.UseFont = true;
+            this.dgvCourierRate.Appearance.GroupRow.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold);
+            this.dgvCourierRate.Appearance.GroupRow.Options.UseFont = true;
+            this.dgvCourierRate.Appearance.HeaderPanel.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold);
+            this.dgvCourierRate.Appearance.HeaderPanel.Options.UseFont = true;
+            this.dgvCourierRate.Appearance.Preview.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.dgvCourierRate.Appearance.Preview.Options.UseFont = true;
+            this.dgvCourierRate.Appearance.Row.Font = new System.Drawing.Font("Verdana", 9.75F);
+            this.dgvCourierRate.Appearance.Row.Options.UseFont = true;
+            this.dgvCourierRate.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.ClmWeight,
+            this.ClmRate,
+            this.ClmCourierRateID});
+            this.dgvCourierRate.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.dgvCourierRate.GridControl = this.GrdCourierRate;
+            this.dgvCourierRate.IndicatorWidth = 35;
+            this.dgvCourierRate.Name = "dgvCourierRate";
+            this.dgvCourierRate.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.dgvCourierRate.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+            this.dgvCourierRate.OptionsCustomization.AllowColumnMoving = false;
+            this.dgvCourierRate.OptionsCustomization.AllowFilter = false;
+            this.dgvCourierRate.OptionsCustomization.AllowGroup = false;
+            this.dgvCourierRate.OptionsCustomization.AllowSort = false;
+            this.dgvCourierRate.OptionsNavigation.EnterMoveNextColumn = true;
+            this.dgvCourierRate.OptionsView.ColumnAutoWidth = false;
+            this.dgvCourierRate.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.dgvCourierRate.OptionsView.ShowFooter = true;
+            this.dgvCourierRate.OptionsView.ShowGroupPanel = false;
+            this.dgvCourierRate.RowHeight = 25;
+            // 
+            // RepLookUpUnit
+            // 
+            this.RepLookUpUnit.AutoHeight = false;
+            this.RepLookUpUnit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.RepLookUpUnit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Unit_ID", "Unit ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Unit_Name", "Unit Name")});
+            this.RepLookUpUnit.Name = "RepLookUpUnit";
+            this.RepLookUpUnit.NullText = "";
+            // 
+            // ClmWeight
+            // 
+            this.ClmWeight.AppearanceHeader.Options.UseTextOptions = true;
+            this.ClmWeight.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.ClmWeight.Caption = "Weight";
+            this.ClmWeight.FieldName = "weight";
+            this.ClmWeight.Name = "ClmWeight";
+            this.ClmWeight.OptionsColumn.AllowEdit = false;
+            this.ClmWeight.OptionsColumn.AllowFocus = false;
+            this.ClmWeight.OptionsColumn.AllowMove = false;
+            this.ClmWeight.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
+            this.ClmWeight.Visible = true;
+            this.ClmWeight.VisibleIndex = 0;
+            this.ClmWeight.Width = 63;
+            // 
+            // RepQuantity
+            // 
+            this.RepQuantity.AutoHeight = false;
+            this.RepQuantity.Name = "RepQuantity";
+            // 
+            // ClmRate
+            // 
+            this.ClmRate.AppearanceHeader.Options.UseTextOptions = true;
+            this.ClmRate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.ClmRate.Caption = "Rate";
+            this.ClmRate.FieldName = "rate";
+            this.ClmRate.Name = "ClmRate";
+            this.ClmRate.Visible = true;
+            this.ClmRate.VisibleIndex = 1;
+            // 
+            // RepRate
+            // 
+            this.RepRate.AutoHeight = false;
+            this.RepRate.DisplayFormat.FormatString = "N3";
+            this.RepRate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.RepRate.Mask.EditMask = "F3";
+            this.RepRate.Mask.IgnoreMaskBlank = false;
+            this.RepRate.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.RepRate.Mask.UseMaskAsDisplayFormat = true;
+            this.RepRate.Name = "RepRate";
+            // 
+            // repositoryItemTextEdit8
+            // 
+            this.repositoryItemTextEdit8.AutoHeight = false;
+            this.repositoryItemTextEdit8.DisplayFormat.FormatString = "N3";
+            this.repositoryItemTextEdit8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemTextEdit8.Mask.EditMask = "F3";
+            this.repositoryItemTextEdit8.Mask.IgnoreMaskBlank = false;
+            this.repositoryItemTextEdit8.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.repositoryItemTextEdit8.Mask.UseMaskAsDisplayFormat = true;
+            this.repositoryItemTextEdit8.Name = "repositoryItemTextEdit8";
+            // 
+            // RepDiscount
+            // 
+            this.RepDiscount.AutoHeight = false;
+            this.RepDiscount.DisplayFormat.FormatString = "N3";
+            this.RepDiscount.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.RepDiscount.Mask.EditMask = "F3";
+            this.RepDiscount.Mask.IgnoreMaskBlank = false;
+            this.RepDiscount.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.RepDiscount.Mask.UseMaskAsDisplayFormat = true;
+            this.RepDiscount.Name = "RepDiscount";
+            // 
+            // RepRemark
+            // 
+            this.RepRemark.AutoHeight = false;
+            this.RepRemark.MaxLength = 200;
+            this.RepRemark.Name = "RepRemark";
+            // 
+            // ClmCourierRateID
+            // 
+            this.ClmCourierRateID.Caption = "Courier Rate ID";
+            this.ClmCourierRateID.FieldName = "courier_rate_id";
+            this.ClmCourierRateID.Name = "ClmCourierRateID";
+            // 
+            // FrmCourierRateMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(911, 444);
+            this.ClientSize = new System.Drawing.Size(1296, 673);
             this.Controls.Add(this.panelControl5);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.panelControl4);
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.panelControl2);
-            this.Controls.Add(this.dockPanel1);
             this.KeyPreview = true;
-            this.Name = "FrmCourierMaster";
+            this.Name = "FrmCourierRateMaster";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Courier Master";
-            this.Load += new System.EventHandler(this.FrmCountryMaster_Load);
+            this.Text = "Courier Rate Master";
+            this.Load += new System.EventHandler(this.FrmCourierRateMaster_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
-            this.panelControl5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RBtnStatus.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTrackingLink.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMobileNo2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMobileNo1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCourierName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
             this.panelControl6.ResumeLayout(false);
-            this.panelControl6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdCourierMaster)).EndInit();
             this.ContextMNExport.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCourierMaster)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
-            this.dockPanel1.ResumeLayout(false);
-            this.dockPanel1_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LueCourierName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GrdCourierRate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCourierRate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepLookUpUnit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepQuantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepRate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepDiscount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepRemark)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -827,8 +722,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private DevExpress.XtraGrid.GridControl grdCourierMaster;
-        private DevExpress.XtraEditors.TextEdit txtCourierName;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
@@ -852,15 +745,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn25;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn26;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn27;
-        private DevExpress.XtraGrid.Views.Grid.GridView dgvCourierMaster;
-        private DevExpress.XtraGrid.Columns.GridColumn clmCourierId;
-        private DevExpress.XtraGrid.Columns.GridColumn clmCourierName;
         private DevExpress.XtraBars.Docking.DockManager dockManager1;
-        private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
-        private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl lblMode;
         private System.Windows.Forms.ContextMenuStrip ContextMNExport;
         private System.Windows.Forms.ToolStripMenuItem MNExportExcel;
         private System.Windows.Forms.ToolStripMenuItem MNExportPDF;
@@ -868,19 +755,17 @@
         private System.Windows.Forms.ToolStripMenuItem MNExportHTML;
         private System.Windows.Forms.ToolStripMenuItem MNExportRTF;
         private System.Windows.Forms.ToolStripMenuItem MNExportCSV;
-        private DevExpress.XtraEditors.TextEdit txtMobileNo2;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit txtMobileNo1;
-        private DevExpress.XtraEditors.LabelControl labelControl11;
-        private DevExpress.XtraGrid.Columns.GridColumn clmMobileNo1;
-        private DevExpress.XtraGrid.Columns.GridColumn clmMobileNo2;
-        private DevExpress.XtraEditors.TextEdit txtTrackingLink;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraGrid.Columns.GridColumn clmTrackingLink;
-        private DevExpress.XtraGrid.Columns.GridColumn clmWeight;
-        private DevExpress.XtraGrid.Columns.GridColumn clmRate;
-        private DevExpress.XtraEditors.RadioGroup RBtnStatus;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraGrid.Columns.GridColumn clmActive;
+        private DevExpress.XtraEditors.LookUpEdit LueCourierName;
+        private DevExpress.XtraGrid.GridControl GrdCourierRate;
+        private DevExpress.XtraGrid.Views.Grid.GridView dgvCourierRate;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit RepLookUpUnit;
+        private DevExpress.XtraGrid.Columns.GridColumn ClmWeight;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit RepQuantity;
+        private DevExpress.XtraGrid.Columns.GridColumn ClmRate;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit RepRate;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit8;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit RepDiscount;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit RepRemark;
+        private DevExpress.XtraGrid.Columns.GridColumn ClmCourierRateID;
     }
 }

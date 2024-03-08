@@ -1564,6 +1564,18 @@ namespace Account_Management.Class
                 t.ClosePopup();
             });
         }
+        public static void LOOKUPCourier(LookUpEdit lookup)
+        {
+            CourierMaster objCourier = new CourierMaster();
+            DataTable Courier = objCourier.GetData();
+            lookup.InvokeEx(t =>
+            {
+                t.Properties.DataSource = Courier;
+                t.Properties.ValueMember = "courier_id";
+                t.Properties.DisplayMember = "courier_name";
+                t.ClosePopup();
+            });
+        }
         public static void LOOKUPState(LookUpEdit lookup)
         {
             StateMaster objState = new StateMaster();

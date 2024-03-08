@@ -163,6 +163,9 @@
 
         #endregion Sale Invoice Entry
 
+        public static string MST_Courier_Rate_GetData = "MST_Courier_Rate_GetData";
+        public static string MST_Courier_Rate_Save = "MST_Courier_Rate_Save";
+
         #endregion
 
         #region "Reports"

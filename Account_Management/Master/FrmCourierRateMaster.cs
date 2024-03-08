@@ -10,7 +10,7 @@ using static Account_Management.Class.Global;
 
 namespace Account_Management.Master
 {
-    public partial class FrmCourierMaster : DevExpress.XtraEditors.XtraForm
+    public partial class FrmCourierRateMaster : DevExpress.XtraEditors.XtraForm
     {
         #region Data Member
 
@@ -18,11 +18,12 @@ namespace Account_Management.Master
         Validation Val;
         BLL.FormPer ObjPer;
         CourierMaster objCourier;
+        int m_numForm_id;
 
         #endregion
 
         #region Constructor
-        public FrmCourierMaster()
+        public FrmCourierRateMaster()
         {
             InitializeComponent();
 
@@ -30,10 +31,12 @@ namespace Account_Management.Master
             Val = new Validation();
             ObjPer = new BLL.FormPer();
             objCourier = new CourierMaster();
+            m_numForm_id = 0;
         }
         public void ShowForm()
         {
             ObjPer.FormName = this.Name.ToUpper();
+            m_numForm_id = ObjPer.form_id;
             if (ObjPer.CheckPermission() == false)
             {
                 Global.Message(BLL.GlobalDec.gStrPermissionViwMsg);
@@ -58,19 +61,6 @@ namespace Account_Management.Master
         #endregion
 
         #region Events
-        private void FrmCountryMaster_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                GetData();
-                btnClear_Click(btnClear, null);
-            }
-            catch (Exception ex)
-            {
-                BLL.General.ShowErrors(ex);
-                return;
-            }
-        }
         private void btnSave_Click(object sender, EventArgs e)
         {
             ObjPer.FormName = this.Name.ToUpper();
@@ -84,24 +74,17 @@ namespace Account_Management.Master
 
             if (SaveDetails())
             {
-                GetData();
                 btnClear_Click(sender, e);
             }
-
             btnSave.Enabled = true;
         }
         private void btnClear_Click(object sender, EventArgs e)
         {
             try
             {
-                lblMode.Tag = 0;
-                lblMode.Text = "Add Mode";
-                txtCourierName.Text = "";
-                txtMobileNo1.Text = "";
-                txtMobileNo2.Text = "";
-                txtTrackingLink.Text = "";
-                RBtnStatus.SelectedIndex = 0;
-                txtCourierName.Focus();
+                LueCourierName.EditValue = null;
+                GrdCourierRate.DataSource = null;
+                LueCourierName.Focus();
             }
             catch (Exception ex)
             {
@@ -115,33 +98,7 @@ namespace Account_Management.Master
         }
 
         #region GridEvent
-        #endregion
-        private void dgvCourierMaster_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
-        {
-            try
-            {
-                if (e.RowHandle >= 0)
-                {
-                    if (e.Clicks == 2)
-                    {
-                        DataRow Drow = dgvCourierMaster.GetDataRow(e.RowHandle);
-                        lblMode.Text = "Edit Mode";
-                        lblMode.Tag = Val.ToInt32(Drow["courier_id"]);
-                        txtCourierName.Text = Val.ToString(Drow["courier_name"]);
-                        txtMobileNo1.Text = Val.ToString(Drow["mobile_no_1"]);
-                        txtMobileNo2.Text = Val.ToString(Drow["mobile_no_2"]);
-                        txtTrackingLink.Text = Val.ToString(Drow["tracking_link"]);
-                        RBtnStatus.EditValue = Val.ToInt32(Drow["active"]);
-                        txtCourierName.Focus();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                BLL.General.ShowErrors(ex);
-                return;
-            }
-        }
+        #endregion        
         #endregion
 
         #region Functions
@@ -158,30 +115,32 @@ namespace Account_Management.Master
                     blnReturn = false;
                     return blnReturn;
                 }
+                int IntRes = 0;
+                DataTable DTab = (System.Data.DataTable)GrdCourierRate.DataSource;
+                DTab.AcceptChanges();
 
-                CourierMasterProperty.courier_id = Val.ToInt32(lblMode.Tag);
-                CourierMasterProperty.courier_name = txtCourierName.Text.ToUpper();
-                CourierMasterProperty.mobile_no_1 = Val.ToInt64(txtMobileNo1.Text);
-                CourierMasterProperty.mobile_no_2 = Val.ToInt64(txtMobileNo2.Text);
-                CourierMasterProperty.tracking_link = Val.ToString(txtTrackingLink.Text);
-                CourierMasterProperty.active = Val.ToInt(RBtnStatus.Text);
+                foreach (DataRow DRow in DTab.Rows)
+                {
+                    CourierMasterProperty = new Courier_MasterProperty();
 
-                int IntRes = objCourier.Save(CourierMasterProperty);
+                    CourierMasterProperty.courier_rate_id = Val.ToInt64(DRow["courier_rate_id"]);
+                    CourierMasterProperty.courier_id = Val.ToInt64(LueCourierName.EditValue);
+                    CourierMasterProperty.form_id = m_numForm_id;
+
+                    CourierMasterProperty.weight = Val.ToDecimal(DRow["weight"]);
+                    CourierMasterProperty.rate = Val.ToDecimal(DRow["rate"]);
+
+                    IntRes = objCourier.Courier_Rate_Save(CourierMasterProperty);
+                }
+
                 if (IntRes == -1)
                 {
-                    Global.Confirm("Error In Save Courier Details");
-                    txtCourierName.Focus();
+                    Global.Confirm("Error In Save Courier Rate Details");
+                    LueCourierName.Focus();
                 }
                 else
                 {
-                    if (Val.ToInt(lblMode.Tag) == 0)
-                    {
-                        Global.Confirm("Courier Details Data Save Successfully");
-                    }
-                    else
-                    {
-                        Global.Confirm("Courier Details Data Update Successfully");
-                    }
+                    Global.Confirm("Courier Rate Details Data Save Successfully");
                 }
 
             }
@@ -203,23 +162,13 @@ namespace Account_Management.Master
             List<ListError> lstError = new List<ListError>();
             try
             {
-                if (txtCourierName.Text == string.Empty)
+                if (LueCourierName.Text == string.Empty)
                 {
                     lstError.Add(new ListError(12, "Courier Name"));
                     if (!blnFocus)
                     {
                         blnFocus = true;
-                        txtCourierName.Focus();
-                    }
-                }
-
-                if (!objCourier.ISExists(txtCourierName.Text, Val.ToInt64(lblMode.Tag)).ToString().Trim().Equals(string.Empty))
-                {
-                    lstError.Add(new ListError(23, "Courier Name"));
-                    if (!blnFocus)
-                    {
-                        blnFocus = true;
-                        txtCourierName.Focus();
+                        LueCourierName.Focus();
                     }
                 }
             }
@@ -229,19 +178,6 @@ namespace Account_Management.Master
             }
             return (!(BLL.General.ShowErrors(lstError)));
 
-        }
-        public void GetData()
-        {
-            try
-            {
-                DataTable DTab = objCourier.GetData();
-                grdCourierMaster.DataSource = DTab;
-            }
-            catch (Exception ex)
-            {
-                General.ShowErrors(ex.ToString());
-                return;
-            }
         }
         private void Export(string format, string dlgHeader, string dlgFilter)
         {
@@ -259,25 +195,25 @@ namespace Account_Management.Master
                     switch (format)
                     {
                         case "pdf":
-                            dgvCourierMaster.ExportToPdf(Filepath);
+                            dgvCourierRate.ExportToPdf(Filepath);
                             break;
                         case "xls":
-                            dgvCourierMaster.ExportToXls(Filepath);
+                            dgvCourierRate.ExportToXls(Filepath);
                             break;
                         case "xlsx":
-                            dgvCourierMaster.ExportToXlsx(Filepath);
+                            dgvCourierRate.ExportToXlsx(Filepath);
                             break;
                         case "rtf":
-                            dgvCourierMaster.ExportToRtf(Filepath);
+                            dgvCourierRate.ExportToRtf(Filepath);
                             break;
                         case "txt":
-                            dgvCourierMaster.ExportToText(Filepath);
+                            dgvCourierRate.ExportToText(Filepath);
                             break;
                         case "html":
-                            dgvCourierMaster.ExportToHtml(Filepath);
+                            dgvCourierRate.ExportToHtml(Filepath);
                             break;
                         case "csv":
-                            dgvCourierMaster.ExportToCsv(Filepath);
+                            dgvCourierRate.ExportToCsv(Filepath);
                             break;
                     }
 
@@ -314,12 +250,10 @@ namespace Account_Management.Master
         #region Export Grid
         private void MNExportExcel_Click(object sender, EventArgs e)
         {
-            //Global.Export("xlsx", dgvRoughClarityMaster);
             Export("xlsx", "Export to Excel", "Excel files 97-2003 (Excel files 2007(*.xlsx)|*.xlsx|All files (*.*)|*.*");
         }
         private void MNExportPDF_Click(object sender, EventArgs e)
         {
-            // Global.Export("pdf", dgvRoughClarityMaster);
             Export("pdf", "Export Report to PDF", "PDF (*.PDF)|*.PDF");
         }
         private void MNExportTEXT_Click(object sender, EventArgs e)
@@ -334,25 +268,43 @@ namespace Account_Management.Master
         {
             Export("rtf", "Export to RTF", "Word (*.doc) |*.doc;*.rtf|(*.txt) |*.txt|(*.*) |*.*");
         }
-
         private void MNExportCSV_Click(object sender, EventArgs e)
         {
             Export("csv", "Export Report to CSVB", "csv (*.csv)|*.csv");
         }
         #endregion
 
-        private void txtMobileNo1_KeyPress(object sender, KeyPressEventArgs e)
+        private void LueCourierName_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (e.Button.Index == 1)
             {
-                e.Handled = true;
+                FrmCourierMaster frmCnt = new FrmCourierMaster();
+                frmCnt.ShowDialog();
+                Global.LOOKUPCourier(LueCourierName);
             }
         }
-        private void txtMobileNo2_KeyPress(object sender, KeyPressEventArgs e)
+        private void FrmCourierRateMaster_Load(object sender, EventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            try
             {
-                e.Handled = true;
+                Global.LOOKUPCourier(LueCourierName);
+                btnClear_Click(btnClear, null);
+            }
+            catch (Exception ex)
+            {
+                BLL.General.ShowErrors(ex);
+                return;
+            }
+        }
+
+        private void LueCourierName_Validated(object sender, EventArgs e)
+        {
+            if (LueCourierName.Text != "")
+            {
+                DataTable DTab = objCourier.Courier_Rate_GetData(Val.ToInt64(LueCourierName.EditValue));
+                GrdCourierRate.DataSource = DTab;
+                dgvCourierRate.FocusedColumn = dgvCourierRate.Columns["rate"];
+                dgvCourierRate.ShowEditor();
             }
         }
     }
