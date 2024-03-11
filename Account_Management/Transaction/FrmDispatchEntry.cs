@@ -20,9 +20,6 @@ namespace Account_Management.Transaction
         BLL.FormPer ObjPer = new BLL.FormPer();
         DataTable m_DTab;
         DataTable m_DTabDispatch;
-        double OS_Amount = 0;
-        double termDiscAmt = 0;
-        double payAmt = 0;
         DispatchEntry objDispatchEntry = new DispatchEntry();
         Int64 IntRes = 0;
         int m_numForm_id = 0;
@@ -138,11 +135,6 @@ namespace Account_Management.Transaction
             }
             btnSave.Enabled = false;
 
-            //if (!ValidateDetails())
-            //{
-            //    btnSave.Enabled = true;
-            //    return;
-            //}
             DialogResult result = MessageBox.Show("Do you want to save data?", "Confirmation", MessageBoxButtons.YesNoCancel);
             if (result != DialogResult.Yes)
             {
@@ -153,11 +145,6 @@ namespace Account_Management.Transaction
             backgroundWorker_DispatchEntry.RunWorkerAsync();
 
             btnSave.Enabled = true;
-            //if (!ValidateDetails())
-            //{
-            //    blnReturn = false;
-            //    return;
-            //}
         }
 
         #endregion
@@ -171,7 +158,8 @@ namespace Account_Management.Transaction
             dtpFromDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
             dtpFromDate.Properties.Mask.UseMaskAsDisplayFormat = true;
             dtpFromDate.Properties.CharacterCasing = CharacterCasing.Upper;
-            dtpFromDate.EditValue = DateTime.Now;
+            DateTime now = DateTime.Now;
+            dtpFromDate.EditValue = new DateTime(now.Year, now.Month, 1);
 
             dtpToDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
             dtpToDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
@@ -271,17 +259,15 @@ namespace Account_Management.Transaction
         {
             Global.LOOKUPFromCourierRep(RepFromCourier);
             Global.LOOKUPToCourierRep(RepToCourier);
-
             btnClear_Click(null, null);
-
             m_dtbStatus = new DataTable();
             m_dtbStatus.Columns.Add("status");
-            m_dtbStatus.Rows.Add("ALL");
             m_dtbStatus.Rows.Add("PENDING");
             m_dtbStatus.Rows.Add("COMPLETED");
             RepStatus.DataSource = m_dtbStatus;
             RepStatus.ValueMember = "status";
             RepStatus.DisplayMember = "status";
+            CmbStatus.SelectedIndex = 0;
         }
 
         private void Export(string format, string dlgHeader, string dlgFilter)
@@ -388,13 +374,6 @@ namespace Account_Management.Transaction
                 {
                     dgvDispatchEntry.SetRowCellValue(rowindex, "collect_rate", 0);
                 }
-
-
-
-                //dgvDispatchEntry.SetRowCellValue(dgvDispatchEntry.FocusedRowHandle, "collect_rate", type.GetColumnValue("collect_rate"));
-                //double amount = Math.Round(Val.ToDouble(dgvPurchase.GetRowCellValue(rowindex, "SGST_Rate")) + Val.ToDouble(dgvPurchase.GetRowCellValue(rowindex, "IGST_Rate")) + Val.ToDouble(dgvPurchase.GetRowCellValue(rowindex, "CGST_Rate")), 2);
-                //dgvPurchase.SetRowCellValue(rowindex, "NetAmount", Math.Round(Val.ToDouble(dgvPurchase.GetRowCellValue(rowindex, "Gross_Amt")) - Val.ToDouble(dgvPurchase.GetRowCellValue(rowindex, "Discount")) , 2));
-
             }
             catch (Exception ex)
             {

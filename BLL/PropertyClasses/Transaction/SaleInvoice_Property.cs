@@ -32,6 +32,7 @@ namespace BLL.PropertyClasses.Transaction
         public Int64 pin_code { get; set; }
         public int term_days { get; set; }
         public string due_date { get; set; }
+        public string shipping_address { get; set; }
         public decimal shipping_amount { get; set; }
         public string remarks { get; set; }
 

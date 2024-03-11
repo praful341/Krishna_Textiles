@@ -315,7 +315,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.clmWeight.Visible = true;
             this.clmWeight.VisibleIndex = 3;
-            this.clmWeight.Width = 87;
+            this.clmWeight.Width = 61;
             // 
             // clmDispatchDate
             // 
@@ -354,7 +354,7 @@
             this.clmFromCourierID.Name = "clmFromCourierID";
             this.clmFromCourierID.Visible = true;
             this.clmFromCourierID.VisibleIndex = 5;
-            this.clmFromCourierID.Width = 115;
+            this.clmFromCourierID.Width = 163;
             // 
             // RepFromCourier
             // 
@@ -381,7 +381,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.clmToCourierID.Visible = true;
             this.clmToCourierID.VisibleIndex = 6;
-            this.clmToCourierID.Width = 99;
+            this.clmToCourierID.Width = 145;
             // 
             // RepToCourier
             // 

@@ -951,6 +951,7 @@ namespace Account_Management.Transaction
                 txtRemark.Text = string.Empty;
                 txtWeight.Text = string.Empty;
                 txtPinCode.Text = string.Empty;
+                txtShippingAddress.Text = string.Empty;
                 //txtOrderNo.Enabled = true;
                 txtTermDays.Text = "";
                 btnAdd.Text = "&Add";
@@ -1257,8 +1258,7 @@ namespace Account_Management.Transaction
                     objSaleProperty.sale_type = Val.ToString(CmbSaleType.Text);
                     objSaleProperty.weight = Val.ToDecimal(txtWeight.Text);
                     objSaleProperty.pin_code = Val.ToInt64(txtPinCode.Text);
-
-
+                    objSaleProperty.shipping_address = Val.ToString(txtShippingAddress.Text);
                     objSaleProperty.purchase_amount = Val.ToDecimal(clmRSPurhaseAmount.SummaryItem.SummaryValue);
 
                     objSaleProperty.net_amount = Val.ToDecimal(txtNetAmount.Text);
@@ -1747,6 +1747,7 @@ namespace Account_Management.Transaction
                         txtIGSTAmount.Text = Val.ToString(Drow["igst_amount"]);
 
                         txtShippingCharge.Text = Val.ToString(Drow["shipping_amount"]);
+                        txtShippingAddress.Text = Val.ToString(Drow["shipping_address"]);
 
                         txtNetAmount.Text = Val.ToString(Drow["net_amount"]);
                         txtTermDays.Text = Val.ToString(Drow["term_days"]);

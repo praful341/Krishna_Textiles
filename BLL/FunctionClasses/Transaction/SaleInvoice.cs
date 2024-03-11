@@ -65,6 +65,7 @@ namespace BLL.FunctionClasses.Transaction
                 Request.AddParams("@update_ip_address", GlobalDec.gStrComputerIP, DbType.String);
 
                 Request.AddParams("@form_id", pClsProperty.form_id, DbType.Int64);
+                Request.AddParams("@shipping_address", pClsProperty.shipping_address, DbType.String);
 
 
                 Request.CommandText = BLL.TPV.SProc.TRN_SaleInvoice_Save;
