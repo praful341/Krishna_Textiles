@@ -163,8 +163,20 @@
 
         #endregion Sale Invoice Entry
 
+        #region Courier Rate
+
         public static string MST_Courier_Rate_GetData = "MST_Courier_Rate_GetData";
         public static string MST_Courier_Rate_Save = "MST_Courier_Rate_Save";
+
+        #endregion Courier Rate
+
+        #region Dispatch Entry
+
+        public static string TRN_Dispatch_SearchData = "TRN_Dispatch_SearchData";
+        public static string TRN_Dispatch_Save = "TRN_Dispatch_Save";
+        public static string MST_Courier_Collect_GetData = "MST_Courier_Collect_GetData";
+
+        #endregion Dispatch Entry
 
         #endregion
 

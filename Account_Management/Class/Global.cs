@@ -1528,6 +1528,27 @@ namespace Account_Management.Class
                 t.ClosePopup();
             });
         }
+
+        public static void LOOKUPFromCourierRep(DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lookup)
+        {
+            CourierMaster objFromCourier = new CourierMaster();
+            DataTable Courier = objFromCourier.GetData();
+            lookup.DataSource = Courier;
+            lookup.ValueMember = "from_courier_id";
+            lookup.DisplayMember = "to_courier_name";
+            //   lookup.EditValue = null;            
+        }
+
+        public static void LOOKUPToCourierRep(DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lookup)
+        {
+            CourierMaster objFromCourier = new CourierMaster();
+            DataTable Courier = objFromCourier.GetData();
+            lookup.DataSource = Courier;
+            lookup.ValueMember = "to_courier_id";
+            lookup.DisplayMember = "to_courier_name";
+            //   lookup.EditValue = null;            
+        }
+
         public static void LOOKUPLocation(LookUpEdit lookup)
         {
             LocationMaster objLocation = new LocationMaster();
