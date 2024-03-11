@@ -367,9 +367,7 @@ namespace Account_Management.Transaction
             DispatchEntry_Property.status = Val.ToString(CmbStatus.Text);
 
             m_DTabDispatch = objDispatchEntry.GetData(DispatchEntry_Property);
-
             grdDispatchEntry.DataSource = m_DTabDispatch;
-            dgvDispatchEntry.BestFitColumns();
         }
 
         private void CalculateGridAmount(int rowindex)

@@ -149,11 +149,19 @@ namespace BLL.FunctionClasses.Transaction
                 int IntRes = 0;
                 Request RequestDetails = new Request();
 
-                RequestDetails.AddParams("@purchase_id", pClsProperty.purchase_id, DbType.Int32);
-                RequestDetails.AddParams("@purchase_detail_id", pClsProperty.purchase_detail_id, DbType.Int32);
+                RequestDetails.AddParams("@purchase_id", pClsProperty.purchase_id, DbType.Int64);
+                RequestDetails.AddParams("@purchase_detail_id", pClsProperty.purchase_detail_id, DbType.Int64);
+                RequestDetails.AddParams("@item_id", pClsProperty.item_id, DbType.Int64);
+                RequestDetails.AddParams("@color_id", pClsProperty.color_id, DbType.Int64);
+                RequestDetails.AddParams("@size_id", pClsProperty.size_id, DbType.Int64);
                 RequestDetails.AddParams("@flag", flag, DbType.Int32);
+                RequestDetails.AddParams("@pcs", pClsProperty.pcs, DbType.Int32);
+                RequestDetails.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int32);
+                RequestDetails.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int32);
+                RequestDetails.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int32);
+                RequestDetails.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int32);
 
-                RequestDetails.CommandText = BLL.TPV.SProc.TRN_Janged_Entry_Delete;
+                RequestDetails.CommandText = BLL.TPV.SProc.TRN_Purchase_Delete;
                 RequestDetails.CommandType = CommandType.StoredProcedure;
 
                 if (Conn != null)

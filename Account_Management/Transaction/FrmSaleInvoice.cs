@@ -1376,7 +1376,7 @@ namespace Account_Management.Transaction
                 if (Val.ToInt(lblMode.Tag) != 0)
                 {
                     IntRes = 0;
-                    objSaleInvoiceProperty.invoice_id = Val.ToInt(lblMode.Tag);
+                    objSaleInvoiceProperty.invoice_id = Val.ToInt64(lblMode.Tag);
 
                     int IntCounter = 0;
                     int Count = 0;
@@ -1385,7 +1385,11 @@ namespace Account_Management.Transaction
                     Int32 Flag = 0;
                     foreach (DataRow drw in m_dtbSaleDetails.Rows)
                     {
-                        objSaleInvoiceProperty.invoice_detail_id = Val.ToInt(drw["invoice_detail_id"]);
+                        objSaleInvoiceProperty.invoice_detail_id = Val.ToInt64(drw["invoice_detail_id"]);
+                        objSaleInvoiceProperty.item_id = Val.ToInt64(drw["item_id"]);
+                        objSaleInvoiceProperty.color_id = Val.ToInt64(drw["color_id"]);
+                        objSaleInvoiceProperty.size_id = Val.ToInt64(drw["size_id"]);
+                        objSaleInvoiceProperty.pcs = Val.ToInt32(drw["pcs"]);
 
                         if (FlagCount == TotalCount)
                         {

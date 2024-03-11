@@ -150,6 +150,7 @@
         public static string TRN_Purchase_GetDetailsData = "TRN_Purchase_GetDetailsData";
         public static string TRN_Purchase_Save = "TRN_Purchase_Save";
         public static string TRN_Purchase_Detail_Save = "TRN_Purchase_Detail_Save";
+        public static string TRN_Purchase_Delete = "TRN_Purchase_Delete";
 
         #endregion Purchase Entry
 
@@ -160,6 +161,7 @@
         public static string TRN_SaleInvoice_GetData = "TRN_SaleInvoice_GetData";
         public static string TRN_SaleInvoice_GetDetailsData = "TRN_SaleInvoice_GetDetailsData";
         public static string TRN_Generate_OrderNo = "TRN_Generate_OrderNo";
+        public static string TRN_SaleInvoice_Delete = "TRN_SaleInvoice_Delete";
 
         #endregion Sale Invoice Entry
 

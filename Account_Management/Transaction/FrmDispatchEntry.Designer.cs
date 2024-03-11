@@ -327,7 +327,7 @@
             this.clmDispatchDate.Name = "clmDispatchDate";
             this.clmDispatchDate.Visible = true;
             this.clmDispatchDate.VisibleIndex = 4;
-            this.clmDispatchDate.Width = 78;
+            this.clmDispatchDate.Width = 105;
             // 
             // RepRecDate
             // 

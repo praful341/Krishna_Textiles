@@ -1412,7 +1412,7 @@ namespace Account_Management.Transaction
                 if (Val.ToInt(lblMode.Tag) != 0)
                 {
                     IntRes = 0;
-                    objPurchaseProperty.purchase_id = Val.ToInt(lblMode.Tag);
+                    objPurchaseProperty.purchase_id = Val.ToInt64(lblMode.Tag);
 
                     int IntCounter = 0;
                     int Count = 0;
@@ -1421,7 +1421,11 @@ namespace Account_Management.Transaction
                     Int32 Flag = 0;
                     foreach (DataRow drw in m_dtbPurchaseDetails.Rows)
                     {
-                        objPurchaseProperty.purchase_detail_id = Val.ToInt(drw["purchase_detail_id"]);
+                        objPurchaseProperty.purchase_detail_id = Val.ToInt64(drw["purchase_detail_id"]);
+                        objPurchaseProperty.item_id = Val.ToInt64(drw["item_id"]);
+                        objPurchaseProperty.color_id = Val.ToInt64(drw["color_id"]);
+                        objPurchaseProperty.size_id = Val.ToInt64(drw["size_id"]);
+                        objPurchaseProperty.pcs = Val.ToInt32(drw["pcs"]);
 
                         if (FlagCount == TotalCount)
                         {
@@ -1436,7 +1440,6 @@ namespace Account_Management.Transaction
                         IntRes++;
                         SetControlPropertyValue(lblProgressCount, "Text", Count.ToString() + "" + "/" + "" + TotalCount.ToString() + " Completed....");
                     }
-
                     Conn.Inter1.Commit();
                 }
                 else
