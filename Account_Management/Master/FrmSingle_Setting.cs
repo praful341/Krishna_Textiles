@@ -1,10 +1,10 @@
-﻿using BLL;
+﻿using Account_Management.Class;
+using Account_Management.Search;
+using BLL;
 using BLL.FunctionClasses.Master;
 using BLL.FunctionClasses.Utility;
 using BLL.PropertyClasses.Master;
 using DevExpress.XtraEditors;
-using Account_Management.Class;
-using Account_Management.Search;
 using System;
 using System.Data;
 using System.Linq;
@@ -346,7 +346,7 @@ namespace Account_Management.Transaction
         #region Context Menu Events
         private void MNUDeleteSetting_Click(object sender, EventArgs e)
         {
-            if (Global.Confirm("Are You Sure, To Delete Selected Column Rows ?", "DERP", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            if (Global.Confirm("Are You Sure, To Delete Selected Column Rows ?", "Account Management", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
                 try
                 {

@@ -1,7 +1,7 @@
-﻿using BLL;
+﻿using Account_Management.Class;
+using BLL;
 using BLL.FunctionClasses.Master;
 using BLL.PropertyClasses.Master;
-using Account_Management.Class;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -306,21 +306,21 @@ namespace Account_Management.Master
 
                     if (format.Equals(Exports.xlsx.ToString()))
                     {
-                        if (Global.Confirm("Export Done\n\nYou Want To Open Excel File ?", "DERP", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                        if (Global.Confirm("Export Done\n\nYou Want To Open Excel File ?", "Account Management", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                         {
                             System.Diagnostics.Process.Start(Filepath);
                         }
                     }
                     else if (format.Equals(Exports.pdf.ToString()))
                     {
-                        if (Global.Confirm("Export Done\n\nYou Want To Open PDF File ?", "DERP", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                        if (Global.Confirm("Export Done\n\nYou Want To Open PDF File ?", "Account Management", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                         {
                             System.Diagnostics.Process.Start(Filepath);
                         }
                     }
                     else
                     {
-                        if (Global.Confirm("Export Done\n\nYou Want To Open File ?", "DERP", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                        if (Global.Confirm("Export Done\n\nYou Want To Open File ?", "Account Management", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                         {
                             System.Diagnostics.Process.Start(Filepath);
                         }

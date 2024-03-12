@@ -2,7 +2,7 @@
 using System.Data;
 using System.Linq;
 
-namespace DERP
+namespace Account_Management
 {
     public class pivot
     {
@@ -192,7 +192,7 @@ namespace DERP
                     case AggregateFunction.Min:
                         return GetMin(objList);
                     case AggregateFunction.Sum:
-                        return GetSum(objList);                   
+                        return GetSum(objList);
                     default:
                         return null;
                 }

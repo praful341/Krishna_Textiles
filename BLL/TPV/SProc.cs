@@ -181,6 +181,14 @@
 
         #endregion Dispatch Entry
 
+        #region Opening Stock
+
+        public static string TRN_Opening_GetData = "TRN_Opening_GetData";
+        public static string TRN_Opening_Save = "TRN_Opening_Save";
+        public static string TRN_Opening_CheckData = "TRN_Opening_CheckData";
+
+        #endregion Opening Stock
+
         #endregion
 
         #region "Reports"
