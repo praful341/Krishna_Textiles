@@ -1,7 +1,7 @@
-﻿using BLL;
+﻿using Account_Management.Class;
+using BLL;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
-using Account_Management.Class;
 using System;
 using System.Data;
 using System.Drawing.Printing;
@@ -32,7 +32,8 @@ namespace Account_Management.Report
             MIX = 4,
             HRACTS = 5,
             HR_REPORT = 6,
-            ACCOUNT = 7
+            ACCOUNT = 7,
+            SHIPPING_ADDRESS = 8
         }
 
         public string RepHead = string.Empty;

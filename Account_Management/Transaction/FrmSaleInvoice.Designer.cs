@@ -113,6 +113,7 @@
             this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmEmployeeName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmEmployeeID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmShippingAddress = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.lueJangedLedger = new DevExpress.XtraEditors.LookUpEdit();
             this.label33 = new System.Windows.Forms.Label();
@@ -182,6 +183,8 @@
             this.txtDiscountPer = new DevExpress.XtraEditors.TextEdit();
             this.label26 = new System.Windows.Forms.Label();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.txtShippingAddress = new DevExpress.XtraEditors.MemoEdit();
             this.lblEntry = new DevExpress.XtraEditors.LabelControl();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
@@ -251,9 +254,7 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.backgroundWorker_SaleInvoice = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker_SaleInvoiceDelete = new System.ComponentModel.BackgroundWorker();
-            this.txtShippingAddress = new DevExpress.XtraEditors.MemoEdit();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.clmShippingAddress = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).BeginInit();
@@ -297,6 +298,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDiscountPer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
             this.panelControl6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtShippingAddress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
@@ -323,7 +325,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.CmbSaleType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtShippingAddress.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl3
@@ -1326,6 +1327,15 @@
             this.clmEmployeeID.FieldName = "employee_id";
             this.clmEmployeeID.Name = "clmEmployeeID";
             // 
+            // clmShippingAddress
+            // 
+            this.clmShippingAddress.Caption = "Shipping Address";
+            this.clmShippingAddress.FieldName = "shipping_address";
+            this.clmShippingAddress.Name = "clmShippingAddress";
+            this.clmShippingAddress.Visible = true;
+            this.clmShippingAddress.VisibleIndex = 19;
+            this.clmShippingAddress.Width = 120;
+            // 
             // panelControl2
             // 
             this.panelControl2.Controls.Add(this.lueJangedLedger);
@@ -2132,6 +2142,7 @@
             // 
             // panelControl6
             // 
+            this.panelControl6.Controls.Add(this.btnPrint);
             this.panelControl6.Controls.Add(this.labelControl11);
             this.panelControl6.Controls.Add(this.txtShippingAddress);
             this.panelControl6.Controls.Add(this.lblEntry);
@@ -2146,6 +2157,28 @@
             this.panelControl6.Name = "panelControl6";
             this.panelControl6.Size = new System.Drawing.Size(1267, 96);
             this.panelControl6.TabIndex = 0;
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl11.Appearance.Options.UseFont = true;
+            this.labelControl11.Location = new System.Drawing.Point(330, 15);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(125, 16);
+            this.labelControl11.TabIndex = 509;
+            this.labelControl11.Text = "Shipping Address";
+            // 
+            // txtShippingAddress
+            // 
+            this.txtShippingAddress.EditValue = "";
+            this.txtShippingAddress.EnterMoveNextControl = true;
+            this.txtShippingAddress.Location = new System.Drawing.Point(459, 5);
+            this.txtShippingAddress.Name = "txtShippingAddress";
+            this.txtShippingAddress.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtShippingAddress.Properties.Appearance.Options.UseFont = true;
+            this.txtShippingAddress.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtShippingAddress.Size = new System.Drawing.Size(271, 84);
+            this.txtShippingAddress.TabIndex = 508;
             // 
             // lblEntry
             // 
@@ -2165,7 +2198,7 @@
             this.btnExit.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Appearance.Options.UseFont = true;
             this.btnExit.ImageOptions.Image = global::Account_Management.Properties.Resources.Exit;
-            this.btnExit.Location = new System.Drawing.Point(965, 29);
+            this.btnExit.Location = new System.Drawing.Point(953, 29);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(102, 32);
             this.btnExit.TabIndex = 3;
@@ -2178,7 +2211,7 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.ImageOptions.Image = global::Account_Management.Properties.Resources.Save;
-            this.btnSave.Location = new System.Drawing.Point(748, 29);
+            this.btnSave.Location = new System.Drawing.Point(736, 29);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(102, 32);
             this.btnSave.TabIndex = 1;
@@ -2191,7 +2224,7 @@
             this.btnClear.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Appearance.Options.UseFont = true;
             this.btnClear.ImageOptions.Image = global::Account_Management.Properties.Resources.Clear;
-            this.btnClear.Location = new System.Drawing.Point(856, 29);
+            this.btnClear.Location = new System.Drawing.Point(844, 29);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(102, 32);
             this.btnClear.TabIndex = 2;
@@ -2204,7 +2237,7 @@
             this.btnDelete.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Appearance.Options.UseFont = true;
             this.btnDelete.ImageOptions.Image = global::Account_Management.Properties.Resources.Close;
-            this.btnDelete.Location = new System.Drawing.Point(1073, 29);
+            this.btnDelete.Location = new System.Drawing.Point(1061, 29);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(102, 32);
             this.btnDelete.TabIndex = 4;
@@ -2215,7 +2248,7 @@
             // 
             this.txtRemark.EditValue = "";
             this.txtRemark.EnterMoveNextControl = true;
-            this.txtRemark.Location = new System.Drawing.Point(85, 8);
+            this.txtRemark.Location = new System.Drawing.Point(82, 8);
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRemark.Properties.Appearance.Options.UseFont = true;
@@ -3126,36 +3159,17 @@
             this.backgroundWorker_SaleInvoiceDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_SaleInvoiceDelete_DoWork);
             this.backgroundWorker_SaleInvoiceDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_SaleInvoiceDelete_RunWorkerCompleted);
             // 
-            // txtShippingAddress
+            // btnPrint
             // 
-            this.txtShippingAddress.EditValue = "";
-            this.txtShippingAddress.EnterMoveNextControl = true;
-            this.txtShippingAddress.Location = new System.Drawing.Point(468, 5);
-            this.txtShippingAddress.Name = "txtShippingAddress";
-            this.txtShippingAddress.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtShippingAddress.Properties.Appearance.Options.UseFont = true;
-            this.txtShippingAddress.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtShippingAddress.Size = new System.Drawing.Size(271, 84);
-            this.txtShippingAddress.TabIndex = 508;
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl11.Appearance.Options.UseFont = true;
-            this.labelControl11.Location = new System.Drawing.Point(335, 15);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(125, 16);
-            this.labelControl11.TabIndex = 509;
-            this.labelControl11.Text = "Shipping Address";
-            // 
-            // clmShippingAddress
-            // 
-            this.clmShippingAddress.Caption = "Shipping Address";
-            this.clmShippingAddress.FieldName = "shipping_address";
-            this.clmShippingAddress.Name = "clmShippingAddress";
-            this.clmShippingAddress.Visible = true;
-            this.clmShippingAddress.VisibleIndex = 19;
-            this.clmShippingAddress.Width = 120;
+            this.btnPrint.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Appearance.Options.UseFont = true;
+            this.btnPrint.ImageOptions.Image = global::Account_Management.Properties.Resources.Print;
+            this.btnPrint.Location = new System.Drawing.Point(1169, 29);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(93, 32);
+            this.btnPrint.TabIndex = 155;
+            this.btnPrint.Text = "&Print";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // FrmSaleInvoice
             // 
@@ -3219,6 +3233,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
             this.panelControl6.ResumeLayout(false);
             this.panelControl6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtShippingAddress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
@@ -3246,7 +3261,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.CmbSaleType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtShippingAddress.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3477,5 +3491,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.MemoEdit txtShippingAddress;
         private DevExpress.XtraGrid.Columns.GridColumn clmShippingAddress;
+        private DevExpress.XtraEditors.SimpleButton btnPrint;
     }
 }

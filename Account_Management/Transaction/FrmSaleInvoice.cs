@@ -1,5 +1,6 @@
 ﻿using Account_Management.Class;
 using Account_Management.Master;
+using Account_Management.Report;
 using BLL;
 using BLL.FunctionClasses.Master;
 using BLL.FunctionClasses.Transaction;
@@ -1807,6 +1808,27 @@ namespace Account_Management.Transaction
                 BLL.General.ShowErrors(ex);
                 return;
             }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            SaleInvoice objSaleInvoice = new SaleInvoice();
+            DataTable DTab_Shipping_Address = objSaleInvoice.Shipping_Address_GetData(Val.ToInt64(lblMode.Tag));
+
+            FrmReportViewer FrmReportViewer = new FrmReportViewer();
+            FrmReportViewer.DS.Tables.Add(DTab_Shipping_Address);
+            FrmReportViewer.GroupBy = "";
+            FrmReportViewer.RepName = "";
+            FrmReportViewer.RepPara = "";
+            this.Cursor = Cursors.Default;
+            FrmReportViewer.AllowSetFormula = true;
+
+            FrmReportViewer.ShowForm("Shipping_Address", 120, FrmReportViewer.ReportFolder.SHIPPING_ADDRESS);
+
+            DTab_Shipping_Address = null;
+            FrmReportViewer.DS.Tables.Clear();
+            FrmReportViewer.DS.Clear();
+            FrmReportViewer = null;
         }
     }
 }

@@ -238,5 +238,16 @@ namespace BLL.FunctionClasses.Transaction
                 return DTab;
             }
         }
+        public DataTable Shipping_Address_GetData(Int64 Invoice_ID)
+        {
+            DataTable DTab = new DataTable();
+            Request Request = new Request();
+            Request.CommandText = BLL.TPV.SProc.TRN_ShippingAddress_GetData;
+            Request.CommandType = CommandType.StoredProcedure;
+            Request.AddParams("@invoice_id", Invoice_ID, DbType.Int64);
+
+            Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
+            return DTab;
+        }
     }
 }
