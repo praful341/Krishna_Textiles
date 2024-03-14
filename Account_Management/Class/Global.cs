@@ -1707,7 +1707,7 @@ namespace Account_Management.Class
             {
                 t.Properties.DataSource = Emp;
                 t.Properties.ValueMember = "employee_id";
-                t.Properties.DisplayMember = "employee_name";
+                t.Properties.DisplayMember = "short_name";
                 t.ClosePopup();
             });
         }

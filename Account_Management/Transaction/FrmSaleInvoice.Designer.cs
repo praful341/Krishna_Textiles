@@ -183,6 +183,7 @@
             this.txtDiscountPer = new DevExpress.XtraEditors.TextEdit();
             this.label26 = new System.Windows.Forms.Label();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
+            this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.txtShippingAddress = new DevExpress.XtraEditors.MemoEdit();
             this.lblEntry = new DevExpress.XtraEditors.LabelControl();
@@ -254,7 +255,6 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.backgroundWorker_SaleInvoice = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker_SaleInvoiceDelete = new System.ComponentModel.BackgroundWorker();
-            this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).BeginInit();
@@ -2158,6 +2158,18 @@
             this.panelControl6.Size = new System.Drawing.Size(1267, 96);
             this.panelControl6.TabIndex = 0;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Appearance.Options.UseFont = true;
+            this.btnPrint.ImageOptions.Image = global::Account_Management.Properties.Resources.Print;
+            this.btnPrint.Location = new System.Drawing.Point(1169, 29);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(93, 32);
+            this.btnPrint.TabIndex = 155;
+            this.btnPrint.Text = "&Print";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // labelControl11
             // 
             this.labelControl11.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2389,8 +2401,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.LueEmployee.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("employee_name", "Employee"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("employee_id", "Employee ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("employee_id", "Employee ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("short_name", "Employee")});
             this.LueEmployee.Properties.NullText = "";
             this.LueEmployee.Properties.ShowHeader = false;
             this.LueEmployee.Size = new System.Drawing.Size(245, 20);
@@ -3158,18 +3170,6 @@
             // 
             this.backgroundWorker_SaleInvoiceDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_SaleInvoiceDelete_DoWork);
             this.backgroundWorker_SaleInvoiceDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_SaleInvoiceDelete_RunWorkerCompleted);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Appearance.Options.UseFont = true;
-            this.btnPrint.ImageOptions.Image = global::Account_Management.Properties.Resources.Print;
-            this.btnPrint.Location = new System.Drawing.Point(1169, 29);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(93, 32);
-            this.btnPrint.TabIndex = 155;
-            this.btnPrint.Text = "&Print";
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // FrmSaleInvoice
             // 

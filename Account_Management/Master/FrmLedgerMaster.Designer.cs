@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
@@ -569,8 +569,8 @@
             // 
             // SHERE_PER
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.SHERE_PER.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.SHERE_PER.DefaultCellStyle = dataGridViewCellStyle2;
             this.SHERE_PER.HeaderText = "Shere(%)";
             this.SHERE_PER.Name = "SHERE_PER";
             this.SHERE_PER.Width = 88;
@@ -766,7 +766,7 @@
             this.txtAddress4.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAddress4.Properties.MaxLength = 25;
             this.txtAddress4.Size = new System.Drawing.Size(187, 20);
-            this.txtAddress4.TabIndex = 581;
+            this.txtAddress4.TabIndex = 14;
             // 
             // txtAddress2
             // 
@@ -778,7 +778,7 @@
             this.txtAddress2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAddress2.Properties.MaxLength = 25;
             this.txtAddress2.Size = new System.Drawing.Size(187, 20);
-            this.txtAddress2.TabIndex = 579;
+            this.txtAddress2.TabIndex = 12;
             // 
             // txtAddress1
             // 
@@ -790,7 +790,7 @@
             this.txtAddress1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAddress1.Properties.MaxLength = 25;
             this.txtAddress1.Size = new System.Drawing.Size(187, 20);
-            this.txtAddress1.TabIndex = 578;
+            this.txtAddress1.TabIndex = 11;
             // 
             // txtAddress3
             // 
@@ -802,7 +802,7 @@
             this.txtAddress3.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAddress3.Properties.MaxLength = 25;
             this.txtAddress3.Size = new System.Drawing.Size(187, 20);
-            this.txtAddress3.TabIndex = 580;
+            this.txtAddress3.TabIndex = 13;
             // 
             // lueLedgerGroup
             // 
@@ -824,7 +824,7 @@
             this.lueLedgerGroup.Properties.NullText = "";
             this.lueLedgerGroup.Properties.ShowHeader = false;
             this.lueLedgerGroup.Size = new System.Drawing.Size(187, 20);
-            this.lueLedgerGroup.TabIndex = 576;
+            this.lueLedgerGroup.TabIndex = 1;
             // 
             // labelControl2
             // 
@@ -858,7 +858,7 @@
             this.txtOpeningBalance.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOpeningBalance.Properties.Appearance.Options.UseFont = true;
             this.txtOpeningBalance.Size = new System.Drawing.Size(187, 20);
-            this.txtOpeningBalance.TabIndex = 574;
+            this.txtOpeningBalance.TabIndex = 18;
             // 
             // groupControl1
             // 
@@ -879,7 +879,6 @@
             this.groupControl1.Size = new System.Drawing.Size(317, 129);
             this.groupControl1.TabIndex = 573;
             this.groupControl1.Text = "Bank Details";
-            this.groupControl1.Visible = false;
             // 
             // labelControl25
             // 
@@ -979,7 +978,7 @@
             this.txtRemark.Properties.Appearance.Options.UseFont = true;
             this.txtRemark.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtRemark.Size = new System.Drawing.Size(187, 49);
-            this.txtRemark.TabIndex = 571;
+            this.txtRemark.TabIndex = 10;
             // 
             // labelControl49
             // 
@@ -1000,8 +999,7 @@
             this.txtPanNo.Properties.Appearance.Options.UseFont = true;
             this.txtPanNo.Properties.MaxLength = 10;
             this.txtPanNo.Size = new System.Drawing.Size(187, 20);
-            this.txtPanNo.TabIndex = 567;
-            this.txtPanNo.Visible = false;
+            this.txtPanNo.TabIndex = 9;
             // 
             // labelControl53
             // 
@@ -1014,7 +1012,6 @@
             this.labelControl53.Size = new System.Drawing.Size(47, 14);
             this.labelControl53.TabIndex = 570;
             this.labelControl53.Text = "Pan No";
-            this.labelControl53.Visible = false;
             // 
             // txtGSTNo
             // 
@@ -1024,7 +1021,7 @@
             this.txtGSTNo.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGSTNo.Properties.Appearance.Options.UseFont = true;
             this.txtGSTNo.Size = new System.Drawing.Size(187, 20);
-            this.txtGSTNo.TabIndex = 568;
+            this.txtGSTNo.TabIndex = 8;
             // 
             // labelControl54
             // 
@@ -1086,7 +1083,7 @@
             this.txtLedgerPrintName.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLedgerPrintName.Properties.Appearance.Options.UseFont = true;
             this.txtLedgerPrintName.Size = new System.Drawing.Size(187, 20);
-            this.txtLedgerPrintName.TabIndex = 20;
+            this.txtLedgerPrintName.TabIndex = 3;
             // 
             // labelControl15
             // 
@@ -1119,7 +1116,7 @@
             this.lueLedgerType.Properties.NullText = "";
             this.lueLedgerType.Properties.ShowHeader = false;
             this.lueLedgerType.Size = new System.Drawing.Size(187, 20);
-            this.lueLedgerType.TabIndex = 12;
+            this.lueLedgerType.TabIndex = 2;
             // 
             // labelControl41
             // 
@@ -1141,7 +1138,7 @@
             this.txtMobileNo1.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMobileNo1.Properties.Appearance.Options.UseFont = true;
             this.txtMobileNo1.Size = new System.Drawing.Size(187, 20);
-            this.txtMobileNo1.TabIndex = 2;
+            this.txtMobileNo1.TabIndex = 5;
             // 
             // chkActive
             // 
@@ -1153,7 +1150,7 @@
             this.chkActive.Properties.Appearance.Options.UseFont = true;
             this.chkActive.Properties.Caption = "Active";
             this.chkActive.Size = new System.Drawing.Size(75, 20);
-            this.chkActive.TabIndex = 25;
+            this.chkActive.TabIndex = 19;
             // 
             // labelControl4
             // 
@@ -1231,7 +1228,7 @@
             this.txtZipCode.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtZipCode.Properties.Appearance.Options.UseFont = true;
             this.txtZipCode.Size = new System.Drawing.Size(187, 20);
-            this.txtZipCode.TabIndex = 10;
+            this.txtZipCode.TabIndex = 4;
             // 
             // lueCountry
             // 
@@ -1346,7 +1343,7 @@
             this.txtMobileNo2.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMobileNo2.Properties.Appearance.Options.UseFont = true;
             this.txtMobileNo2.Size = new System.Drawing.Size(187, 20);
-            this.txtMobileNo2.TabIndex = 3;
+            this.txtMobileNo2.TabIndex = 6;
             // 
             // txtEmailID
             // 
@@ -1357,7 +1354,7 @@
             this.txtEmailID.Properties.Appearance.Options.UseFont = true;
             this.txtEmailID.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEmailID.Size = new System.Drawing.Size(187, 20);
-            this.txtEmailID.TabIndex = 9;
+            this.txtEmailID.TabIndex = 7;
             // 
             // labelControl30
             // 

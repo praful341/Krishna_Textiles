@@ -956,7 +956,7 @@ namespace Account_Management.Transaction
                 //txtOrderNo.Enabled = true;
                 txtTermDays.Text = "";
                 btnAdd.Text = "&Add";
-                txtOrderNo.Focus();
+                LueEmployee.Focus();
                 m_srno = 0;
                 //objPurchase = new Purchase();
                 //txtVoucherNo.Text = objPurchase.FindNewID().ToString();
@@ -1356,7 +1356,7 @@ namespace Account_Management.Transaction
                 else
                 {
                     Global.Confirm("Error In Sale Invoice Data");
-                    txtOrderNo.Focus();
+                    LueEmployee.Focus();
                 }
             }
             catch (Exception ex)
@@ -1455,7 +1455,7 @@ namespace Account_Management.Transaction
                 else
                 {
                     Global.Confirm("Error In Sale Invoice Data Delete");
-                    txtOrderNo.Focus();
+                    LueEmployee.Focus();
                 }
             }
             catch (Exception ex)
