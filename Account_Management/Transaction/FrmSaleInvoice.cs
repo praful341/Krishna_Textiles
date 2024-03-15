@@ -870,24 +870,24 @@ namespace Account_Management.Transaction
                             txtSaleAmount.Focus();
                         }
                     }
-                    if (Val.ToDouble(txtPurchaseRate.Text) == 0)
-                    {
-                        lstError.Add(new ListError(12, "Purchase Rate"));
-                        if (!blnFocus)
-                        {
-                            blnFocus = true;
-                            txtPurchaseRate.Focus();
-                        }
-                    }
-                    if (Val.ToDouble(txtPurchaseAmount.Text) == 0)
-                    {
-                        lstError.Add(new ListError(12, "Purchase Amount"));
-                        if (!blnFocus)
-                        {
-                            blnFocus = true;
-                            txtPurchaseAmount.Focus();
-                        }
-                    }
+                    //if (Val.ToDouble(txtPurchaseRate.Text) == 0)
+                    //{
+                    //    lstError.Add(new ListError(12, "Purchase Rate"));
+                    //    if (!blnFocus)
+                    //    {
+                    //        blnFocus = true;
+                    //        txtPurchaseRate.Focus();
+                    //    }
+                    //}
+                    //if (Val.ToDouble(txtPurchaseAmount.Text) == 0)
+                    //{
+                    //    lstError.Add(new ListError(12, "Purchase Amount"));
+                    //    if (!blnFocus)
+                    //    {
+                    //        blnFocus = true;
+                    //        txtPurchaseAmount.Focus();
+                    //    }
+                    //}
                     if (lueGSTRate.Text == "")
                     {
                         lstError.Add(new ListError(13, "GST Rate"));

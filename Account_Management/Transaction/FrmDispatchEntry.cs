@@ -267,7 +267,7 @@ namespace Account_Management.Transaction
             RepStatus.DataSource = m_dtbStatus;
             RepStatus.ValueMember = "status";
             RepStatus.DisplayMember = "status";
-            CmbStatus.SelectedIndex = 1;
+            CmbStatus.SelectedIndex = 0;
         }
 
         private void Export(string format, string dlgHeader, string dlgFilter)

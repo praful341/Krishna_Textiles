@@ -168,7 +168,7 @@ namespace Account_Management
                     txtBankAccName.Text = Val.ToString(Drow["bank_account_name"]);
                     txtBankIFSC.Text = Val.ToString(Drow["bank_ifsc"]);
                     txtBankCheque.Text = Val.ToString(Drow["bank_cheque"]);
-                    lueBranch.EditValue = Val.ToInt32(Drow["branch_id"]);
+                    lueBranch.EditValue = Val.ToInt64(Drow["branch_id"]);
                     txtBankName.Focus();
                 }
             }
