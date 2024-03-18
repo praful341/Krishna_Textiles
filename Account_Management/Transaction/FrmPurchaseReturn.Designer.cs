@@ -1,6 +1,6 @@
 ﻿namespace Account_Management.Transaction
 {
-    partial class FrmJangedEntry
+    partial class FrmPurchaseReturn
     {
         /// <summary>
         /// Required designer variable.
@@ -70,10 +70,10 @@
             this.clmCarats = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmRate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmAmount = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ttlbJagedInvoice = new DevExpress.XtraTab.XtraTabControl();
-            this.tblJangedList = new DevExpress.XtraTab.XtraTabPage();
+            this.ttlbPurchaseReturn = new DevExpress.XtraTab.XtraTabControl();
+            this.tblPurchaseReturnList = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.grdJangedEntry = new DevExpress.XtraGrid.GridControl();
+            this.grdPurchaseReturn = new DevExpress.XtraGrid.GridControl();
             this.ContextMNExport = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.MNExportExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.MNExportPDF = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,11 +81,11 @@
             this.MNExportHTML = new System.Windows.Forms.ToolStripMenuItem();
             this.MNExportRTF = new System.Windows.Forms.ToolStripMenuItem();
             this.MNExportCSV = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgvJangedEntry = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dgvPurchaseReturn = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.clmDetJangedId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clmJangedDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmReturnDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn46 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn40 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -109,6 +109,7 @@
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ClmPurchaseFirm = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.lueJangedLedger = new DevExpress.XtraEditors.LookUpEdit();
             this.label33 = new System.Windows.Forms.Label();
@@ -119,15 +120,15 @@
             this.dtpFromDate = new DevExpress.XtraEditors.DateEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tblJangeddetail = new DevExpress.XtraTab.XtraTabPage();
+            this.tblPurchaseReturndetail = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
             this.panelProgress = new DevExpress.XtraEditors.PanelControl();
             this.lblProgressCount = new System.Windows.Forms.Label();
             this.SaveProgressBar = new DevExpress.XtraEditors.MarqueeProgressBarControl();
-            this.grdJangedDetails = new DevExpress.XtraGrid.GridControl();
-            this.dgvJangedDetails = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.clmPurchaseDetailID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clmPurchaseID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdPurchaseReturnDetails = new DevExpress.XtraGrid.GridControl();
+            this.dgvPurchaseReturnDetails = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.clmJangedDetailID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmJangedReturnID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmItemID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmItemName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmColorID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -150,7 +151,8 @@
             this.clmSrNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmOldUnitName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmOldUnitID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clmJangedID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmPurchaseReturnID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmReturnDetailID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
             this.txtIGSTAmount = new DevExpress.XtraEditors.TextEdit();
             this.label12 = new System.Windows.Forms.Label();
@@ -181,12 +183,16 @@
             this.txtRemark = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.CmbPurchaseFirm = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.label10 = new System.Windows.Forms.Label();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.DTPDueDate = new DevExpress.XtraEditors.DateEdit();
-            this.LueUnit = new DevExpress.XtraEditors.LookUpEdit();
             this.txtTermDays = new DevExpress.XtraEditors.TextEdit();
-            this.label15 = new System.Windows.Forms.Label();
             this.lblTerms = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.lblJanged_ID = new DevExpress.XtraEditors.LabelControl();
+            this.LueUnit = new DevExpress.XtraEditors.LookUpEdit();
+            this.label15 = new System.Windows.Forms.Label();
             this.LueSize = new DevExpress.XtraEditors.LookUpEdit();
             this.label8 = new System.Windows.Forms.Label();
             this.LueColor = new DevExpress.XtraEditors.LookUpEdit();
@@ -212,7 +218,7 @@
             this.lblInvoiceNo = new System.Windows.Forms.Label();
             this.lblMode = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.dtpJangedDate = new DevExpress.XtraEditors.DateEdit();
+            this.dtpReturnDate = new DevExpress.XtraEditors.DateEdit();
             this.label11 = new System.Windows.Forms.Label();
             this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.clmDetailID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -230,23 +236,20 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.backgroundWorker_JangedEntry = new System.ComponentModel.BackgroundWorker();
-            this.backgroundWorker_JangedDelete = new System.ComponentModel.BackgroundWorker();
-            this.label10 = new System.Windows.Forms.Label();
-            this.CmbPurchaseFirm = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.clmPurchaseFirm = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.backgroundWorker_PurchaseReturn = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker_PurchaseReturnDelete = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptcDelete)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ttlbJagedInvoice)).BeginInit();
-            this.ttlbJagedInvoice.SuspendLayout();
-            this.tblJangedList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ttlbPurchaseReturn)).BeginInit();
+            this.ttlbPurchaseReturn.SuspendLayout();
+            this.tblPurchaseReturnList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdJangedEntry)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPurchaseReturn)).BeginInit();
             this.ContextMNExport.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvJangedEntry)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPurchaseReturn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueJangedLedger.Properties)).BeginInit();
@@ -255,14 +258,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpToDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFromDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFromDate.Properties)).BeginInit();
-            this.tblJangeddetail.SuspendLayout();
+            this.tblPurchaseReturndetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
             this.panelControl7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelProgress)).BeginInit();
             this.panelProgress.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SaveProgressBar.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdJangedDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvJangedDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPurchaseReturnDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPurchaseReturnDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
             this.panelControl8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtIGSTAmount.Properties)).BeginInit();
@@ -280,10 +283,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CmbPurchaseFirm.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPDueDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPDueDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LueUnit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTermDays.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LueUnit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LueSize.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LueColor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPurchaseBill.Properties)).BeginInit();
@@ -294,11 +298,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueItem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueGSTRate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVoucherNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpJangedDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpJangedDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpReturnDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpReturnDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CmbPurchaseFirm.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl3
@@ -857,47 +860,47 @@
             this.clmAmount.Visible = true;
             this.clmAmount.VisibleIndex = 13;
             // 
-            // ttlbJagedInvoice
+            // ttlbPurchaseReturn
             // 
-            this.ttlbJagedInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ttlbJagedInvoice.Location = new System.Drawing.Point(0, 0);
-            this.ttlbJagedInvoice.Name = "ttlbJagedInvoice";
-            this.ttlbJagedInvoice.SelectedTabPage = this.tblJangedList;
-            this.ttlbJagedInvoice.Size = new System.Drawing.Size(1273, 742);
-            this.ttlbJagedInvoice.TabIndex = 0;
-            this.ttlbJagedInvoice.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.tblJangedList,
-            this.tblJangeddetail});
+            this.ttlbPurchaseReturn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ttlbPurchaseReturn.Location = new System.Drawing.Point(0, 0);
+            this.ttlbPurchaseReturn.Name = "ttlbPurchaseReturn";
+            this.ttlbPurchaseReturn.SelectedTabPage = this.tblPurchaseReturnList;
+            this.ttlbPurchaseReturn.Size = new System.Drawing.Size(1273, 742);
+            this.ttlbPurchaseReturn.TabIndex = 0;
+            this.ttlbPurchaseReturn.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.tblPurchaseReturnList,
+            this.tblPurchaseReturndetail});
             // 
-            // tblJangedList
+            // tblPurchaseReturnList
             // 
-            this.tblJangedList.Controls.Add(this.panelControl1);
-            this.tblJangedList.Controls.Add(this.panelControl2);
-            this.tblJangedList.Name = "tblJangedList";
-            this.tblJangedList.Size = new System.Drawing.Size(1267, 714);
-            this.tblJangedList.Text = "List";
+            this.tblPurchaseReturnList.Controls.Add(this.panelControl1);
+            this.tblPurchaseReturnList.Controls.Add(this.panelControl2);
+            this.tblPurchaseReturnList.Name = "tblPurchaseReturnList";
+            this.tblPurchaseReturnList.Size = new System.Drawing.Size(1267, 714);
+            this.tblPurchaseReturnList.Text = "List";
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.grdJangedEntry);
+            this.panelControl1.Controls.Add(this.grdPurchaseReturn);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 43);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1267, 671);
             this.panelControl1.TabIndex = 3;
             // 
-            // grdJangedEntry
+            // grdPurchaseReturn
             // 
-            this.grdJangedEntry.ContextMenuStrip = this.ContextMNExport;
-            this.grdJangedEntry.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdJangedEntry.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grdJangedEntry.Location = new System.Drawing.Point(2, 2);
-            this.grdJangedEntry.MainView = this.dgvJangedEntry;
-            this.grdJangedEntry.Name = "grdJangedEntry";
-            this.grdJangedEntry.Size = new System.Drawing.Size(1263, 667);
-            this.grdJangedEntry.TabIndex = 18;
-            this.grdJangedEntry.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dgvJangedEntry});
+            this.grdPurchaseReturn.ContextMenuStrip = this.ContextMNExport;
+            this.grdPurchaseReturn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdPurchaseReturn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grdPurchaseReturn.Location = new System.Drawing.Point(2, 2);
+            this.grdPurchaseReturn.MainView = this.dgvPurchaseReturn;
+            this.grdPurchaseReturn.Name = "grdPurchaseReturn";
+            this.grdPurchaseReturn.Size = new System.Drawing.Size(1263, 667);
+            this.grdPurchaseReturn.TabIndex = 18;
+            this.grdPurchaseReturn.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dgvPurchaseReturn});
             // 
             // ContextMNExport
             // 
@@ -955,24 +958,24 @@
             this.MNExportCSV.Text = "To CSV";
             this.MNExportCSV.Click += new System.EventHandler(this.MNExportCSV_Click);
             // 
-            // dgvJangedEntry
+            // dgvPurchaseReturn
             // 
-            this.dgvJangedEntry.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.dgvJangedEntry.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.dgvJangedEntry.Appearance.ColumnFilterButton.Options.UseBackColor = true;
-            this.dgvJangedEntry.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
-            this.dgvJangedEntry.Appearance.ColumnFilterButton.Options.UseForeColor = true;
-            this.dgvJangedEntry.Appearance.FooterPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dgvJangedEntry.Appearance.FooterPanel.Options.UseFont = true;
-            this.dgvJangedEntry.Appearance.HeaderPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dgvJangedEntry.Appearance.HeaderPanel.Options.UseFont = true;
-            this.dgvJangedEntry.Appearance.Row.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
-            this.dgvJangedEntry.Appearance.Row.Options.UseFont = true;
-            this.dgvJangedEntry.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.dgvPurchaseReturn.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.dgvPurchaseReturn.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.dgvPurchaseReturn.Appearance.ColumnFilterButton.Options.UseBackColor = true;
+            this.dgvPurchaseReturn.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
+            this.dgvPurchaseReturn.Appearance.ColumnFilterButton.Options.UseForeColor = true;
+            this.dgvPurchaseReturn.Appearance.FooterPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dgvPurchaseReturn.Appearance.FooterPanel.Options.UseFont = true;
+            this.dgvPurchaseReturn.Appearance.HeaderPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dgvPurchaseReturn.Appearance.HeaderPanel.Options.UseFont = true;
+            this.dgvPurchaseReturn.Appearance.Row.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
+            this.dgvPurchaseReturn.Appearance.Row.Options.UseFont = true;
+            this.dgvPurchaseReturn.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.clmDetJangedId,
             this.gridColumn13,
             this.gridColumn16,
-            this.clmJangedDate,
+            this.clmReturnDate,
             this.gridColumn46,
             this.gridColumn10,
             this.gridColumn40,
@@ -996,18 +999,18 @@
             this.gridColumn12,
             this.gridColumn14,
             this.gridColumn15,
-            this.clmPurchaseFirm});
-            this.dgvJangedEntry.GridControl = this.grdJangedEntry;
-            this.dgvJangedEntry.Name = "dgvJangedEntry";
-            this.dgvJangedEntry.OptionsBehavior.Editable = false;
-            this.dgvJangedEntry.OptionsBehavior.ReadOnly = true;
-            this.dgvJangedEntry.OptionsCustomization.AllowQuickHideColumns = false;
-            this.dgvJangedEntry.OptionsView.ColumnAutoWidth = false;
-            this.dgvJangedEntry.OptionsView.ShowAutoFilterRow = true;
-            this.dgvJangedEntry.OptionsView.ShowFooter = true;
-            this.dgvJangedEntry.OptionsView.ShowGroupPanel = false;
-            this.dgvJangedEntry.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.dgvJangedEntry_RowClick);
-            this.dgvJangedEntry.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.dgvJangedEntry_RowCellStyle);
+            this.ClmPurchaseFirm});
+            this.dgvPurchaseReturn.GridControl = this.grdPurchaseReturn;
+            this.dgvPurchaseReturn.Name = "dgvPurchaseReturn";
+            this.dgvPurchaseReturn.OptionsBehavior.Editable = false;
+            this.dgvPurchaseReturn.OptionsBehavior.ReadOnly = true;
+            this.dgvPurchaseReturn.OptionsCustomization.AllowQuickHideColumns = false;
+            this.dgvPurchaseReturn.OptionsView.ColumnAutoWidth = false;
+            this.dgvPurchaseReturn.OptionsView.ShowAutoFilterRow = true;
+            this.dgvPurchaseReturn.OptionsView.ShowFooter = true;
+            this.dgvPurchaseReturn.OptionsView.ShowGroupPanel = false;
+            this.dgvPurchaseReturn.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.dgvPurchaseEntry_RowClick);
+            this.dgvPurchaseReturn.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.dgvPurchaseEntry_RowCellStyle);
             // 
             // clmDetJangedId
             // 
@@ -1036,16 +1039,16 @@
             this.gridColumn16.VisibleIndex = 1;
             this.gridColumn16.Width = 87;
             // 
-            // clmJangedDate
+            // clmReturnDate
             // 
-            this.clmJangedDate.Caption = "Date";
-            this.clmJangedDate.FieldName = "janged_date";
-            this.clmJangedDate.Name = "clmJangedDate";
-            this.clmJangedDate.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.clmReturnDate.Caption = "Date";
+            this.clmReturnDate.FieldName = "return_date";
+            this.clmReturnDate.Name = "clmReturnDate";
+            this.clmReturnDate.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
-            this.clmJangedDate.Visible = true;
-            this.clmJangedDate.VisibleIndex = 0;
-            this.clmJangedDate.Width = 83;
+            this.clmReturnDate.Visible = true;
+            this.clmReturnDate.VisibleIndex = 0;
+            this.clmReturnDate.Width = 83;
             // 
             // gridColumn46
             // 
@@ -1253,16 +1256,25 @@
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.Visible = true;
             this.gridColumn14.VisibleIndex = 6;
-            this.gridColumn14.Width = 53;
+            this.gridColumn14.Width = 52;
             // 
             // gridColumn15
             // 
-            this.gridColumn15.Caption = "Due Date";
+            this.gridColumn15.Caption = "D. Date";
             this.gridColumn15.FieldName = "due_date";
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.Visible = true;
             this.gridColumn15.VisibleIndex = 7;
             this.gridColumn15.Width = 96;
+            // 
+            // ClmPurchaseFirm
+            // 
+            this.ClmPurchaseFirm.Caption = "Pur. Firm";
+            this.ClmPurchaseFirm.FieldName = "purchase_firm";
+            this.ClmPurchaseFirm.Name = "ClmPurchaseFirm";
+            this.ClmPurchaseFirm.Visible = true;
+            this.ClmPurchaseFirm.VisibleIndex = 5;
+            this.ClmPurchaseFirm.Width = 107;
             // 
             // panelControl2
             // 
@@ -1284,7 +1296,7 @@
             // lueJangedLedger
             // 
             this.lueJangedLedger.EnterMoveNextControl = true;
-            this.lueJangedLedger.Location = new System.Drawing.Point(729, 10);
+            this.lueJangedLedger.Location = new System.Drawing.Point(699, 10);
             this.lueJangedLedger.Name = "lueJangedLedger";
             this.lueJangedLedger.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueJangedLedger.Properties.Appearance.Options.UseFont = true;
@@ -1307,7 +1319,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label33.Location = new System.Drawing.Point(668, 12);
+            this.label33.Location = new System.Drawing.Point(638, 12);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(58, 16);
             this.label33.TabIndex = 28;
@@ -1316,7 +1328,7 @@
             // txtSearchVoucherNo
             // 
             this.txtSearchVoucherNo.EnterMoveNextControl = true;
-            this.txtSearchVoucherNo.Location = new System.Drawing.Point(529, 10);
+            this.txtSearchVoucherNo.Location = new System.Drawing.Point(502, 10);
             this.txtSearchVoucherNo.Name = "txtSearchVoucherNo";
             this.txtSearchVoucherNo.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchVoucherNo.Properties.Appearance.Options.UseFont = true;
@@ -1329,16 +1341,16 @@
             this.label34.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
             this.label34.Location = new System.Drawing.Point(434, 12);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(91, 16);
+            this.label34.Size = new System.Drawing.Size(67, 16);
             this.label34.TabIndex = 27;
-            this.label34.Text = "Voucher No";
+            this.label34.Text = "VCH. No";
             // 
             // btnSearch
             // 
             this.btnSearch.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Appearance.Options.UseFont = true;
             this.btnSearch.ImageOptions.Image = global::Account_Management.Properties.Resources.Search;
-            this.btnSearch.Location = new System.Drawing.Point(978, 4);
+            this.btnSearch.Location = new System.Drawing.Point(935, 4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(102, 32);
             this.btnSearch.TabIndex = 4;
@@ -1397,24 +1409,24 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "From Date : ";
             // 
-            // tblJangeddetail
+            // tblPurchaseReturndetail
             // 
-            this.tblJangeddetail.Controls.Add(this.panelControl7);
-            this.tblJangeddetail.Controls.Add(this.panelControl8);
-            this.tblJangeddetail.Controls.Add(this.panelControl6);
-            this.tblJangeddetail.Controls.Add(this.panelControl4);
-            this.tblJangeddetail.Name = "tblJangeddetail";
-            this.tblJangeddetail.Size = new System.Drawing.Size(1267, 714);
-            this.tblJangeddetail.Text = "Entry Details";
+            this.tblPurchaseReturndetail.Controls.Add(this.panelControl7);
+            this.tblPurchaseReturndetail.Controls.Add(this.panelControl8);
+            this.tblPurchaseReturndetail.Controls.Add(this.panelControl6);
+            this.tblPurchaseReturndetail.Controls.Add(this.panelControl4);
+            this.tblPurchaseReturndetail.Name = "tblPurchaseReturndetail";
+            this.tblPurchaseReturndetail.Size = new System.Drawing.Size(1267, 714);
+            this.tblPurchaseReturndetail.Text = "Entry Details";
             // 
             // panelControl7
             // 
             this.panelControl7.Controls.Add(this.panelProgress);
-            this.panelControl7.Controls.Add(this.grdJangedDetails);
+            this.panelControl7.Controls.Add(this.grdPurchaseReturnDetails);
             this.panelControl7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl7.Location = new System.Drawing.Point(0, 103);
+            this.panelControl7.Location = new System.Drawing.Point(0, 100);
             this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(1267, 502);
+            this.panelControl7.Size = new System.Drawing.Size(1267, 505);
             this.panelControl7.TabIndex = 25;
             // 
             // panelProgress
@@ -1453,34 +1465,34 @@
             this.SaveProgressBar.Size = new System.Drawing.Size(273, 25);
             this.SaveProgressBar.TabIndex = 0;
             // 
-            // grdJangedDetails
+            // grdPurchaseReturnDetails
             // 
-            this.grdJangedDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdJangedDetails.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grdJangedDetails.Location = new System.Drawing.Point(2, 2);
-            this.grdJangedDetails.MainView = this.dgvJangedDetails;
-            this.grdJangedDetails.Name = "grdJangedDetails";
-            this.grdJangedDetails.Size = new System.Drawing.Size(1263, 498);
-            this.grdJangedDetails.TabIndex = 0;
-            this.grdJangedDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dgvJangedDetails});
+            this.grdPurchaseReturnDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdPurchaseReturnDetails.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grdPurchaseReturnDetails.Location = new System.Drawing.Point(2, 2);
+            this.grdPurchaseReturnDetails.MainView = this.dgvPurchaseReturnDetails;
+            this.grdPurchaseReturnDetails.Name = "grdPurchaseReturnDetails";
+            this.grdPurchaseReturnDetails.Size = new System.Drawing.Size(1263, 501);
+            this.grdPurchaseReturnDetails.TabIndex = 0;
+            this.grdPurchaseReturnDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dgvPurchaseReturnDetails});
             // 
-            // dgvJangedDetails
+            // dgvPurchaseReturnDetails
             // 
-            this.dgvJangedDetails.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.dgvJangedDetails.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.dgvJangedDetails.Appearance.ColumnFilterButton.Options.UseBackColor = true;
-            this.dgvJangedDetails.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
-            this.dgvJangedDetails.Appearance.ColumnFilterButton.Options.UseForeColor = true;
-            this.dgvJangedDetails.Appearance.FooterPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dgvJangedDetails.Appearance.FooterPanel.Options.UseFont = true;
-            this.dgvJangedDetails.Appearance.HeaderPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dgvJangedDetails.Appearance.HeaderPanel.Options.UseFont = true;
-            this.dgvJangedDetails.Appearance.Row.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
-            this.dgvJangedDetails.Appearance.Row.Options.UseFont = true;
-            this.dgvJangedDetails.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.clmPurchaseDetailID,
-            this.clmPurchaseID,
+            this.dgvPurchaseReturnDetails.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.dgvPurchaseReturnDetails.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.dgvPurchaseReturnDetails.Appearance.ColumnFilterButton.Options.UseBackColor = true;
+            this.dgvPurchaseReturnDetails.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
+            this.dgvPurchaseReturnDetails.Appearance.ColumnFilterButton.Options.UseForeColor = true;
+            this.dgvPurchaseReturnDetails.Appearance.FooterPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dgvPurchaseReturnDetails.Appearance.FooterPanel.Options.UseFont = true;
+            this.dgvPurchaseReturnDetails.Appearance.HeaderPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dgvPurchaseReturnDetails.Appearance.HeaderPanel.Options.UseFont = true;
+            this.dgvPurchaseReturnDetails.Appearance.Row.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
+            this.dgvPurchaseReturnDetails.Appearance.Row.Options.UseFont = true;
+            this.dgvPurchaseReturnDetails.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.clmJangedDetailID,
+            this.clmJangedReturnID,
             this.clmItemID,
             this.clmItemName,
             this.clmColorID,
@@ -1503,33 +1515,34 @@
             this.clmSrNo,
             this.clmOldUnitName,
             this.clmOldUnitID,
-            this.clmJangedID});
-            this.dgvJangedDetails.GridControl = this.grdJangedDetails;
-            this.dgvJangedDetails.Name = "dgvJangedDetails";
-            this.dgvJangedDetails.OptionsBehavior.Editable = false;
-            this.dgvJangedDetails.OptionsBehavior.ReadOnly = true;
-            this.dgvJangedDetails.OptionsCustomization.AllowQuickHideColumns = false;
-            this.dgvJangedDetails.OptionsView.ColumnAutoWidth = false;
-            this.dgvJangedDetails.OptionsView.ShowAutoFilterRow = true;
-            this.dgvJangedDetails.OptionsView.ShowFooter = true;
-            this.dgvJangedDetails.OptionsView.ShowGroupPanel = false;
-            this.dgvJangedDetails.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.dgvJangedDetails_RowClick);
-            this.dgvJangedDetails.CustomSummaryCalculate += new DevExpress.Data.CustomSummaryEventHandler(this.dgvJangedDetails_CustomSummaryCalculate);
+            this.clmPurchaseReturnID,
+            this.clmReturnDetailID});
+            this.dgvPurchaseReturnDetails.GridControl = this.grdPurchaseReturnDetails;
+            this.dgvPurchaseReturnDetails.Name = "dgvPurchaseReturnDetails";
+            this.dgvPurchaseReturnDetails.OptionsBehavior.Editable = false;
+            this.dgvPurchaseReturnDetails.OptionsBehavior.ReadOnly = true;
+            this.dgvPurchaseReturnDetails.OptionsCustomization.AllowQuickHideColumns = false;
+            this.dgvPurchaseReturnDetails.OptionsView.ColumnAutoWidth = false;
+            this.dgvPurchaseReturnDetails.OptionsView.ShowAutoFilterRow = true;
+            this.dgvPurchaseReturnDetails.OptionsView.ShowFooter = true;
+            this.dgvPurchaseReturnDetails.OptionsView.ShowGroupPanel = false;
+            this.dgvPurchaseReturnDetails.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.dgvPurchaseDetails_RowClick);
+            this.dgvPurchaseReturnDetails.CustomSummaryCalculate += new DevExpress.Data.CustomSummaryEventHandler(this.dgvPurchaseDetails_CustomSummaryCalculate);
             // 
-            // clmPurchaseDetailID
+            // clmJangedDetailID
             // 
-            this.clmPurchaseDetailID.Caption = "PurchaseDetailID";
-            this.clmPurchaseDetailID.FieldName = "purchase_detail_id";
-            this.clmPurchaseDetailID.Name = "clmPurchaseDetailID";
-            this.clmPurchaseDetailID.OptionsColumn.AllowEdit = false;
+            this.clmJangedDetailID.Caption = "JangedDetail ID";
+            this.clmJangedDetailID.FieldName = "janged_detail_id";
+            this.clmJangedDetailID.Name = "clmJangedDetailID";
+            this.clmJangedDetailID.OptionsColumn.AllowEdit = false;
             // 
-            // clmPurchaseID
+            // clmJangedReturnID
             // 
-            this.clmPurchaseID.Caption = "Purchase ID";
-            this.clmPurchaseID.FieldName = "purchase_id";
-            this.clmPurchaseID.Name = "clmPurchaseID";
-            this.clmPurchaseID.OptionsColumn.AllowEdit = false;
-            this.clmPurchaseID.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.clmJangedReturnID.Caption = "Janged ID";
+            this.clmJangedReturnID.FieldName = "janged_id";
+            this.clmJangedReturnID.Name = "clmJangedReturnID";
+            this.clmJangedReturnID.OptionsColumn.AllowEdit = false;
+            this.clmJangedReturnID.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
             // 
             // clmItemID
@@ -1710,13 +1723,17 @@
             this.clmOldUnitID.Name = "clmOldUnitID";
             this.clmOldUnitID.OptionsColumn.AllowEdit = false;
             // 
-            // clmJangedID
+            // clmPurchaseReturnID
             // 
-            this.clmJangedID.Caption = "Janged ID";
-            this.clmJangedID.FieldName = "janged_id";
-            this.clmJangedID.Name = "clmJangedID";
-            this.clmJangedID.Visible = true;
-            this.clmJangedID.VisibleIndex = 8;
+            this.clmPurchaseReturnID.Caption = "PurchaseReturnID";
+            this.clmPurchaseReturnID.FieldName = "purchase_return_id";
+            this.clmPurchaseReturnID.Name = "clmPurchaseReturnID";
+            // 
+            // clmReturnDetailID
+            // 
+            this.clmReturnDetailID.Caption = "ReturnDetailID";
+            this.clmReturnDetailID.FieldName = "return_detail_id";
+            this.clmReturnDetailID.Name = "clmReturnDetailID";
             // 
             // panelControl8
             // 
@@ -1759,7 +1776,7 @@
             this.txtIGSTAmount.Properties.Mask.EditMask = "f0";
             this.txtIGSTAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtIGSTAmount.Properties.ReadOnly = true;
-            this.txtIGSTAmount.Size = new System.Drawing.Size(94, 20);
+            this.txtIGSTAmount.Size = new System.Drawing.Size(93, 20);
             this.txtIGSTAmount.TabIndex = 62;
             // 
             // label12
@@ -1784,7 +1801,7 @@
             this.txtIGSTPer.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtIGSTPer.Properties.Mask.EditMask = "f3";
             this.txtIGSTPer.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtIGSTPer.Size = new System.Drawing.Size(94, 20);
+            this.txtIGSTPer.Size = new System.Drawing.Size(93, 20);
             this.txtIGSTPer.TabIndex = 2;
             this.txtIGSTPer.EditValueChanged += new System.EventHandler(this.txtIGSTPer_EditValueChanged);
             // 
@@ -1906,7 +1923,7 @@
             // txtRoundOff
             // 
             this.txtRoundOff.EnterMoveNextControl = true;
-            this.txtRoundOff.Location = new System.Drawing.Point(800, 11);
+            this.txtRoundOff.Location = new System.Drawing.Point(837, 11);
             this.txtRoundOff.Name = "txtRoundOff";
             this.txtRoundOff.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRoundOff.Properties.Appearance.Options.UseFont = true;
@@ -1922,7 +1939,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.label31.Location = new System.Drawing.Point(685, 12);
+            this.label31.Location = new System.Drawing.Point(722, 12);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(109, 16);
             this.label31.TabIndex = 52;
@@ -1933,7 +1950,7 @@
             this.txtNetAmount.EditValue = "0";
             this.txtNetAmount.Enabled = false;
             this.txtNetAmount.EnterMoveNextControl = true;
-            this.txtNetAmount.Location = new System.Drawing.Point(800, 37);
+            this.txtNetAmount.Location = new System.Drawing.Point(837, 37);
             this.txtNetAmount.Name = "txtNetAmount";
             this.txtNetAmount.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txtNetAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
@@ -1954,7 +1971,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.label29.Location = new System.Drawing.Point(685, 38);
+            this.label29.Location = new System.Drawing.Point(722, 38);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(94, 16);
             this.label29.TabIndex = 50;
@@ -1963,7 +1980,7 @@
             // txtDiscountAmount
             // 
             this.txtDiscountAmount.EnterMoveNextControl = true;
-            this.txtDiscountAmount.Location = new System.Drawing.Point(585, 37);
+            this.txtDiscountAmount.Location = new System.Drawing.Point(581, 37);
             this.txtDiscountAmount.Name = "txtDiscountAmount";
             this.txtDiscountAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiscountAmount.Properties.Appearance.Options.UseFont = true;
@@ -1971,7 +1988,7 @@
             this.txtDiscountAmount.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtDiscountAmount.Properties.Mask.EditMask = "f0";
             this.txtDiscountAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtDiscountAmount.Size = new System.Drawing.Size(94, 20);
+            this.txtDiscountAmount.Size = new System.Drawing.Size(132, 20);
             this.txtDiscountAmount.TabIndex = 0;
             this.txtDiscountAmount.EditValueChanged += new System.EventHandler(this.txtDiscountAmount_EditValueChanged);
             this.txtDiscountAmount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDiscountAmt_KeyDown);
@@ -1980,7 +1997,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label25.Location = new System.Drawing.Point(503, 38);
+            this.label25.Location = new System.Drawing.Point(499, 38);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(77, 16);
             this.label25.TabIndex = 44;
@@ -1990,7 +2007,7 @@
             // 
             this.txtDiscountPer.Enabled = false;
             this.txtDiscountPer.EnterMoveNextControl = true;
-            this.txtDiscountPer.Location = new System.Drawing.Point(585, 11);
+            this.txtDiscountPer.Location = new System.Drawing.Point(581, 11);
             this.txtDiscountPer.Name = "txtDiscountPer";
             this.txtDiscountPer.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiscountPer.Properties.Appearance.Options.UseFont = true;
@@ -1998,7 +2015,7 @@
             this.txtDiscountPer.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtDiscountPer.Properties.Mask.EditMask = "f3";
             this.txtDiscountPer.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtDiscountPer.Size = new System.Drawing.Size(94, 20);
+            this.txtDiscountPer.Size = new System.Drawing.Size(132, 20);
             this.txtDiscountPer.TabIndex = 3;
             this.txtDiscountPer.EditValueChanged += new System.EventHandler(this.txtDiscountPer_EditValueChanged);
             this.txtDiscountPer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDiscountPer_KeyDown);
@@ -2007,7 +2024,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label26.Location = new System.Drawing.Point(503, 12);
+            this.label26.Location = new System.Drawing.Point(499, 12);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(74, 16);
             this.label26.TabIndex = 42;
@@ -2119,12 +2136,14 @@
             // 
             this.panelControl4.Controls.Add(this.CmbPurchaseFirm);
             this.panelControl4.Controls.Add(this.label10);
-            this.panelControl4.Controls.Add(this.labelControl4);
+            this.panelControl4.Controls.Add(this.labelControl6);
             this.panelControl4.Controls.Add(this.DTPDueDate);
-            this.panelControl4.Controls.Add(this.LueUnit);
             this.panelControl4.Controls.Add(this.txtTermDays);
-            this.panelControl4.Controls.Add(this.label15);
             this.panelControl4.Controls.Add(this.lblTerms);
+            this.panelControl4.Controls.Add(this.labelControl4);
+            this.panelControl4.Controls.Add(this.lblJanged_ID);
+            this.panelControl4.Controls.Add(this.LueUnit);
+            this.panelControl4.Controls.Add(this.label15);
             this.panelControl4.Controls.Add(this.LueSize);
             this.panelControl4.Controls.Add(this.label8);
             this.panelControl4.Controls.Add(this.LueColor);
@@ -2150,33 +2169,63 @@
             this.panelControl4.Controls.Add(this.lblInvoiceNo);
             this.panelControl4.Controls.Add(this.lblMode);
             this.panelControl4.Controls.Add(this.labelControl5);
-            this.panelControl4.Controls.Add(this.dtpJangedDate);
+            this.panelControl4.Controls.Add(this.dtpReturnDate);
             this.panelControl4.Controls.Add(this.label11);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl4.Location = new System.Drawing.Point(0, 0);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1267, 103);
+            this.panelControl4.Size = new System.Drawing.Size(1267, 100);
             this.panelControl4.TabIndex = 0;
             this.panelControl4.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl4_Paint);
             // 
-            // labelControl4
+            // CmbPurchaseFirm
             // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Appearance.Options.UseForeColor = true;
-            this.labelControl4.Location = new System.Drawing.Point(760, 40);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(55, 15);
-            this.labelControl4.TabIndex = 513;
-            this.labelControl4.Text = "Due Date";
+            this.CmbPurchaseFirm.EnterMoveNextControl = true;
+            this.CmbPurchaseFirm.Location = new System.Drawing.Point(438, 37);
+            this.CmbPurchaseFirm.Name = "CmbPurchaseFirm";
+            this.CmbPurchaseFirm.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbPurchaseFirm.Properties.Appearance.Options.UseFont = true;
+            this.CmbPurchaseFirm.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.CmbPurchaseFirm.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.CmbPurchaseFirm.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CmbPurchaseFirm.Properties.Items.AddRange(new object[] {
+            "Keya Fesion",
+            "CK Text",
+            "Saurastra Saree"});
+            this.CmbPurchaseFirm.Properties.PopupSizeable = true;
+            this.CmbPurchaseFirm.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.CmbPurchaseFirm.Size = new System.Drawing.Size(165, 20);
+            this.CmbPurchaseFirm.TabIndex = 522;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label10.Location = new System.Drawing.Point(320, 39);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(112, 16);
+            this.label10.TabIndex = 521;
+            this.label10.Text = "Purchase Firm";
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl6.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl6.Appearance.Options.UseFont = true;
+            this.labelControl6.Appearance.Options.UseForeColor = true;
+            this.labelControl6.Location = new System.Drawing.Point(739, 39);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(55, 15);
+            this.labelControl6.TabIndex = 518;
+            this.labelControl6.Text = "Due Date";
             // 
             // DTPDueDate
             // 
             this.DTPDueDate.EditValue = null;
             this.DTPDueDate.Enabled = false;
             this.DTPDueDate.EnterMoveNextControl = true;
-            this.DTPDueDate.Location = new System.Drawing.Point(821, 38);
+            this.DTPDueDate.Location = new System.Drawing.Point(800, 37);
             this.DTPDueDate.Name = "DTPDueDate";
             this.DTPDueDate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DTPDueDate.Properties.Appearance.Options.UseFont = true;
@@ -2189,14 +2238,66 @@
             this.DTPDueDate.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.DTPDueDate.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.Optimistic;
             this.DTPDueDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
-            this.DTPDueDate.Size = new System.Drawing.Size(116, 20);
-            this.DTPDueDate.TabIndex = 33;
+            this.DTPDueDate.Size = new System.Drawing.Size(125, 20);
+            this.DTPDueDate.TabIndex = 516;
             this.DTPDueDate.TabStop = false;
+            // 
+            // txtTermDays
+            // 
+            this.txtTermDays.EnterMoveNextControl = true;
+            this.txtTermDays.Location = new System.Drawing.Point(680, 37);
+            this.txtTermDays.Name = "txtTermDays";
+            this.txtTermDays.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTermDays.Properties.Appearance.Options.UseFont = true;
+            this.txtTermDays.Properties.Mask.EditMask = "\\d+";
+            this.txtTermDays.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtTermDays.Properties.Mask.ShowPlaceHolders = false;
+            this.txtTermDays.Properties.MaxLength = 4;
+            this.txtTermDays.Size = new System.Drawing.Size(55, 20);
+            this.txtTermDays.TabIndex = 515;
+            this.txtTermDays.EditValueChanged += new System.EventHandler(this.txtTermDays_EditValueChanged);
+            this.txtTermDays.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTermDays_KeyPress);
+            // 
+            // lblTerms
+            // 
+            this.lblTerms.Appearance.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTerms.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lblTerms.Appearance.Options.UseFont = true;
+            this.lblTerms.Appearance.Options.UseForeColor = true;
+            this.lblTerms.Location = new System.Drawing.Point(609, 39);
+            this.lblTerms.Name = "lblTerms";
+            this.lblTerms.Size = new System.Drawing.Size(65, 15);
+            this.lblTerms.TabIndex = 517;
+            this.lblTerms.Text = "Term Days";
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Appearance.Options.UseForeColor = true;
+            this.labelControl4.Location = new System.Drawing.Point(1132, 62);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(75, 13);
+            this.labelControl4.TabIndex = 514;
+            this.labelControl4.Text = "Janged No :";
+            // 
+            // lblJanged_ID
+            // 
+            this.lblJanged_ID.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJanged_ID.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lblJanged_ID.Appearance.Options.UseFont = true;
+            this.lblJanged_ID.Appearance.Options.UseForeColor = true;
+            this.lblJanged_ID.Location = new System.Drawing.Point(1214, 62);
+            this.lblJanged_ID.Name = "lblJanged_ID";
+            this.lblJanged_ID.Size = new System.Drawing.Size(69, 13);
+            this.lblJanged_ID.TabIndex = 513;
+            this.lblJanged_ID.Text = "Janged_ID";
             // 
             // LueUnit
             // 
             this.LueUnit.EnterMoveNextControl = true;
-            this.LueUnit.Location = new System.Drawing.Point(570, 72);
+            this.LueUnit.Location = new System.Drawing.Point(570, 69);
             this.LueUnit.Name = "LueUnit";
             this.LueUnit.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LueUnit.Properties.Appearance.Options.UseFont = true;
@@ -2215,48 +2316,20 @@
             this.LueUnit.Size = new System.Drawing.Size(99, 20);
             this.LueUnit.TabIndex = 8;
             // 
-            // txtTermDays
-            // 
-            this.txtTermDays.EnterMoveNextControl = true;
-            this.txtTermDays.Location = new System.Drawing.Point(701, 38);
-            this.txtTermDays.Name = "txtTermDays";
-            this.txtTermDays.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTermDays.Properties.Appearance.Options.UseFont = true;
-            this.txtTermDays.Properties.Mask.EditMask = "\\d+";
-            this.txtTermDays.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtTermDays.Properties.Mask.ShowPlaceHolders = false;
-            this.txtTermDays.Properties.MaxLength = 4;
-            this.txtTermDays.Size = new System.Drawing.Size(55, 20);
-            this.txtTermDays.TabIndex = 32;
-            this.txtTermDays.EditValueChanged += new System.EventHandler(this.txtTermDays_EditValueChanged);
-            this.txtTermDays.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTermDays_KeyPress);
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(526, 74);
+            this.label15.Location = new System.Drawing.Point(526, 71);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(37, 16);
             this.label15.TabIndex = 512;
             this.label15.Text = "Unit";
             // 
-            // lblTerms
-            // 
-            this.lblTerms.Appearance.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTerms.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.lblTerms.Appearance.Options.UseFont = true;
-            this.lblTerms.Appearance.Options.UseForeColor = true;
-            this.lblTerms.Location = new System.Drawing.Point(630, 40);
-            this.lblTerms.Name = "lblTerms";
-            this.lblTerms.Size = new System.Drawing.Size(65, 15);
-            this.lblTerms.TabIndex = 34;
-            this.lblTerms.Text = "Term Days";
-            // 
             // LueSize
             // 
             this.LueSize.EnterMoveNextControl = true;
-            this.LueSize.Location = new System.Drawing.Point(419, 72);
+            this.LueSize.Location = new System.Drawing.Point(419, 69);
             this.LueSize.Name = "LueSize";
             this.LueSize.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LueSize.Properties.Appearance.Options.UseFont = true;
@@ -2279,7 +2352,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(375, 74);
+            this.label8.Location = new System.Drawing.Point(375, 71);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 16);
             this.label8.TabIndex = 510;
@@ -2288,7 +2361,7 @@
             // LueColor
             // 
             this.LueColor.EnterMoveNextControl = true;
-            this.LueColor.Location = new System.Drawing.Point(270, 72);
+            this.LueColor.Location = new System.Drawing.Point(270, 69);
             this.LueColor.Name = "LueColor";
             this.LueColor.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LueColor.Properties.Appearance.Options.UseFont = true;
@@ -2311,7 +2384,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(218, 74);
+            this.label6.Location = new System.Drawing.Point(218, 71);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 16);
             this.label6.TabIndex = 508;
@@ -2323,7 +2396,7 @@
             this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Appearance.Options.UseForeColor = true;
-            this.labelControl2.Location = new System.Drawing.Point(479, 9);
+            this.labelControl2.Location = new System.Drawing.Point(465, 9);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(28, 16);
             this.labelControl2.TabIndex = 505;
@@ -2332,12 +2405,12 @@
             // txtPurchaseBill
             // 
             this.txtPurchaseBill.EnterMoveNextControl = true;
-            this.txtPurchaseBill.Location = new System.Drawing.Point(402, 7);
+            this.txtPurchaseBill.Location = new System.Drawing.Point(394, 7);
             this.txtPurchaseBill.Name = "txtPurchaseBill";
             this.txtPurchaseBill.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPurchaseBill.Properties.Appearance.Options.UseFont = true;
             this.txtPurchaseBill.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPurchaseBill.Size = new System.Drawing.Size(73, 20);
+            this.txtPurchaseBill.Size = new System.Drawing.Size(68, 20);
             this.txtPurchaseBill.TabIndex = 2;
             // 
             // labelControl9
@@ -2346,7 +2419,7 @@
             this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl9.Appearance.Options.UseFont = true;
             this.labelControl9.Appearance.Options.UseForeColor = true;
-            this.labelControl9.Location = new System.Drawing.Point(341, 9);
+            this.labelControl9.Location = new System.Drawing.Point(333, 9);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(55, 16);
             this.labelControl9.TabIndex = 504;
@@ -2355,7 +2428,7 @@
             // txtPcs
             // 
             this.txtPcs.EnterMoveNextControl = true;
-            this.txtPcs.Location = new System.Drawing.Point(704, 72);
+            this.txtPcs.Location = new System.Drawing.Point(704, 69);
             this.txtPcs.Name = "txtPcs";
             this.txtPcs.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPcs.Properties.Appearance.Options.UseFont = true;
@@ -2367,7 +2440,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(671, 74);
+            this.label3.Location = new System.Drawing.Point(671, 71);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 16);
             this.label3.TabIndex = 4;
@@ -2378,7 +2451,7 @@
             this.btnAdd.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Appearance.Options.UseFont = true;
             this.btnAdd.ImageOptions.Image = global::Account_Management.Properties.Resources.Add_final;
-            this.btnAdd.Location = new System.Drawing.Point(1034, 67);
+            this.btnAdd.Location = new System.Drawing.Point(1034, 64);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(92, 32);
             this.btnAdd.TabIndex = 12;
@@ -2389,7 +2462,7 @@
             // 
             this.txtAmount.Enabled = false;
             this.txtAmount.EnterMoveNextControl = true;
-            this.txtAmount.Location = new System.Drawing.Point(949, 72);
+            this.txtAmount.Location = new System.Drawing.Point(949, 69);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmount.Properties.Appearance.Options.UseFont = true;
@@ -2400,7 +2473,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(904, 74);
+            this.label18.Location = new System.Drawing.Point(904, 71);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(43, 16);
             this.label18.TabIndex = 10;
@@ -2423,7 +2496,7 @@
             // txtRate
             // 
             this.txtRate.EnterMoveNextControl = true;
-            this.txtRate.Location = new System.Drawing.Point(819, 72);
+            this.txtRate.Location = new System.Drawing.Point(819, 69);
             this.txtRate.Name = "txtRate";
             this.txtRate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRate.Properties.Appearance.Options.UseFont = true;
@@ -2435,7 +2508,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label17.Location = new System.Drawing.Point(772, 74);
+            this.label17.Location = new System.Drawing.Point(772, 71);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(41, 16);
             this.label17.TabIndex = 8;
@@ -2461,7 +2534,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ledger_id", "Ledger ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lueParty.Properties.NullText = "";
             this.lueParty.Properties.ShowHeader = false;
-            this.lueParty.Size = new System.Drawing.Size(267, 20);
+            this.lueParty.Size = new System.Drawing.Size(246, 20);
             this.lueParty.TabIndex = 4;
             this.lueParty.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.lueParty_ButtonClick);
             // 
@@ -2482,7 +2555,7 @@
             // lueItem
             // 
             this.lueItem.EnterMoveNextControl = true;
-            this.lueItem.Location = new System.Drawing.Point(47, 72);
+            this.lueItem.Location = new System.Drawing.Point(47, 69);
             this.lueItem.Name = "lueItem";
             this.lueItem.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueItem.Properties.Appearance.Options.UseFont = true;
@@ -2515,7 +2588,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(5, 74);
+            this.label14.Location = new System.Drawing.Point(5, 71);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(43, 16);
             this.label14.TabIndex = 0;
@@ -2524,7 +2597,7 @@
             // lueGSTRate
             // 
             this.lueGSTRate.EnterMoveNextControl = true;
-            this.lueGSTRate.Location = new System.Drawing.Point(513, 7);
+            this.lueGSTRate.Location = new System.Drawing.Point(499, 7);
             this.lueGSTRate.Name = "lueGSTRate";
             this.lueGSTRate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueGSTRate.Properties.Appearance.Options.UseFont = true;
@@ -2548,14 +2621,14 @@
             // 
             // txtVoucherNo
             // 
-            this.txtVoucherNo.Enabled = false;
             this.txtVoucherNo.EnterMoveNextControl = true;
             this.txtVoucherNo.Location = new System.Drawing.Point(266, 7);
             this.txtVoucherNo.Name = "txtVoucherNo";
             this.txtVoucherNo.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVoucherNo.Properties.Appearance.Options.UseFont = true;
-            this.txtVoucherNo.Size = new System.Drawing.Size(69, 20);
+            this.txtVoucherNo.Size = new System.Drawing.Size(63, 20);
             this.txtVoucherNo.TabIndex = 1;
+            this.txtVoucherNo.Validated += new System.EventHandler(this.txtVoucherNo_Validated);
             // 
             // lblInvoiceNo
             // 
@@ -2573,7 +2646,7 @@
             this.lblMode.Appearance.ForeColor = System.Drawing.Color.Red;
             this.lblMode.Appearance.Options.UseFont = true;
             this.lblMode.Appearance.Options.UseForeColor = true;
-            this.lblMode.Location = new System.Drawing.Point(1143, 76);
+            this.lblMode.Location = new System.Drawing.Point(1132, 81);
             this.lblMode.Name = "lblMode";
             this.lblMode.Size = new System.Drawing.Size(63, 13);
             this.lblMode.TabIndex = 12;
@@ -2593,22 +2666,22 @@
             this.labelControl5.TabIndex = 4;
             this.labelControl5.Text = "* ";
             // 
-            // dtpJangedDate
+            // dtpReturnDate
             // 
-            this.dtpJangedDate.EditValue = null;
-            this.dtpJangedDate.EnterMoveNextControl = true;
-            this.dtpJangedDate.Location = new System.Drawing.Point(61, 7);
-            this.dtpJangedDate.Name = "dtpJangedDate";
-            this.dtpJangedDate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.dtpJangedDate.Properties.Appearance.Options.UseFont = true;
-            this.dtpJangedDate.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.dtpJangedDate.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.dtpJangedDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtpReturnDate.EditValue = null;
+            this.dtpReturnDate.EnterMoveNextControl = true;
+            this.dtpReturnDate.Location = new System.Drawing.Point(61, 7);
+            this.dtpReturnDate.Name = "dtpReturnDate";
+            this.dtpReturnDate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.dtpReturnDate.Properties.Appearance.Options.UseFont = true;
+            this.dtpReturnDate.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.dtpReturnDate.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.dtpReturnDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpJangedDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtpReturnDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpJangedDate.Size = new System.Drawing.Size(119, 20);
-            this.dtpJangedDate.TabIndex = 0;
+            this.dtpReturnDate.Size = new System.Drawing.Size(119, 20);
+            this.dtpReturnDate.TabIndex = 0;
             // 
             // label11
             // 
@@ -2856,82 +2929,43 @@
             this.gridColumn9.VisibleIndex = 5;
             this.gridColumn9.Width = 150;
             // 
-            // backgroundWorker_JangedEntry
+            // backgroundWorker_PurchaseReturn
             // 
-            this.backgroundWorker_JangedEntry.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_JangedEntry_DoWork);
-            this.backgroundWorker_JangedEntry.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_JangedEntry_RunWorkerCompleted);
+            this.backgroundWorker_PurchaseReturn.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_PurchaseReturn_DoWork);
+            this.backgroundWorker_PurchaseReturn.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_PurchaseReturn_RunWorkerCompleted);
             // 
-            // backgroundWorker_JangedDelete
+            // backgroundWorker_PurchaseReturnDelete
             // 
-            this.backgroundWorker_JangedDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_JangedDelete_DoWork);
-            this.backgroundWorker_JangedDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_JangedDelete_RunWorkerCompleted);
+            this.backgroundWorker_PurchaseReturnDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_PurchaseReturnDelete_DoWork);
+            this.backgroundWorker_PurchaseReturnDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_PurchaseReturnDelete_RunWorkerCompleted);
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(341, 39);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(112, 16);
-            this.label10.TabIndex = 514;
-            this.label10.Text = "Purchase Firm";
-            // 
-            // CmbPurchaseFirm
-            // 
-            this.CmbPurchaseFirm.EnterMoveNextControl = true;
-            this.CmbPurchaseFirm.Location = new System.Drawing.Point(459, 37);
-            this.CmbPurchaseFirm.Name = "CmbPurchaseFirm";
-            this.CmbPurchaseFirm.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmbPurchaseFirm.Properties.Appearance.Options.UseFont = true;
-            this.CmbPurchaseFirm.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.CmbPurchaseFirm.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.CmbPurchaseFirm.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CmbPurchaseFirm.Properties.Items.AddRange(new object[] {
-            "Keya Fesion",
-            "CK Text",
-            "Saurastra Saree"});
-            this.CmbPurchaseFirm.Properties.PopupSizeable = true;
-            this.CmbPurchaseFirm.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.CmbPurchaseFirm.Size = new System.Drawing.Size(165, 20);
-            this.CmbPurchaseFirm.TabIndex = 520;
-            // 
-            // clmPurchaseFirm
-            // 
-            this.clmPurchaseFirm.Caption = "Pur. Firm";
-            this.clmPurchaseFirm.FieldName = "purchase_firm";
-            this.clmPurchaseFirm.Name = "clmPurchaseFirm";
-            this.clmPurchaseFirm.Visible = true;
-            this.clmPurchaseFirm.VisibleIndex = 5;
-            this.clmPurchaseFirm.Width = 96;
-            // 
-            // FrmJangedEntry
+            // FrmPurchaseReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 742);
-            this.Controls.Add(this.ttlbJagedInvoice);
+            this.Controls.Add(this.ttlbPurchaseReturn);
             this.Controls.Add(this.panelControl3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmJangedEntry";
+            this.Name = "FrmPurchaseReturn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Janged Entry";
-            this.Load += new System.EventHandler(this.FrmJangedEntry_Load);
+            this.Text = "Purchase Return";
+            this.Load += new System.EventHandler(this.FrmPurchase_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptcDelete)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ttlbJagedInvoice)).EndInit();
-            this.ttlbJagedInvoice.ResumeLayout(false);
-            this.tblJangedList.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ttlbPurchaseReturn)).EndInit();
+            this.ttlbPurchaseReturn.ResumeLayout(false);
+            this.tblPurchaseReturnList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdJangedEntry)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPurchaseReturn)).EndInit();
             this.ContextMNExport.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvJangedEntry)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPurchaseReturn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
@@ -2941,15 +2975,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpToDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFromDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFromDate.Properties)).EndInit();
-            this.tblJangeddetail.ResumeLayout(false);
+            this.tblPurchaseReturndetail.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
             this.panelControl7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelProgress)).EndInit();
             this.panelProgress.ResumeLayout(false);
             this.panelProgress.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SaveProgressBar.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdJangedDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvJangedDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPurchaseReturnDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPurchaseReturnDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
             this.panelControl8.ResumeLayout(false);
             this.panelControl8.PerformLayout();
@@ -2970,10 +3004,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             this.panelControl4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CmbPurchaseFirm.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPDueDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPDueDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LueUnit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTermDays.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LueUnit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LueSize.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LueColor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPurchaseBill.Properties)).EndInit();
@@ -2984,11 +3019,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueItem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueGSTRate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVoucherNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpJangedDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpJangedDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpReturnDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpReturnDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CmbPurchaseFirm.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2996,11 +3030,11 @@
         #endregion
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraBars.Docking.DockManager dockManager1;
-        private DevExpress.XtraTab.XtraTabControl ttlbJagedInvoice;
-        private DevExpress.XtraTab.XtraTabPage tblJangedList;
+        private DevExpress.XtraTab.XtraTabControl ttlbPurchaseReturn;
+        private DevExpress.XtraTab.XtraTabPage tblPurchaseReturnList;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraTab.XtraTabPage tblJangeddetail;
+        private DevExpress.XtraTab.XtraTabPage tblPurchaseReturndetail;
         private DevExpress.XtraEditors.PanelControl panelControl4;
         private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit2;
         private DevExpress.XtraGrid.Columns.GridColumn clmInternalTransferID;
@@ -3062,16 +3096,16 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
-        private DevExpress.XtraGrid.GridControl grdJangedEntry;
-        private DevExpress.XtraGrid.Views.Grid.GridView dgvJangedEntry;
+        private DevExpress.XtraGrid.GridControl grdPurchaseReturn;
+        private DevExpress.XtraGrid.Views.Grid.GridView dgvPurchaseReturn;
         private DevExpress.XtraGrid.Columns.GridColumn clmDetJangedId;
-        private DevExpress.XtraEditors.DateEdit dtpJangedDate;
+        private DevExpress.XtraEditors.DateEdit dtpReturnDate;
         private System.Windows.Forms.Label label11;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraGrid.GridControl grdJangedDetails;
-        private DevExpress.XtraGrid.Views.Grid.GridView dgvJangedDetails;
-        private DevExpress.XtraGrid.Columns.GridColumn clmPurchaseDetailID;
-        private DevExpress.XtraGrid.Columns.GridColumn clmPurchaseID;
+        private DevExpress.XtraGrid.GridControl grdPurchaseReturnDetails;
+        private DevExpress.XtraGrid.Views.Grid.GridView dgvPurchaseReturnDetails;
+        private DevExpress.XtraGrid.Columns.GridColumn clmJangedDetailID;
+        private DevExpress.XtraGrid.Columns.GridColumn clmJangedReturnID;
         private DevExpress.XtraGrid.Columns.GridColumn clmItemID;
         private DevExpress.XtraGrid.Columns.GridColumn clmItemName;
         private DevExpress.XtraGrid.Columns.GridColumn clmColorID;
@@ -3137,7 +3171,7 @@
         private DevExpress.XtraEditors.PanelControl panelProgress;
         private System.Windows.Forms.Label lblProgressCount;
         private DevExpress.XtraEditors.MarqueeProgressBarControl SaveProgressBar;
-        private System.ComponentModel.BackgroundWorker backgroundWorker_JangedEntry;
+        private System.ComponentModel.BackgroundWorker backgroundWorker_PurchaseReturn;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private System.Windows.Forms.Label label33;
         private DevExpress.XtraEditors.TextEdit txtSearchVoucherNo;
@@ -3147,7 +3181,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn40;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn25;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn31;
-        private System.ComponentModel.BackgroundWorker backgroundWorker_JangedDelete;
+        private System.ComponentModel.BackgroundWorker backgroundWorker_PurchaseReturnDelete;
         private DevExpress.XtraGrid.Columns.GridColumn clmEntryBy;
         private DevExpress.XtraGrid.Columns.GridColumn clmEntryDate;
         private DevExpress.XtraGrid.Columns.GridColumn clmEntryTime;
@@ -3162,7 +3196,7 @@
         private System.Windows.Forms.ToolStripMenuItem MNExportRTF;
         private System.Windows.Forms.ToolStripMenuItem MNExportCSV;
         private DevExpress.XtraGrid.Columns.GridColumn clmNetAmount;
-        private DevExpress.XtraGrid.Columns.GridColumn clmJangedDate;
+        private DevExpress.XtraGrid.Columns.GridColumn clmReturnDate;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn46;
         private DevExpress.XtraGrid.Columns.GridColumn ClmFinalTermsDays;
         private DevExpress.XtraEditors.TextEdit txtPurchaseBill;
@@ -3190,15 +3224,18 @@
         private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
-        private DevExpress.XtraGrid.Columns.GridColumn clmJangedID;
+        private DevExpress.XtraEditors.LabelControl lblJanged_ID;
         private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraGrid.Columns.GridColumn clmPurchaseReturnID;
+        private DevExpress.XtraGrid.Columns.GridColumn clmReturnDetailID;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.DateEdit DTPDueDate;
         private DevExpress.XtraEditors.TextEdit txtTermDays;
         private DevExpress.XtraEditors.LabelControl lblTerms;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
-        private System.Windows.Forms.Label label10;
         private DevExpress.XtraEditors.ComboBoxEdit CmbPurchaseFirm;
-        private DevExpress.XtraGrid.Columns.GridColumn clmPurchaseFirm;
+        private System.Windows.Forms.Label label10;
+        private DevExpress.XtraGrid.Columns.GridColumn ClmPurchaseFirm;
     }
 }

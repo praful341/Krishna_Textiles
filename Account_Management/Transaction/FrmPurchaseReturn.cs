@@ -20,7 +20,7 @@ using static Account_Management.Class.Global;
 
 namespace Account_Management.Transaction
 {
-    public partial class FrmPurchase : DevExpress.XtraEditors.XtraForm
+    public partial class FrmPurchaseReturn : DevExpress.XtraEditors.XtraForm
     {
         #region Data Member
         BLL.BeginTranConnection Conn;
@@ -32,18 +32,15 @@ namespace Account_Management.Transaction
         private List<Control> _tabControls;
         public delegate void SetControlValueCallback(Control oControl, string propName, object propValue);
 
-        Purchase objPurchase = new Purchase();
+        PurchaseReturn objPurchaseReturn = new PurchaseReturn();
         UserAuthentication objUserAuthentication = new UserAuthentication();
-        //AssortMaster objAssort = new AssortMaster();
-        //SieveMaster objSieve = new SieveMaster();
-        //RateMaster objRate = new RateMaster();
 
         DataTable DtControlSettings = new DataTable();
-        DataTable m_dtbPurchaseDetails = new DataTable();
+        DataTable m_dtbPurchaseReturnDetails = new DataTable();
         DataTable m_dtbDetails = new DataTable();
         DataSet m_dtbVoucher_JangedDetail = new DataSet();
 
-        int m_purchase_detail_id;
+        int m_purchaseReturn_detail_id;
         int m_srno;
         int m_update_srno;
         int m_numForm_id;
@@ -58,7 +55,7 @@ namespace Account_Management.Transaction
         #endregion
 
         #region Constructor
-        public FrmPurchase()
+        public FrmPurchaseReturn()
         {
             InitializeComponent();
 
@@ -69,13 +66,13 @@ namespace Account_Management.Transaction
             _NextEnteredControl = new Control();
             _tabControls = new List<Control>();
 
-            objPurchase = new Purchase();
+            objPurchaseReturn = new PurchaseReturn();
             objUserAuthentication = new UserAuthentication();
 
             DtControlSettings = new DataTable();
             m_dtbDetails = new DataTable();
 
-            m_purchase_detail_id = 0;
+            m_purchaseReturn_detail_id = 0;
             m_srno = 0;
             m_update_srno = 0;
             m_numForm_id = 0;
@@ -258,7 +255,7 @@ namespace Account_Management.Transaction
             objBOFormEvents.FormKeyDown = true;
             objBOFormEvents.FormResize = true;
             objBOFormEvents.FormClosing = true;
-            objBOFormEvents.ObjToDispose.Add(objPurchase);
+            objBOFormEvents.ObjToDispose.Add(objPurchaseReturn);
             objBOFormEvents.ObjToDispose.Add(Val);
             objBOFormEvents.ObjToDispose.Add(objBOFormEvents);
 
@@ -351,7 +348,7 @@ namespace Account_Management.Transaction
 
             DevExpress.Data.CurrencyDataController.DisableThreadingProblemsDetection = true;
             panelProgress.Visible = true;
-            backgroundWorker_PurchaseEntry.RunWorkerAsync();
+            backgroundWorker_PurchaseReturn.RunWorkerAsync();
 
             btnSave.Enabled = true;
         }
@@ -396,7 +393,7 @@ namespace Account_Management.Transaction
 
             DevExpress.Data.CurrencyDataController.DisableThreadingProblemsDetection = true;
             panelProgress.Visible = true;
-            backgroundWorker_PurchaseDelete.RunWorkerAsync();
+            backgroundWorker_PurchaseReturnDelete.RunWorkerAsync();
 
             btnDelete.Enabled = true;
         }
@@ -563,11 +560,11 @@ namespace Account_Management.Transaction
                 dtpToDate.Properties.CharacterCasing = CharacterCasing.Upper;
                 dtpToDate.EditValue = DateTime.Now;
 
-                dtpPurchaseDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpPurchaseDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
-                dtpPurchaseDate.Properties.Mask.UseMaskAsDisplayFormat = true;
-                dtpPurchaseDate.Properties.CharacterCasing = CharacterCasing.Upper;
-                dtpPurchaseDate.EditValue = DateTime.Now;
+                dtpReturnDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
+                dtpReturnDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpReturnDate.Properties.Mask.UseMaskAsDisplayFormat = true;
+                dtpReturnDate.Properties.CharacterCasing = CharacterCasing.Upper;
+                dtpReturnDate.EditValue = DateTime.Now;
 
                 btnClear_Click(null, null);
                 btnSearch_Click(null, null);
@@ -603,9 +600,9 @@ namespace Account_Management.Transaction
                 }
                 if (btnAdd.Text == "&Add")
                 {
-                    objPurchase = new Purchase();
+                    objPurchaseReturn = new PurchaseReturn();
 
-                    DataRow[] dr = m_dtbPurchaseDetails.Select("item_id = " + Val.ToInt(lueItem.EditValue) + " AND color_id = " + Val.ToInt(LueColor.EditValue) + " AND size_id = " + Val.ToInt(LueSize.EditValue) + " AND unit_id = " + Val.ToInt(LueUnit.EditValue));
+                    DataRow[] dr = m_dtbPurchaseReturnDetails.Select("item_id = " + Val.ToInt(lueItem.EditValue) + " AND color_id = " + Val.ToInt(LueColor.EditValue) + " AND size_id = " + Val.ToInt(LueSize.EditValue) + " AND unit_id = " + Val.ToInt(LueUnit.EditValue));
 
                     if (dr.Count() == 1)
                     {
@@ -614,13 +611,13 @@ namespace Account_Management.Transaction
                         blnReturn = false;
                         return blnReturn;
                     }
-                    DataRow drwNew = m_dtbPurchaseDetails.NewRow();
+                    DataRow drwNew = m_dtbPurchaseReturnDetails.NewRow();
                     decimal numRate = Val.ToDecimal(txtRate.Text);
                     decimal numAmount = Val.ToDecimal(txtAmount.Text);
                     int numPcs = Val.ToInt(txtPcs.Text);
 
-                    drwNew["purchase_id"] = Val.ToInt(0);
-                    drwNew["purchase_detail_id"] = Val.ToInt(0);
+                    drwNew["purchase_return_id"] = Val.ToInt(0);
+                    drwNew["return_detail_id"] = Val.ToInt(0);
 
                     drwNew["janged_id"] = Val.ToInt(lblJanged_ID.Text);
 
@@ -644,35 +641,16 @@ namespace Account_Management.Transaction
                     m_srno = m_srno + 1;
                     drwNew["sr_no"] = Val.ToInt(m_srno);
 
-                    m_dtbPurchaseDetails.Rows.Add(drwNew);
+                    m_dtbPurchaseReturnDetails.Rows.Add(drwNew);
 
-                    dgvPurchaseDetails.MoveLast();
+                    dgvPurchaseReturnDetails.MoveLast();
 
-                    if (Val.ToDecimal(txtDiscountAmount.Text) > 0)
-                    {
-                        decimal CGST_amount = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) - Val.ToDecimal(txtDiscountAmount.Text)) * Val.ToDecimal(txtCGSTPer.Text) / 100, 2);
-                        txtCGSTAmount.Text = CGST_amount.ToString();
-                        decimal SGST_amount = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) - Val.ToDecimal(txtDiscountAmount.Text)) * Val.ToDecimal(txtSGSTPer.Text) / 100, 2);
-                        txtSGSTAmount.Text = SGST_amount.ToString();
-                        decimal IGST_amount = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) - Val.ToDecimal(txtDiscountAmount.Text)) * Val.ToDecimal(txtIGSTPer.Text) / 100, 2);
-                        txtIGSTAmount.Text = IGST_amount.ToString();
-                    }
-                    else
-                    {
-                        decimal CGST_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtCGSTPer.Text) / 100, 2);
-                        txtCGSTAmount.Text = CGST_amount.ToString();
-                        decimal SGST_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtSGSTPer.Text) / 100, 2);
-                        txtSGSTAmount.Text = SGST_amount.ToString();
-                        decimal IGST_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtIGSTPer.Text) / 100, 2);
-                        txtIGSTAmount.Text = IGST_amount.ToString();
-                    }
-
-                    //decimal CGST_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtCGSTPer.Text) / 100, 2);
-                    //txtCGSTAmount.Text = CGST_amount.ToString();
-                    //decimal SGST_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtSGSTPer.Text) / 100, 2);
-                    //txtSGSTAmount.Text = SGST_amount.ToString();
-                    //decimal IGST_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtIGSTPer.Text) / 100, 2);
-                    //txtIGSTAmount.Text = IGST_amount.ToString();
+                    decimal CGST_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtCGSTPer.Text) / 100, 2);
+                    txtCGSTAmount.Text = CGST_amount.ToString();
+                    decimal SGST_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtSGSTPer.Text) / 100, 2);
+                    txtSGSTAmount.Text = SGST_amount.ToString();
+                    decimal IGST_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtIGSTPer.Text) / 100, 2);
+                    txtIGSTAmount.Text = IGST_amount.ToString();
 
                     //decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtInterestAmount.Text) + Val.ToDecimal(txtCGSTAmount.Text) + Val.ToDecimal(txtSGSTAmount.Text) + Val.ToDecimal(txtIGSTAmount.Text)) - (Val.ToDecimal(txtDiscountAmount.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
                     //txtNetAmount.Text = Shipping_Charge.ToString();
@@ -689,32 +667,32 @@ namespace Account_Management.Transaction
                         return blnReturn;
                     }
 
-                    objPurchase = new Purchase();
+                    objPurchaseReturn = new PurchaseReturn();
 
-                    if (m_dtbPurchaseDetails.Select("item_id ='" + Val.ToInt(lueItem.EditValue) + "' AND color_id ='" + Val.ToInt(LueColor.EditValue) + "' AND size_id ='" + Val.ToInt(LueSize.EditValue) + "' AND unit_id ='" + Val.ToInt(LueUnit.EditValue) + "'").Length > 0)
+                    if (m_dtbPurchaseReturnDetails.Select("item_id ='" + Val.ToInt(lueItem.EditValue) + "' AND color_id ='" + Val.ToInt(LueColor.EditValue) + "' AND size_id ='" + Val.ToInt(LueSize.EditValue) + "' AND unit_id ='" + Val.ToInt(LueUnit.EditValue) + "'").Length > 0)
                     {
-                        for (int i = 0; i < m_dtbPurchaseDetails.Rows.Count; i++)
+                        for (int i = 0; i < m_dtbPurchaseReturnDetails.Rows.Count; i++)
                         {
-                            if (m_dtbPurchaseDetails.Select("purchase_detail_id ='" + m_purchase_detail_id + "' AND sr_no = '" + m_update_srno + "'").Length > 0)
+                            if (m_dtbPurchaseReturnDetails.Select("return_detail_id ='" + m_purchaseReturn_detail_id + "' AND sr_no = '" + m_update_srno + "'").Length > 0)
                             {
-                                if (m_dtbPurchaseDetails.Rows[m_update_srno - 1]["purchase_detail_id"].ToString() == m_purchase_detail_id.ToString())
+                                if (m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["return_detail_id"].ToString() == m_purchaseReturn_detail_id.ToString())
                                 {
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["rate"] = Val.ToDecimal(txtRate.Text);
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["flag"] = 1;
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["amount"] = Math.Round(Val.ToDecimal(txtPcs.Text) * Val.ToDecimal(txtRate.Text), 3);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["rate"] = Val.ToDecimal(txtRate.Text);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["flag"] = 1;
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["amount"] = Math.Round(Val.ToDecimal(txtPcs.Text) * Val.ToDecimal(txtRate.Text), 3);
 
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["item_id"] = Val.ToInt(lueItem.EditValue);
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["item_name"] = Val.ToString(lueItem.Text);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["item_id"] = Val.ToInt(lueItem.EditValue);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["item_name"] = Val.ToString(lueItem.Text);
 
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["color_id"] = Val.ToInt(LueColor.EditValue);
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["color_name"] = Val.ToString(LueColor.Text);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["color_id"] = Val.ToInt(LueColor.EditValue);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["color_name"] = Val.ToString(LueColor.Text);
 
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["size_id"] = Val.ToInt(LueSize.EditValue);
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["size_name"] = Val.ToString(LueSize.Text);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["size_id"] = Val.ToInt(LueSize.EditValue);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["size_name"] = Val.ToString(LueSize.Text);
 
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["unit_id"] = Val.ToInt(LueUnit.EditValue);
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["unit_name"] = Val.ToString(LueUnit.Text);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["unit_id"] = Val.ToInt(LueUnit.EditValue);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["unit_name"] = Val.ToString(LueUnit.Text);
 
                                     break;
                                 }
@@ -724,53 +702,32 @@ namespace Account_Management.Transaction
                     }
                     else
                     {
-                        for (int i = 0; i < m_dtbPurchaseDetails.Rows.Count; i++)
+                        for (int i = 0; i < m_dtbPurchaseReturnDetails.Rows.Count; i++)
                         {
-                            if (m_dtbPurchaseDetails.Select("purchase_detail_id ='" + m_purchase_detail_id + "' AND sr_no = '" + m_update_srno + "'").Length > 0)
+                            if (m_dtbPurchaseReturnDetails.Select("return_detail_id ='" + m_purchaseReturn_detail_id + "' AND sr_no = '" + m_update_srno + "'").Length > 0)
                             {
-                                if (m_dtbPurchaseDetails.Rows[m_update_srno - 1]["purchase_detail_id"].ToString() == m_purchase_detail_id.ToString())
+                                if (m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["return_detail_id"].ToString() == m_purchaseReturn_detail_id.ToString())
                                 {
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["rate"] = Val.ToDecimal(txtRate.Text);
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["flag"] = 1;
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["item_id"] = Val.ToInt(lueItem.EditValue);
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["color_id"] = Val.ToInt(LueColor.EditValue);
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["size_id"] = Val.ToInt(LueSize.EditValue);
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["unit_id"] = Val.ToInt(LueUnit.EditValue);
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["item_name"] = Val.ToString(lueItem.Text);
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["color_name"] = Val.ToString(LueColor.Text);
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["size_name"] = Val.ToString(LueSize.Text);
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["unit_name"] = Val.ToString(LueUnit.Text);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["rate"] = Val.ToDecimal(txtRate.Text);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["flag"] = 1;
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["item_id"] = Val.ToInt(lueItem.EditValue);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["color_id"] = Val.ToInt(LueColor.EditValue);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["size_id"] = Val.ToInt(LueSize.EditValue);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["unit_id"] = Val.ToInt(LueUnit.EditValue);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["item_name"] = Val.ToString(lueItem.Text);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["color_name"] = Val.ToString(LueColor.Text);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["size_name"] = Val.ToString(LueSize.Text);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["unit_name"] = Val.ToString(LueUnit.Text);
 
-                                    m_dtbPurchaseDetails.Rows[m_update_srno - 1]["amount"] = Math.Round(Val.ToDecimal(txtPcs.Text) * Val.ToDecimal(txtRate.Text), 3);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["amount"] = Math.Round(Val.ToDecimal(txtPcs.Text) * Val.ToDecimal(txtRate.Text), 3);
                                 }
                             }
                         }
                         btnAdd.Text = "&Add";
                     }
-                    dgvPurchaseDetails.MoveLast();
+                    dgvPurchaseReturnDetails.MoveLast();
                     m_IsUpdate = false;
-
-                    if (Val.ToDecimal(txtDiscountAmount.Text) > 0)
-                    {
-                        decimal CGST_amount = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) - Val.ToDecimal(txtDiscountAmount.Text)) * Val.ToDecimal(txtCGSTPer.Text) / 100, 2);
-                        txtCGSTAmount.Text = CGST_amount.ToString();
-                        decimal SGST_amount = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) - Val.ToDecimal(txtDiscountAmount.Text)) * Val.ToDecimal(txtSGSTPer.Text) / 100, 2);
-                        txtSGSTAmount.Text = SGST_amount.ToString();
-                        decimal IGST_amount = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) - Val.ToDecimal(txtDiscountAmount.Text)) * Val.ToDecimal(txtIGSTPer.Text) / 100, 2);
-                        txtIGSTAmount.Text = IGST_amount.ToString();
-                    }
-                    else
-                    {
-                        decimal CGST_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtCGSTPer.Text) / 100, 2);
-                        txtCGSTAmount.Text = CGST_amount.ToString();
-                        decimal SGST_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtSGSTPer.Text) / 100, 2);
-                        txtSGSTAmount.Text = SGST_amount.ToString();
-                        decimal IGST_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtIGSTPer.Text) / 100, 2);
-                        txtIGSTAmount.Text = IGST_amount.ToString();
-                    }
-                    decimal Net_Amount = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtCGSTAmount.Text) + Val.ToDecimal(txtSGSTAmount.Text) + Val.ToDecimal(txtIGSTAmount.Text) - Val.ToDecimal(txtDiscountAmount.Text)) + Val.ToDecimal(txtRoundOff.Text), 2);
-                    txtNetAmount.Text = Net_Amount.ToString();
                 }
             }
             catch (Exception ex)
@@ -789,7 +746,7 @@ namespace Account_Management.Transaction
             {
                 if (m_blnsave)
                 {
-                    if (m_dtbPurchaseDetails.Rows.Count == 0)
+                    if (m_dtbPurchaseReturnDetails.Rows.Count == 0)
                     {
                         lstError.Add(new ListError(22, "Record"));
                         if (!blnFocus)
@@ -797,7 +754,7 @@ namespace Account_Management.Transaction
                             blnFocus = true;
                         }
                     }
-                    if (dgvPurchaseDetails == null)
+                    if (dgvPurchaseReturnDetails == null)
                     {
                         lstError.Add(new ListError(22, "Record"));
                         if (!blnFocus)
@@ -805,14 +762,14 @@ namespace Account_Management.Transaction
                             blnFocus = true;
                         }
                     }
-                    var result = DateTime.Compare(Convert.ToDateTime(dtpPurchaseDate.Text), DateTime.Today);
+                    var result = DateTime.Compare(Convert.ToDateTime(dtpReturnDate.Text), DateTime.Today);
                     if (result > 0)
                     {
                         lstError.Add(new ListError(5, " Purchase Date Not Be Greater Than Today Date"));
                         if (!blnFocus)
                         {
                             blnFocus = true;
-                            dtpPurchaseDate.Focus();
+                            dtpReturnDate.Focus();
                         }
                     }
                 }
@@ -924,11 +881,11 @@ namespace Account_Management.Transaction
                 CmbPurchaseFirm.SelectedIndex = -1;
                 txtSearchVoucherNo.Text = string.Empty;
                 lueJangedLedger.EditValue = System.DBNull.Value;
-                dtpPurchaseDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpPurchaseDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
-                dtpPurchaseDate.Properties.Mask.UseMaskAsDisplayFormat = true;
-                dtpPurchaseDate.Properties.CharacterCasing = CharacterCasing.Upper;
-                dtpPurchaseDate.EditValue = DateTime.Now;
+                dtpReturnDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
+                dtpReturnDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpReturnDate.Properties.Mask.UseMaskAsDisplayFormat = true;
+                dtpReturnDate.Properties.CharacterCasing = CharacterCasing.Upper;
+                dtpReturnDate.EditValue = DateTime.Now;
                 lblJanged_ID.Text = "0";
                 txtPcs.Text = string.Empty;
                 txtRate.Text = string.Empty;
@@ -971,41 +928,41 @@ namespace Account_Management.Transaction
             bool blnReturn = true;
             try
             {
-                if (m_dtbPurchaseDetails.Rows.Count > 0)
-                    m_dtbPurchaseDetails.Rows.Clear();
+                if (m_dtbPurchaseReturnDetails.Rows.Count > 0)
+                    m_dtbPurchaseReturnDetails.Rows.Clear();
 
-                m_dtbPurchaseDetails = new DataTable();
+                m_dtbPurchaseReturnDetails = new DataTable();
 
-                m_dtbPurchaseDetails.Columns.Add("sr_no", typeof(int));
-                m_dtbPurchaseDetails.Columns.Add("purchase_detail_id", typeof(int));
-                m_dtbPurchaseDetails.Columns.Add("purchase_id", typeof(int));
-                m_dtbPurchaseDetails.Columns.Add("janged_detail_id", typeof(int));
-                m_dtbPurchaseDetails.Columns.Add("janged_id", typeof(int));
-                m_dtbPurchaseDetails.Columns.Add("item_id", typeof(int));
-                m_dtbPurchaseDetails.Columns.Add("item_name", typeof(string));
-                m_dtbPurchaseDetails.Columns.Add("color_id", typeof(int));
-                m_dtbPurchaseDetails.Columns.Add("color_name", typeof(string));
-                m_dtbPurchaseDetails.Columns.Add("size_id", typeof(int));
-                m_dtbPurchaseDetails.Columns.Add("size_name", typeof(string));
-                m_dtbPurchaseDetails.Columns.Add("unit_id", typeof(int));
-                m_dtbPurchaseDetails.Columns.Add("unit_name", typeof(string));
-                m_dtbPurchaseDetails.Columns.Add("pcs", typeof(int)).DefaultValue = 0;
-                m_dtbPurchaseDetails.Columns.Add("rate", typeof(decimal)).DefaultValue = 0;
-                m_dtbPurchaseDetails.Columns.Add("amount", typeof(decimal)).DefaultValue = 0;
-                m_dtbPurchaseDetails.Columns.Add("remarks", typeof(string));
-                m_dtbPurchaseDetails.Columns.Add("old_pcs", typeof(int)).DefaultValue = 0;
-                m_dtbPurchaseDetails.Columns.Add("flag", typeof(int)).DefaultValue = 0;
-                m_dtbPurchaseDetails.Columns.Add("old_item_id", typeof(int));
-                m_dtbPurchaseDetails.Columns.Add("old_color_id", typeof(int));
-                m_dtbPurchaseDetails.Columns.Add("old_size_id", typeof(int));
-                m_dtbPurchaseDetails.Columns.Add("old_unit_id", typeof(int));
-                m_dtbPurchaseDetails.Columns.Add("old_item_name", typeof(string));
-                m_dtbPurchaseDetails.Columns.Add("old_color_name", typeof(string));
-                m_dtbPurchaseDetails.Columns.Add("old_size_name", typeof(string));
-                m_dtbPurchaseDetails.Columns.Add("old_unit_name", typeof(string));
+                m_dtbPurchaseReturnDetails.Columns.Add("sr_no", typeof(int));
+                m_dtbPurchaseReturnDetails.Columns.Add("return_detail_id", typeof(int));
+                m_dtbPurchaseReturnDetails.Columns.Add("purchase_return_id", typeof(int));
+                m_dtbPurchaseReturnDetails.Columns.Add("janged_detail_id", typeof(int));
+                m_dtbPurchaseReturnDetails.Columns.Add("janged_id", typeof(int));
+                m_dtbPurchaseReturnDetails.Columns.Add("item_id", typeof(int));
+                m_dtbPurchaseReturnDetails.Columns.Add("item_name", typeof(string));
+                m_dtbPurchaseReturnDetails.Columns.Add("color_id", typeof(int));
+                m_dtbPurchaseReturnDetails.Columns.Add("color_name", typeof(string));
+                m_dtbPurchaseReturnDetails.Columns.Add("size_id", typeof(int));
+                m_dtbPurchaseReturnDetails.Columns.Add("size_name", typeof(string));
+                m_dtbPurchaseReturnDetails.Columns.Add("unit_id", typeof(int));
+                m_dtbPurchaseReturnDetails.Columns.Add("unit_name", typeof(string));
+                m_dtbPurchaseReturnDetails.Columns.Add("pcs", typeof(int)).DefaultValue = 0;
+                m_dtbPurchaseReturnDetails.Columns.Add("rate", typeof(decimal)).DefaultValue = 0;
+                m_dtbPurchaseReturnDetails.Columns.Add("amount", typeof(decimal)).DefaultValue = 0;
+                m_dtbPurchaseReturnDetails.Columns.Add("remarks", typeof(string));
+                m_dtbPurchaseReturnDetails.Columns.Add("old_pcs", typeof(int)).DefaultValue = 0;
+                m_dtbPurchaseReturnDetails.Columns.Add("flag", typeof(int)).DefaultValue = 0;
+                m_dtbPurchaseReturnDetails.Columns.Add("old_item_id", typeof(int));
+                m_dtbPurchaseReturnDetails.Columns.Add("old_color_id", typeof(int));
+                m_dtbPurchaseReturnDetails.Columns.Add("old_size_id", typeof(int));
+                m_dtbPurchaseReturnDetails.Columns.Add("old_unit_id", typeof(int));
+                m_dtbPurchaseReturnDetails.Columns.Add("old_item_name", typeof(string));
+                m_dtbPurchaseReturnDetails.Columns.Add("old_color_name", typeof(string));
+                m_dtbPurchaseReturnDetails.Columns.Add("old_size_name", typeof(string));
+                m_dtbPurchaseReturnDetails.Columns.Add("old_unit_name", typeof(string));
 
-                grdPurchaseDetails.DataSource = m_dtbPurchaseDetails;
-                grdPurchaseDetails.Refresh();
+                grdPurchaseReturnDetails.DataSource = m_dtbPurchaseReturnDetails;
+                grdPurchaseReturnDetails.Refresh();
             }
             catch (Exception ex)
             {
@@ -1016,16 +973,16 @@ namespace Account_Management.Transaction
         }
         private bool PopulateDetails()
         {
-            objPurchase = new Purchase();
+            objPurchaseReturn = new PurchaseReturn();
             bool blnReturn = true;
             DateTime datFromDate = DateTime.MinValue;
             DateTime datToDate = DateTime.MinValue;
             try
             {
-                m_dtbDetails = objPurchase.GetData(Val.DBDate(dtpFromDate.Text), Val.DBDate(dtpToDate.Text), Val.ToInt64(txtSearchVoucherNo.Text), Val.ToInt32(lueJangedLedger.EditValue));
+                m_dtbDetails = objPurchaseReturn.GetData(Val.DBDate(dtpFromDate.Text), Val.DBDate(dtpToDate.Text), Val.ToInt64(txtSearchVoucherNo.Text), Val.ToInt32(lueJangedLedger.EditValue));
 
-                grdPurchaseEntry.DataSource = m_dtbDetails;
-                dgvPurchaseEntry.BestFitColumns();
+                grdPurchaseReturn.DataSource = m_dtbDetails;
+                dgvPurchaseReturn.BestFitColumns();
             }
             catch (Exception ex)
             {
@@ -1034,7 +991,7 @@ namespace Account_Management.Transaction
             }
             finally
             {
-                objPurchase = null;
+                objPurchaseReturn = null;
             }
 
             return blnReturn;
@@ -1107,25 +1064,25 @@ namespace Account_Management.Transaction
                     switch (format)
                     {
                         case "pdf":
-                            dgvPurchaseEntry.ExportToPdf(Filepath);
+                            dgvPurchaseReturn.ExportToPdf(Filepath);
                             break;
                         case "xls":
-                            dgvPurchaseEntry.ExportToXls(Filepath);
+                            dgvPurchaseReturn.ExportToXls(Filepath);
                             break;
                         case "xlsx":
-                            dgvPurchaseEntry.ExportToXlsx(Filepath);
+                            dgvPurchaseReturn.ExportToXlsx(Filepath);
                             break;
                         case "rtf":
-                            dgvPurchaseEntry.ExportToRtf(Filepath);
+                            dgvPurchaseReturn.ExportToRtf(Filepath);
                             break;
                         case "txt":
-                            dgvPurchaseEntry.ExportToText(Filepath);
+                            dgvPurchaseReturn.ExportToText(Filepath);
                             break;
                         case "html":
-                            dgvPurchaseEntry.ExportToHtml(Filepath);
+                            dgvPurchaseReturn.ExportToHtml(Filepath);
                             break;
                         case "csv":
-                            dgvPurchaseEntry.ExportToCsv(Filepath);
+                            dgvPurchaseReturn.ExportToCsv(Filepath);
                             break;
                     }
 
@@ -1216,9 +1173,8 @@ namespace Account_Management.Transaction
                 {
                     if (e.Clicks == 2)
                     {
-                        DataRow Drow = dgvPurchaseDetails.GetDataRow(e.RowHandle);
+                        DataRow Drow = dgvPurchaseReturnDetails.GetDataRow(e.RowHandle);
                         btnAdd.Text = "&Update";
-                        //lueSieveName.Text = Val.ToString(Drow["sieve_name"]);
                         LueColor.EditValue = Val.ToInt64(Drow["color_id"]);
                         LueSize.EditValue = Val.ToInt64(Drow["size_id"]);
                         LueUnit.EditValue = Val.ToInt64(Drow["unit_id"]);
@@ -1226,9 +1182,7 @@ namespace Account_Management.Transaction
                         txtPcs.Text = Val.ToString(Drow["pcs"]);
                         txtRate.Text = Val.ToString(Drow["rate"]);
                         txtAmount.Text = Val.ToString(Drow["amount"]);
-
-                        //m_numcarat = Val.ToDecimal(Drow["carat"]);
-                        m_purchase_detail_id = Val.ToInt(Drow["purchase_detail_id"]);
+                        m_purchaseReturn_detail_id = Val.ToInt(Drow["return_detail_id"]);
                         m_update_srno = Val.ToInt(Drow["sr_no"]);
                     }
                 }
@@ -1267,7 +1221,7 @@ namespace Account_Management.Transaction
                 else
                 {
                     ClearDetails();
-                    ttlbPurchaseInvoice.SelectedTabPage = tblPurchasedetail;
+                    ttlbPurchaseReturn.SelectedTabPage = tblPurchaseReturndetail;
                 }
             }
             catch (Exception ex)
@@ -1276,266 +1230,23 @@ namespace Account_Management.Transaction
                 return;
             }
         }
-        private void backgroundWorker_PurchaseEntry_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
-            try
-            {
-                Cursor.Current = Cursors.Default;
-                Conn = new BeginTranConnection(true, false);
-
-                Purchase_Property objPurchaseProperty = new Purchase_Property();
-                Purchase objPurchase = new Purchase();
-                try
-                {
-                    IntRes = 0;
-
-                    objPurchaseProperty.purchase_id = Val.ToInt(lblMode.Tag);
-                    objPurchaseProperty.janged_id = Val.ToInt(lblJanged_ID.Text);
-                    objPurchaseProperty.voucher_no = Val.ToInt32(txtVoucherNo.Text);
-                    objPurchaseProperty.purchase_date = Val.DBDate(dtpPurchaseDate.Text);
-                    objPurchaseProperty.gst_id = Val.ToInt(lueGSTRate.EditValue);
-                    objPurchaseProperty.purchase_bill_no = Val.ToString(txtPurchaseBill.Text);
-                    objPurchaseProperty.remarks = Val.ToString(txtRemark.Text);
-                    objPurchaseProperty.purchase_firm = Val.ToString(CmbPurchaseFirm.Text);
-
-                    objPurchaseProperty.form_id = m_numForm_id;
-
-                    objPurchaseProperty.ledger_id = Val.ToInt(lueParty.EditValue);
-
-                    objPurchaseProperty.total_pcs = Val.ToInt64(clmPcs.SummaryItem.SummaryValue);
-
-                    objPurchaseProperty.gross_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue), 3);
-
-                    objPurchaseProperty.cgst_rate = Val.ToDecimal(txtCGSTPer.Text);
-                    objPurchaseProperty.cgst_amount = Val.ToDecimal(txtCGSTAmount.Text);
-                    objPurchaseProperty.sgst_rate = Val.ToDecimal(txtSGSTPer.Text);
-                    objPurchaseProperty.sgst_amount = Val.ToDecimal(txtSGSTAmount.Text);
-                    objPurchaseProperty.igst_rate = Val.ToDecimal(txtIGSTPer.Text);
-                    objPurchaseProperty.igst_amount = Val.ToDecimal(txtIGSTAmount.Text);
-
-                    objPurchaseProperty.discount_per = Val.ToDecimal(txtDiscountPer.Text);
-                    objPurchaseProperty.discount_amount = Val.ToDecimal(txtDiscountAmount.Text);
-                    objPurchaseProperty.round_of_amount = Val.ToDecimal(txtRoundOff.Text);
-
-                    objPurchaseProperty.net_amount = Val.ToDecimal(txtNetAmount.Text);
-
-                    objPurchaseProperty.term_days = Val.ToInt32(txtTermDays.Text);
-                    objPurchaseProperty.due_date = Val.DBDate(DTPDueDate.Text);
-
-                    objPurchaseProperty = objPurchase.Save(objPurchaseProperty, DLL.GlobalDec.EnumTran.Start, Conn);
-
-                    Int64 NewmPurchaseid = Val.ToInt64(objPurchaseProperty.purchase_id);
-
-                    int IntCounter = 0;
-                    int Count = 0;
-                    int TotalCount = m_dtbPurchaseDetails.Rows.Count;
-
-                    foreach (DataRow drw in m_dtbPurchaseDetails.Rows)
-                    {
-                        objPurchaseProperty = new Purchase_Property();
-                        objPurchaseProperty.purchase_id = Val.ToInt64(NewmPurchaseid);
-                        objPurchaseProperty.janged_id = Val.ToInt64(lblJanged_ID.Text);
-                        objPurchaseProperty.purchase_detail_id = Val.ToInt64(drw["purchase_detail_id"]);
-                        objPurchaseProperty.janged_detail_id = Val.ToInt64(drw["janged_detail_id"]);
-                        objPurchaseProperty.sr_no = Val.ToInt(drw["sr_no"]);
-                        objPurchaseProperty.item_id = Val.ToInt64(drw["item_id"]);
-                        objPurchaseProperty.color_id = Val.ToInt64(drw["color_id"]);
-                        objPurchaseProperty.size_id = Val.ToInt64(drw["size_id"]);
-                        objPurchaseProperty.unit_id = Val.ToInt64(drw["unit_id"]);
-                        objPurchaseProperty.pcs = Val.ToInt(drw["pcs"]);
-                        objPurchaseProperty.rate = Val.ToDecimal(drw["rate"]);
-                        objPurchaseProperty.amount = Val.ToDecimal(drw["amount"]);
-
-                        objPurchaseProperty.old_item_id = Val.ToInt64(drw["old_item_id"]);
-                        objPurchaseProperty.old_color_id = Val.ToInt64(drw["old_color_id"]);
-                        objPurchaseProperty.old_size_id = Val.ToInt64(drw["old_size_id"]);
-
-                        objPurchaseProperty.old_pcs = Val.ToInt(drw["old_pcs"]);
-                        objPurchaseProperty.flag = Val.ToInt(drw["flag"]);
-
-                        IntRes = objPurchase.Save_Detail(objPurchaseProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
-
-                        Count++;
-                        IntCounter++;
-                        IntRes++;
-                        SetControlPropertyValue(lblProgressCount, "Text", Count.ToString() + "" + "/" + "" + TotalCount.ToString() + " Completed....");
-                    }
-                    Conn.Inter1.Commit();
-                }
-                catch (Exception ex)
-                {
-                    IntRes = -1;
-                    Conn.Inter1.Rollback();
-                    Conn = null;
-                    General.ShowErrors(ex.ToString());
-                    return;
-                }
-                finally
-                {
-                    objPurchaseProperty = null;
-                }
-            }
-            catch (Exception ex)
-            {
-                IntRes = -1;
-                Conn.Inter1.Rollback();
-                Conn = null;
-                Global.Message(ex.ToString());
-                if (ex.InnerException != null)
-                {
-                    Global.Message(ex.InnerException.ToString());
-                }
-            }
-        }
-
-        private void backgroundWorker_PurchaseEntry_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
-        {
-            try
-            {
-                panelProgress.Visible = false;
-                if (IntRes > 0)
-                {
-                    if (Val.ToInt(lblMode.Tag) == 0)
-                    {
-                        Global.Confirm("Purchase Data Save Successfully");
-                        ClearDetails();
-                        PopulateDetails();
-                    }
-                    else
-                    {
-                        Global.Confirm("Purchase Data Update Successfully");
-                        ClearDetails();
-                        PopulateDetails();
-                    }
-                }
-                else
-                {
-                    Global.Confirm("Error In Purchase Data");
-                    txtVoucherNo.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                Global.Message(ex.ToString());
-                Global.Message(ex.InnerException.ToString());
-            }
-        }
-        private void backgroundWorker_PurchaseDelete_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
-            Conn = new BeginTranConnection(true, false);
-
-            Purchase_Property objPurchaseProperty = new Purchase_Property();
-            Purchase objPurchase = new Purchase();
-            DataTable dtbMemoRecDelete = new DataTable();
-            try
-            {
-                if (Val.ToInt(lblMode.Tag) != 0)
-                {
-                    IntRes = 0;
-                    objPurchaseProperty.purchase_id = Val.ToInt64(lblMode.Tag);
-
-                    int IntCounter = 0;
-                    int Count = 0;
-                    int FlagCount = 1;
-                    int TotalCount = m_dtbPurchaseDetails.Rows.Count;
-                    Int32 Flag = 0;
-                    foreach (DataRow drw in m_dtbPurchaseDetails.Rows)
-                    {
-                        objPurchaseProperty.purchase_detail_id = Val.ToInt64(drw["purchase_detail_id"]);
-                        objPurchaseProperty.item_id = Val.ToInt64(drw["item_id"]);
-                        objPurchaseProperty.color_id = Val.ToInt64(drw["color_id"]);
-                        objPurchaseProperty.size_id = Val.ToInt64(drw["size_id"]);
-                        objPurchaseProperty.pcs = Val.ToInt32(drw["pcs"]);
-
-                        if (FlagCount == TotalCount)
-                        {
-                            Flag = 1;
-                        }
-
-                        IntRes = objPurchase.Delete(objPurchaseProperty, Flag, DLL.GlobalDec.EnumTran.Continue, Conn);
-
-                        FlagCount++;
-                        Count++;
-                        IntCounter++;
-                        IntRes++;
-                        SetControlPropertyValue(lblProgressCount, "Text", Count.ToString() + "" + "/" + "" + TotalCount.ToString() + " Completed....");
-                    }
-                    Conn.Inter1.Commit();
-                }
-                else
-                {
-                    Global.Message("Purchase ID not found");
-                    Conn.Inter1.Rollback();
-                    Conn = null;
-                    return;
-                }
-            }
-            catch (Exception ex)
-            {
-                IntRes = -1;
-                Conn.Inter1.Rollback();
-                Conn = null;
-                General.ShowErrors(ex.ToString());
-                if (ex.InnerException != null)
-                {
-                    Global.Message(ex.InnerException.ToString());
-                }
-            }
-            finally
-            {
-                objPurchaseProperty = null;
-            }
-        }
-
-        private void backgroundWorker_PurchaseDelete_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
-        {
-            try
-            {
-                panelProgress.Visible = false;
-                if (IntRes > 0)
-                {
-                    if (Val.ToInt(lblMode.Tag) == 0)
-                    {
-                        Global.Confirm("Purchase Data Delete Successfully");
-                        ClearDetails();
-                        btnSearch_Click(null, null);
-                    }
-                    else
-                    {
-                        Global.Confirm("Purchase Data Delete Successfully");
-                        ClearDetails();
-                        btnSearch_Click(null, null);
-                    }
-                }
-                else
-                {
-                    Global.Confirm("Error In Purchase Data Delete");
-                    txtVoucherNo.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                Global.Message(ex.ToString());
-                Global.Message(ex.InnerException.ToString());
-            }
-        }
         private void dgvPurchaseEntry_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             try
             {
-                objPurchase = new Purchase();
+                objPurchaseReturn = new PurchaseReturn();
                 if (e.RowHandle >= 0)
                 {
                     if (e.Clicks == 2)
                     {
                         m_blncheckevents = true;
 
-                        DataRow Drow = dgvPurchaseEntry.GetDataRow(e.RowHandle);
+                        DataRow Drow = dgvPurchaseReturn.GetDataRow(e.RowHandle);
                         lblMode.Text = "Edit Mode";
-                        lblMode.Tag = Val.ToInt64(Drow["purchase_id"]);
+                        lblMode.Tag = Val.ToInt64(Drow["purchase_return_id"]);
 
                         lblJanged_ID.Text = Val.ToString(Drow["janged_id"]);
-                        dtpPurchaseDate.Text = Val.DBDate(Val.ToString(Drow["janged_date"]));
+                        dtpReturnDate.Text = Val.DBDate(Val.ToString(Drow["return_date"]));
                         txtVoucherNo.Text = Val.ToString(Drow["voucher_no"]);
                         lueGSTRate.EditValue = Val.ToInt64(Drow["gst_id"]);
                         lueParty.EditValue = Val.ToInt64(Drow["ledger_id"]);
@@ -1556,10 +1267,10 @@ namespace Account_Management.Transaction
                         txtTermDays.Text = Val.ToString(Drow["term_days"]);
                         DTPDueDate.Text = Val.ToString(Drow["due_date"]);
 
-                        m_dtbPurchaseDetails = objPurchase.GetDataDetails(Val.ToInt(lblMode.Tag));
-                        grdPurchaseDetails.DataSource = m_dtbPurchaseDetails;
+                        m_dtbPurchaseReturnDetails = objPurchaseReturn.GetDataDetails(Val.ToInt(lblMode.Tag));
+                        grdPurchaseReturnDetails.DataSource = m_dtbPurchaseReturnDetails;
 
-                        ttlbPurchaseInvoice.SelectedTabPage = tblPurchasedetail;
+                        ttlbPurchaseReturn.SelectedTabPage = tblPurchaseReturndetail;
                         txtPurchaseBill.Focus();
                         txtVoucherNo.Enabled = false;
                         m_IsUpdate = true;
@@ -1576,7 +1287,7 @@ namespace Account_Management.Transaction
         {
             if (e.RowHandle >= 0)
             {
-                if (Val.ToInt(dgvPurchaseEntry.GetRowCellValue(e.RowHandle, "flag_color")) == 1)
+                if (Val.ToInt(dgvPurchaseReturn.GetRowCellValue(e.RowHandle, "flag_color")) == 1)
                 {
                     e.Appearance.BackColor = Color.FromArgb(248, 210, 210);
                 }
@@ -1666,11 +1377,9 @@ namespace Account_Management.Transaction
         {
             if (txtVoucherNo.Text != "")
             {
-                objPurchase = new Purchase();
+                objPurchaseReturn = new PurchaseReturn();
 
-                //DataTable DTab_Purchase_Vch_No = objPurchase.Purchase_Voucher_No_GetData(Val.ToInt64(txtVoucherNo.Text)); 
-
-                m_dtbVoucher_JangedDetail = objPurchase.Janged_Voucher_GetData(Val.ToInt64(txtVoucherNo.Text));
+                m_dtbVoucher_JangedDetail = objPurchaseReturn.Janged_Voucher_GetData(Val.ToInt64(txtVoucherNo.Text));
                 if (m_dtbVoucher_JangedDetail.Tables[2].Rows[0]["voucher_no"].ToString() == "0")
                 {
                     if (m_dtbVoucher_JangedDetail.Tables[0].Rows.Count > 0)
@@ -1687,8 +1396,8 @@ namespace Account_Management.Transaction
                         DTPDueDate.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["due_date"]);
                         CmbPurchaseFirm.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["purchase_firm"]);
 
-                        grdPurchaseDetails.DataSource = m_dtbVoucher_JangedDetail.Tables[1];
-                        m_dtbPurchaseDetails = m_dtbVoucher_JangedDetail.Tables[1];
+                        grdPurchaseReturnDetails.DataSource = m_dtbVoucher_JangedDetail.Tables[1];
+                        m_dtbPurchaseReturnDetails = m_dtbVoucher_JangedDetail.Tables[1];
 
                         txtCGSTPer.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["cgst_per"]);
                         txtCGSTAmount.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["cgst_amount"]);
@@ -1723,14 +1432,14 @@ namespace Account_Management.Transaction
 
         private void txtTermDays_EditValueChanged(object sender, EventArgs e)
         {
-            if (dtpPurchaseDate.Text.Length <= 0 || txtTermDays.Text == "")
+            if (dtpReturnDate.Text.Length <= 0 || txtTermDays.Text == "")
             {
                 txtTermDays.Text = "";
                 DTPDueDate.EditValue = null;
             }
             else
             {
-                DateTime Date = Convert.ToDateTime(dtpPurchaseDate.EditValue).AddDays(Val.ToDouble(txtTermDays.Text));
+                DateTime Date = Convert.ToDateTime(dtpReturnDate.EditValue).AddDays(Val.ToDouble(txtTermDays.Text));
                 DTPDueDate.EditValue = Val.DBDDDate(Date.ToShortDateString());
             }
         }
@@ -1748,6 +1457,239 @@ namespace Account_Management.Transaction
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+        private void backgroundWorker_PurchaseReturnDelete_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            Conn = new BeginTranConnection(true, false);
+
+            PurchaseReturn_Property objPurchaseReturnProperty = new PurchaseReturn_Property();
+            PurchaseReturn objPurchaseReturn = new PurchaseReturn();
+            DataTable dtbMemoRecDelete = new DataTable();
+            try
+            {
+                if (Val.ToInt(lblMode.Tag) != 0)
+                {
+                    IntRes = 0;
+                    objPurchaseReturnProperty.purchase_return_id = Val.ToInt64(lblMode.Tag);
+
+                    int IntCounter = 0;
+                    int Count = 0;
+                    int FlagCount = 1;
+                    int TotalCount = m_dtbPurchaseReturnDetails.Rows.Count;
+                    Int32 Flag = 0;
+                    foreach (DataRow drw in m_dtbPurchaseReturnDetails.Rows)
+                    {
+                        objPurchaseReturnProperty.return_detail_id = Val.ToInt64(drw["return_detail_id"]);
+                        objPurchaseReturnProperty.item_id = Val.ToInt64(drw["item_id"]);
+                        objPurchaseReturnProperty.color_id = Val.ToInt64(drw["color_id"]);
+                        objPurchaseReturnProperty.size_id = Val.ToInt64(drw["size_id"]);
+                        objPurchaseReturnProperty.pcs = Val.ToInt32(drw["pcs"]);
+
+                        if (FlagCount == TotalCount)
+                        {
+                            Flag = 1;
+                        }
+
+                        IntRes = objPurchaseReturn.Delete(objPurchaseReturnProperty, Flag, DLL.GlobalDec.EnumTran.Continue, Conn);
+
+                        FlagCount++;
+                        Count++;
+                        IntCounter++;
+                        IntRes++;
+                        SetControlPropertyValue(lblProgressCount, "Text", Count.ToString() + "" + "/" + "" + TotalCount.ToString() + " Completed....");
+                    }
+                    Conn.Inter1.Commit();
+                }
+                else
+                {
+                    Global.Message("Purchase Return ID not found");
+                    Conn.Inter1.Rollback();
+                    Conn = null;
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                IntRes = -1;
+                Conn.Inter1.Rollback();
+                Conn = null;
+                General.ShowErrors(ex.ToString());
+                if (ex.InnerException != null)
+                {
+                    Global.Message(ex.InnerException.ToString());
+                }
+            }
+            finally
+            {
+                objPurchaseReturnProperty = null;
+            }
+        }
+        private void backgroundWorker_PurchaseReturnDelete_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            try
+            {
+                panelProgress.Visible = false;
+                if (IntRes > 0)
+                {
+                    if (Val.ToInt(lblMode.Tag) == 0)
+                    {
+                        Global.Confirm("Purchase Return Data Delete Successfully");
+                        ClearDetails();
+                        btnSearch_Click(null, null);
+                    }
+                    else
+                    {
+                        Global.Confirm("Purchase Return Data Delete Successfully");
+                        ClearDetails();
+                        btnSearch_Click(null, null);
+                    }
+                }
+                else
+                {
+                    Global.Confirm("Error In Purchase Return Data Delete");
+                    txtVoucherNo.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                Global.Message(ex.ToString());
+                Global.Message(ex.InnerException.ToString());
+            }
+        }
+        private void backgroundWorker_PurchaseReturn_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            try
+            {
+                Cursor.Current = Cursors.Default;
+                Conn = new BeginTranConnection(true, false);
+
+                PurchaseReturn_Property objPurchaseReturnProperty = new PurchaseReturn_Property();
+                PurchaseReturn objPurchaseReturn = new PurchaseReturn();
+                try
+                {
+                    IntRes = 0;
+
+                    objPurchaseReturnProperty.purchase_return_id = Val.ToInt(lblMode.Tag);
+                    objPurchaseReturnProperty.janged_id = Val.ToInt(lblJanged_ID.Text);
+                    objPurchaseReturnProperty.voucher_no = Val.ToInt32(txtVoucherNo.Text);
+                    objPurchaseReturnProperty.return_date = Val.DBDate(dtpReturnDate.Text);
+                    objPurchaseReturnProperty.gst_id = Val.ToInt(lueGSTRate.EditValue);
+                    objPurchaseReturnProperty.purchase_bill_no = Val.ToString(txtPurchaseBill.Text);
+                    objPurchaseReturnProperty.remarks = Val.ToString(txtRemark.Text);
+                    objPurchaseReturnProperty.purchase_firm = Val.ToString(CmbPurchaseFirm.Text);
+                    objPurchaseReturnProperty.form_id = m_numForm_id;
+                    objPurchaseReturnProperty.ledger_id = Val.ToInt(lueParty.EditValue);
+                    objPurchaseReturnProperty.total_pcs = Val.ToInt64(clmPcs.SummaryItem.SummaryValue);
+                    objPurchaseReturnProperty.gross_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue), 3);
+                    objPurchaseReturnProperty.cgst_rate = Val.ToDecimal(txtCGSTPer.Text);
+                    objPurchaseReturnProperty.cgst_amount = Val.ToDecimal(txtCGSTAmount.Text);
+                    objPurchaseReturnProperty.sgst_rate = Val.ToDecimal(txtSGSTPer.Text);
+                    objPurchaseReturnProperty.sgst_amount = Val.ToDecimal(txtSGSTAmount.Text);
+                    objPurchaseReturnProperty.igst_rate = Val.ToDecimal(txtIGSTPer.Text);
+                    objPurchaseReturnProperty.igst_amount = Val.ToDecimal(txtIGSTAmount.Text);
+                    objPurchaseReturnProperty.discount_per = Val.ToDecimal(txtDiscountPer.Text);
+                    objPurchaseReturnProperty.discount_amount = Val.ToDecimal(txtDiscountAmount.Text);
+                    objPurchaseReturnProperty.round_of_amount = Val.ToDecimal(txtRoundOff.Text);
+                    objPurchaseReturnProperty.net_amount = Val.ToDecimal(txtNetAmount.Text);
+                    objPurchaseReturnProperty.term_days = Val.ToInt32(txtTermDays.Text);
+                    objPurchaseReturnProperty.due_date = Val.DBDate(DTPDueDate.Text);
+
+                    objPurchaseReturnProperty = objPurchaseReturn.Save(objPurchaseReturnProperty, DLL.GlobalDec.EnumTran.Start, Conn);
+
+                    Int64 NewmPurchaseReturnId = Val.ToInt64(objPurchaseReturnProperty.purchase_return_id);
+
+                    int IntCounter = 0;
+                    int Count = 0;
+                    int TotalCount = m_dtbPurchaseReturnDetails.Rows.Count;
+
+                    foreach (DataRow drw in m_dtbPurchaseReturnDetails.Rows)
+                    {
+                        objPurchaseReturnProperty = new PurchaseReturn_Property();
+                        objPurchaseReturnProperty.purchase_return_id = Val.ToInt64(NewmPurchaseReturnId);
+                        objPurchaseReturnProperty.janged_id = Val.ToInt64(lblJanged_ID.Text);
+                        objPurchaseReturnProperty.return_detail_id = Val.ToInt64(drw["return_detail_id"]);
+                        objPurchaseReturnProperty.janged_detail_id = Val.ToInt64(drw["janged_detail_id"]);
+                        objPurchaseReturnProperty.sr_no = Val.ToInt(drw["sr_no"]);
+                        objPurchaseReturnProperty.item_id = Val.ToInt64(drw["item_id"]);
+                        objPurchaseReturnProperty.color_id = Val.ToInt64(drw["color_id"]);
+                        objPurchaseReturnProperty.size_id = Val.ToInt64(drw["size_id"]);
+                        objPurchaseReturnProperty.unit_id = Val.ToInt64(drw["unit_id"]);
+                        objPurchaseReturnProperty.pcs = Val.ToInt(drw["pcs"]);
+                        objPurchaseReturnProperty.rate = Val.ToDecimal(drw["rate"]);
+                        objPurchaseReturnProperty.amount = Val.ToDecimal(drw["amount"]);
+
+                        objPurchaseReturnProperty.old_item_id = Val.ToInt64(drw["old_item_id"]);
+                        objPurchaseReturnProperty.old_color_id = Val.ToInt64(drw["old_color_id"]);
+                        objPurchaseReturnProperty.old_size_id = Val.ToInt64(drw["old_size_id"]);
+
+                        objPurchaseReturnProperty.old_pcs = Val.ToInt(drw["old_pcs"]);
+                        objPurchaseReturnProperty.flag = Val.ToInt(drw["flag"]);
+
+                        IntRes = objPurchaseReturn.Save_Detail(objPurchaseReturnProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
+
+                        Count++;
+                        IntCounter++;
+                        IntRes++;
+                        SetControlPropertyValue(lblProgressCount, "Text", Count.ToString() + "" + "/" + "" + TotalCount.ToString() + " Completed....");
+                    }
+                    Conn.Inter1.Commit();
+                }
+                catch (Exception ex)
+                {
+                    IntRes = -1;
+                    Conn.Inter1.Rollback();
+                    Conn = null;
+                    General.ShowErrors(ex.ToString());
+                    return;
+                }
+                finally
+                {
+                    objPurchaseReturnProperty = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                IntRes = -1;
+                Conn.Inter1.Rollback();
+                Conn = null;
+                Global.Message(ex.ToString());
+                if (ex.InnerException != null)
+                {
+                    Global.Message(ex.InnerException.ToString());
+                }
+            }
+        }
+        private void backgroundWorker_PurchaseReturn_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            try
+            {
+                panelProgress.Visible = false;
+                if (IntRes > 0)
+                {
+                    if (Val.ToInt(lblMode.Tag) == 0)
+                    {
+                        Global.Confirm("Purchase Return Data Save Successfully");
+                        ClearDetails();
+                        PopulateDetails();
+                    }
+                    else
+                    {
+                        Global.Confirm("Purchase Return Data Update Successfully");
+                        ClearDetails();
+                        PopulateDetails();
+                    }
+                }
+                else
+                {
+                    Global.Confirm("Error In Purchase Return Data");
+                    txtVoucherNo.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                Global.Message(ex.ToString());
+                Global.Message(ex.InnerException.ToString());
             }
         }
     }

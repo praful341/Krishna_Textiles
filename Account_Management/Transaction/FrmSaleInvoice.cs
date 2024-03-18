@@ -659,15 +659,31 @@ namespace Account_Management.Transaction
 
                     dgvSaleDetails.MoveLast();
 
-                    decimal CGST_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtCGSTPer.Text) / 100, 2);
-                    txtCGSTAmount.Text = CGST_amount.ToString();
-                    decimal SGST_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtSGSTPer.Text) / 100, 2);
-                    txtSGSTAmount.Text = SGST_amount.ToString();
-                    decimal IGST_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtIGSTPer.Text) / 100, 2);
-                    txtIGSTAmount.Text = IGST_amount.ToString();
+                    if (Val.ToDecimal(txtDiscountAmount.Text) > 0)
+                    {
+                        decimal CGST_amount = Math.Round((Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) - Val.ToDecimal(txtDiscountAmount.Text)) * Val.ToDecimal(txtCGSTPer.Text) / 100, 2);
+                        txtCGSTAmount.Text = CGST_amount.ToString();
+                        decimal SGST_amount = Math.Round((Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) - Val.ToDecimal(txtDiscountAmount.Text)) * Val.ToDecimal(txtSGSTPer.Text) / 100, 2);
+                        txtSGSTAmount.Text = SGST_amount.ToString();
+                        decimal IGST_amount = Math.Round((Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) - Val.ToDecimal(txtDiscountAmount.Text)) * Val.ToDecimal(txtIGSTPer.Text) / 100, 2);
+                        txtIGSTAmount.Text = IGST_amount.ToString();
+                    }
+                    else
+                    {
+                        decimal CGST_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtCGSTPer.Text) / 100, 2);
+                        txtCGSTAmount.Text = CGST_amount.ToString();
+                        decimal SGST_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtSGSTPer.Text) / 100, 2);
+                        txtSGSTAmount.Text = SGST_amount.ToString();
+                        decimal IGST_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtIGSTPer.Text) / 100, 2);
+                        txtIGSTAmount.Text = IGST_amount.ToString();
+                    }
 
-                    //decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtInterestAmount.Text) + Val.ToDecimal(txtCGSTAmount.Text) + Val.ToDecimal(txtSGSTAmount.Text) + Val.ToDecimal(txtIGSTAmount.Text)) - (Val.ToDecimal(txtDiscountAmount.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
-                    //txtNetAmount.Text = Shipping_Charge.ToString();
+                    //decimal CGST_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtCGSTPer.Text) / 100, 2);
+                    //txtCGSTAmount.Text = CGST_amount.ToString();
+                    //decimal SGST_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtSGSTPer.Text) / 100, 2);
+                    //txtSGSTAmount.Text = SGST_amount.ToString();
+                    //decimal IGST_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtIGSTPer.Text) / 100, 2);
+                    //txtIGSTAmount.Text = IGST_amount.ToString();
 
                     decimal Net_Amount = Math.Round((Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtCGSTAmount.Text) + Val.ToDecimal(txtSGSTAmount.Text) + Val.ToDecimal(txtIGSTAmount.Text) + Val.ToDecimal(txtShippingCharge.Text) - Val.ToDecimal(txtDiscountAmount.Text)) + Val.ToDecimal(txtRoundOff.Text), 2);
                     txtNetAmount.Text = Net_Amount.ToString();
@@ -747,15 +763,24 @@ namespace Account_Management.Transaction
                     dgvSaleDetails.MoveLast();
                     m_IsUpdate = false;
 
-                    decimal CGST_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtCGSTPer.Text) / 100, 2);
-                    txtCGSTAmount.Text = CGST_amount.ToString();
-                    decimal SGST_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtSGSTPer.Text) / 100, 2);
-                    txtSGSTAmount.Text = SGST_amount.ToString();
-                    decimal IGST_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtIGSTPer.Text) / 100, 2);
-                    txtIGSTAmount.Text = IGST_amount.ToString();
-
-                    //decimal Shipping_Charge = Math.Round((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtInterestAmount.Text) + Val.ToDecimal(txtCGSTAmount.Text) + Val.ToDecimal(txtSGSTAmount.Text) + Val.ToDecimal(txtIGSTAmount.Text)) - (Val.ToDecimal(txtDiscountAmount.Text)) + Val.ToDecimal(txtShippingCharge.Text), 0);
-                    //txtNetAmount.Text = Shipping_Charge.ToString();
+                    if (Val.ToDecimal(txtDiscountAmount.Text) > 0)
+                    {
+                        decimal CGST_amount = Math.Round((Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) - Val.ToDecimal(txtDiscountAmount.Text)) * Val.ToDecimal(txtCGSTPer.Text) / 100, 2);
+                        txtCGSTAmount.Text = CGST_amount.ToString();
+                        decimal SGST_amount = Math.Round((Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) - Val.ToDecimal(txtDiscountAmount.Text)) * Val.ToDecimal(txtSGSTPer.Text) / 100, 2);
+                        txtSGSTAmount.Text = SGST_amount.ToString();
+                        decimal IGST_amount = Math.Round((Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) - Val.ToDecimal(txtDiscountAmount.Text)) * Val.ToDecimal(txtIGSTPer.Text) / 100, 2);
+                        txtIGSTAmount.Text = IGST_amount.ToString();
+                    }
+                    else
+                    {
+                        decimal CGST_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtCGSTPer.Text) / 100, 2);
+                        txtCGSTAmount.Text = CGST_amount.ToString();
+                        decimal SGST_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtSGSTPer.Text) / 100, 2);
+                        txtSGSTAmount.Text = SGST_amount.ToString();
+                        decimal IGST_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtIGSTPer.Text) / 100, 2);
+                        txtIGSTAmount.Text = IGST_amount.ToString();
+                    }
 
                     decimal Net_Amount = Math.Round((Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtCGSTAmount.Text) + Val.ToDecimal(txtSGSTAmount.Text) + Val.ToDecimal(txtIGSTAmount.Text) + Val.ToDecimal(txtShippingCharge.Text) - Val.ToDecimal(txtDiscountAmount.Text)) + Val.ToDecimal(txtRoundOff.Text), 2);
                     txtNetAmount.Text = Net_Amount.ToString();
@@ -1511,6 +1536,13 @@ namespace Account_Management.Transaction
                 {
                     if (Val.ToDecimal(txtDiscountAmount.Text) > 0)
                     {
+                        decimal CGST_amount = Math.Round((Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) - Val.ToDecimal(txtDiscountAmount.Text)) * Val.ToDecimal(txtCGSTPer.Text) / 100, 2);
+                        txtCGSTAmount.Text = CGST_amount.ToString();
+                        decimal SGST_amount = Math.Round((Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) - Val.ToDecimal(txtDiscountAmount.Text)) * Val.ToDecimal(txtSGSTPer.Text) / 100, 2);
+                        txtSGSTAmount.Text = SGST_amount.ToString();
+                        decimal IGST_amount = Math.Round((Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) - Val.ToDecimal(txtDiscountAmount.Text)) * Val.ToDecimal(txtIGSTPer.Text) / 100, 2);
+                        txtIGSTAmount.Text = IGST_amount.ToString();
+
                         decimal Dis_Per = Math.Round(Val.ToDecimal(txtDiscountAmount.Text) * 100 / Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue), 2);
                         txtDiscountPer.Text = Dis_Per.ToString();
                         decimal Net_Amount = Math.Round((Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtCGSTAmount.Text) + Val.ToDecimal(txtSGSTAmount.Text) + Val.ToDecimal(txtIGSTAmount.Text) + Val.ToDecimal(txtShippingCharge.Text) - Val.ToDecimal(txtDiscountAmount.Text)) + Val.ToDecimal(txtRoundOff.Text), 2);
@@ -1518,7 +1550,16 @@ namespace Account_Management.Transaction
                     }
                     else
                     {
+                        decimal CGST_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtCGSTPer.Text) / 100, 2);
+                        txtCGSTAmount.Text = CGST_amount.ToString();
+                        decimal SGST_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtSGSTPer.Text) / 100, 2);
+                        txtSGSTAmount.Text = SGST_amount.ToString();
+                        decimal IGST_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) * Val.ToDecimal(txtIGSTPer.Text) / 100, 2);
+                        txtIGSTAmount.Text = IGST_amount.ToString();
+
                         txtDiscountPer.Text = "0";
+                        decimal Net_Amount = Math.Round((Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtCGSTAmount.Text) + Val.ToDecimal(txtSGSTAmount.Text) + Val.ToDecimal(txtIGSTAmount.Text) + Val.ToDecimal(txtShippingCharge.Text) - Val.ToDecimal(txtDiscountAmount.Text)) + Val.ToDecimal(txtRoundOff.Text), 2);
+                        txtNetAmount.Text = Net_Amount.ToString();
                     }
                 }
             }

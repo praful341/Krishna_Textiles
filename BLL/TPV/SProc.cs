@@ -189,6 +189,28 @@
 
         #endregion Opening Stock
 
+        #region Sale Return Entry
+
+        public static string TRN_SaleReturn_Save = "TRN_SaleReturn_Save";
+        public static string TRN_SaleReturn_Details_Save = "TRN_SaleReturn_Details_Save";
+        public static string TRN_SaleReturn_GetData = "TRN_SaleReturn_GetData";
+        public static string TRN_SaleReturn_GetDetailsData = "TRN_SaleReturn_GetDetailsData";
+        public static string TRN_SaleReturn_Delete = "TRN_SaleReturn_Delete";
+
+        #endregion Sale Invoice Entry
+
+        #region Purchase Return Entry
+
+        public static string TRN_PurchaseReturn_Save = "TRN_PurchaseReturn_Save";
+        public static string TRN_PurchaseReturn_Detail_Save = "TRN_PurchaseReturn_Detail_Save";
+        public static string TRN_PurchaseReturn_GetData = "TRN_PurchaseReturn_GetData";
+        public static string TRN_PurchaseReturn_GetDetailsData = "TRN_PurchaseReturn_GetDetailsData";
+        public static string TRN_PurchaseReturn_Delete = "TRN_PurchaseReturn_Delete";
+
+        #endregion Purchase Return Entry
+
+
+
         #endregion
 
         #region "Reports"
