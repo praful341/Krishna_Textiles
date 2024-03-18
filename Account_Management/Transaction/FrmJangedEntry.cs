@@ -1277,11 +1277,11 @@ namespace Account_Management.Transaction
                 //{
                 //    m_numSummDetRate = 0;
                 //}
-                if (((DevExpress.XtraGrid.GridSummaryItem)e.Item).FieldName == "rate")
-                {
-                    if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Finalize)
-                        e.TotalValue = m_numSummDetRate;
-                }
+                //if (((DevExpress.XtraGrid.GridSummaryItem)e.Item).FieldName == "rate")
+                //{
+                //    if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Finalize)
+                //        e.TotalValue = m_numSummDetRate;
+                //}
 
             }
             catch (Exception ex)
