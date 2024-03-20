@@ -236,5 +236,29 @@ namespace BLL.FunctionClasses.Transaction
                 return DTab;
             }
         }
+
+        public DataTable GetInvoiceNo(int p_LedgerID)
+        {
+            DataTable DTab = new DataTable();
+            try
+            {
+                Request Request = new Request();
+                Request.CommandText = BLL.TPV.SProc.TRN_Get_Invoice_No;
+                Request.CommandType = CommandType.StoredProcedure;
+                Request.AddParams("@ledger_id", p_LedgerID, DbType.String);
+                Request.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int32);
+                Request.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int32);
+                Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int32);
+                Request.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int32);
+
+                Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
+                return DTab;
+            }
+            catch (Exception ex)
+            {
+                BLL.General.ShowErrors(ex);
+                return DTab;
+            }
+        }
     }
 }

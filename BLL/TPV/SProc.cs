@@ -164,6 +164,8 @@
         public static string TRN_SaleInvoice_Delete = "TRN_SaleInvoice_Delete";
         public static string TRN_ShippingAddress_GetData = "TRN_ShippingAddress_GetData";
 
+        public static string TRN_Get_Invoice_No = "TRN_Get_Invoice_No";
+
         #endregion Sale Invoice Entry
 
         #region Courier Rate

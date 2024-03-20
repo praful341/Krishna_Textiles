@@ -838,7 +838,7 @@ namespace Account_Management.Transaction
                     }
                     if (Val.ToDouble(txtSaleRate.Text) == 0)
                     {
-                        lstError.Add(new ListError(12, "Sale Rate"));
+                        lstError.Add(new ListError(12, "Rate"));
                         if (!blnFocus)
                         {
                             blnFocus = true;
@@ -847,7 +847,7 @@ namespace Account_Management.Transaction
                     }
                     if (Val.ToDouble(txtSaleAmount.Text) == 0)
                     {
-                        lstError.Add(new ListError(12, "Sale Amount"));
+                        lstError.Add(new ListError(12, "Amount"));
                         if (!blnFocus)
                         {
                             blnFocus = true;
@@ -1777,6 +1777,45 @@ namespace Account_Management.Transaction
                 {
                     e.Appearance.BackColor = Color.FromArgb(248, 210, 210);
                 }
+            }
+        }
+
+        private void labelControl9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtWeight_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lueParty_EditValueChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void lueParty_Validated(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable m_dtb = new DataTable();
+                SaleReturn objSaleReturn = new SaleReturn();
+
+                m_dtb = objSaleReturn.GetInvoiceNo(Convert.ToInt32(lueParty.EditValue));
+
+                if (m_dtb.Rows.Count > 0)
+                {
+                    lueInvoiceNo.Properties.DataSource = m_dtb;
+                    lueInvoiceNo.Properties.ValueMember = "invoice_id";
+                    lueInvoiceNo.Properties.DisplayMember = "order_no";
+                    lueInvoiceNo.ClosePopup();
+                }
+            }
+            catch (Exception ex)
+            {
+                BLL.General.ShowErrors(ex);
+                return;
             }
         }
     }
