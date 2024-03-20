@@ -211,6 +211,12 @@
 
         #endregion Purchase Return Entry
 
+        #region Payment Receipt Entry
+
+        public static string TRN_Payment_Receipt_Save = "TRN_Payment_Receipt_Save";
+        public static string TRN_Payment_OS_Invoice_Wise = "TRN_Payment_OS_Invoice_Wise";
+
+        #endregion Payment Receipt Entry
 
 
         #endregion

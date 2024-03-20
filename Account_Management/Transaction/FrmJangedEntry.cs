@@ -106,6 +106,7 @@ namespace Account_Management.Transaction
 
             ControlSettingDT(Val.ToInt(ObjPer.form_id), this);
             AddGotFocusListener(this);
+            AddKeyPressListener(this);
             this.KeyPreview = true;
 
             TabControlsToList(this.Controls);
@@ -114,6 +115,38 @@ namespace Account_Management.Transaction
             // End for Dynamic Setting By Praful On 01022020
 
             this.Show();
+        }
+        private void AddKeyPressListener(Control ctrl)
+        {
+            foreach (Control c in ctrl.Controls)
+            {
+                c.KeyPress += new KeyPressEventHandler(Control_KeyPress);
+                if (c.Controls.Count > 0)
+                {
+                    AddKeyPressListener(c);
+                }
+            }
+        }
+        private void Control_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!((Control)sender).Name.ToString().Trim().Equals(string.Empty))
+            {
+                _NextEnteredControl = (Control)sender;
+                if ((Control)sender is LookUpEdit)
+                {
+                    if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                    {
+                        SendKeys.Send("{TAB}");
+                    }
+                }
+                if ((Control)sender is CheckedComboBoxEdit)
+                {
+                    if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                    {
+                        SendKeys.Send("{TAB}");
+                    }
+                }
+            }
         }
         private void AddGotFocusListener(Control ctrl)
         {

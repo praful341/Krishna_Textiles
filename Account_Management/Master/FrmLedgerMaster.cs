@@ -29,12 +29,6 @@ namespace Account_Management
         DataTable m_dtbRegSource;
         FillCombo ObjFillCombo = new FillCombo();
 
-        string m_OldAadharPath;
-        string m_OldPanPath;
-        Int64 Ledger_id = 0;
-        //Control _NextEnteredControl;
-        //private List<Control> _tabControls;
-        public delegate void SetControlValueCallback(Control oControl, string propName, object propValue);
         #endregion
 
         #region Constructor
@@ -45,12 +39,7 @@ namespace Account_Management
             objBOFormEvents = new BLL.FormEvents();
             Val = new BLL.Validation();
             ObjPer = new BLL.FormPer();
-            //_NextEnteredControl = new Control();
-            //_tabControls = new List<Control>();
-
-
             objLedger = new LedgerMaster();
-
             DtControlSettings = new DataTable();
             m_dtbBussinesstype = new DataTable();
             m_dtbBrokerCategory = new DataTable();
@@ -58,9 +47,6 @@ namespace Account_Management
             m_dtbInitName = new DataTable();
             m_dtbLedgerType = new DataTable();
             m_dtbRegSource = new DataTable();
-
-            m_OldAadharPath = null;
-            m_OldPanPath = null;
         }
         public void ShowForm()
         {
@@ -72,20 +58,6 @@ namespace Account_Management
             }
             Val.frmGenSet(this);
             AttachFormEvents();
-            // for Dynamic Setting By Praful On 01022020
-
-            //if (Global.HideFormControls(Val.ToInt(ObjPer.form_id), this) != "")
-            //{
-            //    Global.Message("Select First User Setting...Please Contact to Administrator...");
-            //    return;
-            //}
-
-            //ControlSettingDT(Val.ToInt(ObjPer.form_id), this);
-            //AddGotFocusListener(this);
-            //this.KeyPreview = true;
-
-            //TabControlsToList(this.Controls);
-            //_tabControls = _tabControls.OrderBy(x => x.TabIndex).ToList();
 
             TabRegisterDetail.SelectedTabPageIndex = 0;
             txtLedgerName.Focus();
@@ -189,7 +161,6 @@ namespace Account_Management
                 txtZipCode.Text = string.Empty;
                 txtRemark.Text = string.Empty;
                 chkActive.Checked = true;
-                Ledger_id = 0;
                 TabRegisterDetail.SelectedTabPageIndex = 0;
                 txtLedgerName.Focus();
             }
