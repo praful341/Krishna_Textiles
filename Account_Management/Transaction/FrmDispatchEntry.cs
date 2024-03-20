@@ -62,62 +62,9 @@ namespace Account_Management.Transaction
 
         private bool ValidateDetails()
         {
-            bool blnFocus = false;
             List<ListError> lstError = new List<ListError>();
             try
             {
-                //if (grdDispatchEntry.DataSource != null)
-                //{
-                //    m_DTab = (DataTable)grdDispatchEntry.DataSource;
-
-                //    foreach (DataRow drw in m_DTab.Rows)
-                //    {
-                //        if (Val.ToDecimal(drw["payable"]) > 0)
-                //        {
-                //            if (Val.ToString(drw["payment_type"]) == "")
-                //            {
-                //                lstError.Add(new ListError(13, "Payment Type"));
-                //                if (!blnFocus)
-                //                {
-                //                    blnFocus = true;
-                //                }
-                //            }
-                //            if (Val.ToString(drw["Receive_date"]) == "")
-                //            {
-                //                lstError.Add(new ListError(13, "Receive Date"));
-                //                if (!blnFocus)
-                //                {
-                //                    blnFocus = true;
-                //                }
-                //            }
-                //            if (Val.ToInt(drw["currency_id"]) == 0)
-                //            {
-                //                lstError.Add(new ListError(13, "Currency"));
-                //                if (!blnFocus)
-                //                {
-                //                    blnFocus = true;
-                //                }
-                //            }
-                //            if (Val.ToDecimal(drw["exchange_rate"]) == 0)
-                //            {
-                //                lstError.Add(new ListError(12, "Exchange Rate"));
-                //                if (!blnFocus)
-                //                {
-                //                    blnFocus = true;
-                //                }
-                //            }
-                //            var result = DateTime.Compare(Convert.ToDateTime(drw["Receive_date"]), DateTime.Today);
-                //            if (result > 0)
-                //            {
-                //                lstError.Add(new ListError(5, "Receive Date Not Be Greater Than Today Date"));
-                //                if (!blnFocus)
-                //                {
-                //                    blnFocus = true;
-                //                }
-                //            }
-                //        }
-                //    }
-                //}
             }
             catch (Exception ex)
             {

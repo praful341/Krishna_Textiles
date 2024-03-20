@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using DevExpress.XtraEditors.Mask;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraEditors.Mask;
 
 namespace CustomControls
 {
@@ -23,15 +17,6 @@ namespace CustomControls
             Allow_Dates = 5,
             Allow_AlphaNumericsExtended = 6
         }
-
-        private byte m_Decimal;
-        private string m_DateFormat;
-        private decimal m_numMinValue;
-        private decimal m_numMaxValue;
-        private System.DateTime m_datMinDate;
-        private System.DateTime m_datMaxDate;
-        private bool m_blnCheckMinMaxBounds;
-        private TextBoxFunction m_TextType = TextBoxFunction.Allow_AlphaNumerics;
         private bool m_blnAllowCommaSeperator;
         private bool m_blnAllowDeSelectText;
         #endregion

@@ -344,7 +344,6 @@ namespace Account_Management.Class
 
                 if (DtFilterColSetting.Rows.Count > 0)
                 {
-                    int IntI = 0;
                     foreach (DataRow DRow in DtFilterColSetting.Rows)
                     {
                         foreach (Control item1 in pForm.Controls)
@@ -1528,6 +1527,15 @@ namespace Account_Management.Class
                 t.ClosePopup();
             });
         }
+        public static void LOOKUPBank(LookUpEdit lookup)
+        {
+            BankMaster objBank = new BankMaster();
+            DataTable bank = objBank.GetData();
+            lookup.Properties.DataSource = bank;
+            lookup.Properties.ValueMember = "bank_id";
+            lookup.Properties.DisplayMember = "bank_name";
+            lookup.ClosePopup();
+        }
 
         public static void LOOKUPFromCourierRep(DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lookup)
         {
@@ -1633,8 +1641,8 @@ namespace Account_Management.Class
         public static void LOOKUPItem(LookUpEdit lookup)
         {
             ItemMaster objItem = new ItemMaster();
-            DataTable Ledger = objItem.Item_GetData();
-            lookup.Properties.DataSource = Ledger;
+            DataTable Item = objItem.Item_GetData();
+            lookup.Properties.DataSource = Item;
             lookup.Properties.ValueMember = "item_id";
             lookup.Properties.DisplayMember = "item_name";
             lookup.ClosePopup();

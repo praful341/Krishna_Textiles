@@ -18,14 +18,7 @@ namespace Account_Management.Master
         FormEvents objBOFormEvents;
         Validation Val;
         BLL.FormPer ObjPer;
-
-        Control _NextEnteredControl;
-        private List<Control> _tabControls;
-
         CityMaster objCity;
-        List<Task> tList = new List<Task>();
-
-        DataTable DtControlSettings;
 
         #endregion
 

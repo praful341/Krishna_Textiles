@@ -34,9 +34,6 @@ namespace Account_Management.Transaction
 
         Purchase objPurchase = new Purchase();
         UserAuthentication objUserAuthentication = new UserAuthentication();
-        //AssortMaster objAssort = new AssortMaster();
-        //SieveMaster objSieve = new SieveMaster();
-        //RateMaster objRate = new RateMaster();
 
         DataTable DtControlSettings = new DataTable();
         DataTable m_dtbPurchaseDetails = new DataTable();
@@ -48,8 +45,6 @@ namespace Account_Management.Transaction
         int m_update_srno;
         int m_numForm_id;
         int IntRes;
-        decimal m_numSummDetRate;
-
         bool m_blnadd;
         bool m_blnsave;
         bool m_blncheckevents;
@@ -112,6 +107,7 @@ namespace Account_Management.Transaction
 
             ControlSettingDT(Val.ToInt(ObjPer.form_id), this);
             AddGotFocusListener(this);
+            AddKeyPressListener(this);
             this.KeyPreview = true;
 
             TabControlsToList(this.Controls);
@@ -120,6 +116,38 @@ namespace Account_Management.Transaction
             // End for Dynamic Setting By Praful On 01022020
 
             this.Show();
+        }
+        private void AddKeyPressListener(Control ctrl)
+        {
+            foreach (Control c in ctrl.Controls)
+            {
+                c.KeyPress += new KeyPressEventHandler(Control_KeyPress);
+                if (c.Controls.Count > 0)
+                {
+                    AddKeyPressListener(c);
+                }
+            }
+        }
+        private void Control_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!((Control)sender).Name.ToString().Trim().Equals(string.Empty))
+            {
+                _NextEnteredControl = (Control)sender;
+                if ((Control)sender is LookUpEdit)
+                {
+                    if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                    {
+                        SendKeys.Send("{TAB}");
+                    }
+                }
+                if ((Control)sender is CheckedComboBoxEdit)
+                {
+                    if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                    {
+                        SendKeys.Send("{TAB}");
+                    }
+                }
+            }
         }
         private void AddGotFocusListener(Control ctrl)
         {
@@ -1243,11 +1271,11 @@ namespace Account_Management.Transaction
         {
             try
             {
-                if (((DevExpress.XtraGrid.GridSummaryItem)e.Item).FieldName == "rate")
-                {
-                    if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Finalize)
-                        e.TotalValue = m_numSummDetRate;
-                }
+                //if (((DevExpress.XtraGrid.GridSummaryItem)e.Item).FieldName == "rate")
+                //{
+                //    if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Finalize)
+                //        e.TotalValue = m_numSummDetRate;
+                //}
             }
             catch (Exception ex)
             {

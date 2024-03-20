@@ -25,10 +25,8 @@ namespace Account_Management.Master
         LocationMaster objLoc;
         ConfigPermission objConfig;
         List<Task> tList = new List<Task>();
-
         int m_IntRes;
 
-        bool blnReturn;
         #endregion
 
         #region Constructor
@@ -47,9 +45,6 @@ namespace Account_Management.Master
             objConfig = new ConfigPermission();
 
             m_IntRes = 0;
-
-            blnReturn = true;
-
             txtUName.Enabled = false;
         }
         public void ShowForm()
@@ -148,7 +143,6 @@ namespace Account_Management.Master
             catch (Exception ex)
             {
                 General.ShowErrors(ex.ToString());
-                blnReturn = false;
             }
         }
         #endregion
@@ -381,12 +375,10 @@ namespace Account_Management.Master
                         lueDepartment.Tag = Val.ToString(DR["department_id"]);
                     }
                 }
-
             }
             catch (Exception ex)
             {
                 General.ShowErrors(ex.ToString());
-                blnReturn = false;
             }
         }
         private void Export(string format, string dlgHeader, string dlgFilter)

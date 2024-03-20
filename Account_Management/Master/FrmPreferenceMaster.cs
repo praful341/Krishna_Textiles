@@ -1,7 +1,7 @@
-﻿using BLL;
+﻿using Account_Management.Class;
+using BLL;
 using BLL.FunctionClasses.Master;
 using BLL.PropertyClasses.Master;
-using Account_Management.Class;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,13 +16,10 @@ namespace Account_Management.Master
         FormEvents objBOFormEvents;
         Validation Val;
         BLL.FormPer ObjPer;
-
         PreferenceMaster objPrefer;
         List<Task> tList = new List<Task>();
-
         int m_IntRes;
 
-        bool blnReturn;
         #endregion
 
         #region Constructor
@@ -33,12 +30,8 @@ namespace Account_Management.Master
             objBOFormEvents = new FormEvents();
             Val = new Validation();
             ObjPer = new BLL.FormPer();
-
             objPrefer = new PreferenceMaster();
-
             m_IntRes = 0;
-
-            blnReturn = true;
         }
         public void ShowForm()
         {
@@ -254,13 +247,11 @@ namespace Account_Management.Master
                         txtRate.Text = Val.ToString(DTab.Rows[0]["format_rate"]);
                         lueDeliveryType.EditValue = Val.ToInt(DTab.Rows[0]["delivery_type_id"]);
                     }
-
                 }
             }
             catch (Exception ex)
             {
                 General.ShowErrors(ex.ToString());
-                blnReturn = false;
             }
         }
         #endregion

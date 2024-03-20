@@ -50,24 +50,12 @@ namespace Account_Management.Report
         public int ReceiptDays = 0;
         public double DouExpDiff = 0;
 
-        double DouCarat = 0;
-
         public string BandConsumeCaption = "";
         public string BandConsumeWithProcessCaption = "";
-
-        double DouConsumeCarat = 0;
-        double IntConsumePcs = 0;
 
         /// <summary>
         ////
         /// </summary>
-
-        double Manager_salary = 0;
-        double Direct_weges = 0;
-        double Std_Direct_weges = 0;
-        double Std_Mgr_weges = 0;
-        double Vari_Direct_weges = 0;
-        double Mgr_Direct_weges = 0;
 
         decimal DouOpeningCarat = 0;
         decimal DouOpeningAmount = 0;
@@ -100,7 +88,6 @@ namespace Account_Management.Report
         decimal DouRejAmount = 0;
 
         decimal DouCurrentAmount = 0;
-
 
         #region Property Settings
 
