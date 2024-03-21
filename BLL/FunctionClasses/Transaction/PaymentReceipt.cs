@@ -18,6 +18,7 @@ namespace BLL.FunctionClasses.Account
                 Request Request = new Request();
 
                 Request.AddParams("@payment_id", pClsProperty.payment_id, DbType.Int64);
+                Request.AddParams("@voucher_no", pClsProperty.voucher_no, DbType.Int64);
                 Request.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int64);
                 Request.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int64);
                 Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int64);

@@ -588,6 +588,7 @@ namespace Account_Management.Transaction
                         PaymentReceiptProperty.debit_amount = Val.ToInt64(Payment_Receipt_Data.Rows[i]["amount"]);
                         PaymentReceiptProperty.remarks = Val.ToString(txtRemark.Text);
                         PaymentReceiptProperty.form_id = m_numForm_id;
+                        PaymentReceiptProperty.voucher_no = Val.ToInt64(txtVoucherNo.Text);
 
                         Int64 Against_Ledger_Id_Cash = objPaymentReceipt.ISLadgerName_GetData("CASH BALANCE");
                         Int64 Against_Ledger_Id_Bank = objPaymentReceipt.ISLadgerName_GetData("BANK BALANCE");

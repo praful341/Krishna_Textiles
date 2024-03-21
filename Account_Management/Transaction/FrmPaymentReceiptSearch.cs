@@ -269,13 +269,15 @@ namespace Account_Management.Transaction
             {
                 MainGrid.DataSource = DTab;
 
+                GrdDet.PostEditor();
+                GrdDet.FocusedRowHandle = GrdDet.DataRowCount - 1;
+                GrdDet.FocusedColumn = GrdDet.Columns["method"];
+                RepMethod.AllowFocused = true;
+
                 RepMethod.Items.Add("Adjusment");
                 RepMethod.Items.Add("New Ref.");
 
-                GrdDet.PostEditor();
-                GrdDet.FocusedRowHandle = GrdDet.DataRowCount;
-                GrdDet.FocusedColumn = GrdDet.Columns["method"];
-                RepMethod.AllowFocused = true;
+
 
             }
             catch (Exception ex)
