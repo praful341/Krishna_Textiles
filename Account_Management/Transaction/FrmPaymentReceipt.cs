@@ -472,18 +472,18 @@ namespace Account_Management.Transaction
 
                 if (IntRes == -1)
                 {
-                    Global.Confirm("Error In Save Payment Receipt Details");
+                    Global.Confirm("Error In Payment Receipt");
                     CmbTransactionType.Focus();
                 }
                 else
                 {
                     if (Val.ToInt(lblMode.Tag) == 0)
                     {
-                        Global.Confirm("Payment Receipt Master Details Data Save Successfully");
+                        Global.Confirm("Data Save Successfully");
                     }
                     else
                     {
-                        Global.Confirm("Payment Receipt Master Details Data Update Successfully");
+                        Global.Confirm("Data Update Successfully");
                     }
                     btnClear_Click(sender, e);
                 }
@@ -513,12 +513,12 @@ namespace Account_Management.Transaction
                 {
                     if (Val.ToInt(lblMode.Tag) == 0)
                     {
-                        Global.Confirm("Payment Receipt Data Save Successfully");
+                        Global.Confirm("Data Save Successfully");
                         btnClear_Click(sender, e);
                     }
                     else
                     {
-                        Global.Confirm("Payment Receipt Data Update Successfully");
+                        Global.Confirm("Data Update Successfully");
                         btnClear_Click(sender, e);
                     }
                 }
@@ -584,8 +584,8 @@ namespace Account_Management.Transaction
                         PaymentReceiptProperty.reference = Val.ToString(Payment_Receipt_Data.Rows[i]["ref_order_no"]);
                         PaymentReceiptProperty.bank_id = Val.ToInt64(lueBank.EditValue);
                         PaymentReceiptProperty.ledger_id = Val.ToInt64(LueLedger.EditValue);
-                        PaymentReceiptProperty.credit_amount = Val.ToInt64(Payment_Receipt_Data.Rows[i]["amount"]);
-                        PaymentReceiptProperty.debit_amount = Val.ToInt64(Payment_Receipt_Data.Rows[i]["amount"]);
+                        PaymentReceiptProperty.credit_amount = Val.ToDecimal(Payment_Receipt_Data.Rows[i]["amount"]);
+                        PaymentReceiptProperty.debit_amount = Val.ToDecimal(Payment_Receipt_Data.Rows[i]["amount"]);
                         PaymentReceiptProperty.remarks = Val.ToString(txtRemark.Text);
                         PaymentReceiptProperty.form_id = m_numForm_id;
                         PaymentReceiptProperty.voucher_no = Val.ToInt64(txtVoucherNo.Text);
@@ -617,18 +617,18 @@ namespace Account_Management.Transaction
 
                 if (IntRes == -1)
                 {
-                    Global.Confirm("Error In Save Payment Receipt Details");
+                    Global.Confirm("Error In Payment Receipt");
                     CmbTransactionType.Focus();
                 }
                 else
                 {
                     if (Val.ToInt(lblMode.Tag) == 0)
                     {
-                        Global.Confirm("Payment Receipt Master Details Data Save Successfully");
+                        Global.Confirm("Data Save Successfully");
                     }
                     else
                     {
-                        Global.Confirm("Payment Receipt Master Details Data Update Successfully");
+                        Global.Confirm("Data Update Successfully");
                     }
                     btnClear_Click(null, null);
                 }
