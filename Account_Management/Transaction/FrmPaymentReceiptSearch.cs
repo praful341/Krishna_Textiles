@@ -1,4 +1,5 @@
 ﻿using Account_Management.Class;
+using Account_Management.Search;
 using BLL;
 using BLL.FunctionClasses.Account;
 using System;
@@ -17,6 +18,8 @@ namespace Account_Management.Transaction
         PaymentReceipt objPaymentReceipt = new PaymentReceipt();
         FormEvents objBOFormEvents = new FormEvents();
         public FrmPaymentReceipt FrmPaymentReceipt = new FrmPaymentReceipt();
+        //FrmSearch FrmSearch;
+        FrmSearchNew FrmSearchNew;
         string FormName = "";
 
         #endregion
@@ -54,30 +57,11 @@ namespace Account_Management.Transaction
         #region Form Events
         private void FrmJangedConfirm_Load(object sender, EventArgs e)
         {
-            try
-            {
-                MainGrid.DataSource = DTab;
 
-                RepMethod.Items.Add("Adjusment");
-                RepMethod.Items.Add("New Ref.");
-
-                GrdDet.PostEditor();
-                GrdDet.FocusedRowHandle = GrdDet.DataRowCount;
-                GrdDet.FocusedColumn = GrdDet.Columns["method"];
-                RepMethod.AllowFocused = true;
-
-            }
-            catch (Exception ex)
-            {
-                Global.ErrorMessage(ex.Message);
-            }
         }
         private void FrmJangedConfirm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
-            {
-                this.Close();
-            }
+
         }
         private void BtnExit_Click(object sender, EventArgs e)
         {
@@ -160,9 +144,9 @@ namespace Account_Management.Transaction
             if (FormName == "FrmPaymentReceipt")
             {
                 decimal Payment_Rec_Amount = Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue);
-                if (Payment_Rec_Amount > Val.ToDecimal(lblAmount.Text))
+                if (Payment_Rec_Amount != Val.ToDecimal(lblAmount.Text))
                 {
-                    Global.Message("Total Amount Not Greater Then Payment Receive Amount");
+                    Global.Message("Total Amount Not Equal To Payment Receive Amount");
                     return;
                 }
                 DialogResult result = MessageBox.Show("Do you want to save data?", "Confirmation", MessageBoxButtons.YesNoCancel);
@@ -207,27 +191,63 @@ namespace Account_Management.Transaction
 
         private void RepOrderNo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            int sr_no = Val.ToInt32(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "sr_no"));
-
-            DataTable DTab_SaleInvoice = objPaymentReceipt.Sale_Invoice_Search_GetData(Val.ToInt64(lblLedgerID.Text));
-
-            if (DTab_SaleInvoice.Rows.Count > 0)
+            try
             {
-                FrmSaleInvoiceSearch frmSaleInvoiceSearch = new FrmSaleInvoiceSearch();
-                frmSaleInvoiceSearch.FrmPaymentReceiptSearch = this;
-                frmSaleInvoiceSearch.DTab = DTab_SaleInvoice;
-                frmSaleInvoiceSearch.ShowForm(this);
+                string Method = Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "method"));
+
+                if (GrdDet.FocusedColumn.FieldName.ToUpper() == "REF_ORDER_NO" && Method == "Adjusment")
+                {
+                    //FrmSearch = new Search.FrmSearch();
+                    //FrmSearch._FrmSearchProperty = new Class.FrmSearchProperty();
+                    //FrmSearch._FrmSearchProperty.dtTable = objPaymentReceipt.Sale_Invoice_Search_GetData(Val.ToInt64(lblLedgerID.Text));
+                    ////FrmSearch.txtSearch.Text = e.KeyChar.ToString();
+                    //FrmSearch._FrmSearchProperty.SearchField = "ref_order_no";
+
+                    //FrmSearch.ShowDialog();
+                    //e.Handled = true;
+                    //if (FrmSearch._FrmSearchProperty.dtrow != null)
+                    //{
+                    //    GrdDet.SetFocusedRowCellValue("ref_order_no", Val.ToString(FrmSearch._FrmSearchProperty.dtrow.Cells["order_no"].Value));
+                    //    GrdDet.SetFocusedRowCellValue("due_date", Val.ToString(FrmSearch._FrmSearchProperty.dtrow.Cells["due_date"].Value));
+                    //    GrdDet.SetFocusedRowCellValue("amount", Val.ToString(FrmSearch._FrmSearchProperty.dtrow.Cells["os_amount"].Value));
+                    //    GrdDet.SetFocusedRowCellValue("invoice_id", Val.ToString(FrmSearch._FrmSearchProperty.dtrow.Cells["invoice_id"].Value));
+                    //    GrdDet.PostEditor();
+                    //}
+
+                    //FrmSearch.Hide();
+                    //FrmSearch.Dispose();
+                    //FrmSearch = null;
+
+                    FrmSearchNew = new Search.FrmSearchNew();
+                    FrmSearchNew.SearchText = e.KeyChar.ToString();
+                    FrmSearchNew.DTab = objPaymentReceipt.Sale_Invoice_Search_GetData(Val.ToInt64(lblLedgerID.Text));
+
+                    FrmSearchNew.SearchField = "order_no,invoice_id";
+
+                    FrmSearchNew.ShowDialog();
+                    e.Handled = true;
+                    if (FrmSearchNew.DTab != null)
+                    {
+                        GrdDet.SetFocusedRowCellValue("ref_order_no", Val.ToString(FrmSearchNew.DRow["order_no"]));
+                        GrdDet.SetFocusedRowCellValue("due_date", Val.ToString(FrmSearchNew.DRow["due_date"]));
+                        GrdDet.SetFocusedRowCellValue("amount", Val.ToString(FrmSearchNew.DRow["os_amount"]));
+                        GrdDet.SetFocusedRowCellValue("invoice_id", Val.ToString(FrmSearchNew.DRow["invoice_id"]));
+                        GrdDet.PostEditor();
+                    }
+                    FrmSearchNew.Hide();
+                    FrmSearchNew.Dispose();
+                    FrmSearchNew = null;
+                }
             }
-            else
+            catch (Exception Ex)
             {
-                Global.Message(lblLedger.Text + " Ledger Data Not Found In Sale Invoice");
+                Global.Message(Ex.ToString());
                 return;
             }
         }
-
         private void RepDueDate_KeyDown(object sender, KeyEventArgs e)
         {
-            GrdDet.CloseEditor();
+            //GrdDet.CloseEditor();
             if (e.KeyCode == Keys.Enter && GrdDet.IsLastRow)
             {
                 DataRow dtRow = DTab.NewRow();
@@ -240,21 +260,36 @@ namespace Account_Management.Transaction
                 GrdDet.PostEditor();
                 GrdDet.FocusedRowHandle = GrdDet.DataRowCount - 1;
                 GrdDet.FocusedColumn = GrdDet.Columns["method"];
+            }
+        }
+
+        private void FrmPaymentReceiptSearch_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                MainGrid.DataSource = DTab;
+
+                RepMethod.Items.Add("Adjusment");
+                RepMethod.Items.Add("New Ref.");
+
+                GrdDet.PostEditor();
+                GrdDet.FocusedRowHandle = GrdDet.DataRowCount;
+                GrdDet.FocusedColumn = GrdDet.Columns["method"];
+                RepMethod.AllowFocused = true;
 
             }
-            //else if (e.KeyCode == Keys.Enter)
-            //{
-            //    GrdDet.PostEditor();
+            catch (Exception ex)
+            {
+                Global.ErrorMessage(ex.Message);
+            }
+        }
 
-            //    if (!GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "CARAT").ToString().Trim().Equals(string.Empty) &&
-            //                                        !GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "SIEVE_NAME").ToString().Trim().Equals(string.Empty))
-            //    {
-            //        MainGrid.Refresh();
-            //        GrdDet.SetRowCellValue(GrdDet.DataRowCount - 1, "ROUGH_NAME", GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "ROUGH_NAME"));
-            //        GrdDet.SetRowCellValue(GrdDet.DataRowCount - 1, "SIEVE_NAME", GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "SIEVE_NAME"));
-            //        GrdDet.SetRowCellValue(GrdDet.DataRowCount - 1, "SIEVE_CODE", GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "SIEVE_CODE"));
-            //    }
-            //}
+        private void FrmPaymentReceiptSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
     }
 }

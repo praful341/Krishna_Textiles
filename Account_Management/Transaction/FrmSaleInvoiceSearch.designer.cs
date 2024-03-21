@@ -239,8 +239,8 @@
             this.Name = "FrmSaleInvoiceSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SALE INVOICE SEARCH";
-            this.Load += new System.EventHandler(this.FrmJangedConfirm_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmJangedConfirm_KeyDown);
+            this.Load += new System.EventHandler(this.FrmSaleInvoiceSearch_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmSaleInvoiceSearch_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).EndInit();
             this.ContextMNExport.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GrdDet)).EndInit();

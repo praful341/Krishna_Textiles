@@ -8,6 +8,8 @@ namespace Account_Management.Search
 {
     public partial class FrmSearchNew : DevExpress.XtraEditors.XtraForm
     {
+        public FrmSearchProperty _FrmSearchProperty;
+
         BLL.Validation Val = new BLL.Validation();
         public DataTable DTab;
         public string ColumnsToHide = "";
@@ -233,7 +235,6 @@ namespace Account_Management.Search
                 {
                     SelectRow();
                 }
-
             }
         }
         private void FrmSearch_KeyDown(object sender, KeyEventArgs e)

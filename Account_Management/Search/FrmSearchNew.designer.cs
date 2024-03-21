@@ -92,6 +92,7 @@
             this.btnExcelExport.Size = new System.Drawing.Size(122, 25);
             this.btnExcelExport.TabIndex = 196;
             this.btnExcelExport.Text = "Export To Excel ";
+            this.btnExcelExport.Visible = false;
             this.btnExcelExport.Click += new System.EventHandler(this.btnExcelExport_Click);
             // 
             // BtnClose
@@ -189,15 +190,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(811, 407);
+            this.ControlBox = false;
             this.Controls.Add(this.ChkAll);
             this.Controls.Add(this.MainGrid);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel5);
+            this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.None;
             this.KeyPreview = true;
             this.Name = "FrmSearchNew";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SEARCH";
             this.Load += new System.EventHandler(this.FrmSearch_Load);

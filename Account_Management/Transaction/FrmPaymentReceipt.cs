@@ -98,7 +98,7 @@ namespace Account_Management.Transaction
             objPaymentReceipt = new PaymentReceipt();
             txtVoucherNo.Text = objPaymentReceipt.FindNewID().ToString();
 
-            LueLedger.Focus();
+            CmbTransactionType.Focus();
         }
         #region Validation
 
@@ -473,7 +473,7 @@ namespace Account_Management.Transaction
                 if (IntRes == -1)
                 {
                     Global.Confirm("Error In Save Payment Receipt Details");
-                    LueLedger.Focus();
+                    CmbTransactionType.Focus();
                 }
                 else
                 {
@@ -525,7 +525,7 @@ namespace Account_Management.Transaction
                 else
                 {
                     Global.Confirm("Error In Payment Receipt");
-                    txtVoucherNo.Focus();
+                    CmbTransactionType.Focus();
                 }
             }
             catch (Exception ex)
@@ -537,23 +537,27 @@ namespace Account_Management.Transaction
 
         private void txtAmount_Validated(object sender, EventArgs e)
         {
-            if (!ValidateDetails())
-            {
-                return;
-            }
+            //if (txtAmount.Text != "")
+            //{
+            //    if (!ValidateDetails())
+            //    {
+            //        return;
+            //    }
 
-            DtPaymentReceipt = new DataTable();
-            DtPaymentReceipt.Columns.Add("sr_no", typeof(int));
-            DtPaymentReceipt.Columns.Add("method", typeof(string));
-            DtPaymentReceipt.Columns.Add("ref_order_no", typeof(string));
-            DtPaymentReceipt.Columns.Add("amount", typeof(decimal));
-            DtPaymentReceipt.Columns.Add("due_date", typeof(string));
-            DtPaymentReceipt.Rows.Add(1, "", "", 0, "");
+            //    DtPaymentReceipt = new DataTable();
+            //    DtPaymentReceipt.Columns.Add("sr_no", typeof(int));
+            //    DtPaymentReceipt.Columns.Add("method", typeof(string));
+            //    DtPaymentReceipt.Columns.Add("ref_order_no", typeof(string));
+            //    DtPaymentReceipt.Columns.Add("amount", typeof(decimal));
+            //    DtPaymentReceipt.Columns.Add("due_date", typeof(string));
+            //    DtPaymentReceipt.Columns.Add("invoice_id", typeof(Int64));
+            //    DtPaymentReceipt.Rows.Add(1, "", "", 0, "");
 
-            FrmPaymentReceiptSearch FrmPaymentReceiptSearch = new FrmPaymentReceiptSearch();
-            FrmPaymentReceiptSearch.FrmPaymentReceipt = this;
-            FrmPaymentReceiptSearch.DTab = DtPaymentReceipt;
-            FrmPaymentReceiptSearch.ShowForm(this, Val.ToInt64(LueLedger.EditValue), Val.ToString(LueLedger.Text), Val.ToDecimal(txtAmount.Text));
+            //    FrmPaymentReceiptSearch FrmPaymentReceiptSearch = new FrmPaymentReceiptSearch();
+            //    FrmPaymentReceiptSearch.FrmPaymentReceipt = this;
+            //    FrmPaymentReceiptSearch.DTab = DtPaymentReceipt;
+            //    FrmPaymentReceiptSearch.ShowForm(this, Val.ToInt64(LueLedger.EditValue), Val.ToString(LueLedger.Text), Val.ToDecimal(txtAmount.Text));
+            //}
         }
 
         public void GetPaymentReceiptData(DataTable Payment_Receipt_Data)
@@ -575,7 +579,7 @@ namespace Account_Management.Transaction
                         PaymentReceiptProperty.payment_type = Val.ToString(CmbTransactionType.Text);
                         PaymentReceiptProperty.sr_no = Val.ToInt32(Payment_Receipt_Data.Rows[i]["sr_no"]);
                         PaymentReceiptProperty.method = Val.ToString(Payment_Receipt_Data.Rows[i]["method"]);
-                        PaymentReceiptProperty.invoice_id = Val.ToInt64(0);
+                        PaymentReceiptProperty.invoice_id = Val.ToInt64(Payment_Receipt_Data.Rows[i]["invoice_id"]);
                         PaymentReceiptProperty.purchase_return_id = Val.ToInt64(0);
                         PaymentReceiptProperty.reference = Val.ToString(Payment_Receipt_Data.Rows[i]["ref_order_no"]);
                         PaymentReceiptProperty.bank_id = Val.ToInt64(lueBank.EditValue);
@@ -613,7 +617,7 @@ namespace Account_Management.Transaction
                 if (IntRes == -1)
                 {
                     Global.Confirm("Error In Save Payment Receipt Details");
-                    LueLedger.Focus();
+                    CmbTransactionType.Focus();
                 }
                 else
                 {
@@ -639,6 +643,31 @@ namespace Account_Management.Transaction
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                if (txtAmount.Text != "")
+                {
+                    if (!ValidateDetails())
+                    {
+                        return;
+                    }
+
+                    DtPaymentReceipt = new DataTable();
+                    DtPaymentReceipt.Columns.Add("sr_no", typeof(int));
+                    DtPaymentReceipt.Columns.Add("method", typeof(string));
+                    DtPaymentReceipt.Columns.Add("ref_order_no", typeof(string));
+                    DtPaymentReceipt.Columns.Add("amount", typeof(decimal));
+                    DtPaymentReceipt.Columns.Add("due_date", typeof(string));
+                    DtPaymentReceipt.Columns.Add("invoice_id", typeof(Int64));
+                    DtPaymentReceipt.Rows.Add(1, "", "", 0, "");
+
+                    FrmPaymentReceiptSearch FrmPaymentReceiptSearch = new FrmPaymentReceiptSearch();
+                    FrmPaymentReceiptSearch.FrmPaymentReceipt = this;
+                    FrmPaymentReceiptSearch.DTab = DtPaymentReceipt;
+                    FrmPaymentReceiptSearch.ShowForm(this, Val.ToInt64(LueLedger.EditValue), Val.ToString(LueLedger.Text), Val.ToDecimal(txtAmount.Text));
+                }
             }
         }
     }

@@ -110,7 +110,7 @@ namespace Account_Management.Transaction
 
             ControlSettingDT(Val.ToInt(ObjPer.form_id), this);
             AddGotFocusListener(this);
-            AddGotFocusListener(this);
+            AddKeyPressListener(this);
             this.KeyPreview = true;
 
             TabControlsToList(this.Controls);
@@ -1826,7 +1826,7 @@ namespace Account_Management.Transaction
 
         private void lueParty_EditValueChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void lueParty_Validated(object sender, EventArgs e)

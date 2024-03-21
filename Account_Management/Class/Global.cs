@@ -27,6 +27,7 @@ namespace Account_Management.Class
 
         private const int WM_SETREDRAW = 0xB;
 
+        public static FrmSearchProperty gFrmSearchProperty = new FrmSearchProperty();
         public static Form gMainFormRef;
         private static string streamType = string.Empty;
         public static int Gwidth;

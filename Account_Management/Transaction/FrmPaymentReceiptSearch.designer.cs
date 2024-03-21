@@ -51,6 +51,7 @@
             this.ClmLotSrNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.RepDueDate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            this.ClmInvoiceID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.lblLedgerID = new DevExpress.XtraEditors.LabelControl();
@@ -211,7 +212,8 @@
             this.clmRSAmount,
             this.gridColumn8,
             this.ClmLotSrNo,
-            this.gridColumn1});
+            this.gridColumn1,
+            this.ClmInvoiceID});
             this.GrdDet.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.GrdDet.GridControl = this.MainGrid;
             this.GrdDet.Name = "GrdDet";
@@ -329,6 +331,12 @@
             this.RepDueDate.Name = "RepDueDate";
             this.RepDueDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RepDueDate_KeyDown);
             // 
+            // ClmInvoiceID
+            // 
+            this.ClmInvoiceID.Caption = "Invoice ID";
+            this.ClmInvoiceID.FieldName = "invoice_id";
+            this.ClmInvoiceID.Name = "ClmInvoiceID";
+            // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.labelControl2);
@@ -442,8 +450,8 @@
             this.Name = "FrmPaymentReceiptSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PAYMENT RECEIPT";
-            this.Load += new System.EventHandler(this.FrmJangedConfirm_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmJangedConfirm_KeyDown);
+            this.Load += new System.EventHandler(this.FrmPaymentReceiptSearch_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPaymentReceiptSearch_KeyDown);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).EndInit();
             this.ContextMNExport.ResumeLayout(false);
@@ -493,5 +501,6 @@
         private DevExpress.XtraEditors.LabelControl lblLedgerID;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit RepOrderNo;
+        private DevExpress.XtraGrid.Columns.GridColumn ClmInvoiceID;
     }
 }

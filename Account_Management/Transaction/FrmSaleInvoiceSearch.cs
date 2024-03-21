@@ -50,21 +50,11 @@ namespace Account_Management.Transaction
         #region Form Events
         private void FrmJangedConfirm_Load(object sender, EventArgs e)
         {
-            try
-            {
-                MainGrid.DataSource = DTab;
-            }
-            catch (Exception ex)
-            {
-                Global.ErrorMessage(ex.Message);
-            }
+
         }
         private void FrmJangedConfirm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
-            {
-                this.Close();
-            }
+
         }
         private void BtnExit_Click(object sender, EventArgs e)
         {
@@ -185,5 +175,25 @@ namespace Account_Management.Transaction
         }
 
         #endregion
+
+        private void FrmSaleInvoiceSearch_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                MainGrid.DataSource = DTab;
+            }
+            catch (Exception ex)
+            {
+                Global.ErrorMessage(ex.Message);
+            }
+        }
+
+        private void FrmSaleInvoiceSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }
