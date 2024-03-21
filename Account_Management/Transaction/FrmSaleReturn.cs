@@ -1247,6 +1247,7 @@ namespace Account_Management.Transaction
                     IntRes = 0;
 
                     objSaleReturnProperty.sale_return_id = Val.ToInt(lblMode.Tag);
+                    objSaleReturnProperty.invoice_id = Val.ToInt(lueInvoiceNo.EditValue);
                     objSaleReturnProperty.return_date = Val.DBDate(dtpReturnDate.Text);
                     objSaleReturnProperty.gst_id = Val.ToInt(lueGSTRate.EditValue);
                     objSaleReturnProperty.remarks = Val.ToString(txtRemark.Text);

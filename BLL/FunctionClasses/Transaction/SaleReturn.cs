@@ -17,6 +17,7 @@ namespace BLL.FunctionClasses.Transaction
                 Request Request = new Request();
 
                 Request.AddParams("@sale_return_id", pClsProperty.sale_return_id, DbType.Int64);
+                Request.AddParams("@invoice_id", pClsProperty.invoice_id, DbType.Int64);
                 Request.AddParams("@fin_year_id", GlobalDec.gEmployeeProperty.gFinancialYear_Code, DbType.String);
                 Request.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int32);
                 Request.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int32);

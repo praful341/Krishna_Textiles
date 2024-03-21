@@ -5,6 +5,7 @@ namespace BLL.PropertyClasses.Transaction
     public class SaleReturn_Property
     {
         #region "Master" 
+        public int invoice_id { get; set; }
         public int company_id { get; set; }
         public int branch_id { get; set; }
         public int location_id { get; set; }
