@@ -55,13 +55,30 @@ namespace Account_Management.Transaction
         #endregion
 
         #region Form Events
-        private void FrmJangedConfirm_Load(object sender, EventArgs e)
+        private void FrmPaymentReceiptSearch_Load(object sender, EventArgs e)
         {
+            try
+            {
+                MainGrid.DataSource = DTab;
+                GrdDet.PostEditor();
+                GrdDet.FocusedRowHandle = GrdDet.DataRowCount - 1;
+                GrdDet.FocusedColumn = GrdDet.Columns["method"];
+                RepMethod.AllowFocused = true;
 
+                RepMethod.Items.Add("Adjusment");
+                RepMethod.Items.Add("New Ref.");
+            }
+            catch (Exception ex)
+            {
+                Global.ErrorMessage(ex.Message);
+            }
         }
-        private void FrmJangedConfirm_KeyDown(object sender, KeyEventArgs e)
+        private void FrmPaymentReceiptSearch_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
         private void BtnExit_Click(object sender, EventArgs e)
         {
@@ -107,7 +124,6 @@ namespace Account_Management.Transaction
                             GrdDet.ExportToCsv(Filepath);
                             break;
                     }
-
                     if (format.Equals(Exports.xlsx.ToString()))
                     {
                         if (Global.Confirm("Export Done\n\nYou Want To Open Excel File ?", "DERP", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
@@ -256,41 +272,18 @@ namespace Account_Management.Transaction
                 int sr_no = Val.ToInt32(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "sr_no"));
                 dtRow["sr_no"] = sr_no + 1;
 
+                //decimal Amt = Val.ToDecimal(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "amount"));
                 DTab.Rows.Add(dtRow);
                 GrdDet.PostEditor();
                 GrdDet.FocusedRowHandle = GrdDet.DataRowCount - 1;
                 GrdDet.FocusedColumn = GrdDet.Columns["method"];
-            }
-        }
 
-        private void FrmPaymentReceiptSearch_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                MainGrid.DataSource = DTab;
+                decimal Total_Amount = Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue);
 
-                GrdDet.PostEditor();
-                GrdDet.FocusedRowHandle = GrdDet.DataRowCount - 1;
-                GrdDet.FocusedColumn = GrdDet.Columns["method"];
-                RepMethod.AllowFocused = true;
-
-                RepMethod.Items.Add("Adjusment");
-                RepMethod.Items.Add("New Ref.");
-
-
-
-            }
-            catch (Exception ex)
-            {
-                Global.ErrorMessage(ex.Message);
-            }
-        }
-
-        private void FrmPaymentReceiptSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-            {
-                this.Close();
+                if (Total_Amount == Val.ToDecimal(lblAmount.Text))
+                {
+                    BtnSave.Focus();
+                }
             }
         }
     }

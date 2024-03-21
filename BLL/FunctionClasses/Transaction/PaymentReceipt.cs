@@ -72,52 +72,11 @@ namespace BLL.FunctionClasses.Account
             }
             return pClsProperty;
         }
-
-        public DataTable Income_Entry_GetData_Search()
-        {
-            DataTable DTab = new DataTable();
-            Request Request = new Request();
-            Request.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int32);
-            Request.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int32);
-            Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int32);
-            Request.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int32);
-            // Request.CommandText = BLL.TPV.SProc.TRN_Income_Entry_GetData;
-            Request.CommandType = CommandType.StoredProcedure;
-
-            Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
-            return DTab;
-        }
-        public DataTable GetHead()
-        {
-            DataTable DTab = new DataTable();
-            Request Request = new Request();
-
-            //Request.CommandText = BLL.TPV.SProc.MST_Head_GetData;
-            Request.CommandType = CommandType.StoredProcedure;
-
-            Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
-            return DTab;
-        }
-
         public Int64 ISLadgerName_GetData(string pLedger_Name)
         {
             Int64 IntLedgerId = 0;
 
             IntLedgerId = Val.ToInt64(Ope.FindText(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, "MST_Ledger", "ledger_id", " And ledger_name = '" + pLedger_Name + "'"));
-
-            if (IntLedgerId == 0)
-            {
-                return 0;
-            }
-            else
-            {
-                return IntLedgerId;
-            }
-        }
-        public Int64 ISLadgerName_LoanGetData(string pLedger_Name)
-        {
-            Int64 IntLedgerId = 0;
-            IntLedgerId = Val.ToInt64(Ope.FindText(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, "MST_LEDGER", "ledger_id", " And ledger_name = '" + pLedger_Name + "' And location_id = " + GlobalDec.gEmployeeProperty.location_id + ""));
 
             if (IntLedgerId == 0)
             {
@@ -135,6 +94,18 @@ namespace BLL.FunctionClasses.Account
             return IntRes;
         }
         public DataTable Sale_Invoice_Search_GetData(Int64 Ledger_ID)
+        {
+            DataTable DTab = new DataTable();
+            Request Request = new Request();
+            Request.CommandText = BLL.TPV.SProc.TRN_Payment_OS_Invoice_Wise;
+            Request.CommandType = CommandType.StoredProcedure;
+            Request.AddParams("@ledger_id", Ledger_ID, DbType.Int64);
+
+            Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
+            return DTab;
+        }
+
+        public DataTable PaymentReceipt_Search_GetData(Int64 Ledger_ID)
         {
             DataTable DTab = new DataTable();
             Request Request = new Request();

@@ -1904,5 +1904,13 @@ namespace Account_Management.Transaction
             FrmReportViewer.DS.Clear();
             FrmReportViewer = null;
         }
+
+        private void lueItem_Validated(object sender, EventArgs e)
+        {
+            SaleInvoice objSaleInvoice = new SaleInvoice();
+            DataTable DTab_SaleRate = objSaleInvoice.SaleRate_GetData(Val.ToInt64(lueItem.EditValue));
+            txtPurchaseRate.Text = Val.ToDecimal(DTab_SaleRate.Rows[0]["last_purchase_rate"]).ToString();
+            txtSaleRate.Text = Val.ToDecimal(DTab_SaleRate.Rows[0]["sale_rate"]).ToString();
+        }
     }
 }

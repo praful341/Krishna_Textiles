@@ -900,7 +900,7 @@
             this.tblSaleList.Controls.Add(this.panelControl1);
             this.tblSaleList.Controls.Add(this.panelControl2);
             this.tblSaleList.Name = "tblSaleList";
-            this.tblSaleList.Size = new System.Drawing.Size(1267, 714);
+            this.tblSaleList.Size = new System.Drawing.Size(1268, 716);
             this.tblSaleList.Text = "List";
             // 
             // panelControl1
@@ -909,7 +909,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 43);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1267, 671);
+            this.panelControl1.Size = new System.Drawing.Size(1268, 673);
             this.panelControl1.TabIndex = 3;
             // 
             // grdSaleEntry
@@ -920,7 +920,7 @@
             this.grdSaleEntry.Location = new System.Drawing.Point(2, 2);
             this.grdSaleEntry.MainView = this.dgvSaleEntry;
             this.grdSaleEntry.Name = "grdSaleEntry";
-            this.grdSaleEntry.Size = new System.Drawing.Size(1263, 667);
+            this.grdSaleEntry.Size = new System.Drawing.Size(1264, 669);
             this.grdSaleEntry.TabIndex = 18;
             this.grdSaleEntry.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvSaleEntry});
@@ -1350,7 +1350,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1267, 43);
+            this.panelControl2.Size = new System.Drawing.Size(1268, 43);
             this.panelControl2.TabIndex = 1;
             // 
             // lueJangedLedger
@@ -1476,7 +1476,7 @@
             this.tblSaledetail.Controls.Add(this.panelControl6);
             this.tblSaledetail.Controls.Add(this.panelControl4);
             this.tblSaledetail.Name = "tblSaledetail";
-            this.tblSaledetail.Size = new System.Drawing.Size(1267, 714);
+            this.tblSaledetail.Size = new System.Drawing.Size(1268, 716);
             this.tblSaledetail.Text = "Entry Details";
             // 
             // panelControl7
@@ -1486,7 +1486,7 @@
             this.panelControl7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl7.Location = new System.Drawing.Point(0, 130);
             this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(1267, 423);
+            this.panelControl7.Size = new System.Drawing.Size(1268, 425);
             this.panelControl7.TabIndex = 25;
             // 
             // panelProgress
@@ -1532,7 +1532,7 @@
             this.grdSaleDetails.Location = new System.Drawing.Point(2, 2);
             this.grdSaleDetails.MainView = this.dgvSaleDetails;
             this.grdSaleDetails.Name = "grdSaleDetails";
-            this.grdSaleDetails.Size = new System.Drawing.Size(1263, 419);
+            this.grdSaleDetails.Size = new System.Drawing.Size(1264, 421);
             this.grdSaleDetails.TabIndex = 0;
             this.grdSaleDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvSaleDetails});
@@ -1842,9 +1842,9 @@
             this.panelControl8.Controls.Add(this.txtDiscountPer);
             this.panelControl8.Controls.Add(this.label26);
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl8.Location = new System.Drawing.Point(0, 553);
+            this.panelControl8.Location = new System.Drawing.Point(0, 555);
             this.panelControl8.Name = "panelControl8";
-            this.panelControl8.Size = new System.Drawing.Size(1267, 65);
+            this.panelControl8.Size = new System.Drawing.Size(1268, 65);
             this.panelControl8.TabIndex = 2;
             // 
             // txtShippingCharge
@@ -2153,9 +2153,9 @@
             this.panelControl6.Controls.Add(this.txtRemark);
             this.panelControl6.Controls.Add(this.labelControl10);
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl6.Location = new System.Drawing.Point(0, 618);
+            this.panelControl6.Location = new System.Drawing.Point(0, 620);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(1267, 96);
+            this.panelControl6.Size = new System.Drawing.Size(1268, 96);
             this.panelControl6.TabIndex = 0;
             // 
             // btnPrint
@@ -2197,7 +2197,7 @@
             this.lblEntry.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEntry.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEntry.Appearance.Options.UseFont = true;
-            this.lblEntry.Location = new System.Drawing.Point(-93, 58);
+            this.lblEntry.Location = new System.Drawing.Point(-92, 58);
             this.lblEntry.Name = "lblEntry";
             this.lblEntry.Size = new System.Drawing.Size(26, 13);
             this.lblEntry.TabIndex = 23;
@@ -2327,7 +2327,7 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl4.Location = new System.Drawing.Point(0, 0);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1267, 130);
+            this.panelControl4.Size = new System.Drawing.Size(1268, 130);
             this.panelControl4.TabIndex = 0;
             this.panelControl4.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl4_Paint);
             // 
@@ -2786,6 +2786,7 @@
             this.lueItem.Properties.ShowHeader = false;
             this.lueItem.Size = new System.Drawing.Size(129, 20);
             this.lueItem.TabIndex = 5;
+            this.lueItem.Validated += new System.EventHandler(this.lueItem_Validated);
             // 
             // label32
             // 

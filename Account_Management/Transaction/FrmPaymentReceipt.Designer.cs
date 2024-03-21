@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
+            this.PnlSaerchData = new DevExpress.XtraEditors.PanelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
@@ -65,8 +65,24 @@
             this.MNExportCSV = new System.Windows.Forms.ToolStripMenuItem();
             this.ContextMNExport = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.backgroundWorker_PaymentReceipt = new System.ComponentModel.BackgroundWorker();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
-            this.panelControl5.SuspendLayout();
+            this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
+            this.BtnSearch = new DevExpress.XtraEditors.SimpleButton();
+            this.MainGrid = new DevExpress.XtraGrid.GridControl();
+            this.GrdDet = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.RepMethod = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.clmRSAmount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.RepOrderNo = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.ClmLotSrNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.RepDueDate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
+            this.BtnUpdate = new DevExpress.XtraEditors.SimpleButton();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.PnlSaerchData)).BeginInit();
+            this.PnlSaerchData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtVoucherNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueBank.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CmbTransactionType.Properties)).BeginInit();
@@ -82,34 +98,47 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.ContextMNExport.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
+            this.panelControl7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GrdDet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepMethod)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepOrderNo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepDueDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepDueDate.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
+            this.panelControl8.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelControl5
+            // PnlSaerchData
             // 
-            this.panelControl5.Controls.Add(this.labelControl2);
-            this.panelControl5.Controls.Add(this.labelControl18);
-            this.panelControl5.Controls.Add(this.labelControl7);
-            this.panelControl5.Controls.Add(this.txtVoucherNo);
-            this.panelControl5.Controls.Add(this.lblInvoiceNo);
-            this.panelControl5.Controls.Add(this.labelControl14);
-            this.panelControl5.Controls.Add(this.labelControl6);
-            this.panelControl5.Controls.Add(this.lueBank);
-            this.panelControl5.Controls.Add(this.lblBank);
-            this.panelControl5.Controls.Add(this.CmbTransactionType);
-            this.panelControl5.Controls.Add(this.DTPEntryDate);
-            this.panelControl5.Controls.Add(this.labelControl3);
-            this.panelControl5.Controls.Add(this.LueLedger);
-            this.panelControl5.Controls.Add(this.txtAmount);
-            this.panelControl5.Controls.Add(this.labelControl1);
-            this.panelControl5.Controls.Add(this.labelControl10);
-            this.panelControl5.Controls.Add(this.txtRemark);
-            this.panelControl5.Controls.Add(this.labelControl4);
-            this.panelControl5.Controls.Add(this.panelControl6);
-            this.panelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl5.Location = new System.Drawing.Point(11, 19);
-            this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(1338, 532);
-            this.panelControl5.TabIndex = 0;
+            this.PnlSaerchData.Controls.Add(this.BtnSearch);
+            this.PnlSaerchData.Controls.Add(this.panelControl7);
+            this.PnlSaerchData.Controls.Add(this.labelControl2);
+            this.PnlSaerchData.Controls.Add(this.labelControl18);
+            this.PnlSaerchData.Controls.Add(this.labelControl7);
+            this.PnlSaerchData.Controls.Add(this.txtVoucherNo);
+            this.PnlSaerchData.Controls.Add(this.lblInvoiceNo);
+            this.PnlSaerchData.Controls.Add(this.labelControl14);
+            this.PnlSaerchData.Controls.Add(this.labelControl6);
+            this.PnlSaerchData.Controls.Add(this.lueBank);
+            this.PnlSaerchData.Controls.Add(this.lblBank);
+            this.PnlSaerchData.Controls.Add(this.CmbTransactionType);
+            this.PnlSaerchData.Controls.Add(this.DTPEntryDate);
+            this.PnlSaerchData.Controls.Add(this.labelControl3);
+            this.PnlSaerchData.Controls.Add(this.LueLedger);
+            this.PnlSaerchData.Controls.Add(this.txtAmount);
+            this.PnlSaerchData.Controls.Add(this.labelControl1);
+            this.PnlSaerchData.Controls.Add(this.labelControl10);
+            this.PnlSaerchData.Controls.Add(this.txtRemark);
+            this.PnlSaerchData.Controls.Add(this.labelControl4);
+            this.PnlSaerchData.Controls.Add(this.panelControl6);
+            this.PnlSaerchData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlSaerchData.Location = new System.Drawing.Point(11, 19);
+            this.PnlSaerchData.Name = "PnlSaerchData";
+            this.PnlSaerchData.Size = new System.Drawing.Size(852, 511);
+            this.PnlSaerchData.TabIndex = 0;
+            this.PnlSaerchData.Visible = false;
             // 
             // labelControl2
             // 
@@ -369,9 +398,9 @@
             this.panelControl6.Controls.Add(this.btnClear);
             this.panelControl6.Controls.Add(this.btnSave);
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl6.Location = new System.Drawing.Point(2, 486);
+            this.panelControl6.Location = new System.Drawing.Point(2, 465);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(1334, 44);
+            this.panelControl6.Size = new System.Drawing.Size(848, 44);
             this.panelControl6.TabIndex = 7;
             // 
             // lblMode
@@ -381,7 +410,7 @@
             this.lblMode.Appearance.ForeColor = System.Drawing.Color.Red;
             this.lblMode.Appearance.Options.UseFont = true;
             this.lblMode.Appearance.Options.UseForeColor = true;
-            this.lblMode.Location = new System.Drawing.Point(941, 14);
+            this.lblMode.Location = new System.Drawing.Point(455, 14);
             this.lblMode.Name = "lblMode";
             this.lblMode.Size = new System.Drawing.Size(63, 13);
             this.lblMode.TabIndex = 42;
@@ -420,7 +449,7 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.ImageOptions.Image = global::Account_Management.Properties.Resources.Save;
-            this.btnSave.Location = new System.Drawing.Point(1010, 5);
+            this.btnSave.Location = new System.Drawing.Point(524, 5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(102, 32);
             this.btnSave.TabIndex = 0;
@@ -431,17 +460,17 @@
             // panelControl4
             // 
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl4.Location = new System.Drawing.Point(11, 551);
+            this.panelControl4.Location = new System.Drawing.Point(11, 530);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1338, 11);
+            this.panelControl4.Size = new System.Drawing.Size(852, 11);
             this.panelControl4.TabIndex = 12;
             // 
             // panelControl3
             // 
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl3.Location = new System.Drawing.Point(1349, 0);
+            this.panelControl3.Location = new System.Drawing.Point(863, 0);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(11, 562);
+            this.panelControl3.Size = new System.Drawing.Size(11, 541);
             this.panelControl3.TabIndex = 11;
             // 
             // panelControl2
@@ -449,7 +478,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(11, 562);
+            this.panelControl2.Size = new System.Drawing.Size(11, 541);
             this.panelControl2.TabIndex = 10;
             // 
             // panelControl1
@@ -457,7 +486,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(11, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1338, 19);
+            this.panelControl1.Size = new System.Drawing.Size(852, 19);
             this.panelControl1.TabIndex = 13;
             // 
             // MNExportExcel
@@ -519,12 +548,227 @@
             this.backgroundWorker_PaymentReceipt.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_PaymentReceipt_DoWork);
             this.backgroundWorker_PaymentReceipt.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_PaymentReceipt_RunWorkerCompleted);
             // 
+            // panelControl7
+            // 
+            this.panelControl7.Controls.Add(this.MainGrid);
+            this.panelControl7.Controls.Add(this.panelControl8);
+            this.panelControl7.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelControl7.Location = new System.Drawing.Point(501, 2);
+            this.panelControl7.Name = "panelControl7";
+            this.panelControl7.Size = new System.Drawing.Size(349, 463);
+            this.panelControl7.TabIndex = 12;
+            // 
+            // BtnSearch
+            // 
+            this.BtnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnSearch.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSearch.Appearance.Options.UseFont = true;
+            this.BtnSearch.ImageOptions.Image = global::Account_Management.Properties.Resources.Search;
+            this.BtnSearch.Location = new System.Drawing.Point(322, 68);
+            this.BtnSearch.Name = "BtnSearch";
+            this.BtnSearch.Size = new System.Drawing.Size(44, 40);
+            this.BtnSearch.TabIndex = 43;
+            this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
+            // 
+            // MainGrid
+            // 
+            this.MainGrid.ContextMenuStrip = this.ContextMNExport;
+            this.MainGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainGrid.Location = new System.Drawing.Point(2, 2);
+            this.MainGrid.MainView = this.GrdDet;
+            this.MainGrid.Name = "MainGrid";
+            this.MainGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.RepMethod,
+            this.RepDueDate,
+            this.RepOrderNo});
+            this.MainGrid.Size = new System.Drawing.Size(345, 413);
+            this.MainGrid.TabIndex = 2;
+            this.MainGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.GrdDet});
+            // 
+            // GrdDet
+            // 
+            this.GrdDet.Appearance.FocusedCell.Font = new System.Drawing.Font("Verdana", 9F);
+            this.GrdDet.Appearance.FocusedCell.Options.UseFont = true;
+            this.GrdDet.Appearance.FocusedRow.Font = new System.Drawing.Font("Verdana", 9F);
+            this.GrdDet.Appearance.FocusedRow.Options.UseFont = true;
+            this.GrdDet.Appearance.FooterPanel.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
+            this.GrdDet.Appearance.FooterPanel.Options.UseFont = true;
+            this.GrdDet.Appearance.HeaderPanel.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold);
+            this.GrdDet.Appearance.HeaderPanel.Options.UseFont = true;
+            this.GrdDet.Appearance.Row.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
+            this.GrdDet.Appearance.Row.Options.UseFont = true;
+            this.GrdDet.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.GrdDet.Appearance.SelectedRow.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.GrdDet.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.GrdDet.Appearance.SelectedRow.Options.UseFont = true;
+            this.GrdDet.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn2,
+            this.clmRSAmount,
+            this.gridColumn8,
+            this.ClmLotSrNo,
+            this.gridColumn1,
+            this.gridColumn3,
+            this.gridColumn4});
+            this.GrdDet.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.GrdDet.GridControl = this.MainGrid;
+            this.GrdDet.Name = "GrdDet";
+            this.GrdDet.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.GrdDet.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
+            this.GrdDet.OptionsCustomization.AllowColumnMoving = false;
+            this.GrdDet.OptionsCustomization.AllowFilter = false;
+            this.GrdDet.OptionsCustomization.AllowGroup = false;
+            this.GrdDet.OptionsCustomization.AllowSort = false;
+            this.GrdDet.OptionsNavigation.EnterMoveNextColumn = true;
+            this.GrdDet.OptionsView.ColumnAutoWidth = false;
+            this.GrdDet.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.GrdDet.OptionsView.ShowFooter = true;
+            this.GrdDet.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.AppearanceCell.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn2.AppearanceCell.Options.UseFont = true;
+            this.gridColumn2.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn2.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn2.AppearanceHeader.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridColumn2.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn2.Caption = "Method";
+            this.gridColumn2.ColumnEdit = this.RepMethod;
+            this.gridColumn2.FieldName = "method";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 106;
+            // 
+            // RepMethod
+            // 
+            this.RepMethod.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
+            this.RepMethod.Appearance.Options.UseFont = true;
+            this.RepMethod.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
+            this.RepMethod.AppearanceDropDown.Options.UseFont = true;
+            this.RepMethod.AutoHeight = false;
+            this.RepMethod.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.RepMethod.Name = "RepMethod";
+            this.RepMethod.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            // 
+            // clmRSAmount
+            // 
+            this.clmRSAmount.Caption = "Rec. Amount";
+            this.clmRSAmount.FieldName = "credit_amount";
+            this.clmRSAmount.Name = "clmRSAmount";
+            this.clmRSAmount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
+            this.clmRSAmount.Visible = true;
+            this.clmRSAmount.VisibleIndex = 3;
+            this.clmRSAmount.Width = 94;
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.AppearanceCell.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn8.AppearanceCell.Options.UseFont = true;
+            this.gridColumn8.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn8.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn8.AppearanceHeader.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridColumn8.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn8.Caption = "Order No";
+            this.gridColumn8.ColumnEdit = this.RepOrderNo;
+            this.gridColumn8.FieldName = "order_no";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 2;
+            this.gridColumn8.Width = 98;
+            // 
+            // RepOrderNo
+            // 
+            this.RepOrderNo.AutoHeight = false;
+            this.RepOrderNo.Name = "RepOrderNo";
+            // 
+            // ClmLotSrNo
+            // 
+            this.ClmLotSrNo.Caption = "ID";
+            this.ClmLotSrNo.FieldName = "payment_id";
+            this.ClmLotSrNo.Name = "ClmLotSrNo";
+            this.ClmLotSrNo.OptionsColumn.AllowEdit = false;
+            this.ClmLotSrNo.OptionsColumn.AllowFocus = false;
+            this.ClmLotSrNo.OptionsColumn.AllowMove = false;
+            this.ClmLotSrNo.Visible = true;
+            this.ClmLotSrNo.VisibleIndex = 0;
+            this.ClmLotSrNo.Width = 46;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Payment Date";
+            this.gridColumn1.ColumnEdit = this.RepDueDate;
+            this.gridColumn1.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.gridColumn1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn1.FieldName = " Payment Date";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 4;
+            this.gridColumn1.Width = 106;
+            // 
+            // RepDueDate
+            // 
+            this.RepDueDate.AutoHeight = false;
+            this.RepDueDate.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.RepDueDate.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.RepDueDate.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.RepDueDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.RepDueDate.EditFormat.FormatString = "dd/MM/yyyy";
+            this.RepDueDate.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.RepDueDate.Mask.EditMask = "";
+            this.RepDueDate.MaxValue = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.RepDueDate.Name = "RepDueDate";
+            // 
+            // panelControl8
+            // 
+            this.panelControl8.Controls.Add(this.BtnUpdate);
+            this.panelControl8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl8.Location = new System.Drawing.Point(2, 415);
+            this.panelControl8.Name = "panelControl8";
+            this.panelControl8.Size = new System.Drawing.Size(345, 46);
+            this.panelControl8.TabIndex = 13;
+            // 
+            // BtnUpdate
+            // 
+            this.BtnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnUpdate.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnUpdate.Appearance.Options.UseFont = true;
+            this.BtnUpdate.ImageOptions.Image = global::Account_Management.Properties.Resources.Save;
+            this.BtnUpdate.Location = new System.Drawing.Point(135, 5);
+            this.BtnUpdate.Name = "BtnUpdate";
+            this.BtnUpdate.Size = new System.Drawing.Size(102, 32);
+            this.BtnUpdate.TabIndex = 43;
+            this.BtnUpdate.Text = "&Update";
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Payment Type";
+            this.gridColumn3.FieldName = "payment_type";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 5;
+            this.gridColumn3.Width = 116;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Invoice ID";
+            this.gridColumn4.FieldName = "invoice_id";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 6;
+            // 
             // FrmPaymentReceipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1360, 562);
-            this.Controls.Add(this.panelControl5);
+            this.ClientSize = new System.Drawing.Size(874, 541);
+            this.Controls.Add(this.PnlSaerchData);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.panelControl4);
             this.Controls.Add(this.panelControl3);
@@ -534,9 +778,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Payment Receipt";
             this.Load += new System.EventHandler(this.FrmIncomeEntry_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
-            this.panelControl5.ResumeLayout(false);
-            this.panelControl5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PnlSaerchData)).EndInit();
+            this.PnlSaerchData.ResumeLayout(false);
+            this.PnlSaerchData.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtVoucherNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueBank.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CmbTransactionType.Properties)).EndInit();
@@ -553,13 +797,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.ContextMNExport.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
+            this.panelControl7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GrdDet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepMethod)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepOrderNo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepDueDate.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepDueDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
+            this.panelControl8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.PanelControl panelControl5;
+        private DevExpress.XtraEditors.PanelControl PnlSaerchData;
         private DevExpress.XtraEditors.PanelControl panelControl6;
         private DevExpress.XtraEditors.SimpleButton btnExit;
         private DevExpress.XtraEditors.SimpleButton btnClear;
@@ -595,5 +849,21 @@
         private System.Windows.Forms.ContextMenuStrip ContextMNExport;
         private System.ComponentModel.BackgroundWorker backgroundWorker_PaymentReceipt;
         private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.PanelControl panelControl7;
+        private DevExpress.XtraEditors.SimpleButton BtnSearch;
+        private DevExpress.XtraGrid.GridControl MainGrid;
+        private DevExpress.XtraGrid.Views.Grid.GridView GrdDet;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox RepMethod;
+        private DevExpress.XtraGrid.Columns.GridColumn clmRSAmount;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit RepOrderNo;
+        private DevExpress.XtraGrid.Columns.GridColumn ClmLotSrNo;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit RepDueDate;
+        private DevExpress.XtraEditors.PanelControl panelControl8;
+        private DevExpress.XtraEditors.SimpleButton BtnUpdate;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
     }
 }

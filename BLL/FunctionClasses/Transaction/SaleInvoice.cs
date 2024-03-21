@@ -249,5 +249,17 @@ namespace BLL.FunctionClasses.Transaction
             Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
             return DTab;
         }
+
+        public DataTable SaleRate_GetData(Int64 Item_ID)
+        {
+            DataTable DTab = new DataTable();
+            Request Request = new Request();
+            Request.CommandText = BLL.TPV.SProc.TRN_SaleRate_GetData;
+            Request.CommandType = CommandType.StoredProcedure;
+            Request.AddParams("@item_id", Item_ID, DbType.Int64);
+
+            Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
+            return DTab;
+        }
     }
 }

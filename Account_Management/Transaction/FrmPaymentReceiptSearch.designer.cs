@@ -212,8 +212,8 @@
             this.clmRSAmount,
             this.gridColumn8,
             this.ClmLotSrNo,
-            this.gridColumn1,
-            this.ClmInvoiceID});
+            this.ClmInvoiceID,
+            this.gridColumn1});
             this.GrdDet.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.GrdDet.GridControl = this.MainGrid;
             this.GrdDet.Name = "GrdDet";

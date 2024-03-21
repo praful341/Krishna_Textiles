@@ -117,7 +117,7 @@ namespace Account_Management.Transaction
                         LueLedger.Focus();
                     }
                 }
-                if (CmbTransactionType.Text == "Select" || CmbTransactionType.Text == "")
+                if (CmbTransactionType.Text == "SELECT" || CmbTransactionType.Text == "")
                 {
                     lstError.Add(new ListError(23, "Cash / Bank"));
                     if (!blnFocus)
@@ -654,15 +654,14 @@ namespace Account_Management.Transaction
                     {
                         return;
                     }
-
                     DtPaymentReceipt = new DataTable();
                     DtPaymentReceipt.Columns.Add("sr_no", typeof(int));
                     DtPaymentReceipt.Columns.Add("method", typeof(string));
                     DtPaymentReceipt.Columns.Add("ref_order_no", typeof(string));
                     DtPaymentReceipt.Columns.Add("amount", typeof(decimal));
-                    DtPaymentReceipt.Columns.Add("due_date", typeof(string));
                     DtPaymentReceipt.Columns.Add("invoice_id", typeof(Int64));
-                    DtPaymentReceipt.Rows.Add(1, "", "", 0, "");
+                    DtPaymentReceipt.Columns.Add("due_date", typeof(string));
+                    DtPaymentReceipt.Rows.Add(1, "", "", 0, 0, "");
 
                     FrmPaymentReceiptSearch FrmPaymentReceiptSearch = new FrmPaymentReceiptSearch();
                     FrmPaymentReceiptSearch.FrmPaymentReceipt = this;
@@ -670,6 +669,15 @@ namespace Account_Management.Transaction
                     FrmPaymentReceiptSearch.ShowForm(this, Val.ToInt64(LueLedger.EditValue), Val.ToString(LueLedger.Text), Val.ToDecimal(txtAmount.Text));
                 }
             }
+        }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            objPaymentReceipt = new PaymentReceipt();
+            DataTable DTab_Payment_Receipt_Data = objPaymentReceipt.PaymentReceipt_Search_GetData(Val.ToInt64(LueLedger.EditValue));
+
+            MainGrid.DataSource = DTab_Payment_Receipt_Data;
+            GrdDet.BestFitColumns();
         }
     }
 }
