@@ -130,7 +130,7 @@
             this.PnlSaerchData.Dock = System.Windows.Forms.DockStyle.Left;
             this.PnlSaerchData.Location = new System.Drawing.Point(11, 19);
             this.PnlSaerchData.Name = "PnlSaerchData";
-            this.PnlSaerchData.Size = new System.Drawing.Size(447, 511);
+            this.PnlSaerchData.Size = new System.Drawing.Size(491, 511);
             this.PnlSaerchData.TabIndex = 0;
             // 
             // BtnSearch
@@ -139,9 +139,9 @@
             this.BtnSearch.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSearch.Appearance.Options.UseFont = true;
             this.BtnSearch.ImageOptions.Image = global::Account_Management.Properties.Resources.Search;
-            this.BtnSearch.Location = new System.Drawing.Point(306, 68);
+            this.BtnSearch.Location = new System.Drawing.Point(307, 152);
             this.BtnSearch.Name = "BtnSearch";
-            this.BtnSearch.Size = new System.Drawing.Size(44, 40);
+            this.BtnSearch.Size = new System.Drawing.Size(42, 39);
             this.BtnSearch.TabIndex = 43;
             this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
@@ -151,7 +151,7 @@
             this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Appearance.Options.UseForeColor = true;
-            this.labelControl2.Location = new System.Drawing.Point(108, 75);
+            this.labelControl2.Location = new System.Drawing.Point(107, 95);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(9, 16);
             this.labelControl2.TabIndex = 519;
@@ -163,11 +163,11 @@
             this.labelControl18.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl18.Appearance.Options.UseFont = true;
             this.labelControl18.Appearance.Options.UseForeColor = true;
-            this.labelControl18.Location = new System.Drawing.Point(5, 78);
+            this.labelControl18.Location = new System.Drawing.Point(6, 98);
             this.labelControl18.Name = "labelControl18";
-            this.labelControl18.Size = new System.Drawing.Size(50, 16);
+            this.labelControl18.Size = new System.Drawing.Size(59, 16);
             this.labelControl18.TabIndex = 518;
-            this.labelControl18.Text = "Ledger";
+            this.labelControl18.Text = "Account";
             // 
             // labelControl7
             // 
@@ -177,7 +177,7 @@
             this.labelControl7.Appearance.Options.UseBackColor = true;
             this.labelControl7.Appearance.Options.UseFont = true;
             this.labelControl7.Appearance.Options.UseForeColor = true;
-            this.labelControl7.Location = new System.Drawing.Point(325, 15);
+            this.labelControl7.Location = new System.Drawing.Point(107, 6);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(13, 16);
             this.labelControl7.TabIndex = 517;
@@ -187,18 +187,18 @@
             // 
             this.txtVoucherNo.Enabled = false;
             this.txtVoucherNo.EnterMoveNextControl = true;
-            this.txtVoucherNo.Location = new System.Drawing.Point(338, 15);
+            this.txtVoucherNo.Location = new System.Drawing.Point(120, 6);
             this.txtVoucherNo.Name = "txtVoucherNo";
             this.txtVoucherNo.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVoucherNo.Properties.Appearance.Options.UseFont = true;
-            this.txtVoucherNo.Size = new System.Drawing.Size(94, 20);
+            this.txtVoucherNo.Size = new System.Drawing.Size(181, 20);
             this.txtVoucherNo.TabIndex = 1;
             // 
             // lblInvoiceNo
             // 
             this.lblInvoiceNo.AutoSize = true;
             this.lblInvoiceNo.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblInvoiceNo.Location = new System.Drawing.Point(256, 15);
+            this.lblInvoiceNo.Location = new System.Drawing.Point(4, 6);
             this.lblInvoiceNo.Name = "lblInvoiceNo";
             this.lblInvoiceNo.Size = new System.Drawing.Size(67, 16);
             this.lblInvoiceNo.TabIndex = 516;
@@ -210,7 +210,7 @@
             this.labelControl14.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl14.Appearance.Options.UseFont = true;
             this.labelControl14.Appearance.Options.UseForeColor = true;
-            this.labelControl14.Location = new System.Drawing.Point(108, 149);
+            this.labelControl14.Location = new System.Drawing.Point(107, 169);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(9, 16);
             this.labelControl14.TabIndex = 55;
@@ -222,7 +222,7 @@
             this.labelControl6.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl6.Appearance.Options.UseFont = true;
             this.labelControl6.Appearance.Options.UseForeColor = true;
-            this.labelControl6.Location = new System.Drawing.Point(107, 43);
+            this.labelControl6.Location = new System.Drawing.Point(107, 66);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(9, 16);
             this.labelControl6.TabIndex = 53;
@@ -231,7 +231,7 @@
             // lueBank
             // 
             this.lueBank.EnterMoveNextControl = true;
-            this.lueBank.Location = new System.Drawing.Point(298, 43);
+            this.lueBank.Location = new System.Drawing.Point(349, 63);
             this.lueBank.Name = "lueBank";
             this.lueBank.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueBank.Properties.Appearance.Options.UseFont = true;
@@ -248,7 +248,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("bank_id", "Bank Id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lueBank.Properties.NullText = "";
             this.lueBank.Properties.ShowHeader = false;
-            this.lueBank.Size = new System.Drawing.Size(144, 22);
+            this.lueBank.Size = new System.Drawing.Size(128, 22);
             this.lueBank.TabIndex = 3;
             this.lueBank.Visible = false;
             this.lueBank.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.lueBank_ButtonClick);
@@ -259,7 +259,7 @@
             this.lblBank.Appearance.ForeColor = System.Drawing.Color.Black;
             this.lblBank.Appearance.Options.UseFont = true;
             this.lblBank.Appearance.Options.UseForeColor = true;
-            this.lblBank.Location = new System.Drawing.Point(256, 46);
+            this.lblBank.Location = new System.Drawing.Point(307, 66);
             this.lblBank.Name = "lblBank";
             this.lblBank.Size = new System.Drawing.Size(36, 16);
             this.lblBank.TabIndex = 48;
@@ -270,7 +270,7 @@
             // 
             this.CmbTransactionType.EditValue = "SELECT";
             this.CmbTransactionType.EnterMoveNextControl = true;
-            this.CmbTransactionType.Location = new System.Drawing.Point(119, 43);
+            this.CmbTransactionType.Location = new System.Drawing.Point(120, 63);
             this.CmbTransactionType.Name = "CmbTransactionType";
             this.CmbTransactionType.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbTransactionType.Properties.Appearance.Options.UseFont = true;
@@ -283,7 +283,7 @@
             "CASH",
             "BANK"});
             this.CmbTransactionType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.CmbTransactionType.Size = new System.Drawing.Size(131, 22);
+            this.CmbTransactionType.Size = new System.Drawing.Size(181, 22);
             this.CmbTransactionType.TabIndex = 2;
             this.CmbTransactionType.EditValueChanged += new System.EventHandler(this.CmbTransactionType_EditValueChanged);
             // 
@@ -291,7 +291,7 @@
             // 
             this.DTPEntryDate.EditValue = null;
             this.DTPEntryDate.EnterMoveNextControl = true;
-            this.DTPEntryDate.Location = new System.Drawing.Point(119, 12);
+            this.DTPEntryDate.Location = new System.Drawing.Point(120, 32);
             this.DTPEntryDate.Name = "DTPEntryDate";
             this.DTPEntryDate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.5F, System.Drawing.FontStyle.Bold);
             this.DTPEntryDate.Properties.Appearance.Options.UseFont = true;
@@ -304,14 +304,14 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DTPEntryDate.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.Optimistic;
             this.DTPEntryDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
-            this.DTPEntryDate.Size = new System.Drawing.Size(131, 24);
+            this.DTPEntryDate.Size = new System.Drawing.Size(181, 24);
             this.DTPEntryDate.TabIndex = 0;
             // 
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(5, 16);
+            this.labelControl3.Location = new System.Drawing.Point(6, 36);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(34, 16);
             this.labelControl3.TabIndex = 36;
@@ -320,7 +320,7 @@
             // LueLedger
             // 
             this.LueLedger.EnterMoveNextControl = true;
-            this.LueLedger.Location = new System.Drawing.Point(119, 75);
+            this.LueLedger.Location = new System.Drawing.Point(120, 95);
             this.LueLedger.Name = "LueLedger";
             this.LueLedger.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LueLedger.Properties.Appearance.Options.UseFont = true;
@@ -344,7 +344,7 @@
             // txtAmount
             // 
             this.txtAmount.EnterMoveNextControl = true;
-            this.txtAmount.Location = new System.Drawing.Point(119, 149);
+            this.txtAmount.Location = new System.Drawing.Point(120, 169);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmount.Properties.Appearance.Options.UseFont = true;
@@ -357,7 +357,7 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(5, 149);
+            this.labelControl1.Location = new System.Drawing.Point(6, 169);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(57, 16);
             this.labelControl1.TabIndex = 34;
@@ -369,7 +369,7 @@
             this.labelControl10.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl10.Appearance.Options.UseFont = true;
             this.labelControl10.Appearance.Options.UseForeColor = true;
-            this.labelControl10.Location = new System.Drawing.Point(5, 46);
+            this.labelControl10.Location = new System.Drawing.Point(6, 66);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(89, 16);
             this.labelControl10.TabIndex = 32;
@@ -379,7 +379,7 @@
             // 
             this.txtRemark.EditValue = "";
             this.txtRemark.EnterMoveNextControl = true;
-            this.txtRemark.Location = new System.Drawing.Point(119, 103);
+            this.txtRemark.Location = new System.Drawing.Point(120, 123);
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRemark.Properties.Appearance.Options.UseFont = true;
@@ -390,7 +390,7 @@
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(5, 115);
+            this.labelControl4.Location = new System.Drawing.Point(6, 135);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(55, 16);
             this.labelControl4.TabIndex = 11;
@@ -403,7 +403,7 @@
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl6.Location = new System.Drawing.Point(2, 465);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(443, 44);
+            this.panelControl6.Size = new System.Drawing.Size(487, 44);
             this.panelControl6.TabIndex = 7;
             // 
             // btnExit
@@ -437,9 +437,9 @@
             this.PnlSearchData.Controls.Add(this.MainGrid);
             this.PnlSearchData.Controls.Add(this.panelControl8);
             this.PnlSearchData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlSearchData.Location = new System.Drawing.Point(458, 19);
+            this.PnlSearchData.Location = new System.Drawing.Point(502, 19);
             this.PnlSearchData.Name = "PnlSearchData";
-            this.PnlSearchData.Size = new System.Drawing.Size(405, 511);
+            this.PnlSearchData.Size = new System.Drawing.Size(361, 511);
             this.PnlSearchData.TabIndex = 12;
             this.PnlSearchData.Visible = false;
             // 
@@ -453,7 +453,7 @@
             this.MainGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.RepMethod,
             this.RepOrderNo});
-            this.MainGrid.Size = new System.Drawing.Size(401, 461);
+            this.MainGrid.Size = new System.Drawing.Size(357, 461);
             this.MainGrid.TabIndex = 2;
             this.MainGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GrdDet});
@@ -642,7 +642,7 @@
             this.gridColumn1.Caption = "Payment Date";
             this.gridColumn1.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.gridColumn1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.gridColumn1.FieldName = " Payment Date";
+            this.gridColumn1.FieldName = "payment_date";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.OptionsColumn.AllowFocus = false;
@@ -678,7 +678,7 @@
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl8.Location = new System.Drawing.Point(2, 463);
             this.panelControl8.Name = "panelControl8";
-            this.panelControl8.Size = new System.Drawing.Size(401, 46);
+            this.panelControl8.Size = new System.Drawing.Size(357, 46);
             this.panelControl8.TabIndex = 13;
             // 
             // BtnUpdate
