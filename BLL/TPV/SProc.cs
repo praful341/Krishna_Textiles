@@ -215,9 +215,9 @@
 
         public static string TRN_Payment_Receipt_Save = "TRN_Payment_Receipt_Save";
         public static string TRN_Payment_OS_Invoice_Wise = "TRN_Payment_OS_Invoice_Wise";
-
+        public static string TRN_Referance_Payment_SearchData = "TRN_Referance_Payment_SearchData";
+        public static string TRN_Referance_Payment_Update = "TRN_Referance_Payment_Update";
         #endregion Payment Receipt Entry
-
 
         #endregion
 

@@ -75,7 +75,6 @@ namespace BLL.FunctionClasses.Account
         public Int64 ISLadgerName_GetData(string pLedger_Name)
         {
             Int64 IntLedgerId = 0;
-
             IntLedgerId = Val.ToInt64(Ope.FindText(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, "MST_Ledger", "ledger_id", " And ledger_name = '" + pLedger_Name + "'"));
 
             if (IntLedgerId == 0)
@@ -104,17 +103,53 @@ namespace BLL.FunctionClasses.Account
             Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
             return DTab;
         }
-
-        public DataTable PaymentReceipt_Search_GetData(Int64 Ledger_ID)
+        public DataTable PaymentReceipt_Search_GetData(Int64 Ledger_ID, string Type)
         {
             DataTable DTab = new DataTable();
             Request Request = new Request();
-            Request.CommandText = BLL.TPV.SProc.TRN_Payment_OS_Invoice_Wise;
+            Request.CommandText = BLL.TPV.SProc.TRN_Referance_Payment_SearchData;
             Request.CommandType = CommandType.StoredProcedure;
             Request.AddParams("@ledger_id", Ledger_ID, DbType.Int64);
+            Request.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int64);
+            Request.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int64);
+            Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int64);
+            Request.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int64);
+            Request.AddParams("@type", Type, DbType.String);
 
             Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
             return DTab;
+        }
+
+        public Int64 Ref_PaymentReceipt_Update(PaymentReceipt_Property pClsProperty, DLL.GlobalDec.EnumTran pEnum = DLL.GlobalDec.EnumTran.WithCommit, BeginTranConnection Conn = null)
+        {
+            Int64 IntRes = 0;
+            try
+            {
+                Request Request = new Request();
+
+                Request.AddParams("@payment_id", pClsProperty.payment_id, DbType.Int64);
+                Request.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int64);
+                Request.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int64);
+                Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int64);
+                Request.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int64);
+                Request.AddParams("@method", pClsProperty.method, DbType.String);
+                Request.AddParams("@invoice_id", pClsProperty.invoice_id, DbType.Int64);
+
+                Request.CommandText = BLL.TPV.SProc.TRN_Referance_Payment_Update;
+                Request.CommandType = CommandType.StoredProcedure;
+                DataTable p_dtbUnionId = new DataTable();
+
+                if (Conn != null)
+                    IntRes = Conn.Inter1.ExecuteNonQuery(DBConnections.ConnectionString, DBConnections.ProviderName, Request, pEnum);
+                else
+                    IntRes = Ope.ExecuteNonQuery(DBConnections.ConnectionString, DBConnections.ProviderName, Request);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return IntRes;
         }
         #endregion
     }

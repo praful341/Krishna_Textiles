@@ -82,8 +82,6 @@ namespace Account_Management.Transaction
         }
         private void btnClear_Click(object sender, EventArgs e)
         {
-            lblMode.Tag = 0;
-            lblMode.Text = "Add Mode";
             LueLedger.EditValue = null;
             lueBank.EditValue = null;
             txtRemark.Text = "";
@@ -138,15 +136,15 @@ namespace Account_Management.Transaction
                         }
                     }
                 }
-                //if (txtAmount.Text.Length == 0 || txtAmount.Text == "")
-                //{
-                //    lstError.Add(new ListError(5, "Amount"));
-                //    if (!blnFocus)
-                //    {
-                //        blnFocus = true;
-                //        txtAmount.Focus();
-                //    }
-                //}
+                if (txtAmount.Text.Length == 0 || txtAmount.Text == "")
+                {
+                    lstError.Add(new ListError(5, "Amount"));
+                    if (!blnFocus)
+                    {
+                        blnFocus = true;
+                        txtAmount.Focus();
+                    }
+                }
                 if (DTPEntryDate.Text == string.Empty)
                 {
                     lstError.Add(new ListError(13, "Entry Date"));
@@ -178,65 +176,7 @@ namespace Account_Management.Transaction
 
         #endregion
 
-        #region Events
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            ObjPer.SetFormPer();
-
-            if (lblMode.Text == "Add Mode")
-            {
-                if (ObjPer.AllowInsert == false)
-                {
-                    Global.Message(BLL.GlobalDec.gStrPermissionInsUpdMsg);
-                    return;
-                }
-            }
-            else if (lblMode.Text == "Edit Mode")
-            {
-                if (ObjPer.AllowUpdate == false)
-                {
-                    Global.Message(BLL.GlobalDec.gStrPermissionInsUpdMsg);
-                    return;
-                }
-            }
-            List<ListError> lstError = new List<ListError>();
-            Dictionary<Control, string> rtnCtrls = new Dictionary<Control, string>();
-            rtnCtrls = Global.CheckCompulsoryControls(Val.ToInt(ObjPer.form_id), this);
-            if (rtnCtrls.Count > 0)
-            {
-                foreach (KeyValuePair<Control, string> entry in rtnCtrls)
-                {
-                    if (entry.Key is DevExpress.XtraEditors.LookUpEdit || entry.Key is DevExpress.XtraEditors.DateEdit)
-                    {
-                        lstError.Add(new ListError(13, entry.Value));
-                    }
-                    else if (entry.Key is DevExpress.XtraEditors.TextEdit)
-                    {
-                        lstError.Add(new ListError(12, entry.Value));
-                    }
-                }
-                rtnCtrls.First().Key.Focus();
-                BLL.General.ShowErrors(lstError);
-                Cursor.Current = Cursors.Arrow;
-                return;
-            }
-            btnSave.Enabled = false;
-            if (!ValidateDetails())
-            {
-                btnSave.Enabled = true;
-                return;
-            }
-            DialogResult result = MessageBox.Show("Do you want to save data?", "Confirmation", MessageBoxButtons.YesNoCancel);
-            if (result != DialogResult.Yes)
-            {
-                btnSave.Enabled = true;
-                return;
-            }
-            DevExpress.Data.CurrencyDataController.DisableThreadingProblemsDetection = true;
-            backgroundWorker_PaymentReceipt.RunWorkerAsync();
-            btnSave.Enabled = true;
-        }
-
+        #region Events       
         private void lueBank_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             if (e.Button.Index == 1)
@@ -427,7 +367,6 @@ namespace Account_Management.Transaction
             }
         }
         #endregion
-
         private void CmbTransactionType_EditValueChanged(object sender, EventArgs e)
         {
             if (CmbTransactionType.Text == "BANK")
@@ -453,88 +392,6 @@ namespace Account_Management.Transaction
                 Global.LOOKUPLedger(LueLedger);
             }
         }
-
-        private void backgroundWorker_PaymentReceipt_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
-            IntRes = 0;
-            PaymentReceipt_Property PaymentReceiptProperty = new PaymentReceipt_Property();
-            try
-            {
-                //if (!ValidateDetails())
-                //{
-                //    return;
-                //}
-                //Conn = new BeginTranConnection(true, false);
-
-                //IntRes = objPaymentReceipt.PaymentReceipt_Save(PaymentReceiptProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
-
-                //Conn.Inter1.Commit();
-
-                if (IntRes == -1)
-                {
-                    Global.Confirm("Error In Payment Receipt");
-                    CmbTransactionType.Focus();
-                }
-                else
-                {
-                    if (Val.ToInt(lblMode.Tag) == 0)
-                    {
-                        Global.Confirm("Data Save Successfully");
-                    }
-                    else
-                    {
-                        Global.Confirm("Data Update Successfully");
-                    }
-                    btnClear_Click(sender, e);
-                }
-            }
-            catch (Exception ex)
-            {
-                IntRes = -1;
-                Conn.Inter1.Rollback();
-                Conn = null;
-                Global.Message(ex.ToString());
-                if (ex.InnerException != null)
-                {
-                    Global.Message(ex.InnerException.ToString());
-                }
-            }
-            finally
-            {
-                PaymentReceiptProperty = null;
-            }
-        }
-
-        private void backgroundWorker_PaymentReceipt_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
-        {
-            try
-            {
-                if (IntRes > 0)
-                {
-                    if (Val.ToInt(lblMode.Tag) == 0)
-                    {
-                        Global.Confirm("Data Save Successfully");
-                        btnClear_Click(sender, e);
-                    }
-                    else
-                    {
-                        Global.Confirm("Data Update Successfully");
-                        btnClear_Click(sender, e);
-                    }
-                }
-                else
-                {
-                    Global.Confirm("Error In Payment Receipt");
-                    CmbTransactionType.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                Global.Message(ex.ToString());
-                Global.Message(ex.InnerException.ToString());
-            }
-        }
-
         private void txtAmount_Validated(object sender, EventArgs e)
         {
             //if (txtAmount.Text != "")
@@ -559,7 +416,6 @@ namespace Account_Management.Transaction
             //    FrmPaymentReceiptSearch.ShowForm(this, Val.ToInt64(LueLedger.EditValue), Val.ToString(LueLedger.Text), Val.ToDecimal(txtAmount.Text));
             //}
         }
-
         public void GetPaymentReceiptData(DataTable Payment_Receipt_Data)
         {
             try
@@ -622,14 +478,7 @@ namespace Account_Management.Transaction
                 }
                 else
                 {
-                    if (Val.ToInt(lblMode.Tag) == 0)
-                    {
-                        Global.Confirm("Data Save Successfully");
-                    }
-                    else
-                    {
-                        Global.Confirm("Data Update Successfully");
-                    }
+                    Global.Confirm("Data Save Successfully");
                     btnClear_Click(null, null);
                 }
             }
@@ -638,7 +487,6 @@ namespace Account_Management.Transaction
                 Global.Message(ex.ToString());
             }
         }
-
         private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -670,14 +518,88 @@ namespace Account_Management.Transaction
                 }
             }
         }
-
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            objPaymentReceipt = new PaymentReceipt();
-            DataTable DTab_Payment_Receipt_Data = objPaymentReceipt.PaymentReceipt_Search_GetData(Val.ToInt64(LueLedger.EditValue));
+            if (LueLedger.ItemIndex < 0)
+            {
+                Global.Message("Please Select Ledger");
+                LueLedger.Focus();
+                return;
+            }
+            RepMethod.Items.Clear();
+            RepMethod.Items.Add("Adjusment");
+            RepMethod.Items.Add("New Ref.");
 
-            MainGrid.DataSource = DTab_Payment_Receipt_Data;
-            GrdDet.BestFitColumns();
+            DataTable DTab_Invoice_Data = objPaymentReceipt.PaymentReceipt_Search_GetData(Val.ToInt64(LueLedger.EditValue), Val.ToString("Invoice"));
+
+            RepOrderNo.DataSource = DTab_Invoice_Data;
+            RepOrderNo.ValueMember = "invoice_id";
+            RepOrderNo.DisplayMember = "order_no";
+
+            objPaymentReceipt = new PaymentReceipt();
+            DataTable DTab_Payment_Receipt_Data = objPaymentReceipt.PaymentReceipt_Search_GetData(Val.ToInt64(LueLedger.EditValue), Val.ToString(""));
+
+            if (DTab_Payment_Receipt_Data.Rows.Count > 0)
+            {
+                PnlSaerchData.Visible = true;
+                MainGrid.Visible = true;
+                BtnUpdate.Visible = true;
+                MainGrid.DataSource = DTab_Payment_Receipt_Data;
+
+                GrdDet.PostEditor();
+                GrdDet.FocusedRowHandle = GrdDet.DataRowCount;
+                GrdDet.FocusedColumn = GrdDet.Columns["method"];
+                RepMethod.AllowFocused = true;
+            }
+            else
+            {
+                Global.Message("Ledger New Ref. Data Not Found");
+                MainGrid.DataSource = null;
+                MainGrid.Visible = false;
+                BtnUpdate.Visible = false;
+                PnlSaerchData.Visible = false;
+            }
+        }
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                IntRes = 0;
+                PaymentReceipt_Property PaymentReceiptProperty = new PaymentReceipt_Property();
+                Conn = new BeginTranConnection(true, false);
+
+                DataTable Payment_Receipt_Data = (DataTable)MainGrid.DataSource;
+
+                for (int i = 0; i < Payment_Receipt_Data.Rows.Count; i++)
+                {
+                    if (Val.ToString(Payment_Receipt_Data.Rows[i]["method"]) != "" && Val.ToString(Payment_Receipt_Data.Rows[i]["order_no"]) != "")
+                    {
+                        PaymentReceiptProperty.payment_id = Val.ToInt64(Payment_Receipt_Data.Rows[i]["payment_id"]);
+                        PaymentReceiptProperty.method = Val.ToString(Payment_Receipt_Data.Rows[i]["method"]);
+                        PaymentReceiptProperty.invoice_id = Val.ToInt64(Payment_Receipt_Data.Rows[i]["invoice_id"]);
+                        IntRes = objPaymentReceipt.Ref_PaymentReceipt_Update(PaymentReceiptProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
+                    }
+                }
+                Conn.Inter1.Commit();
+
+                if (IntRes == -1)
+                {
+                    Global.Confirm("Error In Payment Receipt");
+                    CmbTransactionType.Focus();
+                }
+                else
+                {
+                    Global.Confirm("Data Update Successfully");
+                    MainGrid.DataSource = null;
+                    MainGrid.Visible = false;
+                    BtnUpdate.Visible = false;
+                    btnClear_Click(null, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                Global.Message(ex.ToString());
+            }
         }
     }
 }
