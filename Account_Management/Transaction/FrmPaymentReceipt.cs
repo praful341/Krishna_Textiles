@@ -541,7 +541,7 @@ namespace Account_Management.Transaction
 
             if (DTab_Payment_Receipt_Data.Rows.Count > 0)
             {
-                PnlSaerchData.Visible = true;
+                PnlSearchData.Visible = true;
                 MainGrid.Visible = true;
                 BtnUpdate.Visible = true;
                 MainGrid.DataSource = DTab_Payment_Receipt_Data;
@@ -557,7 +557,7 @@ namespace Account_Management.Transaction
                 MainGrid.DataSource = null;
                 MainGrid.Visible = false;
                 BtnUpdate.Visible = false;
-                PnlSaerchData.Visible = false;
+                PnlSearchData.Visible = false;
             }
         }
         private void BtnUpdate_Click(object sender, EventArgs e)

@@ -441,6 +441,7 @@
             this.PnlSearchData.Name = "PnlSearchData";
             this.PnlSearchData.Size = new System.Drawing.Size(405, 511);
             this.PnlSearchData.TabIndex = 12;
+            this.PnlSearchData.Visible = false;
             // 
             // MainGrid
             // 
@@ -725,9 +726,6 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(852, 19);
             this.panelControl1.TabIndex = 13;
-            // 
-            // backgroundWorker_PaymentReceipt
-            // 
             // 
             // FrmPaymentReceipt
             // 
