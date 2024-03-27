@@ -979,6 +979,7 @@ namespace Account_Management.Transaction
                 //txtVoucherNo.Text = objPurchase.FindNewID().ToString();
                 m_IsUpdate = true;
                 lblMode.Text = "Add Mode";
+                lueInvoiceNo.Text = string.Empty;
 
                 //txtPurchaseBill.Enabled = true;
                 //lueGSTRate.Enabled = true;
