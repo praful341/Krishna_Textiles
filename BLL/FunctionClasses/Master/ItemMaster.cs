@@ -53,6 +53,7 @@ namespace BLL.FunctionClasses.Master
                 Request.AddParams("@unit_id", pClsProperty.unit_id, DbType.Int64);
                 Request.AddParams("@hsn_id", pClsProperty.hsn_id, DbType.Int64);
                 Request.AddParams("@sale_rate", pClsProperty.sale_rate, DbType.Decimal);
+                Request.AddParams("@last_purchase_rate", pClsProperty.last_purchase_rate, DbType.Decimal);
 
                 Request.CommandText = BLL.TPV.SProc.MST_Item_Master_Save;
                 Request.CommandType = CommandType.StoredProcedure;
