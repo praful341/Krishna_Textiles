@@ -70,6 +70,19 @@ namespace BLL.FunctionClasses.Master
             Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
             return DTab;
         }
+        public DataTable CashBank_Ledger_GetData(int active = 0)
+        {
+            DataTable DTab = new DataTable();
+            Request Request = new Request();
+
+            Request.AddParams("@active", active, DbType.Int32);
+
+            Request.CommandText = BLL.TPV.SProc.MST_CashBank_Ledger_GetData;
+            Request.CommandType = CommandType.StoredProcedure;
+
+            Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
+            return DTab;
+        }
 
         public string ISExists(string Ledger, Int64 LedgerId)
         {
