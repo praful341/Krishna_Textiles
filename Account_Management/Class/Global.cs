@@ -1639,6 +1639,15 @@ namespace Account_Management.Class
             lookup.Properties.DisplayMember = "ledger_name";
             lookup.ClosePopup();
         }
+        public static void LOOKUPCashBankWithoutLedger(LookUpEdit lookup)
+        {
+            LedgerMaster objLedger = new LedgerMaster();
+            DataTable Ledger = objLedger.CashBank_WithoutLedger_GetData(1);
+            lookup.Properties.DataSource = Ledger;
+            lookup.Properties.ValueMember = "ledger_id";
+            lookup.Properties.DisplayMember = "ledger_name";
+            lookup.ClosePopup();
+        }
         public static void LOOKUPCashBankLedger(LookUpEdit lookup)
         {
             LedgerMaster objLedger = new LedgerMaster();

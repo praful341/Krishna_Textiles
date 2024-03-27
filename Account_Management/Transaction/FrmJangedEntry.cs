@@ -571,12 +571,12 @@ namespace Account_Management.Transaction
                 //Global.LOOKUPParty(lueBillToParty);
 
                 Global.LOOKUPGSTRate(lueGSTRate);
-                Global.LOOKUPLedger(lueParty);
+                Global.LOOKUPCashBankWithoutLedger(lueParty);
                 Global.LOOKUPItem(lueItem);
                 Global.LOOKUPColor(LueColor);
                 Global.LOOKUPSize(LueSize);
                 Global.LOOKUPUnit(LueUnit);
-                Global.LOOKUPLedger(lueJangedLedger);
+                Global.LOOKUPCashBankWithoutLedger(lueJangedLedger);
 
                 dtpFromDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
                 dtpFromDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
