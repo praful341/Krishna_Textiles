@@ -322,6 +322,15 @@ namespace Account_Management
                         txtLedgerName.Focus();
                     }
                 }
+                if (lueLedgerGroup.Text == string.Empty)
+                {
+                    lstError.Add(new ListError(12, "Group Name"));
+                    if (!blnFocus)
+                    {
+                        blnFocus = true;
+                        lueLedgerGroup.Focus();
+                    }
+                }
 
                 if (!objLedger.ISExists(txtLedgerName.Text, Val.ToInt64(lblMode.Tag)).ToString().Trim().Equals(string.Empty))
                 {
