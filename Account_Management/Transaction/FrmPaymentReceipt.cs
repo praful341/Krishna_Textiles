@@ -538,7 +538,7 @@ namespace Account_Management.Transaction
                 return;
             }
             RepMethod.Items.Clear();
-            RepMethod.Items.Add("Adjusment");
+            RepMethod.Items.Add("Adjustment");
             RepMethod.Items.Add("New Ref.");
 
             DataTable DTab_Invoice_Data = objPaymentReceipt.PaymentReceipt_Search_GetData(Val.ToInt64(LueLedger.EditValue), Val.ToString("Invoice"));

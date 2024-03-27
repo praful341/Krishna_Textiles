@@ -1870,11 +1870,14 @@ namespace Account_Management.Transaction
                 DataTable m_dtb = new DataTable();
                 objSaleInvoice = new SaleInvoice();
 
-                m_dtb = objSaleInvoice.GetOrderData(CmbSaleType.Text, "AA");
-
-                if (m_dtb.Rows.Count > 0)
+                if (lblMode.Text == "Add Mode")
                 {
-                    txtOrderNo.Text = Val.ToString(m_dtb.Rows[0]["order_no"]);
+                    m_dtb = objSaleInvoice.GetOrderData(CmbSaleType.Text, "AA");
+
+                    if (m_dtb.Rows.Count > 0)
+                    {
+                        txtOrderNo.Text = Val.ToString(m_dtb.Rows[0]["order_no"]);
+                    }
                 }
             }
             catch (Exception ex)
@@ -1907,10 +1910,17 @@ namespace Account_Management.Transaction
 
         private void lueItem_Validated(object sender, EventArgs e)
         {
-            SaleInvoice objSaleInvoice = new SaleInvoice();
-            DataTable DTab_SaleRate = objSaleInvoice.SaleRate_GetData(Val.ToInt64(lueItem.EditValue));
-            txtPurchaseRate.Text = Val.ToDecimal(DTab_SaleRate.Rows[0]["last_purchase_rate"]).ToString();
-            txtSaleRate.Text = Val.ToDecimal(DTab_SaleRate.Rows[0]["sale_rate"]).ToString();
+            try
+            {
+                SaleInvoice objSaleInvoice = new SaleInvoice();
+                DataTable DTab_SaleRate = objSaleInvoice.SaleRate_GetData(Val.ToInt64(lueItem.EditValue));
+                txtPurchaseRate.Text = Val.ToDecimal(DTab_SaleRate.Rows[0]["last_purchase_rate"]).ToString();
+                txtSaleRate.Text = Val.ToDecimal(DTab_SaleRate.Rows[0]["sale_rate"]).ToString();
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

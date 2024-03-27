@@ -65,7 +65,7 @@ namespace Account_Management.Transaction
                 GrdDet.FocusedColumn = GrdDet.Columns["method"];
                 RepMethod.AllowFocused = true;
 
-                RepMethod.Items.Add("Adjusment");
+                RepMethod.Items.Add("Adjustment");
                 RepMethod.Items.Add("New Ref.");
             }
             catch (Exception ex)
@@ -211,7 +211,7 @@ namespace Account_Management.Transaction
             {
                 string Method = Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "method"));
 
-                if (GrdDet.FocusedColumn.FieldName.ToUpper() == "REF_ORDER_NO" && Method == "Adjusment")
+                if (GrdDet.FocusedColumn.FieldName.ToUpper() == "REF_ORDER_NO" && Method == "Adjustment")
                 {
                     //FrmSearch = new Search.FrmSearch();
                     //FrmSearch._FrmSearchProperty = new Class.FrmSearchProperty();
