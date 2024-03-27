@@ -78,6 +78,7 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.backgroundWorker_PaymentReceipt = new System.ComponentModel.BackgroundWorker();
+            this.LueCashBank = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.PnlSaerchData)).BeginInit();
             this.PnlSaerchData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtVoucherNo.Properties)).BeginInit();
@@ -103,10 +104,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LueCashBank.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlSaerchData
             // 
+            this.PnlSaerchData.Controls.Add(this.LueCashBank);
             this.PnlSaerchData.Controls.Add(this.BtnSearch);
             this.PnlSaerchData.Controls.Add(this.labelControl2);
             this.PnlSaerchData.Controls.Add(this.labelControl18);
@@ -192,7 +195,7 @@
             this.txtVoucherNo.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVoucherNo.Properties.Appearance.Options.UseFont = true;
             this.txtVoucherNo.Size = new System.Drawing.Size(181, 20);
-            this.txtVoucherNo.TabIndex = 1;
+            this.txtVoucherNo.TabIndex = 0;
             // 
             // lblInvoiceNo
             // 
@@ -270,7 +273,7 @@
             // 
             this.CmbTransactionType.EditValue = "SELECT";
             this.CmbTransactionType.EnterMoveNextControl = true;
-            this.CmbTransactionType.Location = new System.Drawing.Point(120, 63);
+            this.CmbTransactionType.Location = new System.Drawing.Point(120, 279);
             this.CmbTransactionType.Name = "CmbTransactionType";
             this.CmbTransactionType.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbTransactionType.Properties.Appearance.Options.UseFont = true;
@@ -285,6 +288,7 @@
             this.CmbTransactionType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.CmbTransactionType.Size = new System.Drawing.Size(181, 22);
             this.CmbTransactionType.TabIndex = 2;
+            this.CmbTransactionType.Visible = false;
             this.CmbTransactionType.EditValueChanged += new System.EventHandler(this.CmbTransactionType_EditValueChanged);
             // 
             // DTPEntryDate
@@ -305,7 +309,7 @@
             this.DTPEntryDate.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.Optimistic;
             this.DTPEntryDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.DTPEntryDate.Size = new System.Drawing.Size(181, 24);
-            this.DTPEntryDate.TabIndex = 0;
+            this.DTPEntryDate.TabIndex = 1;
             // 
             // labelControl3
             // 
@@ -338,7 +342,7 @@
             this.LueLedger.Properties.NullText = "";
             this.LueLedger.Properties.ShowHeader = false;
             this.LueLedger.Size = new System.Drawing.Size(181, 22);
-            this.LueLedger.TabIndex = 4;
+            this.LueLedger.TabIndex = 3;
             this.LueLedger.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.LueLedger_ButtonClick);
             // 
             // txtAmount
@@ -349,7 +353,7 @@
             this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmount.Properties.Appearance.Options.UseFont = true;
             this.txtAmount.Size = new System.Drawing.Size(181, 22);
-            this.txtAmount.TabIndex = 6;
+            this.txtAmount.TabIndex = 5;
             this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             this.txtAmount.Validated += new System.EventHandler(this.txtAmount_Validated);
             // 
@@ -384,7 +388,7 @@
             this.txtRemark.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRemark.Properties.Appearance.Options.UseFont = true;
             this.txtRemark.Size = new System.Drawing.Size(181, 40);
-            this.txtRemark.TabIndex = 5;
+            this.txtRemark.TabIndex = 4;
             // 
             // labelControl4
             // 
@@ -404,7 +408,7 @@
             this.panelControl6.Location = new System.Drawing.Point(2, 465);
             this.panelControl6.Name = "panelControl6";
             this.panelControl6.Size = new System.Drawing.Size(487, 44);
-            this.panelControl6.TabIndex = 7;
+            this.panelControl6.TabIndex = 6;
             // 
             // btnExit
             // 
@@ -415,7 +419,7 @@
             this.btnExit.Location = new System.Drawing.Point(127, 5);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(102, 32);
-            this.btnExit.TabIndex = 2;
+            this.btnExit.TabIndex = 1;
             this.btnExit.Text = "E&xit";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -428,7 +432,7 @@
             this.btnClear.Location = new System.Drawing.Point(19, 5);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(102, 32);
-            this.btnClear.TabIndex = 1;
+            this.btnClear.TabIndex = 0;
             this.btnClear.Text = "&Clear";
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
@@ -727,6 +731,29 @@
             this.panelControl1.Size = new System.Drawing.Size(852, 19);
             this.panelControl1.TabIndex = 13;
             // 
+            // LueCashBank
+            // 
+            this.LueCashBank.EnterMoveNextControl = true;
+            this.LueCashBank.Location = new System.Drawing.Point(120, 63);
+            this.LueCashBank.Name = "LueCashBank";
+            this.LueCashBank.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LueCashBank.Properties.Appearance.Options.UseFont = true;
+            this.LueCashBank.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LueCashBank.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.LueCashBank.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
+            this.LueCashBank.Properties.AppearanceDropDownHeader.Options.UseFont = true;
+            this.LueCashBank.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            this.LueCashBank.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.LueCashBank.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ledger_name", "Ledger Name"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ledger_id", "Ledger Id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.LueCashBank.Properties.NullText = "";
+            this.LueCashBank.Properties.ShowHeader = false;
+            this.LueCashBank.Size = new System.Drawing.Size(181, 22);
+            this.LueCashBank.TabIndex = 2;
+            // 
             // FrmPaymentReceipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -769,6 +796,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LueCashBank.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -824,5 +852,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit RepOrderNo;
+        private DevExpress.XtraEditors.LookUpEdit LueCashBank;
     }
 }

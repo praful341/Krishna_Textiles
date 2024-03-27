@@ -84,6 +84,7 @@ namespace Account_Management.Transaction
         {
             LueLedger.EditValue = null;
             lueBank.EditValue = null;
+            LueCashBank.EditValue = null;
             txtRemark.Text = "";
             txtAmount.Text = "";
             CmbTransactionType.SelectedIndex = 0;
@@ -96,7 +97,7 @@ namespace Account_Management.Transaction
             objPaymentReceipt = new PaymentReceipt();
             txtVoucherNo.Text = objPaymentReceipt.FindNewID().ToString();
 
-            CmbTransactionType.Focus();
+            DTPEntryDate.Focus();
         }
         #region Validation
 
@@ -115,27 +116,36 @@ namespace Account_Management.Transaction
                         LueLedger.Focus();
                     }
                 }
-                if (CmbTransactionType.Text == "SELECT" || CmbTransactionType.Text == "")
+                if (LueCashBank.ItemIndex < 0)
                 {
-                    lstError.Add(new ListError(23, "Cash / Bank"));
+                    lstError.Add(new ListError(12, "Cash / Bank"));
                     if (!blnFocus)
                     {
                         blnFocus = true;
-                        CmbTransactionType.Focus();
+                        LueCashBank.Focus();
                     }
                 }
-                if (CmbTransactionType.Text == "BANK")
-                {
-                    if (lueBank.EditValue == null)
-                    {
-                        lstError.Add(new ListError(5, "Please Select Bank"));
-                        if (!blnFocus)
-                        {
-                            blnFocus = true;
-                            lueBank.Focus();
-                        }
-                    }
-                }
+                //if (CmbTransactionType.Text == "SELECT" || CmbTransactionType.Text == "")
+                //{
+                //    lstError.Add(new ListError(23, "Cash / Bank"));
+                //    if (!blnFocus)
+                //    {
+                //        blnFocus = true;
+                //        CmbTransactionType.Focus();
+                //    }
+                //}
+                //if (CmbTransactionType.Text == "BANK")
+                //{
+                //    if (lueBank.EditValue == null)
+                //    {
+                //        lstError.Add(new ListError(5, "Please Select Bank"));
+                //        if (!blnFocus)
+                //        {
+                //            blnFocus = true;
+                //            lueBank.Focus();
+                //        }
+                //    }
+                //}
                 if (txtAmount.Text.Length == 0 || txtAmount.Text == "")
                 {
                     lstError.Add(new ListError(5, "Amount"));
@@ -154,18 +164,18 @@ namespace Account_Management.Transaction
                         DTPEntryDate.Focus();
                     }
                 }
-                Int64 Against_Ledger_Id_Cash = objPaymentReceipt.ISLadgerName_GetData("CASH BALANCE");
-                Int64 Against_Ledger_Id_Bank = objPaymentReceipt.ISLadgerName_GetData("BANK BALANCE");
+                //Int64 Against_Ledger_Id_Cash = objPaymentReceipt.ISLadgerName_GetData("CASH BALANCE");
+                //Int64 Against_Ledger_Id_Bank = objPaymentReceipt.ISLadgerName_GetData("BANK BALANCE");
 
-                if (Against_Ledger_Id_Cash == 0 || Against_Ledger_Id_Bank == 0)
-                {
-                    lstError.Add(new ListError(5, "Cash Balance Or Bank Balance Leger Not Set"));
-                    if (!blnFocus)
-                    {
-                        blnFocus = true;
-                        LueLedger.Focus();
-                    }
-                }
+                //if (Against_Ledger_Id_Cash == 0 || Against_Ledger_Id_Bank == 0)
+                //{
+                //    lstError.Add(new ListError(5, "Cash Balance Or Bank Balance Leger Not Set"));
+                //    if (!blnFocus)
+                //    {
+                //        blnFocus = true;
+                //        LueLedger.Focus();
+                //    }
+                //}
             }
             catch (Exception ex)
             {
@@ -194,6 +204,7 @@ namespace Account_Management.Transaction
 
         private void FrmIncomeEntry_Load(object sender, EventArgs e)
         {
+            Global.LOOKUPCashBankLedger(LueCashBank);
             Global.LOOKUPBank(lueBank);
             Global.LOOKUPLedger(LueLedger);
             DTPEntryDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
@@ -369,19 +380,19 @@ namespace Account_Management.Transaction
         #endregion
         private void CmbTransactionType_EditValueChanged(object sender, EventArgs e)
         {
-            if (CmbTransactionType.Text == "BANK")
-            {
-                lblBank.Visible = true;
-                lueBank.Visible = true;
-                lueBank.EditValue = null;
-                lueBank.Focus();
-            }
-            else
-            {
-                lblBank.Visible = false;
-                lueBank.Visible = false;
-                lueBank.EditValue = null;
-            }
+            //if (CmbTransactionType.Text == "BANK")
+            //{
+            //    lblBank.Visible = true;
+            //    lueBank.Visible = true;
+            //    lueBank.EditValue = null;
+            //    lueBank.Focus();
+            //}
+            //else
+            //{
+            //    lblBank.Visible = false;
+            //    lueBank.Visible = false;
+            //    lueBank.EditValue = null;
+            //}
         }
         private void LueLedger_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
@@ -446,24 +457,24 @@ namespace Account_Management.Transaction
                         PaymentReceiptProperty.form_id = m_numForm_id;
                         PaymentReceiptProperty.voucher_no = Val.ToInt64(txtVoucherNo.Text);
 
-                        Int64 Against_Ledger_Id_Cash = objPaymentReceipt.ISLadgerName_GetData("CASH BALANCE");
-                        Int64 Against_Ledger_Id_Bank = objPaymentReceipt.ISLadgerName_GetData("BANK BALANCE");
+                        //Int64 Against_Ledger_Id_Cash = objPaymentReceipt.ISLadgerName_GetData("CASH BALANCE");
+                        //Int64 Against_Ledger_Id_Bank = objPaymentReceipt.ISLadgerName_GetData("BANK BALANCE");
 
-                        if (Against_Ledger_Id_Cash == 0 || Against_Ledger_Id_Bank == 0)
-                        {
-                            Global.Message("Cash Balance Or Bank Balance Leger Not Set ");
-                            return;
-                        }
+                        //if (Against_Ledger_Id_Cash == 0 || Against_Ledger_Id_Bank == 0)
+                        //{
+                        //    Global.Message("Cash Balance Or Bank Balance Leger Not Set ");
+                        //    return;
+                        //}
 
-                        if (Val.ToString(CmbTransactionType.EditValue) == "CASH")
-                        {
-                            PaymentReceiptProperty.against_ledger_id = Val.ToInt64(Against_Ledger_Id_Cash);
-                        }
-                        else if (Val.ToString(CmbTransactionType.EditValue) == "BANK")
-                        {
-                            PaymentReceiptProperty.against_ledger_id = Val.ToInt64(Against_Ledger_Id_Bank);
-                        }
-
+                        //if (Val.ToString(CmbTransactionType.EditValue) == "CASH")
+                        //{
+                        //    PaymentReceiptProperty.against_ledger_id = Val.ToInt64(Against_Ledger_Id_Cash);
+                        //}
+                        //else if (Val.ToString(CmbTransactionType.EditValue) == "BANK")
+                        //{
+                        //    PaymentReceiptProperty.against_ledger_id = Val.ToInt64(Against_Ledger_Id_Bank);
+                        //}
+                        PaymentReceiptProperty.against_ledger_id = Val.ToInt64(LueCashBank.EditValue);
                         PaymentReceiptProperty = objPaymentReceipt.PaymentReceipt_Save(PaymentReceiptProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
 
                         Union_ID = PaymentReceiptProperty.union_id;
@@ -474,7 +485,7 @@ namespace Account_Management.Transaction
                 if (IntRes == -1)
                 {
                     Global.Confirm("Error In Payment Receipt");
-                    CmbTransactionType.Focus();
+                    DTPEntryDate.Focus();
                 }
                 else
                 {
@@ -585,7 +596,7 @@ namespace Account_Management.Transaction
                 if (IntRes == -1)
                 {
                     Global.Confirm("Error In Payment Receipt");
-                    CmbTransactionType.Focus();
+                    DTPEntryDate.Focus();
                 }
                 else
                 {
