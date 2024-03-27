@@ -583,7 +583,7 @@ namespace Account_Management.Transaction
 
                 for (int i = 0; i < Payment_Receipt_Data.Rows.Count; i++)
                 {
-                    if (Val.ToString(Payment_Receipt_Data.Rows[i]["method"]) != "" && Val.ToString(Payment_Receipt_Data.Rows[i]["order_no"]) != "")
+                    if (Val.ToString(Payment_Receipt_Data.Rows[i]["method"]) != "" && Val.ToString(Payment_Receipt_Data.Rows[i]["invoice_id"]) != "")
                     {
                         PaymentReceiptProperty.payment_id = Val.ToInt64(Payment_Receipt_Data.Rows[i]["payment_id"]);
                         PaymentReceiptProperty.method = Val.ToString(Payment_Receipt_Data.Rows[i]["method"]);
