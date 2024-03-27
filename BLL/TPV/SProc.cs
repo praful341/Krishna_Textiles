@@ -117,6 +117,7 @@
         public static string MST_Ledger_Save = "MST_Ledger_Save";
         public static string MST_Ledger_GetData = "MST_Ledger_GetData";
         public static string MST_CashBank_Ledger_GetData = "MST_CashBank_Ledger_GetData";
+        public static string MST_CashBank_Without_Ledger_GetData = "MST_CashBank_Without_Ledger_GetData";
 
         public static string MST_Item_Master_GetData = "MST_Item_Master_GetData";
         public static string MST_Item_Master_Save = "MST_Item_Master_Save";
