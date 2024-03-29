@@ -869,6 +869,15 @@ namespace Account_Management.Transaction
                             dtpInvoiceDate.Focus();
                         }
                     }
+                    if (LueEmployee.Text == "")
+                    {
+                        lstError.Add(new ListError(13, "Employee"));
+                        if (!blnFocus)
+                        {
+                            blnFocus = true;
+                            LueEmployee.Focus();
+                        }
+                    }
                 }
 
                 if (m_blnadd)
@@ -934,6 +943,15 @@ namespace Account_Management.Transaction
                         {
                             blnFocus = true;
                             txtSaleAmount.Focus();
+                        }
+                    }
+                    if (LueEmployee.Text == "")
+                    {
+                        lstError.Add(new ListError(13, "Employee"));
+                        if (!blnFocus)
+                        {
+                            blnFocus = true;
+                            LueEmployee.Focus();
                         }
                     }
                     //if (Val.ToDouble(txtPurchaseRate.Text) == 0)
