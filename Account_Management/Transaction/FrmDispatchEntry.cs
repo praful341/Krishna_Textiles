@@ -133,27 +133,30 @@ namespace Account_Management.Transaction
 
                     foreach (DataRow drw in m_DTab.Rows)
                     {
-                        DispatchEntryProperty.dispatch_id = Val.ToInt64(drw["dispatch_id"]);
-                        DispatchEntryProperty.invoice_id = Val.ToInt64(drw["invoice_id"]);
-                        DispatchEntryProperty.order_date = Val.DBDate(drw["invoice_date"].ToString());
-                        DispatchEntryProperty.order_no = Val.ToString(drw["order_no"]);
+                        if (Val.ToDecimal(drw["collect_rate"]) > 0)
+                        {
+                            DispatchEntryProperty.dispatch_id = Val.ToInt64(drw["dispatch_id"]);
+                            DispatchEntryProperty.invoice_id = Val.ToInt64(drw["invoice_id"]);
+                            DispatchEntryProperty.order_date = Val.DBDate(drw["invoice_date"].ToString());
+                            DispatchEntryProperty.order_no = Val.ToString(drw["order_no"]);
 
-                        DispatchEntryProperty.employee_id = Val.ToInt64(drw["employee_id"]);
-                        DispatchEntryProperty.dispatch_date = Val.DBDate(drw["dispatch_date"].ToString());
-                        DispatchEntryProperty.dispatch_time = Val.ToString(GlobalDec.gStr_SystemTime);
+                            DispatchEntryProperty.employee_id = Val.ToInt64(drw["employee_id"]);
+                            DispatchEntryProperty.dispatch_date = Val.DBDate(drw["dispatch_date"].ToString());
+                            DispatchEntryProperty.dispatch_time = Val.ToString(GlobalDec.gStr_SystemTime);
 
-                        DispatchEntryProperty.from_courier_id = Val.ToInt64(drw["from_courier_id"]);
-                        DispatchEntryProperty.to_courier_id = Val.ToInt64(drw["to_courier_id"]);
+                            DispatchEntryProperty.from_courier_id = Val.ToInt64(drw["from_courier_id"]);
+                            DispatchEntryProperty.to_courier_id = Val.ToInt64(drw["to_courier_id"]);
 
-                        DispatchEntryProperty.awb_no = Val.ToString(drw["awb_no"]);
-                        DispatchEntryProperty.paid_amount = Val.ToDecimal(drw["collect_rate"]);
-                        DispatchEntryProperty.shipping_amount = Val.ToDecimal(drw["shipping_amount"]);
+                            DispatchEntryProperty.awb_no = Val.ToString(drw["awb_no"]);
+                            DispatchEntryProperty.paid_amount = Val.ToDecimal(drw["collect_rate"]);
+                            DispatchEntryProperty.shipping_amount = Val.ToDecimal(drw["shipping_amount"]);
 
-                        DispatchEntryProperty.status = Val.ToString(drw["status"]);
-                        DispatchEntryProperty.remarks = Val.ToString(drw["remarks"]);
-                        DispatchEntryProperty.form_id = m_numForm_id;
+                            DispatchEntryProperty.status = Val.ToString(drw["status"]);
+                            DispatchEntryProperty.remarks = Val.ToString(drw["remarks"]);
+                            DispatchEntryProperty.form_id = m_numForm_id;
 
-                        IntRes = objDispatchEntry.Save(DispatchEntryProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
+                            IntRes = objDispatchEntry.Save(DispatchEntryProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
+                        }
                     }
                     Conn.Inter1.Commit();
                 }
