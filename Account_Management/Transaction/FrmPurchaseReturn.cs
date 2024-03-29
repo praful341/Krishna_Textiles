@@ -580,19 +580,21 @@ namespace Account_Management.Transaction
                 Global.LOOKUPCashBankWithoutLedger(lueJangedLedger);
 
                 dtpFromDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpFromDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpFromDate.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpFromDate.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpFromDate.Properties.CharacterCasing = CharacterCasing.Upper;
                 dtpFromDate.EditValue = DateTime.Now;
+                DateTime now = DateTime.Now;
+                dtpFromDate.EditValue = new DateTime(now.Year, now.Month, 1);
 
                 dtpToDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpToDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpToDate.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpToDate.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpToDate.Properties.CharacterCasing = CharacterCasing.Upper;
                 dtpToDate.EditValue = DateTime.Now;
 
                 dtpReturnDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpReturnDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpReturnDate.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpReturnDate.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpReturnDate.Properties.CharacterCasing = CharacterCasing.Upper;
                 dtpReturnDate.EditValue = DateTime.Now;
@@ -622,8 +624,14 @@ namespace Account_Management.Transaction
                 m_blnadd = true;
                 m_blnsave = false;
 
-
                 if (!ValidateDetails())
+                {
+                    m_blnadd = false;
+                    blnReturn = false;
+                    return blnReturn;
+                }
+                DialogResult result = MessageBox.Show("Do you want to Add data?", "Confirmation", MessageBoxButtons.YesNoCancel);
+                if (result != DialogResult.Yes)
                 {
                     m_blnadd = false;
                     blnReturn = false;
@@ -645,7 +653,7 @@ namespace Account_Management.Transaction
                     DataRow drwNew = m_dtbPurchaseReturnDetails.NewRow();
                     decimal numRate = Val.ToDecimal(txtRate.Text);
                     decimal numAmount = Val.ToDecimal(txtAmount.Text);
-                    int numPcs = Val.ToInt(txtPcs.Text);
+                    decimal numPcs = Val.ToDecimal(txtPcs.Text);
 
                     drwNew["purchase_return_id"] = Val.ToInt(0);
                     drwNew["return_detail_id"] = Val.ToInt(0);
@@ -708,7 +716,7 @@ namespace Account_Management.Transaction
                             {
                                 if (m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["return_detail_id"].ToString() == m_purchaseReturn_detail_id.ToString())
                                 {
-                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToDecimal(txtPcs.Text);
                                     m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["rate"] = Val.ToDecimal(txtRate.Text);
                                     m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["flag"] = 1;
                                     m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["amount"] = Math.Round(Val.ToDecimal(txtPcs.Text) * Val.ToDecimal(txtRate.Text), 3);
@@ -739,7 +747,7 @@ namespace Account_Management.Transaction
                             {
                                 if (m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["return_detail_id"].ToString() == m_purchaseReturn_detail_id.ToString())
                                 {
-                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
+                                    m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToDecimal(txtPcs.Text);
                                     m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["rate"] = Val.ToDecimal(txtRate.Text);
                                     m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["flag"] = 1;
                                     m_dtbPurchaseReturnDetails.Rows[m_update_srno - 1]["item_id"] = Val.ToInt(lueItem.EditValue);
@@ -913,7 +921,7 @@ namespace Account_Management.Transaction
                 txtSearchVoucherNo.Text = string.Empty;
                 lueJangedLedger.EditValue = System.DBNull.Value;
                 dtpReturnDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpReturnDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpReturnDate.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpReturnDate.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpReturnDate.Properties.CharacterCasing = CharacterCasing.Upper;
                 dtpReturnDate.EditValue = DateTime.Now;

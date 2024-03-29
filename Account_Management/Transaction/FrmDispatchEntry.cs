@@ -102,14 +102,14 @@ namespace Account_Management.Transaction
         private void btnClear_Click(object sender, EventArgs e)
         {
             dtpFromDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-            dtpFromDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+            dtpFromDate.Properties.Mask.EditMask = "dd-MM-yyyy";
             dtpFromDate.Properties.Mask.UseMaskAsDisplayFormat = true;
             dtpFromDate.Properties.CharacterCasing = CharacterCasing.Upper;
             DateTime now = DateTime.Now;
             dtpFromDate.EditValue = new DateTime(now.Year, now.Month, 1);
 
             dtpToDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-            dtpToDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+            dtpToDate.Properties.Mask.EditMask = "dd-MM-yyyy";
             dtpToDate.Properties.Mask.UseMaskAsDisplayFormat = true;
             dtpToDate.Properties.CharacterCasing = CharacterCasing.Upper;
             dtpToDate.EditValue = DateTime.Now;

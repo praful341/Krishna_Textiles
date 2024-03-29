@@ -1,7 +1,7 @@
-﻿using BLL;
+﻿using Account_Management.Class;
+using BLL;
 using BLL.FunctionClasses.Master;
 using BLL.PropertyClasses.Master;
-using Account_Management.Class;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -63,14 +63,14 @@ namespace Account_Management.Master
             try
             {
                 DTPStartDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                DTPStartDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                DTPStartDate.Properties.Mask.EditMask = "dd-MM-yyyy";
                 DTPStartDate.Properties.Mask.UseMaskAsDisplayFormat = true;
                 DTPStartDate.Properties.CharacterCasing = CharacterCasing.Upper;
 
                 DTPStartDate.EditValue = DateTime.Now;
 
                 DTPEndDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                DTPEndDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                DTPEndDate.Properties.Mask.EditMask = "dd-MM-yyyy";
                 DTPEndDate.Properties.Mask.UseMaskAsDisplayFormat = true;
                 DTPEndDate.Properties.CharacterCasing = CharacterCasing.Upper;
 

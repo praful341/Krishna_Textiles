@@ -128,18 +128,18 @@ namespace Account_Management.Master
                 txtPancardNo.Text = "";
                 txtSalary.Text = "";
                 dtpJoiningDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpJoiningDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpJoiningDate.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpJoiningDate.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpJoiningDate.Properties.CharacterCasing = CharacterCasing.Upper;
                 dtpJoiningDate.EditValue = DateTime.Now;
 
                 dtpLeaveDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpLeaveDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpLeaveDate.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpLeaveDate.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpLeaveDate.Properties.CharacterCasing = CharacterCasing.Upper;
 
                 dtpDOB.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpDOB.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpDOB.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpDOB.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpDOB.Properties.CharacterCasing = CharacterCasing.Upper;
 

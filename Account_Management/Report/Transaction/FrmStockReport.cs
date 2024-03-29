@@ -1,7 +1,7 @@
-﻿using BLL;
+﻿using Account_Management.Class;
+using BLL;
 using BLL.FunctionClasses.Report;
 using BLL.PropertyClasses.Report;
-using Account_Management.Class;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -80,7 +80,7 @@ namespace Account_Management.Report
             Task.Run(() => GetData());
 
             DTPFromDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-            DTPFromDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+            DTPFromDate.Properties.Mask.EditMask = "dd-MM-yyyy";
             DTPFromDate.Properties.Mask.UseMaskAsDisplayFormat = true;
             DTPFromDate.Properties.CharacterCasing = CharacterCasing.Upper;
             //string From_Date = Val.DBDate(m_opDate.Rows[0]["opening_date"].ToString());
@@ -95,7 +95,7 @@ namespace Account_Management.Report
             }
 
             DTPToDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-            DTPToDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+            DTPToDate.Properties.Mask.EditMask = "dd-MM-yyyy";
             DTPToDate.Properties.Mask.UseMaskAsDisplayFormat = true;
             DTPToDate.Properties.CharacterCasing = CharacterCasing.Upper;
 
@@ -157,13 +157,13 @@ namespace Account_Management.Report
         private void btnClear_Click(object sender, EventArgs e)
         {
             DTPFromDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-            DTPFromDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+            DTPFromDate.Properties.Mask.EditMask = "dd-MM-yyyy";
             DTPFromDate.Properties.Mask.UseMaskAsDisplayFormat = true;
             DTPFromDate.Properties.CharacterCasing = CharacterCasing.Upper;
             DTPFromDate.EditValue = Val.DBDate(m_opDate.Rows[0]["opening_date"].ToString());
 
             DTPToDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-            DTPToDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+            DTPToDate.Properties.Mask.EditMask = "dd-MM-yyyy";
             DTPToDate.Properties.Mask.UseMaskAsDisplayFormat = true;
             DTPToDate.Properties.CharacterCasing = CharacterCasing.Upper;
 
@@ -412,13 +412,13 @@ namespace Account_Management.Report
                 ListDepartment.Properties.Items[i].CheckState = CheckState.Unchecked;
 
             DTPFromDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-            DTPFromDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+            DTPFromDate.Properties.Mask.EditMask = "dd-MM-yyyy";
             DTPFromDate.Properties.Mask.UseMaskAsDisplayFormat = true;
             DTPFromDate.Properties.CharacterCasing = CharacterCasing.Upper;
             DTPFromDate.EditValue = DateTime.Now;
 
             DTPToDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-            DTPToDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+            DTPToDate.Properties.Mask.EditMask = "dd-MM-yyyy";
             DTPToDate.Properties.Mask.UseMaskAsDisplayFormat = true;
             DTPToDate.Properties.CharacterCasing = CharacterCasing.Upper;
             DTPToDate.EditValue = DateTime.Now;

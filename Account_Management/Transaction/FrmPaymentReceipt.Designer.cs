@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.PnlSaerchData = new DevExpress.XtraEditors.PanelControl();
+            this.LueCashBank = new DevExpress.XtraEditors.LookUpEdit();
             this.BtnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
@@ -78,9 +79,9 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.backgroundWorker_PaymentReceipt = new System.ComponentModel.BackgroundWorker();
-            this.LueCashBank = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.PnlSaerchData)).BeginInit();
             this.PnlSaerchData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LueCashBank.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVoucherNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueBank.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CmbTransactionType.Properties)).BeginInit();
@@ -104,7 +105,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LueCashBank.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlSaerchData
@@ -135,6 +135,29 @@
             this.PnlSaerchData.Name = "PnlSaerchData";
             this.PnlSaerchData.Size = new System.Drawing.Size(491, 511);
             this.PnlSaerchData.TabIndex = 0;
+            // 
+            // LueCashBank
+            // 
+            this.LueCashBank.EnterMoveNextControl = true;
+            this.LueCashBank.Location = new System.Drawing.Point(120, 63);
+            this.LueCashBank.Name = "LueCashBank";
+            this.LueCashBank.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LueCashBank.Properties.Appearance.Options.UseFont = true;
+            this.LueCashBank.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LueCashBank.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.LueCashBank.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
+            this.LueCashBank.Properties.AppearanceDropDownHeader.Options.UseFont = true;
+            this.LueCashBank.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            this.LueCashBank.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.LueCashBank.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ledger_name", "Ledger Name"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ledger_id", "Ledger Id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.LueCashBank.Properties.NullText = "";
+            this.LueCashBank.Properties.ShowHeader = false;
+            this.LueCashBank.Size = new System.Drawing.Size(181, 22);
+            this.LueCashBank.TabIndex = 2;
             // 
             // BtnSearch
             // 
@@ -352,6 +375,12 @@
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmount.Properties.Appearance.Options.UseFont = true;
+            this.txtAmount.Properties.DisplayFormat.FormatString = "#,##,##,##0.00";
+            this.txtAmount.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtAmount.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtAmount.Properties.Mask.EditMask = "#,##,##,##0.00";
+            this.txtAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtAmount.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtAmount.Size = new System.Drawing.Size(181, 22);
             this.txtAmount.TabIndex = 5;
             this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
@@ -731,29 +760,6 @@
             this.panelControl1.Size = new System.Drawing.Size(852, 19);
             this.panelControl1.TabIndex = 13;
             // 
-            // LueCashBank
-            // 
-            this.LueCashBank.EnterMoveNextControl = true;
-            this.LueCashBank.Location = new System.Drawing.Point(120, 63);
-            this.LueCashBank.Name = "LueCashBank";
-            this.LueCashBank.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LueCashBank.Properties.Appearance.Options.UseFont = true;
-            this.LueCashBank.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.LueCashBank.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.LueCashBank.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
-            this.LueCashBank.Properties.AppearanceDropDownHeader.Options.UseFont = true;
-            this.LueCashBank.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            this.LueCashBank.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.LueCashBank.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ledger_name", "Ledger Name"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ledger_id", "Ledger Id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.LueCashBank.Properties.NullText = "";
-            this.LueCashBank.Properties.ShowHeader = false;
-            this.LueCashBank.Size = new System.Drawing.Size(181, 22);
-            this.LueCashBank.TabIndex = 2;
-            // 
             // FrmPaymentReceipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -773,6 +779,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PnlSaerchData)).EndInit();
             this.PnlSaerchData.ResumeLayout(false);
             this.PnlSaerchData.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LueCashBank.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVoucherNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueBank.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CmbTransactionType.Properties)).EndInit();
@@ -796,7 +803,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LueCashBank.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

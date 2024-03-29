@@ -13,6 +13,7 @@ namespace BLL.PropertyClasses.Transaction
         public string sale_type { get; set; }
         public string order_no { get; set; }
         public Int64 gst_id { get; set; }
+        public string purchase_firm { get; set; }
         public Int64 total_pcs { get; set; }
         public decimal gross_amount { get; set; }
         public decimal cgst_rate { get; set; }

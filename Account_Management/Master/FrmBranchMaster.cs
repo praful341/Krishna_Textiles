@@ -73,7 +73,7 @@ namespace Account_Management.Master
                 Task.Run(() => GetData());
 
                 dtpESICCovDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpESICCovDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpESICCovDate.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpESICCovDate.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpESICCovDate.Properties.CharacterCasing = CharacterCasing.Upper;
                 btnClear_Click(btnClear, null);

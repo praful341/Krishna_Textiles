@@ -120,7 +120,7 @@ namespace Account_Management.Transaction
             try
             {
                 dtpOpeningDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpOpeningDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpOpeningDate.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpOpeningDate.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpOpeningDate.Properties.CharacterCasing = CharacterCasing.Upper;
 
@@ -283,7 +283,7 @@ namespace Account_Management.Transaction
             {
                 txtFileName.Text = "";
                 dtpOpeningDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpOpeningDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpOpeningDate.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpOpeningDate.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpOpeningDate.Properties.CharacterCasing = CharacterCasing.Upper;
 

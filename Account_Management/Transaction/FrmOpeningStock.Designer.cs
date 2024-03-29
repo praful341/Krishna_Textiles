@@ -341,6 +341,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpOpeningDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtpOpeningDate.Properties.Mask.EditMask = "";
             this.dtpOpeningDate.Size = new System.Drawing.Size(121, 20);
             this.dtpOpeningDate.TabIndex = 454;
             this.dtpOpeningDate.EditValueChanged += new System.EventHandler(this.dtpOpeningDate_EditValueChanged);

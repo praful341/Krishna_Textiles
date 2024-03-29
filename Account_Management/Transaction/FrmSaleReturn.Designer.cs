@@ -114,6 +114,7 @@
             this.clmEmployeeName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmEmployeeID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmShippingAddress = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.lueJangedLedger = new DevExpress.XtraEditors.LookUpEdit();
             this.label33 = new System.Windows.Forms.Label();
@@ -183,8 +184,6 @@
             this.txtDiscountPer = new DevExpress.XtraEditors.TextEdit();
             this.label26 = new System.Windows.Forms.Label();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.txtShippingAddress = new DevExpress.XtraEditors.MemoEdit();
             this.lblEntry = new DevExpress.XtraEditors.LabelControl();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
@@ -192,7 +191,13 @@
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.txtRemark = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.txtShippingAddress = new DevExpress.XtraEditors.MemoEdit();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.CmbPurchaseFirm = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.label20 = new System.Windows.Forms.Label();
+            this.lueInvoiceNo = new DevExpress.XtraEditors.LookUpEdit();
+            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.txtPurchaseAmount = new DevExpress.XtraEditors.TextEdit();
             this.label10 = new System.Windows.Forms.Label();
             this.txtPurchaseRate = new DevExpress.XtraEditors.TextEdit();
@@ -217,7 +222,6 @@
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.txtPcs = new DevExpress.XtraEditors.TextEdit();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.txtSaleAmount = new DevExpress.XtraEditors.TextEdit();
             this.label18 = new System.Windows.Forms.Label();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -254,7 +258,6 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.backgroundWorker_SaleReturn = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker_SaleReturnDelete = new System.ComponentModel.BackgroundWorker();
-            this.lueInvoiceNo = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).BeginInit();
@@ -298,10 +301,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDiscountPer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
             this.panelControl6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtShippingAddress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtShippingAddress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CmbPurchaseFirm.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueInvoiceNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPurchaseAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPurchaseRate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LueEmployee.Properties)).BeginInit();
@@ -325,7 +330,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.CmbSaleType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueInvoiceNo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl3
@@ -1027,7 +1031,8 @@
             this.gridColumn17,
             this.clmEmployeeName,
             this.clmEmployeeID,
-            this.clmShippingAddress});
+            this.clmShippingAddress,
+            this.gridColumn18});
             this.dgvSaleReturnEntry.GridControl = this.grdSaleReturnEntry;
             this.dgvSaleReturnEntry.Name = "dgvSaleReturnEntry";
             this.dgvSaleReturnEntry.OptionsBehavior.Editable = false;
@@ -1110,7 +1115,7 @@
             this.gridColumn11.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 9;
+            this.gridColumn11.VisibleIndex = 10;
             // 
             // gridColumn38
             // 
@@ -1128,7 +1133,7 @@
             this.gridColumn44.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn44.Visible = true;
-            this.gridColumn44.VisibleIndex = 14;
+            this.gridColumn44.VisibleIndex = 15;
             // 
             // gridColumn32
             // 
@@ -1146,7 +1151,7 @@
             this.cgst_amount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.cgst_amount.Visible = true;
-            this.cgst_amount.VisibleIndex = 11;
+            this.cgst_amount.VisibleIndex = 12;
             // 
             // gridColumn34
             // 
@@ -1164,7 +1169,7 @@
             this.gridColumn35.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn35.Visible = true;
-            this.gridColumn35.VisibleIndex = 12;
+            this.gridColumn35.VisibleIndex = 13;
             // 
             // gridColumn36
             // 
@@ -1182,7 +1187,7 @@
             this.gridColumn37.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn37.Visible = true;
-            this.gridColumn37.VisibleIndex = 13;
+            this.gridColumn37.VisibleIndex = 14;
             // 
             // gridColumn40
             // 
@@ -1193,7 +1198,7 @@
             this.gridColumn40.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn40.Visible = true;
-            this.gridColumn40.VisibleIndex = 15;
+            this.gridColumn40.VisibleIndex = 16;
             this.gridColumn40.Width = 94;
             // 
             // gridColumn12
@@ -1204,7 +1209,7 @@
             this.gridColumn12.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 10;
+            this.gridColumn12.VisibleIndex = 11;
             // 
             // ClmFinalTermsDays
             // 
@@ -1214,7 +1219,7 @@
             this.ClmFinalTermsDays.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.ClmFinalTermsDays.Visible = true;
-            this.ClmFinalTermsDays.VisibleIndex = 16;
+            this.ClmFinalTermsDays.VisibleIndex = 17;
             this.ClmFinalTermsDays.Width = 94;
             // 
             // clmNetAmount
@@ -1226,7 +1231,7 @@
             this.clmNetAmount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.clmNetAmount.Visible = true;
-            this.clmNetAmount.VisibleIndex = 17;
+            this.clmNetAmount.VisibleIndex = 18;
             this.clmNetAmount.Width = 99;
             // 
             // gridColumn10
@@ -1236,7 +1241,7 @@
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.AllowEdit = false;
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 18;
+            this.gridColumn10.VisibleIndex = 19;
             this.gridColumn10.Width = 104;
             // 
             // clmEntryBy
@@ -1246,7 +1251,7 @@
             this.clmEntryBy.Name = "clmEntryBy";
             this.clmEntryBy.OptionsColumn.AllowEdit = false;
             this.clmEntryBy.Visible = true;
-            this.clmEntryBy.VisibleIndex = 20;
+            this.clmEntryBy.VisibleIndex = 21;
             this.clmEntryBy.Width = 71;
             // 
             // clmEntryDate
@@ -1256,7 +1261,7 @@
             this.clmEntryDate.Name = "clmEntryDate";
             this.clmEntryDate.OptionsColumn.AllowEdit = false;
             this.clmEntryDate.Visible = true;
-            this.clmEntryDate.VisibleIndex = 21;
+            this.clmEntryDate.VisibleIndex = 22;
             this.clmEntryDate.Width = 76;
             // 
             // clmEntryTime
@@ -1266,7 +1271,7 @@
             this.clmEntryTime.Name = "clmEntryTime";
             this.clmEntryTime.OptionsColumn.AllowEdit = false;
             this.clmEntryTime.Visible = true;
-            this.clmEntryTime.VisibleIndex = 22;
+            this.clmEntryTime.VisibleIndex = 23;
             this.clmEntryTime.Width = 104;
             // 
             // clmIP
@@ -1276,7 +1281,7 @@
             this.clmIP.Name = "clmIP";
             this.clmIP.OptionsColumn.AllowEdit = false;
             this.clmIP.Visible = true;
-            this.clmIP.VisibleIndex = 23;
+            this.clmIP.VisibleIndex = 24;
             this.clmIP.Width = 107;
             // 
             // gridColumn14
@@ -1285,7 +1290,7 @@
             this.gridColumn14.FieldName = "term_days";
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 5;
+            this.gridColumn14.VisibleIndex = 6;
             this.gridColumn14.Width = 52;
             // 
             // gridColumn15
@@ -1294,7 +1299,7 @@
             this.gridColumn15.FieldName = "due_date";
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 6;
+            this.gridColumn15.VisibleIndex = 7;
             this.gridColumn15.Width = 96;
             // 
             // gridColumn16
@@ -1303,7 +1308,7 @@
             this.gridColumn16.FieldName = "weight";
             this.gridColumn16.Name = "gridColumn16";
             this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 7;
+            this.gridColumn16.VisibleIndex = 8;
             // 
             // gridColumn17
             // 
@@ -1311,7 +1316,7 @@
             this.gridColumn17.FieldName = "pin_code";
             this.gridColumn17.Name = "gridColumn17";
             this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 8;
+            this.gridColumn17.VisibleIndex = 9;
             // 
             // clmEmployeeName
             // 
@@ -1334,8 +1339,17 @@
             this.clmShippingAddress.FieldName = "shipping_address";
             this.clmShippingAddress.Name = "clmShippingAddress";
             this.clmShippingAddress.Visible = true;
-            this.clmShippingAddress.VisibleIndex = 19;
+            this.clmShippingAddress.VisibleIndex = 20;
             this.clmShippingAddress.Width = 120;
+            // 
+            // gridColumn18
+            // 
+            this.gridColumn18.Caption = "Pur. Firm";
+            this.gridColumn18.FieldName = "purchase_firm";
+            this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.Visible = true;
+            this.gridColumn18.VisibleIndex = 5;
+            this.gridColumn18.Width = 87;
             // 
             // panelControl2
             // 
@@ -1673,6 +1687,8 @@
             // clmPcs
             // 
             this.clmPcs.Caption = "Qty";
+            this.clmPcs.DisplayFormat.FormatString = "#,##,##,##0";
+            this.clmPcs.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.clmPcs.FieldName = "pcs";
             this.clmPcs.Name = "clmPcs";
             this.clmPcs.OptionsColumn.AllowEdit = false;
@@ -1685,6 +1701,8 @@
             // clmRSSalerate
             // 
             this.clmRSSalerate.Caption = "Rate";
+            this.clmRSSalerate.DisplayFormat.FormatString = "#,##,##,##0.00";
+            this.clmRSSalerate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.clmRSSalerate.FieldName = "sale_rate";
             this.clmRSSalerate.Name = "clmRSSalerate";
             this.clmRSSalerate.OptionsColumn.AllowEdit = false;
@@ -1697,6 +1715,8 @@
             // clmRSSaleAmount
             // 
             this.clmRSSaleAmount.Caption = "Amt.";
+            this.clmRSSaleAmount.DisplayFormat.FormatString = "#,##,##,##0.00";
+            this.clmRSSaleAmount.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.clmRSSaleAmount.FieldName = "sale_amount";
             this.clmRSSaleAmount.Name = "clmRSSaleAmount";
             this.clmRSSaleAmount.OptionsColumn.AllowEdit = false;
@@ -1851,10 +1871,12 @@
             this.txtShippingCharge.Name = "txtShippingCharge";
             this.txtShippingCharge.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtShippingCharge.Properties.Appearance.Options.UseFont = true;
+            this.txtShippingCharge.Properties.DisplayFormat.FormatString = "#,##,##,##0.00";
             this.txtShippingCharge.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtShippingCharge.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtShippingCharge.Properties.Mask.EditMask = "f0";
+            this.txtShippingCharge.Properties.Mask.EditMask = "#,##,##,##0.00";
             this.txtShippingCharge.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtShippingCharge.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtShippingCharge.Size = new System.Drawing.Size(93, 20);
             this.txtShippingCharge.TabIndex = 65;
             this.txtShippingCharge.EditValueChanged += new System.EventHandler(this.txtShippingCharge_EditValueChanged);
@@ -1868,10 +1890,12 @@
             this.txtIGSTAmount.Name = "txtIGSTAmount";
             this.txtIGSTAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIGSTAmount.Properties.Appearance.Options.UseFont = true;
+            this.txtIGSTAmount.Properties.DisplayFormat.FormatString = "#,##,##,##0.00";
             this.txtIGSTAmount.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtIGSTAmount.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtIGSTAmount.Properties.Mask.EditMask = "f0";
+            this.txtIGSTAmount.Properties.Mask.EditMask = "#,##,##,##0.00";
             this.txtIGSTAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtIGSTAmount.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtIGSTAmount.Properties.ReadOnly = true;
             this.txtIGSTAmount.Size = new System.Drawing.Size(93, 20);
             this.txtIGSTAmount.TabIndex = 62;
@@ -1904,10 +1928,12 @@
             this.txtIGSTPer.Name = "txtIGSTPer";
             this.txtIGSTPer.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIGSTPer.Properties.Appearance.Options.UseFont = true;
+            this.txtIGSTPer.Properties.DisplayFormat.FormatString = "#,##,##,##0.00";
             this.txtIGSTPer.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtIGSTPer.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtIGSTPer.Properties.Mask.EditMask = "f3";
+            this.txtIGSTPer.Properties.Mask.EditMask = "#,##,##,##0.00";
             this.txtIGSTPer.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtIGSTPer.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtIGSTPer.Size = new System.Drawing.Size(93, 20);
             this.txtIGSTPer.TabIndex = 2;
             this.txtIGSTPer.EditValueChanged += new System.EventHandler(this.txtIGSTPer_EditValueChanged);
@@ -1930,10 +1956,12 @@
             this.txtSGSTAmount.Name = "txtSGSTAmount";
             this.txtSGSTAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSGSTAmount.Properties.Appearance.Options.UseFont = true;
+            this.txtSGSTAmount.Properties.DisplayFormat.FormatString = "#,##,##,##0.00";
             this.txtSGSTAmount.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtSGSTAmount.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtSGSTAmount.Properties.Mask.EditMask = "f0";
+            this.txtSGSTAmount.Properties.Mask.EditMask = "#,##,##,##0.00";
             this.txtSGSTAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtSGSTAmount.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtSGSTAmount.Properties.ReadOnly = true;
             this.txtSGSTAmount.Size = new System.Drawing.Size(71, 20);
             this.txtSGSTAmount.TabIndex = 58;
@@ -1956,10 +1984,12 @@
             this.txtSGSTPer.Name = "txtSGSTPer";
             this.txtSGSTPer.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSGSTPer.Properties.Appearance.Options.UseFont = true;
+            this.txtSGSTPer.Properties.DisplayFormat.FormatString = "#,##,##,##0.00";
             this.txtSGSTPer.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtSGSTPer.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtSGSTPer.Properties.Mask.EditMask = "f3";
+            this.txtSGSTPer.Properties.Mask.EditMask = "#,##,##,##0.00";
             this.txtSGSTPer.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtSGSTPer.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtSGSTPer.Size = new System.Drawing.Size(71, 20);
             this.txtSGSTPer.TabIndex = 1;
             this.txtSGSTPer.EditValueChanged += new System.EventHandler(this.txtSGSTPer_EditValueChanged);
@@ -1982,10 +2012,12 @@
             this.txtCGSTAmount.Name = "txtCGSTAmount";
             this.txtCGSTAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCGSTAmount.Properties.Appearance.Options.UseFont = true;
+            this.txtCGSTAmount.Properties.DisplayFormat.FormatString = "#,##,##,##0.00";
             this.txtCGSTAmount.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtCGSTAmount.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtCGSTAmount.Properties.Mask.EditMask = "f0";
+            this.txtCGSTAmount.Properties.Mask.EditMask = "#,##,##,##0.00";
             this.txtCGSTAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtCGSTAmount.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtCGSTAmount.Properties.ReadOnly = true;
             this.txtCGSTAmount.Size = new System.Drawing.Size(71, 20);
             this.txtCGSTAmount.TabIndex = 54;
@@ -2008,10 +2040,12 @@
             this.txtCGSTPer.Name = "txtCGSTPer";
             this.txtCGSTPer.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCGSTPer.Properties.Appearance.Options.UseFont = true;
+            this.txtCGSTPer.Properties.DisplayFormat.FormatString = "#,##,##,##0.00";
             this.txtCGSTPer.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtCGSTPer.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtCGSTPer.Properties.Mask.EditMask = "f3";
+            this.txtCGSTPer.Properties.Mask.EditMask = "#,##,##,##0.00";
             this.txtCGSTPer.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtCGSTPer.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtCGSTPer.Size = new System.Drawing.Size(71, 20);
             this.txtCGSTPer.TabIndex = 0;
             this.txtCGSTPer.EditValueChanged += new System.EventHandler(this.txtCGSTPer_EditValueChanged);
@@ -2034,10 +2068,12 @@
             this.txtRoundOff.Name = "txtRoundOff";
             this.txtRoundOff.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRoundOff.Properties.Appearance.Options.UseFont = true;
+            this.txtRoundOff.Properties.DisplayFormat.FormatString = "#,##,##,##0.00";
             this.txtRoundOff.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtRoundOff.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtRoundOff.Properties.Mask.EditMask = "f2";
+            this.txtRoundOff.Properties.Mask.EditMask = "#,##,##,##0.00";
             this.txtRoundOff.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtRoundOff.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtRoundOff.Size = new System.Drawing.Size(93, 20);
             this.txtRoundOff.TabIndex = 1;
             this.txtRoundOff.EditValueChanged += new System.EventHandler(this.txtShippingCharge_EditValueChanged);
@@ -2066,10 +2102,12 @@
             this.txtNetAmount.Properties.Appearance.Options.UseTextOptions = true;
             this.txtNetAmount.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.txtNetAmount.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNetAmount.Properties.DisplayFormat.FormatString = "#,##,##,##0.00";
             this.txtNetAmount.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtNetAmount.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtNetAmount.Properties.Mask.EditMask = "f0";
+            this.txtNetAmount.Properties.Mask.EditMask = "#,##,##,##0.00";
             this.txtNetAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtNetAmount.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtNetAmount.Properties.ReadOnly = true;
             this.txtNetAmount.Size = new System.Drawing.Size(132, 20);
             this.txtNetAmount.TabIndex = 2;
@@ -2091,10 +2129,12 @@
             this.txtDiscountAmount.Name = "txtDiscountAmount";
             this.txtDiscountAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiscountAmount.Properties.Appearance.Options.UseFont = true;
+            this.txtDiscountAmount.Properties.DisplayFormat.FormatString = "#,##,##,##0.00";
             this.txtDiscountAmount.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtDiscountAmount.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtDiscountAmount.Properties.Mask.EditMask = "f0";
+            this.txtDiscountAmount.Properties.Mask.EditMask = "#,##,##,##0.00";
             this.txtDiscountAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtDiscountAmount.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtDiscountAmount.Size = new System.Drawing.Size(93, 20);
             this.txtDiscountAmount.TabIndex = 0;
             this.txtDiscountAmount.EditValueChanged += new System.EventHandler(this.txtDiscountAmount_EditValueChanged);
@@ -2118,10 +2158,12 @@
             this.txtDiscountPer.Name = "txtDiscountPer";
             this.txtDiscountPer.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiscountPer.Properties.Appearance.Options.UseFont = true;
+            this.txtDiscountPer.Properties.DisplayFormat.FormatString = "#,##,##,##0.00";
             this.txtDiscountPer.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtDiscountPer.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtDiscountPer.Properties.Mask.EditMask = "f3";
+            this.txtDiscountPer.Properties.Mask.EditMask = "#,##,##,##0.00";
             this.txtDiscountPer.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtDiscountPer.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtDiscountPer.Size = new System.Drawing.Size(93, 20);
             this.txtDiscountPer.TabIndex = 3;
             this.txtDiscountPer.EditValueChanged += new System.EventHandler(this.txtDiscountPer_EditValueChanged);
@@ -2153,30 +2195,6 @@
             this.panelControl6.Name = "panelControl6";
             this.panelControl6.Size = new System.Drawing.Size(1267, 96);
             this.panelControl6.TabIndex = 0;
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl11.Appearance.Options.UseFont = true;
-            this.labelControl11.Location = new System.Drawing.Point(330, 15);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(125, 16);
-            this.labelControl11.TabIndex = 509;
-            this.labelControl11.Text = "Shipping Address";
-            this.labelControl11.Visible = false;
-            // 
-            // txtShippingAddress
-            // 
-            this.txtShippingAddress.EditValue = "";
-            this.txtShippingAddress.EnterMoveNextControl = true;
-            this.txtShippingAddress.Location = new System.Drawing.Point(459, 5);
-            this.txtShippingAddress.Name = "txtShippingAddress";
-            this.txtShippingAddress.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtShippingAddress.Properties.Appearance.Options.UseFont = true;
-            this.txtShippingAddress.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtShippingAddress.Size = new System.Drawing.Size(271, 84);
-            this.txtShippingAddress.TabIndex = 508;
-            this.txtShippingAddress.Visible = false;
             // 
             // lblEntry
             // 
@@ -2265,8 +2283,34 @@
             this.labelControl10.TabIndex = 507;
             this.labelControl10.Text = "Narration";
             // 
+            // labelControl11
+            // 
+            this.labelControl11.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl11.Appearance.Options.UseFont = true;
+            this.labelControl11.Location = new System.Drawing.Point(330, 15);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(125, 16);
+            this.labelControl11.TabIndex = 509;
+            this.labelControl11.Text = "Shipping Address";
+            this.labelControl11.Visible = false;
+            // 
+            // txtShippingAddress
+            // 
+            this.txtShippingAddress.EditValue = "";
+            this.txtShippingAddress.EnterMoveNextControl = true;
+            this.txtShippingAddress.Location = new System.Drawing.Point(459, 5);
+            this.txtShippingAddress.Name = "txtShippingAddress";
+            this.txtShippingAddress.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtShippingAddress.Properties.Appearance.Options.UseFont = true;
+            this.txtShippingAddress.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtShippingAddress.Size = new System.Drawing.Size(271, 84);
+            this.txtShippingAddress.TabIndex = 508;
+            this.txtShippingAddress.Visible = false;
+            // 
             // panelControl4
             // 
+            this.panelControl4.Controls.Add(this.CmbPurchaseFirm);
+            this.panelControl4.Controls.Add(this.label20);
             this.panelControl4.Controls.Add(this.lueInvoiceNo);
             this.panelControl4.Controls.Add(this.btnAdd);
             this.panelControl4.Controls.Add(this.txtPurchaseAmount);
@@ -2317,6 +2361,70 @@
             this.panelControl4.Size = new System.Drawing.Size(1267, 92);
             this.panelControl4.TabIndex = 0;
             this.panelControl4.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl4_Paint);
+            // 
+            // CmbPurchaseFirm
+            // 
+            this.CmbPurchaseFirm.EnterMoveNextControl = true;
+            this.CmbPurchaseFirm.Location = new System.Drawing.Point(915, 7);
+            this.CmbPurchaseFirm.Name = "CmbPurchaseFirm";
+            this.CmbPurchaseFirm.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbPurchaseFirm.Properties.Appearance.Options.UseFont = true;
+            this.CmbPurchaseFirm.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.CmbPurchaseFirm.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.CmbPurchaseFirm.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CmbPurchaseFirm.Properties.Items.AddRange(new object[] {
+            "Keya Fesion",
+            "CK Text",
+            "Saurastra Saree"});
+            this.CmbPurchaseFirm.Properties.PopupSizeable = true;
+            this.CmbPurchaseFirm.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.CmbPurchaseFirm.Size = new System.Drawing.Size(165, 20);
+            this.CmbPurchaseFirm.TabIndex = 532;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label20.Location = new System.Drawing.Point(800, 9);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(112, 16);
+            this.label20.TabIndex = 531;
+            this.label20.Text = "Purchase Firm";
+            // 
+            // lueInvoiceNo
+            // 
+            this.lueInvoiceNo.EnterMoveNextControl = true;
+            this.lueInvoiceNo.Location = new System.Drawing.Point(671, 7);
+            this.lueInvoiceNo.Name = "lueInvoiceNo";
+            this.lueInvoiceNo.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lueInvoiceNo.Properties.Appearance.Options.UseFont = true;
+            this.lueInvoiceNo.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.lueInvoiceNo.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lueInvoiceNo.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
+            this.lueInvoiceNo.Properties.AppearanceDropDownHeader.Options.UseFont = true;
+            this.lueInvoiceNo.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            this.lueInvoiceNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueInvoiceNo.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("invoice_id", "InvoiceID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("order_no", "Order No")});
+            this.lueInvoiceNo.Properties.NullText = "";
+            this.lueInvoiceNo.Properties.ShowHeader = false;
+            this.lueInvoiceNo.Size = new System.Drawing.Size(123, 20);
+            this.lueInvoiceNo.TabIndex = 529;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Appearance.Options.UseFont = true;
+            this.btnAdd.ImageOptions.Image = global::Account_Management.Properties.Resources.Add_final;
+            this.btnAdd.Location = new System.Drawing.Point(953, 37);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(92, 32);
+            this.btnAdd.TabIndex = 12;
+            this.btnAdd.Text = "&Add";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtPurchaseAmount
             // 
@@ -2446,7 +2554,7 @@
             this.labelControl6.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl6.Appearance.Options.UseFont = true;
             this.labelControl6.Appearance.Options.UseForeColor = true;
-            this.labelControl6.Location = new System.Drawing.Point(990, 19);
+            this.labelControl6.Location = new System.Drawing.Point(1094, 33);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(55, 15);
             this.labelControl6.TabIndex = 518;
@@ -2648,6 +2756,12 @@
             this.txtPcs.Name = "txtPcs";
             this.txtPcs.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPcs.Properties.Appearance.Options.UseFont = true;
+            this.txtPcs.Properties.DisplayFormat.FormatString = "#,##,##,##0";
+            this.txtPcs.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtPcs.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtPcs.Properties.Mask.EditMask = "#,##,##,##0";
+            this.txtPcs.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtPcs.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtPcs.Size = new System.Drawing.Size(65, 20);
             this.txtPcs.TabIndex = 9;
             this.txtPcs.EditValueChanged += new System.EventHandler(this.txtPcs_EditValueChanged);
@@ -2663,18 +2777,6 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Qty";
             // 
-            // btnAdd
-            // 
-            this.btnAdd.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Appearance.Options.UseFont = true;
-            this.btnAdd.ImageOptions.Image = global::Account_Management.Properties.Resources.Add_final;
-            this.btnAdd.Location = new System.Drawing.Point(953, 37);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(92, 32);
-            this.btnAdd.TabIndex = 12;
-            this.btnAdd.Text = "&Add";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // txtSaleAmount
             // 
             this.txtSaleAmount.Enabled = false;
@@ -2683,6 +2785,12 @@
             this.txtSaleAmount.Name = "txtSaleAmount";
             this.txtSaleAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSaleAmount.Properties.Appearance.Options.UseFont = true;
+            this.txtSaleAmount.Properties.DisplayFormat.FormatString = "#,##,##,##0.00";
+            this.txtSaleAmount.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtSaleAmount.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtSaleAmount.Properties.Mask.EditMask = "#,##,##,##0.00";
+            this.txtSaleAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtSaleAmount.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtSaleAmount.Size = new System.Drawing.Size(79, 20);
             this.txtSaleAmount.TabIndex = 11;
             // 
@@ -2704,11 +2812,12 @@
             this.labelControl3.Appearance.Options.UseBackColor = true;
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Appearance.Options.UseForeColor = true;
-            this.labelControl3.Location = new System.Drawing.Point(908, 11);
+            this.labelControl3.Location = new System.Drawing.Point(1065, 22);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(13, 16);
             this.labelControl3.TabIndex = 466;
             this.labelControl3.Text = "* ";
+            this.labelControl3.Visible = false;
             // 
             // txtSaleRate
             // 
@@ -2717,6 +2826,12 @@
             this.txtSaleRate.Name = "txtSaleRate";
             this.txtSaleRate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSaleRate.Properties.Appearance.Options.UseFont = true;
+            this.txtSaleRate.Properties.DisplayFormat.FormatString = "#,##,##,##0.00";
+            this.txtSaleRate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtSaleRate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtSaleRate.Properties.Mask.EditMask = "#,##,##,##0.00";
+            this.txtSaleRate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtSaleRate.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtSaleRate.Size = new System.Drawing.Size(79, 20);
             this.txtSaleRate.TabIndex = 10;
             this.txtSaleRate.EditValueChanged += new System.EventHandler(this.txtSaleRate_EditValueChanged);
@@ -2841,7 +2956,7 @@
             // txtOrderNo
             // 
             this.txtOrderNo.EnterMoveNextControl = true;
-            this.txtOrderNo.Location = new System.Drawing.Point(889, 3);
+            this.txtOrderNo.Location = new System.Drawing.Point(1150, 28);
             this.txtOrderNo.Name = "txtOrderNo";
             this.txtOrderNo.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOrderNo.Properties.Appearance.Options.UseFont = true;
@@ -3179,28 +3294,6 @@
             this.backgroundWorker_SaleReturnDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_SaleReturnDelete_DoWork);
             this.backgroundWorker_SaleReturnDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_SaleReturnDelete_RunWorkerCompleted);
             // 
-            // lueInvoiceNo
-            // 
-            this.lueInvoiceNo.EnterMoveNextControl = true;
-            this.lueInvoiceNo.Location = new System.Drawing.Point(671, 7);
-            this.lueInvoiceNo.Name = "lueInvoiceNo";
-            this.lueInvoiceNo.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lueInvoiceNo.Properties.Appearance.Options.UseFont = true;
-            this.lueInvoiceNo.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.lueInvoiceNo.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.lueInvoiceNo.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
-            this.lueInvoiceNo.Properties.AppearanceDropDownHeader.Options.UseFont = true;
-            this.lueInvoiceNo.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            this.lueInvoiceNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueInvoiceNo.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("invoice_id", "InvoiceID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("order_no", "Order No")});
-            this.lueInvoiceNo.Properties.NullText = "";
-            this.lueInvoiceNo.Properties.ShowHeader = false;
-            this.lueInvoiceNo.Size = new System.Drawing.Size(123, 20);
-            this.lueInvoiceNo.TabIndex = 529;
-            // 
             // FrmSaleReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3263,11 +3356,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
             this.panelControl6.ResumeLayout(false);
             this.panelControl6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtShippingAddress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtShippingAddress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             this.panelControl4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CmbPurchaseFirm.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueInvoiceNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPurchaseAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPurchaseRate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LueEmployee.Properties)).EndInit();
@@ -3291,7 +3386,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.CmbSaleType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueInvoiceNo.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3523,5 +3617,8 @@
         private DevExpress.XtraEditors.MemoEdit txtShippingAddress;
         private DevExpress.XtraGrid.Columns.GridColumn clmShippingAddress;
         private DevExpress.XtraEditors.LookUpEdit lueInvoiceNo;
+        private DevExpress.XtraEditors.ComboBoxEdit CmbPurchaseFirm;
+        private System.Windows.Forms.Label label20;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
     }
 }

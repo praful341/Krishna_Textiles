@@ -1137,7 +1137,7 @@
             // 
             this.gridColumn15.Caption = "Opening Date";
             this.gridColumn15.ColumnEdit = this.RepDate;
-            this.gridColumn15.DisplayFormat.FormatString = "dd/MMM/yyyy";
+            this.gridColumn15.DisplayFormat.FormatString = "dd-MM-yyyy";
             this.gridColumn15.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.gridColumn15.FieldName = "OPENING_DATE";
             this.gridColumn15.Name = "gridColumn15";
@@ -1152,7 +1152,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.RepDate.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.RepDate.DisplayFormat.FormatString = "dd/MMM/yyyy";
+            this.RepDate.DisplayFormat.FormatString = "dd-MM-yyyy";
             this.RepDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.RepDate.Name = "RepDate";
             // 

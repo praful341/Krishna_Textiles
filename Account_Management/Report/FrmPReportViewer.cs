@@ -358,7 +358,7 @@ namespace Account_Management.Report
         {
             PictureActivator.Visible = true;
             PictureActivator.BringToFront();
-            lblDateTime.Text = DateTime.Now.ToString("dd/MMM/yyyy hh:mm:ss tt");
+            lblDateTime.Text = DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt");
             FillGrid();
             PictureActivator.Visible = false;
         }

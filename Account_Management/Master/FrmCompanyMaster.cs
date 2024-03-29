@@ -72,22 +72,22 @@ namespace Account_Management.Master
 
 
                 dtpCST.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpCST.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpCST.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpCST.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpCST.Properties.CharacterCasing = CharacterCasing.Upper;
 
                 dtpGst.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpGst.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpGst.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpGst.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpGst.Properties.CharacterCasing = CharacterCasing.Upper;
 
                 dtpST.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpST.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpST.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpST.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpST.Properties.CharacterCasing = CharacterCasing.Upper;
 
                 dtpTAN.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpTAN.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpTAN.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpTAN.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpTAN.Properties.CharacterCasing = CharacterCasing.Upper;
                 txtCompanyName.Focus();

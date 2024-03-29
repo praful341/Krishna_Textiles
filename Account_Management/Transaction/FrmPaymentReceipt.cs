@@ -89,7 +89,7 @@ namespace Account_Management.Transaction
             txtAmount.Text = "";
             CmbTransactionType.SelectedIndex = 0;
             DTPEntryDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-            DTPEntryDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+            DTPEntryDate.Properties.Mask.EditMask = "dd-MM-yyyy";
             DTPEntryDate.Properties.Mask.UseMaskAsDisplayFormat = true;
             DTPEntryDate.Properties.CharacterCasing = CharacterCasing.Upper;
             DTPEntryDate.EditValue = DateTime.Now;
@@ -208,7 +208,7 @@ namespace Account_Management.Transaction
             Global.LOOKUPBank(lueBank);
             Global.LOOKUPLedger(LueLedger);
             DTPEntryDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-            DTPEntryDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+            DTPEntryDate.Properties.Mask.EditMask = "dd-MM-yyyy";
             DTPEntryDate.Properties.Mask.UseMaskAsDisplayFormat = true;
             DTPEntryDate.Properties.CharacterCasing = CharacterCasing.Upper;
             DTPEntryDate.EditValue = DateTime.Now;

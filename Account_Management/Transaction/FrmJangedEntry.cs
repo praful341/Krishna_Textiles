@@ -579,19 +579,21 @@ namespace Account_Management.Transaction
                 Global.LOOKUPCashBankWithoutLedger(lueJangedLedger);
 
                 dtpFromDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpFromDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpFromDate.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpFromDate.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpFromDate.Properties.CharacterCasing = CharacterCasing.Upper;
                 dtpFromDate.EditValue = DateTime.Now;
+                DateTime now = DateTime.Now;
+                dtpFromDate.EditValue = new DateTime(now.Year, now.Month, 1);
 
                 dtpToDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpToDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpToDate.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpToDate.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpToDate.Properties.CharacterCasing = CharacterCasing.Upper;
                 dtpToDate.EditValue = DateTime.Now;
 
                 dtpJangedDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpJangedDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpJangedDate.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpJangedDate.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpJangedDate.Properties.CharacterCasing = CharacterCasing.Upper;
                 dtpJangedDate.EditValue = DateTime.Now;
@@ -621,8 +623,15 @@ namespace Account_Management.Transaction
                 m_blnadd = true;
                 m_blnsave = false;
 
-
                 if (!ValidateDetails())
+                {
+                    m_blnadd = false;
+                    blnReturn = false;
+                    return blnReturn;
+                }
+
+                DialogResult result = MessageBox.Show("Do you want to Add data?", "Confirmation", MessageBoxButtons.YesNoCancel);
+                if (result != DialogResult.Yes)
                 {
                     m_blnadd = false;
                     blnReturn = false;
@@ -664,7 +673,7 @@ namespace Account_Management.Transaction
                     DataRow drwNew = m_dtbJangedDetails.NewRow();
                     decimal numRate = Val.ToDecimal(txtRate.Text);
                     decimal numAmount = Val.ToDecimal(txtAmount.Text);
-                    int numPcs = Val.ToInt(txtPcs.Text);
+                    decimal numPcs = Val.ToDecimal(txtPcs.Text);
 
                     drwNew["janged_id"] = Val.ToInt(0);
                     drwNew["janged_detail_id"] = Val.ToInt(0);
@@ -736,7 +745,7 @@ namespace Account_Management.Transaction
                             {
                                 if (m_dtbJangedDetails.Rows[m_update_srno - 1]["janged_detail_id"].ToString() == m_janged_detail_id.ToString())
                                 {
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToDecimal(txtPcs.Text);
                                     m_dtbJangedDetails.Rows[m_update_srno - 1]["rate"] = Val.ToDecimal(txtRate.Text);
                                     m_dtbJangedDetails.Rows[m_update_srno - 1]["flag"] = 1;
                                     m_dtbJangedDetails.Rows[m_update_srno - 1]["amount"] = Math.Round(Val.ToDecimal(txtPcs.Text) * Val.ToDecimal(txtRate.Text), 3);
@@ -769,7 +778,7 @@ namespace Account_Management.Transaction
                             {
                                 if (m_dtbJangedDetails.Rows[m_update_srno - 1]["janged_detail_id"].ToString() == m_janged_detail_id.ToString())
                                 {
-                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
+                                    m_dtbJangedDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToDecimal(txtPcs.Text);
                                     m_dtbJangedDetails.Rows[m_update_srno - 1]["rate"] = Val.ToDecimal(txtRate.Text);
                                     m_dtbJangedDetails.Rows[m_update_srno - 1]["flag"] = 1;
                                     m_dtbJangedDetails.Rows[m_update_srno - 1]["item_id"] = Val.ToInt(lueItem.EditValue);
@@ -980,7 +989,7 @@ namespace Account_Management.Transaction
                 txtSearchVoucherNo.Text = string.Empty;
                 lueJangedLedger.EditValue = System.DBNull.Value;
                 dtpJangedDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpJangedDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpJangedDate.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpJangedDate.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpJangedDate.Properties.CharacterCasing = CharacterCasing.Upper;
                 dtpJangedDate.EditValue = DateTime.Now;

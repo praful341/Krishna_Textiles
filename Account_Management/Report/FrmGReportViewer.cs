@@ -182,7 +182,7 @@ namespace Account_Management.Report
         #region "Events"
         private void FrmGReportViewer_Load(object sender, EventArgs e)
         {
-            lblDateTime.Text = DateTime.Now.ToString("dd/MMM/yyyy hh:mm:ss tt");
+            lblDateTime.Text = DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt");
             FillGrid();
 
         }

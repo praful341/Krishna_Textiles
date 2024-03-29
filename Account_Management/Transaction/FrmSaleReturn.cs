@@ -564,19 +564,21 @@ namespace Account_Management.Transaction
                 Global.LOOKUPCashBankWithoutLedger(lueJangedLedger);
 
                 dtpFromDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpFromDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpFromDate.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpFromDate.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpFromDate.Properties.CharacterCasing = CharacterCasing.Upper;
                 dtpFromDate.EditValue = DateTime.Now;
+                DateTime now = DateTime.Now;
+                dtpFromDate.EditValue = new DateTime(now.Year, now.Month, 1);
 
                 dtpToDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpToDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpToDate.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpToDate.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpToDate.Properties.CharacterCasing = CharacterCasing.Upper;
                 dtpToDate.EditValue = DateTime.Now;
 
                 dtpReturnDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpReturnDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpReturnDate.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpReturnDate.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpReturnDate.Properties.CharacterCasing = CharacterCasing.Upper;
                 dtpReturnDate.EditValue = DateTime.Now;
@@ -606,8 +608,14 @@ namespace Account_Management.Transaction
                 m_blnadd = true;
                 m_blnsave = false;
 
-
                 if (!ValidateDetails())
+                {
+                    m_blnadd = false;
+                    blnReturn = false;
+                    return blnReturn;
+                }
+                DialogResult result = MessageBox.Show("Do you want to Add data?", "Confirmation", MessageBoxButtons.YesNoCancel);
+                if (result != DialogResult.Yes)
                 {
                     m_blnadd = false;
                     blnReturn = false;
@@ -629,7 +637,7 @@ namespace Account_Management.Transaction
                     DataRow drwNew = m_dtbSaleDetails.NewRow();
                     decimal numRate = Val.ToDecimal(txtSaleRate.Text);
                     decimal numAmount = Val.ToDecimal(txtSaleAmount.Text);
-                    int numPcs = Val.ToInt(txtPcs.Text);
+                    decimal numPcs = Val.ToDecimal(txtPcs.Text);
 
                     drwNew["sale_return_id"] = Val.ToInt(0);
                     drwNew["return_detail_id"] = Val.ToInt(0);
@@ -700,7 +708,7 @@ namespace Account_Management.Transaction
                             {
                                 if (m_dtbSaleDetails.Rows[m_update_srno - 1]["return_detail_id"].ToString() == m_return_detail_id.ToString())
                                 {
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
+                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToDecimal(txtPcs.Text);
                                     m_dtbSaleDetails.Rows[m_update_srno - 1]["sale_rate"] = Val.ToDecimal(txtSaleRate.Text);
                                     m_dtbSaleDetails.Rows[m_update_srno - 1]["purchase_rate"] = Val.ToDecimal(txtPurchaseRate.Text);
                                     m_dtbSaleDetails.Rows[m_update_srno - 1]["flag"] = 1;
@@ -733,7 +741,7 @@ namespace Account_Management.Transaction
                             {
                                 if (m_dtbSaleDetails.Rows[m_update_srno - 1]["return_detail_id"].ToString() == m_return_detail_id.ToString())
                                 {
-                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToInt(txtPcs.Text);
+                                    m_dtbSaleDetails.Rows[m_update_srno - 1]["pcs"] = Val.ToDecimal(txtPcs.Text);
                                     m_dtbSaleDetails.Rows[m_update_srno - 1]["sale_rate"] = Val.ToDecimal(txtSaleRate.Text);
                                     m_dtbSaleDetails.Rows[m_update_srno - 1]["purchase_rate"] = Val.ToDecimal(txtPurchaseRate.Text);
                                     m_dtbSaleDetails.Rows[m_update_srno - 1]["flag"] = 1;
@@ -944,9 +952,10 @@ namespace Account_Management.Transaction
                 LueSize.EditValue = System.DBNull.Value;
                 LueUnit.EditValue = System.DBNull.Value;
                 txtSearchOrderNo.Text = string.Empty;
+                CmbPurchaseFirm.SelectedIndex = -1;
                 lueJangedLedger.EditValue = System.DBNull.Value;
                 dtpReturnDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpReturnDate.Properties.Mask.EditMask = "dd/MMM/yyyy";
+                dtpReturnDate.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpReturnDate.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpReturnDate.Properties.CharacterCasing = CharacterCasing.Upper;
                 dtpReturnDate.EditValue = DateTime.Now;
@@ -1253,6 +1262,7 @@ namespace Account_Management.Transaction
                     objSaleReturnProperty.gst_id = Val.ToInt(lueGSTRate.EditValue);
                     objSaleReturnProperty.remarks = Val.ToString(txtRemark.Text);
                     objSaleReturnProperty.form_id = m_numForm_id;
+                    objSaleReturnProperty.purchase_firm = Val.ToString(CmbPurchaseFirm.Text);
                     objSaleReturnProperty.ledger_id = Val.ToInt64(lueParty.EditValue);
                     objSaleReturnProperty.employee_id = Val.ToInt64(LueEmployee.EditValue);
                     objSaleReturnProperty.total_pcs = Val.ToInt64(clmPcs.SummaryItem.SummaryValue);
@@ -1736,6 +1746,7 @@ namespace Account_Management.Transaction
                         lueParty.EditValue = Val.ToInt64(Drow["ledger_id"]);
                         CmbSaleType.Text = Val.ToString(Drow["sale_type"]);
                         LueEmployee.EditValue = Val.ToInt64(Drow["employee_id"]);
+                        CmbPurchaseFirm.Text = Val.ToString(Drow["purchase_firm"]);
 
                         txtRemark.Text = Val.ToString(Drow["remarks"]);
                         txtWeight.Text = Val.ToString(Drow["weight"]);

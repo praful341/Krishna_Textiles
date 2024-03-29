@@ -541,7 +541,7 @@ namespace Account_Management.Report
                 IntIndex++;
             }
             CmbPageKind.SelectedIndex = IntSelectedIndex;
-            lblDateTime.Text = DateTime.Now.ToString("dd/MMM/yyyy hh:mm:ss tt");
+            lblDateTime.Text = DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt");
             FillGrid();
 
 
