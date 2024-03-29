@@ -244,11 +244,14 @@ namespace Account_Management.Transaction
                     e.Handled = true;
                     if (FrmSearchNew.DTab != null)
                     {
-                        GrdDet.SetFocusedRowCellValue("ref_order_no", Val.ToString(FrmSearchNew.DRow["order_no"]));
-                        GrdDet.SetFocusedRowCellValue("due_date", Val.ToString(FrmSearchNew.DRow["due_date"]));
-                        GrdDet.SetFocusedRowCellValue("amount", Val.ToString(FrmSearchNew.DRow["os_amount"]));
-                        GrdDet.SetFocusedRowCellValue("invoice_id", Val.ToString(FrmSearchNew.DRow["invoice_id"]));
-                        GrdDet.PostEditor();
+                        if (FrmSearchNew.DRow != null)
+                        {
+                            GrdDet.SetFocusedRowCellValue("ref_order_no", Val.ToString(FrmSearchNew.DRow["order_no"]));
+                            GrdDet.SetFocusedRowCellValue("due_date", Val.ToString(FrmSearchNew.DRow["due_date"]));
+                            GrdDet.SetFocusedRowCellValue("amount", Val.ToString(FrmSearchNew.DRow["os_amount"]));
+                            GrdDet.SetFocusedRowCellValue("invoice_id", Val.ToString(FrmSearchNew.DRow["invoice_id"]));
+                            GrdDet.PostEditor();
+                        }
                     }
                     FrmSearchNew.Hide();
                     FrmSearchNew.Dispose();
