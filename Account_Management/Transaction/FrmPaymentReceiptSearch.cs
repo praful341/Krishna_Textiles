@@ -40,7 +40,7 @@ namespace Account_Management.Transaction
             FormName = "FrmPaymentReceipt";
             Val.frmGenSetForPopup(this);
             AttachFormEvents();
-            this.Text = "Payment Receipt";
+            //this.Text = "Payment Receipt";
             this.ShowDialog();
         }
         private void AttachFormEvents()
@@ -59,7 +59,9 @@ namespace Account_Management.Transaction
         {
             try
             {
-                MainGrid.DataSource = DTab;
+                objPaymentReceipt = new PaymentReceipt();
+                DataTable DTab_Payment_Receipt_Data = objPaymentReceipt.PaymentReceipt_Search_GetData(Val.ToInt64(lblLedgerID.Text), Val.ToString(""));
+
                 GrdDet.PostEditor();
                 GrdDet.FocusedRowHandle = GrdDet.DataRowCount - 1;
                 GrdDet.FocusedColumn = GrdDet.Columns["method"];
@@ -67,6 +69,8 @@ namespace Account_Management.Transaction
 
                 RepMethod.Items.Add("Adjustment");
                 RepMethod.Items.Add("New Ref.");
+
+                MainGrid.DataSource = DTab_Payment_Receipt_Data;
             }
             catch (Exception ex)
             {

@@ -43,15 +43,16 @@
             this.MNExportRTF = new System.Windows.Forms.ToolStripMenuItem();
             this.MNExportCSV = new System.Windows.Forms.ToolStripMenuItem();
             this.GrdDet = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.payment_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.RepMethod = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.clmRSAmount = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.RepOrderNo = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.ClmLotSrNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ClmInvoiceID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.RepDueDate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
-            this.ClmInvoiceID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.lblLedgerID = new DevExpress.XtraEditors.LabelControl();
@@ -208,6 +209,7 @@
             this.GrdDet.Appearance.SelectedRow.Options.UseBackColor = true;
             this.GrdDet.Appearance.SelectedRow.Options.UseFont = true;
             this.GrdDet.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.payment_id,
             this.gridColumn2,
             this.clmRSAmount,
             this.gridColumn8,
@@ -228,6 +230,12 @@
             this.GrdDet.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.GrdDet.OptionsView.ShowFooter = true;
             this.GrdDet.OptionsView.ShowGroupPanel = false;
+            // 
+            // payment_id
+            // 
+            this.payment_id.Caption = "gridColumn3";
+            this.payment_id.FieldName = "payment_id";
+            this.payment_id.Name = "payment_id";
             // 
             // gridColumn2
             // 
@@ -303,13 +311,19 @@
             this.ClmLotSrNo.VisibleIndex = 0;
             this.ClmLotSrNo.Width = 46;
             // 
+            // ClmInvoiceID
+            // 
+            this.ClmInvoiceID.Caption = "Invoice ID";
+            this.ClmInvoiceID.FieldName = "invoice_id";
+            this.ClmInvoiceID.Name = "ClmInvoiceID";
+            // 
             // gridColumn1
             // 
-            this.gridColumn1.Caption = "Due Date";
+            this.gridColumn1.Caption = "Payment Date";
             this.gridColumn1.ColumnEdit = this.RepDueDate;
             this.gridColumn1.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.gridColumn1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.gridColumn1.FieldName = "due_date";
+            this.gridColumn1.FieldName = "payment_date";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 4;
@@ -330,12 +344,6 @@
             this.RepDueDate.MaxValue = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.RepDueDate.Name = "RepDueDate";
             this.RepDueDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RepDueDate_KeyDown);
-            // 
-            // ClmInvoiceID
-            // 
-            this.ClmInvoiceID.Caption = "Invoice ID";
-            this.ClmInvoiceID.FieldName = "invoice_id";
-            this.ClmInvoiceID.Name = "ClmInvoiceID";
             // 
             // panelControl1
             // 
@@ -449,7 +457,7 @@
             this.KeyPreview = true;
             this.Name = "FrmPaymentReceiptSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PAYMENT RECEIPT";
+            this.Text = "Bill-By-bill Adjustment of Amount";
             this.Load += new System.EventHandler(this.FrmPaymentReceiptSearch_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPaymentReceiptSearch_KeyDown);
             this.panel1.ResumeLayout(false);
@@ -502,5 +510,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit RepOrderNo;
         private DevExpress.XtraGrid.Columns.GridColumn ClmInvoiceID;
+        private DevExpress.XtraGrid.Columns.GridColumn payment_id;
     }
 }
