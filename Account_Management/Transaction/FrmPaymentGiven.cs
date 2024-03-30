@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Account_Management.Transaction
 {
-    public partial class FrmPaymentReceipt : DevExpress.XtraEditors.XtraForm
+    public partial class FrmPaymentGiven : DevExpress.XtraEditors.XtraForm
     {
         BLL.FormPer ObjPer = new BLL.FormPer();
         BLL.BeginTranConnection Conn;
@@ -24,13 +24,13 @@ namespace Account_Management.Transaction
         Control _NextEnteredControl;
         private List<Control> _tabControls;
 
-        PaymentReceipt objPaymentReceipt = new PaymentReceipt();
+        PaymentGiven objPaymentGiven = new PaymentGiven();
         DataTable m_dtbCurrencyType = new DataTable();
         DataTable DtControlSettings = new DataTable();
-        DataTable DtPaymentReceipt = new DataTable();
+        DataTable DtPaymentGiven = new DataTable();
         Int64 IntRes;
         int m_numForm_id = 0;
-        public FrmPaymentReceipt()
+        public FrmPaymentGiven()
         {
             InitializeComponent();
             _NextEnteredControl = new Control();
@@ -72,7 +72,7 @@ namespace Account_Management.Transaction
             objBOFormEvents.FormKeyDown = true;
             objBOFormEvents.FormResize = true;
             objBOFormEvents.FormClosing = true;
-            objBOFormEvents.ObjToDispose.Add(objPaymentReceipt);
+            objBOFormEvents.ObjToDispose.Add(objPaymentGiven);
             objBOFormEvents.ObjToDispose.Add(Val);
             objBOFormEvents.ObjToDispose.Add(objBOFormEvents);
         }
@@ -94,8 +94,8 @@ namespace Account_Management.Transaction
             DTPEntryDate.Properties.CharacterCasing = CharacterCasing.Upper;
             DTPEntryDate.EditValue = DateTime.Now;
 
-            objPaymentReceipt = new PaymentReceipt();
-            txtVoucherNo.Text = objPaymentReceipt.FindNewID().ToString();
+            objPaymentGiven = new PaymentGiven();
+            txtVoucherNo.Text = objPaymentGiven.FindNewID().ToString();
 
             DTPEntryDate.Focus();
         }
@@ -125,27 +125,6 @@ namespace Account_Management.Transaction
                         LueCashBank.Focus();
                     }
                 }
-                //if (CmbTransactionType.Text == "SELECT" || CmbTransactionType.Text == "")
-                //{
-                //    lstError.Add(new ListError(23, "Cash / Bank"));
-                //    if (!blnFocus)
-                //    {
-                //        blnFocus = true;
-                //        CmbTransactionType.Focus();
-                //    }
-                //}
-                //if (CmbTransactionType.Text == "BANK")
-                //{
-                //    if (lueBank.EditValue == null)
-                //    {
-                //        lstError.Add(new ListError(5, "Please Select Bank"));
-                //        if (!blnFocus)
-                //        {
-                //            blnFocus = true;
-                //            lueBank.Focus();
-                //        }
-                //    }
-                //}
                 if (txtAmount.Text.Length == 0 || txtAmount.Text == "")
                 {
                     lstError.Add(new ListError(5, "Amount"));
@@ -164,18 +143,6 @@ namespace Account_Management.Transaction
                         DTPEntryDate.Focus();
                     }
                 }
-                //Int64 Against_Ledger_Id_Cash = objPaymentReceipt.ISLadgerName_GetData("CASH BALANCE");
-                //Int64 Against_Ledger_Id_Bank = objPaymentReceipt.ISLadgerName_GetData("BANK BALANCE");
-
-                //if (Against_Ledger_Id_Cash == 0 || Against_Ledger_Id_Bank == 0)
-                //{
-                //    lstError.Add(new ListError(5, "Cash Balance Or Bank Balance Leger Not Set"));
-                //    if (!blnFocus)
-                //    {
-                //        blnFocus = true;
-                //        LueLedger.Focus();
-                //    }
-                //}
             }
             catch (Exception ex)
             {
@@ -372,19 +339,6 @@ namespace Account_Management.Transaction
         #endregion
         private void CmbTransactionType_EditValueChanged(object sender, EventArgs e)
         {
-            //if (CmbTransactionType.Text == "BANK")
-            //{
-            //    lblBank.Visible = true;
-            //    lueBank.Visible = true;
-            //    lueBank.EditValue = null;
-            //    lueBank.Focus();
-            //}
-            //else
-            //{
-            //    lblBank.Visible = false;
-            //    lueBank.Visible = false;
-            //    lueBank.EditValue = null;
-            //}
         }
         private void LueLedger_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
@@ -419,35 +373,35 @@ namespace Account_Management.Transaction
             //    FrmPaymentReceiptSearch.ShowForm(this, Val.ToInt64(LueLedger.EditValue), Val.ToString(LueLedger.Text), Val.ToDecimal(txtAmount.Text));
             //}
         }
-        public void GetPaymentReceiptData(DataTable Payment_Receipt_Data)
+        public void GetPaymentGivenData(DataTable Payment_Given_Data)
         {
             try
             {
                 IntRes = 0;
-                PaymentReceipt_Property PaymentReceiptProperty = new PaymentReceipt_Property();
+                PaymentGiven_Property paymentGiven_Property = new PaymentGiven_Property();
                 Int64 Union_ID = 0;
                 Conn = new BeginTranConnection(true, false);
 
-                for (int i = 0; i < Payment_Receipt_Data.Rows.Count; i++)
+                for (int i = 0; i < Payment_Given_Data.Rows.Count; i++)
                 {
-                    if (Val.ToString(Payment_Receipt_Data.Rows[i]["method"]) != "")
+                    if (Val.ToString(Payment_Given_Data.Rows[i]["method"]) != "")
                     {
-                        PaymentReceiptProperty.payment_id = Val.ToInt64(Payment_Receipt_Data.Rows[i]["payment_id"]);
-                        PaymentReceiptProperty.union_id = Val.ToInt64(Union_ID);
-                        PaymentReceiptProperty.payment_date = Val.DBDate(DTPEntryDate.Text);
-                        PaymentReceiptProperty.payment_type = Val.ToString(CmbTransactionType.Text);
-                        PaymentReceiptProperty.sr_no = Val.ToInt32(Payment_Receipt_Data.Rows[i]["sr_no"]);
-                        PaymentReceiptProperty.method = Val.ToString(Payment_Receipt_Data.Rows[i]["method"]);
-                        PaymentReceiptProperty.invoice_id = Val.ToInt64(Payment_Receipt_Data.Rows[i]["invoice_id"]);
-                        PaymentReceiptProperty.purchase_return_id = Val.ToInt64(0);
-                        PaymentReceiptProperty.reference = Val.ToString(Payment_Receipt_Data.Rows[i]["ref_order_no"]);
-                        PaymentReceiptProperty.bank_id = Val.ToInt64(lueBank.EditValue);
-                        PaymentReceiptProperty.ledger_id = Val.ToInt64(LueLedger.EditValue);
-                        PaymentReceiptProperty.credit_amount = Val.ToDecimal(Payment_Receipt_Data.Rows[i]["amount"]);
-                        PaymentReceiptProperty.debit_amount = Val.ToDecimal(Payment_Receipt_Data.Rows[i]["amount"]);
-                        PaymentReceiptProperty.remarks = Val.ToString(txtRemark.Text);
-                        PaymentReceiptProperty.form_id = m_numForm_id;
-                        PaymentReceiptProperty.voucher_no = Val.ToInt64(txtVoucherNo.Text);
+                        paymentGiven_Property.payment_id = Val.ToInt64(0);
+                        paymentGiven_Property.union_id = Val.ToInt64(Union_ID);
+                        paymentGiven_Property.payment_date = Val.DBDate(DTPEntryDate.Text);
+                        paymentGiven_Property.payment_type = Val.ToString(CmbTransactionType.Text);
+                        paymentGiven_Property.sr_no = Val.ToInt32(Payment_Given_Data.Rows[i]["sr_no"]);
+                        paymentGiven_Property.method = Val.ToString(Payment_Given_Data.Rows[i]["method"]);
+                        paymentGiven_Property.invoice_id = Val.ToInt64(Payment_Given_Data.Rows[i]["invoice_id"]);
+                        paymentGiven_Property.purchase_return_id = Val.ToInt64(0);
+                        paymentGiven_Property.reference = Val.ToString(Payment_Given_Data.Rows[i]["ref_order_no"]);
+                        paymentGiven_Property.bank_id = Val.ToInt64(lueBank.EditValue);
+                        paymentGiven_Property.ledger_id = Val.ToInt64(LueLedger.EditValue);
+                        paymentGiven_Property.credit_amount = Val.ToDecimal(Payment_Given_Data.Rows[i]["amount"]);
+                        paymentGiven_Property.debit_amount = Val.ToDecimal(Payment_Given_Data.Rows[i]["amount"]);
+                        paymentGiven_Property.remarks = Val.ToString(txtRemark.Text);
+                        paymentGiven_Property.form_id = m_numForm_id;
+                        paymentGiven_Property.voucher_no = Val.ToInt64(txtVoucherNo.Text);
 
                         //Int64 Against_Ledger_Id_Cash = objPaymentReceipt.ISLadgerName_GetData("CASH BALANCE");
                         //Int64 Against_Ledger_Id_Bank = objPaymentReceipt.ISLadgerName_GetData("BANK BALANCE");
@@ -466,17 +420,17 @@ namespace Account_Management.Transaction
                         //{
                         //    PaymentReceiptProperty.against_ledger_id = Val.ToInt64(Against_Ledger_Id_Bank);
                         //}
-                        PaymentReceiptProperty.against_ledger_id = Val.ToInt64(LueCashBank.EditValue);
-                        PaymentReceiptProperty = objPaymentReceipt.PaymentReceipt_Save(PaymentReceiptProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
+                        paymentGiven_Property.against_ledger_id = Val.ToInt64(LueCashBank.EditValue);
+                        paymentGiven_Property = objPaymentGiven.PaymentGiven_Save(paymentGiven_Property, DLL.GlobalDec.EnumTran.Continue, Conn);
 
-                        Union_ID = PaymentReceiptProperty.union_id;
+                        Union_ID = paymentGiven_Property.union_id;
                     }
                 }
                 Conn.Inter1.Commit();
 
                 if (IntRes == -1)
                 {
-                    Global.Confirm("Error In Payment Receipt");
+                    Global.Confirm("Error In Payment Given");
                     DTPEntryDate.Focus();
                 }
                 else
@@ -505,19 +459,19 @@ namespace Account_Management.Transaction
                     {
                         return;
                     }
-                    DtPaymentReceipt = new DataTable();
-                    DtPaymentReceipt.Columns.Add("sr_no", typeof(int));
-                    DtPaymentReceipt.Columns.Add("method", typeof(string));
-                    DtPaymentReceipt.Columns.Add("ref_order_no", typeof(string));
-                    DtPaymentReceipt.Columns.Add("amount", typeof(decimal));
-                    DtPaymentReceipt.Columns.Add("invoice_id", typeof(Int64));
-                    DtPaymentReceipt.Columns.Add("due_date", typeof(string));
-                    DtPaymentReceipt.Rows.Add(1, "", "", 0, 0, "");
+                    DtPaymentGiven = new DataTable();
+                    DtPaymentGiven.Columns.Add("sr_no", typeof(int));
+                    DtPaymentGiven.Columns.Add("method", typeof(string));
+                    DtPaymentGiven.Columns.Add("purchase_bill_no", typeof(string));
+                    DtPaymentGiven.Columns.Add("amount", typeof(decimal));
+                    DtPaymentGiven.Columns.Add("purchase_id", typeof(Int64));
+                    DtPaymentGiven.Columns.Add("due_date", typeof(string));
+                    DtPaymentGiven.Rows.Add(1, "", "", 0, 0, "");
 
-                    FrmPaymentReceiptSearch FrmPaymentReceiptSearch = new FrmPaymentReceiptSearch();
-                    FrmPaymentReceiptSearch.FrmPaymentReceipt = this;
-                    FrmPaymentReceiptSearch.DTab = DtPaymentReceipt;
-                    FrmPaymentReceiptSearch.ShowForm(this, Val.ToInt64(LueLedger.EditValue), Val.ToString(LueLedger.Text), Val.ToDecimal(txtAmount.Text));
+                    FrmPaymentGivenSearch FrmPaymentGivenSearch = new FrmPaymentGivenSearch();
+                    FrmPaymentGivenSearch.FrmPaymentGiven = this;
+                    FrmPaymentGivenSearch.DTab = DtPaymentGiven;
+                    FrmPaymentGivenSearch.ShowForm(this, Val.ToInt64(LueLedger.EditValue), Val.ToString(LueLedger.Text), Val.ToDecimal(txtAmount.Text));
                 }
             }
         }
@@ -533,21 +487,21 @@ namespace Account_Management.Transaction
             RepMethod.Items.Add("Adjustment");
             RepMethod.Items.Add("New Ref.");
 
-            DataTable DTab_Invoice_Data = objPaymentReceipt.PaymentReceipt_Search_GetData(Val.ToInt64(LueLedger.EditValue), Val.ToString("Invoice"));
+            DataTable DTab_Invoice_Data = objPaymentGiven.PaymentGiven_Search_GetData(Val.ToInt64(LueLedger.EditValue), Val.ToString("Invoice"));
 
             RepOrderNo.DataSource = DTab_Invoice_Data;
             RepOrderNo.ValueMember = "invoice_id";
             RepOrderNo.DisplayMember = "order_no";
 
-            objPaymentReceipt = new PaymentReceipt();
-            DataTable DTab_Payment_Receipt_Data = objPaymentReceipt.PaymentReceipt_Search_GetData(Val.ToInt64(LueLedger.EditValue), Val.ToString(""));
+            objPaymentGiven = new PaymentGiven();
+            DataTable DTab_Payment_Given_Data = objPaymentGiven.PaymentGiven_Search_GetData(Val.ToInt64(LueLedger.EditValue), Val.ToString(""));
 
-            if (DTab_Payment_Receipt_Data.Rows.Count > 0)
+            if (DTab_Payment_Given_Data.Rows.Count > 0)
             {
                 PnlSearchData.Visible = true;
                 MainGrid.Visible = true;
                 BtnUpdate.Visible = true;
-                MainGrid.DataSource = DTab_Payment_Receipt_Data;
+                MainGrid.DataSource = DTab_Payment_Given_Data;
 
                 GrdDet.PostEditor();
                 GrdDet.FocusedRowHandle = GrdDet.DataRowCount;
@@ -568,26 +522,26 @@ namespace Account_Management.Transaction
             try
             {
                 IntRes = 0;
-                PaymentReceipt_Property PaymentReceiptProperty = new PaymentReceipt_Property();
+                PaymentGiven_Property PaymentGivenProperty = new PaymentGiven_Property();
                 Conn = new BeginTranConnection(true, false);
 
-                DataTable Payment_Receipt_Data = (DataTable)MainGrid.DataSource;
+                DataTable Payment_Given_Data = (DataTable)MainGrid.DataSource;
 
-                for (int i = 0; i < Payment_Receipt_Data.Rows.Count; i++)
+                for (int i = 0; i < Payment_Given_Data.Rows.Count; i++)
                 {
-                    if (Val.ToString(Payment_Receipt_Data.Rows[i]["method"]) != "" && Val.ToString(Payment_Receipt_Data.Rows[i]["invoice_id"]) != "")
+                    if (Val.ToString(Payment_Given_Data.Rows[i]["method"]) != "" && Val.ToString(Payment_Given_Data.Rows[i]["invoice_id"]) != "")
                     {
-                        PaymentReceiptProperty.payment_id = Val.ToInt64(Payment_Receipt_Data.Rows[i]["payment_id"]);
-                        PaymentReceiptProperty.method = Val.ToString(Payment_Receipt_Data.Rows[i]["method"]);
-                        PaymentReceiptProperty.invoice_id = Val.ToInt64(Payment_Receipt_Data.Rows[i]["invoice_id"]);
-                        IntRes = objPaymentReceipt.Ref_PaymentReceipt_Update(PaymentReceiptProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
+                        PaymentGivenProperty.payment_id = Val.ToInt64(Payment_Given_Data.Rows[i]["payment_id"]);
+                        PaymentGivenProperty.method = Val.ToString(Payment_Given_Data.Rows[i]["method"]);
+                        PaymentGivenProperty.invoice_id = Val.ToInt64(Payment_Given_Data.Rows[i]["invoice_id"]);
+                        IntRes = objPaymentGiven.Ref_PaymentGiven_Update(PaymentGivenProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
                     }
                 }
                 Conn.Inter1.Commit();
 
                 if (IntRes == -1)
                 {
-                    Global.Confirm("Error In Payment Receipt");
+                    Global.Confirm("Error In Payment Given");
                     DTPEntryDate.Focus();
                 }
                 else
@@ -605,7 +559,7 @@ namespace Account_Management.Transaction
             }
         }
 
-        private void FrmPaymentReceipt_Load(object sender, EventArgs e)
+        private void FrmPaymentGiven_Load(object sender, EventArgs e)
         {
             Global.LOOKUPCashBankLedger(LueCashBank);
             Global.LOOKUPBank(lueBank);

@@ -25,7 +25,7 @@ namespace BLL.FunctionClasses.Transaction
                 Request.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int32);
                 Request.AddParams("@return_date", pClsProperty.return_date, DbType.Date);
                 Request.AddParams("@return_time", GlobalDec.gStr_SystemTime, DbType.String);
-                Request.AddParams("@purchase_firm", pClsProperty.purchase_firm, DbType.String);
+                Request.AddParams("@firm_id", pClsProperty.firm_id, DbType.Int64);
 
                 Request.AddParams("@order_no", pClsProperty.order_no, DbType.String);
                 Request.AddParams("@sale_type", pClsProperty.sale_type, DbType.String);

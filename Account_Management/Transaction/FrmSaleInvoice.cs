@@ -573,6 +573,7 @@ namespace Account_Management.Transaction
                 Global.LOOKUPColor(LueColor);
                 Global.LOOKUPSize(LueSize);
                 Global.LOOKUPUnit(LueUnit);
+                Global.LOOKUPFirm(luePurchaseFirm);
                 Global.LOOKUPCashBankWithoutLedger(lueJangedLedger);
 
                 dtpFromDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
@@ -1017,7 +1018,7 @@ namespace Account_Management.Transaction
                 dtpInvoiceDate.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpInvoiceDate.Properties.CharacterCasing = CharacterCasing.Upper;
                 dtpInvoiceDate.EditValue = DateTime.Now;
-                CmbPurchaseFirm.SelectedIndex = -1;
+                luePurchaseFirm.EditValue = System.DBNull.Value;
                 txtPcs.Text = string.Empty;
                 txtSaleRate.Text = string.Empty;
                 txtSaleAmount.Text = string.Empty;
@@ -1325,7 +1326,7 @@ namespace Account_Management.Transaction
                     objSaleProperty.employee_id = Val.ToInt64(LueEmployee.EditValue);
 
                     objSaleProperty.total_pcs = Val.ToInt64(clmPcs.SummaryItem.SummaryValue);
-                    objSaleProperty.purchase_firm = Val.ToString(CmbPurchaseFirm.Text);
+                    objSaleProperty.firm_id = Val.ToInt64(luePurchaseFirm.EditValue);
 
                     objSaleProperty.gross_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue), 3);
 
@@ -1835,7 +1836,7 @@ namespace Account_Management.Transaction
                         lueParty.EditValue = Val.ToInt64(Drow["ledger_id"]);
                         CmbSaleType.Text = Val.ToString(Drow["sale_type"]);
                         LueEmployee.EditValue = Val.ToInt64(Drow["employee_id"]);
-                        CmbPurchaseFirm.Text = Val.ToString(Drow["purchase_firm"]);
+                        luePurchaseFirm.EditValue = Val.ToInt64(Drow["firm_id"]);
                         txtRemark.Text = Val.ToString(Drow["remarks"]);
                         txtWeight.Text = Val.ToString(Drow["weight"]);
                         txtPinCode.Text = Val.ToString(Drow["pin_code"]);

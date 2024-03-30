@@ -1,6 +1,7 @@
 ﻿using BLL;
 using BLL.FunctionClasses.Master;
 using BLL.FunctionClasses.Master.MFG;
+using BLL.FunctionClasses.Transaction;
 using BLL.PropertyClasses.Master;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
@@ -1691,6 +1692,15 @@ namespace Account_Management.Class
             lookup.Properties.DataSource = UnitType;
             lookup.Properties.ValueMember = "unit_id";
             lookup.Properties.DisplayMember = "unit_name";
+            lookup.ClosePopup();
+        }
+        public static void LOOKUPFirm(LookUpEdit lookup)
+        {
+            JangedEntry objJangedEntry = new JangedEntry();
+            DataTable Purchase_Firm = objJangedEntry.Purchase_Firm_GetData();
+            lookup.Properties.DataSource = Purchase_Firm;
+            lookup.Properties.ValueMember = "firm_id";
+            lookup.Properties.DisplayMember = "firm_name";
             lookup.ClosePopup();
         }
         public static void LOOKUPGSTRate(LookUpEdit lookup)

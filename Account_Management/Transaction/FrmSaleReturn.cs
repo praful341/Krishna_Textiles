@@ -561,6 +561,7 @@ namespace Account_Management.Transaction
                 Global.LOOKUPColor(LueColor);
                 Global.LOOKUPSize(LueSize);
                 Global.LOOKUPUnit(LueUnit);
+                Global.LOOKUPFirm(luePurchaseFirm);
                 Global.LOOKUPCashBankWithoutLedger(lueJangedLedger);
 
                 dtpFromDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
@@ -952,7 +953,7 @@ namespace Account_Management.Transaction
                 LueSize.EditValue = System.DBNull.Value;
                 LueUnit.EditValue = System.DBNull.Value;
                 txtSearchOrderNo.Text = string.Empty;
-                CmbPurchaseFirm.SelectedIndex = -1;
+                luePurchaseFirm.EditValue = System.DBNull.Value;
                 lueJangedLedger.EditValue = System.DBNull.Value;
                 dtpReturnDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
                 dtpReturnDate.Properties.Mask.EditMask = "dd-MM-yyyy";
@@ -1262,7 +1263,7 @@ namespace Account_Management.Transaction
                     objSaleReturnProperty.gst_id = Val.ToInt(lueGSTRate.EditValue);
                     objSaleReturnProperty.remarks = Val.ToString(txtRemark.Text);
                     objSaleReturnProperty.form_id = m_numForm_id;
-                    objSaleReturnProperty.purchase_firm = Val.ToString(CmbPurchaseFirm.Text);
+                    objSaleReturnProperty.firm_id = Val.ToInt64(luePurchaseFirm.EditValue);
                     objSaleReturnProperty.ledger_id = Val.ToInt64(lueParty.EditValue);
                     objSaleReturnProperty.employee_id = Val.ToInt64(LueEmployee.EditValue);
                     objSaleReturnProperty.total_pcs = Val.ToInt64(clmPcs.SummaryItem.SummaryValue);
@@ -1746,7 +1747,7 @@ namespace Account_Management.Transaction
                         lueParty.EditValue = Val.ToInt64(Drow["ledger_id"]);
                         CmbSaleType.Text = Val.ToString(Drow["sale_type"]);
                         LueEmployee.EditValue = Val.ToInt64(Drow["employee_id"]);
-                        CmbPurchaseFirm.Text = Val.ToString(Drow["purchase_firm"]);
+                        luePurchaseFirm.EditValue = Val.ToInt64(Drow["firm_id"]);
 
                         txtRemark.Text = Val.ToString(Drow["remarks"]);
                         txtWeight.Text = Val.ToString(Drow["weight"]);
