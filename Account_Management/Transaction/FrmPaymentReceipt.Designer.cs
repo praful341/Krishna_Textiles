@@ -169,6 +169,7 @@
             this.BtnSearch.Name = "BtnSearch";
             this.BtnSearch.Size = new System.Drawing.Size(42, 39);
             this.BtnSearch.TabIndex = 43;
+            this.BtnSearch.Visible = false;
             this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // labelControl2
