@@ -142,6 +142,7 @@
         public static string TRN_Janged_Details_Save = "TRN_Janged_Details_Save";
         public static string TRN_Janged_Entry_Delete = "TRN_Janged_Entry_Delete";
         public static string TRN_Purchase_Voucher_No_GetData = "TRN_Purchase_Voucher_No_GetData";
+        public static string MST_Purchase_Firm_GetData = "MST_Purchase_Firm_GetData";
 
         #endregion "Janged Entry"    
 
@@ -219,7 +220,16 @@
         public static string TRN_Payment_OS_Invoice_Wise = "TRN_Payment_OS_Invoice_Wise";
         public static string TRN_Referance_Payment_SearchData = "TRN_Referance_Payment_SearchData";
         public static string TRN_Referance_Payment_Update = "TRN_Referance_Payment_Update";
+
         #endregion Payment Receipt Entry
+
+        #region Payment Given Entry
+
+        public static string TRN_Payment_Given_Save = "TRN_Payment_Given_Save";
+        public static string TRN_Payment_OS_Purchase_Wise = "TRN_Payment_OS_Purchase_Wise";
+        public static string TRN_Referance_PaymentGiven_SearchData = "TRN_Referance_PaymentGiven_SearchData";
+
+        #endregion Payment Given Entry
 
         #endregion
 

@@ -4,14 +4,14 @@ using System;
 using System.Data;
 namespace BLL.FunctionClasses.Account
 {
-    public class PaymentReceipt
+    public class PaymentGiven
     {
         InterfaceLayer Ope = new InterfaceLayer();
         Validation Val = new Validation();
 
         #region Other Function
 
-        public PaymentReceipt_Property PaymentReceipt_Save(PaymentReceipt_Property pClsProperty, DLL.GlobalDec.EnumTran pEnum = DLL.GlobalDec.EnumTran.WithCommit, BeginTranConnection Conn = null)
+        public PaymentGiven_Property PaymentGiven_Save(PaymentGiven_Property pClsProperty, DLL.GlobalDec.EnumTran pEnum = DLL.GlobalDec.EnumTran.WithCommit, BeginTranConnection Conn = null)
         {
             try
             {
@@ -44,7 +44,7 @@ namespace BLL.FunctionClasses.Account
                 Request.AddParams("@entry_ip_address", GlobalDec.gStrComputerIP, DbType.String);
                 Request.AddParams("@form_id", pClsProperty.form_id, DbType.Int64);
 
-                Request.CommandText = BLL.TPV.SProc.TRN_Payment_Receipt_Save;
+                Request.CommandText = BLL.TPV.SProc.TRN_Payment_Given_Save;
                 Request.CommandType = CommandType.StoredProcedure;
                 DataTable p_dtbUnionId = new DataTable();
 
@@ -89,25 +89,25 @@ namespace BLL.FunctionClasses.Account
         public int FindNewID()
         {
             int IntRes = 0;
-            IntRes = Ope.FindNewID(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, "TRN_Payment_Receipt", "isnull(MAX(voucher_no),0)", "");
+            IntRes = Ope.FindNewID(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, "TRN_Payment_Given", "isnull(MAX(voucher_no),0)", "");
             return IntRes;
         }
         public DataTable Sale_Invoice_Search_GetData(Int64 Ledger_ID)
         {
             DataTable DTab = new DataTable();
             Request Request = new Request();
-            Request.CommandText = BLL.TPV.SProc.TRN_Payment_OS_Purchase_Wise;
+            Request.CommandText = BLL.TPV.SProc.TRN_Payment_OS_Invoice_Wise;
             Request.CommandType = CommandType.StoredProcedure;
             Request.AddParams("@ledger_id", Ledger_ID, DbType.Int64);
 
             Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
             return DTab;
         }
-        public DataTable PaymentReceipt_Search_GetData(Int64 Ledger_ID, string Type)
+        public DataTable PaymentGiven_Search_GetData(Int64 Ledger_ID, string Type)
         {
             DataTable DTab = new DataTable();
             Request Request = new Request();
-            Request.CommandText = BLL.TPV.SProc.TRN_Referance_Payment_SearchData;
+            Request.CommandText = BLL.TPV.SProc.TRN_Referance_PaymentGiven_SearchData;
             Request.CommandType = CommandType.StoredProcedure;
             Request.AddParams("@ledger_id", Ledger_ID, DbType.Int64);
             Request.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int64);
@@ -120,7 +120,7 @@ namespace BLL.FunctionClasses.Account
             return DTab;
         }
 
-        public Int64 Ref_PaymentReceipt_Update(PaymentReceipt_Property pClsProperty, DLL.GlobalDec.EnumTran pEnum = DLL.GlobalDec.EnumTran.WithCommit, BeginTranConnection Conn = null)
+        public Int64 Ref_PaymentGiven_Update(PaymentGiven_Property pClsProperty, DLL.GlobalDec.EnumTran pEnum = DLL.GlobalDec.EnumTran.WithCommit, BeginTranConnection Conn = null)
         {
             Int64 IntRes = 0;
             try

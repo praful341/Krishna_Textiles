@@ -182,7 +182,6 @@
             this.txtRemark = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-            this.CmbPurchaseFirm = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label10 = new System.Windows.Forms.Label();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.DTPDueDate = new DevExpress.XtraEditors.DateEdit();
@@ -235,6 +234,8 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.backgroundWorker_JangedEntry = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker_JangedDelete = new System.ComponentModel.BackgroundWorker();
+            this.luePurchaseFirm = new DevExpress.XtraEditors.LookUpEdit();
+            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).BeginInit();
@@ -280,7 +281,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CmbPurchaseFirm.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPDueDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPDueDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LueUnit.Properties)).BeginInit();
@@ -299,6 +299,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpJangedDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luePurchaseFirm.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl3
@@ -996,7 +997,8 @@
             this.gridColumn12,
             this.gridColumn14,
             this.gridColumn15,
-            this.clmPurchaseFirm});
+            this.clmPurchaseFirm,
+            this.gridColumn17});
             this.dgvJangedEntry.GridControl = this.grdJangedEntry;
             this.dgvJangedEntry.Name = "dgvJangedEntry";
             this.dgvJangedEntry.OptionsBehavior.Editable = false;
@@ -1267,7 +1269,7 @@
             // clmPurchaseFirm
             // 
             this.clmPurchaseFirm.Caption = "Pur. Firm";
-            this.clmPurchaseFirm.FieldName = "purchase_firm";
+            this.clmPurchaseFirm.FieldName = "firm_name";
             this.clmPurchaseFirm.Name = "clmPurchaseFirm";
             this.clmPurchaseFirm.Visible = true;
             this.clmPurchaseFirm.VisibleIndex = 5;
@@ -2142,7 +2144,7 @@
             // 
             // panelControl4
             // 
-            this.panelControl4.Controls.Add(this.CmbPurchaseFirm);
+            this.panelControl4.Controls.Add(this.luePurchaseFirm);
             this.panelControl4.Controls.Add(this.label10);
             this.panelControl4.Controls.Add(this.labelControl4);
             this.panelControl4.Controls.Add(this.DTPDueDate);
@@ -2183,26 +2185,6 @@
             this.panelControl4.Size = new System.Drawing.Size(1267, 103);
             this.panelControl4.TabIndex = 0;
             this.panelControl4.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl4_Paint);
-            // 
-            // CmbPurchaseFirm
-            // 
-            this.CmbPurchaseFirm.EnterMoveNextControl = true;
-            this.CmbPurchaseFirm.Location = new System.Drawing.Point(459, 37);
-            this.CmbPurchaseFirm.Name = "CmbPurchaseFirm";
-            this.CmbPurchaseFirm.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmbPurchaseFirm.Properties.Appearance.Options.UseFont = true;
-            this.CmbPurchaseFirm.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.CmbPurchaseFirm.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.CmbPurchaseFirm.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CmbPurchaseFirm.Properties.Items.AddRange(new object[] {
-            "Keya Fesion",
-            "CK Text",
-            "Saurastra Saree"});
-            this.CmbPurchaseFirm.Properties.PopupSizeable = true;
-            this.CmbPurchaseFirm.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.CmbPurchaseFirm.Size = new System.Drawing.Size(165, 20);
-            this.CmbPurchaseFirm.TabIndex = 520;
             // 
             // label10
             // 
@@ -2939,6 +2921,34 @@
             this.backgroundWorker_JangedDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_JangedDelete_DoWork);
             this.backgroundWorker_JangedDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_JangedDelete_RunWorkerCompleted);
             // 
+            // luePurchaseFirm
+            // 
+            this.luePurchaseFirm.EnterMoveNextControl = true;
+            this.luePurchaseFirm.Location = new System.Drawing.Point(459, 37);
+            this.luePurchaseFirm.Name = "luePurchaseFirm";
+            this.luePurchaseFirm.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.luePurchaseFirm.Properties.Appearance.Options.UseFont = true;
+            this.luePurchaseFirm.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.luePurchaseFirm.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.luePurchaseFirm.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
+            this.luePurchaseFirm.Properties.AppearanceDropDownHeader.Options.UseFont = true;
+            this.luePurchaseFirm.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            this.luePurchaseFirm.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.luePurchaseFirm.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("firm_name", "firm Name"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("firm_id", "Firm ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.luePurchaseFirm.Properties.NullText = "";
+            this.luePurchaseFirm.Properties.ShowHeader = false;
+            this.luePurchaseFirm.Size = new System.Drawing.Size(165, 20);
+            this.luePurchaseFirm.TabIndex = 515;
+            // 
+            // gridColumn17
+            // 
+            this.gridColumn17.Caption = "Firm ID";
+            this.gridColumn17.FieldName = "firm_id";
+            this.gridColumn17.Name = "gridColumn17";
+            // 
             // FrmJangedEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3004,7 +3014,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             this.panelControl4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CmbPurchaseFirm.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPDueDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPDueDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LueUnit.Properties)).EndInit();
@@ -3023,6 +3032,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpJangedDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luePurchaseFirm.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3232,7 +3242,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
         private System.Windows.Forms.Label label10;
-        private DevExpress.XtraEditors.ComboBoxEdit CmbPurchaseFirm;
         private DevExpress.XtraGrid.Columns.GridColumn clmPurchaseFirm;
+        private DevExpress.XtraEditors.LookUpEdit luePurchaseFirm;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Account_Management.Transaction
 {
-    partial class FrmPaymentReceipt
+    partial class FrmPaymentGiven
     {
         /// <summary>
         /// Required designer variable.
@@ -169,6 +169,7 @@
             this.BtnSearch.Name = "BtnSearch";
             this.BtnSearch.Size = new System.Drawing.Size(42, 39);
             this.BtnSearch.TabIndex = 43;
+            this.BtnSearch.Visible = false;
             this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // labelControl2
@@ -760,7 +761,7 @@
             this.panelControl1.Size = new System.Drawing.Size(852, 19);
             this.panelControl1.TabIndex = 13;
             // 
-            // FrmPaymentReceipt
+            // FrmPaymentGiven
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -772,10 +773,10 @@
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.panelControl2);
             this.KeyPreview = true;
-            this.Name = "FrmPaymentReceipt";
+            this.Name = "FrmPaymentGiven";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Payment Receipt";
-            this.Load += new System.EventHandler(this.FrmPaymentReceipt_Load);
+            this.Text = "Payment Given";
+            this.Load += new System.EventHandler(this.FrmPaymentGiven_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PnlSaerchData)).EndInit();
             this.PnlSaerchData.ResumeLayout(false);
             this.PnlSaerchData.PerformLayout();
@@ -825,7 +826,6 @@
         private DevExpress.XtraEditors.LookUpEdit LueLedger;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.DateEdit DTPEntryDate;
-        private DevExpress.XtraEditors.ComboBoxEdit CmbTransactionType;
         private DevExpress.XtraEditors.LabelControl lblBank;
         private DevExpress.XtraEditors.LookUpEdit lueBank;
         private DevExpress.XtraEditors.LabelControl labelControl14;
@@ -859,5 +859,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit RepOrderNo;
         private DevExpress.XtraEditors.LookUpEdit LueCashBank;
+        private DevExpress.XtraEditors.ComboBoxEdit CmbTransactionType;
     }
 }

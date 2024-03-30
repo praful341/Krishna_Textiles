@@ -20,7 +20,7 @@ namespace BLL.FunctionClasses.Transaction
                 Request.AddParams("@fin_year_id", GlobalDec.gEmployeeProperty.gFinancialYear_Code, DbType.Int64);
                 Request.AddParams("@janged_id", pClsProperty.janged_id, DbType.Int64);
                 Request.AddParams("@voucher_No", pClsProperty.voucher_no, DbType.Int64);
-                Request.AddParams("@purchase_firm", pClsProperty.purchase_firm, DbType.String);
+                Request.AddParams("@firm_id", pClsProperty.firm_id, DbType.Int64);
                 Request.AddParams("@return_date", pClsProperty.return_date, DbType.Date);
                 Request.AddParams("@return_time", GlobalDec.gStr_SystemTime, DbType.String);
                 Request.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int32);

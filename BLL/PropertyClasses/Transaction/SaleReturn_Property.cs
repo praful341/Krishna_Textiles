@@ -26,7 +26,7 @@ namespace BLL.PropertyClasses.Transaction
         public decimal discount_per { get; set; }
         public decimal discount_amount { get; set; }
         public decimal round_of_amount { get; set; }
-        public string purchase_firm { get; set; }
+        public Int64 firm_id { get; set; }
         public int form_id { get; set; }
         public Int64 ledger_id { get; set; }
         public Int64 employee_id { get; set; }

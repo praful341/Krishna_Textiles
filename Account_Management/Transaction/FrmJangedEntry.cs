@@ -576,6 +576,7 @@ namespace Account_Management.Transaction
                 Global.LOOKUPColor(LueColor);
                 Global.LOOKUPSize(LueSize);
                 Global.LOOKUPUnit(LueUnit);
+                Global.LOOKUPFirm(luePurchaseFirm);
                 Global.LOOKUPCashBankWithoutLedger(lueJangedLedger);
 
                 dtpFromDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
@@ -985,7 +986,7 @@ namespace Account_Management.Transaction
                 LueColor.EditValue = System.DBNull.Value;
                 LueSize.EditValue = System.DBNull.Value;
                 LueUnit.EditValue = System.DBNull.Value;
-                CmbPurchaseFirm.SelectedIndex = -1;
+                luePurchaseFirm.EditValue = System.DBNull.Value;
                 txtSearchVoucherNo.Text = string.Empty;
                 lueJangedLedger.EditValue = System.DBNull.Value;
                 dtpJangedDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
@@ -1381,7 +1382,7 @@ namespace Account_Management.Transaction
                     objJangedEntryProperty.remarks = Val.ToString(txtRemark.Text);
                     objJangedEntryProperty.term_days = Val.ToInt32(txtTermDays.Text);
                     objJangedEntryProperty.due_date = Val.DBDate(DTPDueDate.Text);
-                    objJangedEntryProperty.purchase_firm = Val.ToString(CmbPurchaseFirm.Text);
+                    objJangedEntryProperty.firm_id = Val.ToInt64(luePurchaseFirm.EditValue);
 
                     objJangedEntryProperty.form_id = m_numForm_id;
 
@@ -1623,7 +1624,7 @@ namespace Account_Management.Transaction
 
                         dtpJangedDate.Text = Val.DBDate(Val.ToString(Drow["janged_date"]));
                         txtVoucherNo.Text = Val.ToString(Drow["voucher_no"]);
-                        CmbPurchaseFirm.Text = Val.ToString(Drow["purchase_firm"]);
+                        luePurchaseFirm.EditValue = Val.ToInt64(Drow["firm_id"]);
                         lueGSTRate.EditValue = Val.ToInt64(Drow["gst_id"]);
                         lueParty.EditValue = Val.ToInt64(Drow["ledger_id"]);
 

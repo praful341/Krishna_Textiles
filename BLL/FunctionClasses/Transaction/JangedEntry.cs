@@ -20,7 +20,7 @@ namespace BLL.FunctionClasses.Transaction
                 Request.AddParams("@voucher_No", pClsProperty.voucher_no, DbType.Int64);
                 Request.AddParams("@janged_date", pClsProperty.janged_date, DbType.Date);
                 Request.AddParams("@purchase_bill_no", pClsProperty.purchase_bill_no, DbType.String);
-                Request.AddParams("@purchase_firm", pClsProperty.purchase_firm, DbType.String);
+                Request.AddParams("@firm_id", pClsProperty.firm_id, DbType.Int64);
                 Request.AddParams("@company_id", pClsProperty.company_id, DbType.Int32);
                 Request.AddParams("@branch_id", pClsProperty.branch_id, DbType.Int32);
                 Request.AddParams("@location_id", pClsProperty.location_id, DbType.Int32);
@@ -155,6 +155,18 @@ namespace BLL.FunctionClasses.Transaction
             Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int32);
             Request.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int32);
 
+            Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
+            return DTab;
+        }
+        public DataTable Purchase_Firm_GetData()
+        {
+            DataTable DTab = new DataTable();
+            Request Request = new Request();
+
+            Request.AddParams("@active", 1, DbType.Int32);
+
+            Request.CommandText = BLL.TPV.SProc.MST_Purchase_Firm_GetData;
+            Request.CommandType = CommandType.StoredProcedure;
             Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
             return DTab;
         }

@@ -577,6 +577,7 @@ namespace Account_Management.Transaction
                 Global.LOOKUPColor(LueColor);
                 Global.LOOKUPSize(LueSize);
                 Global.LOOKUPUnit(LueUnit);
+                Global.LOOKUPFirm(luePurchaseFirm);
                 Global.LOOKUPCashBankWithoutLedger(lueJangedLedger);
 
                 dtpFromDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
@@ -957,7 +958,7 @@ namespace Account_Management.Transaction
                 LueColor.EditValue = System.DBNull.Value;
                 LueSize.EditValue = System.DBNull.Value;
                 LueUnit.EditValue = System.DBNull.Value;
-                CmbPurchaseFirm.SelectedIndex = -1;
+                luePurchaseFirm.EditValue = System.DBNull.Value;
                 txtSearchVoucherNo.Text = string.Empty;
                 lueJangedLedger.EditValue = System.DBNull.Value;
                 dtpPurchaseDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
@@ -1332,7 +1333,7 @@ namespace Account_Management.Transaction
                     objPurchaseProperty.gst_id = Val.ToInt(lueGSTRate.EditValue);
                     objPurchaseProperty.purchase_bill_no = Val.ToString(txtPurchaseBill.Text);
                     objPurchaseProperty.remarks = Val.ToString(txtRemark.Text);
-                    objPurchaseProperty.purchase_firm = Val.ToString(CmbPurchaseFirm.Text);
+                    objPurchaseProperty.firm_id = Val.ToInt64(luePurchaseFirm.EditValue);
 
                     objPurchaseProperty.form_id = m_numForm_id;
 
@@ -1575,7 +1576,7 @@ namespace Account_Management.Transaction
                         txtVoucherNo.Text = Val.ToString(Drow["voucher_no"]);
                         lueGSTRate.EditValue = Val.ToInt64(Drow["gst_id"]);
                         lueParty.EditValue = Val.ToInt64(Drow["ledger_id"]);
-                        CmbPurchaseFirm.Text = Val.ToString(Drow["purchase_firm"]);
+                        luePurchaseFirm.EditValue = Val.ToInt64(Drow["firm_id"]);
 
                         txtRemark.Text = Val.ToString(Drow["remarks"]);
                         txtPurchaseBill.Text = Val.ToString(Drow["purchase_bill_no"]);
@@ -1721,7 +1722,7 @@ namespace Account_Management.Transaction
                         txtRemark.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["remarks"]);
                         txtTermDays.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["term_days"]);
                         DTPDueDate.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["due_date"]);
-                        CmbPurchaseFirm.Text = Val.ToString(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["purchase_firm"]);
+                        luePurchaseFirm.EditValue = Val.ToInt64(m_dtbVoucher_JangedDetail.Tables[0].Rows[0]["firm_id"]);
 
                         grdPurchaseDetails.DataSource = m_dtbVoucher_JangedDetail.Tables[1];
                         m_dtbPurchaseDetails = m_dtbVoucher_JangedDetail.Tables[1];
