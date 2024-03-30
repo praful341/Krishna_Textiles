@@ -311,7 +311,7 @@
             // 
             // gridColumn1
             // 
-            this.gridColumn1.Caption = "Due Date";
+            this.gridColumn1.Caption = "Payment Date";
             this.gridColumn1.ColumnEdit = this.RepDueDate;
             this.gridColumn1.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.gridColumn1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
@@ -449,7 +449,7 @@
             this.KeyPreview = true;
             this.Name = "FrmPaymentGivenSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PAYMENT RECEIPT";
+            this.Text = "Bill-By-bill Adjustment of Amount";
             this.Load += new System.EventHandler(this.FrmPaymentReceiptSearch_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPaymentReceiptSearch_KeyDown);
             this.panel1.ResumeLayout(false);

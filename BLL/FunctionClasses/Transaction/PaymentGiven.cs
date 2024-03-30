@@ -29,8 +29,8 @@ namespace BLL.FunctionClasses.Account
                 Request.AddParams("@payment_type", pClsProperty.payment_type, DbType.String);
                 Request.AddParams("@sr_no", pClsProperty.sr_no, DbType.Int64);
                 Request.AddParams("@method", pClsProperty.method, DbType.String);
-                Request.AddParams("@invoice_id", pClsProperty.invoice_id, DbType.Int64);
-                Request.AddParams("@purchase_return_id", pClsProperty.purchase_return_id, DbType.Int64);
+                Request.AddParams("@purchase_id", pClsProperty.purchase_id, DbType.Int64);
+                Request.AddParams("@sale_return_id", pClsProperty.sale_return_id, DbType.Int64);
                 Request.AddParams("@reference", pClsProperty.reference, DbType.String);
                 Request.AddParams("@bank_id", pClsProperty.bank_id, DbType.Int64);
                 Request.AddParams("@ledger_id", pClsProperty.ledger_id, DbType.Int64);
@@ -133,7 +133,7 @@ namespace BLL.FunctionClasses.Account
                 Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int64);
                 Request.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int64);
                 Request.AddParams("@method", pClsProperty.method, DbType.String);
-                Request.AddParams("@invoice_id", pClsProperty.invoice_id, DbType.Int64);
+                Request.AddParams("@purchase_id", pClsProperty.purchase_id, DbType.Int64);
 
                 Request.CommandText = BLL.TPV.SProc.TRN_Referance_Payment_Update;
                 Request.CommandType = CommandType.StoredProcedure;

@@ -386,15 +386,15 @@ namespace Account_Management.Transaction
                 {
                     if (Val.ToString(Payment_Given_Data.Rows[i]["method"]) != "")
                     {
-                        paymentGiven_Property.payment_id = Val.ToInt64(0);
+                        paymentGiven_Property.payment_id = Val.ToInt64(Payment_Given_Data.Rows[i]["payment_id"]);
                         paymentGiven_Property.union_id = Val.ToInt64(Union_ID);
                         paymentGiven_Property.payment_date = Val.DBDate(DTPEntryDate.Text);
                         paymentGiven_Property.payment_type = Val.ToString(CmbTransactionType.Text);
                         paymentGiven_Property.sr_no = Val.ToInt32(Payment_Given_Data.Rows[i]["sr_no"]);
                         paymentGiven_Property.method = Val.ToString(Payment_Given_Data.Rows[i]["method"]);
-                        paymentGiven_Property.invoice_id = Val.ToInt64(Payment_Given_Data.Rows[i]["invoice_id"]);
-                        paymentGiven_Property.purchase_return_id = Val.ToInt64(0);
-                        paymentGiven_Property.reference = Val.ToString(Payment_Given_Data.Rows[i]["ref_order_no"]);
+                        paymentGiven_Property.purchase_id = Val.ToInt64(Payment_Given_Data.Rows[i]["purchase_id"]);
+                        paymentGiven_Property.sale_return_id = Val.ToInt64(0);
+                        paymentGiven_Property.reference = Val.ToString(Payment_Given_Data.Rows[i]["purchase_bill_no"]);
                         paymentGiven_Property.bank_id = Val.ToInt64(lueBank.EditValue);
                         paymentGiven_Property.ledger_id = Val.ToInt64(LueLedger.EditValue);
                         paymentGiven_Property.credit_amount = Val.ToDecimal(Payment_Given_Data.Rows[i]["amount"]);
@@ -533,7 +533,7 @@ namespace Account_Management.Transaction
                     {
                         PaymentGivenProperty.payment_id = Val.ToInt64(Payment_Given_Data.Rows[i]["payment_id"]);
                         PaymentGivenProperty.method = Val.ToString(Payment_Given_Data.Rows[i]["method"]);
-                        PaymentGivenProperty.invoice_id = Val.ToInt64(Payment_Given_Data.Rows[i]["invoice_id"]);
+                        PaymentGivenProperty.purchase_id = Val.ToInt64(Payment_Given_Data.Rows[i]["purchase_id"]);
                         IntRes = objPaymentGiven.Ref_PaymentGiven_Update(PaymentGivenProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
                     }
                 }

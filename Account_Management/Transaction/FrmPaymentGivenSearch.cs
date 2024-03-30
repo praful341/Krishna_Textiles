@@ -40,7 +40,7 @@ namespace Account_Management.Transaction
             FormName = "FrmPaymentGiven";
             Val.frmGenSetForPopup(this);
             AttachFormEvents();
-            this.Text = "Payment Given";
+            //this.Text = "Payment Given";
             this.ShowDialog();
         }
         private void AttachFormEvents()
