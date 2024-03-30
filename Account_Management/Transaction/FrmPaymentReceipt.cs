@@ -511,7 +511,7 @@ namespace Account_Management.Transaction
                     DtPaymentReceipt.Columns.Add("ref_order_no", typeof(string));
                     DtPaymentReceipt.Columns.Add("amount", typeof(decimal));
                     DtPaymentReceipt.Columns.Add("invoice_id", typeof(Int64));
-                    DtPaymentReceipt.Columns.Add("due_date", typeof(string));
+                    DtPaymentReceipt.Columns.Add("payment_date", typeof(string));
                     DtPaymentReceipt.Rows.Add(1, "", "", 0, 0, "");
 
                     FrmPaymentReceiptSearch FrmPaymentReceiptSearch = new FrmPaymentReceiptSearch();

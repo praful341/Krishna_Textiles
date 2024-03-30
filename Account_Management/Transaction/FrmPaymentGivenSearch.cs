@@ -59,7 +59,9 @@ namespace Account_Management.Transaction
         {
             try
             {
-                MainGrid.DataSource = DTab;
+                objPaymentGiven = new PaymentGiven();
+                DataTable DTab_Payment_Receipt_Data = objPaymentGiven.PaymentGiven_Search_GetData(Val.ToInt64(lblLedgerID.Text), Val.ToString(""));
+
                 GrdDet.PostEditor();
                 GrdDet.FocusedRowHandle = GrdDet.DataRowCount - 1;
                 GrdDet.FocusedColumn = GrdDet.Columns["method"];
@@ -67,6 +69,8 @@ namespace Account_Management.Transaction
 
                 RepMethod.Items.Add("Adjustment");
                 RepMethod.Items.Add("New Ref.");
+
+                MainGrid.DataSource = DTab_Payment_Receipt_Data;
             }
             catch (Exception ex)
             {
@@ -247,7 +251,14 @@ namespace Account_Management.Transaction
                         if (FrmSearchNew.DRow != null)
                         {
                             GrdDet.SetFocusedRowCellValue("purchase_bill_no", Val.ToString(FrmSearchNew.DRow["purchase_bill_no"]));
-                            GrdDet.SetFocusedRowCellValue("due_date", Val.ToString(FrmSearchNew.DRow["due_date"]));
+                            if (Val.ToString(FrmSearchNew.DRow["payment_date"]) != "")
+                            {
+                                GrdDet.SetFocusedRowCellValue("payment_date", Val.ToString(FrmSearchNew.DRow["payment_date"]));
+                            }
+                            else
+                            {
+                            }
+
                             GrdDet.SetFocusedRowCellValue("amount", Val.ToString(FrmSearchNew.DRow["os_amount"]));
                             GrdDet.SetFocusedRowCellValue("purchase_id", Val.ToString(FrmSearchNew.DRow["purchase_id"]));
                             GrdDet.PostEditor();

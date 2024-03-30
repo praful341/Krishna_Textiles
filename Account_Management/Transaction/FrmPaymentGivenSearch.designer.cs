@@ -60,6 +60,7 @@
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).BeginInit();
             this.ContextMNExport.SuspendLayout();
@@ -213,7 +214,8 @@
             this.gridColumn8,
             this.ClmLotSrNo,
             this.ClmInvoiceID,
-            this.gridColumn1});
+            this.gridColumn1,
+            this.gridColumn3});
             this.GrdDet.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.GrdDet.GridControl = this.MainGrid;
             this.GrdDet.Name = "GrdDet";
@@ -315,7 +317,7 @@
             this.gridColumn1.ColumnEdit = this.RepDueDate;
             this.gridColumn1.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.gridColumn1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.gridColumn1.FieldName = "due_date";
+            this.gridColumn1.FieldName = "payment_date";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 4;
@@ -433,6 +435,12 @@
             this.panelControl2.Size = new System.Drawing.Size(549, 301);
             this.panelControl2.TabIndex = 16;
             // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Payment ID";
+            this.gridColumn3.FieldName = "payment_id";
+            this.gridColumn3.Name = "gridColumn3";
+            // 
             // FrmPaymentGivenSearch
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
@@ -502,5 +510,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit RepOrderNo;
         private DevExpress.XtraGrid.Columns.GridColumn ClmInvoiceID;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
     }
 }
