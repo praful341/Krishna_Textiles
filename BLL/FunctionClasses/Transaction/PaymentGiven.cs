@@ -96,7 +96,7 @@ namespace BLL.FunctionClasses.Account
         {
             DataTable DTab = new DataTable();
             Request Request = new Request();
-            Request.CommandText = BLL.TPV.SProc.TRN_Payment_OS_Invoice_Wise;
+            Request.CommandText = BLL.TPV.SProc.TRN_Payment_OS_Purchase_Wise;
             Request.CommandType = CommandType.StoredProcedure;
             Request.AddParams("@ledger_id", Ledger_ID, DbType.Int64);
 

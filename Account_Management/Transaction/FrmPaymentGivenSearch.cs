@@ -15,7 +15,7 @@ namespace Account_Management.Transaction
 
         Validation Val = new Validation();
         public DataTable DTab = new DataTable();
-        PaymentReceipt objPaymentReceipt = new PaymentReceipt();
+        PaymentGiven objPaymentGiven = new PaymentGiven();
         FormEvents objBOFormEvents = new FormEvents();
         public FrmPaymentGiven FrmPaymentGiven = new FrmPaymentGiven();
         //FrmSearch FrmSearch;
@@ -236,7 +236,7 @@ namespace Account_Management.Transaction
 
                     FrmSearchNew = new Search.FrmSearchNew();
                     FrmSearchNew.SearchText = e.KeyChar.ToString();
-                    FrmSearchNew.DTab = objPaymentReceipt.Sale_Invoice_Search_GetData(Val.ToInt64(lblLedgerID.Text));
+                    FrmSearchNew.DTab = objPaymentGiven.Sale_Invoice_Search_GetData(Val.ToInt64(lblLedgerID.Text));
 
                     FrmSearchNew.SearchField = "purchase_bill_no";
 
