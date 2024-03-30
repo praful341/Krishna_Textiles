@@ -1741,6 +1741,8 @@ namespace Account_Management.Transaction
                     else
                     {
                         Global.Message("Voucher No Data Not Found");
+                        btnClear_Click(null, null);
+                        txtVoucherNo.Focus();
                         return;
                     }
                 }
