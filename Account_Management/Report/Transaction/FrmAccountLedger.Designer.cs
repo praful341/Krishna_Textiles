@@ -547,6 +547,7 @@
             this.DgvAccountLedger.GroupFormat = "{1} {2}";
             this.DgvAccountLedger.Name = "DgvAccountLedger";
             this.DgvAccountLedger.OptionsBehavior.AutoExpandAllGroups = true;
+            this.DgvAccountLedger.OptionsBehavior.Editable = false;
             this.DgvAccountLedger.OptionsPrint.AutoResetPrintDocument = false;
             this.DgvAccountLedger.OptionsPrint.AutoWidth = false;
             this.DgvAccountLedger.OptionsPrint.ExpandAllGroups = false;
