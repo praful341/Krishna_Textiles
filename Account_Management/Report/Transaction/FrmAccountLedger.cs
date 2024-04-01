@@ -1,8 +1,10 @@
-﻿using BLL;
+﻿using Account_Management.Transaction;
+using BLL;
 using BLL.FunctionClasses.Report;
 using BLL.PropertyClasses.Report;
 using DevExpress.Data;
 using DevExpress.LookAndFeel;
+using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.BandedGrid;
 using DevExpress.XtraGrid.Views.Base;
@@ -14,6 +16,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using Global = Account_Management.Class.Global;
@@ -1561,6 +1564,33 @@ namespace Account_Management.Report
             else
             {
                 backgroundWorker_HRReport.RunWorkerAsync();
+            }
+        }
+
+        private void DgvAccountLedger_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                Int64 Union_ID = Val.ToInt64(DgvAccountLedger.GetRowCellValue(DgvAccountLedger.FocusedRowHandle, "union_id"));
+
+                FrmPaymentReceipt objPaymentReceipt = new FrmPaymentReceipt();
+                Assembly frmAssembly = Assembly.LoadFile(Application.ExecutablePath);
+
+                foreach (Type type in frmAssembly.GetTypes())
+                {
+                    string type1 = type.Name.ToString().ToUpper();
+                    if (type.BaseType == typeof(DevExpress.XtraEditors.XtraForm))
+                    {
+                        if (type.Name.ToString().ToUpper() == "FRMPAYMENTRECEIPT")
+                        {
+                            XtraForm frmShow = (XtraForm)frmAssembly.CreateInstance(type.ToString());
+                            frmShow.MdiParent = Global.gMainFormRef;
+
+                            frmShow.GetType().GetMethod("ShowForm_New").Invoke(frmShow, new object[] { Union_ID });
+                            break;
+                        }
+                    }
+                }
             }
         }
     }

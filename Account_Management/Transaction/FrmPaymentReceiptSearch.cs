@@ -15,6 +15,7 @@ namespace Account_Management.Transaction
 
         Validation Val = new Validation();
         public DataTable DTab = new DataTable();
+        public DataTable DTab_Payment_Receipt_Data = new DataTable();
         PaymentReceipt objPaymentReceipt = new PaymentReceipt();
         FormEvents objBOFormEvents = new FormEvents();
         public FrmPaymentReceipt FrmPaymentReceipt = new FrmPaymentReceipt();
@@ -60,7 +61,7 @@ namespace Account_Management.Transaction
             try
             {
                 objPaymentReceipt = new PaymentReceipt();
-                DataTable DTab_Payment_Receipt_Data = objPaymentReceipt.PaymentReceipt_Search_GetData(Val.ToInt64(lblLedgerID.Text), Val.ToString(""));
+                DTab_Payment_Receipt_Data = objPaymentReceipt.PaymentReceipt_Search_GetData(Val.ToInt64(lblLedgerID.Text), Val.ToString(""));
 
                 GrdDet.PostEditor();
                 GrdDet.FocusedRowHandle = GrdDet.DataRowCount - 1;
@@ -70,7 +71,14 @@ namespace Account_Management.Transaction
                 RepMethod.Items.Add("Adjustment");
                 RepMethod.Items.Add("New Ref.");
 
-                MainGrid.DataSource = DTab_Payment_Receipt_Data;
+                if (DTab_Payment_Receipt_Data.Rows.Count > 0)
+                {
+                    MainGrid.DataSource = DTab_Payment_Receipt_Data;
+                }
+                else
+                {
+                    MainGrid.DataSource = DTab;
+                }
             }
             catch (Exception ex)
             {
@@ -273,14 +281,23 @@ namespace Account_Management.Transaction
             //GrdDet.CloseEditor();
             if (e.KeyCode == Keys.Enter && GrdDet.IsLastRow)
             {
-                DataRow dtRow = DTab.NewRow();
                 e.Handled = true;
+                DataRow dtRow = DTab.NewRow();
                 GrdDet.SetRowCellValue(GrdDet.DataRowCount - 1, "sr_no", GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "sr_no"));
                 int sr_no = Val.ToInt32(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "sr_no"));
                 dtRow["sr_no"] = sr_no + 1;
+                decimal Rec_Amt = Val.ToDecimal(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "amount"));
+                if (Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) != Val.ToDecimal(lblAmount.Text))
+                {
+                    dtRow["amount"] = Val.ToDecimal(lblAmount.Text) - Rec_Amt;
+                    DTab.Rows.Add(dtRow);
+                }
+                else
+                {
+                    dtRow["amount"] = 0;
+                    DTab.Rows.Add(dtRow);
+                }
 
-                //decimal Amt = Val.ToDecimal(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "amount"));
-                DTab.Rows.Add(dtRow);
                 GrdDet.PostEditor();
                 GrdDet.FocusedRowHandle = GrdDet.DataRowCount - 1;
                 GrdDet.FocusedColumn = GrdDet.Columns["method"];

@@ -231,6 +231,12 @@
 
         #endregion Payment Given Entry
 
+        #region Payment Given Entry
+
+        public static string TRN_Payment_FillData = "TRN_Payment_FillData";
+
+        #endregion Payment Given Entry
+
         #endregion
 
         #region "Reports"

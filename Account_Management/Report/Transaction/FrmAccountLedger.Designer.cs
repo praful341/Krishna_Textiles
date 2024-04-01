@@ -81,6 +81,7 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.PrintingSystem1)).BeginInit();
             this.GridMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -542,7 +543,8 @@
             this.bandedGridColumn7,
             this.gridColumn1,
             this.gridColumn2,
-            this.gridColumn3});
+            this.gridColumn3,
+            this.gridColumn4});
             this.DgvAccountLedger.GridControl = this.GrdAccountLedger;
             this.DgvAccountLedger.GroupFormat = "{1} {2}";
             this.DgvAccountLedger.Name = "DgvAccountLedger";
@@ -560,6 +562,7 @@
             this.DgvAccountLedger.OptionsView.ShowAutoFilterRow = true;
             this.DgvAccountLedger.OptionsView.ShowFooter = true;
             this.DgvAccountLedger.OptionsView.ShowGroupPanel = false;
+            this.DgvAccountLedger.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DgvAccountLedger_KeyUp);
             // 
             // bandedGridColumn1
             // 
@@ -653,6 +656,12 @@
             this.gridColumn3.FieldName = "payment_id";
             this.gridColumn3.Name = "gridColumn3";
             // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Union ID";
+            this.gridColumn4.FieldName = "union_id";
+            this.gridColumn4.Name = "gridColumn4";
+            // 
             // FrmAccountLedger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -736,5 +745,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
     }
 }
