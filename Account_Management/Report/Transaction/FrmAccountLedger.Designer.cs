@@ -422,7 +422,7 @@
             // lueLedger
             // 
             this.lueLedger.EnterMoveNextControl = true;
-            this.lueLedger.Location = new System.Drawing.Point(495, 13);
+            this.lueLedger.Location = new System.Drawing.Point(504, 13);
             this.lueLedger.Name = "lueLedger";
             this.lueLedger.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueLedger.Properties.Appearance.Options.UseFont = true;
@@ -448,16 +448,16 @@
             this.label32.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
             this.label32.Location = new System.Drawing.Point(432, 15);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(58, 16);
+            this.label32.Size = new System.Drawing.Size(67, 16);
             this.label32.TabIndex = 67;
-            this.label32.Text = "Ledger";
+            this.label32.Text = "Account";
             // 
             // BtnPrint
             // 
             this.BtnPrint.Appearance.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnPrint.Appearance.Options.UseFont = true;
             this.BtnPrint.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtnPrint.ImageOptions.Image")));
-            this.BtnPrint.Location = new System.Drawing.Point(878, 5);
+            this.BtnPrint.Location = new System.Drawing.Point(885, 5);
             this.BtnPrint.Name = "BtnPrint";
             this.BtnPrint.Size = new System.Drawing.Size(41, 37);
             this.BtnPrint.TabIndex = 11;
@@ -471,7 +471,7 @@
             this.BtnReset.Appearance.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnReset.Appearance.Options.UseFont = true;
             this.BtnReset.ImageOptions.Image = global::Account_Management.Properties.Resources.Clear;
-            this.BtnReset.Location = new System.Drawing.Point(784, 5);
+            this.BtnReset.Location = new System.Drawing.Point(791, 5);
             this.BtnReset.Name = "BtnReset";
             this.BtnReset.Size = new System.Drawing.Size(41, 37);
             this.BtnReset.TabIndex = 9;
@@ -484,7 +484,7 @@
             this.BtnExport.Appearance.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnExport.Appearance.Options.UseFont = true;
             this.BtnExport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtnExport.ImageOptions.Image")));
-            this.BtnExport.Location = new System.Drawing.Point(831, 5);
+            this.BtnExport.Location = new System.Drawing.Point(838, 5);
             this.BtnExport.Name = "BtnExport";
             this.BtnExport.Size = new System.Drawing.Size(41, 37);
             this.BtnExport.TabIndex = 10;
@@ -498,7 +498,7 @@
             this.BtnGenerateReport.Appearance.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGenerateReport.Appearance.Options.UseFont = true;
             this.BtnGenerateReport.ImageOptions.Image = global::Account_Management.Properties.Resources.Report_final;
-            this.BtnGenerateReport.Location = new System.Drawing.Point(737, 5);
+            this.BtnGenerateReport.Location = new System.Drawing.Point(744, 5);
             this.BtnGenerateReport.Name = "BtnGenerateReport";
             this.BtnGenerateReport.Size = new System.Drawing.Size(39, 37);
             this.BtnGenerateReport.TabIndex = 8;
@@ -565,7 +565,7 @@
             this.bandedGridColumn1.Name = "bandedGridColumn1";
             this.bandedGridColumn1.Visible = true;
             this.bandedGridColumn1.VisibleIndex = 0;
-            this.bandedGridColumn1.Width = 106;
+            this.bandedGridColumn1.Width = 84;
             // 
             // bandedGridColumn2
             // 
@@ -574,7 +574,7 @@
             this.bandedGridColumn2.Name = "bandedGridColumn2";
             this.bandedGridColumn2.Visible = true;
             this.bandedGridColumn2.VisibleIndex = 1;
-            this.bandedGridColumn2.Width = 117;
+            this.bandedGridColumn2.Width = 78;
             // 
             // bandedGridColumn3
             // 
@@ -583,7 +583,7 @@
             this.bandedGridColumn3.Name = "bandedGridColumn3";
             this.bandedGridColumn3.Visible = true;
             this.bandedGridColumn3.VisibleIndex = 2;
-            this.bandedGridColumn3.Width = 110;
+            this.bandedGridColumn3.Width = 96;
             // 
             // bandedGridColumn4
             // 
@@ -594,7 +594,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.bandedGridColumn4.Visible = true;
             this.bandedGridColumn4.VisibleIndex = 4;
-            this.bandedGridColumn4.Width = 118;
+            this.bandedGridColumn4.Width = 101;
             // 
             // bandedGridColumn5
             // 
@@ -605,7 +605,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.bandedGridColumn5.Visible = true;
             this.bandedGridColumn5.VisibleIndex = 5;
-            this.bandedGridColumn5.Width = 138;
+            this.bandedGridColumn5.Width = 101;
             // 
             // bandedGridColumn6
             // 
@@ -616,7 +616,7 @@
             this.bandedGridColumn6.Name = "bandedGridColumn6";
             this.bandedGridColumn6.Visible = true;
             this.bandedGridColumn6.VisibleIndex = 6;
-            this.bandedGridColumn6.Width = 129;
+            this.bandedGridColumn6.Width = 101;
             // 
             // bandedGridColumn7
             // 
