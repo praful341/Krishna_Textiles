@@ -522,7 +522,9 @@
             this.DgvAccountLedger.Appearance.ColumnFilterButton.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.DgvAccountLedger.Appearance.ColumnFilterButtonActive.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.DgvAccountLedger.Appearance.FilterCloseButton.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.DgvAccountLedger.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 10.25F, System.Drawing.FontStyle.Bold);
             this.DgvAccountLedger.Appearance.FooterPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.DgvAccountLedger.Appearance.FooterPanel.Options.UseFont = true;
             this.DgvAccountLedger.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 10.5F, System.Drawing.FontStyle.Bold);
             this.DgvAccountLedger.Appearance.HeaderPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.DgvAccountLedger.Appearance.HeaderPanel.Options.UseFont = true;
@@ -610,7 +612,7 @@
             // bandedGridColumn6
             // 
             this.bandedGridColumn6.AppearanceCell.Options.UseTextOptions = true;
-            this.bandedGridColumn6.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.bandedGridColumn6.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.bandedGridColumn6.Caption = "Balance(Rs.)";
             this.bandedGridColumn6.FieldName = "balance_";
             this.bandedGridColumn6.Name = "bandedGridColumn6";
@@ -620,6 +622,8 @@
             // 
             // bandedGridColumn7
             // 
+            this.bandedGridColumn7.AppearanceCell.Options.UseTextOptions = true;
+            this.bandedGridColumn7.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.bandedGridColumn7.Caption = "Short Narration";
             this.bandedGridColumn7.FieldName = "remarks";
             this.bandedGridColumn7.Name = "bandedGridColumn7";
