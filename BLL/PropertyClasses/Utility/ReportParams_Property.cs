@@ -1,4 +1,6 @@
-﻿namespace BLL.PropertyClasses.Report
+﻿using System;
+
+namespace BLL.PropertyClasses.Report
 {
     public class ReportParams_Property
     {
@@ -15,7 +17,7 @@
         public string rate_date { get; set; }
         public int rate_type_id { get; set; }
         public int currency_id { get; set; }
-        public string ledger_id { get; set; }
+        public Int64 ledger_id { get; set; }
         public string party_id { get; set; }
         public string Cash_Type { get; set; }
         public int fYear { get; set; }

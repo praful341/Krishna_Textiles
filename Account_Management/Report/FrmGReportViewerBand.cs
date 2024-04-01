@@ -2522,11 +2522,6 @@ namespace Account_Management.Report
                 DTab = new DataTable();
                 DTab = ObjReportParams.GetLiveStock(ReportParams_Property, ObjReportDetailProperty.Procedure_Name);
             }
-            if (FilterByFormName.Equals("FrmProcessRecieveReport"))
-            {
-                DTab = new DataTable();
-                DTab = ObjReportParams.GetIssuePendingStock(ReportParams_Property, ObjReportDetailProperty.Procedure_Name);
-            }
             if (FilterByFormName.Equals("FrmDailyLedgerBook"))
             {
                 DTab = new DataTable();
