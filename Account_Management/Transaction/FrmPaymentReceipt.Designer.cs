@@ -156,7 +156,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ledger_id", "Ledger Id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.LueCashBank.Properties.NullText = "";
             this.LueCashBank.Properties.ShowHeader = false;
-            this.LueCashBank.Size = new System.Drawing.Size(181, 22);
+            this.LueCashBank.Size = new System.Drawing.Size(229, 22);
             this.LueCashBank.TabIndex = 2;
             // 
             // BtnSearch
@@ -258,7 +258,7 @@
             // lueBank
             // 
             this.lueBank.EnterMoveNextControl = true;
-            this.lueBank.Location = new System.Drawing.Point(349, 63);
+            this.lueBank.Location = new System.Drawing.Point(181, 254);
             this.lueBank.Name = "lueBank";
             this.lueBank.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueBank.Properties.Appearance.Options.UseFont = true;
@@ -286,7 +286,7 @@
             this.lblBank.Appearance.ForeColor = System.Drawing.Color.Black;
             this.lblBank.Appearance.Options.UseFont = true;
             this.lblBank.Appearance.Options.UseForeColor = true;
-            this.lblBank.Location = new System.Drawing.Point(307, 66);
+            this.lblBank.Location = new System.Drawing.Point(139, 257);
             this.lblBank.Name = "lblBank";
             this.lblBank.Size = new System.Drawing.Size(36, 16);
             this.lblBank.TabIndex = 48;
@@ -365,7 +365,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ledger_id", "Ledger Id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.LueLedger.Properties.NullText = "";
             this.LueLedger.Properties.ShowHeader = false;
-            this.LueLedger.Size = new System.Drawing.Size(181, 22);
+            this.LueLedger.Size = new System.Drawing.Size(229, 22);
             this.LueLedger.TabIndex = 3;
             this.LueLedger.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.LueLedger_ButtonClick);
             // 

@@ -174,6 +174,9 @@ namespace Account_Management.Transaction
                 lblMode.Text = "Edit Mode";
                 lblMode.Tag = Val.ToInt64(DTab_Sale_Invocie.Rows[0]["invoice_id"]);
 
+                m_dtbSaleDetails = objSaleInvoice.GetDataDetails(Val.ToInt(lblMode.Tag));
+                grdSaleDetails.DataSource = m_dtbSaleDetails;
+
                 dtpInvoiceDate.Text = Val.DBDate(DTab_Sale_Invocie.Rows[0]["invoice_date"].ToString());
                 txtOrderNo.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["order_no"]);
                 lueGSTRate.EditValue = Val.ToInt64(DTab_Sale_Invocie.Rows[0]["gst_id"]);
@@ -200,9 +203,6 @@ namespace Account_Management.Transaction
                 txtNetAmount.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["net_amount"]);
                 txtTermDays.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["term_days"]);
                 DTPDueDate.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["due_date"]);
-
-                m_dtbSaleDetails = objSaleInvoice.GetDataDetails(Val.ToInt(lblMode.Tag));
-                grdSaleDetails.DataSource = m_dtbSaleDetails;
 
                 ttlbSaleInvoice.SelectedTabPage = tblSaledetail;
                 txtWeight.Focus();
