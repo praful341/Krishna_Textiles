@@ -555,7 +555,8 @@ namespace Account_Management.Transaction
                     DtPaymentReceipt.Columns.Add("amount", typeof(decimal));
                     DtPaymentReceipt.Columns.Add("invoice_id", typeof(Int64));
                     DtPaymentReceipt.Columns.Add("payment_date", typeof(string));
-                    DtPaymentReceipt.Rows.Add(1, "", "", 0, 0, "");
+                    DtPaymentReceipt.Columns.Add("payment_id", typeof(Int64));
+                    DtPaymentReceipt.Rows.Add(1, "", "", 0, 0, "", 0);
 
                     FrmPaymentReceiptSearch FrmPaymentReceiptSearch = new FrmPaymentReceiptSearch();
                     FrmPaymentReceiptSearch.FrmPaymentReceipt = this;
