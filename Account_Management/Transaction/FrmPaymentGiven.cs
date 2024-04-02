@@ -466,6 +466,7 @@ namespace Account_Management.Transaction
                     DtPaymentGiven.Columns.Add("amount", typeof(decimal));
                     DtPaymentGiven.Columns.Add("purchase_id", typeof(Int64));
                     DtPaymentGiven.Columns.Add("due_date", typeof(string));
+                    DtPaymentGiven.Columns.Add("payment_id", typeof(Int64));
                     DtPaymentGiven.Rows.Add(1, "", "", 0, 0, "");
 
                     FrmPaymentGivenSearch FrmPaymentGivenSearch = new FrmPaymentGivenSearch();
