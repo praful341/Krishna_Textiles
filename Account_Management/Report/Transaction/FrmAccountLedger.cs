@@ -1326,7 +1326,7 @@ namespace Account_Management.Report
         {
             GrdAccountLedger.DataSource = null;
             lueLedger.EditValue = DBNull.Value;
-            DgvAccountLedger.Columns.Clear();
+            //DgvAccountLedger.Columns.Clear();
 
             dtpFromDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
             dtpFromDate.Properties.Mask.EditMask = "dd-MM-yyyy";
