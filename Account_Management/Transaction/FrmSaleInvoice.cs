@@ -56,6 +56,7 @@ namespace Account_Management.Transaction
         bool m_blnsave;
         bool m_blncheckevents;
         bool m_IsUpdate;
+        string Form_Clear = string.Empty;
 
         #endregion
 
@@ -123,6 +124,91 @@ namespace Account_Management.Transaction
             // End for Dynamic Setting By Praful On 01022020
 
             this.Show();
+        }
+
+        public void ShowForm_New(Int64 Invoice_ID)
+        {
+            ObjPer.FormName = this.Name.ToUpper();
+            m_numForm_id = ObjPer.form_id;
+            if (ObjPer.CheckPermission() == false)
+            {
+                Global.Message(BLL.GlobalDec.gStrPermissionViwMsg);
+                return;
+            }
+            if (Global.CheckDefault() == 0)
+            {
+                Global.Message("Please Check User Default Setting");
+                this.Close();
+                return;
+            }
+            Val.frmGenSet(this);
+            AttachFormEvents();
+
+            // for Dynamic Setting By Praful On 01022020
+
+            if (Global.HideFormControls(Val.ToInt(ObjPer.form_id), this) != "")
+            {
+                Global.Message("Select First User Setting...Please Contact to Administrator...");
+                return;
+            }
+
+            ControlSettingDT(Val.ToInt(ObjPer.form_id), this);
+            AddGotFocusListener(this);
+            AddKeyPressListener(this);
+            this.KeyPreview = true;
+
+            TabControlsToList(this.Controls);
+            _tabControls = _tabControls.OrderBy(x => x.TabIndex).ToList();
+
+            // End for Dynamic Setting By Praful On 01022020
+
+            Form_Clear = "Sale Invoice";
+
+            this.Show();
+
+            objSaleInvoice = new SaleInvoice();
+            DataTable DTab_Sale_Invocie = objSaleInvoice.Sale_Invocie_Popup_GetData(Val.ToInt64(Invoice_ID));
+
+            if (DTab_Sale_Invocie.Rows.Count > 0)
+            {
+                lblMode.Text = "Edit Mode";
+                lblMode.Tag = Val.ToInt64(DTab_Sale_Invocie.Rows[0]["invoice_id"]);
+
+                dtpInvoiceDate.Text = Val.DBDate(DTab_Sale_Invocie.Rows[0]["invoice_date"].ToString());
+                txtOrderNo.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["order_no"]);
+                lueGSTRate.EditValue = Val.ToInt64(DTab_Sale_Invocie.Rows[0]["gst_id"]);
+                lueParty.EditValue = Val.ToInt64(DTab_Sale_Invocie.Rows[0]["ledger_id"]);
+                CmbSaleType.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["sale_type"]);
+                LueEmployee.EditValue = Val.ToInt64(DTab_Sale_Invocie.Rows[0]["employee_id"]);
+                luePurchaseFirm.EditValue = Val.ToInt64(DTab_Sale_Invocie.Rows[0]["firm_id"]);
+                txtRemark.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["remarks"]);
+                txtWeight.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["weight"]);
+                txtPinCode.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["pin_code"]);
+                txtRoundOff.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["round_of_amount"]);
+                txtDiscountPer.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["discount_per"]);
+                txtDiscountAmount.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["discount_amount"]);
+                txtCGSTPer.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["cgst_per"]);
+                txtCGSTAmount.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["cgst_amount"]);
+                txtSGSTPer.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["sgst_per"]);
+                txtSGSTAmount.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["sgst_amount"]);
+                txtIGSTPer.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["igst_per"]);
+                txtIGSTAmount.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["igst_amount"]);
+
+                txtShippingCharge.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["shipping_amount"]);
+                txtShippingAddress.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["shipping_address"]);
+
+                txtNetAmount.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["net_amount"]);
+                txtTermDays.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["term_days"]);
+                DTPDueDate.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["due_date"]);
+
+                m_dtbSaleDetails = objSaleInvoice.GetDataDetails(Val.ToInt(lblMode.Tag));
+                grdSaleDetails.DataSource = m_dtbSaleDetails;
+
+                ttlbSaleInvoice.SelectedTabPage = tblSaledetail;
+                txtWeight.Focus();
+                txtOrderNo.Enabled = false;
+                m_IsUpdate = true;
+            }
         }
         private void AddKeyPressListener(Control ctrl)
         {
@@ -596,7 +682,15 @@ namespace Account_Management.Transaction
                 dtpInvoiceDate.Properties.CharacterCasing = CharacterCasing.Upper;
                 dtpInvoiceDate.EditValue = DateTime.Now;
 
-                btnClear_Click(null, null);
+                if (Form_Clear != "Sale Invoice")
+                {
+                    btnClear_Click(null, null);
+                }
+                else
+                {
+                    LueEmployee.Focus();
+                }
+                Form_Clear = "";
                 btnSearch_Click(null, null);
             }
             catch (Exception ex)

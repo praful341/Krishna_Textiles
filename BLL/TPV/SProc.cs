@@ -168,6 +168,7 @@
         public static string TRN_ShippingAddress_GetData = "TRN_ShippingAddress_GetData";
         public static string TRN_Get_Invoice_No = "TRN_Get_Invoice_No";
         public static string TRN_SaleRate_GetData = "TRN_SaleRate_GetData";
+        public static string TRN_SaleInvoice_Popup_GetData = "TRN_SaleInvoice_Popup_GetData";
 
         #endregion Sale Invoice Entry
 

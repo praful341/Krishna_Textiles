@@ -188,27 +188,6 @@ namespace Account_Management.Report
         }
         public void ShowForm()
         {
-            //if (flag == 0)
-            //{
-            //    ObjPer.FormName = this.Name.ToUpper();
-            //    if (ObjPer.CheckPermission() == false)
-            //    {
-            //        Global.Message(BLL.GlobalDec.gStrPermissionViwMsg);
-            //        return;
-            //    }
-            //    if (Global.CheckDefault() == 0)
-            //    {
-            //        Global.Message("Please Check User Default Setting");
-            //        this.Close();
-            //        return;
-            //    }
-            //    Val.frmGenSet(this);
-
-            //    InitializeComponent();
-            //}
-            //else
-            //{
-
             ObjPer.FormName = this.Name.ToUpper();
             if (ObjPer.CheckPermission() == false)
             {
@@ -222,27 +201,7 @@ namespace Account_Management.Report
                 return;
             }
             Val.frmGenSet(this);
-            //}
             this.Show();
-
-
-            //ObjPer.Report_Code = Report_Code;
-            //AttachFormEvents();
-
-            //int IntIndex = 0;
-            //int IntSelectedIndex = 0;
-            //CmbPageKind.Items.Clear();
-            //foreach (System.Drawing.Printing.PaperKind foo in Enum.GetValues(typeof(System.Drawing.Printing.PaperKind)))
-            //{
-            //    CmbPageKind.Items.Add(foo.ToString());
-
-            //    IntIndex++;
-            //}
-            //CmbPageKind.SelectedIndex = IntSelectedIndex;
-
-            //FillGrid();
-            //FooterSummary();          
-            //this.Show();
         }
 
         private void AttachFormEvents()
@@ -1495,9 +1454,7 @@ namespace Account_Management.Report
                 {
                     Drw["balance_"] = Val.ToString(Drw["balance_amount"]).Replace("-", "") + " Cr";
                 }
-
             }
-
             GrdAccountLedger.DataSource = DTab;
 
             //int IntIndex = 0;
@@ -1543,20 +1500,9 @@ namespace Account_Management.Report
             {
                 return;
             }
-
             ReportParams_Property.From_Date = Val.DBDate(dtpFromDate.Text);
             ReportParams_Property.To_Date = Val.DBDate(dtpToDate.Text);
             ReportParams_Property.ledger_id = Val.ToInt64(lueLedger.EditValue);
-
-            //ReportParams_Property.factory_id = Val.Trim(ListFactory.Properties.GetCheckedItems());
-            ////ReportParams_Property.fact_department_id = Val.ToInt32(ListFactDepartment.EditValue);
-            //ReportParams_Property.fact_department_id = Val.Trim(ListFactDepartment.Properties.GetCheckedItems());
-            //ReportParams_Property.manager_id = Val.ToString(lueManager.EditValue);
-            //ReportParams_Property.year = Val.ToInt32(txtYear.Text);
-            //ReportParams_Property.month = Val.ToInt32(txtMonth.Text);
-            //ReportParams_Property.book_no = Val.Trim(ListBookNo.Properties.GetCheckedItems());
-            //ReportParams_Property.type = Val.ToString(CmbReport.Text);
-            //ReportParams_Property.rate_date = Val.DBDate(dtpRateDate.Text);
 
             if (this.backgroundWorker_HRReport.IsBusy)
             {
@@ -1566,28 +1512,53 @@ namespace Account_Management.Report
                 backgroundWorker_HRReport.RunWorkerAsync();
             }
         }
-
         private void DgvAccountLedger_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F2)
             {
                 Int64 Union_ID = Val.ToInt64(DgvAccountLedger.GetRowCellValue(DgvAccountLedger.FocusedRowHandle, "union_id"));
+                string Type = Val.ToString(DgvAccountLedger.GetRowCellValue(DgvAccountLedger.FocusedRowHandle, "type"));
+                Int64 Invoice_ID = Val.ToInt64(DgvAccountLedger.GetRowCellValue(DgvAccountLedger.FocusedRowHandle, "invoice_id"));
 
-                FrmPaymentReceipt objPaymentReceipt = new FrmPaymentReceipt();
-                Assembly frmAssembly = Assembly.LoadFile(Application.ExecutablePath);
-
-                foreach (Type type in frmAssembly.GetTypes())
+                if (Type == "Rcpt")
                 {
-                    string type1 = type.Name.ToString().ToUpper();
-                    if (type.BaseType == typeof(DevExpress.XtraEditors.XtraForm))
-                    {
-                        if (type.Name.ToString().ToUpper() == "FRMPAYMENTRECEIPT")
-                        {
-                            XtraForm frmShow = (XtraForm)frmAssembly.CreateInstance(type.ToString());
-                            frmShow.MdiParent = Global.gMainFormRef;
+                    FrmPaymentReceipt objPaymentReceipt = new FrmPaymentReceipt();
+                    Assembly frmAssembly = Assembly.LoadFile(Application.ExecutablePath);
 
-                            frmShow.GetType().GetMethod("ShowForm_New").Invoke(frmShow, new object[] { Union_ID });
-                            break;
+                    foreach (Type type in frmAssembly.GetTypes())
+                    {
+                        string type1 = type.Name.ToString().ToUpper();
+                        if (type.BaseType == typeof(DevExpress.XtraEditors.XtraForm))
+                        {
+                            if (type.Name.ToString().ToUpper() == "FRMPAYMENTRECEIPT")
+                            {
+                                XtraForm frmShow = (XtraForm)frmAssembly.CreateInstance(type.ToString());
+                                frmShow.MdiParent = Global.gMainFormRef;
+
+                                frmShow.GetType().GetMethod("ShowForm_New").Invoke(frmShow, new object[] { Union_ID });
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if (Type == "Sale")
+                {
+                    FrmSaleInvoice objSaleInvoice = new FrmSaleInvoice();
+                    Assembly frmAssembly = Assembly.LoadFile(Application.ExecutablePath);
+
+                    foreach (Type type in frmAssembly.GetTypes())
+                    {
+                        string type1 = type.Name.ToString().ToUpper();
+                        if (type.BaseType == typeof(DevExpress.XtraEditors.XtraForm))
+                        {
+                            if (type.Name.ToString().ToUpper() == "FRMSALEINVOICE")
+                            {
+                                XtraForm frmShow = (XtraForm)frmAssembly.CreateInstance(type.ToString());
+                                frmShow.MdiParent = Global.gMainFormRef;
+
+                                frmShow.GetType().GetMethod("ShowForm_New").Invoke(frmShow, new object[] { Invoice_ID });
+                                break;
+                            }
                         }
                     }
                 }

@@ -194,8 +194,21 @@ namespace BLL.FunctionClasses.Transaction
             Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
             return DTab;
         }
+        public DataTable Sale_Invocie_Popup_GetData(Int64 Invoice_ID)
+        {
+            DataTable DTab = new DataTable();
+            Request Request = new Request();
+            Request.CommandText = BLL.TPV.SProc.TRN_SaleInvoice_Popup_GetData;
+            Request.CommandType = CommandType.StoredProcedure;
+            Request.AddParams("@invoice_id", Invoice_ID, DbType.Int64);
+            Request.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int32);
+            Request.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int32);
+            Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int32);
+            Request.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int32);
 
-
+            Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
+            return DTab;
+        }
         public DataTable GetDataDetails(int p_numID)
         {
             DataTable DTab = new DataTable();
