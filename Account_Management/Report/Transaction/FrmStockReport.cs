@@ -425,7 +425,6 @@ namespace Account_Management.Report
             DTPFromDate.Focus();
         }
 
-
         #endregion
 
         #region "Functions"

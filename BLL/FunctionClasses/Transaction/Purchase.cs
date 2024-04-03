@@ -238,5 +238,22 @@ namespace BLL.FunctionClasses.Transaction
         //    Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
         //    return DTab;
         //}
+        public DataTable Barcode_Print_GetData(string Item_ID, string Color_ID, string Size_ID)
+        {
+            DataTable DTab = new DataTable();
+            Request Request = new Request();
+            Request.CommandText = BLL.TPV.SProc.TRN_Barcode_Print_GetData;
+            Request.CommandType = CommandType.StoredProcedure;
+            Request.AddParams("@item_id", Item_ID, DbType.String);
+            Request.AddParams("@color_id", Color_ID, DbType.String);
+            Request.AddParams("@size_id", Size_ID, DbType.String);
+            Request.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int32);
+            Request.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int32);
+            Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int32);
+            Request.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int32);
+
+            Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
+            return DTab;
+        }
     }
 }

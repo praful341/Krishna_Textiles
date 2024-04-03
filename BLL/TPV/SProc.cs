@@ -235,6 +235,7 @@
         #region Payment Given Entry
 
         public static string TRN_Payment_FillData = "TRN_Payment_FillData";
+        public static string TRN_Barcode_Print_GetData = "TRN_Barcode_Print_GetData";
 
         #endregion Payment Given Entry
 

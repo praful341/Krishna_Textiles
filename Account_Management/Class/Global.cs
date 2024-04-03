@@ -1667,6 +1667,15 @@ namespace Account_Management.Class
             lookup.Properties.DisplayMember = "item_name";
             lookup.ClosePopup();
         }
+        public static void LOOKUPCheckedItem(CheckedComboBoxEdit lookup)
+        {
+            ItemMaster objItem = new ItemMaster();
+            DataTable Item = objItem.Item_GetData();
+            lookup.Properties.DataSource = Item;
+            lookup.Properties.ValueMember = "item_id";
+            lookup.Properties.DisplayMember = "item_name";
+            lookup.ClosePopup();
+        }
         public static void LOOKUPColor(LookUpEdit lookup)
         {
             ColorMaster objColor = new ColorMaster();
@@ -1676,7 +1685,25 @@ namespace Account_Management.Class
             lookup.Properties.DisplayMember = "color_name";
             lookup.ClosePopup();
         }
+        public static void LOOKUPCheckedColor(CheckedComboBoxEdit lookup)
+        {
+            ColorMaster objColor = new ColorMaster();
+            DataTable Color = objColor.GetData();
+            lookup.Properties.DataSource = Color;
+            lookup.Properties.ValueMember = "color_id";
+            lookup.Properties.DisplayMember = "color_name";
+            lookup.ClosePopup();
+        }
         public static void LOOKUPSize(LookUpEdit lookup)
+        {
+            SizeMaster objSize = new SizeMaster();
+            DataTable Size = objSize.GetData();
+            lookup.Properties.DataSource = Size;
+            lookup.Properties.ValueMember = "size_id";
+            lookup.Properties.DisplayMember = "size_name";
+            lookup.ClosePopup();
+        }
+        public static void LOOKUPCheckedSize(CheckedComboBoxEdit lookup)
         {
             SizeMaster objSize = new SizeMaster();
             DataTable Size = objSize.GetData();
