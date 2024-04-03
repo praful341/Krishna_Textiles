@@ -49,6 +49,7 @@ namespace Account_Management.Transaction
         bool m_blnsave;
         bool m_blncheckevents;
         bool m_IsUpdate;
+        string Form_Clear = string.Empty;
 
         #endregion
 
@@ -116,6 +117,85 @@ namespace Account_Management.Transaction
             // End for Dynamic Setting By Praful On 01022020
 
             this.Show();
+        }
+        public void ShowForm_New(Int64 Purchase_ID)
+        {
+            ObjPer.FormName = this.Name.ToUpper();
+            m_numForm_id = ObjPer.form_id;
+            if (ObjPer.CheckPermission() == false)
+            {
+                Global.Message(BLL.GlobalDec.gStrPermissionViwMsg);
+                return;
+            }
+            if (Global.CheckDefault() == 0)
+            {
+                Global.Message("Please Check User Default Setting");
+                this.Close();
+                return;
+            }
+            Val.frmGenSet(this);
+            AttachFormEvents();
+
+            // for Dynamic Setting By Praful On 01022020
+
+            if (Global.HideFormControls(Val.ToInt(ObjPer.form_id), this) != "")
+            {
+                Global.Message("Select First User Setting...Please Contact to Administrator...");
+                return;
+            }
+
+            ControlSettingDT(Val.ToInt(ObjPer.form_id), this);
+            AddGotFocusListener(this);
+            AddKeyPressListener(this);
+            this.KeyPreview = true;
+
+            TabControlsToList(this.Controls);
+            _tabControls = _tabControls.OrderBy(x => x.TabIndex).ToList();
+
+            // End for Dynamic Setting By Praful On 01022020
+
+            Form_Clear = "Sale Invoice";
+
+            this.Show();
+
+            objPurchase = new Purchase();
+            DataTable DTab_Purchase = objPurchase.Purchase_Invocie_Popup_GetData(Val.ToInt64(Purchase_ID));
+
+            if (DTab_Purchase.Rows.Count > 0)
+            {
+                lblMode.Text = "Edit Mode";
+                lblMode.Tag = Val.ToInt64(DTab_Purchase.Rows[0]["purchase_id"]);
+
+                m_dtbPurchaseDetails = objPurchase.GetDataDetails(Val.ToInt(lblMode.Tag));
+                grdPurchaseDetails.DataSource = m_dtbPurchaseDetails;
+
+                lblJanged_ID.Text = Val.ToString(DTab_Purchase.Rows[0]["janged_id"]);
+                dtpPurchaseDate.Text = Val.DBDate(Val.ToString(DTab_Purchase.Rows[0]["janged_date"]));
+                txtVoucherNo.Text = Val.ToString(DTab_Purchase.Rows[0]["voucher_no"]);
+                lueGSTRate.EditValue = Val.ToInt64(DTab_Purchase.Rows[0]["gst_id"]);
+                lueParty.EditValue = Val.ToInt64(DTab_Purchase.Rows[0]["ledger_id"]);
+                luePurchaseFirm.EditValue = Val.ToInt64(DTab_Purchase.Rows[0]["firm_id"]);
+
+                txtRemark.Text = Val.ToString(DTab_Purchase.Rows[0]["remarks"]);
+                txtPurchaseBill.Text = Val.ToString(DTab_Purchase.Rows[0]["purchase_bill_no"]);
+                txtRoundOff.Text = Val.ToString(DTab_Purchase.Rows[0]["round_of_amount"]);
+                txtDiscountPer.Text = Val.ToString(DTab_Purchase.Rows[0]["discount_per"]);
+                txtDiscountAmount.Text = Val.ToString(DTab_Purchase.Rows[0]["discount_amount"]);
+                txtCGSTPer.Text = Val.ToString(DTab_Purchase.Rows[0]["cgst_per"]);
+                txtCGSTAmount.Text = Val.ToString(DTab_Purchase.Rows[0]["cgst_amount"]);
+                txtSGSTPer.Text = Val.ToString(DTab_Purchase.Rows[0]["sgst_per"]);
+                txtSGSTAmount.Text = Val.ToString(DTab_Purchase.Rows[0]["sgst_amount"]);
+                txtIGSTPer.Text = Val.ToString(DTab_Purchase.Rows[0]["igst_per"]);
+                txtIGSTAmount.Text = Val.ToString(DTab_Purchase.Rows[0]["igst_amount"]);
+                txtNetAmount.Text = Val.ToString(DTab_Purchase.Rows[0]["net_amount"]);
+                txtTermDays.Text = Val.ToString(DTab_Purchase.Rows[0]["term_days"]);
+                DTPDueDate.Text = Val.ToString(DTab_Purchase.Rows[0]["due_date"]);
+
+                ttlbPurchaseInvoice.SelectedTabPage = tblPurchasedetail;
+                txtPurchaseBill.Focus();
+                txtVoucherNo.Enabled = false;
+                m_IsUpdate = true;
+            }
         }
         private void AddKeyPressListener(Control ctrl)
         {
@@ -1373,7 +1453,7 @@ namespace Account_Management.Transaction
                         objPurchaseProperty.purchase_id = Val.ToInt64(NewmPurchaseid);
                         objPurchaseProperty.janged_id = Val.ToInt64(lblJanged_ID.Text);
                         objPurchaseProperty.purchase_detail_id = Val.ToInt64(drw["purchase_detail_id"]);
-                        objPurchaseProperty.janged_detail_id = Val.ToInt64(drw["janged_detail_id"]);
+                        //objPurchaseProperty.janged_detail_id = Val.ToInt64(drw["janged_detail_id"]);
                         objPurchaseProperty.sr_no = Val.ToInt(drw["sr_no"]);
                         objPurchaseProperty.item_id = Val.ToInt64(drw["item_id"]);
                         objPurchaseProperty.color_id = Val.ToInt64(drw["color_id"]);

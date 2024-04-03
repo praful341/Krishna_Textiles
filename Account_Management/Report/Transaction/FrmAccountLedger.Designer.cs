@@ -458,13 +458,12 @@
             this.BtnPrint.Appearance.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnPrint.Appearance.Options.UseFont = true;
             this.BtnPrint.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtnPrint.ImageOptions.Image")));
-            this.BtnPrint.Location = new System.Drawing.Point(885, 5);
+            this.BtnPrint.Location = new System.Drawing.Point(838, 5);
             this.BtnPrint.Name = "BtnPrint";
             this.BtnPrint.Size = new System.Drawing.Size(41, 37);
             this.BtnPrint.TabIndex = 11;
             this.BtnPrint.TabStop = false;
             this.BtnPrint.ToolTip = "To Print";
-            this.BtnPrint.Visible = false;
             this.BtnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
             // 
             // BtnReset
@@ -485,7 +484,7 @@
             this.BtnExport.Appearance.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnExport.Appearance.Options.UseFont = true;
             this.BtnExport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtnExport.ImageOptions.Image")));
-            this.BtnExport.Location = new System.Drawing.Point(838, 5);
+            this.BtnExport.Location = new System.Drawing.Point(885, 6);
             this.BtnExport.Name = "BtnExport";
             this.BtnExport.Size = new System.Drawing.Size(41, 37);
             this.BtnExport.TabIndex = 10;

@@ -154,6 +154,7 @@
         public static string TRN_Purchase_Save = "TRN_Purchase_Save";
         public static string TRN_Purchase_Detail_Save = "TRN_Purchase_Detail_Save";
         public static string TRN_Purchase_Delete = "TRN_Purchase_Delete";
+        public static string TRN_Purchase_Popup_GetData = "TRN_Purchase_Popup_GetData";
 
         #endregion Purchase Entry
 

@@ -1519,6 +1519,7 @@ namespace Account_Management.Report
                 Int64 Union_ID = Val.ToInt64(DgvAccountLedger.GetRowCellValue(DgvAccountLedger.FocusedRowHandle, "union_id"));
                 string Type = Val.ToString(DgvAccountLedger.GetRowCellValue(DgvAccountLedger.FocusedRowHandle, "type"));
                 Int64 Invoice_ID = Val.ToInt64(DgvAccountLedger.GetRowCellValue(DgvAccountLedger.FocusedRowHandle, "invoice_id"));
+                Int64 Purchase_ID = Val.ToInt64(DgvAccountLedger.GetRowCellValue(DgvAccountLedger.FocusedRowHandle, "purchase_id"));
 
                 if (Type == "Rcpt")
                 {
@@ -1557,6 +1558,27 @@ namespace Account_Management.Report
                                 frmShow.MdiParent = Global.gMainFormRef;
 
                                 frmShow.GetType().GetMethod("ShowForm_New").Invoke(frmShow, new object[] { Invoice_ID });
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if (Type == "Purc")
+                {
+                    FrmPurchase objPurchase = new FrmPurchase();
+                    Assembly frmAssembly = Assembly.LoadFile(Application.ExecutablePath);
+
+                    foreach (Type type in frmAssembly.GetTypes())
+                    {
+                        string type1 = type.Name.ToString().ToUpper();
+                        if (type.BaseType == typeof(DevExpress.XtraEditors.XtraForm))
+                        {
+                            if (type.Name.ToString().ToUpper() == "FRMPURCHASE")
+                            {
+                                XtraForm frmShow = (XtraForm)frmAssembly.CreateInstance(type.ToString());
+                                frmShow.MdiParent = Global.gMainFormRef;
+
+                                frmShow.GetType().GetMethod("ShowForm_New").Invoke(frmShow, new object[] { Purchase_ID });
                                 break;
                             }
                         }
