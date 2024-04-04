@@ -619,7 +619,7 @@ namespace Account_Management.Transaction
                     //    numStockCarat = Val.ToDecimal(m_dtbStockCarat.Rows[0]["stock_carat"]);
                     //}
 
-                    DataRow[] dr = m_dtbJangedDetails.Select("item_id = " + Val.ToInt(lueItem.EditValue) + " AND color_id = " + Val.ToInt(LueColor.EditValue) + " AND size_id = " + Val.ToInt(LueSize.EditValue) + " AND unit_id = " + Val.ToInt(LueUnit.EditValue));
+                    DataRow[] dr = m_dtbJangedDetails.Select("item_id = " + Val.ToInt(lueItem.EditValue) + " AND color_id = " + Val.ToInt(LueColor.EditValue) + " AND size_id = " + Val.ToInt(LueSize.EditValue));
 
                     if (dr.Count() == 1)
                     {
@@ -650,6 +650,7 @@ namespace Account_Management.Transaction
 
                     drwNew["pcs"] = numPcs;
                     drwNew["rate"] = Val.ToDecimal(txtRate.Text);
+                    drwNew["old_pcs"] = Val.ToDecimal(0);
                     drwNew["amount"] = Math.Round(Val.ToDecimal(txtPcs.Text) * Val.ToDecimal(txtRate.Text), 2);
                     drwNew["old_pcs"] = Val.ToDecimal(0);
                     drwNew["flag"] = Val.ToInt(0);
@@ -681,7 +682,7 @@ namespace Account_Management.Transaction
 
                     objPurchaseEntry = new PurchaseEntry();
 
-                    if (m_dtbJangedDetails.Select("item_id ='" + Val.ToInt(lueItem.EditValue) + "' AND color_id ='" + Val.ToInt(LueColor.EditValue) + "' AND size_id ='" + Val.ToInt(LueSize.EditValue) + "' AND unit_id ='" + Val.ToInt(LueUnit.EditValue) + "'").Length > 0)
+                    if (m_dtbJangedDetails.Select("item_id ='" + Val.ToInt(lueItem.EditValue) + "' AND color_id ='" + Val.ToInt(LueColor.EditValue) + "' AND size_id ='" + Val.ToInt(LueSize.EditValue) + "'").Length > 0)
                     {
                         for (int i = 0; i < m_dtbJangedDetails.Rows.Count; i++)
                         {
@@ -1272,25 +1273,10 @@ namespace Account_Management.Transaction
                     objJangedEntryProperty.gst_id = Val.ToInt(lueGSTRate.EditValue);
                     objJangedEntryProperty.purchase_bill_no = Val.ToString(txtPurchaseBill.Text);
                     objJangedEntryProperty.remarks = Val.ToString(txtRemark.Text);
-
                     objJangedEntryProperty.form_id = m_numForm_id;
-
                     objJangedEntryProperty.ledger_id = Val.ToInt(lueParty.EditValue);
-                    //objJangedEntryProperty.Refrenace_Id = Val.ToInt(lueReferance.EditValue);
-
-                    //objJangedEntryProperty.Broker_Id = Val.ToInt(lueBroker.EditValue);
-                    //objJangedEntryProperty.Term_Days = Val.ToInt(txtTermDays.EditValue);
-                    //objJangedEntryProperty.Add_On_Days = Val.ToInt(txtAddOnDays.EditValue);
-                    //objJangedEntryProperty.due_date = Val.DBDate(dtpDueDate.Text);
-                    //objJangedEntryProperty.demand_master_id = Val.ToInt(lblDemandNo.Tag);
-                    //objJangedEntryProperty.memo_master_id = Val.ToInt(lueMemoNo.EditValue);
-
-                    //objJangedEntryProperty.final_Term_Days = Val.ToInt(txtFinalTermDays.EditValue);
-                    //objJangedEntryProperty.final_due_date = Val.DBDate(dtpFinalDueDate.Text);
-
 
                     objJangedEntryProperty.total_pcs = Val.ToInt64(clmPcs.SummaryItem.SummaryValue);
-                    // objJangedEntryProperty.total_carat = Math.Round(Val.ToDecimal(clmDetCarat.SummaryItem.SummaryValue), 3);
 
                     objJangedEntryProperty.gross_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue), 3);
 
@@ -1306,8 +1292,6 @@ namespace Account_Management.Transaction
                     objJangedEntryProperty.round_of_amount = Val.ToDecimal(txtRoundOff.Text);
 
                     objJangedEntryProperty.net_amount = Val.ToDecimal(txtNetAmount.Text);
-
-                    //int IntRes = objSaleInvoice.Save(objSaleInvoiceProperty, m_dtbJangedDetails);
                     objJangedEntryProperty = objJangedEntry.Save(objJangedEntryProperty, DLL.GlobalDec.EnumTran.Start, Conn);
 
                     Int64 NewmJangedid = Val.ToInt64(objJangedEntryProperty.janged_id);

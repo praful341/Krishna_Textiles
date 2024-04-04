@@ -115,6 +115,7 @@
             this.clmEmployeeID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmShippingAddress = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.lueJangedLedger = new DevExpress.XtraEditors.LookUpEdit();
             this.label33 = new System.Windows.Forms.Label();
@@ -194,6 +195,7 @@
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.txtShippingAddress = new DevExpress.XtraEditors.MemoEdit();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.luePurchaseFirm = new DevExpress.XtraEditors.LookUpEdit();
             this.label20 = new System.Windows.Forms.Label();
             this.lueInvoiceNo = new DevExpress.XtraEditors.LookUpEdit();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
@@ -257,8 +259,6 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.backgroundWorker_SaleReturn = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker_SaleReturnDelete = new System.ComponentModel.BackgroundWorker();
-            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.luePurchaseFirm = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).BeginInit();
@@ -306,6 +306,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtShippingAddress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.luePurchaseFirm.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueInvoiceNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPurchaseAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPurchaseRate.Properties)).BeginInit();
@@ -330,7 +331,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.CmbSaleType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.luePurchaseFirm.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl3
@@ -1060,8 +1060,6 @@
             this.clmOrderNo.FieldName = "order_no";
             this.clmOrderNo.Name = "clmOrderNo";
             this.clmOrderNo.OptionsColumn.AllowEdit = false;
-            this.clmOrderNo.Visible = true;
-            this.clmOrderNo.VisibleIndex = 1;
             this.clmOrderNo.Width = 87;
             // 
             // clmReturnDate
@@ -1082,7 +1080,7 @@
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.OptionsColumn.AllowEdit = false;
             this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 3;
+            this.gridColumn13.VisibleIndex = 1;
             this.gridColumn13.Width = 90;
             // 
             // gridColumn46
@@ -1092,7 +1090,7 @@
             this.gridColumn46.Name = "gridColumn46";
             this.gridColumn46.OptionsColumn.AllowEdit = false;
             this.gridColumn46.Visible = true;
-            this.gridColumn46.VisibleIndex = 4;
+            this.gridColumn46.VisibleIndex = 2;
             this.gridColumn46.Width = 88;
             // 
             // gridColumn31
@@ -1117,7 +1115,7 @@
             this.gridColumn11.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 10;
+            this.gridColumn11.VisibleIndex = 8;
             // 
             // gridColumn38
             // 
@@ -1135,7 +1133,7 @@
             this.gridColumn44.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn44.Visible = true;
-            this.gridColumn44.VisibleIndex = 15;
+            this.gridColumn44.VisibleIndex = 13;
             // 
             // gridColumn32
             // 
@@ -1153,7 +1151,7 @@
             this.cgst_amount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.cgst_amount.Visible = true;
-            this.cgst_amount.VisibleIndex = 12;
+            this.cgst_amount.VisibleIndex = 10;
             // 
             // gridColumn34
             // 
@@ -1171,7 +1169,7 @@
             this.gridColumn35.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn35.Visible = true;
-            this.gridColumn35.VisibleIndex = 13;
+            this.gridColumn35.VisibleIndex = 11;
             // 
             // gridColumn36
             // 
@@ -1189,7 +1187,7 @@
             this.gridColumn37.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn37.Visible = true;
-            this.gridColumn37.VisibleIndex = 14;
+            this.gridColumn37.VisibleIndex = 12;
             // 
             // gridColumn40
             // 
@@ -1200,7 +1198,7 @@
             this.gridColumn40.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn40.Visible = true;
-            this.gridColumn40.VisibleIndex = 16;
+            this.gridColumn40.VisibleIndex = 14;
             this.gridColumn40.Width = 94;
             // 
             // gridColumn12
@@ -1211,7 +1209,7 @@
             this.gridColumn12.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 11;
+            this.gridColumn12.VisibleIndex = 9;
             // 
             // ClmFinalTermsDays
             // 
@@ -1221,7 +1219,7 @@
             this.ClmFinalTermsDays.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.ClmFinalTermsDays.Visible = true;
-            this.ClmFinalTermsDays.VisibleIndex = 17;
+            this.ClmFinalTermsDays.VisibleIndex = 15;
             this.ClmFinalTermsDays.Width = 94;
             // 
             // clmNetAmount
@@ -1233,7 +1231,7 @@
             this.clmNetAmount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.clmNetAmount.Visible = true;
-            this.clmNetAmount.VisibleIndex = 18;
+            this.clmNetAmount.VisibleIndex = 16;
             this.clmNetAmount.Width = 99;
             // 
             // gridColumn10
@@ -1243,7 +1241,7 @@
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.AllowEdit = false;
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 19;
+            this.gridColumn10.VisibleIndex = 17;
             this.gridColumn10.Width = 104;
             // 
             // clmEntryBy
@@ -1253,7 +1251,7 @@
             this.clmEntryBy.Name = "clmEntryBy";
             this.clmEntryBy.OptionsColumn.AllowEdit = false;
             this.clmEntryBy.Visible = true;
-            this.clmEntryBy.VisibleIndex = 21;
+            this.clmEntryBy.VisibleIndex = 19;
             this.clmEntryBy.Width = 71;
             // 
             // clmEntryDate
@@ -1263,7 +1261,7 @@
             this.clmEntryDate.Name = "clmEntryDate";
             this.clmEntryDate.OptionsColumn.AllowEdit = false;
             this.clmEntryDate.Visible = true;
-            this.clmEntryDate.VisibleIndex = 22;
+            this.clmEntryDate.VisibleIndex = 20;
             this.clmEntryDate.Width = 76;
             // 
             // clmEntryTime
@@ -1273,7 +1271,7 @@
             this.clmEntryTime.Name = "clmEntryTime";
             this.clmEntryTime.OptionsColumn.AllowEdit = false;
             this.clmEntryTime.Visible = true;
-            this.clmEntryTime.VisibleIndex = 23;
+            this.clmEntryTime.VisibleIndex = 21;
             this.clmEntryTime.Width = 104;
             // 
             // clmIP
@@ -1283,7 +1281,7 @@
             this.clmIP.Name = "clmIP";
             this.clmIP.OptionsColumn.AllowEdit = false;
             this.clmIP.Visible = true;
-            this.clmIP.VisibleIndex = 24;
+            this.clmIP.VisibleIndex = 22;
             this.clmIP.Width = 107;
             // 
             // gridColumn14
@@ -1292,7 +1290,7 @@
             this.gridColumn14.FieldName = "term_days";
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 6;
+            this.gridColumn14.VisibleIndex = 4;
             this.gridColumn14.Width = 52;
             // 
             // gridColumn15
@@ -1301,7 +1299,7 @@
             this.gridColumn15.FieldName = "due_date";
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 7;
+            this.gridColumn15.VisibleIndex = 5;
             this.gridColumn15.Width = 96;
             // 
             // gridColumn16
@@ -1310,7 +1308,7 @@
             this.gridColumn16.FieldName = "weight";
             this.gridColumn16.Name = "gridColumn16";
             this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 8;
+            this.gridColumn16.VisibleIndex = 6;
             // 
             // gridColumn17
             // 
@@ -1318,15 +1316,13 @@
             this.gridColumn17.FieldName = "pin_code";
             this.gridColumn17.Name = "gridColumn17";
             this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 9;
+            this.gridColumn17.VisibleIndex = 7;
             // 
             // clmEmployeeName
             // 
             this.clmEmployeeName.Caption = "Employee";
             this.clmEmployeeName.FieldName = "employee_name";
             this.clmEmployeeName.Name = "clmEmployeeName";
-            this.clmEmployeeName.Visible = true;
-            this.clmEmployeeName.VisibleIndex = 2;
             this.clmEmployeeName.Width = 170;
             // 
             // clmEmployeeID
@@ -1341,7 +1337,7 @@
             this.clmShippingAddress.FieldName = "shipping_address";
             this.clmShippingAddress.Name = "clmShippingAddress";
             this.clmShippingAddress.Visible = true;
-            this.clmShippingAddress.VisibleIndex = 20;
+            this.clmShippingAddress.VisibleIndex = 18;
             this.clmShippingAddress.Width = 120;
             // 
             // gridColumn18
@@ -1350,8 +1346,14 @@
             this.gridColumn18.FieldName = "firm_name";
             this.gridColumn18.Name = "gridColumn18";
             this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 5;
+            this.gridColumn18.VisibleIndex = 3;
             this.gridColumn18.Width = 87;
+            // 
+            // gridColumn19
+            // 
+            this.gridColumn19.Caption = "Firm ID";
+            this.gridColumn19.FieldName = "firm_id";
+            this.gridColumn19.Name = "gridColumn19";
             // 
             // panelControl2
             // 
@@ -2274,6 +2276,7 @@
             this.txtRemark.Properties.MaxLength = 100;
             this.txtRemark.Size = new System.Drawing.Size(648, 83);
             this.txtRemark.TabIndex = 0;
+            this.txtRemark.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRemark_KeyPress);
             // 
             // labelControl10
             // 
@@ -2364,11 +2367,33 @@
             this.panelControl4.TabIndex = 0;
             this.panelControl4.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl4_Paint);
             // 
+            // luePurchaseFirm
+            // 
+            this.luePurchaseFirm.EnterMoveNextControl = true;
+            this.luePurchaseFirm.Location = new System.Drawing.Point(723, 7);
+            this.luePurchaseFirm.Name = "luePurchaseFirm";
+            this.luePurchaseFirm.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.luePurchaseFirm.Properties.Appearance.Options.UseFont = true;
+            this.luePurchaseFirm.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.luePurchaseFirm.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.luePurchaseFirm.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
+            this.luePurchaseFirm.Properties.AppearanceDropDownHeader.Options.UseFont = true;
+            this.luePurchaseFirm.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            this.luePurchaseFirm.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.luePurchaseFirm.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("firm_name", "firm Name"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("firm_id", "Firm ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.luePurchaseFirm.Properties.NullText = "";
+            this.luePurchaseFirm.Properties.ShowHeader = false;
+            this.luePurchaseFirm.Size = new System.Drawing.Size(155, 20);
+            this.luePurchaseFirm.TabIndex = 532;
+            // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label20.Location = new System.Drawing.Point(800, 9);
+            this.label20.Location = new System.Drawing.Point(610, 9);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(112, 16);
             this.label20.TabIndex = 531;
@@ -2377,7 +2402,7 @@
             // lueInvoiceNo
             // 
             this.lueInvoiceNo.EnterMoveNextControl = true;
-            this.lueInvoiceNo.Location = new System.Drawing.Point(671, 7);
+            this.lueInvoiceNo.Location = new System.Drawing.Point(1144, 0);
             this.lueInvoiceNo.Name = "lueInvoiceNo";
             this.lueInvoiceNo.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueInvoiceNo.Properties.Appearance.Options.UseFont = true;
@@ -2395,6 +2420,7 @@
             this.lueInvoiceNo.Properties.ShowHeader = false;
             this.lueInvoiceNo.Size = new System.Drawing.Size(123, 20);
             this.lueInvoiceNo.TabIndex = 529;
+            this.lueInvoiceNo.Visible = false;
             // 
             // btnAdd
             // 
@@ -2715,7 +2741,6 @@
             this.txtWeight.Size = new System.Drawing.Size(68, 20);
             this.txtWeight.TabIndex = 2;
             this.txtWeight.Visible = false;
-            this.txtWeight.EditValueChanged += new System.EventHandler(this.txtWeight_EditValueChanged);
             // 
             // labelControl9
             // 
@@ -2729,7 +2754,6 @@
             this.labelControl9.TabIndex = 504;
             this.labelControl9.Text = "Weight";
             this.labelControl9.Visible = false;
-            this.labelControl9.Click += new System.EventHandler(this.labelControl9_Click);
             // 
             // txtPcs
             // 
@@ -2851,7 +2875,6 @@
             this.lueParty.Size = new System.Drawing.Size(183, 20);
             this.lueParty.TabIndex = 4;
             this.lueParty.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.lueParty_ButtonClick);
-            this.lueParty.EditValueChanged += new System.EventHandler(this.lueParty_EditValueChanged);
             this.lueParty.Validated += new System.EventHandler(this.lueParty_Validated);
             // 
             // labelControl1
@@ -2950,11 +2973,12 @@
             // 
             this.lblInvoiceNo.AutoSize = true;
             this.lblInvoiceNo.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblInvoiceNo.Location = new System.Drawing.Point(610, 9);
+            this.lblInvoiceNo.Location = new System.Drawing.Point(1075, 35);
             this.lblInvoiceNo.Name = "lblInvoiceNo";
             this.lblInvoiceNo.Size = new System.Drawing.Size(60, 16);
             this.lblInvoiceNo.TabIndex = 22;
             this.lblInvoiceNo.Text = "Inv. No";
+            this.lblInvoiceNo.Visible = false;
             // 
             // lblMode
             // 
@@ -3276,34 +3300,6 @@
             this.backgroundWorker_SaleReturnDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_SaleReturnDelete_DoWork);
             this.backgroundWorker_SaleReturnDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_SaleReturnDelete_RunWorkerCompleted);
             // 
-            // gridColumn19
-            // 
-            this.gridColumn19.Caption = "Firm ID";
-            this.gridColumn19.FieldName = "firm_id";
-            this.gridColumn19.Name = "gridColumn19";
-            // 
-            // luePurchaseFirm
-            // 
-            this.luePurchaseFirm.EnterMoveNextControl = true;
-            this.luePurchaseFirm.Location = new System.Drawing.Point(913, 7);
-            this.luePurchaseFirm.Name = "luePurchaseFirm";
-            this.luePurchaseFirm.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.luePurchaseFirm.Properties.Appearance.Options.UseFont = true;
-            this.luePurchaseFirm.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.luePurchaseFirm.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.luePurchaseFirm.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
-            this.luePurchaseFirm.Properties.AppearanceDropDownHeader.Options.UseFont = true;
-            this.luePurchaseFirm.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            this.luePurchaseFirm.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.luePurchaseFirm.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("firm_name", "firm Name"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("firm_id", "Firm ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.luePurchaseFirm.Properties.NullText = "";
-            this.luePurchaseFirm.Properties.ShowHeader = false;
-            this.luePurchaseFirm.Size = new System.Drawing.Size(155, 20);
-            this.luePurchaseFirm.TabIndex = 532;
-            // 
             // FrmSaleReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3371,6 +3367,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             this.panelControl4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.luePurchaseFirm.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueInvoiceNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPurchaseAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPurchaseRate.Properties)).EndInit();
@@ -3395,7 +3392,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.CmbSaleType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.luePurchaseFirm.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

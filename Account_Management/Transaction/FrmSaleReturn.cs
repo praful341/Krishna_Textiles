@@ -1826,22 +1826,6 @@ namespace Account_Management.Transaction
                 }
             }
         }
-
-        private void labelControl9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtWeight_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lueParty_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void lueParty_Validated(object sender, EventArgs e)
         {
             try
@@ -1849,20 +1833,94 @@ namespace Account_Management.Transaction
                 DataTable m_dtb = new DataTable();
                 SaleReturn objSaleReturn = new SaleReturn();
 
-                m_dtb = objSaleReturn.GetInvoiceNo(Convert.ToInt32(lueParty.EditValue));
-
-                if (m_dtb.Rows.Count > 0)
+                if (Val.ToInt64(lueParty.EditValue) != 0)
                 {
-                    lueInvoiceNo.Properties.DataSource = m_dtb;
-                    lueInvoiceNo.Properties.ValueMember = "invoice_id";
-                    lueInvoiceNo.Properties.DisplayMember = "order_no";
-                    lueInvoiceNo.ClosePopup();
+                    m_dtb = objSaleReturn.GetInvoiceNo(Convert.ToInt32(lueParty.EditValue));
+
+                    if (m_dtb.Rows.Count > 0)
+                    {
+                        lueInvoiceNo.Properties.DataSource = m_dtb;
+                        lueInvoiceNo.Properties.ValueMember = "invoice_id";
+                        lueInvoiceNo.Properties.DisplayMember = "order_no";
+                        lueInvoiceNo.ClosePopup();
+                    }
                 }
             }
             catch (Exception ex)
             {
                 BLL.General.ShowErrors(ex);
                 return;
+            }
+        }
+
+        private bool Validate()
+        {
+            bool blnFocus = false;
+            List<ListError> lstError = new List<ListError>();
+
+            try
+            {
+                if (m_dtbSaleDetails.Rows.Count == 0)
+                {
+                    lstError.Add(new ListError(22, "Record"));
+                    if (!blnFocus)
+                    {
+                        blnFocus = true;
+                    }
+                }
+                if (dgvSaleReturnDetails == null)
+                {
+                    lstError.Add(new ListError(22, "Record"));
+                    if (!blnFocus)
+                    {
+                        blnFocus = true;
+                    }
+                }
+                var result = DateTime.Compare(Convert.ToDateTime(dtpReturnDate.Text), DateTime.Today);
+                if (result > 0)
+                {
+                    lstError.Add(new ListError(5, " Return Date Not Be Greater Than Today Date"));
+                    if (!blnFocus)
+                    {
+                        blnFocus = true;
+                        dtpReturnDate.Focus();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lstError.Add(new ListError(ex));
+            }
+            return (!(BLL.General.ShowErrors(lstError)));
+        }
+        private void txtRemark_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                if (!Validate())
+                {
+                    btnSave.Enabled = true;
+                    return;
+                }
+
+                FrmSaleReturnPaymentGiven objSaleReturnPaymentGiven = new FrmSaleReturnPaymentGiven();
+                Assembly frmAssembly = Assembly.LoadFile(Application.ExecutablePath);
+
+                foreach (Type type in frmAssembly.GetTypes())
+                {
+                    string type1 = type.Name.ToString().ToUpper();
+                    if (type.BaseType == typeof(DevExpress.XtraEditors.XtraForm))
+                    {
+                        if (type.Name.ToString().ToUpper() == "FRMSALERETURNPAYMENTGIVEN")
+                        {
+                            XtraForm frmShow = (XtraForm)frmAssembly.CreateInstance(type.ToString());
+                            frmShow.MdiParent = Global.gMainFormRef;
+
+                            frmShow.GetType().GetMethod("ShowForm_SaleReturnPaymentNew").Invoke(frmShow, new object[] { });
+                            break;
+                        }
+                    }
+                }
             }
         }
     }
