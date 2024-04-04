@@ -151,6 +151,21 @@ namespace BLL.FunctionClasses.Account
             }
             return IntRes;
         }
+        public DataSet Account_Ledger_GetData(Int64 Union_ID)
+        {
+            DataSet DTab = new DataSet();
+            Request Request = new Request();
+            Request.CommandText = BLL.TPV.SProc.TRN_Payment_GivenFillData;
+            Request.CommandType = CommandType.StoredProcedure;
+            Request.AddParams("@union_id", Union_ID, DbType.Int64);
+            Request.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int64);
+            Request.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int64);
+            Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int64);
+            Request.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int64);
+
+            Ope.GetDataSet(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, "", Request);
+            return DTab;
+        }
         #endregion
     }
 }

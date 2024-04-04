@@ -70,7 +70,14 @@ namespace Account_Management.Transaction
                 RepMethod.Items.Add("Adjustment");
                 RepMethod.Items.Add("New Ref.");
 
-                MainGrid.DataSource = DTab_Payment_Receipt_Data;
+                if (DTab_Payment_Receipt_Data.Rows.Count > 0)
+                {
+                    MainGrid.DataSource = DTab_Payment_Receipt_Data;
+                }
+                else
+                {
+                    MainGrid.DataSource = DTab;
+                }
             }
             catch (Exception ex)
             {

@@ -30,6 +30,8 @@ namespace Account_Management.Transaction
         DataTable DtPaymentGiven = new DataTable();
         Int64 IntRes;
         int m_numForm_id = 0;
+        string Form_Clear = string.Empty;
+
         public FrmPaymentGiven()
         {
             InitializeComponent();
@@ -64,6 +66,54 @@ namespace Account_Management.Transaction
             _tabControls = _tabControls.OrderBy(x => x.TabIndex).ToList();
 
             this.Show();
+        }
+
+        public void ShowForm_New(Int64 Union_ID)
+        {
+            ObjPer.FormName = this.Name.ToUpper();
+            if (ObjPer.CheckPermission() == false)
+            {
+                Global.Message(BLL.GlobalDec.gStrPermissionViwMsg);
+                return;
+            }
+            Val.frmGenSet(this);
+            AttachFormEvents();
+
+            if (Global.HideFormControls(Val.ToInt(ObjPer.form_id), this) != "")
+            {
+                Global.Message("Select First User Setting...Please Contact to Administrator...");
+                return;
+            }
+
+            ControlSettingDT(Val.ToInt(ObjPer.form_id), this);
+            AddGotFocusListener(this);
+            AddKeyPressListener(this);
+            this.KeyPreview = true;
+
+            TabControlsToList(this.Controls);
+            _tabControls = _tabControls.OrderBy(x => x.TabIndex).ToList();
+
+            Form_Clear = "Account Ledger";
+
+            DataSet DTab = objPaymentGiven.Account_Ledger_GetData(Union_ID);
+
+            if (DTab.Tables[0].Rows.Count != 0)
+            {
+                txtVoucherNo.Text = Val.ToInt64(DTab.Tables[0].Rows[0]["voucher_no"]).ToString();
+                DTPEntryDate.Text = Val.DBDate(DTab.Tables[0].Rows[0]["payment_date"].ToString());
+                LueCashBank.EditValue = Val.ToInt64(DTab.Tables[0].Rows[0]["against_ledger_id"].ToString());
+                LueLedger.EditValue = Val.ToInt64(DTab.Tables[0].Rows[0]["ledger_id"].ToString());
+                txtRemark.Text = Val.ToString(DTab.Tables[0].Rows[0]["remarks"]);
+                txtAmount.Text = Val.ToDecimal(DTab.Tables[0].Rows[0]["amount"]).ToString();
+            }
+            this.Show();
+            if (DTab.Tables[0].Rows.Count != 0)
+            {
+                FrmPaymentGivenSearch FrmPaymentGivenSearch = new FrmPaymentGivenSearch();
+                FrmPaymentGivenSearch.FrmPaymentGiven = this;
+                FrmPaymentGivenSearch.DTab = DTab.Tables[1];
+                FrmPaymentGivenSearch.ShowForm(this, Val.ToInt64(LueLedger.EditValue), Val.ToString(LueLedger.Text), Val.ToDecimal(txtAmount.Text));
+            }
         }
         private void AttachFormEvents()
         {
@@ -465,7 +515,7 @@ namespace Account_Management.Transaction
                     DtPaymentGiven.Columns.Add("purchase_bill_no", typeof(string));
                     DtPaymentGiven.Columns.Add("amount", typeof(decimal));
                     DtPaymentGiven.Columns.Add("purchase_id", typeof(Int64));
-                    DtPaymentGiven.Columns.Add("due_date", typeof(string));
+                    DtPaymentGiven.Columns.Add("payment_date", typeof(string));
                     DtPaymentGiven.Columns.Add("payment_id", typeof(Int64));
                     DtPaymentGiven.Rows.Add(1, "", "", 0, 0, "");
 
@@ -570,7 +620,16 @@ namespace Account_Management.Transaction
             DTPEntryDate.Properties.Mask.UseMaskAsDisplayFormat = true;
             DTPEntryDate.Properties.CharacterCasing = CharacterCasing.Upper;
             DTPEntryDate.EditValue = DateTime.Now;
-            btnClear_Click(btnClear, null);
+
+            if (Form_Clear != "Account Ledger")
+            {
+                btnClear_Click(btnClear, null);
+            }
+            else
+            {
+                DTPEntryDate.Focus();
+            }
+            Form_Clear = "";
         }
     }
 }

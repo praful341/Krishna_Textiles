@@ -222,6 +222,7 @@
         public static string TRN_Payment_OS_Invoice_Wise = "TRN_Payment_OS_Invoice_Wise";
         public static string TRN_Referance_Payment_SearchData = "TRN_Referance_Payment_SearchData";
         public static string TRN_Referance_Payment_Update = "TRN_Referance_Payment_Update";
+        public static string TRN_Payment_GivenFillData = "TRN_Payment_GivenFillData";
 
         #endregion Payment Receipt Entry
 
