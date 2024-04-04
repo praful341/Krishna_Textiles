@@ -18,10 +18,14 @@ namespace Account_Management.Transaction
         PaymentGiven objPaymentGiven = new PaymentGiven();
         FormEvents objBOFormEvents = new FormEvents();
         public FrmSaleReturnPaymentGiven FrmSaleReturnPaymentGiven = new FrmSaleReturnPaymentGiven();
+        public FrmSaleReturn FrmSaleReturn = new FrmSaleReturn();
         //FrmSearch FrmSearch;
         FrmSearchNew FrmSearchNew;
         string FormName = "";
-
+        string Entry_Date = "";
+        string Remarks = "";
+        Int64 Voucher_No = 0;
+        Int64 Cash_Bank = 0;
         #endregion
 
         #region Constructor
@@ -30,13 +34,18 @@ namespace Account_Management.Transaction
             InitializeComponent();
         }
 
-        public void ShowForm(FrmSaleReturnPaymentGiven ObjForm, Int64 Ledger_ID, string Ledger_Name, decimal Amount)
+        public void ShowForm(FrmSaleReturnPaymentGiven ObjForm, string Entry_date, string Remark, Int64 Voucher_No, Int64 Cash_Bank, Int64 Ledger_ID, string Ledger_Name, decimal Amount)
         {
             FrmSaleReturnPaymentGiven = new FrmSaleReturnPaymentGiven();
             FrmSaleReturnPaymentGiven = ObjForm;
             lblLedger.Text = Ledger_Name;
             lblLedgerID.Text = Ledger_ID.ToString();
             lblAmount.Text = Amount.ToString();
+            Entry_Date = Entry_date;
+            Remarks = Remark;
+            Voucher_No = Voucher_No;
+            Cash_Bank = Cash_Bank;
+
             FormName = "FrmSaleReturnPaymentGiven";
             Val.frmGenSetForPopup(this);
             AttachFormEvents();
@@ -183,7 +192,7 @@ namespace Account_Management.Transaction
                 }
                 DataTable DTab_Select = (DataTable)MainGrid.DataSource;
                 this.Close();
-                FrmSaleReturnPaymentGiven.GetPaymentGivenData(DTab_Select);
+                FrmSaleReturn.GetPaymentGivenData(Entry_Date, Remarks, Voucher_No, Cash_Bank, Val.ToInt64(lblLedgerID.Text), DTab_Select);
             }
         }
         #endregion

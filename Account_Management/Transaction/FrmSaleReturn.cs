@@ -1,6 +1,7 @@
 ﻿using Account_Management.Class;
 using Account_Management.Master;
 using BLL;
+using BLL.FunctionClasses.Account;
 using BLL.FunctionClasses.Master;
 using BLL.FunctionClasses.Transaction;
 using BLL.FunctionClasses.Utility;
@@ -830,7 +831,6 @@ namespace Account_Management.Transaction
                         }
                     }
                 }
-
                 if (m_blnadd)
                 {
                     if (lueItem.Text == "")
@@ -985,15 +985,9 @@ namespace Account_Management.Transaction
                 btnAdd.Text = "&Add";
                 LueEmployee.Focus();
                 m_srno = 0;
-                //objPurchase = new Purchase();
-                //txtVoucherNo.Text = objPurchase.FindNewID().ToString();
                 m_IsUpdate = true;
                 lblMode.Text = "Add Mode";
                 lueInvoiceNo.Text = string.Empty;
-
-                //txtPurchaseBill.Enabled = true;
-                //lueGSTRate.Enabled = true;
-                //lueParty.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -1059,7 +1053,6 @@ namespace Account_Management.Transaction
             try
             {
                 m_dtbDetails = objSaleReturn.GetData(Val.DBDate(dtpFromDate.Text), Val.DBDate(dtpToDate.Text), Val.ToInt64(txtSearchOrderNo.Text), Val.ToInt32(lueJangedLedger.EditValue));
-
                 grdSaleReturnEntry.DataSource = m_dtbDetails;
                 dgvSaleReturnEntry.BestFitColumns();
             }
@@ -1072,7 +1065,6 @@ namespace Account_Management.Transaction
             {
                 objSaleReturn = null;
             }
-
             return blnReturn;
         }
         public void SetControlPropertyValue(Control oControl, string propName, object propValue)
@@ -1112,7 +1104,6 @@ namespace Account_Management.Transaction
             {
                 dt.Columns.Add(hasHeader ? firstRowCell.Text : string.Format("Column {0}", firstRowCell.Start.Column));
             }
-
             for (int rowNum = startRow; rowNum <= totalRows; rowNum++)
             {
                 wsRow = ws.Cells[rowNum, 1, rowNum, totalCols];
@@ -1121,10 +1112,8 @@ namespace Account_Management.Transaction
                 {
                     dr[cell.Start.Column - 1] = cell.Text;
                 }
-
                 dt.Rows.Add(dr);
             }
-
             return dt;
         }
         private void Export(string format, string dlgHeader, string dlgFilter)
@@ -1674,9 +1663,7 @@ namespace Account_Management.Transaction
                         txtSaleAmount.Text = Val.ToString(Drow["sale_amount"]);
                         txtPurchaseRate.Text = Val.ToString(Drow["purchase_rate"]);
                         txtPurchaseAmount.Text = Val.ToString(Drow["purchase_amount"]);
-
                         m_return_detail_id = Val.ToInt(Drow["return_detail_id"]);
-
                         m_update_srno = Val.ToInt(Drow["sr_no"]);
                     }
                 }
@@ -1740,7 +1727,6 @@ namespace Account_Management.Transaction
                         DataRow Drow = dgvSaleReturnEntry.GetDataRow(e.RowHandle);
                         lblMode.Text = "Edit Mode";
                         lblMode.Tag = Val.ToInt64(Drow["sale_return_id"]);
-
                         dtpReturnDate.Text = Val.DBDate(Val.ToString(Drow["return_date"]));
                         txtOrderNo.Text = Val.ToString(Drow["order_no"]);
                         lueGSTRate.EditValue = Val.ToInt64(Drow["gst_id"]);
@@ -1748,7 +1734,6 @@ namespace Account_Management.Transaction
                         CmbSaleType.Text = Val.ToString(Drow["sale_type"]);
                         LueEmployee.EditValue = Val.ToInt64(Drow["employee_id"]);
                         luePurchaseFirm.EditValue = Val.ToInt64(Drow["firm_id"]);
-
                         txtRemark.Text = Val.ToString(Drow["remarks"]);
                         txtWeight.Text = Val.ToString(Drow["weight"]);
                         txtPinCode.Text = Val.ToString(Drow["pin_code"]);
@@ -1761,10 +1746,8 @@ namespace Account_Management.Transaction
                         txtSGSTAmount.Text = Val.ToString(Drow["sgst_amount"]);
                         txtIGSTPer.Text = Val.ToString(Drow["igst_per"]);
                         txtIGSTAmount.Text = Val.ToString(Drow["igst_amount"]);
-
                         txtShippingCharge.Text = Val.ToString(Drow["shipping_amount"]);
                         txtShippingAddress.Text = Val.ToString(Drow["shipping_address"]);
-
                         txtNetAmount.Text = Val.ToString(Drow["net_amount"]);
                         txtTermDays.Text = Val.ToString(Drow["term_days"]);
                         DTPDueDate.Text = Val.ToString(Drow["due_date"]);
@@ -1857,7 +1840,6 @@ namespace Account_Management.Transaction
         {
             bool blnFocus = false;
             List<ListError> lstError = new List<ListError>();
-
             try
             {
                 if (m_dtbSaleDetails.Rows.Count == 0)
@@ -1920,6 +1902,150 @@ namespace Account_Management.Transaction
                             break;
                         }
                     }
+                }
+            }
+        }
+        public void GetPaymentGivenData(string Entry_date, string Remark, Int64 Voucher_No, Int64 Cash_Bank, Int64 Ledger_ID, DataTable Payment_Given_Data)
+        {
+            try
+            {
+                IntRes = 0;
+                SaleReturnPaymentGiven_Property SaleReturnPaymentGiven_Property = new SaleReturnPaymentGiven_Property();
+                SaleReturnPaymentGiven objSaleReturnPaymentGiven = new SaleReturnPaymentGiven();
+                Int64 Union_ID = 0;
+                Conn = new BeginTranConnection(true, false);
+
+                for (int i = 0; i < Payment_Given_Data.Rows.Count; i++)
+                {
+                    if (Val.ToString(Payment_Given_Data.Rows[i]["method"]) != "")
+                    {
+                        SaleReturnPaymentGiven_Property.payment_id = Val.ToInt64(Payment_Given_Data.Rows[i]["payment_id"]);
+                        SaleReturnPaymentGiven_Property.union_id = Val.ToInt64(Union_ID);
+                        SaleReturnPaymentGiven_Property.payment_date = Val.DBDate(Entry_date);
+                        SaleReturnPaymentGiven_Property.sr_no = Val.ToInt32(Payment_Given_Data.Rows[i]["sr_no"]);
+                        SaleReturnPaymentGiven_Property.method = Val.ToString(Payment_Given_Data.Rows[i]["method"]);
+                        SaleReturnPaymentGiven_Property.purchase_id = Val.ToInt64(Payment_Given_Data.Rows[i]["purchase_id"]);
+                        SaleReturnPaymentGiven_Property.sale_return_id = Val.ToInt64(0);
+                        SaleReturnPaymentGiven_Property.reference = Val.ToString(Payment_Given_Data.Rows[i]["purchase_bill_no"]);
+                        SaleReturnPaymentGiven_Property.ledger_id = Val.ToInt64(Ledger_ID);
+                        SaleReturnPaymentGiven_Property.credit_amount = Val.ToDecimal(Payment_Given_Data.Rows[i]["amount"]);
+                        SaleReturnPaymentGiven_Property.debit_amount = Val.ToDecimal(Payment_Given_Data.Rows[i]["amount"]);
+                        SaleReturnPaymentGiven_Property.remarks = Val.ToString(Remark);
+                        SaleReturnPaymentGiven_Property.form_id = m_numForm_id;
+                        SaleReturnPaymentGiven_Property.voucher_no = Val.ToInt64(Voucher_No);
+
+                        SaleReturnPaymentGiven_Property.against_ledger_id = Val.ToInt64(Cash_Bank);
+                        SaleReturnPaymentGiven_Property = objSaleReturnPaymentGiven.PaymentGiven_Save(SaleReturnPaymentGiven_Property, DLL.GlobalDec.EnumTran.Start, Conn);
+
+                        Union_ID = SaleReturnPaymentGiven_Property.union_id;
+                    }
+                }
+
+                SaleReturn_Property objSaleReturnProperty = new SaleReturn_Property();
+                SaleReturn objSaleReturn = new SaleReturn();
+                try
+                {
+                    IntRes = 0;
+
+                    objSaleReturnProperty.sale_return_id = Val.ToInt(lblMode.Tag);
+                    objSaleReturnProperty.invoice_id = Val.ToInt(lueInvoiceNo.EditValue);
+                    objSaleReturnProperty.return_date = Val.DBDate(dtpReturnDate.Text);
+                    objSaleReturnProperty.gst_id = Val.ToInt(lueGSTRate.EditValue);
+                    objSaleReturnProperty.remarks = Val.ToString(txtRemark.Text);
+                    objSaleReturnProperty.form_id = m_numForm_id;
+                    objSaleReturnProperty.firm_id = Val.ToInt64(luePurchaseFirm.EditValue);
+                    objSaleReturnProperty.ledger_id = Val.ToInt64(lueParty.EditValue);
+                    objSaleReturnProperty.employee_id = Val.ToInt64(LueEmployee.EditValue);
+                    objSaleReturnProperty.total_pcs = Val.ToInt64(clmPcs.SummaryItem.SummaryValue);
+                    objSaleReturnProperty.gross_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue), 3);
+                    objSaleReturnProperty.cgst_rate = Val.ToDecimal(txtCGSTPer.Text);
+                    objSaleReturnProperty.cgst_amount = Val.ToDecimal(txtCGSTAmount.Text);
+                    objSaleReturnProperty.sgst_rate = Val.ToDecimal(txtSGSTPer.Text);
+                    objSaleReturnProperty.sgst_amount = Val.ToDecimal(txtSGSTAmount.Text);
+                    objSaleReturnProperty.igst_rate = Val.ToDecimal(txtIGSTPer.Text);
+                    objSaleReturnProperty.igst_amount = Val.ToDecimal(txtIGSTAmount.Text);
+                    objSaleReturnProperty.discount_per = Val.ToDecimal(txtDiscountPer.Text);
+                    objSaleReturnProperty.discount_amount = Val.ToDecimal(txtDiscountAmount.Text);
+                    objSaleReturnProperty.round_of_amount = Val.ToDecimal(txtRoundOff.Text);
+                    objSaleReturnProperty.shipping_amount = Val.ToDecimal(txtShippingCharge.Text);
+                    objSaleReturnProperty.order_no = Val.ToString(txtOrderNo.Text);
+                    objSaleReturnProperty.sale_type = Val.ToString(CmbSaleType.Text);
+                    objSaleReturnProperty.weight = Val.ToDecimal(txtWeight.Text);
+                    objSaleReturnProperty.pin_code = Val.ToInt64(txtPinCode.Text);
+                    objSaleReturnProperty.shipping_address = Val.ToString(txtShippingAddress.Text);
+                    objSaleReturnProperty.purchase_amount = Val.ToDecimal(clmRSPurhaseAmount.SummaryItem.SummaryValue);
+                    objSaleReturnProperty.net_amount = Val.ToDecimal(txtNetAmount.Text);
+                    objSaleReturnProperty.term_days = Val.ToInt32(txtTermDays.Text);
+                    objSaleReturnProperty.due_date = Val.DBDate(DTPDueDate.Text);
+
+                    objSaleReturnProperty = objSaleReturn.Save(objSaleReturnProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
+
+                    Int64 NewmSaleReturnId = Val.ToInt64(objSaleReturnProperty.sale_return_id);
+
+                    int IntCounter = 0;
+                    int Count = 0;
+                    int TotalCount = m_dtbSaleDetails.Rows.Count;
+
+                    foreach (DataRow drw in m_dtbSaleDetails.Rows)
+                    {
+                        objSaleReturnProperty = new SaleReturn_Property();
+                        objSaleReturnProperty.sale_return_id = Val.ToInt64(NewmSaleReturnId);
+                        objSaleReturnProperty.return_detail_id = Val.ToInt64(drw["return_detail_id"]);
+                        objSaleReturnProperty.sr_no = Val.ToInt(drw["sr_no"]);
+                        objSaleReturnProperty.item_id = Val.ToInt64(drw["item_id"]);
+                        objSaleReturnProperty.color_id = Val.ToInt64(drw["color_id"]);
+                        objSaleReturnProperty.size_id = Val.ToInt64(drw["size_id"]);
+                        objSaleReturnProperty.unit_id = Val.ToInt64(drw["unit_id"]);
+                        objSaleReturnProperty.pcs = Val.ToInt(drw["pcs"]);
+                        objSaleReturnProperty.sale_rate = Val.ToDecimal(drw["sale_rate"]);
+                        objSaleReturnProperty.sale_amount = Val.ToDecimal(drw["Sale_amount"]);
+                        objSaleReturnProperty.purchase_rate = Val.ToDecimal(drw["purchase_rate"]);
+                        objSaleReturnProperty.purchase_amount = Val.ToDecimal(drw["purchase_amount"]);
+                        objSaleReturnProperty.old_item_id = Val.ToInt64(drw["old_item_id"]);
+                        objSaleReturnProperty.old_color_id = Val.ToInt64(drw["old_color_id"]);
+                        objSaleReturnProperty.old_size_id = Val.ToInt64(drw["old_size_id"]);
+                        objSaleReturnProperty.old_pcs = Val.ToInt(drw["old_pcs"]);
+                        objSaleReturnProperty.flag = Val.ToInt(drw["flag"]);
+                        objSaleReturnProperty.form_id = m_numForm_id;
+
+                        IntRes = objSaleReturn.Save_Detail(objSaleReturnProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
+
+                        Count++;
+                        IntCounter++;
+                        IntRes++;
+                        SetControlPropertyValue(lblProgressCount, "Text", Count.ToString() + "" + "/" + "" + TotalCount.ToString() + " Completed....");
+                    }
+
+                    Conn.Inter1.Commit();
+
+                    if (IntRes == -1)
+                    {
+                        Global.Confirm("Error In Sale Return");
+                    }
+                    else
+                    {
+                        Global.Confirm("Data Save Successfully");
+                        btnClear_Click(null, null);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Global.Message(ex.ToString());
+                }
+                finally
+                {
+                    objSaleReturn = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                IntRes = -1;
+                Conn.Inter1.Rollback();
+                Conn = null;
+                Global.Message(ex.ToString());
+                if (ex.InnerException != null)
+                {
+                    Global.Message(ex.InnerException.ToString());
                 }
             }
         }

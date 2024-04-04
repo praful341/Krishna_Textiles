@@ -3,7 +3,6 @@ using BLL;
 using BLL.FunctionClasses.Account;
 using BLL.FunctionClasses.Master;
 using BLL.PropertyClasses.Master;
-using BLL.PropertyClasses.Transaction;
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
@@ -396,60 +395,61 @@ namespace Account_Management.Transaction
             //    FrmPaymentReceiptSearch.ShowForm(this, Val.ToInt64(LueLedger.EditValue), Val.ToString(LueLedger.Text), Val.ToDecimal(txtAmount.Text));
             //}
         }
-        public void GetPaymentGivenData(DataTable Payment_Given_Data)
-        {
-            try
-            {
-                IntRes = 0;
-                SaleReturnPaymentGiven_Property SaleReturnPaymentGiven_Property = new SaleReturnPaymentGiven_Property();
-                Int64 Union_ID = 0;
-                Conn = new BeginTranConnection(true, false);
+        //public void GetPaymentGivenData(string Entry_date, string Remark, Int64 Voucher_No, Int64 Cash_Bank, Int64 Ledger_ID, DataTable Payment_Given_Data)
+        //{
+        //    try
+        //    {
+        //        IntRes = 0;
+        //        SaleReturnPaymentGiven_Property SaleReturnPaymentGiven_Property = new SaleReturnPaymentGiven_Property();
+        //        Int64 Union_ID = 0;
+        //        Conn = new BeginTranConnection(true, false);
 
-                for (int i = 0; i < Payment_Given_Data.Rows.Count; i++)
-                {
-                    if (Val.ToString(Payment_Given_Data.Rows[i]["method"]) != "")
-                    {
-                        SaleReturnPaymentGiven_Property.payment_id = Val.ToInt64(Payment_Given_Data.Rows[i]["payment_id"]);
-                        SaleReturnPaymentGiven_Property.union_id = Val.ToInt64(Union_ID);
-                        SaleReturnPaymentGiven_Property.payment_date = Val.DBDate(DTPEntryDate.Text);
-                        //SaleReturnPaymentGiven_Property.payment_type = Val.ToString(CmbTransactionType.Text);
-                        SaleReturnPaymentGiven_Property.sr_no = Val.ToInt32(Payment_Given_Data.Rows[i]["sr_no"]);
-                        SaleReturnPaymentGiven_Property.method = Val.ToString(Payment_Given_Data.Rows[i]["method"]);
-                        SaleReturnPaymentGiven_Property.purchase_id = Val.ToInt64(Payment_Given_Data.Rows[i]["purchase_id"]);
-                        SaleReturnPaymentGiven_Property.sale_return_id = Val.ToInt64(0);
-                        SaleReturnPaymentGiven_Property.reference = Val.ToString(Payment_Given_Data.Rows[i]["purchase_bill_no"]);
-                        //SaleReturnPaymentGiven_Property.bank_id = Val.ToInt64(lueBank.EditValue);
-                        SaleReturnPaymentGiven_Property.ledger_id = Val.ToInt64(LueLedger.EditValue);
-                        SaleReturnPaymentGiven_Property.credit_amount = Val.ToDecimal(Payment_Given_Data.Rows[i]["amount"]);
-                        SaleReturnPaymentGiven_Property.debit_amount = Val.ToDecimal(Payment_Given_Data.Rows[i]["amount"]);
-                        SaleReturnPaymentGiven_Property.remarks = Val.ToString(txtRemark.Text);
-                        SaleReturnPaymentGiven_Property.form_id = m_numForm_id;
-                        SaleReturnPaymentGiven_Property.voucher_no = Val.ToInt64(txtVoucherNo.Text);
+        //        for (int i = 0; i < Payment_Given_Data.Rows.Count; i++)
+        //        {
+        //            if (Val.ToString(Payment_Given_Data.Rows[i]["method"]) != "")
+        //            {
+        //                SaleReturnPaymentGiven_Property.payment_id = Val.ToInt64(Payment_Given_Data.Rows[i]["payment_id"]);
+        //                SaleReturnPaymentGiven_Property.union_id = Val.ToInt64(Union_ID);
+        //                SaleReturnPaymentGiven_Property.payment_date = Val.DBDate(Entry_date);
+        //                //SaleReturnPaymentGiven_Property.payment_type = Val.ToString(CmbTransactionType.Text);
+        //                SaleReturnPaymentGiven_Property.sr_no = Val.ToInt32(Payment_Given_Data.Rows[i]["sr_no"]);
+        //                SaleReturnPaymentGiven_Property.method = Val.ToString(Payment_Given_Data.Rows[i]["method"]);
+        //                SaleReturnPaymentGiven_Property.purchase_id = Val.ToInt64(Payment_Given_Data.Rows[i]["purchase_id"]);
+        //                SaleReturnPaymentGiven_Property.sale_return_id = Val.ToInt64(0);
+        //                SaleReturnPaymentGiven_Property.reference = Val.ToString(Payment_Given_Data.Rows[i]["purchase_bill_no"]);
+        //                //SaleReturnPaymentGiven_Property.bank_id = Val.ToInt64(lueBank.EditValue);
+        //                SaleReturnPaymentGiven_Property.ledger_id = Val.ToInt64(Ledger_ID);
+        //                SaleReturnPaymentGiven_Property.credit_amount = Val.ToDecimal(Payment_Given_Data.Rows[i]["amount"]);
+        //                SaleReturnPaymentGiven_Property.debit_amount = Val.ToDecimal(Payment_Given_Data.Rows[i]["amount"]);
+        //                SaleReturnPaymentGiven_Property.remarks = Val.ToString(Remark);
+        //                SaleReturnPaymentGiven_Property.form_id = m_numForm_id;
+        //                SaleReturnPaymentGiven_Property.voucher_no = Val.ToInt64(Voucher_No);
 
-                        SaleReturnPaymentGiven_Property.against_ledger_id = Val.ToInt64(LueCashBank.EditValue);
-                        SaleReturnPaymentGiven_Property = objSaleReturnPaymentGiven.PaymentGiven_Save(SaleReturnPaymentGiven_Property, DLL.GlobalDec.EnumTran.Continue, Conn);
+        //                SaleReturnPaymentGiven_Property.against_ledger_id = Val.ToInt64(Cash_Bank);
+        //                SaleReturnPaymentGiven_Property = objSaleReturnPaymentGiven.PaymentGiven_Save(SaleReturnPaymentGiven_Property, DLL.GlobalDec.EnumTran.Continue, Conn);
 
-                        Union_ID = SaleReturnPaymentGiven_Property.union_id;
-                    }
-                }
-                Conn.Inter1.Commit();
+        //                Union_ID = SaleReturnPaymentGiven_Property.union_id;
+        //            }
+        //        }
 
-                if (IntRes == -1)
-                {
-                    Global.Confirm("Error In Payment Given");
-                    DTPEntryDate.Focus();
-                }
-                else
-                {
-                    Global.Confirm("Data Save Successfully");
-                    btnClear_Click(null, null);
-                }
-            }
-            catch (Exception ex)
-            {
-                Global.Message(ex.ToString());
-            }
-        }
+        //        Conn.Inter1.Commit();
+
+        //        if (IntRes == -1)
+        //        {
+        //            Global.Confirm("Error In Payment Given");
+        //            DTPEntryDate.Focus();
+        //        }
+        //        else
+        //        {
+        //            Global.Confirm("Data Save Successfully");
+        //            btnClear_Click(null, null);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Global.Message(ex.ToString());
+        //    }
+        //}
         private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -478,7 +478,7 @@ namespace Account_Management.Transaction
                     FrmSaleReturnPaymentGivenSearch FrmSaleReturnPaymentGivenSearch = new FrmSaleReturnPaymentGivenSearch();
                     FrmSaleReturnPaymentGivenSearch.FrmSaleReturnPaymentGiven = this;
                     FrmSaleReturnPaymentGivenSearch.DTab = DtPaymentGiven;
-                    FrmSaleReturnPaymentGivenSearch.ShowForm(this, Val.ToInt64(LueLedger.EditValue), Val.ToString(LueLedger.Text), Val.ToDecimal(txtAmount.Text));
+                    FrmSaleReturnPaymentGivenSearch.ShowForm(this, Val.DBDate(DTPEntryDate.Text), Val.ToString(txtRemark.Text), Val.ToInt64(txtVoucherNo.Text), Val.ToInt64(LueCashBank.Text), Val.ToInt64(LueLedger.EditValue), Val.ToString(LueLedger.Text), Val.ToDecimal(txtAmount.Text));
                 }
             }
         }
