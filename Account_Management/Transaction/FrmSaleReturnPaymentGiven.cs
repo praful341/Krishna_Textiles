@@ -468,17 +468,17 @@ namespace Account_Management.Transaction
                     DtPaymentGiven = new DataTable();
                     DtPaymentGiven.Columns.Add("sr_no", typeof(int));
                     DtPaymentGiven.Columns.Add("method", typeof(string));
-                    DtPaymentGiven.Columns.Add("purchase_bill_no", typeof(string));
+                    DtPaymentGiven.Columns.Add("order_no", typeof(string));
                     DtPaymentGiven.Columns.Add("amount", typeof(decimal));
                     DtPaymentGiven.Columns.Add("purchase_id", typeof(Int64));
                     DtPaymentGiven.Columns.Add("payment_date", typeof(string));
                     DtPaymentGiven.Columns.Add("payment_id", typeof(Int64));
                     DtPaymentGiven.Rows.Add(1, "", "", 0, 0, "");
 
-                    FrmSaleReturnPaymentGivenSearch FrmSaleReturnPaymentGivenSearch = new FrmSaleReturnPaymentGivenSearch();
-                    FrmSaleReturnPaymentGivenSearch.FrmSaleReturnPaymentGiven = this;
-                    FrmSaleReturnPaymentGivenSearch.DTab = DtPaymentGiven;
-                    FrmSaleReturnPaymentGivenSearch.ShowForm(this, Val.DBDate(DTPEntryDate.Text), Val.ToString(txtRemark.Text), Val.ToInt64(txtVoucherNo.Text), Val.ToInt64(LueCashBank.Text), Val.ToInt64(LueLedger.EditValue), Val.ToString(LueLedger.Text), Val.ToDecimal(txtAmount.Text));
+                    //FrmSaleReturnPaymentGivenSearch FrmSaleReturnPaymentGivenSearch = new FrmSaleReturnPaymentGivenSearch();
+                    //FrmSaleReturnPaymentGivenSearch.FrmSaleReturnPaymentGiven = this;
+                    //FrmSaleReturnPaymentGivenSearch.DTab = DtPaymentGiven;
+                    //FrmSaleReturnPaymentGivenSearch.ShowForm(this, Val.DBDate(DTPEntryDate.Text), Val.ToString(txtRemark.Text), Val.ToInt64(txtVoucherNo.Text), Val.ToInt64(LueCashBank.Text), Val.ToInt64(LueLedger.EditValue), Val.ToString(LueLedger.Text), Val.ToDecimal(txtAmount.Text));
                 }
             }
         }

@@ -30,6 +30,7 @@ namespace BLL.FunctionClasses.Account
                 Request.AddParams("@sr_no", pClsProperty.sr_no, DbType.Int64);
                 Request.AddParams("@method", pClsProperty.method, DbType.String);
                 Request.AddParams("@purchase_id", pClsProperty.purchase_id, DbType.Int64);
+                Request.AddParams("@invoice_id", pClsProperty.invoice_id, DbType.Int64);
                 Request.AddParams("@sale_return_id", pClsProperty.sale_return_id, DbType.Int64);
                 Request.AddParams("@reference", pClsProperty.reference, DbType.String);
                 Request.AddParams("@bank_id", pClsProperty.bank_id, DbType.Int64);
@@ -96,7 +97,7 @@ namespace BLL.FunctionClasses.Account
         {
             DataTable DTab = new DataTable();
             Request Request = new Request();
-            Request.CommandText = BLL.TPV.SProc.TRN_Payment_OS_Purchase_Wise;
+            Request.CommandText = BLL.TPV.SProc.TRN_Payment_OS_Sale_Wise;
             Request.CommandType = CommandType.StoredProcedure;
             Request.AddParams("@ledger_id", Ledger_ID, DbType.Int64);
 

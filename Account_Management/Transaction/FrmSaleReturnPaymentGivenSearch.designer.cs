@@ -52,6 +52,7 @@
             this.ClmInvoiceID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.RepDueDate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.lblLedgerID = new DevExpress.XtraEditors.LabelControl();
@@ -60,7 +61,6 @@
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).BeginInit();
             this.ContextMNExport.SuspendLayout();
@@ -278,9 +278,9 @@
             this.gridColumn8.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn8.AppearanceHeader.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold);
             this.gridColumn8.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn8.Caption = "Pur. Bill No";
+            this.gridColumn8.Caption = "Order No";
             this.gridColumn8.ColumnEdit = this.RepOrderNo;
-            this.gridColumn8.FieldName = "purchase_bill_no";
+            this.gridColumn8.FieldName = "order_no";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
             this.gridColumn8.Visible = true;
@@ -307,8 +307,8 @@
             // 
             // ClmInvoiceID
             // 
-            this.ClmInvoiceID.Caption = "Purchase ID";
-            this.ClmInvoiceID.FieldName = "purchase_id";
+            this.ClmInvoiceID.Caption = "Invoice ID";
+            this.ClmInvoiceID.FieldName = "invoice_id";
             this.ClmInvoiceID.Name = "ClmInvoiceID";
             // 
             // gridColumn1
@@ -339,6 +339,12 @@
             this.RepDueDate.Name = "RepDueDate";
             this.RepDueDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RepDueDate_KeyDown);
             // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Payment ID";
+            this.gridColumn3.FieldName = "payment_id";
+            this.gridColumn3.Name = "gridColumn3";
+            // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.labelControl2);
@@ -364,6 +370,7 @@
             this.labelControl2.Size = new System.Drawing.Size(22, 16);
             this.labelControl2.TabIndex = 524;
             this.labelControl2.Text = "Rs.";
+            this.labelControl2.Visible = false;
             // 
             // lblLedgerID
             // 
@@ -389,6 +396,7 @@
             this.lblAmount.Size = new System.Drawing.Size(57, 16);
             this.lblAmount.TabIndex = 522;
             this.lblAmount.Text = "Amount";
+            this.lblAmount.Visible = false;
             // 
             // lblLedger
             // 
@@ -401,6 +409,7 @@
             this.lblLedger.Size = new System.Drawing.Size(50, 16);
             this.lblLedger.TabIndex = 521;
             this.lblLedger.Text = "Ledger";
+            this.lblLedger.Visible = false;
             // 
             // labelControl18
             // 
@@ -413,6 +422,7 @@
             this.labelControl18.Size = new System.Drawing.Size(59, 16);
             this.labelControl18.TabIndex = 520;
             this.labelControl18.Text = "Ledger :";
+            this.labelControl18.Visible = false;
             // 
             // labelControl1
             // 
@@ -425,6 +435,7 @@
             this.labelControl1.Size = new System.Drawing.Size(66, 16);
             this.labelControl1.TabIndex = 519;
             this.labelControl1.Text = "Amount :";
+            this.labelControl1.Visible = false;
             // 
             // panelControl2
             // 
@@ -435,13 +446,7 @@
             this.panelControl2.Size = new System.Drawing.Size(549, 301);
             this.panelControl2.TabIndex = 16;
             // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "Payment ID";
-            this.gridColumn3.FieldName = "payment_id";
-            this.gridColumn3.Name = "gridColumn3";
-            // 
-            // FrmPaymentGivenSearch
+            // FrmSaleReturnPaymentGivenSearch
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
             this.Appearance.Options.UseBackColor = true;
@@ -455,7 +460,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel5);
             this.KeyPreview = true;
-            this.Name = "FrmPaymentGivenSearch";
+            this.Name = "FrmSaleReturnPaymentGivenSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bill-By-bill Adjustment of Amount";
             this.Load += new System.EventHandler(this.FrmPaymentReceiptSearch_Load);

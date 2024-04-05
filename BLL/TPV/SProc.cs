@@ -203,6 +203,7 @@
         public static string TRN_SaleReturn_GetData = "TRN_SaleReturn_GetData";
         public static string TRN_SaleReturn_GetDetailsData = "TRN_SaleReturn_GetDetailsData";
         public static string TRN_SaleReturn_Delete = "TRN_SaleReturn_Delete";
+        public static string TRN_Payment_OS_Sale_Wise = "TRN_Payment_OS_Sale_Wise";
 
         #endregion Sale Invoice Entry
 

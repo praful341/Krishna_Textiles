@@ -15,6 +15,7 @@ namespace BLL.PropertyClasses.Transaction
         public string payment_type { get; set; }
         public Int64 sr_no { get; set; }
         public Int64 purchase_id { get; set; }
+        public Int64 invoice_id { get; set; }
         public Int64 sale_return_id { get; set; }
         public string method { get; set; }
         public string reference { get; set; }

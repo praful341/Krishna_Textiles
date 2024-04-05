@@ -40,6 +40,7 @@ namespace Account_Management.Transaction
         DataTable m_dtbSaleDetails = new DataTable();
         DataTable m_dtbDetails = new DataTable();
         DataSet m_dtbVoucher_JangedDetail = new DataSet();
+        DataTable DtPaymentGiven = new DataTable();
 
         int m_return_detail_id;
         int m_srno;
@@ -1885,24 +1886,39 @@ namespace Account_Management.Transaction
                     return;
                 }
 
-                FrmSaleReturnPaymentGiven objSaleReturnPaymentGiven = new FrmSaleReturnPaymentGiven();
-                Assembly frmAssembly = Assembly.LoadFile(Application.ExecutablePath);
+                DtPaymentGiven = new DataTable();
+                DtPaymentGiven.Columns.Add("sr_no", typeof(int));
+                DtPaymentGiven.Columns.Add("method", typeof(string));
+                DtPaymentGiven.Columns.Add("order_no", typeof(string));
+                DtPaymentGiven.Columns.Add("amount", typeof(decimal));
+                DtPaymentGiven.Columns.Add("purchase_id", typeof(Int64));
+                DtPaymentGiven.Columns.Add("payment_date", typeof(string));
+                DtPaymentGiven.Columns.Add("payment_id", typeof(Int64));
+                DtPaymentGiven.Rows.Add(1, "", "", 0, 0, "");
 
-                foreach (Type type in frmAssembly.GetTypes())
-                {
-                    string type1 = type.Name.ToString().ToUpper();
-                    if (type.BaseType == typeof(DevExpress.XtraEditors.XtraForm))
-                    {
-                        if (type.Name.ToString().ToUpper() == "FRMSALERETURNPAYMENTGIVEN")
-                        {
-                            XtraForm frmShow = (XtraForm)frmAssembly.CreateInstance(type.ToString());
-                            frmShow.MdiParent = Global.gMainFormRef;
+                FrmSaleReturnPaymentGivenSearch FrmSaleReturnPaymentGivenSearch = new FrmSaleReturnPaymentGivenSearch();
+                FrmSaleReturnPaymentGivenSearch.FrmSaleReturn = this;
+                FrmSaleReturnPaymentGivenSearch.DTab = DtPaymentGiven;
+                FrmSaleReturnPaymentGivenSearch.ShowForm(this, Val.ToInt64(lueParty.EditValue));
 
-                            frmShow.GetType().GetMethod("ShowForm_SaleReturnPaymentNew").Invoke(frmShow, new object[] { });
-                            break;
-                        }
-                    }
-                }
+                //FrmSaleReturnPaymentGiven objSaleReturnPaymentGiven = new FrmSaleReturnPaymentGiven();
+                //Assembly frmAssembly = Assembly.LoadFile(Application.ExecutablePath);
+
+                //foreach (Type type in frmAssembly.GetTypes())
+                //{
+                //    string type1 = type.Name.ToString().ToUpper();
+                //    if (type.BaseType == typeof(DevExpress.XtraEditors.XtraForm))
+                //    {
+                //        if (type.Name.ToString().ToUpper() == "FRMSALERETURNPAYMENTGIVEN")
+                //        {
+                //            XtraForm frmShow = (XtraForm)frmAssembly.CreateInstance(type.ToString());
+                //            frmShow.MdiParent = Global.gMainFormRef;
+
+                //            frmShow.GetType().GetMethod("ShowForm_SaleReturnPaymentNew").Invoke(frmShow, new object[] { });
+                //            break;
+                //        }
+                //    }
+                //}
             }
         }
         public void GetPaymentGivenData(string Entry_date, string Remark, Int64 Voucher_No, Int64 Cash_Bank, Int64 Ledger_ID, DataTable Payment_Given_Data)
@@ -1914,32 +1930,6 @@ namespace Account_Management.Transaction
                 SaleReturnPaymentGiven objSaleReturnPaymentGiven = new SaleReturnPaymentGiven();
                 Int64 Union_ID = 0;
                 Conn = new BeginTranConnection(true, false);
-
-                for (int i = 0; i < Payment_Given_Data.Rows.Count; i++)
-                {
-                    if (Val.ToString(Payment_Given_Data.Rows[i]["method"]) != "")
-                    {
-                        SaleReturnPaymentGiven_Property.payment_id = Val.ToInt64(Payment_Given_Data.Rows[i]["payment_id"]);
-                        SaleReturnPaymentGiven_Property.union_id = Val.ToInt64(Union_ID);
-                        SaleReturnPaymentGiven_Property.payment_date = Val.DBDate(Entry_date);
-                        SaleReturnPaymentGiven_Property.sr_no = Val.ToInt32(Payment_Given_Data.Rows[i]["sr_no"]);
-                        SaleReturnPaymentGiven_Property.method = Val.ToString(Payment_Given_Data.Rows[i]["method"]);
-                        SaleReturnPaymentGiven_Property.purchase_id = Val.ToInt64(Payment_Given_Data.Rows[i]["purchase_id"]);
-                        SaleReturnPaymentGiven_Property.sale_return_id = Val.ToInt64(0);
-                        SaleReturnPaymentGiven_Property.reference = Val.ToString(Payment_Given_Data.Rows[i]["purchase_bill_no"]);
-                        SaleReturnPaymentGiven_Property.ledger_id = Val.ToInt64(Ledger_ID);
-                        SaleReturnPaymentGiven_Property.credit_amount = Val.ToDecimal(Payment_Given_Data.Rows[i]["amount"]);
-                        SaleReturnPaymentGiven_Property.debit_amount = Val.ToDecimal(Payment_Given_Data.Rows[i]["amount"]);
-                        SaleReturnPaymentGiven_Property.remarks = Val.ToString(Remark);
-                        SaleReturnPaymentGiven_Property.form_id = m_numForm_id;
-                        SaleReturnPaymentGiven_Property.voucher_no = Val.ToInt64(Voucher_No);
-
-                        SaleReturnPaymentGiven_Property.against_ledger_id = Val.ToInt64(Cash_Bank);
-                        SaleReturnPaymentGiven_Property = objSaleReturnPaymentGiven.PaymentGiven_Save(SaleReturnPaymentGiven_Property, DLL.GlobalDec.EnumTran.Start, Conn);
-
-                        Union_ID = SaleReturnPaymentGiven_Property.union_id;
-                    }
-                }
 
                 SaleReturn_Property objSaleReturnProperty = new SaleReturn_Property();
                 SaleReturn objSaleReturn = new SaleReturn();
@@ -1978,7 +1968,7 @@ namespace Account_Management.Transaction
                     objSaleReturnProperty.term_days = Val.ToInt32(txtTermDays.Text);
                     objSaleReturnProperty.due_date = Val.DBDate(DTPDueDate.Text);
 
-                    objSaleReturnProperty = objSaleReturn.Save(objSaleReturnProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
+                    objSaleReturnProperty = objSaleReturn.Save(objSaleReturnProperty, DLL.GlobalDec.EnumTran.Start, Conn);
 
                     Int64 NewmSaleReturnId = Val.ToInt64(objSaleReturnProperty.sale_return_id);
 
@@ -2016,6 +2006,31 @@ namespace Account_Management.Transaction
                         SetControlPropertyValue(lblProgressCount, "Text", Count.ToString() + "" + "/" + "" + TotalCount.ToString() + " Completed....");
                     }
 
+                    for (int i = 0; i < Payment_Given_Data.Rows.Count; i++)
+                    {
+                        if (Val.ToString(Payment_Given_Data.Rows[i]["method"]) != "")
+                        {
+                            SaleReturnPaymentGiven_Property.payment_id = Val.ToInt64(Payment_Given_Data.Rows[i]["payment_id"]);
+                            SaleReturnPaymentGiven_Property.union_id = Val.ToInt64(Union_ID);
+                            SaleReturnPaymentGiven_Property.payment_date = Val.DBDate(dtpReturnDate.Text);
+                            SaleReturnPaymentGiven_Property.sr_no = Val.ToInt32(Payment_Given_Data.Rows[i]["sr_no"]);
+                            SaleReturnPaymentGiven_Property.method = Val.ToString(Payment_Given_Data.Rows[i]["method"]);
+                            SaleReturnPaymentGiven_Property.invoice_id = Val.ToInt64(Payment_Given_Data.Rows[i]["invoice_id"]);
+                            SaleReturnPaymentGiven_Property.sale_return_id = Val.ToInt64(NewmSaleReturnId);
+                            SaleReturnPaymentGiven_Property.reference = Val.ToString(Payment_Given_Data.Rows[i]["order_no"]);
+                            SaleReturnPaymentGiven_Property.ledger_id = Val.ToInt64(lueParty.EditValue);
+                            SaleReturnPaymentGiven_Property.credit_amount = Val.ToDecimal(Payment_Given_Data.Rows[i]["amount"]);
+                            SaleReturnPaymentGiven_Property.debit_amount = Val.ToDecimal(Payment_Given_Data.Rows[i]["amount"]);
+                            SaleReturnPaymentGiven_Property.remarks = Val.ToString(txtRemark.Text);
+                            SaleReturnPaymentGiven_Property.form_id = m_numForm_id;
+                            SaleReturnPaymentGiven_Property.voucher_no = Val.ToInt64(0);
+
+                            SaleReturnPaymentGiven_Property.against_ledger_id = Val.ToInt64(Cash_Bank);
+                            SaleReturnPaymentGiven_Property = objSaleReturnPaymentGiven.PaymentGiven_Save(SaleReturnPaymentGiven_Property, DLL.GlobalDec.EnumTran.Continue, Conn);
+
+                            Union_ID = SaleReturnPaymentGiven_Property.union_id;
+                        }
+                    }
                     Conn.Inter1.Commit();
 
                     if (IntRes == -1)

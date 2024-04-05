@@ -15,9 +15,8 @@ namespace Account_Management.Transaction
 
         Validation Val = new Validation();
         public DataTable DTab = new DataTable();
-        PaymentGiven objPaymentGiven = new PaymentGiven();
+        SaleReturnPaymentGiven objSaleReturnPaymentGiven = new SaleReturnPaymentGiven();
         FormEvents objBOFormEvents = new FormEvents();
-        public FrmSaleReturnPaymentGiven FrmSaleReturnPaymentGiven = new FrmSaleReturnPaymentGiven();
         public FrmSaleReturn FrmSaleReturn = new FrmSaleReturn();
         //FrmSearch FrmSearch;
         FrmSearchNew FrmSearchNew;
@@ -26,6 +25,7 @@ namespace Account_Management.Transaction
         string Remarks = "";
         Int64 Voucher_No = 0;
         Int64 Cash_Bank = 0;
+        Int64 Party_ID_NEW = 0;
         #endregion
 
         #region Constructor
@@ -34,19 +34,19 @@ namespace Account_Management.Transaction
             InitializeComponent();
         }
 
-        public void ShowForm(FrmSaleReturnPaymentGiven ObjForm, string Entry_date, string Remark, Int64 Voucher_No, Int64 Cash_Bank, Int64 Ledger_ID, string Ledger_Name, decimal Amount)
+        public void ShowForm(FrmSaleReturn ObjForm, Int64 Party_ID)
         {
-            FrmSaleReturnPaymentGiven = new FrmSaleReturnPaymentGiven();
-            FrmSaleReturnPaymentGiven = ObjForm;
-            lblLedger.Text = Ledger_Name;
-            lblLedgerID.Text = Ledger_ID.ToString();
-            lblAmount.Text = Amount.ToString();
-            Entry_Date = Entry_date;
-            Remarks = Remark;
-            Voucher_No = Voucher_No;
-            Cash_Bank = Cash_Bank;
-
-            FormName = "FrmSaleReturnPaymentGiven";
+            FrmSaleReturn = new FrmSaleReturn();
+            FrmSaleReturn = ObjForm;
+            //lblLedger.Text = Ledger_Name;
+            //lblLedgerID.Text = Ledger_ID.ToString();
+            //lblAmount.Text = Amount.ToString();
+            //Entry_Date = Entry_date;
+            //Remarks = Remark;
+            //Voucher_No = Voucher_No;
+            //Cash_Bank = Cash_Bank;
+            Party_ID_NEW = Party_ID;
+            FormName = "FrmSaleReturn";
             Val.frmGenSetForPopup(this);
             AttachFormEvents();
             //this.Text = "Payment Given";
@@ -68,8 +68,8 @@ namespace Account_Management.Transaction
         {
             try
             {
-                objPaymentGiven = new PaymentGiven();
-                DataTable DTab_Payment_Receipt_Data = objPaymentGiven.PaymentGiven_Search_GetData(Val.ToInt64(lblLedgerID.Text), Val.ToString(""));
+                //objSaleReturnPaymentGiven = new SaleReturnPaymentGiven();
+                //DataTable DTab_Payment_Receipt_Data = objSaleReturnPaymentGiven.PaymentGiven_Search_GetData(Val.ToInt64(lblLedgerID.Text), Val.ToString(""));
 
                 GrdDet.PostEditor();
                 GrdDet.FocusedRowHandle = GrdDet.DataRowCount - 1;
@@ -79,14 +79,25 @@ namespace Account_Management.Transaction
                 RepMethod.Items.Add("Adjustment");
                 RepMethod.Items.Add("New Ref.");
 
-                if (DTab_Payment_Receipt_Data.Rows.Count > 0)
-                {
-                    MainGrid.DataSource = DTab_Payment_Receipt_Data;
-                }
-                else
-                {
-                    MainGrid.DataSource = DTab;
-                }
+                //if (DTab_Payment_Receipt_Data.Rows.Count > 0)
+                //{
+                DataTable DtPaymentGiven = new DataTable();
+                DtPaymentGiven = new DataTable();
+                DtPaymentGiven.Columns.Add("sr_no", typeof(int));
+                DtPaymentGiven.Columns.Add("method", typeof(string));
+                DtPaymentGiven.Columns.Add("order_no", typeof(string));
+                DtPaymentGiven.Columns.Add("amount", typeof(decimal));
+                DtPaymentGiven.Columns.Add("invoice_id", typeof(Int64));
+                DtPaymentGiven.Columns.Add("payment_date", typeof(string));
+                DtPaymentGiven.Columns.Add("payment_id", typeof(Int64));
+                DtPaymentGiven.Rows.Add(1, "", "", 0, 0, "");
+
+                MainGrid.DataSource = DtPaymentGiven;
+                //}
+                //else
+                //{
+                //    MainGrid.DataSource = DTab;
+                //}
             }
             catch (Exception ex)
             {
@@ -177,14 +188,14 @@ namespace Account_Management.Transaction
         #region Repository Events
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (FormName == "FrmSaleReturnPaymentGiven")
+            if (FormName == "FrmSaleReturn")
             {
-                decimal Payment_Rec_Amount = Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue);
-                if (Payment_Rec_Amount != Val.ToDecimal(lblAmount.Text))
-                {
-                    Global.Message("Total Amount Not Equal To Sale Return Payment Given Amount");
-                    return;
-                }
+                //decimal Payment_Rec_Amount = Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue);
+                //if (Payment_Rec_Amount != Val.ToDecimal(lblAmount.Text))
+                //{
+                //    Global.Message("Total Amount Not Equal To Sale Return Payment Given Amount");
+                //    return;
+                //}
                 DialogResult result = MessageBox.Show("Do you want to save data?", "Confirmation", MessageBoxButtons.YesNoCancel);
                 if (result != DialogResult.Yes)
                 {
@@ -231,13 +242,13 @@ namespace Account_Management.Transaction
             {
                 string Method = Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "method"));
 
-                if (GrdDet.FocusedColumn.FieldName.ToUpper() == "PURCHASE_BILL_NO" && Method == "Adjustment")
+                if (GrdDet.FocusedColumn.FieldName.ToUpper() == "ORDER_NO" && Method == "Adjustment")
                 {
                     FrmSearchNew = new Search.FrmSearchNew();
                     FrmSearchNew.SearchText = e.KeyChar.ToString();
-                    FrmSearchNew.DTab = objPaymentGiven.Sale_Invoice_Search_GetData(Val.ToInt64(lblLedgerID.Text));
+                    FrmSearchNew.DTab = objSaleReturnPaymentGiven.Sale_Invoice_Search_GetData(Val.ToInt64(Party_ID_NEW));
 
-                    FrmSearchNew.SearchField = "purchase_bill_no";
+                    FrmSearchNew.SearchField = "order_no";
 
                     FrmSearchNew.ShowDialog();
                     e.Handled = true;
@@ -245,7 +256,7 @@ namespace Account_Management.Transaction
                     {
                         if (FrmSearchNew.DRow != null)
                         {
-                            GrdDet.SetFocusedRowCellValue("purchase_bill_no", Val.ToString(FrmSearchNew.DRow["purchase_bill_no"]));
+                            GrdDet.SetFocusedRowCellValue("order_no", Val.ToString(FrmSearchNew.DRow["order_no"]));
                             if (Val.ToString(FrmSearchNew.DRow["payment_date"]) != "")
                             {
                                 GrdDet.SetFocusedRowCellValue("payment_date", Val.ToString(FrmSearchNew.DRow["payment_date"]));
@@ -255,7 +266,7 @@ namespace Account_Management.Transaction
                             }
 
                             GrdDet.SetFocusedRowCellValue("amount", Val.ToString(FrmSearchNew.DRow["os_amount"]));
-                            GrdDet.SetFocusedRowCellValue("purchase_id", Val.ToString(FrmSearchNew.DRow["purchase_id"]));
+                            GrdDet.SetFocusedRowCellValue("invoice_id", Val.ToString(FrmSearchNew.DRow["invoice_id"]));
                             GrdDet.PostEditor();
                         }
                     }
