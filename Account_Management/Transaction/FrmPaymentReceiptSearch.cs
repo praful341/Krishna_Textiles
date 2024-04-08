@@ -246,10 +246,35 @@ namespace Account_Management.Transaction
                     //FrmSearch.Dispose();
                     //FrmSearch = null;
 
+
+                    DataTable dt = new DataTable();
+                    DataTable DTab_Data = new DataTable();
+
+                    DTab_Data = (DataTable)MainGrid.DataSource;
+                    DTab_Data.AcceptChanges();
+                    string strOrderNo = string.Empty;
+
+                    foreach (DataRow item in DTab_Data.Rows)
+                    {
+                        if (Val.ToString(item["ref_order_no"]) != "")
+                        {
+                            if (strOrderNo == string.Empty)
+                            {
+                                strOrderNo += Val.ToString(item["ref_order_no"]);
+                            }
+                            else
+                            {
+                                strOrderNo += ","+ Val.ToString(item["ref_order_no"]) ;
+                            }
+                        }
+                    }
+
+
                     FrmSearchNew = new Search.FrmSearchNew();
                     FrmSearchNew.SearchText = e.KeyChar.ToString();
-                    FrmSearchNew.DTab = objPaymentReceipt.Sale_Invoice_Search_GetData(Val.ToInt64(lblLedgerID.Text));
+                    dt = objPaymentReceipt.Sale_Invoice_Search_GetData(Val.ToInt64(lblLedgerID.Text), strOrderNo);
 
+                    FrmSearchNew.DTab = dt;
                     FrmSearchNew.SearchField = "order_no,invoice_id";
 
                     FrmSearchNew.ShowDialog();
