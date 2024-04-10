@@ -1584,6 +1584,27 @@ namespace Account_Management.Report
                         }
                     }
                 }
+                else if (Type == "Sale Rtn.")
+                {
+                    FrmSaleInvoice objSaleInvoice = new FrmSaleInvoice();
+                    Assembly frmAssembly = Assembly.LoadFile(Application.ExecutablePath);
+
+                    foreach (Type type in frmAssembly.GetTypes())
+                    {
+                        string type1 = type.Name.ToString().ToUpper();
+                        if (type.BaseType == typeof(DevExpress.XtraEditors.XtraForm))
+                        {
+                            if (type.Name.ToString().ToUpper() == "FRMSALERETURN")
+                            {
+                                XtraForm frmShow = (XtraForm)frmAssembly.CreateInstance(type.ToString());
+                                frmShow.MdiParent = Global.gMainFormRef;
+
+                                frmShow.GetType().GetMethod("ShowForm_New").Invoke(frmShow, new object[] { Invoice_ID });
+                                break;
+                            }
+                        }
+                    }
+                }
                 else if (Type == "Purc")
                 {
                     FrmPurchase objPurchase = new FrmPurchase();

@@ -832,13 +832,13 @@ namespace Account_Management.Report
                     /* Add Alignment */
                     switch (DRow["alignment"].ToString().ToUpper())
                     {
-                        case "left":
+                        case "LEFT":
                             GridView1.Columns[DRow["field_name"].ToString()].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
                             break;
-                        case "right":
+                        case "RIGHT":
                             GridView1.Columns[DRow["field_name"].ToString()].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
                             break;
-                        case "center":
+                        case "CENTER":
                             GridView1.Columns[DRow["field_name"].ToString()].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                             break;
                         default:

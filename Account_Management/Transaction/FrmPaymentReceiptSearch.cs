@@ -63,22 +63,28 @@ namespace Account_Management.Transaction
                 objPaymentReceipt = new PaymentReceipt();
                 DTab_Payment_Receipt_Data = objPaymentReceipt.PaymentReceipt_Search_GetData(Val.ToInt64(lblLedgerID.Text), Val.ToString(""));
 
-                GrdDet.PostEditor();
-                GrdDet.FocusedRowHandle = GrdDet.DataRowCount - 1;
-                GrdDet.FocusedColumn = GrdDet.Columns["method"];
-                RepMethod.AllowFocused = true;
-
-                RepMethod.Items.Add("Adjustment");
-                RepMethod.Items.Add("New Ref.");
-
                 if (DTab_Payment_Receipt_Data.Rows.Count > 0)
                 {
                     MainGrid.DataSource = DTab_Payment_Receipt_Data;
+                    //GrdDet.FocusedColumn = GrdDet.Columns["method"];
+                    //GrdDet.ShowEditor();
                 }
                 else
                 {
                     MainGrid.DataSource = DTab;
+                    //GrdDet.FocusedColumn = GrdDet.Columns["method"];
+                    //GrdDet.ShowEditor();
                 }
+
+                RepMethod.Items.Add("Adjustment");
+                RepMethod.Items.Add("New Ref.");
+
+                //GrdDet.PostEditor();
+                GrdDet.FocusedColumn = GrdDet.Columns["method"];
+                GrdDet.ShowEditor();
+                // RepMethod.AllowFocused = true;
+
+
             }
             catch (Exception ex)
             {

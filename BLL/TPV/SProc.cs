@@ -204,6 +204,7 @@
         public static string TRN_SaleReturn_GetDetailsData = "TRN_SaleReturn_GetDetailsData";
         public static string TRN_SaleReturn_Delete = "TRN_SaleReturn_Delete";
         public static string TRN_Payment_OS_Sale_Wise = "TRN_Payment_OS_Sale_Wise";
+        public static string TRN_SaleReturn_Popup_GetData = "TRN_SaleReturn_Popup_GetData";
 
         #endregion Sale Invoice Entry
 
@@ -241,6 +242,12 @@
         public static string TRN_Barcode_Print_GetData = "TRN_Barcode_Print_GetData";
 
         #endregion Payment Given Entry
+
+        #region Journal Entry
+
+        public static string TRN_Journal_Entry_Save = "TRN_Journal_Entry_Save";
+
+        #endregion Journal Entry
 
         #endregion
 

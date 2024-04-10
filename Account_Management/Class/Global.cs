@@ -1926,5 +1926,13 @@ namespace Account_Management.Class
             lookup.ValueMember = "company_id";
             lookup.DisplayMember = "company_name";
         }
+        public static void LOOKUPLedgerRep(DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lookup)
+        {
+            LedgerMaster objLedger = new LedgerMaster();
+            DataTable Ledger = objLedger.GetData();
+            lookup.DataSource = Ledger;
+            lookup.ValueMember = "ledger_id";
+            lookup.DisplayMember = "ledger_name";
+        }
     }//Global Method
 }

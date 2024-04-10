@@ -200,7 +200,7 @@ namespace BLL.FunctionClasses.Transaction
             Request Request = new Request();
             Request.CommandText = BLL.TPV.SProc.TRN_SaleInvoice_Popup_GetData;
             Request.CommandType = CommandType.StoredProcedure;
-            Request.AddParams("@invoice_id", Invoice_ID, DbType.Int64);
+            Request.AddParams("@sale_return_id", Invoice_ID, DbType.Int64);
             Request.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int32);
             Request.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int32);
             Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int32);

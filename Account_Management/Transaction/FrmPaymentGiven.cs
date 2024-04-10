@@ -56,7 +56,6 @@ namespace Account_Management.Transaction
                 Global.Message("Select First User Setting...Please Contact to Administrator...");
                 return;
             }
-
             ControlSettingDT(Val.ToInt(ObjPer.form_id), this);
             AddGotFocusListener(this);
             AddKeyPressListener(this);
@@ -64,7 +63,6 @@ namespace Account_Management.Transaction
 
             TabControlsToList(this.Controls);
             _tabControls = _tabControls.OrderBy(x => x.TabIndex).ToList();
-
             this.Show();
         }
 

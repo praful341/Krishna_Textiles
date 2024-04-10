@@ -214,7 +214,6 @@ namespace BLL.FunctionClasses.Transaction
                 return DTab;
             }
         }
-
         public DataTable GetOrderData(string p_SaleType, string p_PreFix)
         {
             DataTable DTab = new DataTable();
@@ -238,7 +237,6 @@ namespace BLL.FunctionClasses.Transaction
                 return DTab;
             }
         }
-
         public DataTable GetInvoiceNo(int p_LedgerID)
         {
             DataTable DTab = new DataTable();
@@ -261,6 +259,21 @@ namespace BLL.FunctionClasses.Transaction
                 BLL.General.ShowErrors(ex);
                 return DTab;
             }
+        }
+        public DataTable Sale_Return_Popup_GetData(Int64 Sale_Return_ID)
+        {
+            DataTable DTab = new DataTable();
+            Request Request = new Request();
+            Request.CommandText = BLL.TPV.SProc.TRN_SaleReturn_Popup_GetData;
+            Request.CommandType = CommandType.StoredProcedure;
+            Request.AddParams("@sale_return_id", Sale_Return_ID, DbType.Int64);
+            Request.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int32);
+            Request.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int32);
+            Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int32);
+            Request.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int32);
+
+            Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
+            return DTab;
         }
     }
 }

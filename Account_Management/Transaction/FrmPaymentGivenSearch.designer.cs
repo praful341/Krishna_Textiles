@@ -52,6 +52,7 @@
             this.ClmInvoiceID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.RepDueDate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.lblLedgerID = new DevExpress.XtraEditors.LabelControl();
@@ -60,7 +61,6 @@
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).BeginInit();
             this.ContextMNExport.SuspendLayout();
@@ -339,6 +339,12 @@
             this.RepDueDate.Name = "RepDueDate";
             this.RepDueDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RepDueDate_KeyDown);
             // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Payment ID";
+            this.gridColumn3.FieldName = "payment_id";
+            this.gridColumn3.Name = "gridColumn3";
+            // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.labelControl2);
@@ -434,12 +440,6 @@
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(549, 301);
             this.panelControl2.TabIndex = 16;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "Payment ID";
-            this.gridColumn3.FieldName = "payment_id";
-            this.gridColumn3.Name = "gridColumn3";
             // 
             // FrmPaymentGivenSearch
             // 
