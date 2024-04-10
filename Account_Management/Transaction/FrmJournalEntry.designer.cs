@@ -55,7 +55,10 @@
             this.RepRemarks = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblUnionID = new DevExpress.XtraEditors.LabelControl();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.txtVoucherNo = new DevExpress.XtraEditors.TextEdit();
             this.lblInvoiceNo = new System.Windows.Forms.Label();
@@ -63,9 +66,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.backgroundWorker_JournalEntry = new System.ComponentModel.BackgroundWorker();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.lblUnionID = new DevExpress.XtraEditors.LabelControl();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).BeginInit();
             this.ContextMNExport.SuspendLayout();
@@ -266,6 +266,9 @@
             this.GrdDet.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.GrdDet.OptionsView.ShowFooter = true;
             this.GrdDet.OptionsView.ShowGroupPanel = false;
+            this.GrdDet.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.GrdDet_FocusedRowChanged);
+            this.GrdDet.FocusedColumnChanged += new DevExpress.XtraGrid.Views.Base.FocusedColumnChangedEventHandler(this.GrdDet_FocusedColumnChanged);
+            this.GrdDet.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.GrdDet_ValidatingEditor);
             // 
             // gridColumn2
             // 
@@ -411,6 +414,12 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Width = 167;
             // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Payment ID";
+            this.gridColumn4.FieldName = "payment_id";
+            this.gridColumn4.Name = "gridColumn4";
+            // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.label1);
@@ -425,6 +434,28 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(772, 48);
             this.panelControl1.TabIndex = 15;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(449, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 16);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Union ID :";
+            // 
+            // lblUnionID
+            // 
+            this.lblUnionID.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnionID.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lblUnionID.Appearance.Options.UseFont = true;
+            this.lblUnionID.Appearance.Options.UseForeColor = true;
+            this.lblUnionID.Location = new System.Drawing.Point(531, 18);
+            this.lblUnionID.Name = "lblUnionID";
+            this.lblUnionID.Size = new System.Drawing.Size(8, 14);
+            this.lblUnionID.TabIndex = 26;
+            this.lblUnionID.Text = "0";
             // 
             // btnAdd
             // 
@@ -499,34 +530,6 @@
             // 
             this.backgroundWorker_JournalEntry.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_JournalEntry_DoWork);
             this.backgroundWorker_JournalEntry.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_JournalEntry_RunWorkerCompleted);
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "Payment ID";
-            this.gridColumn4.FieldName = "payment_id";
-            this.gridColumn4.Name = "gridColumn4";
-            // 
-            // lblUnionID
-            // 
-            this.lblUnionID.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnionID.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lblUnionID.Appearance.Options.UseFont = true;
-            this.lblUnionID.Appearance.Options.UseForeColor = true;
-            this.lblUnionID.Location = new System.Drawing.Point(531, 18);
-            this.lblUnionID.Name = "lblUnionID";
-            this.lblUnionID.Size = new System.Drawing.Size(8, 14);
-            this.lblUnionID.TabIndex = 26;
-            this.lblUnionID.Text = "0";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(449, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 16);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Union ID :";
             // 
             // FrmJournalEntry
             // 
