@@ -290,6 +290,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.RepDC.Name = "RepDC";
             this.RepDC.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.RepDC.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RepDC_KeyDown);
             // 
             // clmRSAmount
             // 

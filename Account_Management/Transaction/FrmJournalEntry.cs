@@ -347,5 +347,31 @@ namespace Account_Management.Transaction
                 Global.Message(ex.InnerException.ToString());
             }
         }
+
+        private void RepDC_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                GrdDet.SetRowCellValue(GrdDet.DataRowCount - 1, "sr_no", GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "sr_no"));
+                string DC = Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "dc"));
+
+                if (DC == "C")
+                {
+                    GrdDet.Columns["credit_amount"].OptionsColumn.ReadOnly = true;
+                    GrdDet.Columns["credit_amount"].OptionsColumn.AllowFocus = false;
+                    GrdDet.Columns["debit_amount"].OptionsColumn.ReadOnly = false;
+                    GrdDet.Columns["debit_amount"].OptionsColumn.AllowFocus = true;
+                }
+                else if (DC == "D")
+                {
+                    GrdDet.Columns["debit_amount"].OptionsColumn.ReadOnly = true;
+                    GrdDet.Columns["debit_amount"].OptionsColumn.AllowFocus = false;
+                    GrdDet.Columns["credit_amount"].OptionsColumn.ReadOnly = false;
+                    GrdDet.Columns["credit_amount"].OptionsColumn.AllowFocus = true;
+                }
+                GrdDet.FocusedColumn = GrdDet.Columns["ledger_id"];
+            }
+        }
     }
 }
