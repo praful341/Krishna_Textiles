@@ -293,7 +293,7 @@ namespace Account_Management.Transaction
                             objJournalEntryProperty.credit_amount = Val.ToDecimal(drw["credit_amount"]);
                             objJournalEntryProperty.debit_amount = Val.ToDecimal(drw["debit_amount"]);
                             objJournalEntryProperty.remarks = Val.ToString(drw["remarks"]);
-                            objJournalEntryProperty.flag = Val.ToInt(drw["cd"]);
+                            objJournalEntryProperty.flag = Val.ToInt(drw["dc"]);
 
                             objJournalEntryProperty = objJournalEntry.Save(objJournalEntryProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
                             Union_ID = objJournalEntryProperty.union_id;
