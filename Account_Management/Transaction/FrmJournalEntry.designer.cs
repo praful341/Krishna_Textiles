@@ -63,6 +63,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.backgroundWorker_JournalEntry = new System.ComponentModel.BackgroundWorker();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lblUnionID = new DevExpress.XtraEditors.LabelControl();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).BeginInit();
             this.ContextMNExport.SuspendLayout();
@@ -247,7 +250,8 @@
             this.ClmCreditAmt,
             this.ClmInvoiceID,
             this.gridColumn1,
-            this.gridColumn3});
+            this.gridColumn3,
+            this.gridColumn4});
             this.GrdDet.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.GrdDet.GridControl = this.MainGrid;
             this.GrdDet.Name = "GrdDet";
@@ -409,6 +413,8 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.label1);
+            this.panelControl1.Controls.Add(this.lblUnionID);
             this.panelControl1.Controls.Add(this.btnAdd);
             this.panelControl1.Controls.Add(this.txtVoucherNo);
             this.panelControl1.Controls.Add(this.lblInvoiceNo);
@@ -494,6 +500,34 @@
             this.backgroundWorker_JournalEntry.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_JournalEntry_DoWork);
             this.backgroundWorker_JournalEntry.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_JournalEntry_RunWorkerCompleted);
             // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Payment ID";
+            this.gridColumn4.FieldName = "payment_id";
+            this.gridColumn4.Name = "gridColumn4";
+            // 
+            // lblUnionID
+            // 
+            this.lblUnionID.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnionID.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lblUnionID.Appearance.Options.UseFont = true;
+            this.lblUnionID.Appearance.Options.UseForeColor = true;
+            this.lblUnionID.Location = new System.Drawing.Point(531, 18);
+            this.lblUnionID.Name = "lblUnionID";
+            this.lblUnionID.Size = new System.Drawing.Size(8, 14);
+            this.lblUnionID.TabIndex = 26;
+            this.lblUnionID.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(449, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 16);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Union ID :";
+            // 
             // FrmJournalEntry
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
@@ -568,5 +602,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox RepDC;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LueLedger;
         private System.ComponentModel.BackgroundWorker backgroundWorker_JournalEntry;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private System.Windows.Forms.Label label1;
+        private DevExpress.XtraEditors.LabelControl lblUnionID;
     }
 }

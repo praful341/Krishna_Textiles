@@ -246,6 +246,7 @@
         #region Journal Entry
 
         public static string TRN_Journal_Entry_Save = "TRN_Journal_Entry_Save";
+        public static string TRN_Journal_Entry_GetData = "TRN_Journal_Entry_GetData";
 
         #endregion Journal Entry
 

@@ -21,8 +21,8 @@ namespace Account_Management.Transaction
         FormEvents objBOFormEvents = new FormEvents();
         DataTable DtJournalEntry = new DataTable();
         int m_numForm_id = 0;
-        int IntRes;
         Int64 Union_ID = 0;
+        string Form_Clear = string.Empty;
 
         #endregion
 
@@ -30,7 +30,6 @@ namespace Account_Management.Transaction
         public FrmJournalEntry()
         {
             InitializeComponent();
-            IntRes = 0;
         }
         public void ShowForm()
         {
@@ -44,6 +43,37 @@ namespace Account_Management.Transaction
             Val.frmGenSet(this);
             AttachFormEvents();
             this.Show();
+        }
+
+        public void ShowForm_New(Int64 Union_ID)
+        {
+            ObjPer.FormName = this.Name.ToUpper();
+            if (ObjPer.CheckPermission() == false)
+            {
+                Global.Message(BLL.GlobalDec.gStrPermissionViwMsg);
+                return;
+            }
+            Val.frmGenSet(this);
+            AttachFormEvents();
+
+            Form_Clear = "Journal Entry";
+            this.Show();
+
+            DtJournalEntry = objJournalEntry.GetData(Union_ID);
+
+            if (DtJournalEntry.Rows.Count > 0)
+            {
+                txtVoucherNo.Text = Val.ToInt64(DtJournalEntry.Rows[0]["voucher_no"]).ToString();
+                dtpEntryDate.Text = Val.DBDate(DtJournalEntry.Rows[0]["transaction_date"].ToString());
+                lblUnionID.Text = Val.ToInt64(DtJournalEntry.Rows[0]["union_id"]).ToString();
+
+                MainGrid.DataSource = DtJournalEntry;
+            }
+            else
+            {
+                Global.Message("Data Are Not Found");
+                return;
+            }
         }
         private void AttachFormEvents()
         {
@@ -68,7 +98,15 @@ namespace Account_Management.Transaction
                 RepDC.Items.Add("C");
                 Global.LOOKUPLedgerRep(LueLedger);
 
-                btnClear_Click(null, null);
+                if (Form_Clear != "Journal Entry")
+                {
+                    btnClear_Click(btnClear, null);
+                }
+                else
+                {
+                    dtpEntryDate.Focus();
+                }
+                Form_Clear = "";
             }
             catch (Exception ex)
             {
@@ -214,6 +252,7 @@ namespace Account_Management.Transaction
         private void btnAdd_Click(object sender, EventArgs e)
         {
             DtJournalEntry = new DataTable();
+            DtJournalEntry.Columns.Add("payment_id", typeof(Int64));
             DtJournalEntry.Columns.Add("sr_no", typeof(int));
             DtJournalEntry.Columns.Add("dc", typeof(string));
             DtJournalEntry.Columns.Add("ledger_name", typeof(string));
@@ -221,10 +260,8 @@ namespace Account_Management.Transaction
             DtJournalEntry.Columns.Add("debit_amount", typeof(decimal));
             DtJournalEntry.Columns.Add("credit_amount", typeof(decimal));
             DtJournalEntry.Columns.Add("remarks", typeof(string));
-            DtJournalEntry.Rows.Add(1, "", "", 0, 0, 0, "");
-
+            DtJournalEntry.Rows.Add(0, 1, "", "", 0, 0, 0, "");
             MainGrid.DataSource = DtJournalEntry;
-
             GrdDet.FocusedColumn = GrdDet.Columns["dc"];
             GrdDet.ShowEditor();
         }
@@ -237,6 +274,7 @@ namespace Account_Management.Transaction
             dtpEntryDate.EditValue = DateTime.Now;
             btnAdd.Text = "&Add";
             Union_ID = 0;
+            lblUnionID.Text = "0";
 
             objJournalEntry = new JournalEntry();
             txtVoucherNo.Text = objJournalEntry.FindNewID().ToString();
@@ -272,8 +310,6 @@ namespace Account_Management.Transaction
                 JournalEntry objJournalEntry = new JournalEntry();
                 try
                 {
-                    IntRes = 0;
-
                     foreach (DataRow drw in DtJournalEntry.Rows)
                     {
                         if (Val.ToInt64(drw["ledger_id"]) != 0)
@@ -287,13 +323,21 @@ namespace Account_Management.Transaction
                             objJournalEntryProperty.Journal_date = Val.DBDate(dtpEntryDate.Text);
                             objJournalEntryProperty.form_id = m_numForm_id;
 
-                            objJournalEntryProperty.union_id = Val.ToInt64(Union_ID);
+                            if (lblUnionID.Text != "0")
+                            {
+                                objJournalEntryProperty.union_id = Val.ToInt64(lblUnionID.Text);
+                            }
+                            else
+                            {
+                                objJournalEntryProperty.union_id = Val.ToInt64(Union_ID);
+                            }
+                            objJournalEntryProperty.payment_id = Val.ToInt64(drw["payment_id"]);
                             objJournalEntryProperty.sr_no = Val.ToInt32(drw["sr_no"]);
                             objJournalEntryProperty.ledger_id = Val.ToInt64(drw["ledger_id"]);
                             objJournalEntryProperty.credit_amount = Val.ToDecimal(drw["credit_amount"]);
                             objJournalEntryProperty.debit_amount = Val.ToDecimal(drw["debit_amount"]);
                             objJournalEntryProperty.remarks = Val.ToString(drw["remarks"]);
-                            objJournalEntryProperty.flag = Val.ToInt(drw["dc"]);
+                            objJournalEntryProperty.flag = Val.ToString(drw["dc"]);
 
                             objJournalEntryProperty = objJournalEntry.Save(objJournalEntryProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
                             Union_ID = objJournalEntryProperty.union_id;
@@ -303,7 +347,6 @@ namespace Account_Management.Transaction
                 }
                 catch (Exception ex)
                 {
-                    IntRes = -1;
                     Conn.Inter1.Rollback();
                     Conn = null;
                     General.ShowErrors(ex.ToString());
@@ -316,7 +359,6 @@ namespace Account_Management.Transaction
             }
             catch (Exception ex)
             {
-                IntRes = -1;
                 Conn.Inter1.Rollback();
                 Conn = null;
                 Global.Message(ex.ToString());

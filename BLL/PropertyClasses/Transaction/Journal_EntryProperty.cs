@@ -4,6 +4,7 @@ namespace BLL.PropertyClasses.Transaction
 {
     public class Journal_EntryProperty
     {
+        public Int64 payment_id { get; set; }
         public int company_id { get; set; }
         public int branch_id { get; set; }
         public int location_id { get; set; }
@@ -17,6 +18,6 @@ namespace BLL.PropertyClasses.Transaction
         public decimal debit_amount { get; set; }
         public Int64 union_id { get; set; }
         public string remarks { get; set; }
-        public int flag { get; set; }
+        public string flag { get; set; }
     }
 }
