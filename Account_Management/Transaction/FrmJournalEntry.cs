@@ -399,6 +399,7 @@ namespace Account_Management.Transaction
                 {
                     GrdDet.Columns["credit_amount"].OptionsColumn.ReadOnly = false;
                     GrdDet.Columns["credit_amount"].OptionsColumn.AllowFocus = true;
+                    //GrdDet.Columns["credit_amount"].AppearanceCell.BackColor = System.Drawing.Color.Black;
                     GrdDet.Columns["debit_amount"].OptionsColumn.ReadOnly = true;
                     GrdDet.Columns["debit_amount"].OptionsColumn.AllowFocus = false;
                 }
