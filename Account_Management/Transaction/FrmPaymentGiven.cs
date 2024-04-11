@@ -217,10 +217,6 @@ namespace Account_Management.Transaction
 
         #endregion
 
-        private void FrmIncomeEntry_Load(object sender, EventArgs e)
-        {
-
-        }
         #region Dynamic Tab Setting
         private void AddGotFocusListener(Control ctrl)
         {
@@ -628,6 +624,16 @@ namespace Account_Management.Transaction
                 DTPEntryDate.Focus();
             }
             Form_Clear = "";
+        }
+
+        private void FrmPaymentGiven_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                FrmLedgerMaster frmCnt = new FrmLedgerMaster();
+                frmCnt.ShowDialog();
+                Global.LOOKUPLedger(LueLedger);
+            }
         }
     }
 }

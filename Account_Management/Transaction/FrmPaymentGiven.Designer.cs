@@ -777,6 +777,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Payment Given";
             this.Load += new System.EventHandler(this.FrmPaymentGiven_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmPaymentGiven_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.PnlSaerchData)).EndInit();
             this.PnlSaerchData.ResumeLayout(false);
             this.PnlSaerchData.PerformLayout();

@@ -194,10 +194,17 @@
             // 
             // GrdDet
             // 
+            this.GrdDet.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.GrdDet.Appearance.FocusedCell.Font = new System.Drawing.Font("Verdana", 9F);
+            this.GrdDet.Appearance.FocusedCell.Options.UseBackColor = true;
             this.GrdDet.Appearance.FocusedCell.Options.UseFont = true;
+            this.GrdDet.Appearance.FocusedRow.BackColor = System.Drawing.Color.White;
+            this.GrdDet.Appearance.FocusedRow.BackColor2 = System.Drawing.Color.White;
             this.GrdDet.Appearance.FocusedRow.Font = new System.Drawing.Font("Verdana", 9F);
+            this.GrdDet.Appearance.FocusedRow.ForeColor = System.Drawing.Color.Black;
+            this.GrdDet.Appearance.FocusedRow.Options.UseBackColor = true;
             this.GrdDet.Appearance.FocusedRow.Options.UseFont = true;
+            this.GrdDet.Appearance.FocusedRow.Options.UseForeColor = true;
             this.GrdDet.Appearance.FooterPanel.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
             this.GrdDet.Appearance.FooterPanel.Options.UseFont = true;
             this.GrdDet.Appearance.HeaderPanel.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold);
