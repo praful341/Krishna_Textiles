@@ -942,13 +942,13 @@ namespace Account_Management.Transaction
                 txtIGSTAmount.Text = string.Empty;
                 txtRemark.Text = string.Empty;
                 txtPurchaseBill.Text = string.Empty;
-                txtVoucherNo.Enabled = true;
+                txtVoucherNo.Enabled = false;
                 txtTermDays.Text = "";
                 btnAdd.Text = "&Add";
                 txtVoucherNo.Focus();
                 m_srno = 0;
-                //objPurchase = new Purchase();
-                //txtVoucherNo.Text = objPurchase.FindNewID().ToString();
+                objPurchaseReturn = new PurchaseReturn();
+                txtVoucherNo.Text = objPurchaseReturn.FindNewID().ToString();
                 m_IsUpdate = true;
                 lblMode.Text = "Add Mode";
 

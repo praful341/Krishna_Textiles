@@ -1065,7 +1065,7 @@ namespace Account_Management.Transaction
                 txtVoucherNo.Enabled = true;
                 txtTermDays.Text = "";
                 btnAdd.Text = "&Add";
-                txtVoucherNo.Focus();
+                txtPurchaseBill.Focus();
                 m_srno = 0;
                 //objPurchase = new Purchase();
                 //txtVoucherNo.Text = objPurchase.FindNewID().ToString();
@@ -1528,7 +1528,7 @@ namespace Account_Management.Transaction
                 else
                 {
                     Global.Confirm("Error In Purchase Data");
-                    txtVoucherNo.Focus();
+                    txtPurchaseBill.Focus();
                 }
             }
             catch (Exception ex)
@@ -1627,7 +1627,7 @@ namespace Account_Management.Transaction
                 else
                 {
                     Global.Confirm("Error In Purchase Data Delete");
-                    txtVoucherNo.Focus();
+                    txtPurchaseBill.Focus();
                 }
             }
             catch (Exception ex)
@@ -1822,7 +1822,7 @@ namespace Account_Management.Transaction
                     {
                         Global.Message("Voucher No Data Not Found");
                         btnClear_Click(null, null);
-                        txtVoucherNo.Focus();
+                        txtPurchaseBill.Focus();
                         return;
                     }
                 }
@@ -1830,16 +1830,15 @@ namespace Account_Management.Transaction
                 {
                     Global.Message("Voucher No Already Purchase.");
                     btnClear_Click(null, null);
-                    txtVoucherNo.Focus();
+                    txtPurchaseBill.Focus();
                     return;
                 }
             }
             else
             {
-                txtVoucherNo.Focus();
+                txtPurchaseBill.Focus();
             }
         }
-
         private void txtTermDays_EditValueChanged(object sender, EventArgs e)
         {
             if (dtpPurchaseDate.Text.Length <= 0 || txtTermDays.Text == "")
@@ -1853,7 +1852,6 @@ namespace Account_Management.Transaction
                 DTPDueDate.EditValue = Val.DBDDDate(Date.ToShortDateString());
             }
         }
-
         private void txtTermDays_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -1861,7 +1859,6 @@ namespace Account_Management.Transaction
                 e.Handled = true;
             }
         }
-
         private void txtPcs_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))

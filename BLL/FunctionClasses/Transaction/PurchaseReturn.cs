@@ -137,6 +137,12 @@ namespace BLL.FunctionClasses.Transaction
                 throw ex;
             }
         }
+        public int FindNewID()
+        {
+            int IntRes = 0;
+            IntRes = Ope.FindNewID(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, "TRN_PurchaseReturn", "isnull(MAX(voucher_no),0)", "");
+            return IntRes;
+        }
         public int Delete(PurchaseReturn_Property pClsProperty, Int32 flag, DLL.GlobalDec.EnumTran pEnum = DLL.GlobalDec.EnumTran.WithCommit, BeginTranConnection Conn = null)
         {
             try
