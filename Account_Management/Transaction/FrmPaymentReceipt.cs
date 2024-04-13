@@ -672,9 +672,12 @@ namespace Account_Management.Transaction
 
         private void FrmPaymentReceipt_KeyUp(object sender, KeyEventArgs e)
         {
-            FrmLedgerMaster frmCnt = new FrmLedgerMaster();
-            frmCnt.ShowDialog();
-            Global.LOOKUPLedger(LueLedger);
+            if (e.KeyCode == Keys.F1)
+            {
+                FrmLedgerMaster frmCnt = new FrmLedgerMaster();
+                frmCnt.ShowDialog();
+                Global.LOOKUPLedger(LueLedger);
+            }
         }
     }
 }
