@@ -34,7 +34,7 @@ namespace Account_Management.Transaction
             InitializeComponent();
         }
 
-        public void ShowForm(FrmSaleReturn ObjForm, Int64 Party_ID)
+        public void ShowForm(FrmSaleReturn ObjForm, Int64 Party_ID, decimal Net_Amount)
         {
             FrmSaleReturn = new FrmSaleReturn();
             FrmSaleReturn = ObjForm;
@@ -46,6 +46,7 @@ namespace Account_Management.Transaction
             //Voucher_No = Voucher_No;
             //Cash_Bank = Cash_Bank;
             Party_ID_NEW = Party_ID;
+            lblAmount.Text = Net_Amount.ToString();
             FormName = "FrmSaleReturn";
             Val.frmGenSetForPopup(this);
             AttachFormEvents();
@@ -190,12 +191,12 @@ namespace Account_Management.Transaction
         {
             if (FormName == "FrmSaleReturn")
             {
-                //decimal Payment_Rec_Amount = Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue);
-                //if (Payment_Rec_Amount != Val.ToDecimal(lblAmount.Text))
-                //{
-                //    Global.Message("Total Amount Not Equal To Sale Return Payment Given Amount");
-                //    return;
-                //}
+                decimal Payment_Rec_Amount = Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue);
+                if (Payment_Rec_Amount != Val.ToDecimal(lblAmount.Text))
+                {
+                    Global.Message("Total Amount Not Equal To Sale Return Amount");
+                    return;
+                }
                 DialogResult result = MessageBox.Show("Do you want to save data?", "Confirmation", MessageBoxButtons.YesNoCancel);
                 if (result != DialogResult.Yes)
                 {

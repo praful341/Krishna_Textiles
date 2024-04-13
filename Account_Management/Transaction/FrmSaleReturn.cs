@@ -622,8 +622,8 @@ namespace Account_Management.Transaction
         }
         private void panelControl4_Paint(object sender, PaintEventArgs e)
         {
-            Pen pen = new Pen(Color.FromArgb(255, 191, 219, 255), 2);
-            e.Graphics.DrawLine(pen, 0, 65, 1500, 65);
+            //Pen pen = new Pen(Color.FromArgb(255, 191, 219, 255), 2);
+            //e.Graphics.DrawLine(pen, 0, 65, 1500, 65);
         }
 
         #region "Grid Events" 
@@ -903,16 +903,16 @@ namespace Account_Management.Transaction
                             blnFocus = true;
                         }
                     }
-                    var result = DateTime.Compare(Convert.ToDateTime(dtpReturnDate.Text), DateTime.Today);
-                    if (result > 0)
-                    {
-                        lstError.Add(new ListError(5, " Return Date Not Be Greater Than Today Date"));
-                        if (!blnFocus)
-                        {
-                            blnFocus = true;
-                            dtpReturnDate.Focus();
-                        }
-                    }
+                    //var result = DateTime.Compare(Convert.ToDateTime(dtpReturnDate.Text), DateTime.Today);
+                    //if (result > 0)
+                    //{
+                    //    lstError.Add(new ListError(5, " Return Date Not Be Greater Than Today Date"));
+                    //    if (!blnFocus)
+                    //    {
+                    //        blnFocus = true;
+                    //        dtpReturnDate.Focus();
+                    //    }
+                    //}
                 }
                 if (m_blnadd)
                 {
@@ -1941,16 +1941,16 @@ namespace Account_Management.Transaction
                         blnFocus = true;
                     }
                 }
-                var result = DateTime.Compare(Convert.ToDateTime(dtpReturnDate.Text), DateTime.Today);
-                if (result > 0)
-                {
-                    lstError.Add(new ListError(5, " Return Date Not Be Greater Than Today Date"));
-                    if (!blnFocus)
-                    {
-                        blnFocus = true;
-                        dtpReturnDate.Focus();
-                    }
-                }
+                //var result = DateTime.Compare(Convert.ToDateTime(dtpReturnDate.Text), DateTime.Today);
+                //if (result > 0)
+                //{
+                //    lstError.Add(new ListError(5, " Return Date Not Be Greater Than Today Date"));
+                //    if (!blnFocus)
+                //    {
+                //        blnFocus = true;
+                //        dtpReturnDate.Focus();
+                //    }
+                //}
             }
             catch (Exception ex)
             {
@@ -1981,7 +1981,7 @@ namespace Account_Management.Transaction
                 FrmSaleReturnPaymentGivenSearch FrmSaleReturnPaymentGivenSearch = new FrmSaleReturnPaymentGivenSearch();
                 FrmSaleReturnPaymentGivenSearch.FrmSaleReturn = this;
                 FrmSaleReturnPaymentGivenSearch.DTab = DtPaymentGiven;
-                FrmSaleReturnPaymentGivenSearch.ShowForm(this, Val.ToInt64(lueParty.EditValue));
+                FrmSaleReturnPaymentGivenSearch.ShowForm(this, Val.ToInt64(lueParty.EditValue), Val.ToDecimal(txtNetAmount.Text));
 
                 //FrmSaleReturnPaymentGiven objSaleReturnPaymentGiven = new FrmSaleReturnPaymentGiven();
                 //Assembly frmAssembly = Assembly.LoadFile(Application.ExecutablePath);

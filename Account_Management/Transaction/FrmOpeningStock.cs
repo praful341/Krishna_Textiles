@@ -138,14 +138,14 @@ namespace Account_Management.Transaction
         {
             try
             {
-                var result = DateTime.Compare(Convert.ToDateTime(dtpOpeningDate.Text), DateTime.Today);
-                if (result > 0)
-                {
-                    Global.Message("Opening Date Not Be Greater Than Today Date");
-                    dtpOpeningDate.Focus();
-                    return;
+                //var result = DateTime.Compare(Convert.ToDateTime(dtpOpeningDate.Text), DateTime.Today);
+                //if (result > 0)
+                //{
+                //    Global.Message("Opening Date Not Be Greater Than Today Date");
+                //    dtpOpeningDate.Focus();
+                //    return;
 
-                }
+                //}
                 ObjPer.SetFormPer();
                 if (ObjPer.AllowUpdate == false || ObjPer.AllowInsert == false)
                 {

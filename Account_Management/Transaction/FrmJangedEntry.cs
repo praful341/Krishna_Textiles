@@ -547,8 +547,8 @@ namespace Account_Management.Transaction
         }
         private void panelControl4_Paint(object sender, PaintEventArgs e)
         {
-            Pen pen = new Pen(Color.FromArgb(255, 191, 219, 255), 2);
-            e.Graphics.DrawLine(pen, 0, 65, 1500, 65);
+            //Pen pen = new Pen(Color.FromArgb(255, 191, 219, 255), 2);
+            //e.Graphics.DrawLine(pen, 0, 65, 1500, 65);
         }
 
         #region "Grid Events" 
@@ -859,16 +859,16 @@ namespace Account_Management.Transaction
                             blnFocus = true;
                         }
                     }
-                    var result = DateTime.Compare(Convert.ToDateTime(dtpJangedDate.Text), DateTime.Today);
-                    if (result > 0)
-                    {
-                        lstError.Add(new ListError(5, " Janged Date Not Be Greater Than Today Date"));
-                        if (!blnFocus)
-                        {
-                            blnFocus = true;
-                            dtpJangedDate.Focus();
-                        }
-                    }
+                    //var result = DateTime.Compare(Convert.ToDateTime(dtpJangedDate.Text), DateTime.Today);
+                    //if (result > 0)
+                    //{
+                    //    lstError.Add(new ListError(5, " Janged Date Not Be Greater Than Today Date"));
+                    //    if (!blnFocus)
+                    //    {
+                    //        blnFocus = true;
+                    //        dtpJangedDate.Focus();
+                    //    }
+                    //}
 
                     DataTable DTab_Purchase_Data = objJangedEntry.Purchase_Voucher_GetData(Val.ToInt64(txtVoucherNo.Text));
 

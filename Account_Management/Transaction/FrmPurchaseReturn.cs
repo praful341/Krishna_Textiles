@@ -548,8 +548,8 @@ namespace Account_Management.Transaction
         }
         private void panelControl4_Paint(object sender, PaintEventArgs e)
         {
-            Pen pen = new Pen(Color.FromArgb(255, 191, 219, 255), 2);
-            e.Graphics.DrawLine(pen, 0, 62, 1500, 62);
+            //Pen pen = new Pen(Color.FromArgb(255, 191, 219, 255), 2);
+            //e.Graphics.DrawLine(pen, 0, 62, 1500, 62);
         }
 
         #region "Grid Events" 
@@ -802,16 +802,16 @@ namespace Account_Management.Transaction
                             blnFocus = true;
                         }
                     }
-                    var result = DateTime.Compare(Convert.ToDateTime(dtpReturnDate.Text), DateTime.Today);
-                    if (result > 0)
-                    {
-                        lstError.Add(new ListError(5, " Purchase Date Not Be Greater Than Today Date"));
-                        if (!blnFocus)
-                        {
-                            blnFocus = true;
-                            dtpReturnDate.Focus();
-                        }
-                    }
+                    //var result = DateTime.Compare(Convert.ToDateTime(dtpReturnDate.Text), DateTime.Today);
+                    //if (result > 0)
+                    //{
+                    //    lstError.Add(new ListError(5, " Purchase Date Not Be Greater Than Today Date"));
+                    //    if (!blnFocus)
+                    //    {
+                    //        blnFocus = true;
+                    //        dtpReturnDate.Focus();
+                    //    }
+                    //}
                 }
 
                 if (m_blnadd)
