@@ -180,7 +180,6 @@ namespace BLL.FunctionClasses.Transaction
         //    IntRes = Ope.FindNewID(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, "TRN_Janged", "isnull(MAX(voucher_no),0)", "");
         //    return IntRes;
         //}
-
         public DataSet Janged_Voucher_GetData(Int64 voucher_no)
         {
             DataSet DTab = new DataSet();

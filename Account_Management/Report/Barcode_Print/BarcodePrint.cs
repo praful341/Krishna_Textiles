@@ -108,7 +108,7 @@ namespace Account_Management.Report.Barcode_Print
 
         public void Stock_PrintTSC()
         {
-            string pStrFileName = System.Windows.Forms.Application.StartupPath + @"\Output2.txt";//Global.gStrVersion + "\\Output2.txt";
+            string pStrFileName = System.Windows.Forms.Application.StartupPath + @"\PrinterTemplate.txt";//Global.gStrVersion + "\\Output2.txt";
             Printing.FileOpen(pStrFileName);
             BarcodePrint.Stock_Pkt[] array = new BarcodePrint.Stock_Pkt[this._Pkt.Count];
             for (int i = 0; i < this._Pkt.Count; i++)
@@ -120,42 +120,68 @@ namespace Account_Management.Report.Barcode_Print
             {
                 BarcodePrint.Stock_Pkt pkt = array2[j];
 
-                Printing.PrintLine("<xpml><page quantity='0' pitch='15.0 mm'></xpml>I8,A");
-                Printing.PrintLine("ZN");
-                Printing.PrintLine("q304");
-                Printing.PrintLine("O");
-                Printing.PrintLine("JF");
-                Printing.PrintLine("KIZZQ0");
-                Printing.PrintLine("KI9+0.0");
-                Printing.PrintLine("ZT");
-                Printing.PrintLine("Q120,25");
-                Printing.PrintLine("Arglabel 150 31");
-                Printing.PrintLine("exit");
-                Printing.PrintLine("KI80");
-                Printing.PrintLine("<xpml></page></xpml><xpml><page quantity='1' pitch='15.0 mm'></xpml>N");
-                Printing.PrintLine("B275,106,2,1,2,4,45,N,\"" + pkt.Stock_ID + "\"");
-                Printing.PrintLine("A275,55,2,3,1,1,N,\"" + pkt.Stock_ID + "\"");
-                Printing.PrintLine("A275,29,2,2,1,1,N,\"" + pkt.Date + "\"");
-                Printing.PrintLine("A93,104,2,1,1,1,N,\"" + pkt.Item_Name + "\"");
+                //Printing.PrintLine("DOWNLOAD F,\"BARCODE.BAS\"");
+                Printing.PrintLine("SIZE 72 mm, 50 mm");
+                Printing.PrintLine("GAP 3 mm, 0 mm");
+                Printing.PrintLine("SPEED 4");
+                Printing.PrintLine("DENSITY 7");
+                Printing.PrintLine("SET RIBBON OFF");
+                Printing.PrintLine("DIRECTION 0,0");
+                Printing.PrintLine("REFERENCE 0,0");
+                Printing.PrintLine("OFFSET 0 mm");
+                Printing.PrintLine("SET TEAR OFF");
+                Printing.PrintLine("SET PEEL OFF");
+                Printing.PrintLine("SET CUTTER OFF");
+                Printing.PrintLine("SET CUTTER OFF");
+                Printing.PrintLine("SET PARTIAL_CUTTER OFF");
+                Printing.PrintLine(":START");
+                Printing.PrintLine("CLS");
+                Printing.PrintLine("BARCODE 513,327,\"39\",102,0,180,3,8,\"" + pkt.Stock_ID + "\"");
+                Printing.PrintLine("CODEPAGE 1252");
+                Printing.PrintLine("TEXT 353,221,\"3\",180,1,1,\"" + pkt.Stock_ID + "\"");
+                Printing.PrintLine("TEXT 529,147,\"ROMAN.TTF\",180,1,12,\"" + pkt.Item_Name + "\"");
+                Printing.PrintLine("TEXT 529,107,\"ROMAN.TTF\",180,1,12,\"" + pkt.Color_Name + "\"");
+                Printing.PrintLine("TEXT 210,107,\"ROMAN.TTF\",180,1,12,\"" + pkt.Size_Name + "\"");
+                Printing.PrintLine("PRINT 1,1");
+                Printing.PrintLine("EOP");
 
-                // Change By Praful 07122022
-                Printing.PrintLine("A93,56,2,3,1,1,N,\"" + pkt.Balance_Pcs + "\"");
-                Printing.PrintLine("A125,29,2,3,1,1,N,\"" + pkt.SrNo + "\"");
 
-                // End
+                //Printing.PrintLine("<xpml><page quantity='0' pitch='15.0 mm'></xpml>I8,A");
+                //Printing.PrintLine("ZN");
+                //Printing.PrintLine("q304");
+                //Printing.PrintLine("O");
+                //Printing.PrintLine("JF");
+                //Printing.PrintLine("KIZZQ0");
+                //Printing.PrintLine("KI9+0.0");
+                //Printing.PrintLine("ZT");
+                //Printing.PrintLine("Q120,25");
+                //Printing.PrintLine("Arglabel 150 31");
+                //Printing.PrintLine("exit");
+                //Printing.PrintLine("KI80");
+                //Printing.PrintLine("<xpml></page></xpml><xpml><page quantity='1' pitch='15.0 mm'></xpml>N");
+                //Printing.PrintLine("B275,106,2,1,2,4,45,N,\"" + pkt.Stock_ID + "\"");
+                //Printing.PrintLine("A275,55,2,3,1,1,N,\"" + pkt.Stock_ID + "\"");
+                //Printing.PrintLine("A275,29,2,2,1,1,N,\"" + pkt.Date + "\"");
+                //Printing.PrintLine("A93,104,2,1,1,1,N,\"" + pkt.Item_Name + "\"");
 
-                Printing.PrintLine("P1");
-                Printing.PrintLine("<xpml></page></xpml><xpml><end/></xpml>");
+                //// Change By Praful 07122022
+                //Printing.PrintLine("A93,56,2,3,1,1,N,\"" + pkt.Balance_Pcs + "\"");
+                //Printing.PrintLine("A125,29,2,3,1,1,N,\"" + pkt.SrNo + "\"");
+
+                //// End
+
+                //Printing.PrintLine("P1");
+                //Printing.PrintLine("<xpml></page></xpml><xpml><end/></xpml>");
             }
             Printing.FileClose();
 
             if (BLL.GlobalDec.gEmployeeProperty.user_name == "PRAFUL")
             {
-                Printing.PrintBarcode(pStrFileName, "PRINT_KATARGAM.bat");
+                Printing.PrintBarcode(pStrFileName, "PRINTFIB.bat");
             }
             else if (BLL.GlobalDec.gEmployeeProperty.user_name == "SHAKTI")
             {
-                Printing.PrintBarcode(pStrFileName, "PRINT_KATARGAM.bat");
+                Printing.PrintBarcode(pStrFileName, "PRINTFIB.bat");
             }
         }
         public void PrintTSC()

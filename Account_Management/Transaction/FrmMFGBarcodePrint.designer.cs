@@ -292,6 +292,9 @@
             this.gridColumn11.Caption = "Lot ID";
             this.gridColumn11.FieldName = "stock_id";
             this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.OptionsColumn.AllowEdit = false;
+            this.gridColumn11.OptionsColumn.AllowFocus = false;
+            this.gridColumn11.OptionsColumn.AllowMove = false;
             this.gridColumn11.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
             this.gridColumn11.Visible = true;
             this.gridColumn11.VisibleIndex = 1;
@@ -308,6 +311,9 @@
             this.gridColumn2.Caption = "Item";
             this.gridColumn2.FieldName = "item_name";
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
+            this.gridColumn2.OptionsColumn.AllowFocus = false;
+            this.gridColumn2.OptionsColumn.AllowMove = false;
             this.gridColumn2.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
             this.gridColumn2.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
@@ -326,6 +332,9 @@
             this.gridColumn10.Caption = "Item ID";
             this.gridColumn10.FieldName = "item_id";
             this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.OptionsColumn.AllowEdit = false;
+            this.gridColumn10.OptionsColumn.AllowFocus = false;
+            this.gridColumn10.OptionsColumn.AllowMove = false;
             this.gridColumn10.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
             this.gridColumn10.Width = 99;
             // 
@@ -340,6 +349,9 @@
             this.gridColumn3.Caption = "Pcs";
             this.gridColumn3.FieldName = "balance_pcs";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
+            this.gridColumn3.OptionsColumn.AllowFocus = false;
+            this.gridColumn3.OptionsColumn.AllowMove = false;
             this.gridColumn3.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
             this.gridColumn3.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
@@ -358,6 +370,9 @@
             this.gridColumn4.Caption = "Sale Rate";
             this.gridColumn4.FieldName = "sale_rate";
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
+            this.gridColumn4.OptionsColumn.AllowFocus = false;
+            this.gridColumn4.OptionsColumn.AllowMove = false;
             this.gridColumn4.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
             this.gridColumn4.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "carat", "{0:N3}")});
@@ -370,6 +385,9 @@
             this.gridColumn9.Caption = "Last Pur. Rate";
             this.gridColumn9.FieldName = "last_purchase_rate";
             this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.OptionsColumn.AllowEdit = false;
+            this.gridColumn9.OptionsColumn.AllowFocus = false;
+            this.gridColumn9.OptionsColumn.AllowMove = false;
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 8;
             this.gridColumn9.Width = 107;
@@ -379,6 +397,9 @@
             this.gridColumn45.Caption = "Sale Amt";
             this.gridColumn45.FieldName = "sale_amount";
             this.gridColumn45.Name = "gridColumn45";
+            this.gridColumn45.OptionsColumn.AllowEdit = false;
+            this.gridColumn45.OptionsColumn.AllowFocus = false;
+            this.gridColumn45.OptionsColumn.AllowMove = false;
             this.gridColumn45.Visible = true;
             this.gridColumn45.VisibleIndex = 7;
             // 
@@ -393,6 +414,9 @@
             this.gridColumn8.Caption = "Color";
             this.gridColumn8.FieldName = "color_name";
             this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.OptionsColumn.AllowEdit = false;
+            this.gridColumn8.OptionsColumn.AllowFocus = false;
+            this.gridColumn8.OptionsColumn.AllowMove = false;
             this.gridColumn8.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 3;
@@ -409,6 +433,9 @@
             this.gridColumn5.Caption = "Color Id";
             this.gridColumn5.FieldName = "color_id";
             this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
+            this.gridColumn5.OptionsColumn.AllowFocus = false;
+            this.gridColumn5.OptionsColumn.AllowMove = false;
             this.gridColumn5.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
             this.gridColumn5.Width = 113;
             // 
@@ -423,6 +450,9 @@
             this.gridColumn6.Caption = "Size ID";
             this.gridColumn6.FieldName = "size_id";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
+            this.gridColumn6.OptionsColumn.AllowFocus = false;
+            this.gridColumn6.OptionsColumn.AllowMove = false;
             this.gridColumn6.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
             this.gridColumn6.Width = 113;
             // 
@@ -437,6 +467,9 @@
             this.gridColumn7.Caption = "Size";
             this.gridColumn7.FieldName = "size_name";
             this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.AllowEdit = false;
+            this.gridColumn7.OptionsColumn.AllowFocus = false;
+            this.gridColumn7.OptionsColumn.AllowMove = false;
             this.gridColumn7.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 4;
@@ -447,6 +480,9 @@
             this.gridColumn12.Caption = "Pur. Amt.";
             this.gridColumn12.FieldName = "purchase_amount";
             this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.OptionsColumn.AllowEdit = false;
+            this.gridColumn12.OptionsColumn.AllowFocus = false;
+            this.gridColumn12.OptionsColumn.AllowMove = false;
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 9;
             // 

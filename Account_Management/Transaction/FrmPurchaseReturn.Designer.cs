@@ -2424,7 +2424,7 @@
             this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Appearance.Options.UseForeColor = true;
-            this.labelControl2.Location = new System.Drawing.Point(465, 9);
+            this.labelControl2.Location = new System.Drawing.Point(334, 9);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(28, 16);
             this.labelControl2.TabIndex = 505;
@@ -2433,13 +2433,14 @@
             // txtPurchaseBill
             // 
             this.txtPurchaseBill.EnterMoveNextControl = true;
-            this.txtPurchaseBill.Location = new System.Drawing.Point(394, 7);
+            this.txtPurchaseBill.Location = new System.Drawing.Point(711, 3);
             this.txtPurchaseBill.Name = "txtPurchaseBill";
             this.txtPurchaseBill.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPurchaseBill.Properties.Appearance.Options.UseFont = true;
             this.txtPurchaseBill.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPurchaseBill.Size = new System.Drawing.Size(68, 20);
             this.txtPurchaseBill.TabIndex = 2;
+            this.txtPurchaseBill.Visible = false;
             // 
             // labelControl9
             // 
@@ -2447,11 +2448,12 @@
             this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl9.Appearance.Options.UseFont = true;
             this.labelControl9.Appearance.Options.UseForeColor = true;
-            this.labelControl9.Location = new System.Drawing.Point(333, 9);
+            this.labelControl9.Location = new System.Drawing.Point(650, 5);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(55, 16);
             this.labelControl9.TabIndex = 504;
             this.labelControl9.Text = "Pur. Bill";
+            this.labelControl9.Visible = false;
             // 
             // txtPcs
             // 
@@ -2629,7 +2631,7 @@
             // lueGSTRate
             // 
             this.lueGSTRate.EnterMoveNextControl = true;
-            this.lueGSTRate.Location = new System.Drawing.Point(499, 7);
+            this.lueGSTRate.Location = new System.Drawing.Point(368, 7);
             this.lueGSTRate.Name = "lueGSTRate";
             this.lueGSTRate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueGSTRate.Properties.Appearance.Options.UseFont = true;
