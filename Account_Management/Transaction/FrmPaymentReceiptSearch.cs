@@ -183,12 +183,21 @@ namespace Account_Management.Transaction
                     Global.Message("Total Amount Not Equal To Payment Receive Amount");
                     return;
                 }
+                DataTable DTab_Select = (DataTable)MainGrid.DataSource;
+                for (int i = 0; i < DTab_Select.Rows.Count; i++)
+                {
+                    if (Val.ToString(DTab_Select.Rows[i]["method"]) == "Adjustment" && Val.ToString(DTab_Select.Rows[i]["ref_order_no"]) == "")
+                    {
+                        Global.Message("Please Select Refrence No.. Contact to Administrator");
+                        return;
+                    }
+                }
                 DialogResult result = MessageBox.Show("Do you want to save data?", "Confirmation", MessageBoxButtons.YesNoCancel);
                 if (result != DialogResult.Yes)
                 {
                     return;
                 }
-                DataTable DTab_Select = (DataTable)MainGrid.DataSource;
+
                 this.Close();
                 FrmPaymentReceipt.GetPaymentReceiptData(DTab_Select);
             }
@@ -270,7 +279,7 @@ namespace Account_Management.Transaction
                             }
                             else
                             {
-                                strOrderNo += ","+ Val.ToString(item["ref_order_no"]) ;
+                                strOrderNo += "," + Val.ToString(item["ref_order_no"]);
                             }
                         }
                     }
@@ -310,7 +319,7 @@ namespace Account_Management.Transaction
         private void RepDueDate_KeyDown(object sender, KeyEventArgs e)
         {
             //GrdDet.CloseEditor();
-            if (e.KeyCode == Keys.Enter && GrdDet.IsLastRow)
+            if ((e.KeyCode == Keys.Enter && GrdDet.IsLastRow) && Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "method")) != "")
             {
                 e.Handled = true;
                 DataRow dtRow = DTab.NewRow();
