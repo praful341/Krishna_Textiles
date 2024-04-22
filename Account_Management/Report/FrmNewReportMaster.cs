@@ -825,7 +825,7 @@ namespace Account_Management.Report
             if (Global.OnKeyPressToOpenPopup(e))
             {
                 FrmSearchNew = new FrmSearchNew();
-                FrmSearchNew.DTab = objNewReport.DS.Tables[BLL.TPV.Table.Temp];
+                FrmSearchNew.DTab = objNewReport.DS.Tables[BLL.TPV.Table.New_Report_Settings];
                 FrmSearchNew.SearchField = "alignment";
                 FrmSearchNew.ShowDialog();
                 e.Handled = true;

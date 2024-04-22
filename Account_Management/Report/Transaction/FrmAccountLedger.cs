@@ -461,7 +461,7 @@ namespace Account_Management.Report
             dtpToDate.Properties.CharacterCasing = CharacterCasing.Upper;
             dtpToDate.EditValue = DateTime.Now;
 
-            Global.LOOKUPCashBankWithoutLedger(lueLedger);
+            Global.LOOKUPLedger(lueLedger);
         }
 
         #endregion

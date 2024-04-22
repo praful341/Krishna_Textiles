@@ -682,6 +682,7 @@ namespace Account_Management.Transaction
 
                 btnClear_Click(null, null);
                 btnSearch_Click(null, null);
+                txtVoucherNo.Focus();
             }
             catch (Exception ex)
             {
@@ -1065,7 +1066,7 @@ namespace Account_Management.Transaction
                 txtVoucherNo.Enabled = true;
                 txtTermDays.Text = "";
                 btnAdd.Text = "&Add";
-                txtPurchaseBill.Focus();
+                dtpPurchaseDate.Focus();
                 m_srno = 0;
                 //objPurchase = new Purchase();
                 //txtVoucherNo.Text = objPurchase.FindNewID().ToString();
