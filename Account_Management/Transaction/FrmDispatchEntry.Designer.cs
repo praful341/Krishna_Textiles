@@ -516,6 +516,7 @@
             // dtpToDate
             // 
             this.dtpToDate.EditValue = null;
+            this.dtpToDate.EnterMoveNextControl = true;
             this.dtpToDate.Location = new System.Drawing.Point(256, 13);
             this.dtpToDate.Name = "dtpToDate";
             this.dtpToDate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
@@ -532,6 +533,7 @@
             // dtpFromDate
             // 
             this.dtpFromDate.EditValue = null;
+            this.dtpFromDate.EnterMoveNextControl = true;
             this.dtpFromDate.Location = new System.Drawing.Point(100, 13);
             this.dtpFromDate.Name = "dtpFromDate";
             this.dtpFromDate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);

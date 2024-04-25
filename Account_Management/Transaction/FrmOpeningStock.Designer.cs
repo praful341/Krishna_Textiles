@@ -281,7 +281,7 @@
             this.btnBrowse.Location = new System.Drawing.Point(214, 5);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(102, 32);
-            this.btnBrowse.TabIndex = 453;
+            this.btnBrowse.TabIndex = 1;
             this.btnBrowse.Text = "&Browse";
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
@@ -296,7 +296,7 @@
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1069, 46);
-            this.panelControl1.TabIndex = 18;
+            this.panelControl1.TabIndex = 0;
             // 
             // lblFormatSample
             // 
@@ -335,6 +335,7 @@
             // dtpOpeningDate
             // 
             this.dtpOpeningDate.EditValue = null;
+            this.dtpOpeningDate.EnterMoveNextControl = true;
             this.dtpOpeningDate.Location = new System.Drawing.Point(87, 9);
             this.dtpOpeningDate.Name = "dtpOpeningDate";
             this.dtpOpeningDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -343,7 +344,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpOpeningDate.Properties.Mask.EditMask = "";
             this.dtpOpeningDate.Size = new System.Drawing.Size(121, 20);
-            this.dtpOpeningDate.TabIndex = 454;
+            this.dtpOpeningDate.TabIndex = 0;
             this.dtpOpeningDate.EditValueChanged += new System.EventHandler(this.dtpOpeningDate_EditValueChanged);
             // 
             // panelProgress

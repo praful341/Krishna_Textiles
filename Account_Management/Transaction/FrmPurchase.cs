@@ -192,41 +192,9 @@ namespace Account_Management.Transaction
                 DTPDueDate.Text = Val.ToString(DTab_Purchase.Rows[0]["due_date"]);
 
                 ttlbPurchaseInvoice.SelectedTabPage = tblPurchasedetail;
-                txtPurchaseBill.Focus();
+                dtpPurchaseDate.Focus();
                 txtVoucherNo.Enabled = false;
                 m_IsUpdate = true;
-            }
-        }
-        private void AddKeyPressListener(Control ctrl)
-        {
-            foreach (Control c in ctrl.Controls)
-            {
-                c.KeyPress += new KeyPressEventHandler(Control_KeyPress);
-                if (c.Controls.Count > 0)
-                {
-                    AddKeyPressListener(c);
-                }
-            }
-        }
-        private void Control_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!((Control)sender).Name.ToString().Trim().Equals(string.Empty))
-            {
-                _NextEnteredControl = (Control)sender;
-                if ((Control)sender is LookUpEdit)
-                {
-                    if (e.KeyChar == Convert.ToChar(Keys.Enter))
-                    {
-                        SendKeys.Send("{TAB}");
-                    }
-                }
-                if ((Control)sender is CheckedComboBoxEdit)
-                {
-                    if (e.KeyChar == Convert.ToChar(Keys.Enter))
-                    {
-                        SendKeys.Send("{TAB}");
-                    }
-                }
             }
         }
         private void AddGotFocusListener(Control ctrl)
@@ -260,6 +228,21 @@ namespace Account_Management.Transaction
                 if (control.HasChildren)
                     TabControlsToList(control.Controls);
             }
+        }
+        private void AddKeyPressListener(Control ctrl)
+        {
+            foreach (Control c in ctrl.Controls)
+            {
+                c.KeyPress += new KeyPressEventHandler(Control_KeyPress);
+                if (c.Controls.Count > 0)
+                {
+                    AddKeyPressListener(c);
+                }
+            }
+        }
+        private void Control_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
         }
         private void ControlSettingDT(int FormCode, Form pForm)
         {
@@ -369,7 +352,6 @@ namespace Account_Management.Transaction
             objBOFormEvents.ObjToDispose.Add(objPurchase);
             objBOFormEvents.ObjToDispose.Add(Val);
             objBOFormEvents.ObjToDispose.Add(objBOFormEvents);
-
         }
 
         #endregion
@@ -682,7 +664,7 @@ namespace Account_Management.Transaction
 
                 btnClear_Click(null, null);
                 btnSearch_Click(null, null);
-                txtVoucherNo.Focus();
+                dtpPurchaseDate.Focus();
             }
             catch (Exception ex)
             {
@@ -1529,7 +1511,7 @@ namespace Account_Management.Transaction
                 else
                 {
                     Global.Confirm("Error In Purchase Data");
-                    txtPurchaseBill.Focus();
+                    dtpPurchaseDate.Focus();
                 }
             }
             catch (Exception ex)
@@ -1628,7 +1610,7 @@ namespace Account_Management.Transaction
                 else
                 {
                     Global.Confirm("Error In Purchase Data Delete");
-                    txtPurchaseBill.Focus();
+                    dtpPurchaseDate.Focus();
                 }
             }
             catch (Exception ex)
@@ -1678,7 +1660,7 @@ namespace Account_Management.Transaction
                         grdPurchaseDetails.DataSource = m_dtbPurchaseDetails;
 
                         ttlbPurchaseInvoice.SelectedTabPage = tblPurchasedetail;
-                        txtPurchaseBill.Focus();
+                        dtpPurchaseDate.Focus();
                         txtVoucherNo.Enabled = false;
                         m_IsUpdate = true;
                     }

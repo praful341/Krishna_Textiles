@@ -511,7 +511,7 @@
             this.panelControl1.Location = new System.Drawing.Point(10, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(864, 48);
-            this.panelControl1.TabIndex = 15;
+            this.panelControl1.TabIndex = 0;
             // 
             // BtnReset
             // 
@@ -521,7 +521,7 @@
             this.BtnReset.Location = new System.Drawing.Point(750, 5);
             this.BtnReset.Name = "BtnReset";
             this.BtnReset.Size = new System.Drawing.Size(41, 37);
-            this.BtnReset.TabIndex = 518;
+            this.BtnReset.TabIndex = 4;
             this.BtnReset.TabStop = false;
             this.BtnReset.ToolTip = "To Clear";
             this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
@@ -535,7 +535,7 @@
             this.BtnShow.Location = new System.Drawing.Point(650, 5);
             this.BtnShow.Name = "BtnShow";
             this.BtnShow.Size = new System.Drawing.Size(94, 37);
-            this.BtnShow.TabIndex = 517;
+            this.BtnShow.TabIndex = 3;
             this.BtnShow.Text = "&Show";
             this.BtnShow.Click += new System.EventHandler(this.BtnShow_Click);
             // 
@@ -555,7 +555,7 @@
             this.LueSize.Properties.DropDownRows = 30;
             this.LueSize.Properties.IncrementalSearch = true;
             this.LueSize.Size = new System.Drawing.Size(161, 20);
-            this.LueSize.TabIndex = 516;
+            this.LueSize.TabIndex = 2;
             // 
             // LueColor
             // 
@@ -573,7 +573,7 @@
             this.LueColor.Properties.DropDownRows = 30;
             this.LueColor.Properties.IncrementalSearch = true;
             this.LueColor.Size = new System.Drawing.Size(161, 20);
-            this.LueColor.TabIndex = 515;
+            this.LueColor.TabIndex = 1;
             // 
             // LueItem
             // 
@@ -591,7 +591,7 @@
             this.LueItem.Properties.DropDownRows = 30;
             this.LueItem.Properties.IncrementalSearch = true;
             this.LueItem.Size = new System.Drawing.Size(161, 20);
-            this.LueItem.TabIndex = 514;
+            this.LueItem.TabIndex = 0;
             // 
             // label8
             // 

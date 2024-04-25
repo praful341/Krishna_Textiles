@@ -55,6 +55,12 @@ namespace Account_Management.Transaction
             Val.frmGenSet(this);
             AttachFormEvents();
 
+            if (Global.HideFormControls(Val.ToInt(ObjPer.form_id), this) != "")
+            {
+                Global.Message("Select First User Setting...Please Contact to Administrator...");
+                return;
+            }
+
             ControlSettingDT(Val.ToInt(ObjPer.form_id), this);
             AddGotFocusListener(this);
             AddKeyPressListener(this);

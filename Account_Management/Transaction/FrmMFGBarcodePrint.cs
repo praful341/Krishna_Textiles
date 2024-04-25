@@ -65,21 +65,22 @@ namespace Account_Management.Transaction.MFG
 
             // for Dynamic Setting By Praful On 01022020
 
-            //if (Global.HideFormControls(Val.ToInt(ObjPer.form_id), this) != "")
-            //{
-            //    Global.Message("Select First User Setting...Please Contact to Administrator...");
-            //    return;
-            //}
-            //DataTable DtControlSettings = new DataTable();
-            //ControlSettingDT(Val.ToInt(ObjPer.form_id), this);
-            //AddGotFocusListener(this);
-            //AddKeyPressListener(this);
-            //this.KeyPreview = true;
+            if (Global.HideFormControls(Val.ToInt(ObjPer.form_id), this) != "")
+            {
+                Global.Message("Select First User Setting...Please Contact to Administrator...");
+                return;
+            }
+            DataTable DtControlSettings = new DataTable();
+            ControlSettingDT(Val.ToInt(ObjPer.form_id), this);
+            AddGotFocusListener(this);
+            AddKeyPressListener(this);
+            this.KeyPreview = true;
 
-            //TabControlsToList(this.Controls);
-            //_tabControls = _tabControls.OrderBy(x => x.TabIndex).ToList();
+            TabControlsToList(this.Controls);
+            _tabControls = _tabControls.OrderBy(x => x.TabIndex).ToList();
 
-            // End for Dynamic Setting By Praful On 01022020
+            //End for Dynamic Setting By Praful On 01022020
+
 
             this.Show();
         }
