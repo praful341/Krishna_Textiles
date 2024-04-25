@@ -1,9 +1,14 @@
 ﻿using Account_Management.Class;
 using BLL;
+using BLL.FunctionClasses.Master;
 using BLL.FunctionClasses.Transaction;
+using BLL.PropertyClasses.Master;
 using BLL.PropertyClasses.Transaction;
+using DevExpress.XtraEditors;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 using static Account_Management.Class.Global;
 
@@ -23,6 +28,9 @@ namespace Account_Management.Transaction
         int m_numForm_id = 0;
         Int64 Union_ID = 0;
         string Form_Clear = string.Empty;
+        Control _NextEnteredControl;
+        private List<Control> _tabControls;
+        DataTable DtControlSettings;
 
         #endregion
 
@@ -30,6 +38,10 @@ namespace Account_Management.Transaction
         public FrmJournalEntry()
         {
             InitializeComponent();
+
+            _NextEnteredControl = new Control();
+            _tabControls = new List<Control>();
+            DtControlSettings = new DataTable();
         }
         public void ShowForm()
         {
@@ -42,7 +54,162 @@ namespace Account_Management.Transaction
             }
             Val.frmGenSet(this);
             AttachFormEvents();
+
+            ControlSettingDT(Val.ToInt(ObjPer.form_id), this);
+            AddGotFocusListener(this);
+            AddKeyPressListener(this);
+            this.KeyPreview = true;
+
+            TabControlsToList(this.Controls);
+            _tabControls = _tabControls.OrderBy(x => x.TabIndex).ToList();
+
             this.Show();
+        }
+
+        private void AddGotFocusListener(Control ctrl)
+        {
+            foreach (Control c in ctrl.Controls)
+            {
+                c.GotFocus += new EventHandler(Control_GotFocus);
+                if (c.Controls.Count > 0)
+                {
+                    AddGotFocusListener(c);
+                }
+            }
+        }
+        private void Control_GotFocus(object sender, EventArgs e)
+        {
+            if (!((Control)sender).Name.ToString().Trim().Equals(string.Empty))
+            {
+                _NextEnteredControl = (Control)sender;
+                if ((Control)sender is LookUpEdit)
+                {
+                    ((LookUpEdit)(Control)sender).ShowPopup();
+                }
+            }
+        }
+        private void TabControlsToList(Control.ControlCollection controls)
+        {
+            foreach (Control control in controls)
+            {
+                if (control.TabStop)
+                    _tabControls.Add(control);
+                if (control.HasChildren)
+                    TabControlsToList(control.Controls);
+            }
+        }
+        private void AddKeyPressListener(Control ctrl)
+        {
+            foreach (Control c in ctrl.Controls)
+            {
+                c.KeyPress += new KeyPressEventHandler(Control_KeyPress);
+                if (c.Controls.Count > 0)
+                {
+                    AddKeyPressListener(c);
+                }
+            }
+        }
+        private void Control_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+        private void ControlSettingDT(int FormCode, Form pForm)
+        {
+            BLL.Validation Val = new BLL.Validation();
+            Single_Setting ObjSingleSettings = new Single_Setting();
+            Single_SettingProperty Property = new Single_SettingProperty();
+
+            Property.role_id = Val.ToInt(BLL.GlobalDec.gEmployeeProperty.role_id);
+            Property.form_id = Val.ToInt(FormCode);
+            DataTable DtColSetting = ObjSingleSettings.GetData(Property);
+
+            DataTable DtFilterColSetting = (from DataRow dr in DtColSetting.Rows
+                                            where Val.ToBooleanToInt(dr["is_control"]) == 1
+                                            && dr["column_type"].ToString() != "LABEL"
+                                            select dr).CopyToDataTable();
+            DevExpress.XtraLayout.LayoutControl l = new DevExpress.XtraLayout.LayoutControl();
+            l.OptionsFocus.EnableAutoTabOrder = false;
+
+            if (DtFilterColSetting.Rows.Count > 0)
+            {
+                DtControlSettings = DtFilterColSetting;
+                foreach (Control item1 in pForm.Controls)
+                {
+                    ControllSettings(item1, DtFilterColSetting);
+                }
+            }
+        }
+        private static void ControllSettings(Control item2, DataTable DTab)
+        {
+            BLL.Validation Val = new BLL.Validation();
+
+            //else
+            {
+                var VarControlSetting = (from DataRow dr in DTab.Rows
+                                         where dr["column_name"].ToString() == item2.Name.ToString()
+                                         select dr);
+
+                if (VarControlSetting.Count() > 0)
+                {
+                    DataRow DRow = VarControlSetting.CopyToDataTable().Rows[0];
+                    if (item2.Name.ToString() == Val.ToString(DRow["column_name"]))
+                    {
+                        if (!(item2 is TextEdit))
+                        {
+                            if (!(item2 is DateTimePicker))
+                            {
+                                if (!(item2 is DevExpress.XtraEditors.TextEdit))
+                                {
+                                    item2.Text = (Val.ToBooleanToInt(DRow["is_compulsory"]).Equals(0) ? Val.ToString(DRow["caption"]) : "* " + Val.ToString(DRow["caption"]));
+                                }
+                            }
+                        }
+                        if (Val.ToInt(DRow["tab_index"]) >= 0)
+                        {
+                            if (item2.CanSelect)
+                                item2.TabStop = true;
+                        }
+                        else
+                            item2.TabStop = false;
+                        if (Val.ToBooleanToInt(DRow["is_visible"]).Equals(1))
+                        {
+                            item2.Visible = true;
+                            item2.TabStop = true;
+                        }
+                        else
+                        {
+                            item2.Visible = false;
+                            item2.TabStop = false;
+                        }
+
+                        item2.TabIndex = Val.ToInt(DRow["tab_index"]);
+                        if (item2.TabIndex == 1)
+                        {
+                            item2.Select();
+                            item2.Focus();
+                        }
+                        if (Val.ToBooleanToInt(DRow["is_editable"]).Equals(1))
+                        {
+                            item2.Enabled = true;
+                        }
+                        else
+                        {
+                            item2.Enabled = false;
+                        }
+                    }
+                }
+                else
+                {
+                    item2.TabStop = false;
+                }
+            }
+            if (item2.Controls.Count > 0)
+            {
+                foreach (Control item1 in item2.Controls)
+                {
+                    ControllSettings(item1, DTab);
+                }
+            }
         }
 
         public void ShowForm_New(Int64 Union_ID)
