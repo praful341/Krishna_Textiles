@@ -699,13 +699,7 @@ namespace Account_Management.Transaction
                     blnReturn = false;
                     return blnReturn;
                 }
-                DialogResult result = MessageBox.Show("Do you want to Add data?", "Confirmation", MessageBoxButtons.YesNoCancel);
-                if (result != DialogResult.Yes)
-                {
-                    m_blnadd = false;
-                    blnReturn = false;
-                    return blnReturn;
-                }
+                
                 if (btnAdd.Text == "&Add")
                 {
                     objSaleReturn = new SaleReturn();
@@ -773,6 +767,14 @@ namespace Account_Management.Transaction
                     }
                     decimal Net_Amount = Math.Round((Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue) + Val.ToDecimal(txtCGSTAmount.Text) + Val.ToDecimal(txtSGSTAmount.Text) + Val.ToDecimal(txtIGSTAmount.Text) + Val.ToDecimal(txtShippingCharge.Text) - Val.ToDecimal(txtDiscountAmount.Text)) + Val.ToDecimal(txtRoundOff.Text), 2);
                     txtNetAmount.Text = Net_Amount.ToString();
+
+                    DialogResult result = MessageBox.Show("Do you want to Add data?", "Confirmation", MessageBoxButtons.YesNoCancel);
+                    if (result != DialogResult.Yes)
+                    {
+                        m_blnadd = false;
+                        blnReturn = false;
+                        return blnReturn;
+                    }
                 }
                 else if (btnAdd.Text == "&Update")
                 {
