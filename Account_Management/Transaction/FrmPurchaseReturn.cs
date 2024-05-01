@@ -696,6 +696,7 @@ namespace Account_Management.Transaction
                     {
                         m_blnadd = false;
                         blnReturn = false;
+                        btnSave.Focus();
                         return blnReturn;
                     }
                 }

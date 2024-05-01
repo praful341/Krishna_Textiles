@@ -2462,11 +2462,7 @@
             this.txtPcs.Name = "txtPcs";
             this.txtPcs.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPcs.Properties.Appearance.Options.UseFont = true;
-            this.txtPcs.Properties.DisplayFormat.FormatString = "#,##,##,##0.00";
-            this.txtPcs.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtPcs.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtPcs.Properties.Mask.EditMask = "#,##,##,##0.00";
-            this.txtPcs.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtPcs.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtPcs.Size = new System.Drawing.Size(65, 20);
             this.txtPcs.TabIndex = 9;
