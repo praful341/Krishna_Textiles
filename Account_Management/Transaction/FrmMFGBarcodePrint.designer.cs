@@ -65,6 +65,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtBarcodeCount = new DevExpress.XtraEditors.TextEdit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSelPcs.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSelLot.Properties)).BeginInit();
@@ -79,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.LueItem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBarcodeCount.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
@@ -92,7 +95,7 @@
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(874, 0);
+            this.panel3.Location = new System.Drawing.Point(974, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(10, 453);
             this.panel3.TabIndex = 12;
@@ -102,7 +105,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(10, 443);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(864, 10);
+            this.panel4.Size = new System.Drawing.Size(964, 10);
             this.panel4.TabIndex = 13;
             // 
             // panel1
@@ -116,7 +119,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(10, 378);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(864, 65);
+            this.panel1.Size = new System.Drawing.Size(964, 65);
             this.panel1.TabIndex = 0;
             // 
             // txtSelPcs
@@ -199,7 +202,7 @@
             this.GrdBarcodePrint.Name = "GrdBarcodePrint";
             this.GrdBarcodePrint.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repSelect});
-            this.GrdBarcodePrint.Size = new System.Drawing.Size(860, 326);
+            this.GrdBarcodePrint.Size = new System.Drawing.Size(960, 326);
             this.GrdBarcodePrint.TabIndex = 1;
             this.GrdBarcodePrint.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.DgvBarcodePrint});
@@ -499,6 +502,8 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.txtBarcodeCount);
+            this.panelControl1.Controls.Add(this.label1);
             this.panelControl1.Controls.Add(this.BtnReset);
             this.panelControl1.Controls.Add(this.BtnShow);
             this.panelControl1.Controls.Add(this.LueSize);
@@ -510,7 +515,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(10, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(864, 48);
+            this.panelControl1.Size = new System.Drawing.Size(964, 48);
             this.panelControl1.TabIndex = 0;
             // 
             // BtnReset
@@ -518,10 +523,10 @@
             this.BtnReset.Appearance.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnReset.Appearance.Options.UseFont = true;
             this.BtnReset.ImageOptions.Image = global::Account_Management.Properties.Resources.Clear;
-            this.BtnReset.Location = new System.Drawing.Point(750, 5);
+            this.BtnReset.Location = new System.Drawing.Point(904, 5);
             this.BtnReset.Name = "BtnReset";
             this.BtnReset.Size = new System.Drawing.Size(41, 37);
-            this.BtnReset.TabIndex = 4;
+            this.BtnReset.TabIndex = 5;
             this.BtnReset.TabStop = false;
             this.BtnReset.ToolTip = "To Clear";
             this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
@@ -532,10 +537,10 @@
             this.BtnShow.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnShow.Appearance.Options.UseFont = true;
             this.BtnShow.ImageOptions.Image = global::Account_Management.Properties.Resources.Show;
-            this.BtnShow.Location = new System.Drawing.Point(650, 5);
+            this.BtnShow.Location = new System.Drawing.Point(804, 5);
             this.BtnShow.Name = "BtnShow";
             this.BtnShow.Size = new System.Drawing.Size(94, 37);
-            this.BtnShow.TabIndex = 3;
+            this.BtnShow.TabIndex = 4;
             this.BtnShow.Text = "&Show";
             this.BtnShow.Click += new System.EventHandler(this.BtnShow_Click);
             // 
@@ -630,8 +635,32 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(10, 48);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(864, 330);
+            this.panelControl2.Size = new System.Drawing.Size(964, 330);
             this.panelControl2.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(648, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 16);
+            this.label1.TabIndex = 514;
+            this.label1.Text = "Count";
+            // 
+            // txtBarcodeCount
+            // 
+            this.txtBarcodeCount.EditValue = "";
+            this.txtBarcodeCount.EnterMoveNextControl = true;
+            this.txtBarcodeCount.Location = new System.Drawing.Point(705, 14);
+            this.txtBarcodeCount.Name = "txtBarcodeCount";
+            this.txtBarcodeCount.Properties.AccessibleName = "EMPLOYEE";
+            this.txtBarcodeCount.Properties.Appearance.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBarcodeCount.Properties.Appearance.Options.UseFont = true;
+            this.txtBarcodeCount.Size = new System.Drawing.Size(83, 22);
+            this.txtBarcodeCount.TabIndex = 3;
+            this.txtBarcodeCount.ToolTip = "Enter Employee Name";
+            this.txtBarcodeCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBarcodeCount_KeyPress);
             // 
             // FrmMFGBarcodePrint
             // 
@@ -639,7 +668,7 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 453);
+            this.ClientSize = new System.Drawing.Size(984, 453);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.panel1);
@@ -668,6 +697,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.LueItem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtBarcodeCount.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -711,5 +741,7 @@
         private DevExpress.XtraEditors.SimpleButton BtnShow;
         private DevExpress.XtraEditors.SimpleButton BtnReset;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private System.Windows.Forms.Label label1;
+        private DevExpress.XtraEditors.TextEdit txtBarcodeCount;
     }
 }

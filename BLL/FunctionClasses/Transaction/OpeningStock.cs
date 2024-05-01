@@ -26,7 +26,7 @@ namespace BLL.FunctionClasses.Transaction
                 Request.AddParams("@color_id", (object)pClsProperty.color_id ?? DBNull.Value, DbType.Int64);
                 Request.AddParams("@size_id", (object)pClsProperty.size_id ?? DBNull.Value, DbType.Int64);
 
-                Request.AddParams("@opening_pcs", pClsProperty.opening_pcs, DbType.Int64);
+                Request.AddParams("@opening_pcs", pClsProperty.opening_pcs, DbType.Decimal);
                 Request.AddParams("@opening_rate", pClsProperty.opening_rate, DbType.Decimal);
 
                 Request.AddParams("@entry_user_id", GlobalDec.gEmployeeProperty.user_id, DbType.Int32);

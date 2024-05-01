@@ -694,7 +694,7 @@ namespace Account_Management.Transaction
                     blnReturn = false;
                     return blnReturn;
                 }
-               
+
                 if (btnAdd.Text == "&Add")
                 {
                     objPurchase = new Purchase();
@@ -1092,11 +1092,11 @@ namespace Account_Management.Transaction
                 m_dtbPurchaseDetails.Columns.Add("size_name", typeof(string));
                 m_dtbPurchaseDetails.Columns.Add("unit_id", typeof(int));
                 m_dtbPurchaseDetails.Columns.Add("unit_name", typeof(string));
-                m_dtbPurchaseDetails.Columns.Add("pcs", typeof(int)).DefaultValue = 0;
+                m_dtbPurchaseDetails.Columns.Add("pcs", typeof(decimal)).DefaultValue = 0;
                 m_dtbPurchaseDetails.Columns.Add("rate", typeof(decimal)).DefaultValue = 0;
                 m_dtbPurchaseDetails.Columns.Add("amount", typeof(decimal)).DefaultValue = 0;
                 m_dtbPurchaseDetails.Columns.Add("remarks", typeof(string));
-                m_dtbPurchaseDetails.Columns.Add("old_pcs", typeof(int)).DefaultValue = 0;
+                m_dtbPurchaseDetails.Columns.Add("old_pcs", typeof(decimal)).DefaultValue = 0;
                 m_dtbPurchaseDetails.Columns.Add("flag", typeof(int)).DefaultValue = 0;
                 m_dtbPurchaseDetails.Columns.Add("old_item_id", typeof(int));
                 m_dtbPurchaseDetails.Columns.Add("old_color_id", typeof(int));
@@ -1405,7 +1405,7 @@ namespace Account_Management.Transaction
 
                     objPurchaseProperty.ledger_id = Val.ToInt(lueParty.EditValue);
 
-                    objPurchaseProperty.total_pcs = Val.ToInt64(clmPcs.SummaryItem.SummaryValue);
+                    objPurchaseProperty.total_pcs = Val.ToDecimal(clmPcs.SummaryItem.SummaryValue);
 
                     objPurchaseProperty.gross_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue), 3);
 
@@ -1445,7 +1445,7 @@ namespace Account_Management.Transaction
                         objPurchaseProperty.color_id = Val.ToInt64(drw["color_id"]);
                         objPurchaseProperty.size_id = Val.ToInt64(drw["size_id"]);
                         objPurchaseProperty.unit_id = Val.ToInt64(drw["unit_id"]);
-                        objPurchaseProperty.pcs = Val.ToInt(drw["pcs"]);
+                        objPurchaseProperty.pcs = Val.ToDecimal(drw["pcs"]);
                         objPurchaseProperty.rate = Val.ToDecimal(drw["rate"]);
                         objPurchaseProperty.amount = Val.ToDecimal(drw["amount"]);
 
@@ -1453,7 +1453,7 @@ namespace Account_Management.Transaction
                         objPurchaseProperty.old_color_id = Val.ToInt64(drw["old_color_id"]);
                         objPurchaseProperty.old_size_id = Val.ToInt64(drw["old_size_id"]);
 
-                        objPurchaseProperty.old_pcs = Val.ToInt(drw["old_pcs"]);
+                        objPurchaseProperty.old_pcs = Val.ToDecimal(drw["old_pcs"]);
                         objPurchaseProperty.flag = Val.ToInt(drw["flag"]);
 
                         IntRes = objPurchase.Save_Detail(objPurchaseProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
@@ -1548,7 +1548,7 @@ namespace Account_Management.Transaction
                         objPurchaseProperty.item_id = Val.ToInt64(drw["item_id"]);
                         objPurchaseProperty.color_id = Val.ToInt64(drw["color_id"]);
                         objPurchaseProperty.size_id = Val.ToInt64(drw["size_id"]);
-                        objPurchaseProperty.pcs = Val.ToInt32(drw["pcs"]);
+                        objPurchaseProperty.pcs = Val.ToDecimal(drw["pcs"]);
 
                         if (FlagCount == TotalCount)
                         {
@@ -1847,7 +1847,13 @@ namespace Account_Management.Transaction
         }
         private void txtPcs_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (e.KeyChar == '.' && (sender as DevExpress.XtraEditors.TextEdit).Text.IndexOf('.') > -1)
             {
                 e.Handled = true;
             }

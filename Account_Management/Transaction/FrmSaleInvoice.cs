@@ -51,7 +51,7 @@ namespace Account_Management.Transaction
         int IntRes;
         decimal m_numSummSaleDetAmount;
         decimal m_numSummPurchaseDetAmount;
-        Int64 m_numTotalPcs;
+        decimal m_numTotalPcs;
         bool m_blnadd;
         bool m_blnsave;
         bool m_blncheckevents;
@@ -721,7 +721,7 @@ namespace Account_Management.Transaction
                     blnReturn = false;
                     return blnReturn;
                 }
-                
+
                 //objJangedEntry = new JangedEntry();
                 //DataTable p_dtbDetail = new DataTable();
 
@@ -1177,13 +1177,13 @@ namespace Account_Management.Transaction
                 m_dtbSaleDetails.Columns.Add("size_name", typeof(string));
                 m_dtbSaleDetails.Columns.Add("unit_id", typeof(int));
                 m_dtbSaleDetails.Columns.Add("unit_name", typeof(string));
-                m_dtbSaleDetails.Columns.Add("pcs", typeof(int)).DefaultValue = 0;
+                m_dtbSaleDetails.Columns.Add("pcs", typeof(decimal)).DefaultValue = 0;
                 m_dtbSaleDetails.Columns.Add("sale_rate", typeof(decimal)).DefaultValue = 0;
                 m_dtbSaleDetails.Columns.Add("sale_amount", typeof(decimal)).DefaultValue = 0;
                 m_dtbSaleDetails.Columns.Add("purchase_rate", typeof(decimal)).DefaultValue = 0;
                 m_dtbSaleDetails.Columns.Add("purchase_amount", typeof(decimal)).DefaultValue = 0;
                 m_dtbSaleDetails.Columns.Add("remarks", typeof(string));
-                m_dtbSaleDetails.Columns.Add("old_pcs", typeof(int)).DefaultValue = 0;
+                m_dtbSaleDetails.Columns.Add("old_pcs", typeof(decimal)).DefaultValue = 0;
                 m_dtbSaleDetails.Columns.Add("flag", typeof(int)).DefaultValue = 0;
                 m_dtbSaleDetails.Columns.Add("old_item_id", typeof(int));
                 m_dtbSaleDetails.Columns.Add("old_color_id", typeof(int));
@@ -1421,7 +1421,7 @@ namespace Account_Management.Transaction
                     objSaleProperty.ledger_id = Val.ToInt64(lueParty.EditValue);
                     objSaleProperty.employee_id = Val.ToInt64(LueEmployee.EditValue);
 
-                    objSaleProperty.total_pcs = Val.ToInt64(clmPcs.SummaryItem.SummaryValue);
+                    objSaleProperty.total_pcs = Val.ToDecimal(clmPcs.SummaryItem.SummaryValue);
                     objSaleProperty.firm_id = Val.ToInt64(luePurchaseFirm.EditValue);
 
                     objSaleProperty.gross_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue), 3);
@@ -1468,7 +1468,7 @@ namespace Account_Management.Transaction
                         objSaleProperty.color_id = Val.ToInt64(drw["color_id"]);
                         objSaleProperty.size_id = Val.ToInt64(drw["size_id"]);
                         objSaleProperty.unit_id = Val.ToInt64(drw["unit_id"]);
-                        objSaleProperty.pcs = Val.ToInt(drw["pcs"]);
+                        objSaleProperty.pcs = Val.ToDecimal(drw["pcs"]);
                         objSaleProperty.sale_rate = Val.ToDecimal(drw["sale_rate"]);
                         objSaleProperty.sale_amount = Val.ToDecimal(drw["Sale_amount"]);
                         objSaleProperty.purchase_rate = Val.ToDecimal(drw["purchase_rate"]);
@@ -1478,7 +1478,7 @@ namespace Account_Management.Transaction
                         objSaleProperty.old_color_id = Val.ToInt64(drw["old_color_id"]);
                         objSaleProperty.old_size_id = Val.ToInt64(drw["old_size_id"]);
 
-                        objSaleProperty.old_pcs = Val.ToInt(drw["old_pcs"]);
+                        objSaleProperty.old_pcs = Val.ToDecimal(drw["old_pcs"]);
                         objSaleProperty.flag = Val.ToInt(drw["flag"]);
                         objSaleProperty.form_id = m_numForm_id;
 
@@ -1573,7 +1573,7 @@ namespace Account_Management.Transaction
                         objSaleInvoiceProperty.item_id = Val.ToInt64(drw["item_id"]);
                         objSaleInvoiceProperty.color_id = Val.ToInt64(drw["color_id"]);
                         objSaleInvoiceProperty.size_id = Val.ToInt64(drw["size_id"]);
-                        objSaleInvoiceProperty.pcs = Val.ToInt32(drw["pcs"]);
+                        objSaleInvoiceProperty.pcs = Val.ToDecimal(drw["pcs"]);
 
                         if (FlagCount == TotalCount)
                         {
@@ -1864,7 +1864,7 @@ namespace Account_Management.Transaction
         {
             try
             {
-                m_numTotalPcs = Val.ToInt64(clmPcs.SummaryItem.SummaryValue);
+                m_numTotalPcs = Val.ToDecimal(clmPcs.SummaryItem.SummaryValue);
                 if (((DevExpress.XtraGrid.GridSummaryItem)e.Item).FieldName == "sale_rate")
                 {
                     if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Start)
@@ -1899,7 +1899,6 @@ namespace Account_Management.Transaction
                 BLL.General.ShowErrors(ex);
             }
         }
-
         private void dgvSaleEntry_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
         {
             if (e.RowHandle >= 0)
@@ -1910,7 +1909,6 @@ namespace Account_Management.Transaction
                 }
             }
         }
-
         private void dgvSaleEntry_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             try
@@ -1969,25 +1967,23 @@ namespace Account_Management.Transaction
                 return;
             }
         }
-
         private void txtPcs_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (e.KeyChar == '.' && (sender as DevExpress.XtraEditors.TextEdit).Text.IndexOf('.') > -1)
             {
                 e.Handled = true;
             }
         }
-
         private void txtShippingCharge_KeyDown(object sender, KeyEventArgs e)
         {
             m_blncheckevents = false;
         }
-
-        private void txtShippingCharge_EditValueChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void CmbSaleType_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -2011,7 +2007,6 @@ namespace Account_Management.Transaction
                 return;
             }
         }
-
         private void btnPrint_Click(object sender, EventArgs e)
         {
             SaleInvoice objSaleInvoice = new SaleInvoice();
@@ -2032,7 +2027,6 @@ namespace Account_Management.Transaction
             FrmReportViewer.DS.Clear();
             FrmReportViewer = null;
         }
-
         private void lueItem_Validated(object sender, EventArgs e)
         {
             try
@@ -2044,7 +2038,6 @@ namespace Account_Management.Transaction
             }
             catch (Exception ex)
             {
-
             }
         }
     }

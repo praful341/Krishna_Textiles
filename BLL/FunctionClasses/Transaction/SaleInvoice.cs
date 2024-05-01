@@ -156,7 +156,7 @@ namespace BLL.FunctionClasses.Transaction
                 RequestDetails.AddParams("@color_id", pClsProperty.color_id, DbType.Int64);
                 RequestDetails.AddParams("@size_id", pClsProperty.size_id, DbType.Int64);
                 RequestDetails.AddParams("@flag", flag, DbType.Int32);
-                RequestDetails.AddParams("@pcs", pClsProperty.pcs, DbType.Int32);
+                RequestDetails.AddParams("@pcs", pClsProperty.pcs, DbType.Decimal);
                 RequestDetails.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int32);
                 RequestDetails.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int32);
                 RequestDetails.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int32);

@@ -631,7 +631,7 @@ namespace Account_Management.Transaction
                     return blnReturn;
                 }
 
-                
+
                 //objJangedEntry = new JangedEntry();
                 //DataTable p_dtbDetail = new DataTable();
 
@@ -1052,11 +1052,11 @@ namespace Account_Management.Transaction
                 m_dtbJangedDetails.Columns.Add("size_name", typeof(string));
                 m_dtbJangedDetails.Columns.Add("unit_id", typeof(int));
                 m_dtbJangedDetails.Columns.Add("unit_name", typeof(string));
-                m_dtbJangedDetails.Columns.Add("pcs", typeof(int)).DefaultValue = 0;
+                m_dtbJangedDetails.Columns.Add("pcs", typeof(decimal)).DefaultValue = 0;
                 m_dtbJangedDetails.Columns.Add("rate", typeof(decimal)).DefaultValue = 0;
                 m_dtbJangedDetails.Columns.Add("amount", typeof(decimal)).DefaultValue = 0;
                 m_dtbJangedDetails.Columns.Add("remarks", typeof(string));
-                m_dtbJangedDetails.Columns.Add("old_pcs", typeof(int)).DefaultValue = 0;
+                m_dtbJangedDetails.Columns.Add("old_pcs", typeof(decimal)).DefaultValue = 0;
                 m_dtbJangedDetails.Columns.Add("flag", typeof(int)).DefaultValue = 0;
                 m_dtbJangedDetails.Columns.Add("old_item_id", typeof(int));
                 m_dtbJangedDetails.Columns.Add("old_color_id", typeof(int));
@@ -1402,7 +1402,7 @@ namespace Account_Management.Transaction
                     //objJangedEntryProperty.final_due_date = Val.DBDate(dtpFinalDueDate.Text);
 
 
-                    objJangedEntryProperty.total_pcs = Val.ToInt64(clmPcs.SummaryItem.SummaryValue);
+                    objJangedEntryProperty.total_pcs = Val.ToDecimal(clmPcs.SummaryItem.SummaryValue);
                     // objJangedEntryProperty.total_carat = Math.Round(Val.ToDecimal(clmDetCarat.SummaryItem.SummaryValue), 3);
 
                     objJangedEntryProperty.gross_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue), 3);
@@ -1439,11 +1439,11 @@ namespace Account_Management.Transaction
                         objJangedEntryProperty.color_id = Val.ToInt(drw["color_id"]);
                         objJangedEntryProperty.size_id = Val.ToInt(drw["size_id"]);
                         objJangedEntryProperty.unit_id = Val.ToInt(drw["unit_id"]);
-                        objJangedEntryProperty.pcs = Val.ToInt(drw["pcs"]);
+                        objJangedEntryProperty.pcs = Val.ToDecimal(drw["pcs"]);
                         objJangedEntryProperty.rate = Val.ToDecimal(drw["rate"]);
                         objJangedEntryProperty.amount = Val.ToDecimal(drw["amount"]);
 
-                        objJangedEntryProperty.old_pcs = Val.ToInt(drw["old_pcs"]);
+                        objJangedEntryProperty.old_pcs = Val.ToDecimal(drw["old_pcs"]);
                         objJangedEntryProperty.flag = Val.ToInt(drw["flag"]);
 
                         IntRes = objJangedEntry.Save_Detail(objJangedEntryProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
@@ -1772,7 +1772,13 @@ namespace Account_Management.Transaction
 
         private void txtPcs_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (e.KeyChar == '.' && (sender as DevExpress.XtraEditors.TextEdit).Text.IndexOf('.') > -1)
             {
                 e.Handled = true;
             }

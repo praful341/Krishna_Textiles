@@ -14,7 +14,7 @@ namespace BLL.PropertyClasses.Transaction
         public string order_no { get; set; }
         public Int64 gst_id { get; set; }
         public Int64 firm_id { get; set; }
-        public Int64 total_pcs { get; set; }
+        public decimal total_pcs { get; set; }
         public decimal gross_amount { get; set; }
         public decimal cgst_rate { get; set; }
         public decimal cgst_amount { get; set; }
@@ -47,12 +47,12 @@ namespace BLL.PropertyClasses.Transaction
         public Int64 color_id { get; set; }
         public Int64 size_id { get; set; }
         public Int64 unit_id { get; set; }
-        public int pcs { get; set; }
+        public decimal pcs { get; set; }
         public decimal purchase_rate { get; set; }
         public decimal purchase_amount { get; set; }
         public decimal sale_rate { get; set; }
         public decimal sale_amount { get; set; }
-        public int old_pcs { get; set; }
+        public decimal old_pcs { get; set; }
         public int flag { get; set; }
         public Int64 old_item_id { get; set; }
         public Int64 old_color_id { get; set; }

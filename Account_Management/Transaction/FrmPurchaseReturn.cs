@@ -631,7 +631,7 @@ namespace Account_Management.Transaction
                     blnReturn = false;
                     return blnReturn;
                 }
-                
+
                 if (btnAdd.Text == "&Add")
                 {
                     objPurchaseReturn = new PurchaseReturn();
@@ -987,11 +987,11 @@ namespace Account_Management.Transaction
                 m_dtbPurchaseReturnDetails.Columns.Add("size_name", typeof(string));
                 m_dtbPurchaseReturnDetails.Columns.Add("unit_id", typeof(int));
                 m_dtbPurchaseReturnDetails.Columns.Add("unit_name", typeof(string));
-                m_dtbPurchaseReturnDetails.Columns.Add("pcs", typeof(int)).DefaultValue = 0;
+                m_dtbPurchaseReturnDetails.Columns.Add("pcs", typeof(decimal)).DefaultValue = 0;
                 m_dtbPurchaseReturnDetails.Columns.Add("rate", typeof(decimal)).DefaultValue = 0;
                 m_dtbPurchaseReturnDetails.Columns.Add("amount", typeof(decimal)).DefaultValue = 0;
                 m_dtbPurchaseReturnDetails.Columns.Add("remarks", typeof(string));
-                m_dtbPurchaseReturnDetails.Columns.Add("old_pcs", typeof(int)).DefaultValue = 0;
+                m_dtbPurchaseReturnDetails.Columns.Add("old_pcs", typeof(decimal)).DefaultValue = 0;
                 m_dtbPurchaseReturnDetails.Columns.Add("flag", typeof(int)).DefaultValue = 0;
                 m_dtbPurchaseReturnDetails.Columns.Add("old_item_id", typeof(int));
                 m_dtbPurchaseReturnDetails.Columns.Add("old_color_id", typeof(int));
@@ -1495,7 +1495,13 @@ namespace Account_Management.Transaction
 
         private void txtPcs_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (e.KeyChar == '.' && (sender as DevExpress.XtraEditors.TextEdit).Text.IndexOf('.') > -1)
             {
                 e.Handled = true;
             }
@@ -1525,7 +1531,7 @@ namespace Account_Management.Transaction
                         objPurchaseReturnProperty.item_id = Val.ToInt64(drw["item_id"]);
                         objPurchaseReturnProperty.color_id = Val.ToInt64(drw["color_id"]);
                         objPurchaseReturnProperty.size_id = Val.ToInt64(drw["size_id"]);
-                        objPurchaseReturnProperty.pcs = Val.ToInt32(drw["pcs"]);
+                        objPurchaseReturnProperty.pcs = Val.ToDecimal(drw["pcs"]);
 
                         if (FlagCount == TotalCount)
                         {
@@ -1621,7 +1627,7 @@ namespace Account_Management.Transaction
                     objPurchaseReturnProperty.firm_id = Val.ToInt64(luePurchaseFirm.EditValue);
                     objPurchaseReturnProperty.form_id = m_numForm_id;
                     objPurchaseReturnProperty.ledger_id = Val.ToInt(lueParty.EditValue);
-                    objPurchaseReturnProperty.total_pcs = Val.ToInt64(clmPcs.SummaryItem.SummaryValue);
+                    objPurchaseReturnProperty.total_pcs = Val.ToDecimal(clmPcs.SummaryItem.SummaryValue);
                     objPurchaseReturnProperty.gross_amount = Math.Round(Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue), 3);
                     objPurchaseReturnProperty.cgst_rate = Val.ToDecimal(txtCGSTPer.Text);
                     objPurchaseReturnProperty.cgst_amount = Val.ToDecimal(txtCGSTAmount.Text);
@@ -1656,7 +1662,7 @@ namespace Account_Management.Transaction
                         objPurchaseReturnProperty.color_id = Val.ToInt64(drw["color_id"]);
                         objPurchaseReturnProperty.size_id = Val.ToInt64(drw["size_id"]);
                         objPurchaseReturnProperty.unit_id = Val.ToInt64(drw["unit_id"]);
-                        objPurchaseReturnProperty.pcs = Val.ToInt(drw["pcs"]);
+                        objPurchaseReturnProperty.pcs = Val.ToDecimal(drw["pcs"]);
                         objPurchaseReturnProperty.rate = Val.ToDecimal(drw["rate"]);
                         objPurchaseReturnProperty.amount = Val.ToDecimal(drw["amount"]);
 
@@ -1664,7 +1670,7 @@ namespace Account_Management.Transaction
                         objPurchaseReturnProperty.old_color_id = Val.ToInt64(drw["old_color_id"]);
                         objPurchaseReturnProperty.old_size_id = Val.ToInt64(drw["old_size_id"]);
 
-                        objPurchaseReturnProperty.old_pcs = Val.ToInt(drw["old_pcs"]);
+                        objPurchaseReturnProperty.old_pcs = Val.ToDecimal(drw["old_pcs"]);
                         objPurchaseReturnProperty.flag = Val.ToInt(drw["flag"]);
 
                         IntRes = objPurchaseReturn.Save_Detail(objPurchaseReturnProperty, DLL.GlobalDec.EnumTran.Continue, Conn);

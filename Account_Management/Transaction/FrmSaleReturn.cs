@@ -49,7 +49,7 @@ namespace Account_Management.Transaction
         int IntRes;
         decimal m_numSummSaleDetAmount;
         decimal m_numSummPurchaseDetAmount;
-        Int64 m_numTotalPcs;
+        decimal m_numTotalPcs;
         bool m_blnadd;
         bool m_blnsave;
         bool m_blncheckevents;
@@ -699,7 +699,7 @@ namespace Account_Management.Transaction
                     blnReturn = false;
                     return blnReturn;
                 }
-                
+
                 if (btnAdd.Text == "&Add")
                 {
                     objSaleReturn = new SaleReturn();
@@ -1102,13 +1102,13 @@ namespace Account_Management.Transaction
                 m_dtbSaleDetails.Columns.Add("size_name", typeof(string));
                 m_dtbSaleDetails.Columns.Add("unit_id", typeof(int));
                 m_dtbSaleDetails.Columns.Add("unit_name", typeof(string));
-                m_dtbSaleDetails.Columns.Add("pcs", typeof(int)).DefaultValue = 0;
+                m_dtbSaleDetails.Columns.Add("pcs", typeof(decimal)).DefaultValue = 0;
                 m_dtbSaleDetails.Columns.Add("sale_rate", typeof(decimal)).DefaultValue = 0;
                 m_dtbSaleDetails.Columns.Add("sale_amount", typeof(decimal)).DefaultValue = 0;
                 m_dtbSaleDetails.Columns.Add("purchase_rate", typeof(decimal)).DefaultValue = 0;
                 m_dtbSaleDetails.Columns.Add("purchase_amount", typeof(decimal)).DefaultValue = 0;
                 m_dtbSaleDetails.Columns.Add("remarks", typeof(string));
-                m_dtbSaleDetails.Columns.Add("old_pcs", typeof(int)).DefaultValue = 0;
+                m_dtbSaleDetails.Columns.Add("old_pcs", typeof(decimal)).DefaultValue = 0;
                 m_dtbSaleDetails.Columns.Add("flag", typeof(int)).DefaultValue = 0;
                 m_dtbSaleDetails.Columns.Add("old_item_id", typeof(int));
                 m_dtbSaleDetails.Columns.Add("old_color_id", typeof(int));
@@ -1340,7 +1340,7 @@ namespace Account_Management.Transaction
                     objSaleReturnProperty.firm_id = Val.ToInt64(luePurchaseFirm.EditValue);
                     objSaleReturnProperty.ledger_id = Val.ToInt64(lueParty.EditValue);
                     objSaleReturnProperty.employee_id = Val.ToInt64(LueEmployee.EditValue);
-                    objSaleReturnProperty.total_pcs = Val.ToInt64(clmPcs.SummaryItem.SummaryValue);
+                    objSaleReturnProperty.total_pcs = Val.ToDecimal(clmPcs.SummaryItem.SummaryValue);
                     objSaleReturnProperty.gross_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue), 3);
                     objSaleReturnProperty.cgst_rate = Val.ToDecimal(txtCGSTPer.Text);
                     objSaleReturnProperty.cgst_amount = Val.ToDecimal(txtCGSTAmount.Text);
@@ -1380,7 +1380,7 @@ namespace Account_Management.Transaction
                         objSaleReturnProperty.color_id = Val.ToInt64(drw["color_id"]);
                         objSaleReturnProperty.size_id = Val.ToInt64(drw["size_id"]);
                         objSaleReturnProperty.unit_id = Val.ToInt64(drw["unit_id"]);
-                        objSaleReturnProperty.pcs = Val.ToInt(drw["pcs"]);
+                        objSaleReturnProperty.pcs = Val.ToDecimal(drw["pcs"]);
                         objSaleReturnProperty.sale_rate = Val.ToDecimal(drw["sale_rate"]);
                         objSaleReturnProperty.sale_amount = Val.ToDecimal(drw["Sale_amount"]);
                         objSaleReturnProperty.purchase_rate = Val.ToDecimal(drw["purchase_rate"]);
@@ -1388,7 +1388,7 @@ namespace Account_Management.Transaction
                         objSaleReturnProperty.old_item_id = Val.ToInt64(drw["old_item_id"]);
                         objSaleReturnProperty.old_color_id = Val.ToInt64(drw["old_color_id"]);
                         objSaleReturnProperty.old_size_id = Val.ToInt64(drw["old_size_id"]);
-                        objSaleReturnProperty.old_pcs = Val.ToInt(drw["old_pcs"]);
+                        objSaleReturnProperty.old_pcs = Val.ToDecimal(drw["old_pcs"]);
                         objSaleReturnProperty.flag = Val.ToInt(drw["flag"]);
                         objSaleReturnProperty.form_id = m_numForm_id;
 
@@ -1483,7 +1483,7 @@ namespace Account_Management.Transaction
                         objSaleReturnProperty.item_id = Val.ToInt64(drw["item_id"]);
                         objSaleReturnProperty.color_id = Val.ToInt64(drw["color_id"]);
                         objSaleReturnProperty.size_id = Val.ToInt64(drw["size_id"]);
-                        objSaleReturnProperty.pcs = Val.ToInt32(drw["pcs"]);
+                        objSaleReturnProperty.pcs = Val.ToDecimal(drw["pcs"]);
 
                         if (FlagCount == TotalCount)
                         {
@@ -1763,7 +1763,7 @@ namespace Account_Management.Transaction
         {
             try
             {
-                m_numTotalPcs = Val.ToInt64(clmPcs.SummaryItem.SummaryValue);
+                m_numTotalPcs = Val.ToDecimal(clmPcs.SummaryItem.SummaryValue);
                 if (((DevExpress.XtraGrid.GridSummaryItem)e.Item).FieldName == "sale_rate")
                 {
                     if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Start)
@@ -1855,7 +1855,13 @@ namespace Account_Management.Transaction
         }
         private void txtPcs_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (e.KeyChar == '.' && (sender as DevExpress.XtraEditors.TextEdit).Text.IndexOf('.') > -1)
             {
                 e.Handled = true;
             }
@@ -2030,7 +2036,7 @@ namespace Account_Management.Transaction
                     objSaleReturnProperty.firm_id = Val.ToInt64(luePurchaseFirm.EditValue);
                     objSaleReturnProperty.ledger_id = Val.ToInt64(lueParty.EditValue);
                     objSaleReturnProperty.employee_id = Val.ToInt64(LueEmployee.EditValue);
-                    objSaleReturnProperty.total_pcs = Val.ToInt64(clmPcs.SummaryItem.SummaryValue);
+                    objSaleReturnProperty.total_pcs = Val.ToDecimal(clmPcs.SummaryItem.SummaryValue);
                     objSaleReturnProperty.gross_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue), 3);
                     objSaleReturnProperty.cgst_rate = Val.ToDecimal(txtCGSTPer.Text);
                     objSaleReturnProperty.cgst_amount = Val.ToDecimal(txtCGSTAmount.Text);
@@ -2070,7 +2076,7 @@ namespace Account_Management.Transaction
                         objSaleReturnProperty.color_id = Val.ToInt64(drw["color_id"]);
                         objSaleReturnProperty.size_id = Val.ToInt64(drw["size_id"]);
                         objSaleReturnProperty.unit_id = Val.ToInt64(drw["unit_id"]);
-                        objSaleReturnProperty.pcs = Val.ToInt(drw["pcs"]);
+                        objSaleReturnProperty.pcs = Val.ToDecimal(drw["pcs"]);
                         objSaleReturnProperty.sale_rate = Val.ToDecimal(drw["sale_rate"]);
                         objSaleReturnProperty.sale_amount = Val.ToDecimal(drw["Sale_amount"]);
                         objSaleReturnProperty.purchase_rate = Val.ToDecimal(drw["purchase_rate"]);
@@ -2078,7 +2084,7 @@ namespace Account_Management.Transaction
                         objSaleReturnProperty.old_item_id = Val.ToInt64(drw["old_item_id"]);
                         objSaleReturnProperty.old_color_id = Val.ToInt64(drw["old_color_id"]);
                         objSaleReturnProperty.old_size_id = Val.ToInt64(drw["old_size_id"]);
-                        objSaleReturnProperty.old_pcs = Val.ToInt(drw["old_pcs"]);
+                        objSaleReturnProperty.old_pcs = Val.ToDecimal(drw["old_pcs"]);
                         objSaleReturnProperty.flag = Val.ToInt(drw["flag"]);
                         objSaleReturnProperty.form_id = m_numForm_id;
 

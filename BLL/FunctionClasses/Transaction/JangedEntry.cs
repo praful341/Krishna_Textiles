@@ -91,7 +91,7 @@ namespace BLL.FunctionClasses.Transaction
                 RequestDetails.AddParams("@color_id", pClsProperty.color_id, DbType.Int32);
                 RequestDetails.AddParams("@size_id", pClsProperty.size_id, DbType.Int32);
                 RequestDetails.AddParams("@unit_id", pClsProperty.unit_id, DbType.Int32);
-                RequestDetails.AddParams("@pcs", pClsProperty.pcs, DbType.Int32);
+                RequestDetails.AddParams("@pcs", pClsProperty.pcs, DbType.Decimal);
                 RequestDetails.AddParams("@rate", pClsProperty.rate, DbType.Decimal);
                 RequestDetails.AddParams("@amount", pClsProperty.amount, DbType.Decimal);
                 RequestDetails.AddParams("@form_id", pClsProperty.form_id, DbType.Int32);

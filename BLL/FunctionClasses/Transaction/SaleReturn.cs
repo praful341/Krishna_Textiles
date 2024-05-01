@@ -118,8 +118,8 @@ namespace BLL.FunctionClasses.Transaction
                 RequestDetails.AddParams("@old_item_id", pClsProperty.old_item_id, DbType.Int64);
                 RequestDetails.AddParams("@old_size_id", pClsProperty.old_size_id, DbType.Int64);
                 RequestDetails.AddParams("@old_color_id", pClsProperty.old_color_id, DbType.Int64);
-                RequestDetails.AddParams("@old_pcs", pClsProperty.old_pcs, DbType.Int32);
-                RequestDetails.AddParams("@pcs", pClsProperty.pcs, DbType.Int32);
+                RequestDetails.AddParams("@old_pcs", pClsProperty.old_pcs, DbType.Decimal);
+                RequestDetails.AddParams("@pcs", pClsProperty.pcs, DbType.Decimal);
                 RequestDetails.AddParams("@unit_id", pClsProperty.unit_id, DbType.Int64);
                 RequestDetails.AddParams("@purchase_rate", pClsProperty.purchase_rate, DbType.Decimal);
                 RequestDetails.AddParams("@purchase_amount", pClsProperty.purchase_amount, DbType.Decimal);
@@ -157,7 +157,7 @@ namespace BLL.FunctionClasses.Transaction
                 RequestDetails.AddParams("@color_id", pClsProperty.color_id, DbType.Int64);
                 RequestDetails.AddParams("@size_id", pClsProperty.size_id, DbType.Int64);
                 RequestDetails.AddParams("@flag", flag, DbType.Int32);
-                RequestDetails.AddParams("@pcs", pClsProperty.pcs, DbType.Int32);
+                RequestDetails.AddParams("@pcs", pClsProperty.pcs, DbType.Decimal);
                 RequestDetails.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int32);
                 RequestDetails.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int32);
                 RequestDetails.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int32);

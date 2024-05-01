@@ -11,7 +11,7 @@ namespace BLL.PropertyClasses.Transaction
         public int department_id { get; set; }
         public string janged_date { get; set; }
         public Int64 gst_id { get; set; }
-        public Int64 total_pcs { get; set; }
+        public decimal total_pcs { get; set; }
         public decimal gross_amount { get; set; }
         public string purchase_bill_no { get; set; }
         public Int64 firm_id { get; set; }
@@ -40,13 +40,13 @@ namespace BLL.PropertyClasses.Transaction
         public int color_id { get; set; }
         public int size_id { get; set; }
         public int unit_id { get; set; }
-        public int pcs { get; set; }
+        public decimal pcs { get; set; }
         public decimal rate { get; set; }
         public decimal amount { get; set; }
         public decimal discount { get; set; }
         public Int64 voucher_no { get; set; }
         public string remarks { get; set; }
-        public int old_pcs { get; set; }
+        public decimal old_pcs { get; set; }
         public int flag { get; set; }
         public int old_item_id { get; set; }
         public int old_color_id { get; set; }

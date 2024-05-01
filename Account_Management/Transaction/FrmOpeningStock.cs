@@ -388,7 +388,7 @@ namespace Account_Management.Transaction
                                 }
                             }
                         }
-                        objOpeningProperty.opening_pcs = Val.ToInt64(DRow["opening_pcs"]);
+                        objOpeningProperty.opening_pcs = Val.ToDecimal(DRow["opening_pcs"]);
                         objOpeningProperty.opening_rate = Val.ToDecimal(DRow["opening_rate"]);
 
                         IntRes = ObjOpening.Save(objOpeningProperty, DLL.GlobalDec.EnumTran.Continue, Conn);

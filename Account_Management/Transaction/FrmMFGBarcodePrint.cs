@@ -299,10 +299,10 @@ namespace Account_Management.Transaction.MFG
                     //string Sub_lot_no = Val.ToString(dtCheckedBarcode.Rows[i]["sr_no"].ToString());
                     //if (Sub_lot_no.ToString() != "")
                     //{
-                    if (Val.ToInt64(dtCheckedBarcode.Rows[i]["stock_id"]) != 0 && Val.ToInt64(dtCheckedBarcode.Rows[i]["balance_pcs"]) != 0)
+                    if (Val.ToInt64(dtCheckedBarcode.Rows[i]["stock_id"]) != 0 && Val.ToDecimal(dtCheckedBarcode.Rows[i]["balance_pcs"]) != 0)
                     {
                         printBarCode.Stock_AddPkt(dtCheckedBarcode.Rows[i]["item_name"].ToString(), dtCheckedBarcode.Rows[i]["color_name"].ToString(), dtCheckedBarcode.Rows[i]["size_name"].ToString(),
-                            Val.ToInt(dtCheckedBarcode.Rows[i]["stock_id"]), Val.ToInt(dtCheckedBarcode.Rows[i]["balance_pcs"]), true);
+                            Val.ToInt(dtCheckedBarcode.Rows[i]["stock_id"]), Val.ToDecimal(dtCheckedBarcode.Rows[i]["balance_pcs"]), true);
                     }
                     //}
                     //else
@@ -312,7 +312,7 @@ namespace Account_Management.Transaction.MFG
                     //}
 
                 }
-                printBarCode.Stock_PrintTSC();
+                printBarCode.Stock_PrintTSC(Val.ToInt64(txtBarcodeCount.Text));
             }
             else
             {
@@ -520,6 +520,14 @@ namespace Account_Management.Transaction.MFG
             txtSelLot.Text = "0";
             txtSelPcs.Text = "0";
             LueItem.Focus();
+        }
+
+        private void txtBarcodeCount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
