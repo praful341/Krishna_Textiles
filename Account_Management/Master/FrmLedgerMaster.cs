@@ -156,6 +156,7 @@ namespace Account_Management
                 lueCity.EditValue = null;
                 lueState.EditValue = null;
                 lueCountry.EditValue = null;
+                txtGSTNo.Text = "";
 
                 txtEmailID.Text = string.Empty;
                 txtZipCode.Text = string.Empty;

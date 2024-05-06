@@ -2011,7 +2011,7 @@ namespace Account_Management.Transaction
         private void btnPrint_Click(object sender, EventArgs e)
         {
             SaleInvoice objSaleInvoice = new SaleInvoice();
-            DataTable DTab_Shipping_Address = objSaleInvoice.Shipping_Address_GetData(Val.ToInt64(lblMode.Tag));
+            DataTable DTab_Shipping_Address = objSaleInvoice.Sale_Invoice_Print_GetData(Val.ToInt64(lblMode.Tag));
 
             FrmReportViewer FrmReportViewer = new FrmReportViewer();
             FrmReportViewer.DS.Tables.Add(DTab_Shipping_Address);
@@ -2021,7 +2021,7 @@ namespace Account_Management.Transaction
             this.Cursor = Cursors.Default;
             FrmReportViewer.AllowSetFormula = true;
 
-            FrmReportViewer.ShowForm("Shipping_Address", 120, FrmReportViewer.ReportFolder.SHIPPING_ADDRESS);
+            FrmReportViewer.ShowForm("Bill_Detail", 120, FrmReportViewer.ReportFolder.SALE_INVOICE);
 
             DTab_Shipping_Address = null;
             FrmReportViewer.DS.Tables.Clear();
