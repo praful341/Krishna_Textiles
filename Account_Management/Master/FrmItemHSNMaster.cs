@@ -64,12 +64,12 @@ namespace Account_Management.Master
 
         private bool ValSave()
         {
-            if (txtHSNName.Text.Length == 0)
-            {
-                Global.Confirm("HSN Name Is Required");
-                txtHSNName.Focus();
-                return false;
-            }
+            //if (txtHSNName.Text.Length == 0)
+            //{
+            //    Global.Confirm("HSN Name Is Required");
+            //    txtHSNName.Focus();
+            //    return false;
+            //}
 
             if (txtHSNCode.Text.Length == 0)
             {
