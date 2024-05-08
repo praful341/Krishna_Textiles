@@ -148,6 +148,7 @@ namespace Account_Management.Master
                 dtpGst.Text = "";
                 txtGstNo.Text = "";
                 txtPancardNo.Text = "";
+                txtBankAccName.Text = "";
                 txtBankAccNo.Text = "";
                 txtBankBranch.Text = "";
                 txtBankIFSC.Text = "";
@@ -245,6 +246,7 @@ namespace Account_Management.Master
                         txtBankIFSC.Text = Val.ToString(Drow["bank_ifsc"]);
                         txtPancardNo.Text = Val.ToString(Drow["pancard_no"]);
                         CmbBankAccType.Text = Val.ToString(Drow["bank_account_type"]);
+                        txtBankAccName.Text = Val.ToString(Drow["bank_acc_name"]);
 
                         txtAddress2.Text = Val.ToString(Drow["address2"]);
                         txtAddress3.Text = Val.ToString(Drow["address3"]);
@@ -311,6 +313,7 @@ namespace Account_Management.Master
                 CompMasterProperty.bank_branch = Val.ToString(txtBankBranch.Text);
                 CompMasterProperty.bank_ifsc = Val.ToString(txtBankIFSC.Text);
                 CompMasterProperty.bank_acc_no = Val.ToString(txtBankAccNo.Text);
+                CompMasterProperty.bank_acc_name = Val.ToString(txtBankAccName.Text);
 
                 CompMasterProperty.address1 = Val.ToString(txtAddress1.Text).ToUpper();
                 CompMasterProperty.address2 = Val.ToString(txtAddress2.Text).ToUpper();

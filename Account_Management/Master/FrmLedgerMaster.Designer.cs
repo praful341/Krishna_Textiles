@@ -136,6 +136,9 @@
             this.txtMobileNo2 = new DevExpress.XtraEditors.TextEdit();
             this.txtEmailID = new DevExpress.XtraEditors.TextEdit();
             this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.txtBankAccName = new DevExpress.XtraEditors.TextEdit();
+            this.clmBankAccName = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -180,6 +183,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtLedgerName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMobileNo2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmailID.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBankAccName.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl4
@@ -247,7 +251,8 @@
             this.clmBankAccNo,
             this.clmPartyPanNo,
             this.clmGSTNo,
-            this.clmBankAccType});
+            this.clmBankAccType,
+            this.clmBankAccName});
             this.dgvLedgerMaster.GridControl = this.grdLedgerMaster;
             this.dgvLedgerMaster.Name = "dgvLedgerMaster";
             this.dgvLedgerMaster.OptionsBehavior.Editable = false;
@@ -880,6 +885,8 @@
             this.groupControl1.Appearance.Options.UseFont = true;
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
+            this.groupControl1.Controls.Add(this.labelControl5);
+            this.groupControl1.Controls.Add(this.txtBankAccName);
             this.groupControl1.Controls.Add(this.labelControl35);
             this.groupControl1.Controls.Add(this.CmbBankAccType);
             this.groupControl1.Controls.Add(this.labelControl25);
@@ -892,7 +899,7 @@
             this.groupControl1.Controls.Add(this.txtBankAccNo);
             this.groupControl1.Location = new System.Drawing.Point(360, 219);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(317, 149);
+            this.groupControl1.Size = new System.Drawing.Size(317, 183);
             this.groupControl1.TabIndex = 573;
             this.groupControl1.Text = "Bank Details";
             // 
@@ -902,7 +909,7 @@
             this.labelControl35.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl35.Appearance.Options.UseFont = true;
             this.labelControl35.Appearance.Options.UseForeColor = true;
-            this.labelControl35.Location = new System.Drawing.Point(8, 124);
+            this.labelControl35.Location = new System.Drawing.Point(8, 149);
             this.labelControl35.Name = "labelControl35";
             this.labelControl35.Size = new System.Drawing.Size(62, 17);
             this.labelControl35.TabIndex = 55;
@@ -911,7 +918,7 @@
             // CmbBankAccType
             // 
             this.CmbBankAccType.EnterMoveNextControl = true;
-            this.CmbBankAccType.Location = new System.Drawing.Point(89, 123);
+            this.CmbBankAccType.Location = new System.Drawing.Point(89, 148);
             this.CmbBankAccType.Name = "CmbBankAccType";
             this.CmbBankAccType.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbBankAccType.Properties.Appearance.Options.UseFont = true;
@@ -925,7 +932,7 @@
             this.CmbBankAccType.Properties.PopupSizeable = true;
             this.CmbBankAccType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.CmbBankAccType.Size = new System.Drawing.Size(117, 20);
-            this.CmbBankAccType.TabIndex = 4;
+            this.CmbBankAccType.TabIndex = 5;
             // 
             // labelControl25
             // 
@@ -933,7 +940,7 @@
             this.labelControl25.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl25.Appearance.Options.UseFont = true;
             this.labelControl25.Appearance.Options.UseForeColor = true;
-            this.labelControl25.Location = new System.Drawing.Point(8, 29);
+            this.labelControl25.Location = new System.Drawing.Point(8, 50);
             this.labelControl25.Name = "labelControl25";
             this.labelControl25.Size = new System.Drawing.Size(39, 17);
             this.labelControl25.TabIndex = 50;
@@ -942,12 +949,12 @@
             // txtBankBranch
             // 
             this.txtBankBranch.EnterMoveNextControl = true;
-            this.txtBankBranch.Location = new System.Drawing.Point(89, 49);
+            this.txtBankBranch.Location = new System.Drawing.Point(89, 74);
             this.txtBankBranch.Name = "txtBankBranch";
             this.txtBankBranch.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBankBranch.Properties.Appearance.Options.UseFont = true;
             this.txtBankBranch.Size = new System.Drawing.Size(221, 20);
-            this.txtBankBranch.TabIndex = 1;
+            this.txtBankBranch.TabIndex = 2;
             // 
             // labelControl51
             // 
@@ -955,7 +962,7 @@
             this.labelControl51.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl51.Appearance.Options.UseFont = true;
             this.labelControl51.Appearance.Options.UseForeColor = true;
-            this.labelControl51.Location = new System.Drawing.Point(8, 54);
+            this.labelControl51.Location = new System.Drawing.Point(8, 75);
             this.labelControl51.Name = "labelControl51";
             this.labelControl51.Size = new System.Drawing.Size(50, 17);
             this.labelControl51.TabIndex = 49;
@@ -967,7 +974,7 @@
             this.labelControl55.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl55.Appearance.Options.UseFont = true;
             this.labelControl55.Appearance.Options.UseForeColor = true;
-            this.labelControl55.Location = new System.Drawing.Point(8, 79);
+            this.labelControl55.Location = new System.Drawing.Point(8, 100);
             this.labelControl55.Name = "labelControl55";
             this.labelControl55.Size = new System.Drawing.Size(30, 17);
             this.labelControl55.TabIndex = 51;
@@ -976,12 +983,12 @@
             // txtBankIFSC
             // 
             this.txtBankIFSC.EnterMoveNextControl = true;
-            this.txtBankIFSC.Location = new System.Drawing.Point(89, 74);
+            this.txtBankIFSC.Location = new System.Drawing.Point(89, 99);
             this.txtBankIFSC.Name = "txtBankIFSC";
             this.txtBankIFSC.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBankIFSC.Properties.Appearance.Options.UseFont = true;
             this.txtBankIFSC.Size = new System.Drawing.Size(221, 20);
-            this.txtBankIFSC.TabIndex = 2;
+            this.txtBankIFSC.TabIndex = 3;
             // 
             // labelControl56
             // 
@@ -989,7 +996,7 @@
             this.labelControl56.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl56.Appearance.Options.UseFont = true;
             this.labelControl56.Appearance.Options.UseForeColor = true;
-            this.labelControl56.Location = new System.Drawing.Point(8, 103);
+            this.labelControl56.Location = new System.Drawing.Point(8, 124);
             this.labelControl56.Name = "labelControl56";
             this.labelControl56.Size = new System.Drawing.Size(46, 17);
             this.labelControl56.TabIndex = 52;
@@ -998,22 +1005,22 @@
             // txtBankName
             // 
             this.txtBankName.EnterMoveNextControl = true;
-            this.txtBankName.Location = new System.Drawing.Point(89, 24);
+            this.txtBankName.Location = new System.Drawing.Point(89, 49);
             this.txtBankName.Name = "txtBankName";
             this.txtBankName.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBankName.Properties.Appearance.Options.UseFont = true;
             this.txtBankName.Size = new System.Drawing.Size(221, 20);
-            this.txtBankName.TabIndex = 0;
+            this.txtBankName.TabIndex = 1;
             // 
             // txtBankAccNo
             // 
             this.txtBankAccNo.EnterMoveNextControl = true;
-            this.txtBankAccNo.Location = new System.Drawing.Point(89, 98);
+            this.txtBankAccNo.Location = new System.Drawing.Point(89, 123);
             this.txtBankAccNo.Name = "txtBankAccNo";
             this.txtBankAccNo.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBankAccNo.Properties.Appearance.Options.UseFont = true;
             this.txtBankAccNo.Size = new System.Drawing.Size(221, 20);
-            this.txtBankAccNo.TabIndex = 3;
+            this.txtBankAccNo.TabIndex = 4;
             // 
             // txtRemark
             // 
@@ -1415,6 +1422,37 @@
             this.labelControl30.TabIndex = 480;
             this.labelControl30.Text = "Email ID";
             // 
+            // labelControl5
+            // 
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl5.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl5.Appearance.Options.UseFont = true;
+            this.labelControl5.Appearance.Options.UseForeColor = true;
+            this.labelControl5.Location = new System.Drawing.Point(8, 25);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(66, 17);
+            this.labelControl5.TabIndex = 57;
+            this.labelControl5.Text = "Acc Name";
+            // 
+            // txtBankAccName
+            // 
+            this.txtBankAccName.EnterMoveNextControl = true;
+            this.txtBankAccName.Location = new System.Drawing.Point(89, 24);
+            this.txtBankAccName.Name = "txtBankAccName";
+            this.txtBankAccName.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBankAccName.Properties.Appearance.Options.UseFont = true;
+            this.txtBankAccName.Size = new System.Drawing.Size(221, 20);
+            this.txtBankAccName.TabIndex = 0;
+            // 
+            // clmBankAccName
+            // 
+            this.clmBankAccName.Caption = "Bank Acc Name";
+            this.clmBankAccName.FieldName = "bank_acc_name";
+            this.clmBankAccName.Name = "clmBankAccName";
+            this.clmBankAccName.Visible = true;
+            this.clmBankAccName.VisibleIndex = 19;
+            this.clmBankAccName.Width = 107;
+            // 
             // FrmLedgerMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1478,6 +1516,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtLedgerName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMobileNo2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmailID.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBankAccName.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1589,5 +1628,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl35;
         private DevExpress.XtraEditors.ComboBoxEdit CmbBankAccType;
         private DevExpress.XtraGrid.Columns.GridColumn clmBankAccType;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.TextEdit txtBankAccName;
+        private DevExpress.XtraGrid.Columns.GridColumn clmBankAccName;
     }
 }

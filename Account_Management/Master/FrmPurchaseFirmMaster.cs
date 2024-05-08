@@ -115,6 +115,7 @@ namespace Account_Management.Master
                 txtBankIFSC.Text = "";
                 txtBankName.Text = "";
                 CmbBankAccType.SelectedIndex = -1;
+                txtBankAccName.Text = "";
                 txtAddress2.Text = "";
                 txtAddress3.Text = "";
                 txtAddress4.Text = "";
@@ -184,6 +185,7 @@ namespace Account_Management.Master
                         txtPhone2.Text = Val.ToString(Drow["phone2"]);
                         txtBankAccNo.Text = Val.ToString(Drow["bank_acc_no"]);
                         txtGstNo.Text = Val.ToString(Drow["gst_no"]);
+                        txtBankAccName.Text = Val.ToString(Drow["bank_acc_name"]);
 
                         txtBankBranch.Text = Val.ToString(Drow["bank_branch"]);
                         txtBankName.Text = Val.ToString(Drow["bank_name"]);
@@ -254,6 +256,7 @@ namespace Account_Management.Master
                 PurchaseFirmMasterProperty.bank_branch = Val.ToString(txtBankBranch.Text);
                 PurchaseFirmMasterProperty.bank_ifsc = Val.ToString(txtBankIFSC.Text);
                 PurchaseFirmMasterProperty.bank_acc_no = Val.ToString(txtBankAccNo.Text);
+                PurchaseFirmMasterProperty.bank_acc_name = Val.ToString(txtBankAccName.Text);
 
                 PurchaseFirmMasterProperty.address1 = Val.ToString(txtAddress1.Text).ToUpper();
                 PurchaseFirmMasterProperty.address2 = Val.ToString(txtAddress2.Text).ToUpper();

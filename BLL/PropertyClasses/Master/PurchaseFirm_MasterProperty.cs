@@ -17,6 +17,7 @@
         public string registration_no { get; set; }
         public string nature_of_business { get; set; }
         public string bank_acc_no { get; set; }
+        public string bank_acc_name { get; set; }
         public string tds_circle { get; set; }
         public string tan_no { get; set; }
         public string pancard_no { get; set; }

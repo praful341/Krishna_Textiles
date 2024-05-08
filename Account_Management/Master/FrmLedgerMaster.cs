@@ -163,6 +163,7 @@ namespace Account_Management
                 txtBankIFSC.Text = "";
                 txtBankName.Text = "";
                 CmbBankAccType.SelectedIndex = -1;
+                txtBankAccName.Text = "";
 
                 txtEmailID.Text = string.Empty;
                 txtZipCode.Text = string.Empty;
@@ -234,6 +235,7 @@ namespace Account_Management
                         txtBankIFSC.Text = Val.ToString(Drow["bank_ifsc"]);
                         txtBankAccNo.Text = Val.ToString(Drow["bank_account_no"]);
                         CmbBankAccType.Text = Val.ToString(Drow["bank_account_type"]);
+                        txtBankAccName.Text = Val.ToString(Drow["bank_acc_name"]);
                         txtLedgerName.Focus();
                     }
                 }
@@ -291,6 +293,7 @@ namespace Account_Management
                 LedgerMasterProperty.gst_no = Val.ToString(txtGSTNo.Text);
                 LedgerMasterProperty.remark = Val.ToString(txtRemark.Text).ToUpper();
                 LedgerMasterProperty.active = Val.ToBoolean(chkActive.Checked);
+                LedgerMasterProperty.bank_acc_name = Val.ToString(txtBankAccName.Text);
 
                 IntRes = objLedger.Save(LedgerMasterProperty);
 

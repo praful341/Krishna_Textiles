@@ -30,5 +30,6 @@ namespace BLL.PropertyClasses.Master
         public string gst_no { get; set; }
         public bool? active { get; set; }
         public string remark { get; set; }
+        public string bank_acc_name { get; set; }
     }
 }

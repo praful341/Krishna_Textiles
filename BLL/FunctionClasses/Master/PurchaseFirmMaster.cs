@@ -41,6 +41,7 @@ namespace BLL.FunctionClasses.Master
             Request.AddParams("@address4", pClsProperty.address4, DbType.String);
 
             Request.AddParams("@bank_account_type", pClsProperty.bank_account_type, DbType.String);
+            Request.AddParams("@bank_acc_name", pClsProperty.bank_acc_name, DbType.String);
 
             Request.CommandText = BLL.TPV.SProc.MST_Purchase_Firm_Save;
             Request.CommandType = CommandType.StoredProcedure;
