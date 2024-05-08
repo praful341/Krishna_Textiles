@@ -1886,7 +1886,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Purchase Firm Master";
-            this.Load += new System.EventHandler(this.FrmCompanyMaster_Load);
+            this.Load += new System.EventHandler(this.FrmPurchaseFirmMaster_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TabRegisterDetail)).EndInit();

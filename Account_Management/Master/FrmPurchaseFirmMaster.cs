@@ -61,44 +61,6 @@ namespace Account_Management.Master
         #endregion
 
         #region Events
-        private void FrmCompanyMaster_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                Task.Run(() => Global.LOOKUPCountry(lueCountry));
-                Task.Run(() => Global.LOOKUPState(lueState));
-                Task.Run(() => Global.LOOKUPCity(lueCity));
-                Task.Run(() => GetData());
-
-
-                dtpCST.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpCST.Properties.Mask.EditMask = "dd-MM-yyyy";
-                dtpCST.Properties.Mask.UseMaskAsDisplayFormat = true;
-                dtpCST.Properties.CharacterCasing = CharacterCasing.Upper;
-
-                dtpGst.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpGst.Properties.Mask.EditMask = "dd-MM-yyyy";
-                dtpGst.Properties.Mask.UseMaskAsDisplayFormat = true;
-                dtpGst.Properties.CharacterCasing = CharacterCasing.Upper;
-
-                dtpST.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpST.Properties.Mask.EditMask = "dd-MM-yyyy";
-                dtpST.Properties.Mask.UseMaskAsDisplayFormat = true;
-                dtpST.Properties.CharacterCasing = CharacterCasing.Upper;
-
-                dtpTAN.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-                dtpTAN.Properties.Mask.EditMask = "dd-MM-yyyy";
-                dtpTAN.Properties.Mask.UseMaskAsDisplayFormat = true;
-                dtpTAN.Properties.CharacterCasing = CharacterCasing.Upper;
-                txtFirmName.Focus();
-                btnClear_Click(btnClear, null);
-            }
-            catch (Exception ex)
-            {
-                General.ShowErrors(ex.ToString());
-                return;
-            }
-        }
         private void btnSave_Click(object sender, EventArgs e)
         {
             ObjPer.SetFormPer();
@@ -303,22 +265,19 @@ namespace Account_Management.Master
                 int IntRes = objPurchaseFirm.Save(PurchaseFirmMasterProperty);
                 if (IntRes == -1)
                 {
-                    Global.Confirm("Error In Save Company Details");
-                    //TabRegisterDetail.SelectedTabPageIndex = 0;
+                    Global.Confirm("Error In Save Purchase Firm Details");
                     txtFirmName.Focus();
                 }
                 else
                 {
                     if (Val.ToInt(lblMode.Tag) == 0)
                     {
-                        Global.Confirm("Company Details Data Save Successfully");
-                        //TabRegisterDetail.SelectedTabPageIndex = 0;
+                        Global.Confirm("Purchase Firm Details Data Save Successfully");
                         txtFirmName.Focus();
                     }
                     else
                     {
-                        Global.Confirm("Company Details Data Update Successfully");
-                        //TabRegisterDetail.SelectedTabPageIndex = 0;
+                        Global.Confirm("Purchase Firm Details Data Update Successfully");
                         txtFirmName.Focus();
                     }
                 }
@@ -493,6 +452,44 @@ namespace Account_Management.Master
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+        private void FrmPurchaseFirmMaster_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                Task.Run(() => Global.LOOKUPCountry(lueCountry));
+                Task.Run(() => Global.LOOKUPState(lueState));
+                Task.Run(() => Global.LOOKUPCity(lueCity));
+                Task.Run(() => GetData());
+
+
+                dtpCST.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
+                dtpCST.Properties.Mask.EditMask = "dd-MM-yyyy";
+                dtpCST.Properties.Mask.UseMaskAsDisplayFormat = true;
+                dtpCST.Properties.CharacterCasing = CharacterCasing.Upper;
+
+                dtpGst.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
+                dtpGst.Properties.Mask.EditMask = "dd-MM-yyyy";
+                dtpGst.Properties.Mask.UseMaskAsDisplayFormat = true;
+                dtpGst.Properties.CharacterCasing = CharacterCasing.Upper;
+
+                dtpST.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
+                dtpST.Properties.Mask.EditMask = "dd-MM-yyyy";
+                dtpST.Properties.Mask.UseMaskAsDisplayFormat = true;
+                dtpST.Properties.CharacterCasing = CharacterCasing.Upper;
+
+                dtpTAN.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
+                dtpTAN.Properties.Mask.EditMask = "dd-MM-yyyy";
+                dtpTAN.Properties.Mask.UseMaskAsDisplayFormat = true;
+                dtpTAN.Properties.CharacterCasing = CharacterCasing.Upper;
+                txtFirmName.Focus();
+                btnClear_Click(btnClear, null);
+            }
+            catch (Exception ex)
+            {
+                General.ShowErrors(ex.ToString());
+                return;
             }
         }
     }
