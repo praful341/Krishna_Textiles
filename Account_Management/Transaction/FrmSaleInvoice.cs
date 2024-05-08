@@ -2013,6 +2013,99 @@ namespace Account_Management.Transaction
             SaleInvoice objSaleInvoice = new SaleInvoice();
             DataTable DTab_Shipping_Address = objSaleInvoice.Sale_Invoice_Print_GetData(Val.ToInt64(lblMode.Tag));
 
+            //for (int i = DTab_Shipping_Address.Rows.Count; i < 20; i++)
+            //{
+            //    DTab_Shipping_Address.Rows.Add();
+            //}
+
+            for (int i = DTab_Shipping_Address.Rows.Count; i < 18; i++)
+            {
+                DTab_Shipping_Address.Rows.Add();
+                if (i == 12)
+                {
+                    DTab_Shipping_Address.Rows[i]["firm_name"] = DTab_Shipping_Address.Rows[0]["firm_name"];
+                    DTab_Shipping_Address.Rows[i]["address"] = DTab_Shipping_Address.Rows[0]["address"];
+                    DTab_Shipping_Address.Rows[i]["phone1"] = DTab_Shipping_Address.Rows[0]["phone1"];
+                    DTab_Shipping_Address.Rows[i]["phone2"] = DTab_Shipping_Address.Rows[0]["phone2"];
+                    DTab_Shipping_Address.Rows[i]["pincode"] = DTab_Shipping_Address.Rows[0]["pincode"];
+                    DTab_Shipping_Address.Rows[i]["email"] = DTab_Shipping_Address.Rows[0]["email"];
+                    DTab_Shipping_Address.Rows[i]["bank_name"] = DTab_Shipping_Address.Rows[0]["bank_name"];
+                    DTab_Shipping_Address.Rows[i]["bank_branch"] = DTab_Shipping_Address.Rows[0]["bank_branch"];
+                    DTab_Shipping_Address.Rows[i]["bank_ifsc"] = DTab_Shipping_Address.Rows[0]["bank_ifsc"];
+                    DTab_Shipping_Address.Rows[i]["bank_acc_no"] = DTab_Shipping_Address.Rows[0]["bank_acc_no"];
+                    DTab_Shipping_Address.Rows[i]["gst_no"] = DTab_Shipping_Address.Rows[0]["gst_no"];
+                    DTab_Shipping_Address.Rows[i]["account_type"] = DTab_Shipping_Address.Rows[0]["account_type"];
+                    DTab_Shipping_Address.Rows[i]["state_name"] = DTab_Shipping_Address.Rows[0]["state_name"];
+                    DTab_Shipping_Address.Rows[i]["city_name"] = DTab_Shipping_Address.Rows[0]["city_name"];
+                    DTab_Shipping_Address.Rows[i]["invoice_date"] = DTab_Shipping_Address.Rows[0]["invoice_date"];
+                    DTab_Shipping_Address.Rows[i]["invoice_no"] = DTab_Shipping_Address.Rows[0]["invoice_no"];
+                    DTab_Shipping_Address.Rows[i]["party_name"] = DTab_Shipping_Address.Rows[0]["party_name"];
+                    DTab_Shipping_Address.Rows[i]["party_address"] = DTab_Shipping_Address.Rows[0]["party_address"];
+                    DTab_Shipping_Address.Rows[i]["party_gst"] = DTab_Shipping_Address.Rows[0]["party_gst"];
+                    DTab_Shipping_Address.Rows[i]["party_mobile1"] = DTab_Shipping_Address.Rows[0]["party_mobile1"];
+                    DTab_Shipping_Address.Rows[i]["discount_amount"] = DTab_Shipping_Address.Rows[0]["discount_amount"];
+                    DTab_Shipping_Address.Rows[i]["cgst"] = DTab_Shipping_Address.Rows[0]["cgst"];
+                    DTab_Shipping_Address.Rows[i]["sgst"] = DTab_Shipping_Address.Rows[0]["sgst"];
+                    DTab_Shipping_Address.Rows[i]["igst"] = DTab_Shipping_Address.Rows[0]["igst"];
+                    DTab_Shipping_Address.Rows[i]["netamount"] = DTab_Shipping_Address.Rows[0]["netamount"];
+                    DTab_Shipping_Address.Rows[i]["state_code"] = DTab_Shipping_Address.Rows[0]["state_code"];
+
+                }
+                else
+                {
+                    DTab_Shipping_Address.Rows[i]["firm_name"] = DTab_Shipping_Address.Rows[0]["firm_name"];
+                    DTab_Shipping_Address.Rows[i]["address"] = DTab_Shipping_Address.Rows[0]["address"];
+                    DTab_Shipping_Address.Rows[i]["phone1"] = DTab_Shipping_Address.Rows[0]["phone1"];
+                    DTab_Shipping_Address.Rows[i]["phone2"] = DTab_Shipping_Address.Rows[0]["phone2"];
+                    DTab_Shipping_Address.Rows[i]["pincode"] = DTab_Shipping_Address.Rows[0]["pincode"];
+                    DTab_Shipping_Address.Rows[i]["email"] = DTab_Shipping_Address.Rows[0]["email"];
+                    DTab_Shipping_Address.Rows[i]["bank_name"] = DTab_Shipping_Address.Rows[0]["bank_name"];
+                    DTab_Shipping_Address.Rows[i]["bank_branch"] = DTab_Shipping_Address.Rows[0]["bank_branch"];
+                    DTab_Shipping_Address.Rows[i]["bank_ifsc"] = DTab_Shipping_Address.Rows[0]["bank_ifsc"];
+                    DTab_Shipping_Address.Rows[i]["bank_acc_no"] = DTab_Shipping_Address.Rows[0]["bank_acc_no"];
+                    DTab_Shipping_Address.Rows[i]["gst_no"] = DTab_Shipping_Address.Rows[0]["gst_no"];
+                    DTab_Shipping_Address.Rows[i]["account_type"] = DTab_Shipping_Address.Rows[0]["account_type"];
+                    DTab_Shipping_Address.Rows[i]["state_name"] = DTab_Shipping_Address.Rows[0]["state_name"];
+                    DTab_Shipping_Address.Rows[i]["city_name"] = DTab_Shipping_Address.Rows[0]["city_name"];
+                    DTab_Shipping_Address.Rows[i]["invoice_date"] = DTab_Shipping_Address.Rows[0]["invoice_date"];
+                    DTab_Shipping_Address.Rows[i]["invoice_no"] = DTab_Shipping_Address.Rows[0]["invoice_no"];
+                    DTab_Shipping_Address.Rows[i]["party_name"] = DTab_Shipping_Address.Rows[0]["party_name"];
+                    DTab_Shipping_Address.Rows[i]["party_address"] = DTab_Shipping_Address.Rows[0]["party_address"];
+                    DTab_Shipping_Address.Rows[i]["party_gst"] = DTab_Shipping_Address.Rows[0]["party_gst"];
+                    DTab_Shipping_Address.Rows[i]["party_mobile1"] = DTab_Shipping_Address.Rows[0]["party_mobile1"];
+                    DTab_Shipping_Address.Rows[i]["discount_amount"] = DTab_Shipping_Address.Rows[0]["discount_amount"];
+                    DTab_Shipping_Address.Rows[i]["cgst"] = DTab_Shipping_Address.Rows[0]["cgst"];
+                    DTab_Shipping_Address.Rows[i]["sgst"] = DTab_Shipping_Address.Rows[0]["sgst"];
+                    DTab_Shipping_Address.Rows[i]["igst"] = DTab_Shipping_Address.Rows[0]["igst"];
+                    DTab_Shipping_Address.Rows[i]["netamount"] = DTab_Shipping_Address.Rows[0]["netamount"];
+                    DTab_Shipping_Address.Rows[i]["state_code"] = DTab_Shipping_Address.Rows[0]["state_code"];
+
+                    //dtpur.Rows[i]["insurance_meter"] = dtpur.Rows[0]["insurance_meter"];
+                    //dtpur.Rows[i]["insurance_meter_rate"] = dtpur.Rows[0]["insurance_meter_rate"];
+                    //dtpur.Rows[i]["insurance_meter_amount"] = dtpur.Rows[0]["insurance_meter_amount"];
+                    //dtpur.Rows[i]["insurance_bale"] = dtpur.Rows[0]["insurance_bale"];
+                    //dtpur.Rows[i]["insurance_bale_rate"] = dtpur.Rows[0]["insurance_bale_rate"];
+                    //dtpur.Rows[i]["insurance_bale_amount"] = dtpur.Rows[0]["insurance_bale_amount"];
+                    //dtpur.Rows[i]["cash_discount"] = dtpur.Rows[0]["cash_discount"];
+                    //dtpur.Rows[i]["job_card_no"] = dtpur.Rows[0]["job_card_no"];
+                    //dtpur.Rows[i]["job_card_date"] = dtpur.Rows[0]["job_card_date"];
+                    //dtpur.Rows[i]["program"] = dtpur.Rows[0]["program"];
+                    //dtpur.Rows[i]["process_type_name"] = dtpur.Rows[0]["process_type_name"];
+                    //dtpur.Rows[i]["fold"] = dtpur.Rows[0]["fold"];
+                    //dtpur.Rows[i]["width"] = dtpur.Rows[0]["width"];
+                    //dtpur.Rows[i]["mark"] = dtpur.Rows[0]["mark"];
+                    //dtpur.Rows[i]["bale_no"] = dtpur.Rows[0]["bale_no"];
+                    //dtpur.Rows[i]["sample_meter"] = dtpur.Rows[0]["sample_meter"];
+                    //dtpur.Rows[i]["sample_rate"] = dtpur.Rows[0]["sample_rate"];
+                    //dtpur.Rows[i]["sample_amount"] = dtpur.Rows[0]["sample_amount"];
+                    //dtpur.Rows[i]["net_amount"] = dtpur.Rows[0]["net_amount"];
+                    //dtpur.Rows[i]["is_igst"] = dtpur.Rows[0]["is_igst"];
+                    //dtpur.Rows[i]["other_charge"] = dtpur.Rows[0]["other_charge"];
+                    //dtpur.Rows[i]["round_off"] = dtpur.Rows[0]["round_off"];
+                    //dtpur.Rows[i]["is_cgst"] = dtpur.Rows[0]["is_cgst"];
+                }
+            }
+
             FrmReportViewer FrmReportViewer = new FrmReportViewer();
             FrmReportViewer.DS.Tables.Add(DTab_Shipping_Address);
             FrmReportViewer.GroupBy = "";
