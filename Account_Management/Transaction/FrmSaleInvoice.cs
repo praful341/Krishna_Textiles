@@ -2049,7 +2049,6 @@ namespace Account_Management.Transaction
                     DTab_Shipping_Address.Rows[i]["igst"] = DTab_Shipping_Address.Rows[0]["igst"];
                     DTab_Shipping_Address.Rows[i]["netamount"] = DTab_Shipping_Address.Rows[0]["netamount"];
                     DTab_Shipping_Address.Rows[i]["state_code"] = DTab_Shipping_Address.Rows[0]["state_code"];
-
                 }
                 else
                 {
