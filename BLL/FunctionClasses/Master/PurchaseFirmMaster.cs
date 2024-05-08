@@ -53,7 +53,7 @@ namespace BLL.FunctionClasses.Master
 
             Request.AddParams("@Active", active, DbType.Int32);
 
-            Request.CommandText = BLL.TPV.SProc.MST_Purchase_Firm_GetData;
+            Request.CommandText = BLL.TPV.SProc.MST_Purchase_Firm_All_GetData;
             Request.CommandType = CommandType.StoredProcedure;
             Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
             return DTab;

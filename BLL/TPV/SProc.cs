@@ -39,6 +39,7 @@
         public static string MST_Company_GetData = "MST_Company_GetData";
         public static string MST_Purchase_Firm_Save = "MST_Purchase_Firm_Save";
         public static string MST_Purchase_Firm_GetData = "MST_Purchase_Firm_GetData";
+        public static string MST_Purchase_Firm_All_GetData = "MST_Purchase_Firm_All_GetData";
         public static string MST_Config_Form_Save = "MST_Config_Form_Save";
         public static string MST_Config_Form_GetData = "MST_Config_Form_GetData";
         public static string MST_Config_Role_Save = "MST_Config_Role_Save";
