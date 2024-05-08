@@ -2011,73 +2011,68 @@ namespace Account_Management.Transaction
         private void btnPrint_Click(object sender, EventArgs e)
         {
             SaleInvoice objSaleInvoice = new SaleInvoice();
-            DataTable DTab_Shipping_Address = objSaleInvoice.Sale_Invoice_Print_GetData(Val.ToInt64(lblMode.Tag));
+            DataTable DTab_Sale_Invoice = objSaleInvoice.Sale_Invoice_Print_GetData(Val.ToInt64(lblMode.Tag));
 
-            //for (int i = DTab_Shipping_Address.Rows.Count; i < 20; i++)
-            //{
-            //    DTab_Shipping_Address.Rows.Add();
-            //}
-
-            for (int i = DTab_Shipping_Address.Rows.Count; i < 18; i++)
+            for (int i = DTab_Sale_Invoice.Rows.Count; i < 18; i++)
             {
-                DTab_Shipping_Address.Rows.Add();
+                DTab_Sale_Invoice.Rows.Add();
                 if (i == 12)
                 {
-                    DTab_Shipping_Address.Rows[i]["firm_name"] = DTab_Shipping_Address.Rows[0]["firm_name"];
-                    DTab_Shipping_Address.Rows[i]["address"] = DTab_Shipping_Address.Rows[0]["address"];
-                    DTab_Shipping_Address.Rows[i]["phone1"] = DTab_Shipping_Address.Rows[0]["phone1"];
-                    DTab_Shipping_Address.Rows[i]["phone2"] = DTab_Shipping_Address.Rows[0]["phone2"];
-                    DTab_Shipping_Address.Rows[i]["pincode"] = DTab_Shipping_Address.Rows[0]["pincode"];
-                    DTab_Shipping_Address.Rows[i]["email"] = DTab_Shipping_Address.Rows[0]["email"];
-                    DTab_Shipping_Address.Rows[i]["bank_name"] = DTab_Shipping_Address.Rows[0]["bank_name"];
-                    DTab_Shipping_Address.Rows[i]["bank_branch"] = DTab_Shipping_Address.Rows[0]["bank_branch"];
-                    DTab_Shipping_Address.Rows[i]["bank_ifsc"] = DTab_Shipping_Address.Rows[0]["bank_ifsc"];
-                    DTab_Shipping_Address.Rows[i]["bank_acc_no"] = DTab_Shipping_Address.Rows[0]["bank_acc_no"];
-                    DTab_Shipping_Address.Rows[i]["gst_no"] = DTab_Shipping_Address.Rows[0]["gst_no"];
-                    DTab_Shipping_Address.Rows[i]["account_type"] = DTab_Shipping_Address.Rows[0]["account_type"];
-                    DTab_Shipping_Address.Rows[i]["state_name"] = DTab_Shipping_Address.Rows[0]["state_name"];
-                    DTab_Shipping_Address.Rows[i]["city_name"] = DTab_Shipping_Address.Rows[0]["city_name"];
-                    DTab_Shipping_Address.Rows[i]["invoice_date"] = DTab_Shipping_Address.Rows[0]["invoice_date"];
-                    DTab_Shipping_Address.Rows[i]["invoice_no"] = DTab_Shipping_Address.Rows[0]["invoice_no"];
-                    DTab_Shipping_Address.Rows[i]["party_name"] = DTab_Shipping_Address.Rows[0]["party_name"];
-                    DTab_Shipping_Address.Rows[i]["party_address"] = DTab_Shipping_Address.Rows[0]["party_address"];
-                    DTab_Shipping_Address.Rows[i]["party_gst"] = DTab_Shipping_Address.Rows[0]["party_gst"];
-                    DTab_Shipping_Address.Rows[i]["party_mobile1"] = DTab_Shipping_Address.Rows[0]["party_mobile1"];
-                    DTab_Shipping_Address.Rows[i]["discount_amount"] = DTab_Shipping_Address.Rows[0]["discount_amount"];
-                    DTab_Shipping_Address.Rows[i]["cgst"] = DTab_Shipping_Address.Rows[0]["cgst"];
-                    DTab_Shipping_Address.Rows[i]["sgst"] = DTab_Shipping_Address.Rows[0]["sgst"];
-                    DTab_Shipping_Address.Rows[i]["igst"] = DTab_Shipping_Address.Rows[0]["igst"];
-                    DTab_Shipping_Address.Rows[i]["netamount"] = DTab_Shipping_Address.Rows[0]["netamount"];
-                    DTab_Shipping_Address.Rows[i]["state_code"] = DTab_Shipping_Address.Rows[0]["state_code"];
+                    DTab_Sale_Invoice.Rows[i]["firm_name"] = DTab_Sale_Invoice.Rows[0]["firm_name"];
+                    DTab_Sale_Invoice.Rows[i]["address"] = DTab_Sale_Invoice.Rows[0]["address"];
+                    DTab_Sale_Invoice.Rows[i]["phone1"] = DTab_Sale_Invoice.Rows[0]["phone1"];
+                    DTab_Sale_Invoice.Rows[i]["phone2"] = DTab_Sale_Invoice.Rows[0]["phone2"];
+                    DTab_Sale_Invoice.Rows[i]["pincode"] = DTab_Sale_Invoice.Rows[0]["pincode"];
+                    DTab_Sale_Invoice.Rows[i]["email"] = DTab_Sale_Invoice.Rows[0]["email"];
+                    DTab_Sale_Invoice.Rows[i]["bank_name"] = DTab_Sale_Invoice.Rows[0]["bank_name"];
+                    DTab_Sale_Invoice.Rows[i]["bank_branch"] = DTab_Sale_Invoice.Rows[0]["bank_branch"];
+                    DTab_Sale_Invoice.Rows[i]["bank_ifsc"] = DTab_Sale_Invoice.Rows[0]["bank_ifsc"];
+                    DTab_Sale_Invoice.Rows[i]["bank_acc_no"] = DTab_Sale_Invoice.Rows[0]["bank_acc_no"];
+                    DTab_Sale_Invoice.Rows[i]["gst_no"] = DTab_Sale_Invoice.Rows[0]["gst_no"];
+                    DTab_Sale_Invoice.Rows[i]["account_type"] = DTab_Sale_Invoice.Rows[0]["account_type"];
+                    DTab_Sale_Invoice.Rows[i]["state_name"] = DTab_Sale_Invoice.Rows[0]["state_name"];
+                    DTab_Sale_Invoice.Rows[i]["city_name"] = DTab_Sale_Invoice.Rows[0]["city_name"];
+                    DTab_Sale_Invoice.Rows[i]["invoice_date"] = DTab_Sale_Invoice.Rows[0]["invoice_date"];
+                    DTab_Sale_Invoice.Rows[i]["invoice_no"] = DTab_Sale_Invoice.Rows[0]["invoice_no"];
+                    DTab_Sale_Invoice.Rows[i]["party_name"] = DTab_Sale_Invoice.Rows[0]["party_name"];
+                    DTab_Sale_Invoice.Rows[i]["party_address"] = DTab_Sale_Invoice.Rows[0]["party_address"];
+                    DTab_Sale_Invoice.Rows[i]["party_gst"] = DTab_Sale_Invoice.Rows[0]["party_gst"];
+                    DTab_Sale_Invoice.Rows[i]["party_mobile1"] = DTab_Sale_Invoice.Rows[0]["party_mobile1"];
+                    DTab_Sale_Invoice.Rows[i]["discount_amount"] = DTab_Sale_Invoice.Rows[0]["discount_amount"];
+                    DTab_Sale_Invoice.Rows[i]["cgst"] = DTab_Sale_Invoice.Rows[0]["cgst"];
+                    DTab_Sale_Invoice.Rows[i]["sgst"] = DTab_Sale_Invoice.Rows[0]["sgst"];
+                    DTab_Sale_Invoice.Rows[i]["igst"] = DTab_Sale_Invoice.Rows[0]["igst"];
+                    DTab_Sale_Invoice.Rows[i]["netamount"] = DTab_Sale_Invoice.Rows[0]["netamount"];
+                    DTab_Sale_Invoice.Rows[i]["state_code"] = DTab_Sale_Invoice.Rows[0]["state_code"];
                 }
                 else
                 {
-                    DTab_Shipping_Address.Rows[i]["firm_name"] = DTab_Shipping_Address.Rows[0]["firm_name"];
-                    DTab_Shipping_Address.Rows[i]["address"] = DTab_Shipping_Address.Rows[0]["address"];
-                    DTab_Shipping_Address.Rows[i]["phone1"] = DTab_Shipping_Address.Rows[0]["phone1"];
-                    DTab_Shipping_Address.Rows[i]["phone2"] = DTab_Shipping_Address.Rows[0]["phone2"];
-                    DTab_Shipping_Address.Rows[i]["pincode"] = DTab_Shipping_Address.Rows[0]["pincode"];
-                    DTab_Shipping_Address.Rows[i]["email"] = DTab_Shipping_Address.Rows[0]["email"];
-                    DTab_Shipping_Address.Rows[i]["bank_name"] = DTab_Shipping_Address.Rows[0]["bank_name"];
-                    DTab_Shipping_Address.Rows[i]["bank_branch"] = DTab_Shipping_Address.Rows[0]["bank_branch"];
-                    DTab_Shipping_Address.Rows[i]["bank_ifsc"] = DTab_Shipping_Address.Rows[0]["bank_ifsc"];
-                    DTab_Shipping_Address.Rows[i]["bank_acc_no"] = DTab_Shipping_Address.Rows[0]["bank_acc_no"];
-                    DTab_Shipping_Address.Rows[i]["gst_no"] = DTab_Shipping_Address.Rows[0]["gst_no"];
-                    DTab_Shipping_Address.Rows[i]["account_type"] = DTab_Shipping_Address.Rows[0]["account_type"];
-                    DTab_Shipping_Address.Rows[i]["state_name"] = DTab_Shipping_Address.Rows[0]["state_name"];
-                    DTab_Shipping_Address.Rows[i]["city_name"] = DTab_Shipping_Address.Rows[0]["city_name"];
-                    DTab_Shipping_Address.Rows[i]["invoice_date"] = DTab_Shipping_Address.Rows[0]["invoice_date"];
-                    DTab_Shipping_Address.Rows[i]["invoice_no"] = DTab_Shipping_Address.Rows[0]["invoice_no"];
-                    DTab_Shipping_Address.Rows[i]["party_name"] = DTab_Shipping_Address.Rows[0]["party_name"];
-                    DTab_Shipping_Address.Rows[i]["party_address"] = DTab_Shipping_Address.Rows[0]["party_address"];
-                    DTab_Shipping_Address.Rows[i]["party_gst"] = DTab_Shipping_Address.Rows[0]["party_gst"];
-                    DTab_Shipping_Address.Rows[i]["party_mobile1"] = DTab_Shipping_Address.Rows[0]["party_mobile1"];
-                    DTab_Shipping_Address.Rows[i]["discount_amount"] = DTab_Shipping_Address.Rows[0]["discount_amount"];
-                    DTab_Shipping_Address.Rows[i]["cgst"] = DTab_Shipping_Address.Rows[0]["cgst"];
-                    DTab_Shipping_Address.Rows[i]["sgst"] = DTab_Shipping_Address.Rows[0]["sgst"];
-                    DTab_Shipping_Address.Rows[i]["igst"] = DTab_Shipping_Address.Rows[0]["igst"];
-                    DTab_Shipping_Address.Rows[i]["netamount"] = DTab_Shipping_Address.Rows[0]["netamount"];
-                    DTab_Shipping_Address.Rows[i]["state_code"] = DTab_Shipping_Address.Rows[0]["state_code"];
+                    DTab_Sale_Invoice.Rows[i]["firm_name"] = DTab_Sale_Invoice.Rows[0]["firm_name"];
+                    DTab_Sale_Invoice.Rows[i]["address"] = DTab_Sale_Invoice.Rows[0]["address"];
+                    DTab_Sale_Invoice.Rows[i]["phone1"] = DTab_Sale_Invoice.Rows[0]["phone1"];
+                    DTab_Sale_Invoice.Rows[i]["phone2"] = DTab_Sale_Invoice.Rows[0]["phone2"];
+                    DTab_Sale_Invoice.Rows[i]["pincode"] = DTab_Sale_Invoice.Rows[0]["pincode"];
+                    DTab_Sale_Invoice.Rows[i]["email"] = DTab_Sale_Invoice.Rows[0]["email"];
+                    DTab_Sale_Invoice.Rows[i]["bank_name"] = DTab_Sale_Invoice.Rows[0]["bank_name"];
+                    DTab_Sale_Invoice.Rows[i]["bank_branch"] = DTab_Sale_Invoice.Rows[0]["bank_branch"];
+                    DTab_Sale_Invoice.Rows[i]["bank_ifsc"] = DTab_Sale_Invoice.Rows[0]["bank_ifsc"];
+                    DTab_Sale_Invoice.Rows[i]["bank_acc_no"] = DTab_Sale_Invoice.Rows[0]["bank_acc_no"];
+                    DTab_Sale_Invoice.Rows[i]["gst_no"] = DTab_Sale_Invoice.Rows[0]["gst_no"];
+                    DTab_Sale_Invoice.Rows[i]["account_type"] = DTab_Sale_Invoice.Rows[0]["account_type"];
+                    DTab_Sale_Invoice.Rows[i]["state_name"] = DTab_Sale_Invoice.Rows[0]["state_name"];
+                    DTab_Sale_Invoice.Rows[i]["city_name"] = DTab_Sale_Invoice.Rows[0]["city_name"];
+                    DTab_Sale_Invoice.Rows[i]["invoice_date"] = DTab_Sale_Invoice.Rows[0]["invoice_date"];
+                    DTab_Sale_Invoice.Rows[i]["invoice_no"] = DTab_Sale_Invoice.Rows[0]["invoice_no"];
+                    DTab_Sale_Invoice.Rows[i]["party_name"] = DTab_Sale_Invoice.Rows[0]["party_name"];
+                    DTab_Sale_Invoice.Rows[i]["party_address"] = DTab_Sale_Invoice.Rows[0]["party_address"];
+                    DTab_Sale_Invoice.Rows[i]["party_gst"] = DTab_Sale_Invoice.Rows[0]["party_gst"];
+                    DTab_Sale_Invoice.Rows[i]["party_mobile1"] = DTab_Sale_Invoice.Rows[0]["party_mobile1"];
+                    DTab_Sale_Invoice.Rows[i]["discount_amount"] = DTab_Sale_Invoice.Rows[0]["discount_amount"];
+                    DTab_Sale_Invoice.Rows[i]["cgst"] = DTab_Sale_Invoice.Rows[0]["cgst"];
+                    DTab_Sale_Invoice.Rows[i]["sgst"] = DTab_Sale_Invoice.Rows[0]["sgst"];
+                    DTab_Sale_Invoice.Rows[i]["igst"] = DTab_Sale_Invoice.Rows[0]["igst"];
+                    DTab_Sale_Invoice.Rows[i]["netamount"] = DTab_Sale_Invoice.Rows[0]["netamount"];
+                    DTab_Sale_Invoice.Rows[i]["state_code"] = DTab_Sale_Invoice.Rows[0]["state_code"];
 
                     //dtpur.Rows[i]["insurance_meter"] = dtpur.Rows[0]["insurance_meter"];
                     //dtpur.Rows[i]["insurance_meter_rate"] = dtpur.Rows[0]["insurance_meter_rate"];
@@ -2106,7 +2101,7 @@ namespace Account_Management.Transaction
             }
 
             FrmReportViewer FrmReportViewer = new FrmReportViewer();
-            FrmReportViewer.DS.Tables.Add(DTab_Shipping_Address);
+            FrmReportViewer.DS.Tables.Add(DTab_Sale_Invoice);
             FrmReportViewer.GroupBy = "";
             FrmReportViewer.RepName = "";
             FrmReportViewer.RepPara = "";
@@ -2115,7 +2110,7 @@ namespace Account_Management.Transaction
 
             FrmReportViewer.ShowForm("Bill_Detail", 120, FrmReportViewer.ReportFolder.SALE_INVOICE);
 
-            DTab_Shipping_Address = null;
+            DTab_Sale_Invoice = null;
             FrmReportViewer.DS.Tables.Clear();
             FrmReportViewer.DS.Clear();
             FrmReportViewer = null;

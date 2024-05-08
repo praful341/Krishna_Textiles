@@ -37,6 +37,8 @@
         public static string MST_City_GetData = "MST_City_GetData";
         public static string MST_Company_Save = "MST_Company_Save";
         public static string MST_Company_GetData = "MST_Company_GetData";
+        public static string MST_Purchase_Firm_Save = "MST_Purchase_Firm_Save";
+        public static string MST_Purchase_Firm_GetData = "MST_Purchase_Firm_GetData";
         public static string MST_Config_Form_Save = "MST_Config_Form_Save";
         public static string MST_Config_Form_GetData = "MST_Config_Form_GetData";
         public static string MST_Config_Role_Save = "MST_Config_Role_Save";
@@ -142,7 +144,6 @@
         public static string TRN_Janged_Details_Save = "TRN_Janged_Details_Save";
         public static string TRN_Janged_Entry_Delete = "TRN_Janged_Entry_Delete";
         public static string TRN_Purchase_Voucher_No_GetData = "TRN_Purchase_Voucher_No_GetData";
-        public static string MST_Purchase_Firm_GetData = "MST_Purchase_Firm_GetData";
 
         #endregion "Janged Entry"    
 
@@ -168,6 +169,7 @@
         public static string TRN_SaleInvoice_Delete = "TRN_SaleInvoice_Delete";
         public static string TRN_ShippingAddress_GetData = "TRN_ShippingAddress_GetData";
         public static string TRN_SaleInvoice_RPT = "TRN_SaleInvoice_RPT";
+        public static string TRN_SaleReturn_RPT = "TRN_SaleReturn_RPT";
         public static string TRN_Get_Invoice_No = "TRN_Get_Invoice_No";
         public static string TRN_SaleRate_GetData = "TRN_SaleRate_GetData";
         public static string TRN_SaleInvoice_Popup_GetData = "TRN_SaleInvoice_Popup_GetData";

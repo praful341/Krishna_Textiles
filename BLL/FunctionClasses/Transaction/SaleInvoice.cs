@@ -275,6 +275,18 @@ namespace BLL.FunctionClasses.Transaction
             return DTab;
         }
 
+        public DataTable Sale_Return_Print_GetData(Int64 Sale_Return_ID)
+        {
+            DataTable DTab = new DataTable();
+            Request Request = new Request();
+            Request.CommandText = BLL.TPV.SProc.TRN_SaleReturn_RPT;
+            Request.CommandType = CommandType.StoredProcedure;
+            Request.AddParams("@sale_return_id", Sale_Return_ID, DbType.Int64);
+
+            Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
+            return DTab;
+        }
+
         public DataTable SaleRate_GetData(Int64 Item_ID)
         {
             DataTable DTab = new DataTable();

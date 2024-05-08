@@ -25,6 +25,7 @@ namespace BLL.PropertyClasses.Master
         public string bank_branch { get; set; }
         public string bank_ifsc { get; set; }
         public string bank_account_no { get; set; }
+        public string bank_account_type { get; set; }
         public string party_pan_no { get; set; }
         public string gst_no { get; set; }
         public bool? active { get; set; }

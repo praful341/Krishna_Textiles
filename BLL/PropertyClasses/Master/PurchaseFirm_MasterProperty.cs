@@ -1,10 +1,9 @@
 ﻿namespace BLL.PropertyClasses.Master
 {
-    public class Company_MasterProperty
+    public class PurchaseFirm_MasterProperty
     {
-        public int company_id { get; set; }
-        public string company_shortname { get; set; }
-        public string company_name { get; set; }
+        public int firm_id { get; set; }
+        public string firm_name { get; set; }
         public string address { get; set; }
         public int? city_id { get; set; }
         public string pincode { get; set; }

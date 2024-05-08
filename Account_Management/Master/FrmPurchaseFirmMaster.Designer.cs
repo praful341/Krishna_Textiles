@@ -1,6 +1,6 @@
 ﻿namespace Account_Management.Master
 {
-    partial class FrmCompanyMaster
+    partial class FrmPurchaseFirmMaster
     {
         /// <summary>
         /// Required designer variable.
@@ -80,7 +80,7 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txtOwnerPerson = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.txtCompanyName = new DevExpress.XtraEditors.TextEdit();
+            this.txtFirmName = new DevExpress.XtraEditors.TextEdit();
             this.txtShortName = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.lblShortName = new DevExpress.XtraEditors.LabelControl();
@@ -115,7 +115,7 @@
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.dgvCompanyMaster = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dgvPurchaseFirmMaster = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.clmCompanyID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmCompanyName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmActive = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -156,7 +156,7 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmBankAccType = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.grdCompanyMaster = new DevExpress.XtraGrid.GridControl();
+            this.grdPurchaseFirmMaster = new DevExpress.XtraGrid.GridControl();
             this.ContextMNExport = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.MNExportExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.MNExportPDF = new System.Windows.Forms.ToolStripMenuItem();
@@ -200,7 +200,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtWebsite.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmailID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOwnerPerson.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCompanyName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFirmName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtShortName.Properties)).BeginInit();
             this.tblDeptRights.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtpGst.Properties.CalendarTimeProperties)).BeginInit();
@@ -223,8 +223,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCompanyMaster)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdCompanyMaster)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPurchaseFirmMaster)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPurchaseFirmMaster)).BeginInit();
             this.ContextMNExport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
@@ -300,7 +300,7 @@
             this.tblGeneralDetail.Controls.Add(this.labelControl5);
             this.tblGeneralDetail.Controls.Add(this.txtOwnerPerson);
             this.tblGeneralDetail.Controls.Add(this.labelControl4);
-            this.tblGeneralDetail.Controls.Add(this.txtCompanyName);
+            this.tblGeneralDetail.Controls.Add(this.txtFirmName);
             this.tblGeneralDetail.Controls.Add(this.txtShortName);
             this.tblGeneralDetail.Controls.Add(this.labelControl2);
             this.tblGeneralDetail.Controls.Add(this.lblShortName);
@@ -311,7 +311,7 @@
             // txtAddress4
             // 
             this.txtAddress4.EnterMoveNextControl = true;
-            this.txtAddress4.Location = new System.Drawing.Point(135, 113);
+            this.txtAddress4.Location = new System.Drawing.Point(106, 113);
             this.txtAddress4.Name = "txtAddress4";
             this.txtAddress4.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress4.Properties.Appearance.Options.UseFont = true;
@@ -323,7 +323,7 @@
             // txtAddress2
             // 
             this.txtAddress2.EnterMoveNextControl = true;
-            this.txtAddress2.Location = new System.Drawing.Point(135, 61);
+            this.txtAddress2.Location = new System.Drawing.Point(106, 61);
             this.txtAddress2.Name = "txtAddress2";
             this.txtAddress2.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress2.Properties.Appearance.Options.UseFont = true;
@@ -335,7 +335,7 @@
             // txtAddress1
             // 
             this.txtAddress1.EnterMoveNextControl = true;
-            this.txtAddress1.Location = new System.Drawing.Point(135, 34);
+            this.txtAddress1.Location = new System.Drawing.Point(106, 34);
             this.txtAddress1.Name = "txtAddress1";
             this.txtAddress1.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress1.Properties.Appearance.Options.UseFont = true;
@@ -347,7 +347,7 @@
             // txtGstNo
             // 
             this.txtGstNo.EnterMoveNextControl = true;
-            this.txtGstNo.Location = new System.Drawing.Point(435, 138);
+            this.txtGstNo.Location = new System.Drawing.Point(406, 138);
             this.txtGstNo.Name = "txtGstNo";
             this.txtGstNo.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGstNo.Properties.Appearance.Options.UseFont = true;
@@ -358,7 +358,7 @@
             // txtPancardNo
             // 
             this.txtPancardNo.EnterMoveNextControl = true;
-            this.txtPancardNo.Location = new System.Drawing.Point(435, 113);
+            this.txtPancardNo.Location = new System.Drawing.Point(406, 113);
             this.txtPancardNo.Name = "txtPancardNo";
             this.txtPancardNo.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPancardNo.Properties.Appearance.Options.UseFont = true;
@@ -371,7 +371,7 @@
             this.labelControl19.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl19.Appearance.Options.UseFont = true;
             this.labelControl19.Appearance.Options.UseForeColor = true;
-            this.labelControl19.Location = new System.Drawing.Point(337, 140);
+            this.labelControl19.Location = new System.Drawing.Point(308, 140);
             this.labelControl19.Name = "labelControl19";
             this.labelControl19.Size = new System.Drawing.Size(50, 16);
             this.labelControl19.TabIndex = 54;
@@ -383,7 +383,7 @@
             this.labelControl22.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl22.Appearance.Options.UseFont = true;
             this.labelControl22.Appearance.Options.UseForeColor = true;
-            this.labelControl22.Location = new System.Drawing.Point(337, 115);
+            this.labelControl22.Location = new System.Drawing.Point(308, 115);
             this.labelControl22.Name = "labelControl22";
             this.labelControl22.Size = new System.Drawing.Size(86, 16);
             this.labelControl22.TabIndex = 58;
@@ -435,7 +435,7 @@
             this.groupControl1.Controls.Add(this.txtBankName);
             this.groupControl1.Controls.Add(this.txtBankAccNo);
             this.groupControl1.Controls.Add(this.CmbBankAccType);
-            this.groupControl1.Location = new System.Drawing.Point(337, 187);
+            this.groupControl1.Location = new System.Drawing.Point(308, 170);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(324, 158);
             this.groupControl1.TabIndex = 13;
@@ -566,7 +566,7 @@
             this.labelControl36.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl36.Appearance.Options.UseFont = true;
             this.labelControl36.Appearance.Options.UseForeColor = true;
-            this.labelControl36.Location = new System.Drawing.Point(125, 8);
+            this.labelControl36.Location = new System.Drawing.Point(96, 8);
             this.labelControl36.Name = "labelControl36";
             this.labelControl36.Size = new System.Drawing.Size(9, 16);
             this.labelControl36.TabIndex = 57;
@@ -588,7 +588,7 @@
             // chkActive
             // 
             this.chkActive.EnterMoveNextControl = true;
-            this.chkActive.Location = new System.Drawing.Point(637, 7);
+            this.chkActive.Location = new System.Drawing.Point(608, 7);
             this.chkActive.Name = "chkActive";
             this.chkActive.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkActive.Properties.Appearance.Options.UseFont = true;
@@ -599,7 +599,7 @@
             // txtAddress3
             // 
             this.txtAddress3.EnterMoveNextControl = true;
-            this.txtAddress3.Location = new System.Drawing.Point(135, 86);
+            this.txtAddress3.Location = new System.Drawing.Point(106, 86);
             this.txtAddress3.Name = "txtAddress3";
             this.txtAddress3.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress3.Properties.Appearance.Options.UseFont = true;
@@ -673,7 +673,7 @@
             // txtZipCode
             // 
             this.txtZipCode.EnterMoveNextControl = true;
-            this.txtZipCode.Location = new System.Drawing.Point(135, 164);
+            this.txtZipCode.Location = new System.Drawing.Point(106, 164);
             this.txtZipCode.Name = "txtZipCode";
             this.txtZipCode.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtZipCode.Properties.Appearance.Options.UseFont = true;
@@ -683,14 +683,13 @@
             // txtPhone1
             // 
             this.txtPhone1.EnterMoveNextControl = true;
-            this.txtPhone1.Location = new System.Drawing.Point(435, 86);
+            this.txtPhone1.Location = new System.Drawing.Point(406, 86);
             this.txtPhone1.Name = "txtPhone1";
             this.txtPhone1.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone1.Properties.Appearance.Options.UseFont = true;
             this.txtPhone1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPhone1.Size = new System.Drawing.Size(187, 20);
             this.txtPhone1.TabIndex = 10;
-            this.txtPhone1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPhone1_KeyDown);
             this.txtPhone1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone1_KeyPress);
             // 
             // labelControl12
@@ -711,7 +710,7 @@
             this.labelControl11.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl11.Appearance.Options.UseFont = true;
             this.labelControl11.Appearance.Options.UseForeColor = true;
-            this.labelControl11.Location = new System.Drawing.Point(337, 88);
+            this.labelControl11.Location = new System.Drawing.Point(308, 88);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(70, 16);
             this.labelControl11.TabIndex = 32;
@@ -720,7 +719,7 @@
             // lueCity
             // 
             this.lueCity.EnterMoveNextControl = true;
-            this.lueCity.Location = new System.Drawing.Point(435, 61);
+            this.lueCity.Location = new System.Drawing.Point(406, 61);
             this.lueCity.Name = "lueCity";
             this.lueCity.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueCity.Properties.Appearance.Options.UseFont = true;
@@ -742,7 +741,7 @@
             // lueState
             // 
             this.lueState.EnterMoveNextControl = true;
-            this.lueState.Location = new System.Drawing.Point(435, 34);
+            this.lueState.Location = new System.Drawing.Point(406, 34);
             this.lueState.Name = "lueState";
             this.lueState.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueState.Properties.Appearance.Options.UseFont = true;
@@ -765,7 +764,7 @@
             // lueCountry
             // 
             this.lueCountry.EnterMoveNextControl = true;
-            this.lueCountry.Location = new System.Drawing.Point(435, 8);
+            this.lueCountry.Location = new System.Drawing.Point(406, 8);
             this.lueCountry.Name = "lueCountry";
             this.lueCountry.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueCountry.Properties.Appearance.Options.UseFont = true;
@@ -791,7 +790,7 @@
             this.labelControl10.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl10.Appearance.Options.UseFont = true;
             this.labelControl10.Appearance.Options.UseForeColor = true;
-            this.labelControl10.Location = new System.Drawing.Point(337, 37);
+            this.labelControl10.Location = new System.Drawing.Point(308, 37);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(39, 16);
             this.labelControl10.TabIndex = 28;
@@ -803,7 +802,7 @@
             this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl9.Appearance.Options.UseFont = true;
             this.labelControl9.Appearance.Options.UseForeColor = true;
-            this.labelControl9.Location = new System.Drawing.Point(337, 63);
+            this.labelControl9.Location = new System.Drawing.Point(308, 63);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(26, 14);
             this.labelControl9.TabIndex = 27;
@@ -815,7 +814,7 @@
             this.labelControl8.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl8.Appearance.Options.UseFont = true;
             this.labelControl8.Appearance.Options.UseForeColor = true;
-            this.labelControl8.Location = new System.Drawing.Point(337, 9);
+            this.labelControl8.Location = new System.Drawing.Point(308, 9);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(58, 16);
             this.labelControl8.TabIndex = 26;
@@ -846,7 +845,7 @@
             // txtEmailID
             // 
             this.txtEmailID.EnterMoveNextControl = true;
-            this.txtEmailID.Location = new System.Drawing.Point(135, 138);
+            this.txtEmailID.Location = new System.Drawing.Point(106, 138);
             this.txtEmailID.Name = "txtEmailID";
             this.txtEmailID.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmailID.Properties.Appearance.Options.UseFont = true;
@@ -904,16 +903,16 @@
             this.labelControl4.Text = "Owner Name";
             this.labelControl4.Visible = false;
             // 
-            // txtCompanyName
+            // txtFirmName
             // 
-            this.txtCompanyName.EnterMoveNextControl = true;
-            this.txtCompanyName.Location = new System.Drawing.Point(135, 8);
-            this.txtCompanyName.Name = "txtCompanyName";
-            this.txtCompanyName.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCompanyName.Properties.Appearance.Options.UseFont = true;
-            this.txtCompanyName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCompanyName.Size = new System.Drawing.Size(187, 20);
-            this.txtCompanyName.TabIndex = 0;
+            this.txtFirmName.EnterMoveNextControl = true;
+            this.txtFirmName.Location = new System.Drawing.Point(106, 8);
+            this.txtFirmName.Name = "txtFirmName";
+            this.txtFirmName.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirmName.Properties.Appearance.Options.UseFont = true;
+            this.txtFirmName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtFirmName.Size = new System.Drawing.Size(187, 20);
+            this.txtFirmName.TabIndex = 0;
             // 
             // txtShortName
             // 
@@ -936,9 +935,9 @@
             this.labelControl2.Appearance.Options.UseForeColor = true;
             this.labelControl2.Location = new System.Drawing.Point(5, 9);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(115, 16);
+            this.labelControl2.Size = new System.Drawing.Size(79, 16);
             this.labelControl2.TabIndex = 5;
-            this.labelControl2.Text = "Company Name";
+            this.labelControl2.Text = "Firm Name";
             // 
             // lblShortName
             // 
@@ -1359,20 +1358,20 @@
             this.panelControl2.Size = new System.Drawing.Size(16, 482);
             this.panelControl2.TabIndex = 11;
             // 
-            // dgvCompanyMaster
+            // dgvPurchaseFirmMaster
             // 
-            this.dgvCompanyMaster.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.dgvCompanyMaster.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.dgvCompanyMaster.Appearance.ColumnFilterButton.Options.UseBackColor = true;
-            this.dgvCompanyMaster.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
-            this.dgvCompanyMaster.Appearance.ColumnFilterButton.Options.UseForeColor = true;
-            this.dgvCompanyMaster.Appearance.FooterPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dgvCompanyMaster.Appearance.FooterPanel.Options.UseFont = true;
-            this.dgvCompanyMaster.Appearance.HeaderPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dgvCompanyMaster.Appearance.HeaderPanel.Options.UseFont = true;
-            this.dgvCompanyMaster.Appearance.Row.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-            this.dgvCompanyMaster.Appearance.Row.Options.UseFont = true;
-            this.dgvCompanyMaster.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.dgvPurchaseFirmMaster.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.dgvPurchaseFirmMaster.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.dgvPurchaseFirmMaster.Appearance.ColumnFilterButton.Options.UseBackColor = true;
+            this.dgvPurchaseFirmMaster.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
+            this.dgvPurchaseFirmMaster.Appearance.ColumnFilterButton.Options.UseForeColor = true;
+            this.dgvPurchaseFirmMaster.Appearance.FooterPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dgvPurchaseFirmMaster.Appearance.FooterPanel.Options.UseFont = true;
+            this.dgvPurchaseFirmMaster.Appearance.HeaderPanel.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dgvPurchaseFirmMaster.Appearance.HeaderPanel.Options.UseFont = true;
+            this.dgvPurchaseFirmMaster.Appearance.Row.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+            this.dgvPurchaseFirmMaster.Appearance.Row.Options.UseFont = true;
+            this.dgvPurchaseFirmMaster.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.clmCompanyID,
             this.clmCompanyName,
             this.clmActive,
@@ -1413,29 +1412,29 @@
             this.gridColumn7,
             this.gridColumn8,
             this.clmBankAccType});
-            this.dgvCompanyMaster.GridControl = this.grdCompanyMaster;
-            this.dgvCompanyMaster.Name = "dgvCompanyMaster";
-            this.dgvCompanyMaster.OptionsBehavior.Editable = false;
-            this.dgvCompanyMaster.OptionsBehavior.ReadOnly = true;
-            this.dgvCompanyMaster.OptionsCustomization.AllowQuickHideColumns = false;
-            this.dgvCompanyMaster.OptionsView.ColumnAutoWidth = false;
-            this.dgvCompanyMaster.OptionsView.ShowAutoFilterRow = true;
-            this.dgvCompanyMaster.OptionsView.ShowFooter = true;
-            this.dgvCompanyMaster.OptionsView.ShowGroupPanel = false;
-            this.dgvCompanyMaster.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.dgvCompanyMaster_RowClick);
+            this.dgvPurchaseFirmMaster.GridControl = this.grdPurchaseFirmMaster;
+            this.dgvPurchaseFirmMaster.Name = "dgvPurchaseFirmMaster";
+            this.dgvPurchaseFirmMaster.OptionsBehavior.Editable = false;
+            this.dgvPurchaseFirmMaster.OptionsBehavior.ReadOnly = true;
+            this.dgvPurchaseFirmMaster.OptionsCustomization.AllowQuickHideColumns = false;
+            this.dgvPurchaseFirmMaster.OptionsView.ColumnAutoWidth = false;
+            this.dgvPurchaseFirmMaster.OptionsView.ShowAutoFilterRow = true;
+            this.dgvPurchaseFirmMaster.OptionsView.ShowFooter = true;
+            this.dgvPurchaseFirmMaster.OptionsView.ShowGroupPanel = false;
+            this.dgvPurchaseFirmMaster.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.dgvPurchaseFirmMaster_RowClick);
             // 
             // clmCompanyID
             // 
-            this.clmCompanyID.Caption = "Company Id";
-            this.clmCompanyID.FieldName = "company_id";
+            this.clmCompanyID.Caption = "Firm Id";
+            this.clmCompanyID.FieldName = "firm_id";
             this.clmCompanyID.Name = "clmCompanyID";
             this.clmCompanyID.OptionsColumn.AllowEdit = false;
             this.clmCompanyID.Width = 77;
             // 
             // clmCompanyName
             // 
-            this.clmCompanyName.Caption = "Company";
-            this.clmCompanyName.FieldName = "company_name";
+            this.clmCompanyName.Caption = "Firm";
+            this.clmCompanyName.FieldName = "firm_name";
             this.clmCompanyName.Name = "clmCompanyName";
             this.clmCompanyName.OptionsColumn.AllowEdit = false;
             this.clmCompanyName.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -1741,17 +1740,17 @@
             this.clmBankAccType.FieldName = "bank_account_type";
             this.clmBankAccType.Name = "clmBankAccType";
             // 
-            // grdCompanyMaster
+            // grdPurchaseFirmMaster
             // 
-            this.grdCompanyMaster.ContextMenuStrip = this.ContextMNExport;
-            this.grdCompanyMaster.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdCompanyMaster.Location = new System.Drawing.Point(0, 0);
-            this.grdCompanyMaster.MainView = this.dgvCompanyMaster;
-            this.grdCompanyMaster.Name = "grdCompanyMaster";
-            this.grdCompanyMaster.Size = new System.Drawing.Size(250, 455);
-            this.grdCompanyMaster.TabIndex = 14;
-            this.grdCompanyMaster.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dgvCompanyMaster});
+            this.grdPurchaseFirmMaster.ContextMenuStrip = this.ContextMNExport;
+            this.grdPurchaseFirmMaster.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdPurchaseFirmMaster.Location = new System.Drawing.Point(0, 0);
+            this.grdPurchaseFirmMaster.MainView = this.dgvPurchaseFirmMaster;
+            this.grdPurchaseFirmMaster.Name = "grdPurchaseFirmMaster";
+            this.grdPurchaseFirmMaster.Size = new System.Drawing.Size(250, 455);
+            this.grdPurchaseFirmMaster.TabIndex = 14;
+            this.grdPurchaseFirmMaster.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dgvPurchaseFirmMaster});
             // 
             // ContextMNExport
             // 
@@ -1861,17 +1860,17 @@
             this.dockPanel1.Options.ShowCloseButton = false;
             this.dockPanel1.OriginalSize = new System.Drawing.Size(259, 200);
             this.dockPanel1.Size = new System.Drawing.Size(259, 482);
-            this.dockPanel1.Text = "Company Master";
+            this.dockPanel1.Text = "Purchase Firm Master";
             // 
             // dockPanel1_Container
             // 
-            this.dockPanel1_Container.Controls.Add(this.grdCompanyMaster);
+            this.dockPanel1_Container.Controls.Add(this.grdPurchaseFirmMaster);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(250, 455);
             this.dockPanel1_Container.TabIndex = 0;
             // 
-            // FrmCompanyMaster
+            // FrmPurchaseFirmMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1883,10 +1882,10 @@
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.dockPanel1);
             this.KeyPreview = true;
-            this.Name = "FrmCompanyMaster";
+            this.Name = "FrmPurchaseFirmMaster";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Company Master";
+            this.Text = "Purchase Firm Master";
             this.Load += new System.EventHandler(this.FrmCompanyMaster_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
@@ -1919,7 +1918,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtWebsite.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmailID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOwnerPerson.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCompanyName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFirmName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtShortName.Properties)).EndInit();
             this.tblDeptRights.ResumeLayout(false);
             this.tblDeptRights.PerformLayout();
@@ -1944,8 +1943,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCompanyMaster)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdCompanyMaster)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPurchaseFirmMaster)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPurchaseFirmMaster)).EndInit();
             this.ContextMNExport.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
@@ -1965,12 +1964,12 @@
         private DevExpress.XtraEditors.PanelControl panelControl4;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraGrid.Views.Grid.GridView dgvCompanyMaster;
+        private DevExpress.XtraGrid.Views.Grid.GridView dgvPurchaseFirmMaster;
         private DevExpress.XtraGrid.Columns.GridColumn clmCompanyID;
         private DevExpress.XtraGrid.Columns.GridColumn clmCompanyName;
         private DevExpress.XtraGrid.Columns.GridColumn clmActive;
         private DevExpress.XtraGrid.Columns.GridColumn clmRemark;
-        private DevExpress.XtraGrid.GridControl grdCompanyMaster;
+        private DevExpress.XtraGrid.GridControl grdPurchaseFirmMaster;
         private DevExpress.XtraTab.XtraTabControl TabRegisterDetail;
         private DevExpress.XtraTab.XtraTabPage tblGeneralDetail;
         private DevExpress.XtraTab.XtraTabPage tblDeptRights;
@@ -1979,7 +1978,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SHERE_PER;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl lblShortName;
-        private DevExpress.XtraEditors.TextEdit txtCompanyName;
+        private DevExpress.XtraEditors.TextEdit txtFirmName;
         private DevExpress.XtraEditors.TextEdit txtShortName;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl5;

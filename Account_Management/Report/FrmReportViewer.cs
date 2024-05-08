@@ -33,7 +33,8 @@ namespace Account_Management.Report
             HRACTS = 5,
             HR_REPORT = 6,
             ACCOUNT = 7,
-            SALE_INVOICE = 8
+            SALE_INVOICE = 8,
+            SALE_RETURN = 9
         }
 
         public string RepHead = string.Empty;

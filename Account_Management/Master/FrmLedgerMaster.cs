@@ -158,6 +158,12 @@ namespace Account_Management
                 lueCountry.EditValue = null;
                 txtGSTNo.Text = "";
 
+                txtBankAccNo.Text = "";
+                txtBankBranch.Text = "";
+                txtBankIFSC.Text = "";
+                txtBankName.Text = "";
+                CmbBankAccType.SelectedIndex = -1;
+
                 txtEmailID.Text = string.Empty;
                 txtZipCode.Text = string.Empty;
                 txtRemark.Text = string.Empty;
@@ -227,6 +233,7 @@ namespace Account_Management
                         txtBankBranch.Text = Val.ToString(Drow["bank_branch"]);
                         txtBankIFSC.Text = Val.ToString(Drow["bank_ifsc"]);
                         txtBankAccNo.Text = Val.ToString(Drow["bank_account_no"]);
+                        CmbBankAccType.Text = Val.ToString(Drow["bank_account_type"]);
                         txtLedgerName.Focus();
                     }
                 }
@@ -269,10 +276,13 @@ namespace Account_Management
                 LedgerMasterProperty.party_mobile1 = Val.ToString(txtMobileNo1.Text);
                 LedgerMasterProperty.party_mobile2 = Val.ToString(txtMobileNo2.Text);
                 LedgerMasterProperty.party_email = Val.ToString(txtEmailID.Text);
+
                 LedgerMasterProperty.bank_branch = Val.ToString(txtBankBranch.Text);
                 LedgerMasterProperty.bank_name = Val.ToString(txtBankName.Text);
                 LedgerMasterProperty.bank_ifsc = Val.ToString(txtBankIFSC.Text);
                 LedgerMasterProperty.bank_account_no = Val.ToString(txtBankAccNo.Text);
+                LedgerMasterProperty.bank_account_type = Val.ToString(CmbBankAccType.Text);
+
                 LedgerMasterProperty.party_pincode = Val.ToString(txtZipCode.Text);
                 LedgerMasterProperty.party_county_id = Val.ToInt64(lueCountry.EditValue);
                 LedgerMasterProperty.party_city_id = Val.ToInt64(lueCity.EditValue);

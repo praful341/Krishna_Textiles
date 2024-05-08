@@ -45,6 +45,7 @@ namespace BLL.FunctionClasses.Master
                 Request.AddParams("@ip_address", GlobalDec.gStrComputerIP, DbType.String);
                 Request.AddParams("@entry_date", Val.DBDate(GlobalDec.gStr_SystemDate), DbType.Date);
                 Request.AddParams("@entry_time", GlobalDec.gStr_SystemTime, DbType.String);
+                Request.AddParams("@bank_account_type", pClsProperty.bank_account_type, DbType.String);
 
                 Request.CommandText = BLL.TPV.SProc.MST_Ledger_Save;
                 Request.CommandType = CommandType.StoredProcedure;
