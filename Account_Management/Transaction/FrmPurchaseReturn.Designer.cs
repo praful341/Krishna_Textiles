@@ -238,6 +238,7 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.backgroundWorker_PurchaseReturn = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker_PurchaseReturnDelete = new System.ComponentModel.BackgroundWorker();
+            this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).BeginInit();
@@ -2059,6 +2060,7 @@
             // 
             // panelControl6
             // 
+            this.panelControl6.Controls.Add(this.btnPrint);
             this.panelControl6.Controls.Add(this.lblEntry);
             this.panelControl6.Controls.Add(this.btnExit);
             this.panelControl6.Controls.Add(this.btnSave);
@@ -2090,7 +2092,7 @@
             this.btnExit.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Appearance.Options.UseFont = true;
             this.btnExit.ImageOptions.Image = global::Account_Management.Properties.Resources.Exit;
-            this.btnExit.Location = new System.Drawing.Point(1035, 8);
+            this.btnExit.Location = new System.Drawing.Point(941, 8);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(102, 32);
             this.btnExit.TabIndex = 3;
@@ -2103,7 +2105,7 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.ImageOptions.Image = global::Account_Management.Properties.Resources.Save;
-            this.btnSave.Location = new System.Drawing.Point(818, 8);
+            this.btnSave.Location = new System.Drawing.Point(724, 8);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(102, 32);
             this.btnSave.TabIndex = 1;
@@ -2116,7 +2118,7 @@
             this.btnClear.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Appearance.Options.UseFont = true;
             this.btnClear.ImageOptions.Image = global::Account_Management.Properties.Resources.Clear;
-            this.btnClear.Location = new System.Drawing.Point(926, 8);
+            this.btnClear.Location = new System.Drawing.Point(832, 8);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(102, 32);
             this.btnClear.TabIndex = 2;
@@ -2129,7 +2131,7 @@
             this.btnDelete.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Appearance.Options.UseFont = true;
             this.btnDelete.ImageOptions.Image = global::Account_Management.Properties.Resources.Close;
-            this.btnDelete.Location = new System.Drawing.Point(1143, 8);
+            this.btnDelete.Location = new System.Drawing.Point(1049, 8);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(102, 32);
             this.btnDelete.TabIndex = 4;
@@ -2146,7 +2148,7 @@
             this.txtRemark.Properties.Appearance.Options.UseFont = true;
             this.txtRemark.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtRemark.Properties.MaxLength = 100;
-            this.txtRemark.Size = new System.Drawing.Size(659, 32);
+            this.txtRemark.Size = new System.Drawing.Size(584, 32);
             this.txtRemark.TabIndex = 0;
             // 
             // labelControl10
@@ -2309,6 +2311,7 @@
             this.labelControl4.Size = new System.Drawing.Size(75, 13);
             this.labelControl4.TabIndex = 514;
             this.labelControl4.Text = "Janged No :";
+            this.labelControl4.Visible = false;
             // 
             // lblJanged_ID
             // 
@@ -2321,6 +2324,7 @@
             this.lblJanged_ID.Size = new System.Drawing.Size(69, 13);
             this.lblJanged_ID.TabIndex = 513;
             this.lblJanged_ID.Text = "Janged_ID";
+            this.lblJanged_ID.Visible = false;
             // 
             // LueUnit
             // 
@@ -2970,6 +2974,19 @@
             this.backgroundWorker_PurchaseReturnDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_PurchaseReturnDelete_DoWork);
             this.backgroundWorker_PurchaseReturnDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_PurchaseReturnDelete_RunWorkerCompleted);
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrint.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Appearance.Options.UseFont = true;
+            this.btnPrint.ImageOptions.Image = global::Account_Management.Properties.Resources.Print;
+            this.btnPrint.Location = new System.Drawing.Point(1157, 8);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(93, 32);
+            this.btnPrint.TabIndex = 511;
+            this.btnPrint.Text = "&Print";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // FrmPurchaseReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3268,5 +3285,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn ClmPurchaseFirm;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
         private DevExpress.XtraEditors.LookUpEdit luePurchaseFirm;
+        private DevExpress.XtraEditors.SimpleButton btnPrint;
     }
 }

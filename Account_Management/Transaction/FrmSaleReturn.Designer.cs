@@ -185,6 +185,7 @@
             this.txtDiscountPer = new DevExpress.XtraEditors.TextEdit();
             this.label26 = new System.Windows.Forms.Label();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
+            this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.lblEntry = new DevExpress.XtraEditors.LabelControl();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
@@ -259,7 +260,6 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.backgroundWorker_SaleReturn = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker_SaleReturnDelete = new System.ComponentModel.BackgroundWorker();
-            this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).BeginInit();
@@ -2202,6 +2202,19 @@
             this.panelControl6.Size = new System.Drawing.Size(1267, 96);
             this.panelControl6.TabIndex = 0;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPrint.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Appearance.Options.UseFont = true;
+            this.btnPrint.ImageOptions.Image = global::Account_Management.Properties.Resources.Print;
+            this.btnPrint.Location = new System.Drawing.Point(1169, 29);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(93, 32);
+            this.btnPrint.TabIndex = 510;
+            this.btnPrint.Text = "&Print";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // lblEntry
             // 
             this.lblEntry.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -3297,18 +3310,6 @@
             // 
             this.backgroundWorker_SaleReturnDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_SaleReturnDelete_DoWork);
             this.backgroundWorker_SaleReturnDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_SaleReturnDelete_RunWorkerCompleted);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Appearance.Options.UseFont = true;
-            this.btnPrint.ImageOptions.Image = global::Account_Management.Properties.Resources.Print;
-            this.btnPrint.Location = new System.Drawing.Point(1169, 29);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(93, 32);
-            this.btnPrint.TabIndex = 510;
-            this.btnPrint.Text = "&Print";
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // FrmSaleReturn
             // 

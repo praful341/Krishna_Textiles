@@ -1,5 +1,6 @@
 ﻿using Account_Management.Class;
 using Account_Management.Master;
+using Account_Management.Report;
 using BLL;
 using BLL.FunctionClasses.Master;
 using BLL.FunctionClasses.Transaction;
@@ -1287,7 +1288,7 @@ namespace Account_Management.Transaction
                         lblMode.Text = "Edit Mode";
                         lblMode.Tag = Val.ToInt64(Drow["purchase_return_id"]);
 
-                        lblJanged_ID.Text = Val.ToString(Drow["janged_id"]);
+                        //lblJanged_ID.Text = Val.ToString(Drow["janged_id"]);
                         dtpReturnDate.Text = Val.DBDate(Val.ToString(Drow["return_date"]));
                         txtVoucherNo.Text = Val.ToString(Drow["voucher_no"]);
                         lueGSTRate.EditValue = Val.ToInt64(Drow["gst_id"]);
@@ -1739,6 +1740,90 @@ namespace Account_Management.Transaction
                 Global.Message(ex.ToString());
                 Global.Message(ex.InnerException.ToString());
             }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            SaleInvoice objSaleInvoice = new SaleInvoice();
+            DataTable DTab_Sale_Return = objSaleInvoice.Purchase_Return_Print_GetData(Val.ToInt64(lblMode.Tag));
+
+            for (int i = DTab_Sale_Return.Rows.Count; i < 18; i++)
+            {
+                DTab_Sale_Return.Rows.Add();
+                if (i == 12)
+                {
+                    DTab_Sale_Return.Rows[i]["firm_name"] = DTab_Sale_Return.Rows[0]["firm_name"];
+                    DTab_Sale_Return.Rows[i]["address"] = DTab_Sale_Return.Rows[0]["address"];
+                    DTab_Sale_Return.Rows[i]["phone1"] = DTab_Sale_Return.Rows[0]["phone1"];
+                    DTab_Sale_Return.Rows[i]["phone2"] = DTab_Sale_Return.Rows[0]["phone2"];
+                    DTab_Sale_Return.Rows[i]["pincode"] = DTab_Sale_Return.Rows[0]["pincode"];
+                    DTab_Sale_Return.Rows[i]["email"] = DTab_Sale_Return.Rows[0]["email"];
+                    DTab_Sale_Return.Rows[i]["bank_name"] = DTab_Sale_Return.Rows[0]["bank_name"];
+                    DTab_Sale_Return.Rows[i]["bank_branch"] = DTab_Sale_Return.Rows[0]["bank_branch"];
+                    DTab_Sale_Return.Rows[i]["bank_ifsc"] = DTab_Sale_Return.Rows[0]["bank_ifsc"];
+                    DTab_Sale_Return.Rows[i]["bank_acc_no"] = DTab_Sale_Return.Rows[0]["bank_acc_no"];
+                    DTab_Sale_Return.Rows[i]["gst_no"] = DTab_Sale_Return.Rows[0]["gst_no"];
+                    DTab_Sale_Return.Rows[i]["account_type"] = DTab_Sale_Return.Rows[0]["account_type"];
+                    DTab_Sale_Return.Rows[i]["state_name"] = DTab_Sale_Return.Rows[0]["state_name"];
+                    DTab_Sale_Return.Rows[i]["city_name"] = DTab_Sale_Return.Rows[0]["city_name"];
+                    DTab_Sale_Return.Rows[i]["invoice_date"] = DTab_Sale_Return.Rows[0]["invoice_date"];
+                    DTab_Sale_Return.Rows[i]["invoice_no"] = DTab_Sale_Return.Rows[0]["invoice_no"];
+                    DTab_Sale_Return.Rows[i]["party_name"] = DTab_Sale_Return.Rows[0]["party_name"];
+                    DTab_Sale_Return.Rows[i]["party_address"] = DTab_Sale_Return.Rows[0]["party_address"];
+                    DTab_Sale_Return.Rows[i]["party_gst"] = DTab_Sale_Return.Rows[0]["party_gst"];
+                    DTab_Sale_Return.Rows[i]["party_mobile1"] = DTab_Sale_Return.Rows[0]["party_mobile1"];
+                    DTab_Sale_Return.Rows[i]["discount_amount"] = DTab_Sale_Return.Rows[0]["discount_amount"];
+                    DTab_Sale_Return.Rows[i]["cgst"] = DTab_Sale_Return.Rows[0]["cgst"];
+                    DTab_Sale_Return.Rows[i]["sgst"] = DTab_Sale_Return.Rows[0]["sgst"];
+                    DTab_Sale_Return.Rows[i]["igst"] = DTab_Sale_Return.Rows[0]["igst"];
+                    DTab_Sale_Return.Rows[i]["netamount"] = DTab_Sale_Return.Rows[0]["netamount"];
+                    DTab_Sale_Return.Rows[i]["state_code"] = DTab_Sale_Return.Rows[0]["state_code"];
+                }
+                else
+                {
+                    DTab_Sale_Return.Rows[i]["firm_name"] = DTab_Sale_Return.Rows[0]["firm_name"];
+                    DTab_Sale_Return.Rows[i]["address"] = DTab_Sale_Return.Rows[0]["address"];
+                    DTab_Sale_Return.Rows[i]["phone1"] = DTab_Sale_Return.Rows[0]["phone1"];
+                    DTab_Sale_Return.Rows[i]["phone2"] = DTab_Sale_Return.Rows[0]["phone2"];
+                    DTab_Sale_Return.Rows[i]["pincode"] = DTab_Sale_Return.Rows[0]["pincode"];
+                    DTab_Sale_Return.Rows[i]["email"] = DTab_Sale_Return.Rows[0]["email"];
+                    DTab_Sale_Return.Rows[i]["bank_name"] = DTab_Sale_Return.Rows[0]["bank_name"];
+                    DTab_Sale_Return.Rows[i]["bank_branch"] = DTab_Sale_Return.Rows[0]["bank_branch"];
+                    DTab_Sale_Return.Rows[i]["bank_ifsc"] = DTab_Sale_Return.Rows[0]["bank_ifsc"];
+                    DTab_Sale_Return.Rows[i]["bank_acc_no"] = DTab_Sale_Return.Rows[0]["bank_acc_no"];
+                    DTab_Sale_Return.Rows[i]["gst_no"] = DTab_Sale_Return.Rows[0]["gst_no"];
+                    DTab_Sale_Return.Rows[i]["account_type"] = DTab_Sale_Return.Rows[0]["account_type"];
+                    DTab_Sale_Return.Rows[i]["state_name"] = DTab_Sale_Return.Rows[0]["state_name"];
+                    DTab_Sale_Return.Rows[i]["city_name"] = DTab_Sale_Return.Rows[0]["city_name"];
+                    DTab_Sale_Return.Rows[i]["invoice_date"] = DTab_Sale_Return.Rows[0]["invoice_date"];
+                    DTab_Sale_Return.Rows[i]["invoice_no"] = DTab_Sale_Return.Rows[0]["invoice_no"];
+                    DTab_Sale_Return.Rows[i]["party_name"] = DTab_Sale_Return.Rows[0]["party_name"];
+                    DTab_Sale_Return.Rows[i]["party_address"] = DTab_Sale_Return.Rows[0]["party_address"];
+                    DTab_Sale_Return.Rows[i]["party_gst"] = DTab_Sale_Return.Rows[0]["party_gst"];
+                    DTab_Sale_Return.Rows[i]["party_mobile1"] = DTab_Sale_Return.Rows[0]["party_mobile1"];
+                    DTab_Sale_Return.Rows[i]["discount_amount"] = DTab_Sale_Return.Rows[0]["discount_amount"];
+                    DTab_Sale_Return.Rows[i]["cgst"] = DTab_Sale_Return.Rows[0]["cgst"];
+                    DTab_Sale_Return.Rows[i]["sgst"] = DTab_Sale_Return.Rows[0]["sgst"];
+                    DTab_Sale_Return.Rows[i]["igst"] = DTab_Sale_Return.Rows[0]["igst"];
+                    DTab_Sale_Return.Rows[i]["netamount"] = DTab_Sale_Return.Rows[0]["netamount"];
+                    DTab_Sale_Return.Rows[i]["state_code"] = DTab_Sale_Return.Rows[0]["state_code"];
+                }
+            }
+
+            FrmReportViewer FrmReportViewer = new FrmReportViewer();
+            FrmReportViewer.DS.Tables.Add(DTab_Sale_Return);
+            FrmReportViewer.GroupBy = "";
+            FrmReportViewer.RepName = "";
+            FrmReportViewer.RepPara = "";
+            this.Cursor = Cursors.Default;
+            FrmReportViewer.AllowSetFormula = true;
+
+            FrmReportViewer.ShowForm("Bill_Detail", 120, FrmReportViewer.ReportFolder.PURCHASE_RETURN);
+
+            DTab_Sale_Return = null;
+            FrmReportViewer.DS.Tables.Clear();
+            FrmReportViewer.DS.Clear();
+            FrmReportViewer = null;
         }
     }
 }
