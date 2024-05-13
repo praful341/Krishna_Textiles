@@ -11,6 +11,7 @@ namespace BLL.PropertyClasses.Report
         public string cut_id { get; set; }
         public string kapan_id { get; set; }
         public bool IsCurrent { get; set; }
+        public string account_type { get; set; }
         public string From_Date { get; set; }
         public string To_Date { get; set; }
         public string Group_By_Tag { get; set; }

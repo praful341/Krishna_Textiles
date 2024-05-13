@@ -445,24 +445,6 @@ namespace Account_Management.Report
         #endregion
 
         #region Form Events
-        private void FrmGReportViewer_Load(object sender, EventArgs e)
-        {
-            dtpFromDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-            dtpFromDate.Properties.Mask.EditMask = "dd-MM-yyyy";
-            dtpFromDate.Properties.Mask.UseMaskAsDisplayFormat = true;
-            dtpFromDate.Properties.CharacterCasing = CharacterCasing.Upper;
-            dtpFromDate.EditValue = DateTime.Now;
-            DateTime now = DateTime.Now;
-            dtpFromDate.EditValue = new DateTime(now.Year, now.Month, 1);
-
-            dtpToDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
-            dtpToDate.Properties.Mask.EditMask = "dd-MM-yyyy";
-            dtpToDate.Properties.Mask.UseMaskAsDisplayFormat = true;
-            dtpToDate.Properties.CharacterCasing = CharacterCasing.Upper;
-            dtpToDate.EditValue = DateTime.Now;
-
-            Global.LOOKUPLedger(lueLedger);
-        }
 
         #endregion
 
@@ -1116,86 +1098,6 @@ namespace Account_Management.Report
                 return;
             }
         }
-        private void GridView1_CustomSummaryCalculate(object sender, CustomSummaryEventArgs e)
-        {
-            GridView view = sender as GridView;
-
-            #region  HR Daily Avg Report
-
-            if (Val.ToString(ObjReportDetailProperty.Remark).ToUpper() == "DAILY_AVG_REPORT_EMPWISE")
-            {
-                if (e.SummaryProcess == CustomSummaryProcess.Start)
-                {
-                    DouTaliya = 0;
-                    DouTaliyaCnt = 0;
-                    DouPel = 0;
-                    DouPelCnt = 0;
-                    DouMathala = 0;
-                    DouMathalaCnt = 0;
-                    DouTable = 0;
-                    DouTableCnt = 0;
-                }
-                else if (e.SummaryProcess == CustomSummaryProcess.Calculate)
-                {
-                    DouTaliya = DouTaliya + Val.ToDecimal(DgvAccountLedger.GetRowCellValue(e.RowHandle, "TALIYA"));
-                    DouTaliyaCnt = DouTaliyaCnt + Val.ToDecimal(DgvAccountLedger.GetRowCellValue(e.RowHandle, "TALIYA_CNT"));
-                    DouPel = DouPel + Val.ToDecimal(DgvAccountLedger.GetRowCellValue(e.RowHandle, "PEL"));
-                    DouPelCnt = DouPelCnt + Val.ToDecimal(DgvAccountLedger.GetRowCellValue(e.RowHandle, "PEL_CNT"));
-                    DouMathala = DouMathala + Val.ToDecimal(DgvAccountLedger.GetRowCellValue(e.RowHandle, "MATHALA"));
-                    DouMathalaCnt = DouMathalaCnt + Val.ToDecimal(DgvAccountLedger.GetRowCellValue(e.RowHandle, "MATHALA_CNT"));
-                    DouTable = DouTable + Val.ToDecimal(DgvAccountLedger.GetRowCellValue(e.RowHandle, "TABLE"));
-                    DouTableCnt = DouTableCnt + Val.ToDecimal(DgvAccountLedger.GetRowCellValue(e.RowHandle, "TABLE_CNT"));
-                }
-                else if (e.SummaryProcess == CustomSummaryProcess.Finalize)
-                {
-                    if (((GridSummaryItem)e.Item).FieldName.CompareTo("TALIYA_AVG") == 0)
-                    {
-                        if (DouTaliyaCnt > 0)
-                        {
-                            e.TotalValue = Math.Round((DouTaliya / DouTaliyaCnt), 2);
-                        }
-                        else
-                        {
-                            e.TotalValue = 0;
-                        }
-                    }
-                    if (((GridSummaryItem)e.Item).FieldName.CompareTo("PEL_AVG") == 0)
-                    {
-                        if (DouPelCnt > 0)
-                        {
-                            e.TotalValue = Math.Round((DouPel / DouPelCnt), 2);
-                        }
-                        else
-                        {
-                            e.TotalValue = 0;
-                        }
-                    }
-                    if (((GridSummaryItem)e.Item).FieldName.CompareTo("MATHALA_AVG") == 0)
-                    {
-                        if (DouMathalaCnt > 0)
-                        {
-                            e.TotalValue = Math.Round((DouMathala / DouMathalaCnt), 2);
-                        }
-                        else
-                        {
-                            e.TotalValue = 0;
-                        }
-                    }
-                    if (((GridSummaryItem)e.Item).FieldName.CompareTo("TABLE_AVG") == 0)
-                    {
-                        if (DouTableCnt > 0)
-                        {
-                            e.TotalValue = Math.Round((DouTable / DouTableCnt), 2);
-                        }
-                        else
-                        {
-                            e.TotalValue = 0;
-                        }
-                    }
-                }
-            }
-            #endregion
-        }
         private void GridView1_GroupLevelStyle(object sender, GroupLevelStyleEventArgs e)
         {
             var lvl = e.Level;
@@ -1326,7 +1228,7 @@ namespace Account_Management.Report
         {
             GrdAccountLedger.DataSource = null;
             lueLedger.EditValue = DBNull.Value;
-            //DgvAccountLedger.Columns.Clear();
+            CmbAccountLedgerType.SelectedIndex = -1;
 
             dtpFromDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
             dtpFromDate.Properties.Mask.EditMask = "dd-MM-yyyy";
@@ -1351,11 +1253,8 @@ namespace Account_Management.Report
             try
             {
                 DevExpress.XtraPrinting.PrintingSystem PrintSystem = new DevExpress.XtraPrinting.PrintingSystem();
-
                 PrinterSettingsUsing pst = new PrinterSettingsUsing();
-
                 PrintSystem.PageSettings.AssignDefaultPrinterSettings(pst);
-
                 PrintableComponentLink link = new PrintableComponentLink(PrintSystem);
 
                 link.Component = GrdAccountLedger;
@@ -1407,70 +1306,6 @@ namespace Account_Management.Report
             e.LevelAppearance.BackColor = lvlBackColor;
             e.LevelAppearance.ForeColor = Color.Black;
         }
-        private void backgroundWorker_HRReport_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
-            DTab = ObjReportParams.GetAccountLedgerReport(ReportParams_Property, "RPT_PartyLedger");
-        }
-        private void backgroundWorker_HRReport_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
-        {
-            FrmAccountLedger FrmGReportViewer = new Report.FrmAccountLedger();
-
-            FrmGReportViewer.ObjReportDetailProperty = ObjReportDetailProperty;
-            FrmGReportViewer.mDTDetail = mDTDetail;
-            FrmGReportViewer.Report_Code = ObjReportDetailProperty.Report_code;
-
-            FrmGReportViewer.Remark = ObjReportDetailProperty.Remark;
-            FrmGReportViewer.ReportParams_Property = ReportParams_Property;
-            FrmGReportViewer.Procedure_Name = ObjReportDetailProperty.Procedure_Name;
-            FrmGReportViewer.FilterByFormName = this.Name;
-
-            FrmGReportViewer.Remark = "";
-
-            ReportHeaderName = FrmGReportViewer.ReportHeaderName;
-            FrmGReportViewer.DTab = DTab;
-            if (FrmGReportViewer.DTab == null || FrmGReportViewer.DTab.Rows.Count == 0)
-            {
-                this.Cursor = Cursors.Default;
-                FrmGReportViewer.Dispose();
-                FrmGReportViewer = null;
-                Global.Message("Data Not Found");
-                GrdAccountLedger.DataSource = null;
-                return;
-            }
-            this.Cursor = Cursors.Default;
-            //ObjPer.Report_Code = Report_Code;
-            decimal numBalance = 0;
-            DTab.Columns.Add("balance_", typeof(string));
-            foreach (DataRow Drw in DTab.Rows)
-            {
-                numBalance = numBalance + Val.ToDecimal(Drw["debit_amount"]) - Val.ToDecimal(Drw["credit_amount"]);
-
-                Drw["balance_amount"] = numBalance;
-                if (Val.ToDecimal(Drw["balance_amount"]) > 0)
-                {
-                    Drw["balance_"] = Val.ToString(Drw["balance_amount"]).Replace("-", "") + " Dr";
-                }
-                else
-                {
-                    Drw["balance_"] = Val.ToString(Drw["balance_amount"]).Replace("-", "") + " Cr";
-                }
-            }
-            GrdAccountLedger.DataSource = DTab;
-
-            //int IntIndex = 0;
-            //int IntSelectedIndex = 0;
-            //CmbPageKind.Items.Clear();
-            //foreach (System.Drawing.Printing.PaperKind foo in Enum.GetValues(typeof(System.Drawing.Printing.PaperKind)))
-            //{
-            //    CmbPageKind.Items.Add(foo.ToString());
-
-            //    IntIndex++;
-            //}
-            //CmbPageKind.SelectedIndex = IntSelectedIndex;
-
-            //FillGrid();
-            FooterSummary();
-        }
         private bool ValidateDetails()
         {
             bool blnFocus = false;
@@ -1503,13 +1338,14 @@ namespace Account_Management.Report
             ReportParams_Property.From_Date = Val.DBDate(dtpFromDate.Text);
             ReportParams_Property.To_Date = Val.DBDate(dtpToDate.Text);
             ReportParams_Property.ledger_id = Val.ToInt64(lueLedger.EditValue);
+            ReportParams_Property.account_type = Val.ToString(CmbAccountLedgerType.Text);
 
-            if (this.backgroundWorker_HRReport.IsBusy)
+            if (this.backgroundWorker_AccountLedger.IsBusy)
             {
             }
             else
             {
-                backgroundWorker_HRReport.RunWorkerAsync();
+                backgroundWorker_AccountLedger.RunWorkerAsync();
             }
         }
         private void DgvAccountLedger_KeyUp(object sender, KeyEventArgs e)
@@ -1648,6 +1484,75 @@ namespace Account_Management.Report
                     }
                 }
             }
+        }
+        private void backgroundWorker_AccountLedger_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            DTab = ObjReportParams.GetAccountLedgerReport(ReportParams_Property, "RPT_PartyLedger");
+        }
+        private void backgroundWorker_AccountLedger_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            FrmAccountLedger FrmGReportViewer = new Report.FrmAccountLedger();
+
+            FrmGReportViewer.ObjReportDetailProperty = ObjReportDetailProperty;
+            FrmGReportViewer.mDTDetail = mDTDetail;
+            FrmGReportViewer.Report_Code = ObjReportDetailProperty.Report_code;
+
+            FrmGReportViewer.Remark = ObjReportDetailProperty.Remark;
+            FrmGReportViewer.ReportParams_Property = ReportParams_Property;
+            FrmGReportViewer.Procedure_Name = ObjReportDetailProperty.Procedure_Name;
+            FrmGReportViewer.FilterByFormName = this.Name;
+
+            FrmGReportViewer.Remark = "";
+
+            ReportHeaderName = FrmGReportViewer.ReportHeaderName;
+            FrmGReportViewer.DTab = DTab;
+            if (FrmGReportViewer.DTab == null || FrmGReportViewer.DTab.Rows.Count == 0)
+            {
+                this.Cursor = Cursors.Default;
+                FrmGReportViewer.Dispose();
+                FrmGReportViewer = null;
+                Global.Message("Data Not Found");
+                GrdAccountLedger.DataSource = null;
+                return;
+            }
+            this.Cursor = Cursors.Default;
+            decimal numBalance = 0;
+            DTab.Columns.Add("balance_", typeof(string));
+            foreach (DataRow Drw in DTab.Rows)
+            {
+                numBalance = numBalance + Val.ToDecimal(Drw["debit_amount"]) - Val.ToDecimal(Drw["credit_amount"]);
+
+                Drw["balance_amount"] = numBalance;
+                if (Val.ToDecimal(Drw["balance_amount"]) > 0)
+                {
+                    Drw["balance_"] = Val.ToString(Drw["balance_amount"]).Replace("-", "") + " Dr";
+                }
+                else
+                {
+                    Drw["balance_"] = Val.ToString(Drw["balance_amount"]).Replace("-", "") + " Cr";
+                }
+            }
+            GrdAccountLedger.DataSource = DTab;
+            FooterSummary();
+        }
+
+        private void FrmAccountLedger_Load(object sender, EventArgs e)
+        {
+            dtpFromDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
+            dtpFromDate.Properties.Mask.EditMask = "dd-MM-yyyy";
+            dtpFromDate.Properties.Mask.UseMaskAsDisplayFormat = true;
+            dtpFromDate.Properties.CharacterCasing = CharacterCasing.Upper;
+            dtpFromDate.EditValue = DateTime.Now;
+            DateTime now = DateTime.Now;
+            dtpFromDate.EditValue = new DateTime(now.Year, now.Month, 1);
+
+            dtpToDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
+            dtpToDate.Properties.Mask.EditMask = "dd-MM-yyyy";
+            dtpToDate.Properties.Mask.UseMaskAsDisplayFormat = true;
+            dtpToDate.Properties.CharacterCasing = CharacterCasing.Upper;
+            dtpToDate.EditValue = DateTime.Now;
+
+            Global.LOOKUPLedger(lueLedger);
         }
     }
 }

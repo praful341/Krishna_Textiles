@@ -57,8 +57,9 @@
             this.MNColumnChooser = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmExportData = new System.Windows.Forms.ToolStripMenuItem();
             this.MNUExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.backgroundWorker_HRReport = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker_AccountLedger = new System.ComponentModel.BackgroundWorker();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.label3 = new System.Windows.Forms.Label();
             this.dtpToDate = new DevExpress.XtraEditors.DateEdit();
             this.dtpFromDate = new DevExpress.XtraEditors.DateEdit();
             this.label2 = new System.Windows.Forms.Label();
@@ -69,6 +70,7 @@
             this.BtnReset = new DevExpress.XtraEditors.SimpleButton();
             this.BtnExport = new DevExpress.XtraEditors.SimpleButton();
             this.BtnGenerateReport = new DevExpress.XtraEditors.SimpleButton();
+            this.CmbAccountLedgerType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.GrdAccountLedger = new DevExpress.XtraGrid.GridControl();
             this.DgvAccountLedger = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.bandedGridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -91,6 +93,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpFromDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFromDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueLedger.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CmbAccountLedgerType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GrdAccountLedger)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvAccountLedger)).BeginInit();
             this.SuspendLayout();
@@ -344,14 +347,15 @@
             this.MNUExit.Text = "Exit";
             this.MNUExit.Click += new System.EventHandler(this.MNUExit_Click);
             // 
-            // backgroundWorker_HRReport
+            // backgroundWorker_AccountLedger
             // 
-            this.backgroundWorker_HRReport.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_HRReport_DoWork);
-            this.backgroundWorker_HRReport.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_HRReport_RunWorkerCompleted);
+            this.backgroundWorker_AccountLedger.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_AccountLedger_DoWork);
+            this.backgroundWorker_AccountLedger.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_AccountLedger_RunWorkerCompleted);
             // 
             // panelControl2
             // 
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.panelControl2.Controls.Add(this.label3);
             this.panelControl2.Controls.Add(this.dtpToDate);
             this.panelControl2.Controls.Add(this.dtpFromDate);
             this.panelControl2.Controls.Add(this.label2);
@@ -362,11 +366,22 @@
             this.panelControl2.Controls.Add(this.BtnReset);
             this.panelControl2.Controls.Add(this.BtnExport);
             this.panelControl2.Controls.Add(this.BtnGenerateReport);
+            this.panelControl2.Controls.Add(this.CmbAccountLedgerType);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(1304, 49);
             this.panelControl2.TabIndex = 65;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(739, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 16);
+            this.label3.TabIndex = 72;
+            this.label3.Text = "Type";
             // 
             // dtpToDate
             // 
@@ -382,7 +397,7 @@
             this.dtpToDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpToDate.Size = new System.Drawing.Size(119, 20);
-            this.dtpToDate.TabIndex = 71;
+            this.dtpToDate.TabIndex = 1;
             // 
             // dtpFromDate
             // 
@@ -398,7 +413,7 @@
             this.dtpFromDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpFromDate.Size = new System.Drawing.Size(119, 20);
-            this.dtpFromDate.TabIndex = 70;
+            this.dtpFromDate.TabIndex = 0;
             // 
             // label2
             // 
@@ -441,7 +456,7 @@
             this.lueLedger.Properties.NullText = "";
             this.lueLedger.Properties.ShowHeader = false;
             this.lueLedger.Size = new System.Drawing.Size(229, 20);
-            this.lueLedger.TabIndex = 66;
+            this.lueLedger.TabIndex = 2;
             // 
             // label32
             // 
@@ -458,10 +473,10 @@
             this.BtnPrint.Appearance.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnPrint.Appearance.Options.UseFont = true;
             this.BtnPrint.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtnPrint.ImageOptions.Image")));
-            this.BtnPrint.Location = new System.Drawing.Point(838, 5);
+            this.BtnPrint.Location = new System.Drawing.Point(1040, 5);
             this.BtnPrint.Name = "BtnPrint";
             this.BtnPrint.Size = new System.Drawing.Size(41, 37);
-            this.BtnPrint.TabIndex = 11;
+            this.BtnPrint.TabIndex = 6;
             this.BtnPrint.TabStop = false;
             this.BtnPrint.ToolTip = "To Print";
             this.BtnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
@@ -471,10 +486,10 @@
             this.BtnReset.Appearance.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnReset.Appearance.Options.UseFont = true;
             this.BtnReset.ImageOptions.Image = global::Account_Management.Properties.Resources.Clear;
-            this.BtnReset.Location = new System.Drawing.Point(791, 5);
+            this.BtnReset.Location = new System.Drawing.Point(993, 5);
             this.BtnReset.Name = "BtnReset";
             this.BtnReset.Size = new System.Drawing.Size(41, 37);
-            this.BtnReset.TabIndex = 9;
+            this.BtnReset.TabIndex = 5;
             this.BtnReset.TabStop = false;
             this.BtnReset.ToolTip = "To Clear";
             this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
@@ -484,10 +499,10 @@
             this.BtnExport.Appearance.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnExport.Appearance.Options.UseFont = true;
             this.BtnExport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtnExport.ImageOptions.Image")));
-            this.BtnExport.Location = new System.Drawing.Point(885, 6);
+            this.BtnExport.Location = new System.Drawing.Point(1087, 6);
             this.BtnExport.Name = "BtnExport";
             this.BtnExport.Size = new System.Drawing.Size(41, 37);
-            this.BtnExport.TabIndex = 10;
+            this.BtnExport.TabIndex = 7;
             this.BtnExport.TabStop = false;
             this.BtnExport.ToolTip = "To Export to Excel";
             this.BtnExport.Visible = false;
@@ -498,13 +513,32 @@
             this.BtnGenerateReport.Appearance.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGenerateReport.Appearance.Options.UseFont = true;
             this.BtnGenerateReport.ImageOptions.Image = global::Account_Management.Properties.Resources.Report_final;
-            this.BtnGenerateReport.Location = new System.Drawing.Point(744, 5);
+            this.BtnGenerateReport.Location = new System.Drawing.Point(946, 5);
             this.BtnGenerateReport.Name = "BtnGenerateReport";
             this.BtnGenerateReport.Size = new System.Drawing.Size(39, 37);
-            this.BtnGenerateReport.TabIndex = 8;
+            this.BtnGenerateReport.TabIndex = 4;
             this.BtnGenerateReport.TabStop = false;
             this.BtnGenerateReport.ToolTip = "To Generate Report";
             this.BtnGenerateReport.Click += new System.EventHandler(this.BtnGenerateReport_Click);
+            // 
+            // CmbAccountLedgerType
+            // 
+            this.CmbAccountLedgerType.Location = new System.Drawing.Point(788, 13);
+            this.CmbAccountLedgerType.Name = "CmbAccountLedgerType";
+            this.CmbAccountLedgerType.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbAccountLedgerType.Properties.Appearance.Options.UseFont = true;
+            this.CmbAccountLedgerType.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.CmbAccountLedgerType.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.CmbAccountLedgerType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CmbAccountLedgerType.Properties.Items.AddRange(new object[] {
+            "ALL",
+            "PAYABLE",
+            "RECEIVABLE"});
+            this.CmbAccountLedgerType.Properties.PopupSizeable = true;
+            this.CmbAccountLedgerType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.CmbAccountLedgerType.Size = new System.Drawing.Size(141, 20);
+            this.CmbAccountLedgerType.TabIndex = 3;
             // 
             // GrdAccountLedger
             // 
@@ -673,7 +707,7 @@
             this.Name = "FrmAccountLedger";
             this.Text = "ACCOUNT LEDGER";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FrmGReportViewer_Load);
+            this.Load += new System.EventHandler(this.FrmAccountLedger_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PrintingSystem1)).EndInit();
             this.GridMenuStrip.ResumeLayout(false);
             this.GridMenuStrip.PerformLayout();
@@ -685,6 +719,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpFromDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFromDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueLedger.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CmbAccountLedgerType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GrdAccountLedger)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvAccountLedger)).EndInit();
             this.ResumeLayout(false);
@@ -720,7 +755,7 @@
         private System.Windows.Forms.ToolStripMenuItem TsmExportData;
         private System.Windows.Forms.ToolStripMenuItem MNUExit;
         private System.Windows.Forms.ToolStripMenuItem ToExcelXlsxFast;
-        private System.ComponentModel.BackgroundWorker backgroundWorker_HRReport;
+        private System.ComponentModel.BackgroundWorker backgroundWorker_AccountLedger;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.SimpleButton BtnPrint;
         private DevExpress.XtraEditors.SimpleButton BtnReset;
@@ -745,5 +780,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private System.Windows.Forms.Label label3;
+        private DevExpress.XtraEditors.ComboBoxEdit CmbAccountLedgerType;
     }
 }
