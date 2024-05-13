@@ -79,12 +79,16 @@ namespace Account_Management.Transaction
                 RepMethod.Items.Add("Adjustment");
                 RepMethod.Items.Add("New Ref.");
 
-                //GrdDet.PostEditor();
+                //GrdDet.FocusedRowHandle = GrdDet.DataRowCount - 1;
+                GrdDet.PostEditor();
+                GrdDet.FocusedRowHandle = 1;
                 GrdDet.FocusedColumn = GrdDet.Columns["method"];
                 GrdDet.ShowEditor();
-                // RepMethod.AllowFocused = true;
 
-
+                //GrdDet.PostEditor();
+                //GrdDet.FocusedColumn = GrdDet.Columns["method"];
+                //GrdDet.ShowEditor();
+                //RepMethod.AllowFocused = true;
             }
             catch (Exception ex)
             {
@@ -319,8 +323,9 @@ namespace Account_Management.Transaction
         private void RepDueDate_KeyDown(object sender, KeyEventArgs e)
         {
             //GrdDet.CloseEditor();
-            if ((e.KeyCode == Keys.Enter && GrdDet.IsLastRow) && Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "method")) != "")
+            if (((e.KeyCode == Keys.Enter && GrdDet.IsLastRow) && Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "method")) != "") || ((e.KeyCode == Keys.Tab && GrdDet.IsLastRow) && Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "method")) != ""))
             {
+                int flag = 0;
                 e.Handled = true;
                 DataRow dtRow = DTab.NewRow();
                 GrdDet.SetRowCellValue(GrdDet.DataRowCount - 1, "sr_no", GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "sr_no"));
@@ -331,22 +336,29 @@ namespace Account_Management.Transaction
                 {
                     dtRow["amount"] = Val.ToDecimal(lblAmount.Text) - Rec_Amt;
                     DTab.Rows.Add(dtRow);
+                    flag = 1;
                 }
                 else
                 {
                     dtRow["amount"] = 0;
                     DTab.Rows.Add(dtRow);
+                    flag = 0;
                 }
-
-                GrdDet.PostEditor();
-                GrdDet.FocusedRowHandle = GrdDet.DataRowCount - 1;
-                GrdDet.FocusedColumn = GrdDet.Columns["method"];
-
+                //GrdDet.PostEditor();
                 decimal Total_Amount = Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue);
 
                 if (Total_Amount == Val.ToDecimal(lblAmount.Text))
                 {
-                    BtnSave.Focus();
+                    if (flag == 1)
+                    {
+                        GrdDet.FocusedRowHandle = GrdDet.DataRowCount - 1;
+                        GrdDet.FocusedColumn = GrdDet.Columns["method"];
+                        GrdDet.ShowEditor();
+                    }
+                    else
+                    {
+                        BtnSave.Focus();
+                    }
                 }
             }
         }

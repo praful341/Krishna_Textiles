@@ -285,7 +285,7 @@ namespace Account_Management.Transaction
         private void RepDueDate_KeyDown(object sender, KeyEventArgs e)
         {
             //GrdDet.CloseEditor();
-            if (e.KeyCode == Keys.Enter && GrdDet.IsLastRow)
+            if (((e.KeyCode == Keys.Enter && GrdDet.IsLastRow) && Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "method")) != "") || ((e.KeyCode == Keys.Tab && GrdDet.IsLastRow) && Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "method")) != ""))
             {
                 DataRow dtRow = DTab.NewRow();
                 e.Handled = true;
