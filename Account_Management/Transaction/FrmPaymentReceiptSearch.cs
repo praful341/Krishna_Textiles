@@ -332,7 +332,7 @@ namespace Account_Management.Transaction
                 int sr_no = Val.ToInt32(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "sr_no"));
                 dtRow["sr_no"] = sr_no + 1;
                 decimal Rec_Amt = Val.ToDecimal(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "amount"));
-                if (Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) != Val.ToDecimal(lblAmount.Text))
+                if ((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Rec_Amt) != Val.ToDecimal(lblAmount.Text))
                 {
                     dtRow["amount"] = Val.ToDecimal(lblAmount.Text) - Rec_Amt;
                     DTab.Rows.Add(dtRow);
