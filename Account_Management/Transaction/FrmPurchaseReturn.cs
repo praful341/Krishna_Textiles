@@ -1658,7 +1658,7 @@ namespace Account_Management.Transaction
                         objPurchaseReturnProperty.purchase_return_id = Val.ToInt64(NewmPurchaseReturnId);
                         objPurchaseReturnProperty.janged_id = Val.ToInt64(lblJanged_ID.Text);
                         objPurchaseReturnProperty.return_detail_id = Val.ToInt64(drw["return_detail_id"]);
-                        objPurchaseReturnProperty.janged_detail_id = Val.ToInt64(drw["janged_detail_id"]);
+                        //objPurchaseReturnProperty.janged_detail_id = Val.ToInt64(drw["janged_detail_id"]);
                         objPurchaseReturnProperty.sr_no = Val.ToInt(drw["sr_no"]);
                         objPurchaseReturnProperty.item_id = Val.ToInt64(drw["item_id"]);
                         objPurchaseReturnProperty.color_id = Val.ToInt64(drw["color_id"]);
