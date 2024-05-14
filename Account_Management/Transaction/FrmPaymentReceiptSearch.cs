@@ -369,5 +369,14 @@ namespace Account_Management.Transaction
                 }
             }
         }
+
+        private void RepDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (Global.Confirm("Are you sure delete selected row?", "Account Management", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            {
+                GrdDet.DeleteRow(GrdDet.GetRowHandle(GrdDet.FocusedRowHandle));
+                DTab.AcceptChanges();
+            }
+        }
     }
 }

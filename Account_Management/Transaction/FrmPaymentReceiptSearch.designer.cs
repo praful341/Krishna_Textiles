@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPaymentReceiptSearch));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -53,6 +59,8 @@
             this.ClmInvoiceID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.RepDueDate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            this.ClmDelete = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.RepDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.lblLedgerID = new DevExpress.XtraEditors.LabelControl();
@@ -69,6 +77,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.RepOrderNo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepDueDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepDueDate.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -131,7 +140,8 @@
             this.MainGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.RepMethod,
             this.RepDueDate,
-            this.RepOrderNo});
+            this.RepOrderNo,
+            this.RepDelete});
             this.MainGrid.Size = new System.Drawing.Size(545, 297);
             this.MainGrid.TabIndex = 1;
             this.MainGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -222,7 +232,8 @@
             this.gridColumn8,
             this.ClmLotSrNo,
             this.ClmInvoiceID,
-            this.gridColumn1});
+            this.gridColumn1,
+            this.ClmDelete});
             this.GrdDet.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.GrdDet.GridControl = this.MainGrid;
             this.GrdDet.Name = "GrdDet";
@@ -257,7 +268,7 @@
             this.gridColumn2.FieldName = "method";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.VisibleIndex = 2;
             this.gridColumn2.Width = 117;
             // 
             // RepMethod
@@ -280,7 +291,7 @@
             this.clmRSAmount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.clmRSAmount.Visible = true;
-            this.clmRSAmount.VisibleIndex = 3;
+            this.clmRSAmount.VisibleIndex = 4;
             this.clmRSAmount.Width = 94;
             // 
             // gridColumn8
@@ -297,7 +308,7 @@
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 2;
+            this.gridColumn8.VisibleIndex = 3;
             this.gridColumn8.Width = 98;
             // 
             // RepOrderNo
@@ -315,7 +326,7 @@
             this.ClmLotSrNo.OptionsColumn.AllowFocus = false;
             this.ClmLotSrNo.OptionsColumn.AllowMove = false;
             this.ClmLotSrNo.Visible = true;
-            this.ClmLotSrNo.VisibleIndex = 0;
+            this.ClmLotSrNo.VisibleIndex = 1;
             this.ClmLotSrNo.Width = 46;
             // 
             // ClmInvoiceID
@@ -333,7 +344,7 @@
             this.gridColumn1.FieldName = "payment_date";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 4;
+            this.gridColumn1.VisibleIndex = 5;
             this.gridColumn1.Width = 106;
             // 
             // RepDueDate
@@ -351,6 +362,28 @@
             this.RepDueDate.MaxValue = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.RepDueDate.Name = "RepDueDate";
             this.RepDueDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RepDueDate_KeyDown);
+            // 
+            // ClmDelete
+            // 
+            this.ClmDelete.Caption = "Del";
+            this.ClmDelete.ColumnEdit = this.RepDelete;
+            this.ClmDelete.FieldName = "ClmDelete";
+            this.ClmDelete.Name = "ClmDelete";
+            this.ClmDelete.OptionsColumn.AllowMove = false;
+            this.ClmDelete.UnboundType = DevExpress.Data.UnboundColumnType.Object;
+            this.ClmDelete.Visible = true;
+            this.ClmDelete.VisibleIndex = 0;
+            this.ClmDelete.Width = 29;
+            // 
+            // RepDelete
+            // 
+            this.RepDelete.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.RepDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "Delete This Row", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.RepDelete.Name = "RepDelete";
+            this.RepDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.RepDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.RepDelete_ButtonClick);
             // 
             // panelControl1
             // 
@@ -475,6 +508,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.RepOrderNo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepDueDate.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepDueDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -518,5 +552,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit RepOrderNo;
         private DevExpress.XtraGrid.Columns.GridColumn ClmInvoiceID;
         private DevExpress.XtraGrid.Columns.GridColumn payment_id;
+        private DevExpress.XtraGrid.Columns.GridColumn ClmDelete;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit RepDelete;
     }
 }
