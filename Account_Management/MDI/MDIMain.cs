@@ -46,6 +46,7 @@ namespace Account_Management.MDI
                 AttachFormEvents();
                 //this.Text = "Kakdiya Diamond [ Since 1905 ]   ";
                 this.Text = this.Text + " [ User : " + GlobalDec.gEmployeeProperty.user_name + " ]";
+                this.Text = this.Text + " [ Role : " + GlobalDec.gEmployeeProperty.role_name + " ]";
                 this.Text = this.Text + " [ Version : " + Global.gStrVersion + " ]";
                 try
                 {
