@@ -96,12 +96,6 @@ namespace Account_Management.Transaction
                 Global.Message(BLL.GlobalDec.gStrPermissionViwMsg);
                 return;
             }
-            if (Global.CheckDefault() == 0)
-            {
-                Global.Message("Please Check User Default Setting");
-                this.Close();
-                return;
-            }
             Val.frmGenSet(this);
             AttachFormEvents();
 
@@ -133,12 +127,6 @@ namespace Account_Management.Transaction
             if (ObjPer.CheckPermission() == false)
             {
                 Global.Message(BLL.GlobalDec.gStrPermissionViwMsg);
-                return;
-            }
-            if (Global.CheckDefault() == 0)
-            {
-                Global.Message("Please Check User Default Setting");
-                this.Close();
                 return;
             }
             Val.frmGenSet(this);

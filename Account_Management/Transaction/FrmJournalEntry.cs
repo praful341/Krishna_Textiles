@@ -31,6 +31,7 @@ namespace Account_Management.Transaction
         Control _NextEnteredControl;
         private List<Control> _tabControls;
         DataTable DtControlSettings;
+        DataTable DtPaymentGiven = new DataTable();
 
         #endregion
 
@@ -465,13 +466,30 @@ namespace Account_Management.Transaction
 
                 dtRow["sr_no"] = sr_no + 1;
 
+                if (Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "dc")) == "D")
+                {
+                    DtPaymentGiven = new DataTable();
+                    DtPaymentGiven.Columns.Add("sr_no", typeof(int));
+                    DtPaymentGiven.Columns.Add("method", typeof(string));
+                    DtPaymentGiven.Columns.Add("purchase_bill_no", typeof(string));
+                    DtPaymentGiven.Columns.Add("amount", typeof(decimal));
+                    DtPaymentGiven.Columns.Add("purchase_id", typeof(Int64));
+                    DtPaymentGiven.Columns.Add("payment_date", typeof(string));
+                    DtPaymentGiven.Columns.Add("payment_id", typeof(Int64));
+                    DtPaymentGiven.Rows.Add(1, "", "", 0, 0, "");
+
+                    FrmJVSearch FrmJVSearch = new FrmJVSearch();
+                    FrmJVSearch.FrmJournalEntry = this;
+                    FrmJVSearch.DTab = DtPaymentGiven;
+                    FrmJVSearch.ShowForm(this);
+                }
+
                 DtJournalEntry.Rows.Add(dtRow);
                 GrdDet.PostEditor();
                 GrdDet.FocusedRowHandle = GrdDet.DataRowCount - 1;
                 GrdDet.FocusedColumn = GrdDet.Columns["dc"];
             }
         }
-
         private void backgroundWorker_JournalEntry_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             try
@@ -583,7 +601,6 @@ namespace Account_Management.Transaction
                     GrdDet.Columns["credit_amount"].OptionsColumn.ReadOnly = true;
                     GrdDet.Columns["credit_amount"].OptionsColumn.AllowFocus = false;
                 }
-                //GrdDet.FocusedColumn = GrdDet.Columns["ledger_id"];
             }
             catch (Exception ex)
             {
@@ -614,17 +631,14 @@ namespace Account_Management.Transaction
             //    GrdDet.FocusedColumn = GrdDet.Columns["ledger_id"];
             //}
         }
-
         private void GrdDet_FocusedColumnChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedColumnChangedEventArgs e)
         {
             CalculateGridAmount(GrdDet.FocusedRowHandle);
         }
-
         private void GrdDet_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             CalculateGridAmount(e.PrevFocusedRowHandle);
         }
-
         private void GrdDet_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
         {
             CalculateGridAmount(GrdDet.FocusedRowHandle);

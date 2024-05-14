@@ -265,12 +265,16 @@ namespace Account_Management.Transaction
                             {
                                 GrdDet.SetFocusedRowCellValue("payment_date", Val.ToString(FrmSearchNew.DRow["payment_date"]));
                             }
+
+                            if (Val.ToDecimal(lblAmount.Text) < Val.ToDecimal(FrmSearchNew.DRow["os_amount"]))
+                            {
+                                GrdDet.SetFocusedRowCellValue("amount", Val.ToDecimal(lblAmount.Text));
+                            }
                             else
                             {
+                                GrdDet.SetFocusedRowCellValue("amount", Val.ToString(FrmSearchNew.DRow["os_amount"]));
                             }
-
-
-                            GrdDet.SetFocusedRowCellValue("amount", Val.ToString(FrmSearchNew.DRow["os_amount"]));
+                            //GrdDet.SetFocusedRowCellValue("amount", Val.ToString(FrmSearchNew.DRow["os_amount"]));
                             GrdDet.SetFocusedRowCellValue("purchase_id", Val.ToString(FrmSearchNew.DRow["purchase_id"]));
                             GrdDet.PostEditor();
                         }

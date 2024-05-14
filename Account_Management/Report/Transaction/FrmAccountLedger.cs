@@ -194,12 +194,6 @@ namespace Account_Management.Report
                 Global.Message(BLL.GlobalDec.gStrPermissionViwMsg);
                 return;
             }
-            if (Global.CheckDefault() == 0)
-            {
-                Global.Message("Please Check User Default Setting");
-                this.Close();
-                return;
-            }
             Val.frmGenSet(this);
             this.Show();
         }
