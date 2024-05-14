@@ -242,7 +242,24 @@ namespace Account_Management.Transaction
         }
         private void Control_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (!((Control)sender).Name.ToString().Trim().Equals(string.Empty))
+            {
+                _NextEnteredControl = (Control)sender;
+                if ((Control)sender is LookUpEdit)
+                {
+                    if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                    {
+                        SendKeys.Send("{TAB}");
+                    }
+                }
+                if ((Control)sender is CheckedComboBoxEdit)
+                {
+                    if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                    {
+                        SendKeys.Send("{TAB}");
+                    }
+                }
+            }
         }
         private void ControlSettingDT(int FormCode, Form pForm)
         {
