@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
@@ -62,6 +62,7 @@
             this.clmPartyPanNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmGSTNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmBankAccType = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmBankAccName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdLedgerMaster = new DevExpress.XtraGrid.GridControl();
             this.ContextMNExport = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.MNExportExcel = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,6 +95,8 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtOpeningBalance = new DevExpress.XtraEditors.TextEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.txtBankAccName = new DevExpress.XtraEditors.TextEdit();
             this.labelControl35 = new DevExpress.XtraEditors.LabelControl();
             this.CmbBankAccType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
@@ -136,9 +139,9 @@
             this.txtMobileNo2 = new DevExpress.XtraEditors.TextEdit();
             this.txtEmailID = new DevExpress.XtraEditors.TextEdit();
             this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.txtBankAccName = new DevExpress.XtraEditors.TextEdit();
-            this.clmBankAccName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.dtpOpeningDate = new DevExpress.XtraEditors.DateEdit();
+            this.clmOpeningDate = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -164,6 +167,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtOpeningBalance.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBankAccName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CmbBankAccType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBankBranch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBankIFSC.Properties)).BeginInit();
@@ -183,7 +187,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtLedgerName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMobileNo2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmailID.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBankAccName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpOpeningDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpOpeningDate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl4
@@ -252,7 +257,8 @@
             this.clmPartyPanNo,
             this.clmGSTNo,
             this.clmBankAccType,
-            this.clmBankAccName});
+            this.clmBankAccName,
+            this.clmOpeningDate});
             this.dgvLedgerMaster.GridControl = this.grdLedgerMaster;
             this.dgvLedgerMaster.Name = "dgvLedgerMaster";
             this.dgvLedgerMaster.OptionsBehavior.Editable = false;
@@ -298,7 +304,7 @@
             this.clmRemark.Name = "clmRemark";
             this.clmRemark.OptionsColumn.AllowEdit = false;
             this.clmRemark.Visible = true;
-            this.clmRemark.VisibleIndex = 13;
+            this.clmRemark.VisibleIndex = 14;
             this.clmRemark.Width = 71;
             // 
             // clmPartyEmail
@@ -334,7 +340,7 @@
             this.clmcountry_name.Name = "clmcountry_name";
             this.clmcountry_name.OptionsColumn.AllowEdit = false;
             this.clmcountry_name.Visible = true;
-            this.clmcountry_name.VisibleIndex = 8;
+            this.clmcountry_name.VisibleIndex = 9;
             this.clmcountry_name.Width = 85;
             // 
             // clmstate_id
@@ -352,7 +358,7 @@
             this.clmstate_name.Name = "clmstate_name";
             this.clmstate_name.OptionsColumn.AllowEdit = false;
             this.clmstate_name.Visible = true;
-            this.clmstate_name.VisibleIndex = 9;
+            this.clmstate_name.VisibleIndex = 10;
             this.clmstate_name.Width = 94;
             // 
             // clmcity_id
@@ -370,7 +376,7 @@
             this.clmcity_name.Name = "clmcity_name";
             this.clmcity_name.OptionsColumn.AllowEdit = false;
             this.clmcity_name.Visible = true;
-            this.clmcity_name.VisibleIndex = 10;
+            this.clmcity_name.VisibleIndex = 11;
             this.clmcity_name.Width = 93;
             // 
             // clmpincode
@@ -453,7 +459,7 @@
             this.clmBankName.FieldName = "bank_name";
             this.clmBankName.Name = "clmBankName";
             this.clmBankName.Visible = true;
-            this.clmBankName.VisibleIndex = 14;
+            this.clmBankName.VisibleIndex = 15;
             // 
             // clmBankBranch
             // 
@@ -461,7 +467,7 @@
             this.clmBankBranch.FieldName = "bank_branch";
             this.clmBankBranch.Name = "clmBankBranch";
             this.clmBankBranch.Visible = true;
-            this.clmBankBranch.VisibleIndex = 15;
+            this.clmBankBranch.VisibleIndex = 16;
             this.clmBankBranch.Width = 106;
             // 
             // clmBankIFSC
@@ -470,7 +476,7 @@
             this.clmBankIFSC.FieldName = "bank_ifsc";
             this.clmBankIFSC.Name = "clmBankIFSC";
             this.clmBankIFSC.Visible = true;
-            this.clmBankIFSC.VisibleIndex = 16;
+            this.clmBankIFSC.VisibleIndex = 17;
             // 
             // clmBankAccNo
             // 
@@ -478,7 +484,7 @@
             this.clmBankAccNo.FieldName = "bank_account_no";
             this.clmBankAccNo.Name = "clmBankAccNo";
             this.clmBankAccNo.Visible = true;
-            this.clmBankAccNo.VisibleIndex = 17;
+            this.clmBankAccNo.VisibleIndex = 18;
             this.clmBankAccNo.Width = 104;
             // 
             // clmPartyPanNo
@@ -487,7 +493,7 @@
             this.clmPartyPanNo.FieldName = "party_pan_no";
             this.clmPartyPanNo.Name = "clmPartyPanNo";
             this.clmPartyPanNo.Visible = true;
-            this.clmPartyPanNo.VisibleIndex = 11;
+            this.clmPartyPanNo.VisibleIndex = 12;
             // 
             // clmGSTNo
             // 
@@ -495,7 +501,7 @@
             this.clmGSTNo.FieldName = "gst_no";
             this.clmGSTNo.Name = "clmGSTNo";
             this.clmGSTNo.Visible = true;
-            this.clmGSTNo.VisibleIndex = 12;
+            this.clmGSTNo.VisibleIndex = 13;
             // 
             // clmBankAccType
             // 
@@ -503,8 +509,17 @@
             this.clmBankAccType.FieldName = "bank_account_type";
             this.clmBankAccType.Name = "clmBankAccType";
             this.clmBankAccType.Visible = true;
-            this.clmBankAccType.VisibleIndex = 18;
+            this.clmBankAccType.VisibleIndex = 19;
             this.clmBankAccType.Width = 116;
+            // 
+            // clmBankAccName
+            // 
+            this.clmBankAccName.Caption = "Bank Acc Name";
+            this.clmBankAccName.FieldName = "bank_acc_name";
+            this.clmBankAccName.Name = "clmBankAccName";
+            this.clmBankAccName.Visible = true;
+            this.clmBankAccName.VisibleIndex = 20;
+            this.clmBankAccName.Width = 107;
             // 
             // grdLedgerMaster
             // 
@@ -588,8 +603,8 @@
             // 
             // SHERE_PER
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.SHERE_PER.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.SHERE_PER.DefaultCellStyle = dataGridViewCellStyle2;
             this.SHERE_PER.HeaderText = "Shere(%)";
             this.SHERE_PER.Name = "SHERE_PER";
             this.SHERE_PER.Width = 88;
@@ -730,6 +745,8 @@
             this.tblGeneralDetail.Appearance.PageClient.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.tblGeneralDetail.Appearance.PageClient.Options.UseBackColor = true;
             this.tblGeneralDetail.Appearance.PageClient.Options.UseBorderColor = true;
+            this.tblGeneralDetail.Controls.Add(this.dtpOpeningDate);
+            this.tblGeneralDetail.Controls.Add(this.labelControl11);
             this.tblGeneralDetail.Controls.Add(this.txtAddress4);
             this.tblGeneralDetail.Controls.Add(this.txtAddress2);
             this.tblGeneralDetail.Controls.Add(this.txtAddress1);
@@ -897,11 +914,33 @@
             this.groupControl1.Controls.Add(this.labelControl56);
             this.groupControl1.Controls.Add(this.txtBankName);
             this.groupControl1.Controls.Add(this.txtBankAccNo);
-            this.groupControl1.Location = new System.Drawing.Point(360, 219);
+            this.groupControl1.Location = new System.Drawing.Point(360, 245);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(317, 183);
             this.groupControl1.TabIndex = 573;
             this.groupControl1.Text = "Bank Details";
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl5.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl5.Appearance.Options.UseFont = true;
+            this.labelControl5.Appearance.Options.UseForeColor = true;
+            this.labelControl5.Location = new System.Drawing.Point(8, 25);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(66, 17);
+            this.labelControl5.TabIndex = 57;
+            this.labelControl5.Text = "Acc Name";
+            // 
+            // txtBankAccName
+            // 
+            this.txtBankAccName.EnterMoveNextControl = true;
+            this.txtBankAccName.Location = new System.Drawing.Point(89, 24);
+            this.txtBankAccName.Name = "txtBankAccName";
+            this.txtBankAccName.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBankAccName.Properties.Appearance.Options.UseFont = true;
+            this.txtBankAccName.Size = new System.Drawing.Size(221, 20);
+            this.txtBankAccName.TabIndex = 0;
             // 
             // labelControl35
             // 
@@ -1204,7 +1243,7 @@
             this.chkActive.Properties.Appearance.Options.UseFont = true;
             this.chkActive.Properties.Caption = "Active";
             this.chkActive.Size = new System.Drawing.Size(75, 20);
-            this.chkActive.TabIndex = 19;
+            this.chkActive.TabIndex = 20;
             // 
             // labelControl4
             // 
@@ -1422,36 +1461,42 @@
             this.labelControl30.TabIndex = 480;
             this.labelControl30.Text = "Email ID";
             // 
-            // labelControl5
+            // labelControl11
             // 
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl5.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Appearance.Options.UseForeColor = true;
-            this.labelControl5.Location = new System.Drawing.Point(8, 25);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(66, 17);
-            this.labelControl5.TabIndex = 57;
-            this.labelControl5.Text = "Acc Name";
+            this.labelControl11.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl11.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl11.Appearance.Options.UseFont = true;
+            this.labelControl11.Appearance.Options.UseForeColor = true;
+            this.labelControl11.Location = new System.Drawing.Point(360, 218);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(98, 16);
+            this.labelControl11.TabIndex = 578;
+            this.labelControl11.Text = "Opening Date";
             // 
-            // txtBankAccName
+            // dtpOpeningDate
             // 
-            this.txtBankAccName.EnterMoveNextControl = true;
-            this.txtBankAccName.Location = new System.Drawing.Point(89, 24);
-            this.txtBankAccName.Name = "txtBankAccName";
-            this.txtBankAccName.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBankAccName.Properties.Appearance.Options.UseFont = true;
-            this.txtBankAccName.Size = new System.Drawing.Size(221, 20);
-            this.txtBankAccName.TabIndex = 0;
+            this.dtpOpeningDate.EditValue = null;
+            this.dtpOpeningDate.Location = new System.Drawing.Point(490, 216);
+            this.dtpOpeningDate.Name = "dtpOpeningDate";
+            this.dtpOpeningDate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.dtpOpeningDate.Properties.Appearance.Options.UseFont = true;
+            this.dtpOpeningDate.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.dtpOpeningDate.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.dtpOpeningDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtpOpeningDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtpOpeningDate.Size = new System.Drawing.Size(187, 20);
+            this.dtpOpeningDate.TabIndex = 19;
             // 
-            // clmBankAccName
+            // clmOpeningDate
             // 
-            this.clmBankAccName.Caption = "Bank Acc Name";
-            this.clmBankAccName.FieldName = "bank_acc_name";
-            this.clmBankAccName.Name = "clmBankAccName";
-            this.clmBankAccName.Visible = true;
-            this.clmBankAccName.VisibleIndex = 19;
-            this.clmBankAccName.Width = 107;
+            this.clmOpeningDate.Caption = "Opening Date";
+            this.clmOpeningDate.FieldName = "opening_date";
+            this.clmOpeningDate.Name = "clmOpeningDate";
+            this.clmOpeningDate.Visible = true;
+            this.clmOpeningDate.VisibleIndex = 8;
+            this.clmOpeningDate.Width = 93;
             // 
             // FrmLedgerMaster
             // 
@@ -1497,6 +1542,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBankAccName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CmbBankAccType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBankBranch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBankIFSC.Properties)).EndInit();
@@ -1516,7 +1562,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtLedgerName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMobileNo2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmailID.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBankAccName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpOpeningDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpOpeningDate.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1631,5 +1678,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.TextEdit txtBankAccName;
         private DevExpress.XtraGrid.Columns.GridColumn clmBankAccName;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.DateEdit dtpOpeningDate;
+        private DevExpress.XtraGrid.Columns.GridColumn clmOpeningDate;
     }
 }

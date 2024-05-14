@@ -7,6 +7,7 @@ namespace BLL.PropertyClasses.Master
         public Int64 ledger_id { get; set; }
         public string ledger_name { get; set; }
         public decimal opening_balance { get; set; }
+        public string opening_date { get; set; }
         public Int64 ledger_group_id { get; set; }
         public string ledger_type { get; set; }
         public string ledger_print_name { get; set; }

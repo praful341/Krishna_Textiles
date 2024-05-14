@@ -21,6 +21,7 @@ namespace BLL.FunctionClasses.Master
                 Request.AddParams("@ledger_group_id", pClsProperty.ledger_group_id, DbType.Int64);
                 Request.AddParams("@ledger_type", pClsProperty.ledger_type, DbType.String);
                 Request.AddParams("@opening_balance", pClsProperty.opening_balance, DbType.Decimal);
+                Request.AddParams("@opening_date", pClsProperty.opening_date, DbType.Date);
                 Request.AddParams("@ledger_print_name", pClsProperty.ledger_print_name, DbType.String);
                 Request.AddParams("@party_address1", pClsProperty.party_address1, DbType.String);
                 Request.AddParams("@party_address2", pClsProperty.party_address2, DbType.String);

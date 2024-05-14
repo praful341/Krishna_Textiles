@@ -108,6 +108,12 @@ namespace Account_Management
                 lueLedgerType.Properties.ValueMember = "ledger_type";
                 lueLedgerType.Properties.DisplayMember = "ledger_type";
 
+                dtpOpeningDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
+                dtpOpeningDate.Properties.Mask.EditMask = "dd-MM-yyyy";
+                dtpOpeningDate.Properties.Mask.UseMaskAsDisplayFormat = true;
+                dtpOpeningDate.Properties.CharacterCasing = CharacterCasing.Upper;
+                dtpOpeningDate.EditValue = DateTime.Now;
+
                 chkActive.Checked = true;
                 txtLedgerName.Focus();
             }
@@ -143,6 +149,13 @@ namespace Account_Management
             {
                 lblMode.Tag = 0;
                 lblMode.Text = "Add Mode";
+
+                dtpOpeningDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
+                dtpOpeningDate.Properties.Mask.EditMask = "dd-MM-yyyy";
+                dtpOpeningDate.Properties.Mask.UseMaskAsDisplayFormat = true;
+                dtpOpeningDate.Properties.CharacterCasing = CharacterCasing.Upper;
+                dtpOpeningDate.EditValue = DateTime.Now;
+
                 txtLedgerName.Text = string.Empty;
                 txtAddress1.Text = string.Empty;
                 txtAddress2.Text = string.Empty;
@@ -236,6 +249,7 @@ namespace Account_Management
                         txtBankAccNo.Text = Val.ToString(Drow["bank_account_no"]);
                         CmbBankAccType.Text = Val.ToString(Drow["bank_account_type"]);
                         txtBankAccName.Text = Val.ToString(Drow["bank_acc_name"]);
+                        dtpOpeningDate.Text = Val.ToString(Drow["opening_date"]);
                         txtLedgerName.Focus();
                     }
                 }
@@ -270,6 +284,7 @@ namespace Account_Management
                 LedgerMasterProperty.ledger_group_id = Val.ToInt64(lueLedgerGroup.EditValue);
                 LedgerMasterProperty.ledger_type = Val.ToString(lueLedgerType.EditValue);
                 LedgerMasterProperty.opening_balance = Val.ToDecimal(txtOpeningBalance.Text);
+                LedgerMasterProperty.opening_date = Val.DBDate(dtpOpeningDate.Text);
                 LedgerMasterProperty.ledger_print_name = Val.ToString(txtLedgerPrintName.Text);
                 LedgerMasterProperty.party_address1 = Val.ToString(txtAddress1.Text);
                 LedgerMasterProperty.party_address2 = Val.ToString(txtAddress2.Text);
