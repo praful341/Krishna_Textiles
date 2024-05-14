@@ -1339,6 +1339,7 @@ namespace Account_Management.Report
             ReportParams_Property.To_Date = Val.DBDate(dtpToDate.Text);
             ReportParams_Property.ledger_id = Val.ToInt64(lueLedger.EditValue);
             ReportParams_Property.account_type = Val.ToString(CmbAccountLedgerType.Text);
+            ReportParams_Property.is_deleted = Val.ToBoolean(GlobalDec.gEmployeeProperty.is_deleted);
 
             if (this.backgroundWorker_AccountLedger.IsBusy)
             {

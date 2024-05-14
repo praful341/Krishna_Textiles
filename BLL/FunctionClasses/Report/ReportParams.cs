@@ -59,6 +59,7 @@ namespace BLL.FunctionClasses.Report
             Request.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.String);
             Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.String);
             Request.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.String);
+            Request.AddParams("@is_deleted", ReportParams_Property.is_deleted, DbType.Boolean);
 
             Request.CommandType = CommandType.StoredProcedure;
 

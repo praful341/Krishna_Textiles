@@ -26,6 +26,7 @@ namespace BLL.PropertyClasses.Report
         public int fMonth { get; set; }
         public int tMonth { get; set; }
         public int punch_miss_flag { get; set; }
+        public bool is_deleted { get; set; }
 
     }
 }
