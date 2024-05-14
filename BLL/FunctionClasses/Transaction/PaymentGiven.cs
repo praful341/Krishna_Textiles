@@ -92,13 +92,14 @@ namespace BLL.FunctionClasses.Account
             IntRes = Ope.FindNewID(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, "TRN_Payment_Given", "isnull(MAX(voucher_no),0)", "");
             return IntRes;
         }
-        public DataTable Sale_Invoice_Search_GetData(Int64 Ledger_ID)
+        public DataTable Sale_Invoice_Search_GetData(Int64 Ledger_ID, string PurchaseBillNo)
         {
             DataTable DTab = new DataTable();
             Request Request = new Request();
             Request.CommandText = BLL.TPV.SProc.TRN_Payment_OS_Purchase_Wise;
             Request.CommandType = CommandType.StoredProcedure;
             Request.AddParams("@ledger_id", Ledger_ID, DbType.Int64);
+            Request.AddParams("@PurchaseBillNo", PurchaseBillNo, DbType.String);
 
             Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
             return DTab;

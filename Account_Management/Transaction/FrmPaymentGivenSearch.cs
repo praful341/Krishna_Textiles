@@ -224,31 +224,34 @@ namespace Account_Management.Transaction
 
                 if (GrdDet.FocusedColumn.FieldName.ToUpper() == "PURCHASE_BILL_NO" && Method == "Adjustment")
                 {
-                    //FrmSearch = new Search.FrmSearch();
-                    //FrmSearch._FrmSearchProperty = new Class.FrmSearchProperty();
-                    //FrmSearch._FrmSearchProperty.dtTable = objPaymentReceipt.Sale_Invoice_Search_GetData(Val.ToInt64(lblLedgerID.Text));
-                    ////FrmSearch.txtSearch.Text = e.KeyChar.ToString();
-                    //FrmSearch._FrmSearchProperty.SearchField = "ref_order_no";
 
-                    //FrmSearch.ShowDialog();
-                    //e.Handled = true;
-                    //if (FrmSearch._FrmSearchProperty.dtrow != null)
-                    //{
-                    //    GrdDet.SetFocusedRowCellValue("ref_order_no", Val.ToString(FrmSearch._FrmSearchProperty.dtrow.Cells["order_no"].Value));
-                    //    GrdDet.SetFocusedRowCellValue("due_date", Val.ToString(FrmSearch._FrmSearchProperty.dtrow.Cells["due_date"].Value));
-                    //    GrdDet.SetFocusedRowCellValue("amount", Val.ToString(FrmSearch._FrmSearchProperty.dtrow.Cells["os_amount"].Value));
-                    //    GrdDet.SetFocusedRowCellValue("invoice_id", Val.ToString(FrmSearch._FrmSearchProperty.dtrow.Cells["invoice_id"].Value));
-                    //    GrdDet.PostEditor();
-                    //}
+                    DataTable dt = new DataTable();
+                    DataTable DTab_Data = new DataTable();
 
-                    //FrmSearch.Hide();
-                    //FrmSearch.Dispose();
-                    //FrmSearch = null;
+                    DTab_Data = (DataTable)MainGrid.DataSource;
+                    DTab_Data.AcceptChanges();
+                    string strPurchaseBillNo = string.Empty;
+
+                    foreach (DataRow item in DTab_Data.Rows)
+                    {
+                        if (Val.ToString(item["purchase_bill_no"]) != "")
+                        {
+                            if (strPurchaseBillNo == string.Empty)
+                            {
+                                strPurchaseBillNo += Val.ToString(item["purchase_bill_no"]);
+                            }
+                            else
+                            {
+                                strPurchaseBillNo += "," + Val.ToString(item["purchase_bill_no"]);
+                            }
+                        }
+                    }
 
                     FrmSearchNew = new Search.FrmSearchNew();
                     FrmSearchNew.SearchText = e.KeyChar.ToString();
-                    FrmSearchNew.DTab = objPaymentGiven.Sale_Invoice_Search_GetData(Val.ToInt64(lblLedgerID.Text));
+                    dt = objPaymentGiven.Sale_Invoice_Search_GetData(Val.ToInt64(lblLedgerID.Text), strPurchaseBillNo);
 
+                    FrmSearchNew.DTab = dt;
                     FrmSearchNew.SearchField = "purchase_bill_no";
 
                     FrmSearchNew.ShowDialog();
@@ -265,6 +268,7 @@ namespace Account_Management.Transaction
                             else
                             {
                             }
+
 
                             GrdDet.SetFocusedRowCellValue("amount", Val.ToString(FrmSearchNew.DRow["os_amount"]));
                             GrdDet.SetFocusedRowCellValue("purchase_id", Val.ToString(FrmSearchNew.DRow["purchase_id"]));
