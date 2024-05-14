@@ -328,14 +328,20 @@ namespace Account_Management.Transaction
                 int flag = 0;
 
                 e.Handled = true;
+
+                DataTable DTab = (DataTable)MainGrid.DataSource;
+                object sumObject;
+                sumObject = DTab.Compute("Sum(amount)", string.Empty);
+                decimal Total_Amt = Val.ToDecimal(sumObject);
+
                 DataRow dtRow = DTab.NewRow();
                 GrdDet.SetRowCellValue(GrdDet.DataRowCount - 1, "sr_no", GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "sr_no"));
                 int sr_no = Val.ToInt32(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "sr_no"));
                 dtRow["sr_no"] = sr_no + 1;
                 decimal Rec_Amt = Val.ToDecimal(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "amount"));
-                if ((Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue) + Rec_Amt) != Val.ToDecimal(lblAmount.Text))
+                if (Total_Amt != Val.ToDecimal(lblAmount.Text))
                 {
-                    dtRow["amount"] = Val.ToDecimal(lblAmount.Text) - Rec_Amt;
+                    dtRow["amount"] = Val.ToDecimal(lblAmount.Text) - Total_Amt;
                     DTab.Rows.Add(dtRow);
                     flag = 1;
                 }

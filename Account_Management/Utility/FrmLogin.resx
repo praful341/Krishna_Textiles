@@ -120,28 +120,27 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnLogin.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAASFSURBVFhHpVfZS1xnHL3zH7QJdEkL7jGNS8DdGR23J32t
-        1rWgtviiPmT0xSVgCj6EUtEhCoo+hDYLLqPpk4LbKIikrrhMAjGkxTX21SSNMck5k3vlevPdZezAGWbu
-        /X3nnO/3/b5N2t3dNcT+/r60vb1tm52dvdzW1lZVUVFxx+l0rsbExByEh4e/JKKjow/5rLy8/PeOjo6f
-        5+bmwtjm4OBAyKmG8CGxt7cn7ezs2CYnJ6Pr6upupaamPoHYm+Dg4PchISF+hIaG+qH85zvE/Ge3230u
-        l+vX8fHxa+Qgl0iDED5kr9fX1y82NzffiI+Pf66IKoJmYHxQUND7uLi4f27gs7a2dpGcIq1PHjBwenr6
-        an5+/p8QPQlEWAs5MyfgegjO70QmzvxhwOjoaHx2dvZf7IEeKYeCqbZqjlzkBHecdjjOiM/MzFxG4CM9
-        caYWtbDZ3d1d3NPTU4Sx3uAzUawW5MzJyXlEDXUm/F90tbm5+VlhYeGwmfjw8HAaq5sYGRmBB/t6ICag
-        4aGWkgnFia21tdWFoGNtI4KpTkxM3BoaGkpXu+fvQE0Ax9C6Tk1y+Em8Xu+VpKSkZ3pjSufV1dWdoukk
-        m3AgO5aGgxrUwlBcYVuS2BoaGn4xasx3ubm50wsLC1+rM6A2gaGxbIIx1KS2BNJvMzIyVs0awvkJxu/B
-        0tLSV3omPB5PGuvEjIvvMzMzV6kt9fb2/hAZGflSFKgFGr4rKiq6DxNfGphIT0lJMTVBTWpLGNvbZsFq
-        WDHBYoUJnxEv39XU1NyW8vLyZgIxQNBEcXHxveXl5S9EJlisMOE0MsHn0PZKqMgtqyuaGrKJu3om5Ew4
-        k5OTn4j45dmwJWFbPTyPAYImSkpK/sDG9bloinKxwvZcidi32rbUjI2NPZTw9eL/GCgrK9M1wCy0t7f/
-        hNhPFjjZwAsOwdPzGKB4aWnp3ZWVFd066O/vd4LfaAienrsIkfp7RuIDAwMcf/MixFRwB5IBWfw+xHWn
-        IcTTjcQJatbW1rqlvr6+fCwKR6IgLRRxVL5QnD0fHBykuJWF6Aja33Mp/gbL4opZAzg+wbR7AHHdpRji
-        aVZWQb6nJrQvsbGtsbHxJnsnCibYAJuRd3FxUbgZseeY8xS3uhm9a2pqukltv3McuSORNt3ZYLYdQ9xh
-        VZwa1KIm2ypEpgeShISEZ6xstQn+xuZjh3igBxIXNclxSuTz+Xgk8xgdyTi+TLVyJKM4tt+Aj2TUUjpy
-        2htlKHhwNDHh6+zs/LGrq6vU6gGEICe5ldQruqc/FBNjY2M8li/omeBwhIWFHQNv9GpGC3LxWE5utThx
-        5g/BAJwRrxYUFPBi8taqiAhsSw5wPQSn+cVEAQM3NjYutLS0NKD4nrMHARSZP5ZtcK37GxyN5BKJE8KH
-        BIsEF0tpamoqqr6+/pbD4fBFRES8Jrk2K3JP/cLy5fQxLqe/TUxMXFO4tPwKhA/VoHPecOfn50NReOVV
-        VVV9vIpHRUX9izp4BcEjXtWzsrKWKysr77jdbl7Pw9mGM4Uc7IiW9yN2pQ8GgmlsUlC9YQAAAABJRU5E
-        rkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAABIVJREFUWEelV9lLXGccvfMftAl0SQvuMY1LwN0ZHbcnfa3WtaC2+KI+ZPTFJWAK
+        PoRS0SEKij6ENgsuo+mTgtsoiKSuuEwCMaTFNfbVJI0xyTmTe+V6891l7MAZZu79feec7/f9vk3a3d01
+        xP7+vrS9vW2bnZ293NbWVlVRUXHH6XSuxsTEHISHh78koqOjD/msvLz8946Ojp/n5ubC2Obg4EDIqYbw
+        IbG3tyft7OzYJicno+vq6m6lpqY+gdib4ODg9yEhIX6Ehob6ofznO8T8Z7fbfS6X69fx8fFr5CCXSIMQ
+        PmSv19fXLzY3N9+Ij49/rogqgmZgfFBQ0Pu4uLh/buCztrZ2kZwirU8eMHB6evpqfn7+nxA9CURYCzkz
+        J+B6CM7vRCbO/GHA6OhofHZ29l/sgR4ph4KptmqOXOQEd5x2OM6Iz8zMXEbgIz1xpha1sNnd3V3c09NT
+        hLHe4DNRrBbkzMnJeUQNdSb8X3S1ubn5WWFh4bCZ+PDwcBqrmxgZGYEH+3ogJqDhoZaSCcWJrbW11YWg
+        Y20jgqlOTEzcGhoaSle75+9ATQDH0LpOTXL4Sbxe75WkpKRnemNK59XV1Z2i6SSbcCA7loaDGtTCUFxh
+        W5LYGhoafjFqzHe5ubnTCwsLX6szoDaBobFsgjHUpLYE0m8zMjJWzRrC+QnG78HS0tJXeiY8Hk8a68SM
+        i+8zMzNXqS319vb+EBkZ+VIUqAUavisqKroPE18amEhPSUkxNUFNaksY29tmwWpYMcFihQmfES/f1dTU
+        3Jby8vJmAjFA0ERxcfG95eXlL0QmWKww4TQywefQ9kqoyC2rK5oasom7eibkTDiTk5OfiPjl2bAlYVs9
+        PI8BgiZKSkr+wMb1uWiKcrHC9lyJ2LfattSMjY09lPD14v8YKCsr0zXALLS3t/+E2E8WONnACw7B0/MY
+        oHhpaendlZUV3Tro7+93gt9oCJ6euwiR+ntG4gMDAxx/8yLEVHAHkgFZ/D7EdachxNONxAlq1tbWuqW+
+        vr58LApHoiAtFHFUvlCcPR8cHKS4lYXoCNrfcyn+BsviilkDOD7BtHsAcd2lGOJpVlZBvqcmtC+xsa2x
+        sfEmeycKJtgAm5F3cXFRuBmx55jzFLe6Gb1ramq6SW2/cxy5I5E23dlgth1D3GFVnBrUoibbKkSmB5KE
+        hIRnrGy1Cf7G5mOHeKAHEhc1yXFK5PP5eCTzGB3JOL5MtXIkozi234CPZNRSOnLaG2UoeHA0MeHr7Oz8
+        saurq9TqAYQgJ7mV1Cu6pz8UE2NjYzyWL+iZ4HCEhYUdA2/0akYLcvFYTm61OHHmD8EAnBGvFhQU8GLy
+        1qqICGxLDnA9BKf5xUQBAzc2Ni60tLQ0oPieswcBFJk/lm1wrfsbHI3kEokTwocEiwQXS2lqaiqqvr7+
+        lsPh8EVERLwmuTYrck/9wvLl9DEup79NTExcU7i0/AqED9Wgc95w5+fnQ1F45VVVVX28ikdFRf2LOngF
+        wSNe1bOyspYrKyvvuN1uXs/D2YYzhRzsiJb3I3alDwaCaWxSUL1hAAAAAElFTkSuQmCC
 </value>
   </data>
 </root>

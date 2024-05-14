@@ -36,5 +36,6 @@ namespace BLL.PropertyClasses.Master
         public decimal cgst_per { get; set; }
         public decimal sgst_per { get; set; }
         public decimal igst_per { get; set; }
+        public bool? is_deleted { get; set; }
     }
 }

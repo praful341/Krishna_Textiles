@@ -5,6 +5,7 @@ using BLL.FunctionClasses.Master;
 using BLL.FunctionClasses.Utility;
 using System;
 using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -22,11 +23,15 @@ namespace Account_Management
         private void FrmLogin_Shown(object sender, EventArgs e)
         {
             //string Name = GlobalDec.Decrypt("ZZrewCal9Ig/fWV4s//tmA==", true);
-            //string Name1 = GlobalDec.Decrypt("1QqQomlTTSVJlo8viYAky6as6Lk+lSz0", true);
+            //string Name1 = GlobalDec.Decrypt("hiF4OgAMMCMfwPT8AGNQrg==", true);
+            //string Name2 = GlobalDec.Decrypt("1m1aoLWd69HR1weotAkwaw==", true);
+            //string Name3 = GlobalDec.Decrypt("1DwL2KYsao4=", true);
+            //string Name4 = GlobalDec.Decrypt("n47TmcAYNn6bZ+SDLKim0w==", true);
+
             //string Name2 = GlobalDec.Encrypt("sql5061.site4now.net", true);
-            string Name7 = GlobalDec.Encrypt("SAURASHTRA02", true);
+            //string Name7 = GlobalDec.Encrypt("SAURASHTRA02", true);
             //string Name8 = GlobalDec.Encrypt("DB_A6D894_Mahakal_admin", true);
-            //string Name9 = GlobalDec.Encrypt("mahakal@123", true);
+            //string Name9 = GlobalDec.Encrypt("SAURASHTRA", true);
 
             //string Name3 = GlobalDec.Decrypt("1QqQomlTTSVJlo8viYAky6as6Lk+lSz0", true);
             //string Name4 = GlobalDec.Decrypt("0rW5m3tTWItlPCk2IfB4BQ==", true);
@@ -46,10 +51,11 @@ namespace Account_Management
             //    txtUserName.Text = "PRAFUL";
             //    txtPassword.Text = "123";
             //}
-            //txtUserName.Text = "PRAFUL";
+            //txtUserName.Text = "SHAKTI";
             //txtPassword.Text = "123";
             //btnLogin_Click(null, null);
 
+            GlobalDec.gEmployeeProperty.is_deleted = false;
             try
             {
                 String[] Str1 = Application.StartupPath.Split('\\');
@@ -163,6 +169,55 @@ namespace Account_Management
             if (e.KeyCode == Keys.Enter)
             {
                 txtPassword.Focus();
+            }
+        }
+
+        private void FrmLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            //if (e.KeyCode == Keys.Escape)
+            //    this.Close();
+
+            if (e.Shift && e.KeyCode == Keys.Delete)
+            {
+                Global.Message("avc");
+            }
+
+
+            //if (e.Control && e.Shift && e.Alt && e.KeyCode == Keys.X)
+            //{
+            //    GlobalDec.gEmployeeProperty.is_deleted = true;
+            //    btnLogin.ForeColor = Color.Blue;
+            //    btnLogin.ForeColor = Color.Blue;
+            //    btnCancel.ForeColor = Color.Blue;
+            //    btnCancel.ForeColor = Color.Blue;
+            //}
+            //else if (e.Control && e.Shift && e.Alt && e.KeyCode == Keys.Z)
+            //{
+            //    GlobalDec.gEmployeeProperty.is_deleted = false;
+            //    btnLogin.ForeColor = Color.Black;
+            //    btnLogin.ForeColor = Color.Black;
+            //    btnCancel.ForeColor = Color.Black;
+            //    btnCancel.ForeColor = Color.Black;
+            //}
+        }
+
+        private void txtUserName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Shift && e.Alt && e.KeyCode == Keys.X)
+            {
+                GlobalDec.gEmployeeProperty.is_deleted = true;
+                btnLogin.ForeColor = Color.Blue;
+                btnLogin.ForeColor = Color.Blue;
+                btnCancel.ForeColor = Color.Blue;
+                btnCancel.ForeColor = Color.Blue;
+            }
+            else if (e.Shift && e.Alt && e.KeyCode == Keys.Z)
+            {
+                GlobalDec.gEmployeeProperty.is_deleted = false;
+                btnLogin.ForeColor = Color.Black;
+                btnLogin.ForeColor = Color.Black;
+                btnCancel.ForeColor = Color.Black;
+                btnCancel.ForeColor = Color.Black;
             }
         }
     }

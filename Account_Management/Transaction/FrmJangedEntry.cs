@@ -1784,5 +1784,17 @@ namespace Account_Management.Transaction
                 e.Handled = true;
             }
         }
+
+        private void FrmJangedEntry_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.Shift && e.Alt && e.KeyCode == Keys.X)
+            {
+                GlobalDec.gEmployeeProperty.is_deleted = true;
+                btnAdd.ForeColor = Color.Blue;
+                btnAdd.ForeColor = Color.Blue;
+                btnSave.ForeColor = Color.Blue;
+                btnSave.ForeColor = Color.Blue;
+            }
+        }
     }
 }

@@ -2960,6 +2960,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Janged Entry";
             this.Load += new System.EventHandler(this.FrmJangedEntry_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmJangedEntry_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).EndInit();
