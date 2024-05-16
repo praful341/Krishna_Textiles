@@ -57,6 +57,7 @@ namespace Account_Management.Transaction
         bool m_blncheckevents;
         bool m_IsUpdate;
         string Form_Clear = string.Empty;
+        DataTable m_dtbParty = new DataTable();
 
         #endregion
 
@@ -169,7 +170,7 @@ namespace Account_Management.Transaction
                 txtOrderNo.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["order_no"]);
                 lueGSTRate.EditValue = Val.ToInt64(DTab_Sale_Invocie.Rows[0]["gst_id"]);
                 lueParty.EditValue = Val.ToInt64(DTab_Sale_Invocie.Rows[0]["ledger_id"]);
-                CmbSaleType.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["sale_type"]);
+                LueSaleType.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["sale_type"]);
                 LueEmployee.EditValue = Val.ToInt64(DTab_Sale_Invocie.Rows[0]["employee_id"]);
                 luePurchaseFirm.EditValue = Val.ToInt64(DTab_Sale_Invocie.Rows[0]["firm_id"]);
                 txtRemark.Text = Val.ToString(DTab_Sale_Invocie.Rows[0]["remarks"]);
@@ -650,6 +651,11 @@ namespace Account_Management.Transaction
                 Global.LOOKUPFirm(luePurchaseFirm);
                 Global.LOOKUPCashBankWithoutLedger(lueJangedLedger);
 
+
+
+
+
+
                 dtpFromDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
                 dtpFromDate.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpFromDate.Properties.Mask.UseMaskAsDisplayFormat = true;
@@ -669,6 +675,37 @@ namespace Account_Management.Transaction
                 dtpInvoiceDate.Properties.Mask.UseMaskAsDisplayFormat = true;
                 dtpInvoiceDate.Properties.CharacterCasing = CharacterCasing.Upper;
                 dtpInvoiceDate.EditValue = DateTime.Now;
+
+                DataTable DTab_CashType = new DataTable();
+
+                DTab_CashType.Columns.Add("cash_type");
+
+                if (GlobalDec.gEmployeeProperty.role_name == "B2B")
+                {
+                    DTab_CashType.Rows.Add("B2B");
+                    LueSaleType.Properties.DataSource = DTab_CashType;
+                    LueSaleType.Properties.ValueMember = "cash_type";
+                    LueSaleType.Properties.DisplayMember = "cash_type";
+                    //B2B SALE
+
+                    m_dtbParty = (((DataTable)lueParty.Properties.DataSource).Copy());
+                    m_dtbParty = m_dtbParty.Select("ledger_name='B2B SALE'").CopyToDataTable();
+                }
+                else if (GlobalDec.gEmployeeProperty.role_name == "B2C")
+                {
+                    DTab_CashType.Rows.Add("B2C");
+                    LueSaleType.Properties.DataSource = DTab_CashType;
+                    LueSaleType.Properties.ValueMember = "cash_type";
+                    LueSaleType.Properties.DisplayMember = "cash_type";
+                }
+                else
+                {
+                    DTab_CashType.Rows.Add("B2C");
+                    DTab_CashType.Rows.Add("B2B");
+                    LueSaleType.Properties.DataSource = DTab_CashType;
+                    LueSaleType.Properties.ValueMember = "cash_type";
+                    LueSaleType.Properties.DisplayMember = "cash_type";
+                }
 
                 if (Form_Clear != "Sale Invoice")
                 {
@@ -955,13 +992,17 @@ namespace Account_Management.Transaction
                     //        dtpInvoiceDate.Focus();
                     //    }
                     //}
-                    if (LueEmployee.Text == "")
+
+                    if (GlobalDec.gEmployeeProperty.role_name != "B2C")
                     {
-                        lstError.Add(new ListError(13, "Employee"));
-                        if (!blnFocus)
+                        if (LueEmployee.Text == "")
                         {
-                            blnFocus = true;
-                            LueEmployee.Focus();
+                            lstError.Add(new ListError(13, "Employee"));
+                            if (!blnFocus)
+                            {
+                                blnFocus = true;
+                                LueEmployee.Focus();
+                            }
                         }
                     }
                 }
@@ -1031,13 +1072,16 @@ namespace Account_Management.Transaction
                             txtSaleAmount.Focus();
                         }
                     }
-                    if (LueEmployee.Text == "")
+                    if (GlobalDec.gEmployeeProperty.role_name != "B2C")
                     {
-                        lstError.Add(new ListError(13, "Employee"));
-                        if (!blnFocus)
+                        if (LueEmployee.Text == "")
                         {
-                            blnFocus = true;
-                            LueEmployee.Focus();
+                            lstError.Add(new ListError(13, "Employee"));
+                            if (!blnFocus)
+                            {
+                                blnFocus = true;
+                                LueEmployee.Focus();
+                            }
                         }
                     }
                     //if (Val.ToDouble(txtPurchaseRate.Text) == 0)
@@ -1090,7 +1134,7 @@ namespace Account_Management.Transaction
                 lueParty.EditValue = System.DBNull.Value;
 
                 txtOrderNo.Text = string.Empty;
-                CmbSaleType.SelectedIndex = -1;
+                LueSaleType.EditValue = System.DBNull.Value;
                 LueEmployee.EditValue = System.DBNull.Value;
                 lueItem.EditValue = System.DBNull.Value;
                 LueColor.EditValue = System.DBNull.Value;
@@ -1124,6 +1168,7 @@ namespace Account_Management.Transaction
                 txtWeight.Text = string.Empty;
                 txtPinCode.Text = string.Empty;
                 txtShippingAddress.Text = string.Empty;
+                txtMobile.Text = string.Empty;
                 //txtOrderNo.Enabled = true;
                 txtTermDays.Text = "";
                 btnAdd.Text = "&Add";
@@ -1407,9 +1452,15 @@ namespace Account_Management.Transaction
 
                     objSaleProperty.form_id = m_numForm_id;
 
-                    objSaleProperty.ledger_id = Val.ToInt64(lueParty.EditValue);
+                    if (GlobalDec.gEmployeeProperty.role_name == "B2B")
+                    {
+                        objSaleProperty.ledger_id = Val.ToInt64(m_dtbParty.Rows[0]["ledger_id"]);
+                    }
+                    else
+                    {
+                        objSaleProperty.ledger_id = Val.ToInt64(lueParty.EditValue);
+                    }
                     objSaleProperty.employee_id = Val.ToInt64(LueEmployee.EditValue);
-
                     objSaleProperty.total_pcs = Val.ToDecimal(clmPcs.SummaryItem.SummaryValue);
                     objSaleProperty.firm_id = Val.ToInt64(luePurchaseFirm.EditValue);
 
@@ -1428,7 +1479,7 @@ namespace Account_Management.Transaction
                     objSaleProperty.shipping_amount = Val.ToDecimal(txtShippingCharge.Text);
 
                     objSaleProperty.order_no = Val.ToString(txtOrderNo.Text);
-                    objSaleProperty.sale_type = Val.ToString(CmbSaleType.Text);
+                    objSaleProperty.sale_type = Val.ToString(LueSaleType.Text);
                     objSaleProperty.weight = Val.ToDecimal(txtWeight.Text);
                     objSaleProperty.pin_code = Val.ToInt64(txtPinCode.Text);
                     objSaleProperty.shipping_address = Val.ToString(txtShippingAddress.Text);
@@ -1438,6 +1489,7 @@ namespace Account_Management.Transaction
 
                     objSaleProperty.term_days = Val.ToInt32(txtTermDays.Text);
                     objSaleProperty.due_date = Val.DBDate(DTPDueDate.Text);
+                    objSaleProperty.mobile_no = Val.ToInt64(txtMobile.Text);
 
                     objSaleProperty = objSaleInvoice.Save(objSaleProperty, DLL.GlobalDec.EnumTran.Start, Conn);
 
@@ -1917,12 +1969,13 @@ namespace Account_Management.Transaction
                         txtOrderNo.Text = Val.ToString(Drow["order_no"]);
                         lueGSTRate.EditValue = Val.ToInt64(Drow["gst_id"]);
                         lueParty.EditValue = Val.ToInt64(Drow["ledger_id"]);
-                        CmbSaleType.Text = Val.ToString(Drow["sale_type"]);
+                        LueSaleType.Text = Val.ToString(Drow["sale_type"]);
                         LueEmployee.EditValue = Val.ToInt64(Drow["employee_id"]);
                         luePurchaseFirm.EditValue = Val.ToInt64(Drow["firm_id"]);
                         txtRemark.Text = Val.ToString(Drow["remarks"]);
                         txtWeight.Text = Val.ToString(Drow["weight"]);
                         txtPinCode.Text = Val.ToString(Drow["pin_code"]);
+                        txtMobile.Text = Val.ToString(Drow["mobile_no"]);
                         txtRoundOff.Text = Val.ToString(Drow["round_of_amount"]);
                         txtDiscountPer.Text = Val.ToString(Drow["discount_per"]);
                         txtDiscountAmount.Text = Val.ToString(Drow["discount_amount"]);
@@ -1972,29 +2025,6 @@ namespace Account_Management.Transaction
         private void txtShippingCharge_KeyDown(object sender, KeyEventArgs e)
         {
             m_blncheckevents = false;
-        }
-        private void CmbSaleType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                DataTable m_dtb = new DataTable();
-                objSaleInvoice = new SaleInvoice();
-
-                if (lblMode.Text == "Add Mode")
-                {
-                    m_dtb = objSaleInvoice.GetOrderData(CmbSaleType.Text, "AA");
-
-                    if (m_dtb.Rows.Count > 0)
-                    {
-                        txtOrderNo.Text = Val.ToString(m_dtb.Rows[0]["order_no"]);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                BLL.General.ShowErrors(ex);
-                return;
-            }
         }
         private void btnPrint_Click(object sender, EventArgs e)
         {
@@ -2114,6 +2144,38 @@ namespace Account_Management.Transaction
             }
             catch (Exception ex)
             {
+            }
+        }
+
+        private void LueSaleType_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable m_dtb = new DataTable();
+                objSaleInvoice = new SaleInvoice();
+
+                if (lblMode.Text == "Add Mode")
+                {
+                    m_dtb = objSaleInvoice.GetOrderData(LueSaleType.Text, "AA");
+
+                    if (m_dtb.Rows.Count > 0)
+                    {
+                        txtOrderNo.Text = Val.ToString(m_dtb.Rows[0]["order_no"]);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                BLL.General.ShowErrors(ex);
+                return;
+            }
+        }
+
+        private void txtMobile_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
             }
         }
     }

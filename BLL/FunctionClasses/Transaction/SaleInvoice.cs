@@ -67,7 +67,7 @@ namespace BLL.FunctionClasses.Transaction
 
                 Request.AddParams("@form_id", pClsProperty.form_id, DbType.Int64);
                 Request.AddParams("@shipping_address", pClsProperty.shipping_address, DbType.String);
-
+                Request.AddParams("@mobile_no", pClsProperty.mobile_no, DbType.Int64);
 
                 Request.CommandText = BLL.TPV.SProc.TRN_SaleInvoice_Save;
                 Request.CommandType = CommandType.StoredProcedure;

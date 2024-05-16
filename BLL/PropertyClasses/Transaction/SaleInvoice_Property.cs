@@ -36,6 +36,7 @@ namespace BLL.PropertyClasses.Transaction
         public string shipping_address { get; set; }
         public decimal shipping_amount { get; set; }
         public string remarks { get; set; }
+        public Int64 mobile_no { get; set; }
 
         #endregion
 

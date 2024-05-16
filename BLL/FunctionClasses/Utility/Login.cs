@@ -49,26 +49,26 @@ namespace BLL.FunctionClasses.Utility
                 GlobalDec.gEmployeeProperty.sgst_per = Val.ToDecimal(Drow["sgst_per"]);
                 GlobalDec.gEmployeeProperty.igst_per = Val.ToDecimal(Drow["igst_per"]);
 
-                DataTable p_DtbUserPreference = new UserAuthentication().GetData_Single_User_General_Preferences_Settings(Val.ToInt(GlobalDec.gEmployeeProperty.user_id));
+                //DataTable p_DtbUserPreference = new UserAuthentication().GetData_Single_User_General_Preferences_Settings(Val.ToInt(GlobalDec.gEmployeeProperty.user_id));
 
                 int IntRes = new UserAuthentication().Save_Login_History();
 
-                if (p_DtbUserPreference.Rows.Count > 0)
-                {
-                    DataRow DRow = p_DtbUserPreference.Rows[0];
-                    GlobalDec.gEmployeeProperty.currency_id = Val.ToInt32(DRow["currency_id"]);
-                    GlobalDec.gEmployeeProperty.secondary_currency_id = Val.ToInt32(DRow["secondary_currency_id"]);
-                    GlobalDec.gEmployeeProperty.rate_type_id = Val.ToInt32(DRow["rate_type_id"]);
-                    GlobalDec.gEmployeeProperty.sale_rate_type_id = Val.ToInt32(DRow["sale_rate_type_id"]);
-                    GlobalDec.gEmployeeProperty.delivery_type_id = Val.ToInt32(DRow["delivery_type_id"]);
-                }
-                else
-                {
-                    GlobalDec.gEmployeeProperty.currency_id = 0;
-                    GlobalDec.gEmployeeProperty.secondary_currency_id = 0;
-                    GlobalDec.gEmployeeProperty.rate_type_id = 0;
-                    GlobalDec.gEmployeeProperty.sale_rate_type_id = 0;
-                }
+                //if (p_DtbUserPreference.Rows.Count > 0)
+                //{
+                //    DataRow DRow = p_DtbUserPreference.Rows[0];
+                //    GlobalDec.gEmployeeProperty.currency_id = Val.ToInt32(DRow["currency_id"]);
+                //    GlobalDec.gEmployeeProperty.secondary_currency_id = Val.ToInt32(DRow["secondary_currency_id"]);
+                //    GlobalDec.gEmployeeProperty.rate_type_id = Val.ToInt32(DRow["rate_type_id"]);
+                //    GlobalDec.gEmployeeProperty.sale_rate_type_id = Val.ToInt32(DRow["sale_rate_type_id"]);
+                //    GlobalDec.gEmployeeProperty.delivery_type_id = Val.ToInt32(DRow["delivery_type_id"]);
+                //}
+                //else
+                //{
+                //    GlobalDec.gEmployeeProperty.currency_id = 0;
+                //    GlobalDec.gEmployeeProperty.secondary_currency_id = 0;
+                //    GlobalDec.gEmployeeProperty.rate_type_id = 0;
+                //    GlobalDec.gEmployeeProperty.sale_rate_type_id = 0;
+                //}
                 return 1;
             }
         }

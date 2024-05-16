@@ -116,6 +116,7 @@
             this.clmShippingAddress = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmMobileNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.lueJangedLedger = new DevExpress.XtraEditors.LookUpEdit();
             this.label33 = new System.Windows.Forms.Label();
@@ -196,18 +197,20 @@
             this.txtRemark = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.txtMobile = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.luePurchaseFirm = new DevExpress.XtraEditors.LookUpEdit();
-            this.label20 = new System.Windows.Forms.Label();
+            this.lblPurchaseFirm = new System.Windows.Forms.Label();
             this.txtPurchaseAmount = new DevExpress.XtraEditors.TextEdit();
             this.label10 = new System.Windows.Forms.Label();
             this.txtPurchaseRate = new DevExpress.XtraEditors.TextEdit();
             this.label16 = new System.Windows.Forms.Label();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.lblEmployee = new DevExpress.XtraEditors.LabelControl();
             this.LueEmployee = new DevExpress.XtraEditors.LookUpEdit();
             this.txtPinCode = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.lblPincode = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.lblDueDate = new DevExpress.XtraEditors.LabelControl();
             this.DTPDueDate = new DevExpress.XtraEditors.DateEdit();
             this.txtTermDays = new DevExpress.XtraEditors.TextEdit();
             this.lblTerms = new DevExpress.XtraEditors.LabelControl();
@@ -219,7 +222,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtWeight = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.lblWeight = new DevExpress.XtraEditors.LabelControl();
             this.txtPcs = new DevExpress.XtraEditors.TextEdit();
             this.label3 = new System.Windows.Forms.Label();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
@@ -229,9 +232,9 @@
             this.txtSaleRate = new DevExpress.XtraEditors.TextEdit();
             this.label17 = new System.Windows.Forms.Label();
             this.lueParty = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.lblPartyVal = new DevExpress.XtraEditors.LabelControl();
             this.lueItem = new DevExpress.XtraEditors.LookUpEdit();
-            this.label32 = new System.Windows.Forms.Label();
+            this.lblParty = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.lueGSTRate = new DevExpress.XtraEditors.LookUpEdit();
             this.txtOrderNo = new DevExpress.XtraEditors.TextEdit();
@@ -240,7 +243,7 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.dtpInvoiceDate = new DevExpress.XtraEditors.DateEdit();
             this.label11 = new System.Windows.Forms.Label();
-            this.CmbSaleType = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.LueSaleType = new DevExpress.XtraEditors.LookUpEdit();
             this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.clmDetailID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmLossDate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -306,6 +309,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMobile.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.luePurchaseFirm.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPurchaseAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPurchaseRate.Properties)).BeginInit();
@@ -327,7 +331,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtOrderNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpInvoiceDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpInvoiceDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CmbSaleType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LueSaleType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).BeginInit();
             this.SuspendLayout();
@@ -1033,7 +1037,8 @@
             this.clmEmployeeID,
             this.clmShippingAddress,
             this.gridColumn18,
-            this.gridColumn19});
+            this.gridColumn19,
+            this.clmMobileNo});
             this.dgvSaleEntry.GridControl = this.grdSaleEntry;
             this.dgvSaleEntry.Name = "dgvSaleEntry";
             this.dgvSaleEntry.OptionsBehavior.Editable = false;
@@ -1116,7 +1121,7 @@
             this.gridColumn11.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 10;
+            this.gridColumn11.VisibleIndex = 11;
             // 
             // gridColumn38
             // 
@@ -1134,7 +1139,7 @@
             this.gridColumn44.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn44.Visible = true;
-            this.gridColumn44.VisibleIndex = 15;
+            this.gridColumn44.VisibleIndex = 16;
             // 
             // gridColumn32
             // 
@@ -1152,7 +1157,7 @@
             this.cgst_amount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.cgst_amount.Visible = true;
-            this.cgst_amount.VisibleIndex = 12;
+            this.cgst_amount.VisibleIndex = 13;
             // 
             // gridColumn34
             // 
@@ -1170,7 +1175,7 @@
             this.gridColumn35.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn35.Visible = true;
-            this.gridColumn35.VisibleIndex = 13;
+            this.gridColumn35.VisibleIndex = 14;
             // 
             // gridColumn36
             // 
@@ -1188,7 +1193,7 @@
             this.gridColumn37.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn37.Visible = true;
-            this.gridColumn37.VisibleIndex = 14;
+            this.gridColumn37.VisibleIndex = 15;
             // 
             // gridColumn40
             // 
@@ -1199,7 +1204,7 @@
             this.gridColumn40.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn40.Visible = true;
-            this.gridColumn40.VisibleIndex = 16;
+            this.gridColumn40.VisibleIndex = 17;
             this.gridColumn40.Width = 94;
             // 
             // gridColumn12
@@ -1210,7 +1215,7 @@
             this.gridColumn12.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 11;
+            this.gridColumn12.VisibleIndex = 12;
             // 
             // ClmFinalTermsDays
             // 
@@ -1220,7 +1225,7 @@
             this.ClmFinalTermsDays.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.ClmFinalTermsDays.Visible = true;
-            this.ClmFinalTermsDays.VisibleIndex = 17;
+            this.ClmFinalTermsDays.VisibleIndex = 18;
             this.ClmFinalTermsDays.Width = 94;
             // 
             // clmNetAmount
@@ -1232,7 +1237,7 @@
             this.clmNetAmount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.clmNetAmount.Visible = true;
-            this.clmNetAmount.VisibleIndex = 18;
+            this.clmNetAmount.VisibleIndex = 19;
             this.clmNetAmount.Width = 99;
             // 
             // gridColumn10
@@ -1242,7 +1247,7 @@
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.AllowEdit = false;
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 19;
+            this.gridColumn10.VisibleIndex = 20;
             this.gridColumn10.Width = 104;
             // 
             // clmEntryBy
@@ -1252,7 +1257,7 @@
             this.clmEntryBy.Name = "clmEntryBy";
             this.clmEntryBy.OptionsColumn.AllowEdit = false;
             this.clmEntryBy.Visible = true;
-            this.clmEntryBy.VisibleIndex = 21;
+            this.clmEntryBy.VisibleIndex = 22;
             this.clmEntryBy.Width = 71;
             // 
             // clmEntryDate
@@ -1262,7 +1267,7 @@
             this.clmEntryDate.Name = "clmEntryDate";
             this.clmEntryDate.OptionsColumn.AllowEdit = false;
             this.clmEntryDate.Visible = true;
-            this.clmEntryDate.VisibleIndex = 22;
+            this.clmEntryDate.VisibleIndex = 23;
             this.clmEntryDate.Width = 76;
             // 
             // clmEntryTime
@@ -1272,7 +1277,7 @@
             this.clmEntryTime.Name = "clmEntryTime";
             this.clmEntryTime.OptionsColumn.AllowEdit = false;
             this.clmEntryTime.Visible = true;
-            this.clmEntryTime.VisibleIndex = 23;
+            this.clmEntryTime.VisibleIndex = 24;
             this.clmEntryTime.Width = 104;
             // 
             // clmIP
@@ -1282,7 +1287,7 @@
             this.clmIP.Name = "clmIP";
             this.clmIP.OptionsColumn.AllowEdit = false;
             this.clmIP.Visible = true;
-            this.clmIP.VisibleIndex = 24;
+            this.clmIP.VisibleIndex = 25;
             this.clmIP.Width = 107;
             // 
             // gridColumn14
@@ -1340,7 +1345,7 @@
             this.clmShippingAddress.FieldName = "shipping_address";
             this.clmShippingAddress.Name = "clmShippingAddress";
             this.clmShippingAddress.Visible = true;
-            this.clmShippingAddress.VisibleIndex = 20;
+            this.clmShippingAddress.VisibleIndex = 21;
             this.clmShippingAddress.Width = 120;
             // 
             // gridColumn18
@@ -1356,6 +1361,14 @@
             this.gridColumn19.Caption = "Firm_ID";
             this.gridColumn19.FieldName = "firm_id";
             this.gridColumn19.Name = "gridColumn19";
+            // 
+            // clmMobileNo
+            // 
+            this.clmMobileNo.Caption = "Mobile No";
+            this.clmMobileNo.FieldName = "mobile_no";
+            this.clmMobileNo.Name = "clmMobileNo";
+            this.clmMobileNo.Visible = true;
+            this.clmMobileNo.VisibleIndex = 10;
             // 
             // panelControl2
             // 
@@ -2325,18 +2338,20 @@
             // 
             // panelControl4
             // 
+            this.panelControl4.Controls.Add(this.txtMobile);
+            this.panelControl4.Controls.Add(this.labelControl12);
             this.panelControl4.Controls.Add(this.luePurchaseFirm);
-            this.panelControl4.Controls.Add(this.label20);
+            this.panelControl4.Controls.Add(this.lblPurchaseFirm);
             this.panelControl4.Controls.Add(this.txtPurchaseAmount);
             this.panelControl4.Controls.Add(this.label10);
             this.panelControl4.Controls.Add(this.txtPurchaseRate);
             this.panelControl4.Controls.Add(this.label16);
-            this.panelControl4.Controls.Add(this.labelControl8);
+            this.panelControl4.Controls.Add(this.lblEmployee);
             this.panelControl4.Controls.Add(this.LueEmployee);
             this.panelControl4.Controls.Add(this.txtPinCode);
-            this.panelControl4.Controls.Add(this.labelControl7);
+            this.panelControl4.Controls.Add(this.lblPincode);
             this.panelControl4.Controls.Add(this.labelControl4);
-            this.panelControl4.Controls.Add(this.labelControl6);
+            this.panelControl4.Controls.Add(this.lblDueDate);
             this.panelControl4.Controls.Add(this.DTPDueDate);
             this.panelControl4.Controls.Add(this.txtTermDays);
             this.panelControl4.Controls.Add(this.lblTerms);
@@ -2348,7 +2363,7 @@
             this.panelControl4.Controls.Add(this.label6);
             this.panelControl4.Controls.Add(this.labelControl2);
             this.panelControl4.Controls.Add(this.txtWeight);
-            this.panelControl4.Controls.Add(this.labelControl9);
+            this.panelControl4.Controls.Add(this.lblWeight);
             this.panelControl4.Controls.Add(this.txtPcs);
             this.panelControl4.Controls.Add(this.label3);
             this.panelControl4.Controls.Add(this.btnAdd);
@@ -2358,9 +2373,9 @@
             this.panelControl4.Controls.Add(this.txtSaleRate);
             this.panelControl4.Controls.Add(this.label17);
             this.panelControl4.Controls.Add(this.lueParty);
-            this.panelControl4.Controls.Add(this.labelControl1);
+            this.panelControl4.Controls.Add(this.lblPartyVal);
             this.panelControl4.Controls.Add(this.lueItem);
-            this.panelControl4.Controls.Add(this.label32);
+            this.panelControl4.Controls.Add(this.lblParty);
             this.panelControl4.Controls.Add(this.label14);
             this.panelControl4.Controls.Add(this.lueGSTRate);
             this.panelControl4.Controls.Add(this.txtOrderNo);
@@ -2369,13 +2384,37 @@
             this.panelControl4.Controls.Add(this.labelControl5);
             this.panelControl4.Controls.Add(this.dtpInvoiceDate);
             this.panelControl4.Controls.Add(this.label11);
-            this.panelControl4.Controls.Add(this.CmbSaleType);
+            this.panelControl4.Controls.Add(this.LueSaleType);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl4.Location = new System.Drawing.Point(0, 0);
             this.panelControl4.Name = "panelControl4";
             this.panelControl4.Size = new System.Drawing.Size(1267, 130);
             this.panelControl4.TabIndex = 0;
             this.panelControl4.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl4_Paint);
+            // 
+            // txtMobile
+            // 
+            this.txtMobile.EnterMoveNextControl = true;
+            this.txtMobile.Location = new System.Drawing.Point(1118, 55);
+            this.txtMobile.Name = "txtMobile";
+            this.txtMobile.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMobile.Properties.Appearance.Options.UseFont = true;
+            this.txtMobile.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMobile.Size = new System.Drawing.Size(118, 20);
+            this.txtMobile.TabIndex = 11;
+            this.txtMobile.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMobile_KeyPress);
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl12.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl12.Appearance.Options.UseFont = true;
+            this.labelControl12.Appearance.Options.UseForeColor = true;
+            this.labelControl12.Location = new System.Drawing.Point(1055, 57);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(47, 16);
+            this.labelControl12.TabIndex = 531;
+            this.labelControl12.Text = "Mobile";
             // 
             // luePurchaseFirm
             // 
@@ -2397,17 +2436,19 @@
             this.luePurchaseFirm.Properties.NullText = "";
             this.luePurchaseFirm.Properties.ShowHeader = false;
             this.luePurchaseFirm.Size = new System.Drawing.Size(168, 20);
-            this.luePurchaseFirm.TabIndex = 530;
+            this.luePurchaseFirm.TabIndex = 6;
+            this.luePurchaseFirm.Visible = false;
             // 
-            // label20
+            // lblPurchaseFirm
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label20.Location = new System.Drawing.Point(319, 37);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(112, 16);
-            this.label20.TabIndex = 529;
-            this.label20.Text = "Purchase Firm";
+            this.lblPurchaseFirm.AutoSize = true;
+            this.lblPurchaseFirm.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblPurchaseFirm.Location = new System.Drawing.Point(319, 37);
+            this.lblPurchaseFirm.Name = "lblPurchaseFirm";
+            this.lblPurchaseFirm.Size = new System.Drawing.Size(112, 16);
+            this.lblPurchaseFirm.TabIndex = 529;
+            this.lblPurchaseFirm.Text = "Purchase Firm";
+            this.lblPurchaseFirm.Visible = false;
             // 
             // txtPurchaseAmount
             // 
@@ -2424,7 +2465,7 @@
             this.txtPurchaseAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtPurchaseAmount.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtPurchaseAmount.Size = new System.Drawing.Size(79, 20);
-            this.txtPurchaseAmount.TabIndex = 528;
+            this.txtPurchaseAmount.TabIndex = 20;
             // 
             // label10
             // 
@@ -2450,7 +2491,7 @@
             this.txtPurchaseRate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtPurchaseRate.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtPurchaseRate.Size = new System.Drawing.Size(79, 20);
-            this.txtPurchaseRate.TabIndex = 527;
+            this.txtPurchaseRate.TabIndex = 19;
             this.txtPurchaseRate.EditValueChanged += new System.EventHandler(this.txtPurchaseRate_EditValueChanged);
             // 
             // label16
@@ -2463,17 +2504,17 @@
             this.label16.TabIndex = 525;
             this.label16.Text = "Pur. Rate";
             // 
-            // labelControl8
+            // lblEmployee
             // 
-            this.labelControl8.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl8.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl8.Appearance.Options.UseFont = true;
-            this.labelControl8.Appearance.Options.UseForeColor = true;
-            this.labelControl8.Location = new System.Drawing.Point(739, 8);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(72, 16);
-            this.labelControl8.TabIndex = 524;
-            this.labelControl8.Text = "Employee";
+            this.lblEmployee.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmployee.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lblEmployee.Appearance.Options.UseFont = true;
+            this.lblEmployee.Appearance.Options.UseForeColor = true;
+            this.lblEmployee.Location = new System.Drawing.Point(739, 8);
+            this.lblEmployee.Name = "lblEmployee";
+            this.lblEmployee.Size = new System.Drawing.Size(72, 16);
+            this.lblEmployee.TabIndex = 524;
+            this.lblEmployee.Text = "Employee";
             // 
             // LueEmployee
             // 
@@ -2496,31 +2537,31 @@
             this.LueEmployee.Properties.NullText = "";
             this.LueEmployee.Properties.ShowHeader = false;
             this.LueEmployee.Size = new System.Drawing.Size(245, 20);
-            this.LueEmployee.TabIndex = 523;
+            this.LueEmployee.TabIndex = 4;
             this.LueEmployee.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.LueEmployee_ButtonClick);
             // 
             // txtPinCode
             // 
             this.txtPinCode.EnterMoveNextControl = true;
-            this.txtPinCode.Location = new System.Drawing.Point(1118, 36);
+            this.txtPinCode.Location = new System.Drawing.Point(1118, 29);
             this.txtPinCode.Name = "txtPinCode";
             this.txtPinCode.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPinCode.Properties.Appearance.Options.UseFont = true;
             this.txtPinCode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPinCode.Size = new System.Drawing.Size(68, 20);
-            this.txtPinCode.TabIndex = 521;
+            this.txtPinCode.Size = new System.Drawing.Size(118, 20);
+            this.txtPinCode.TabIndex = 10;
             // 
-            // labelControl7
+            // lblPincode
             // 
-            this.labelControl7.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl7.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Appearance.Options.UseForeColor = true;
-            this.labelControl7.Location = new System.Drawing.Point(1055, 38);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(57, 16);
-            this.labelControl7.TabIndex = 522;
-            this.labelControl7.Text = "Pincode";
+            this.lblPincode.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPincode.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lblPincode.Appearance.Options.UseFont = true;
+            this.lblPincode.Appearance.Options.UseForeColor = true;
+            this.lblPincode.Location = new System.Drawing.Point(1055, 31);
+            this.lblPincode.Name = "lblPincode";
+            this.lblPincode.Size = new System.Drawing.Size(57, 16);
+            this.lblPincode.TabIndex = 522;
+            this.lblPincode.Text = "Pincode";
             // 
             // labelControl4
             // 
@@ -2534,17 +2575,18 @@
             this.labelControl4.TabIndex = 520;
             this.labelControl4.Text = "Sale Type";
             // 
-            // labelControl6
+            // lblDueDate
             // 
-            this.labelControl6.Appearance.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Appearance.Options.UseForeColor = true;
-            this.labelControl6.Location = new System.Drawing.Point(738, 38);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(55, 15);
-            this.labelControl6.TabIndex = 518;
-            this.labelControl6.Text = "Due Date";
+            this.lblDueDate.Appearance.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDueDate.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lblDueDate.Appearance.Options.UseFont = true;
+            this.lblDueDate.Appearance.Options.UseForeColor = true;
+            this.lblDueDate.Location = new System.Drawing.Point(738, 38);
+            this.lblDueDate.Name = "lblDueDate";
+            this.lblDueDate.Size = new System.Drawing.Size(55, 15);
+            this.lblDueDate.TabIndex = 518;
+            this.lblDueDate.Text = "Due Date";
+            this.lblDueDate.Visible = false;
             // 
             // DTPDueDate
             // 
@@ -2565,8 +2607,9 @@
             this.DTPDueDate.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.Optimistic;
             this.DTPDueDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.DTPDueDate.Size = new System.Drawing.Size(115, 20);
-            this.DTPDueDate.TabIndex = 516;
+            this.DTPDueDate.TabIndex = 8;
             this.DTPDueDate.TabStop = false;
+            this.DTPDueDate.Visible = false;
             // 
             // txtTermDays
             // 
@@ -2580,7 +2623,8 @@
             this.txtTermDays.Properties.Mask.ShowPlaceHolders = false;
             this.txtTermDays.Properties.MaxLength = 4;
             this.txtTermDays.Size = new System.Drawing.Size(55, 20);
-            this.txtTermDays.TabIndex = 515;
+            this.txtTermDays.TabIndex = 7;
+            this.txtTermDays.Visible = false;
             this.txtTermDays.EditValueChanged += new System.EventHandler(this.txtTermDays_EditValueChanged);
             this.txtTermDays.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTermDays_KeyPress);
             // 
@@ -2595,6 +2639,7 @@
             this.lblTerms.Size = new System.Drawing.Size(65, 15);
             this.lblTerms.TabIndex = 517;
             this.lblTerms.Text = "Term Days";
+            this.lblTerms.Visible = false;
             // 
             // LueUnit
             // 
@@ -2616,7 +2661,7 @@
             this.LueUnit.Properties.NullText = "";
             this.LueUnit.Properties.ShowHeader = false;
             this.LueUnit.Size = new System.Drawing.Size(83, 20);
-            this.LueUnit.TabIndex = 8;
+            this.LueUnit.TabIndex = 15;
             // 
             // label15
             // 
@@ -2648,7 +2693,7 @@
             this.LueSize.Properties.NullText = "";
             this.LueSize.Properties.ShowHeader = false;
             this.LueSize.Size = new System.Drawing.Size(83, 20);
-            this.LueSize.TabIndex = 7;
+            this.LueSize.TabIndex = 14;
             // 
             // label8
             // 
@@ -2680,7 +2725,7 @@
             this.LueColor.Properties.NullText = "";
             this.LueColor.Properties.ShowHeader = false;
             this.LueColor.Size = new System.Drawing.Size(83, 20);
-            this.LueColor.TabIndex = 6;
+            this.LueColor.TabIndex = 13;
             // 
             // label6
             // 
@@ -2719,19 +2764,19 @@
             this.txtWeight.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtWeight.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtWeight.Size = new System.Drawing.Size(68, 20);
-            this.txtWeight.TabIndex = 2;
+            this.txtWeight.TabIndex = 9;
             // 
-            // labelControl9
+            // lblWeight
             // 
-            this.labelControl9.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl9.Appearance.Options.UseFont = true;
-            this.labelControl9.Appearance.Options.UseForeColor = true;
-            this.labelControl9.Location = new System.Drawing.Point(920, 38);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(51, 16);
-            this.labelControl9.TabIndex = 504;
-            this.labelControl9.Text = "Weight";
+            this.lblWeight.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWeight.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lblWeight.Appearance.Options.UseFont = true;
+            this.lblWeight.Appearance.Options.UseForeColor = true;
+            this.lblWeight.Location = new System.Drawing.Point(920, 38);
+            this.lblWeight.Name = "lblWeight";
+            this.lblWeight.Size = new System.Drawing.Size(51, 16);
+            this.lblWeight.TabIndex = 504;
+            this.lblWeight.Text = "Weight";
             // 
             // txtPcs
             // 
@@ -2743,7 +2788,7 @@
             this.txtPcs.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtPcs.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtPcs.Size = new System.Drawing.Size(65, 20);
-            this.txtPcs.TabIndex = 9;
+            this.txtPcs.TabIndex = 16;
             this.txtPcs.EditValueChanged += new System.EventHandler(this.txtPcs_EditValueChanged);
             this.txtPcs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPcs_KeyPress);
             // 
@@ -2765,7 +2810,7 @@
             this.btnAdd.Location = new System.Drawing.Point(1023, 85);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(92, 32);
-            this.btnAdd.TabIndex = 12;
+            this.btnAdd.TabIndex = 21;
             this.btnAdd.Text = "&Add";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -2784,7 +2829,7 @@
             this.txtSaleAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtSaleAmount.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtSaleAmount.Size = new System.Drawing.Size(79, 20);
-            this.txtSaleAmount.TabIndex = 11;
+            this.txtSaleAmount.TabIndex = 18;
             // 
             // label18
             // 
@@ -2804,7 +2849,7 @@
             this.labelControl3.Appearance.Options.UseBackColor = true;
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Appearance.Options.UseForeColor = true;
-            this.labelControl3.Location = new System.Drawing.Point(445, 8);
+            this.labelControl3.Location = new System.Drawing.Point(445, 6);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(13, 16);
             this.labelControl3.TabIndex = 466;
@@ -2824,7 +2869,7 @@
             this.txtSaleRate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtSaleRate.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtSaleRate.Size = new System.Drawing.Size(79, 20);
-            this.txtSaleRate.TabIndex = 10;
+            this.txtSaleRate.TabIndex = 17;
             this.txtSaleRate.EditValueChanged += new System.EventHandler(this.txtSaleRate_EditValueChanged);
             // 
             // label17
@@ -2858,22 +2903,24 @@
             this.lueParty.Properties.NullText = "";
             this.lueParty.Properties.ShowHeader = false;
             this.lueParty.Size = new System.Drawing.Size(246, 20);
-            this.lueParty.TabIndex = 4;
+            this.lueParty.TabIndex = 5;
+            this.lueParty.Visible = false;
             this.lueParty.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.lueParty_ButtonClick);
             // 
-            // labelControl1
+            // lblPartyVal
             // 
-            this.labelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Verdana", 9.5F, System.Drawing.FontStyle.Bold);
-            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl1.Appearance.Options.UseBackColor = true;
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Location = new System.Drawing.Point(52, 37);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(13, 16);
-            this.labelControl1.TabIndex = 39;
-            this.labelControl1.Text = "* ";
+            this.lblPartyVal.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
+            this.lblPartyVal.Appearance.Font = new System.Drawing.Font("Verdana", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblPartyVal.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lblPartyVal.Appearance.Options.UseBackColor = true;
+            this.lblPartyVal.Appearance.Options.UseFont = true;
+            this.lblPartyVal.Appearance.Options.UseForeColor = true;
+            this.lblPartyVal.Location = new System.Drawing.Point(52, 35);
+            this.lblPartyVal.Name = "lblPartyVal";
+            this.lblPartyVal.Size = new System.Drawing.Size(13, 16);
+            this.lblPartyVal.TabIndex = 39;
+            this.lblPartyVal.Text = "* ";
+            this.lblPartyVal.Visible = false;
             // 
             // lueItem
             // 
@@ -2895,18 +2942,19 @@
             this.lueItem.Properties.NullText = "";
             this.lueItem.Properties.ShowHeader = false;
             this.lueItem.Size = new System.Drawing.Size(129, 20);
-            this.lueItem.TabIndex = 5;
+            this.lueItem.TabIndex = 12;
             this.lueItem.Validated += new System.EventHandler(this.lueItem_Validated);
             // 
-            // label32
+            // lblParty
             // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label32.Location = new System.Drawing.Point(4, 37);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(47, 16);
-            this.label32.TabIndex = 38;
-            this.label32.Text = "Party";
+            this.lblParty.AutoSize = true;
+            this.lblParty.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblParty.Location = new System.Drawing.Point(4, 37);
+            this.lblParty.Name = "lblParty";
+            this.lblParty.Size = new System.Drawing.Size(47, 16);
+            this.lblParty.TabIndex = 38;
+            this.lblParty.Text = "Party";
+            this.lblParty.Visible = false;
             // 
             // label14
             // 
@@ -2951,7 +2999,7 @@
             this.txtOrderNo.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOrderNo.Properties.Appearance.Options.UseFont = true;
             this.txtOrderNo.Size = new System.Drawing.Size(103, 20);
-            this.txtOrderNo.TabIndex = 1;
+            this.txtOrderNo.TabIndex = 2;
             // 
             // lblInvoiceNo
             // 
@@ -2969,7 +3017,7 @@
             this.lblMode.Appearance.ForeColor = System.Drawing.Color.Red;
             this.lblMode.Appearance.Options.UseFont = true;
             this.lblMode.Appearance.Options.UseForeColor = true;
-            this.lblMode.Location = new System.Drawing.Point(1074, 9);
+            this.lblMode.Location = new System.Drawing.Point(1199, 8);
             this.lblMode.Name = "lblMode";
             this.lblMode.Size = new System.Drawing.Size(63, 13);
             this.lblMode.TabIndex = 12;
@@ -2983,7 +3031,7 @@
             this.labelControl5.Appearance.Options.UseBackColor = true;
             this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Appearance.Options.UseForeColor = true;
-            this.labelControl5.Location = new System.Drawing.Point(45, 9);
+            this.labelControl5.Location = new System.Drawing.Point(45, 7);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(13, 16);
             this.labelControl5.TabIndex = 4;
@@ -3016,25 +3064,24 @@
             this.label11.TabIndex = 13;
             this.label11.Text = "Date";
             // 
-            // CmbSaleType
+            // LueSaleType
             // 
-            this.CmbSaleType.EnterMoveNextControl = true;
-            this.CmbSaleType.Location = new System.Drawing.Point(259, 6);
-            this.CmbSaleType.Name = "CmbSaleType";
-            this.CmbSaleType.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmbSaleType.Properties.Appearance.Options.UseFont = true;
-            this.CmbSaleType.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.CmbSaleType.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.CmbSaleType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.LueSaleType.Location = new System.Drawing.Point(259, 6);
+            this.LueSaleType.Name = "LueSaleType";
+            this.LueSaleType.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LueSaleType.Properties.Appearance.Options.UseFont = true;
+            this.LueSaleType.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.LueSaleType.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.LueSaleType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CmbSaleType.Properties.Items.AddRange(new object[] {
-            "B2B",
-            "B2C"});
-            this.CmbSaleType.Properties.PopupSizeable = true;
-            this.CmbSaleType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.CmbSaleType.Size = new System.Drawing.Size(110, 20);
-            this.CmbSaleType.TabIndex = 519;
-            this.CmbSaleType.SelectedIndexChanged += new System.EventHandler(this.CmbSaleType_SelectedIndexChanged);
+            this.LueSaleType.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cash_type", "Cash", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cash_type", "Cash Type")});
+            this.LueSaleType.Properties.NullText = "";
+            this.LueSaleType.Properties.ShowHeader = false;
+            this.LueSaleType.Size = new System.Drawing.Size(110, 20);
+            this.LueSaleType.TabIndex = 1;
+            this.LueSaleType.EditValueChanged += new System.EventHandler(this.LueSaleType_EditValueChanged);
             // 
             // repositoryItemPictureEdit1
             // 
@@ -3349,6 +3396,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             this.panelControl4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMobile.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.luePurchaseFirm.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPurchaseAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPurchaseRate.Properties)).EndInit();
@@ -3370,7 +3418,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtOrderNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpInvoiceDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpInvoiceDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CmbSaleType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LueSaleType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).EndInit();
             this.ResumeLayout(false);
@@ -3507,8 +3555,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn36;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn37;
         private DevExpress.XtraEditors.LookUpEdit lueParty;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private System.Windows.Forms.Label label32;
+        private DevExpress.XtraEditors.LabelControl lblPartyVal;
+        private System.Windows.Forms.Label lblParty;
         private DevExpress.XtraGrid.Columns.GridColumn clmOldPcs;
         private DevExpress.XtraGrid.Columns.GridColumn clmflag;
         private DevExpress.XtraGrid.Columns.GridColumn clmolditemid;
@@ -3574,20 +3622,19 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
         private DevExpress.XtraGrid.Columns.GridColumn clmPurchaseID;
         private DevExpress.XtraGrid.Columns.GridColumn clmpurchaseDetailID;
-        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.LabelControl lblDueDate;
         private DevExpress.XtraEditors.DateEdit DTPDueDate;
         private DevExpress.XtraEditors.TextEdit txtTermDays;
         private DevExpress.XtraEditors.LabelControl lblTerms;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.ComboBoxEdit CmbSaleType;
         private DevExpress.XtraEditors.TextEdit txtWeight;
-        private DevExpress.XtraEditors.LabelControl labelControl9;
-        private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.XtraEditors.LabelControl lblWeight;
+        private DevExpress.XtraEditors.LabelControl lblEmployee;
         private DevExpress.XtraEditors.LookUpEdit LueEmployee;
         private DevExpress.XtraEditors.TextEdit txtPinCode;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.LabelControl lblPincode;
         private DevExpress.XtraEditors.TextEdit txtPurchaseAmount;
         private System.Windows.Forms.Label label10;
         private DevExpress.XtraEditors.TextEdit txtPurchaseRate;
@@ -3604,9 +3651,13 @@
         private DevExpress.XtraEditors.MemoEdit txtShippingAddress;
         private DevExpress.XtraGrid.Columns.GridColumn clmShippingAddress;
         private DevExpress.XtraEditors.SimpleButton btnPrint;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lblPurchaseFirm;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
         private DevExpress.XtraEditors.LookUpEdit luePurchaseFirm;
+        private DevExpress.XtraEditors.LookUpEdit LueSaleType;
+        private DevExpress.XtraEditors.TextEdit txtMobile;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
+        private DevExpress.XtraGrid.Columns.GridColumn clmMobileNo;
     }
 }
