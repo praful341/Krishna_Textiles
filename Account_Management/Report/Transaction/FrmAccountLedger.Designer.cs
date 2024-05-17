@@ -84,6 +84,7 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.PrintingSystem1)).BeginInit();
             this.GridMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -577,7 +578,8 @@
             this.gridColumn1,
             this.gridColumn2,
             this.gridColumn3,
-            this.gridColumn4});
+            this.gridColumn4,
+            this.gridColumn5});
             this.DgvAccountLedger.GridControl = this.GrdAccountLedger;
             this.DgvAccountLedger.GroupFormat = "{1} {2}";
             this.DgvAccountLedger.Name = "DgvAccountLedger";
@@ -632,7 +634,7 @@
             this.bandedGridColumn4.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.bandedGridColumn4.Visible = true;
-            this.bandedGridColumn4.VisibleIndex = 4;
+            this.bandedGridColumn4.VisibleIndex = 5;
             this.bandedGridColumn4.Width = 101;
             // 
             // bandedGridColumn5
@@ -643,7 +645,7 @@
             this.bandedGridColumn5.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.bandedGridColumn5.Visible = true;
-            this.bandedGridColumn5.VisibleIndex = 5;
+            this.bandedGridColumn5.VisibleIndex = 6;
             this.bandedGridColumn5.Width = 101;
             // 
             // bandedGridColumn6
@@ -654,7 +656,7 @@
             this.bandedGridColumn6.FieldName = "balance_";
             this.bandedGridColumn6.Name = "bandedGridColumn6";
             this.bandedGridColumn6.Visible = true;
-            this.bandedGridColumn6.VisibleIndex = 6;
+            this.bandedGridColumn6.VisibleIndex = 7;
             this.bandedGridColumn6.Width = 101;
             // 
             // bandedGridColumn7
@@ -665,7 +667,7 @@
             this.bandedGridColumn7.FieldName = "remarks";
             this.bandedGridColumn7.Name = "bandedGridColumn7";
             this.bandedGridColumn7.Visible = true;
-            this.bandedGridColumn7.VisibleIndex = 7;
+            this.bandedGridColumn7.VisibleIndex = 8;
             this.bandedGridColumn7.Width = 353;
             // 
             // gridColumn1
@@ -694,6 +696,17 @@
             this.gridColumn4.Caption = "Union ID";
             this.gridColumn4.FieldName = "union_id";
             this.gridColumn4.Name = "gridColumn4";
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Opening(Rs.)";
+            this.gridColumn5.FieldName = "op_amount";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 4;
+            this.gridColumn5.Width = 100;
             // 
             // FrmAccountLedger
             // 
@@ -782,5 +795,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private System.Windows.Forms.Label label3;
         private DevExpress.XtraEditors.ComboBoxEdit CmbAccountLedgerType;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
     }
 }
