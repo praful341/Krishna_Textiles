@@ -48,6 +48,7 @@ namespace BLL.FunctionClasses.Master
                 Request.AddParams("@entry_time", GlobalDec.gStr_SystemTime, DbType.String);
                 Request.AddParams("@bank_account_type", pClsProperty.bank_account_type, DbType.String);
                 Request.AddParams("@bank_acc_name", pClsProperty.bank_acc_name, DbType.String);
+                Request.AddParams("@opening_type", pClsProperty.opening_type, DbType.String);
 
                 Request.CommandText = BLL.TPV.SProc.MST_Ledger_Save;
                 Request.CommandType = CommandType.StoredProcedure;

@@ -164,6 +164,7 @@ namespace Account_Management
                 txtLedgerPrintName.Text = string.Empty;
                 lueLedgerGroup.EditValue = null;
                 lueLedgerType.EditValue = null;
+                CmbOpeningType.SelectedIndex = 0;
                 txtMobileNo1.Text = string.Empty;
                 txtMobileNo2.Text = string.Empty;
                 lueCity.EditValue = null;
@@ -250,6 +251,7 @@ namespace Account_Management
                         CmbBankAccType.Text = Val.ToString(Drow["bank_account_type"]);
                         txtBankAccName.Text = Val.ToString(Drow["bank_acc_name"]);
                         dtpOpeningDate.Text = Val.ToString(Drow["opening_date"]);
+                        CmbOpeningType.Text = Val.ToString(Drow["opening_type"]);
                         txtLedgerName.Focus();
                     }
                 }
@@ -309,6 +311,7 @@ namespace Account_Management
                 LedgerMasterProperty.remark = Val.ToString(txtRemark.Text).ToUpper();
                 LedgerMasterProperty.active = Val.ToBoolean(chkActive.Checked);
                 LedgerMasterProperty.bank_acc_name = Val.ToString(txtBankAccName.Text);
+                LedgerMasterProperty.opening_type = Val.ToString(CmbOpeningType.Text);
 
                 IntRes = objLedger.Save(LedgerMasterProperty);
 

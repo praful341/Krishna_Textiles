@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
@@ -63,6 +63,7 @@
             this.clmGSTNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmBankAccType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmBankAccName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmOpeningDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdLedgerMaster = new DevExpress.XtraGrid.GridControl();
             this.ContextMNExport = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.MNExportExcel = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,6 +87,8 @@
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.TabRegisterDetail = new DevExpress.XtraTab.XtraTabControl();
             this.tblGeneralDetail = new DevExpress.XtraTab.XtraTabPage();
+            this.dtpOpeningDate = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.txtAddress4 = new DevExpress.XtraEditors.TextEdit();
             this.txtAddress2 = new DevExpress.XtraEditors.TextEdit();
             this.txtAddress1 = new DevExpress.XtraEditors.TextEdit();
@@ -139,9 +142,8 @@
             this.txtMobileNo2 = new DevExpress.XtraEditors.TextEdit();
             this.txtEmailID = new DevExpress.XtraEditors.TextEdit();
             this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.dtpOpeningDate = new DevExpress.XtraEditors.DateEdit();
-            this.clmOpeningDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.CmbOpeningType = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.ClmOpeningType = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -159,6 +161,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.TabRegisterDetail)).BeginInit();
             this.TabRegisterDetail.SuspendLayout();
             this.tblGeneralDetail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpOpeningDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpOpeningDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress1.Properties)).BeginInit();
@@ -187,8 +191,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtLedgerName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMobileNo2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmailID.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpOpeningDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpOpeningDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CmbOpeningType.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl4
@@ -258,7 +261,8 @@
             this.clmGSTNo,
             this.clmBankAccType,
             this.clmBankAccName,
-            this.clmOpeningDate});
+            this.clmOpeningDate,
+            this.ClmOpeningType});
             this.dgvLedgerMaster.GridControl = this.grdLedgerMaster;
             this.dgvLedgerMaster.Name = "dgvLedgerMaster";
             this.dgvLedgerMaster.OptionsBehavior.Editable = false;
@@ -304,7 +308,7 @@
             this.clmRemark.Name = "clmRemark";
             this.clmRemark.OptionsColumn.AllowEdit = false;
             this.clmRemark.Visible = true;
-            this.clmRemark.VisibleIndex = 14;
+            this.clmRemark.VisibleIndex = 15;
             this.clmRemark.Width = 71;
             // 
             // clmPartyEmail
@@ -340,7 +344,7 @@
             this.clmcountry_name.Name = "clmcountry_name";
             this.clmcountry_name.OptionsColumn.AllowEdit = false;
             this.clmcountry_name.Visible = true;
-            this.clmcountry_name.VisibleIndex = 9;
+            this.clmcountry_name.VisibleIndex = 10;
             this.clmcountry_name.Width = 85;
             // 
             // clmstate_id
@@ -358,7 +362,7 @@
             this.clmstate_name.Name = "clmstate_name";
             this.clmstate_name.OptionsColumn.AllowEdit = false;
             this.clmstate_name.Visible = true;
-            this.clmstate_name.VisibleIndex = 10;
+            this.clmstate_name.VisibleIndex = 11;
             this.clmstate_name.Width = 94;
             // 
             // clmcity_id
@@ -376,7 +380,7 @@
             this.clmcity_name.Name = "clmcity_name";
             this.clmcity_name.OptionsColumn.AllowEdit = false;
             this.clmcity_name.Visible = true;
-            this.clmcity_name.VisibleIndex = 11;
+            this.clmcity_name.VisibleIndex = 12;
             this.clmcity_name.Width = 93;
             // 
             // clmpincode
@@ -435,7 +439,7 @@
             this.clmOpeningBalance.FieldName = "opening_balance";
             this.clmOpeningBalance.Name = "clmOpeningBalance";
             this.clmOpeningBalance.Visible = true;
-            this.clmOpeningBalance.VisibleIndex = 7;
+            this.clmOpeningBalance.VisibleIndex = 8;
             this.clmOpeningBalance.Width = 123;
             // 
             // clmLedgerGroupID
@@ -459,7 +463,7 @@
             this.clmBankName.FieldName = "bank_name";
             this.clmBankName.Name = "clmBankName";
             this.clmBankName.Visible = true;
-            this.clmBankName.VisibleIndex = 15;
+            this.clmBankName.VisibleIndex = 16;
             // 
             // clmBankBranch
             // 
@@ -467,7 +471,7 @@
             this.clmBankBranch.FieldName = "bank_branch";
             this.clmBankBranch.Name = "clmBankBranch";
             this.clmBankBranch.Visible = true;
-            this.clmBankBranch.VisibleIndex = 16;
+            this.clmBankBranch.VisibleIndex = 17;
             this.clmBankBranch.Width = 106;
             // 
             // clmBankIFSC
@@ -476,7 +480,7 @@
             this.clmBankIFSC.FieldName = "bank_ifsc";
             this.clmBankIFSC.Name = "clmBankIFSC";
             this.clmBankIFSC.Visible = true;
-            this.clmBankIFSC.VisibleIndex = 17;
+            this.clmBankIFSC.VisibleIndex = 18;
             // 
             // clmBankAccNo
             // 
@@ -484,7 +488,7 @@
             this.clmBankAccNo.FieldName = "bank_account_no";
             this.clmBankAccNo.Name = "clmBankAccNo";
             this.clmBankAccNo.Visible = true;
-            this.clmBankAccNo.VisibleIndex = 18;
+            this.clmBankAccNo.VisibleIndex = 19;
             this.clmBankAccNo.Width = 104;
             // 
             // clmPartyPanNo
@@ -493,7 +497,7 @@
             this.clmPartyPanNo.FieldName = "party_pan_no";
             this.clmPartyPanNo.Name = "clmPartyPanNo";
             this.clmPartyPanNo.Visible = true;
-            this.clmPartyPanNo.VisibleIndex = 12;
+            this.clmPartyPanNo.VisibleIndex = 13;
             // 
             // clmGSTNo
             // 
@@ -501,7 +505,7 @@
             this.clmGSTNo.FieldName = "gst_no";
             this.clmGSTNo.Name = "clmGSTNo";
             this.clmGSTNo.Visible = true;
-            this.clmGSTNo.VisibleIndex = 13;
+            this.clmGSTNo.VisibleIndex = 14;
             // 
             // clmBankAccType
             // 
@@ -509,7 +513,7 @@
             this.clmBankAccType.FieldName = "bank_account_type";
             this.clmBankAccType.Name = "clmBankAccType";
             this.clmBankAccType.Visible = true;
-            this.clmBankAccType.VisibleIndex = 19;
+            this.clmBankAccType.VisibleIndex = 20;
             this.clmBankAccType.Width = 116;
             // 
             // clmBankAccName
@@ -518,8 +522,17 @@
             this.clmBankAccName.FieldName = "bank_acc_name";
             this.clmBankAccName.Name = "clmBankAccName";
             this.clmBankAccName.Visible = true;
-            this.clmBankAccName.VisibleIndex = 20;
+            this.clmBankAccName.VisibleIndex = 21;
             this.clmBankAccName.Width = 107;
+            // 
+            // clmOpeningDate
+            // 
+            this.clmOpeningDate.Caption = "Opening Date";
+            this.clmOpeningDate.FieldName = "opening_date";
+            this.clmOpeningDate.Name = "clmOpeningDate";
+            this.clmOpeningDate.Visible = true;
+            this.clmOpeningDate.VisibleIndex = 9;
+            this.clmOpeningDate.Width = 93;
             // 
             // grdLedgerMaster
             // 
@@ -603,8 +616,8 @@
             // 
             // SHERE_PER
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.SHERE_PER.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.SHERE_PER.DefaultCellStyle = dataGridViewCellStyle1;
             this.SHERE_PER.HeaderText = "Shere(%)";
             this.SHERE_PER.Name = "SHERE_PER";
             this.SHERE_PER.Width = 88;
@@ -661,7 +674,7 @@
             this.panelControl6.Location = new System.Drawing.Point(2, 590);
             this.panelControl6.Name = "panelControl6";
             this.panelControl6.Size = new System.Drawing.Size(941, 48);
-            this.panelControl6.TabIndex = 0;
+            this.panelControl6.TabIndex = 1;
             // 
             // btnExit
             // 
@@ -788,14 +801,43 @@
             this.tblGeneralDetail.Controls.Add(this.txtMobileNo2);
             this.tblGeneralDetail.Controls.Add(this.txtEmailID);
             this.tblGeneralDetail.Controls.Add(this.labelControl30);
+            this.tblGeneralDetail.Controls.Add(this.CmbOpeningType);
             this.tblGeneralDetail.Name = "tblGeneralDetail";
             this.tblGeneralDetail.Size = new System.Drawing.Size(935, 560);
             this.tblGeneralDetail.Text = "GENERAL DETAIL";
             // 
+            // dtpOpeningDate
+            // 
+            this.dtpOpeningDate.EditValue = null;
+            this.dtpOpeningDate.Location = new System.Drawing.Point(466, 216);
+            this.dtpOpeningDate.Name = "dtpOpeningDate";
+            this.dtpOpeningDate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.dtpOpeningDate.Properties.Appearance.Options.UseFont = true;
+            this.dtpOpeningDate.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
+            this.dtpOpeningDate.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.dtpOpeningDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtpOpeningDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtpOpeningDate.Size = new System.Drawing.Size(187, 20);
+            this.dtpOpeningDate.TabIndex = 20;
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl11.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl11.Appearance.Options.UseFont = true;
+            this.labelControl11.Appearance.Options.UseForeColor = true;
+            this.labelControl11.Location = new System.Drawing.Point(325, 218);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(98, 16);
+            this.labelControl11.TabIndex = 578;
+            this.labelControl11.Text = "Opening Date";
+            // 
             // txtAddress4
             // 
             this.txtAddress4.EnterMoveNextControl = true;
-            this.txtAddress4.Location = new System.Drawing.Point(490, 86);
+            this.txtAddress4.Location = new System.Drawing.Point(466, 86);
             this.txtAddress4.Name = "txtAddress4";
             this.txtAddress4.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress4.Properties.Appearance.Options.UseFont = true;
@@ -807,7 +849,7 @@
             // txtAddress2
             // 
             this.txtAddress2.EnterMoveNextControl = true;
-            this.txtAddress2.Location = new System.Drawing.Point(490, 34);
+            this.txtAddress2.Location = new System.Drawing.Point(466, 34);
             this.txtAddress2.Name = "txtAddress2";
             this.txtAddress2.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress2.Properties.Appearance.Options.UseFont = true;
@@ -819,7 +861,7 @@
             // txtAddress1
             // 
             this.txtAddress1.EnterMoveNextControl = true;
-            this.txtAddress1.Location = new System.Drawing.Point(490, 8);
+            this.txtAddress1.Location = new System.Drawing.Point(466, 8);
             this.txtAddress1.Name = "txtAddress1";
             this.txtAddress1.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress1.Properties.Appearance.Options.UseFont = true;
@@ -831,7 +873,7 @@
             // txtAddress3
             // 
             this.txtAddress3.EnterMoveNextControl = true;
-            this.txtAddress3.Location = new System.Drawing.Point(490, 60);
+            this.txtAddress3.Location = new System.Drawing.Point(466, 60);
             this.txtAddress3.Name = "txtAddress3";
             this.txtAddress3.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress3.Properties.Appearance.Options.UseFont = true;
@@ -843,7 +885,7 @@
             // lueLedgerGroup
             // 
             this.lueLedgerGroup.EnterMoveNextControl = true;
-            this.lueLedgerGroup.Location = new System.Drawing.Point(151, 34);
+            this.lueLedgerGroup.Location = new System.Drawing.Point(116, 34);
             this.lueLedgerGroup.Name = "lueLedgerGroup";
             this.lueLedgerGroup.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueLedgerGroup.Properties.Appearance.Options.UseFont = true;
@@ -880,21 +922,21 @@
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Location = new System.Drawing.Point(360, 191);
+            this.labelControl1.Location = new System.Drawing.Point(325, 191);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(122, 16);
+            this.labelControl1.Size = new System.Drawing.Size(66, 16);
             this.labelControl1.TabIndex = 575;
-            this.labelControl1.Text = "Opening Balance";
+            this.labelControl1.Text = "Ope. Bal.";
             // 
             // txtOpeningBalance
             // 
             this.txtOpeningBalance.EnterMoveNextControl = true;
-            this.txtOpeningBalance.Location = new System.Drawing.Point(490, 189);
+            this.txtOpeningBalance.Location = new System.Drawing.Point(466, 189);
             this.txtOpeningBalance.Name = "txtOpeningBalance";
             this.txtOpeningBalance.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOpeningBalance.Properties.Appearance.Options.UseFont = true;
             this.txtOpeningBalance.Size = new System.Drawing.Size(187, 20);
-            this.txtOpeningBalance.TabIndex = 18;
+            this.txtOpeningBalance.TabIndex = 19;
             // 
             // groupControl1
             // 
@@ -914,9 +956,9 @@
             this.groupControl1.Controls.Add(this.labelControl56);
             this.groupControl1.Controls.Add(this.txtBankName);
             this.groupControl1.Controls.Add(this.txtBankAccNo);
-            this.groupControl1.Location = new System.Drawing.Point(360, 245);
+            this.groupControl1.Location = new System.Drawing.Point(325, 245);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(317, 183);
+            this.groupControl1.Size = new System.Drawing.Size(328, 183);
             this.groupControl1.TabIndex = 573;
             this.groupControl1.Text = "Bank Details";
             // 
@@ -1065,7 +1107,7 @@
             // 
             this.txtRemark.EditValue = "";
             this.txtRemark.EnterMoveNextControl = true;
-            this.txtRemark.Location = new System.Drawing.Point(151, 268);
+            this.txtRemark.Location = new System.Drawing.Point(116, 268);
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRemark.Properties.Appearance.Options.UseFont = true;
@@ -1086,7 +1128,7 @@
             // txtPanNo
             // 
             this.txtPanNo.EnterMoveNextControl = true;
-            this.txtPanNo.Location = new System.Drawing.Point(151, 242);
+            this.txtPanNo.Location = new System.Drawing.Point(116, 242);
             this.txtPanNo.Name = "txtPanNo";
             this.txtPanNo.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPanNo.Properties.Appearance.Options.UseFont = true;
@@ -1109,7 +1151,7 @@
             // txtGSTNo
             // 
             this.txtGSTNo.EnterMoveNextControl = true;
-            this.txtGSTNo.Location = new System.Drawing.Point(151, 216);
+            this.txtGSTNo.Location = new System.Drawing.Point(116, 216);
             this.txtGSTNo.Name = "txtGSTNo";
             this.txtGSTNo.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGSTNo.Properties.Appearance.Options.UseFont = true;
@@ -1132,7 +1174,7 @@
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(360, 85);
+            this.labelControl3.Location = new System.Drawing.Point(325, 85);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(68, 16);
             this.labelControl3.TabIndex = 566;
@@ -1142,7 +1184,7 @@
             // 
             this.labelControl37.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl37.Appearance.Options.UseFont = true;
-            this.labelControl37.Location = new System.Drawing.Point(360, 35);
+            this.labelControl37.Location = new System.Drawing.Point(325, 35);
             this.labelControl37.Name = "labelControl37";
             this.labelControl37.Size = new System.Drawing.Size(68, 16);
             this.labelControl37.TabIndex = 565;
@@ -1152,7 +1194,7 @@
             // 
             this.labelControl39.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl39.Appearance.Options.UseFont = true;
-            this.labelControl39.Location = new System.Drawing.Point(360, 61);
+            this.labelControl39.Location = new System.Drawing.Point(325, 61);
             this.labelControl39.Name = "labelControl39";
             this.labelControl39.Size = new System.Drawing.Size(68, 16);
             this.labelControl39.TabIndex = 564;
@@ -1162,7 +1204,7 @@
             // 
             this.labelControl43.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl43.Appearance.Options.UseFont = true;
-            this.labelControl43.Location = new System.Drawing.Point(360, 9);
+            this.labelControl43.Location = new System.Drawing.Point(325, 9);
             this.labelControl43.Name = "labelControl43";
             this.labelControl43.Size = new System.Drawing.Size(68, 16);
             this.labelControl43.TabIndex = 563;
@@ -1171,7 +1213,7 @@
             // txtLedgerPrintName
             // 
             this.txtLedgerPrintName.EnterMoveNextControl = true;
-            this.txtLedgerPrintName.Location = new System.Drawing.Point(151, 86);
+            this.txtLedgerPrintName.Location = new System.Drawing.Point(116, 86);
             this.txtLedgerPrintName.Name = "txtLedgerPrintName";
             this.txtLedgerPrintName.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLedgerPrintName.Properties.Appearance.Options.UseFont = true;
@@ -1193,7 +1235,7 @@
             // lueLedgerType
             // 
             this.lueLedgerType.EnterMoveNextControl = true;
-            this.lueLedgerType.Location = new System.Drawing.Point(151, 60);
+            this.lueLedgerType.Location = new System.Drawing.Point(116, 60);
             this.lueLedgerType.Name = "lueLedgerType";
             this.lueLedgerType.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueLedgerType.Properties.Appearance.Options.UseFont = true;
@@ -1226,7 +1268,7 @@
             // txtMobileNo1
             // 
             this.txtMobileNo1.EnterMoveNextControl = true;
-            this.txtMobileNo1.Location = new System.Drawing.Point(151, 138);
+            this.txtMobileNo1.Location = new System.Drawing.Point(116, 138);
             this.txtMobileNo1.Name = "txtMobileNo1";
             this.txtMobileNo1.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMobileNo1.Properties.Appearance.Options.UseFont = true;
@@ -1237,13 +1279,13 @@
             // 
             this.chkActive.EditValue = true;
             this.chkActive.EnterMoveNextControl = true;
-            this.chkActive.Location = new System.Drawing.Point(697, 6);
+            this.chkActive.Location = new System.Drawing.Point(659, 6);
             this.chkActive.Name = "chkActive";
             this.chkActive.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkActive.Properties.Appearance.Options.UseFont = true;
             this.chkActive.Properties.Caption = "Active";
             this.chkActive.Size = new System.Drawing.Size(75, 20);
-            this.chkActive.TabIndex = 20;
+            this.chkActive.TabIndex = 21;
             // 
             // labelControl4
             // 
@@ -1251,7 +1293,7 @@
             this.labelControl4.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl4.Appearance.Options.UseFont = true;
             this.labelControl4.Appearance.Options.UseForeColor = true;
-            this.labelControl4.Location = new System.Drawing.Point(138, 8);
+            this.labelControl4.Location = new System.Drawing.Point(103, 8);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(9, 16);
             this.labelControl4.TabIndex = 0;
@@ -1272,7 +1314,7 @@
             // lueCity
             // 
             this.lueCity.EnterMoveNextControl = true;
-            this.lueCity.Location = new System.Drawing.Point(490, 163);
+            this.lueCity.Location = new System.Drawing.Point(466, 163);
             this.lueCity.Name = "lueCity";
             this.lueCity.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueCity.Properties.Appearance.Options.UseFont = true;
@@ -1294,7 +1336,7 @@
             // lueState
             // 
             this.lueState.EnterMoveNextControl = true;
-            this.lueState.Location = new System.Drawing.Point(490, 138);
+            this.lueState.Location = new System.Drawing.Point(466, 138);
             this.lueState.Name = "lueState";
             this.lueState.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueState.Properties.Appearance.Options.UseFont = true;
@@ -1316,7 +1358,7 @@
             // txtZipCode
             // 
             this.txtZipCode.EnterMoveNextControl = true;
-            this.txtZipCode.Location = new System.Drawing.Point(151, 112);
+            this.txtZipCode.Location = new System.Drawing.Point(116, 112);
             this.txtZipCode.Name = "txtZipCode";
             this.txtZipCode.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtZipCode.Properties.Appearance.Options.UseFont = true;
@@ -1326,7 +1368,7 @@
             // lueCountry
             // 
             this.lueCountry.EnterMoveNextControl = true;
-            this.lueCountry.Location = new System.Drawing.Point(490, 112);
+            this.lueCountry.Location = new System.Drawing.Point(466, 112);
             this.lueCountry.Name = "lueCountry";
             this.lueCountry.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueCountry.Properties.Appearance.Options.UseFont = true;
@@ -1351,7 +1393,7 @@
             this.labelControl10.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl10.Appearance.Options.UseFont = true;
             this.labelControl10.Appearance.Options.UseForeColor = true;
-            this.labelControl10.Location = new System.Drawing.Point(360, 139);
+            this.labelControl10.Location = new System.Drawing.Point(325, 139);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(39, 16);
             this.labelControl10.TabIndex = 484;
@@ -1363,7 +1405,7 @@
             this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl9.Appearance.Options.UseFont = true;
             this.labelControl9.Appearance.Options.UseForeColor = true;
-            this.labelControl9.Location = new System.Drawing.Point(360, 165);
+            this.labelControl9.Location = new System.Drawing.Point(325, 165);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(29, 16);
             this.labelControl9.TabIndex = 483;
@@ -1375,7 +1417,7 @@
             this.labelControl8.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl8.Appearance.Options.UseFont = true;
             this.labelControl8.Appearance.Options.UseForeColor = true;
-            this.labelControl8.Location = new System.Drawing.Point(360, 113);
+            this.labelControl8.Location = new System.Drawing.Point(325, 113);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(58, 16);
             this.labelControl8.TabIndex = 482;
@@ -1420,7 +1462,7 @@
             // txtLedgerName
             // 
             this.txtLedgerName.EnterMoveNextControl = true;
-            this.txtLedgerName.Location = new System.Drawing.Point(151, 8);
+            this.txtLedgerName.Location = new System.Drawing.Point(116, 8);
             this.txtLedgerName.Name = "txtLedgerName";
             this.txtLedgerName.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLedgerName.Properties.Appearance.Options.UseFont = true;
@@ -1431,7 +1473,7 @@
             // txtMobileNo2
             // 
             this.txtMobileNo2.EnterMoveNextControl = true;
-            this.txtMobileNo2.Location = new System.Drawing.Point(151, 164);
+            this.txtMobileNo2.Location = new System.Drawing.Point(116, 164);
             this.txtMobileNo2.Name = "txtMobileNo2";
             this.txtMobileNo2.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMobileNo2.Properties.Appearance.Options.UseFont = true;
@@ -1441,7 +1483,7 @@
             // txtEmailID
             // 
             this.txtEmailID.EnterMoveNextControl = true;
-            this.txtEmailID.Location = new System.Drawing.Point(151, 190);
+            this.txtEmailID.Location = new System.Drawing.Point(116, 190);
             this.txtEmailID.Name = "txtEmailID";
             this.txtEmailID.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmailID.Properties.Appearance.Options.UseFont = true;
@@ -1461,42 +1503,33 @@
             this.labelControl30.TabIndex = 480;
             this.labelControl30.Text = "Email ID";
             // 
-            // labelControl11
+            // CmbOpeningType
             // 
-            this.labelControl11.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl11.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl11.Appearance.Options.UseFont = true;
-            this.labelControl11.Appearance.Options.UseForeColor = true;
-            this.labelControl11.Location = new System.Drawing.Point(360, 218);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(98, 16);
-            this.labelControl11.TabIndex = 578;
-            this.labelControl11.Text = "Opening Date";
-            // 
-            // dtpOpeningDate
-            // 
-            this.dtpOpeningDate.EditValue = null;
-            this.dtpOpeningDate.Location = new System.Drawing.Point(490, 216);
-            this.dtpOpeningDate.Name = "dtpOpeningDate";
-            this.dtpOpeningDate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.dtpOpeningDate.Properties.Appearance.Options.UseFont = true;
-            this.dtpOpeningDate.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold);
-            this.dtpOpeningDate.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.dtpOpeningDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.CmbOpeningType.EditValue = "DR";
+            this.CmbOpeningType.Location = new System.Drawing.Point(408, 189);
+            this.CmbOpeningType.Name = "CmbOpeningType";
+            this.CmbOpeningType.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbOpeningType.Properties.Appearance.Options.UseFont = true;
+            this.CmbOpeningType.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
+            this.CmbOpeningType.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.CmbOpeningType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpOpeningDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpOpeningDate.Size = new System.Drawing.Size(187, 20);
-            this.dtpOpeningDate.TabIndex = 19;
+            this.CmbOpeningType.Properties.Items.AddRange(new object[] {
+            "DR",
+            "CR"});
+            this.CmbOpeningType.Properties.PopupSizeable = true;
+            this.CmbOpeningType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.CmbOpeningType.Size = new System.Drawing.Size(52, 20);
+            this.CmbOpeningType.TabIndex = 18;
             // 
-            // clmOpeningDate
+            // ClmOpeningType
             // 
-            this.clmOpeningDate.Caption = "Opening Date";
-            this.clmOpeningDate.FieldName = "opening_date";
-            this.clmOpeningDate.Name = "clmOpeningDate";
-            this.clmOpeningDate.Visible = true;
-            this.clmOpeningDate.VisibleIndex = 8;
-            this.clmOpeningDate.Width = 93;
+            this.ClmOpeningType.Caption = "Opening Type";
+            this.ClmOpeningType.FieldName = "opening_type";
+            this.ClmOpeningType.Name = "ClmOpeningType";
+            this.ClmOpeningType.Visible = true;
+            this.ClmOpeningType.VisibleIndex = 7;
+            this.ClmOpeningType.Width = 94;
             // 
             // FrmLedgerMaster
             // 
@@ -1533,6 +1566,8 @@
             this.TabRegisterDetail.ResumeLayout(false);
             this.tblGeneralDetail.ResumeLayout(false);
             this.tblGeneralDetail.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpOpeningDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpOpeningDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress4.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress1.Properties)).EndInit();
@@ -1562,8 +1597,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtLedgerName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMobileNo2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmailID.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpOpeningDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpOpeningDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CmbOpeningType.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1681,5 +1715,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.DateEdit dtpOpeningDate;
         private DevExpress.XtraGrid.Columns.GridColumn clmOpeningDate;
+        private DevExpress.XtraEditors.ComboBoxEdit CmbOpeningType;
+        private DevExpress.XtraGrid.Columns.GridColumn ClmOpeningType;
     }
 }
