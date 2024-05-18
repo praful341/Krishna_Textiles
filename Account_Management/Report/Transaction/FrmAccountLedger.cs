@@ -1515,7 +1515,7 @@ namespace Account_Management.Report
             DTab.Columns.Add("balance_", typeof(string));
             foreach (DataRow Drw in DTab.Rows)
             {
-                numBalance = numBalance + Val.ToDecimal(Drw["debit_amount"]) - Val.ToDecimal(Drw["credit_amount"]);
+                numBalance = numBalance + Val.ToDecimal(Drw["debit_amount"]) - (Val.ToDecimal(Drw["op_amount"]) + Val.ToDecimal(Drw["credit_amount"]));
 
                 Drw["balance_amount"] = numBalance;
                 if (Val.ToDecimal(Drw["balance_amount"]) > 0)
