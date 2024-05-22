@@ -21,7 +21,8 @@ namespace Account_Management.Transaction
         //FrmSearch FrmSearch;
         FrmSearchNew FrmSearchNew;
         string FormName = "";
-
+        string JV_Type = "";
+        Int64 JV_Ledger_Id = 0;
         #endregion
 
         #region Constructor
@@ -30,11 +31,15 @@ namespace Account_Management.Transaction
             InitializeComponent();
         }
 
-        public void ShowForm(FrmJournalEntry ObjForm)
+        public void ShowForm(FrmJournalEntry ObjForm, string Type, Int64 Ledger_ID, decimal Debit_Amount, decimal Credit_Amount)
         {
             FrmJournalEntry = new FrmJournalEntry();
             FrmJournalEntry = ObjForm;
             FormName = "FrmJournalEntry";
+            JV_Type = Type;
+            lblLedgerID.Text = Ledger_ID.ToString();
+            lblDebitAmount.Text = Debit_Amount.ToString();
+            lblCreditAmount.Text = Credit_Amount.ToString();
             Val.frmGenSetForPopup(this);
             AttachFormEvents();
             //this.Text = "Payment Given";
@@ -56,25 +61,24 @@ namespace Account_Management.Transaction
         {
             try
             {
-                objPaymentGiven = new PaymentGiven();
-                DataTable DTab_Payment_Receipt_Data = objPaymentGiven.PaymentGiven_Search_GetData(Val.ToInt64(lblLedgerID.Text), Val.ToString(""));
+                //objPaymentGiven = new PaymentGiven();
+                //DataTable DTab_Payment_Receipt_Data = objPaymentGiven.PaymentGiven_Search_GetData(Val.ToInt64(lblLedgerID.Text), Val.ToString(""));
 
-                GrdDet.PostEditor();
-                GrdDet.FocusedRowHandle = GrdDet.DataRowCount - 1;
-                GrdDet.FocusedColumn = GrdDet.Columns["method"];
-                RepMethod.AllowFocused = true;
+                //GrdDet.PostEditor();
+                //GrdDet.FocusedRowHandle = GrdDet.DataRowCount - 1;
+                //GrdDet.FocusedColumn = GrdDet.Columns["method"];
+                //RepMethod.AllowFocused = true;
 
                 RepMethod.Items.Add("Adjustment");
-                RepMethod.Items.Add("New Ref.");
 
-                if (DTab_Payment_Receipt_Data.Rows.Count > 0)
-                {
-                    MainGrid.DataSource = DTab_Payment_Receipt_Data;
-                }
-                else
-                {
-                    MainGrid.DataSource = DTab;
-                }
+                //if (DTab_Payment_Receipt_Data.Rows.Count > 0)
+                //{
+                //    MainGrid.DataSource = DTab_Payment_Receipt_Data;
+                //}
+                //else
+                //{
+                MainGrid.DataSource = DTab;
+                //}
             }
             catch (Exception ex)
             {
@@ -168,19 +172,27 @@ namespace Account_Management.Transaction
             if (FormName == "FrmJournalEntry")
             {
                 decimal Payment_Rec_Amount = Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue);
-                if (Payment_Rec_Amount != Val.ToDecimal(lblAmount.Text))
+
+                if (JV_Type == "D")
                 {
-                    Global.Message("Total Amount Not Equal To Payment Given Amount");
-                    return;
+                    if (Payment_Rec_Amount != Val.ToDecimal(lblDebitAmount.Text))
+                    {
+                        Global.Message("Total Amount Not Equal To Payment Given Amount");
+                        return;
+                    }
                 }
-                DialogResult result = MessageBox.Show("Do you want to save data?", "Confirmation", MessageBoxButtons.YesNoCancel);
-                if (result != DialogResult.Yes)
+                else
                 {
-                    return;
+                    if (Payment_Rec_Amount != Val.ToDecimal(lblCreditAmount.Text))
+                    {
+                        Global.Message("Total Amount Not Equal To Payment Given Amount");
+                        return;
+                    }
                 }
+
                 DataTable DTab_Select = (DataTable)MainGrid.DataSource;
                 this.Close();
-                //FrmJournalEntry.GetPaymentGivenData(DTab_Select);
+                FrmJournalEntry.GetPaymentGivenData(DTab_Select);
             }
         }
         #endregion
@@ -219,37 +231,36 @@ namespace Account_Management.Transaction
             {
                 string Method = Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "method"));
 
-                if (GrdDet.FocusedColumn.FieldName.ToUpper() == "PURCHASE_BILL_NO" && Method == "Adjustment")
+                if (GrdDet.FocusedColumn.FieldName.ToUpper() == "ORDER_NO" && Method == "Adjustment")
                 {
-
                     DataTable dt = new DataTable();
                     DataTable DTab_Data = new DataTable();
 
                     DTab_Data = (DataTable)MainGrid.DataSource;
                     DTab_Data.AcceptChanges();
-                    string strPurchaseBillNo = string.Empty;
+                    string strBillNo = string.Empty;
 
                     foreach (DataRow item in DTab_Data.Rows)
                     {
-                        if (Val.ToString(item["purchase_bill_no"]) != "")
+                        if (Val.ToString(item["order_no"]) != "")
                         {
-                            if (strPurchaseBillNo == string.Empty)
+                            if (strBillNo == string.Empty)
                             {
-                                strPurchaseBillNo += Val.ToString(item["purchase_bill_no"]);
+                                strBillNo += Val.ToString(item["order_no"]);
                             }
                             else
                             {
-                                strPurchaseBillNo += "," + Val.ToString(item["purchase_bill_no"]);
+                                strBillNo += "," + Val.ToString(item["order_no"]);
                             }
                         }
                     }
-
                     FrmSearchNew = new Search.FrmSearchNew();
                     FrmSearchNew.SearchText = e.KeyChar.ToString();
-                    dt = objPaymentGiven.Sale_Invoice_Search_GetData(Val.ToInt64(lblLedgerID.Text), strPurchaseBillNo);
+
+                    dt = objPaymentGiven.JV_Search_GetData(Val.ToInt64(lblLedgerID.Text), strBillNo, JV_Type);
 
                     FrmSearchNew.DTab = dt;
-                    FrmSearchNew.SearchField = "purchase_bill_no";
+                    FrmSearchNew.SearchField = "order_no";
 
                     FrmSearchNew.ShowDialog();
                     e.Handled = true;
@@ -257,7 +268,7 @@ namespace Account_Management.Transaction
                     {
                         if (FrmSearchNew.DRow != null)
                         {
-                            GrdDet.SetFocusedRowCellValue("purchase_bill_no", Val.ToString(FrmSearchNew.DRow["purchase_bill_no"]));
+                            GrdDet.SetFocusedRowCellValue("order_no", Val.ToString(FrmSearchNew.DRow["order_no"]));
                             if (Val.ToString(FrmSearchNew.DRow["payment_date"]) != "")
                             {
                                 GrdDet.SetFocusedRowCellValue("payment_date", Val.ToString(FrmSearchNew.DRow["payment_date"]));
@@ -265,10 +276,9 @@ namespace Account_Management.Transaction
                             else
                             {
                             }
-
-
                             GrdDet.SetFocusedRowCellValue("amount", Val.ToString(FrmSearchNew.DRow["os_amount"]));
-                            GrdDet.SetFocusedRowCellValue("purchase_id", Val.ToString(FrmSearchNew.DRow["purchase_id"]));
+                            GrdDet.SetFocusedRowCellValue("id", Val.ToInt32(FrmSearchNew.DRow["id"]));
+                            GrdDet.SetFocusedRowCellValue("type", Val.ToString(FrmSearchNew.DRow["type"]));
                             GrdDet.PostEditor();
                         }
                     }
@@ -285,17 +295,30 @@ namespace Account_Management.Transaction
         }
         private void RepDueDate_KeyDown(object sender, KeyEventArgs e)
         {
+
+        }
+        private void RepDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (Global.Confirm("Are you sure delete selected row?", "Account Management", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            {
+                GrdDet.DeleteRow(GrdDet.GetRowHandle(GrdDet.FocusedRowHandle));
+                DTab.AcceptChanges();
+            }
+        }
+
+        private void RepAmount_KeyDown(object sender, KeyEventArgs e)
+        {
             //GrdDet.CloseEditor();
             if (((e.KeyCode == Keys.Enter && GrdDet.IsLastRow) && Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "method")) != "") || ((e.KeyCode == Keys.Tab && GrdDet.IsLastRow) && Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "method")) != ""))
             {
                 DataRow dtRow = DTab.NewRow();
                 e.Handled = true;
-                GrdDet.SetRowCellValue(GrdDet.DataRowCount - 1, "sr_no", GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "sr_no"));
-                int sr_no = Val.ToInt32(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "sr_no"));
+                //GrdDet.SetRowCellValue(GrdDet.DataRowCount - 1, "sr_no", GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "sr_no"));
+                //int sr_no = Val.ToInt32(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "sr_no"));
 
-                dtRow["sr_no"] = sr_no + 1;
+                //dtRow["sr_no"] = sr_no + 1;
 
-                //decimal Amt = Val.ToDecimal(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "amount"));
+                ////decimal Amt = Val.ToDecimal(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "amount"));
                 DTab.Rows.Add(dtRow);
                 GrdDet.PostEditor();
                 GrdDet.FocusedRowHandle = GrdDet.DataRowCount - 1;
@@ -303,19 +326,20 @@ namespace Account_Management.Transaction
 
                 decimal Total_Amount = Val.ToDecimal(clmRSAmount.SummaryItem.SummaryValue);
 
-                if (Total_Amount == Val.ToDecimal(lblAmount.Text))
+                if (JV_Type == "D")
                 {
-                    BtnSave.Focus();
+                    if (Total_Amount == Val.ToDecimal(lblDebitAmount.Text))
+                    {
+                        BtnSave.Focus();
+                    }
                 }
-            }
-        }
-
-        private void RepDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            if (Global.Confirm("Are you sure delete selected row?", "Account Management", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
-            {
-                GrdDet.DeleteRow(GrdDet.GetRowHandle(GrdDet.FocusedRowHandle));
-                DTab.AcceptChanges();
+                else
+                {
+                    if (Total_Amount == Val.ToDecimal(lblCreditAmount.Text))
+                    {
+                        BtnSave.Focus();
+                    }
+                }
             }
         }
     }

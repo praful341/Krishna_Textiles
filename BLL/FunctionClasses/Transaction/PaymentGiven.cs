@@ -104,6 +104,19 @@ namespace BLL.FunctionClasses.Account
             Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
             return DTab;
         }
+        public DataTable JV_Search_GetData(Int64 Ledger_ID, string BillNo, string Type)
+        {
+            DataTable DTab = new DataTable();
+            Request Request = new Request();
+            Request.CommandText = BLL.TPV.SProc.TRN_JV_GetList_Data;
+            Request.CommandType = CommandType.StoredProcedure;
+            Request.AddParams("@ledger_id", Ledger_ID, DbType.Int64);
+            Request.AddParams("@billno", BillNo, DbType.String);
+            Request.AddParams("@type", Type, DbType.String);
+
+            Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
+            return DTab;
+        }
         public DataTable PaymentGiven_Search_GetData(Int64 Ledger_ID, string Type)
         {
             DataTable DTab = new DataTable();

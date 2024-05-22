@@ -37,6 +37,12 @@ namespace BLL.FunctionClasses.Transaction
                 Request.AddParams("@entry_date", Val.DBDate(BLL.GlobalDec.gStrServerDate), DbType.Date);
                 Request.AddParams("@entry_time", GlobalDec.gStr_SystemTime, DbType.String);
 
+                Request.AddParams("@purchase_id", pClsProperty.purchase_id, DbType.Int64);
+                Request.AddParams("@purchase_return_id", pClsProperty.purchase_return_id, DbType.Int64);
+                Request.AddParams("@invoice_id", pClsProperty.invoice_id, DbType.Int64);
+                Request.AddParams("@sale_return_id", pClsProperty.sale_return_id, DbType.Int64);
+                Request.AddParams("@against_ledger_id", pClsProperty.against_ledger_id, DbType.Int64);
+
                 Request.CommandText = BLL.TPV.SProc.TRN_Journal_Entry_Save;
                 Request.CommandType = CommandType.StoredProcedure;
 

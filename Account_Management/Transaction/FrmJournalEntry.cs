@@ -434,6 +434,9 @@ namespace Account_Management.Transaction
             DtJournalEntry.Columns.Add("debit_amount", typeof(decimal));
             DtJournalEntry.Columns.Add("credit_amount", typeof(decimal));
             DtJournalEntry.Columns.Add("remarks", typeof(string));
+            DtJournalEntry.Columns.Add("id", typeof(Int64));
+            DtJournalEntry.Columns.Add("type", typeof(string));
+
             DtJournalEntry.Rows.Add(0, 1, "", "", 0, 0, 0, "");
             MainGrid.DataSource = DtJournalEntry;
             GrdDet.FocusedColumn = GrdDet.Columns["dc"];
@@ -466,28 +469,53 @@ namespace Account_Management.Transaction
 
                 dtRow["sr_no"] = sr_no + 1;
 
-                if (Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "dc")) == "D")
+                if (Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "dc")) == "D" || Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "dc")) == "C")
                 {
                     DtPaymentGiven = new DataTable();
                     DtPaymentGiven.Columns.Add("sr_no", typeof(int));
                     DtPaymentGiven.Columns.Add("method", typeof(string));
-                    DtPaymentGiven.Columns.Add("purchase_bill_no", typeof(string));
+                    DtPaymentGiven.Columns.Add("order_no", typeof(string));
                     DtPaymentGiven.Columns.Add("amount", typeof(decimal));
-                    DtPaymentGiven.Columns.Add("purchase_id", typeof(Int64));
                     DtPaymentGiven.Columns.Add("payment_date", typeof(string));
                     DtPaymentGiven.Columns.Add("payment_id", typeof(Int64));
-                    DtPaymentGiven.Rows.Add(1, "", "", 0, 0, "");
+                    DtPaymentGiven.Columns.Add("id", typeof(Int32));
+                    DtPaymentGiven.Columns.Add("type", typeof(string));
+                    DtPaymentGiven.Rows.Add(1, "", "", 0, "", 0, 0, "");
 
                     FrmJVSearch FrmJVSearch = new FrmJVSearch();
                     FrmJVSearch.FrmJournalEntry = this;
                     FrmJVSearch.DTab = DtPaymentGiven;
-                    FrmJVSearch.ShowForm(this);
+                    FrmJVSearch.ShowForm(this, Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "dc")), Val.ToInt64(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "ledger_id")), Val.ToDecimal(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "debit_amount")), Val.ToDecimal(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "credit_amount")));
                 }
 
                 DtJournalEntry.Rows.Add(dtRow);
                 GrdDet.PostEditor();
                 GrdDet.FocusedRowHandle = GrdDet.DataRowCount - 1;
                 GrdDet.FocusedColumn = GrdDet.Columns["dc"];
+            }
+        }
+        public void GetPaymentGivenData(DataTable Payment_Given_Data)
+        {
+            try
+            {
+                PaymentGiven_Property paymentGiven_Property = new PaymentGiven_Property();
+
+                if (Val.ToString(Payment_Given_Data.Rows[0]["type"]) == "Sale")
+                {
+                    GrdDet.SetRowCellValue(GrdDet.DataRowCount - 1, "debit_amount", Val.ToInt64(Payment_Given_Data.Rows[0]["amount"]).ToString());
+                    GrdDet.SetRowCellValue(GrdDet.DataRowCount - 1, "id", Val.ToInt64(Payment_Given_Data.Rows[0]["id"]).ToString());
+                    GrdDet.SetRowCellValue(GrdDet.DataRowCount - 1, "type", Val.ToString(Payment_Given_Data.Rows[0]["type"]).ToString());
+                }
+                else if (Val.ToString(Payment_Given_Data.Rows[0]["type"]) == "Purchase")
+                {
+                    GrdDet.SetRowCellValue(GrdDet.DataRowCount - 1, "credit_amount", Val.ToInt64(Payment_Given_Data.Rows[0]["amount"]).ToString());
+                    GrdDet.SetRowCellValue(GrdDet.DataRowCount - 1, "id", Val.ToInt64(Payment_Given_Data.Rows[0]["id"]).ToString());
+                    GrdDet.SetRowCellValue(GrdDet.DataRowCount - 1, "type", Val.ToString(Payment_Given_Data.Rows[0]["type"]).ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Global.Message(ex.ToString());
             }
         }
         private void backgroundWorker_JournalEntry_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
@@ -501,6 +529,7 @@ namespace Account_Management.Transaction
                 JournalEntry objJournalEntry = new JournalEntry();
                 try
                 {
+                    Int64 Against_Ledger_Id = 0;
                     foreach (DataRow drw in DtJournalEntry.Rows)
                     {
                         if (Val.ToInt64(drw["ledger_id"]) != 0)
@@ -513,6 +542,23 @@ namespace Account_Management.Transaction
                             objJournalEntryProperty.department_id = Val.ToInt(GlobalDec.gEmployeeProperty.department_id);
                             objJournalEntryProperty.Journal_date = Val.DBDate(dtpEntryDate.Text);
                             objJournalEntryProperty.form_id = m_numForm_id;
+
+                            if (Val.ToString(drw["type"]) == "Sale")
+                            {
+                                objJournalEntryProperty.invoice_id = Val.ToInt64(drw["id"]);
+                            }
+                            else if (Val.ToString(drw["type"]) == "Purchase")
+                            {
+                                objJournalEntryProperty.purchase_id = Val.ToInt64(drw["id"]);
+                            }
+                            else if (Val.ToString(drw["type"]) == "Sale Ret.")
+                            {
+                                objJournalEntryProperty.sale_return_id = Val.ToInt64(drw["id"]);
+                            }
+                            else if (Val.ToString(drw["type"]) == "Purchase Ret.")
+                            {
+                                objJournalEntryProperty.purchase_return_id = Val.ToInt64(drw["id"]);
+                            }
 
                             if (lblUnionID.Text != "0")
                             {
@@ -529,6 +575,15 @@ namespace Account_Management.Transaction
                             objJournalEntryProperty.debit_amount = Val.ToDecimal(drw["debit_amount"]);
                             objJournalEntryProperty.remarks = Val.ToString(drw["remarks"]);
                             objJournalEntryProperty.flag = Val.ToString(drw["dc"]);
+
+                            if (objJournalEntryProperty.flag == "D")
+                            {
+                                Against_Ledger_Id = Val.ToInt64(drw["ledger_id"]);
+                            }
+                            else if (objJournalEntryProperty.flag == "C")
+                            {
+                                objJournalEntryProperty.against_ledger_id = Against_Ledger_Id;
+                            }
 
                             objJournalEntryProperty = objJournalEntry.Save(objJournalEntryProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
                             Union_ID = objJournalEntryProperty.union_id;
