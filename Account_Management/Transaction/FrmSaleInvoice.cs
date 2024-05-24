@@ -58,6 +58,7 @@ namespace Account_Management.Transaction
         bool m_IsUpdate;
         string Form_Clear = string.Empty;
         DataTable m_dtbParty = new DataTable();
+        DataTable m_dtbPurchaseFirm = new DataTable();
 
         #endregion
 
@@ -690,6 +691,9 @@ namespace Account_Management.Transaction
 
                     m_dtbParty = (((DataTable)lueParty.Properties.DataSource).Copy());
                     m_dtbParty = m_dtbParty.Select("ledger_name='B2B SALE'").CopyToDataTable();
+
+                    m_dtbPurchaseFirm = (((DataTable)luePurchaseFirm.Properties.DataSource).Copy());
+                    m_dtbPurchaseFirm = m_dtbPurchaseFirm.Select("firm_name='SAURASHTRA SAREES'").CopyToDataTable();
                 }
                 else if (GlobalDec.gEmployeeProperty.role_name == "B2C")
                 {
@@ -1462,7 +1466,15 @@ namespace Account_Management.Transaction
                     }
                     objSaleProperty.employee_id = Val.ToInt64(LueEmployee.EditValue);
                     objSaleProperty.total_pcs = Val.ToDecimal(clmPcs.SummaryItem.SummaryValue);
-                    objSaleProperty.firm_id = Val.ToInt64(luePurchaseFirm.EditValue);
+
+                    if (GlobalDec.gEmployeeProperty.role_name == "B2B")
+                    {
+                        objSaleProperty.firm_id = Val.ToInt64(m_dtbPurchaseFirm.Rows[0]["firm_id"]);
+                    }
+                    else
+                    {
+                        objSaleProperty.firm_id = Val.ToInt64(luePurchaseFirm.EditValue);
+                    }
 
                     objSaleProperty.gross_amount = Math.Round(Val.ToDecimal(clmRSSaleAmount.SummaryItem.SummaryValue), 3);
 

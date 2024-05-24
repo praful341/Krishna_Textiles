@@ -256,6 +256,12 @@
 
         #endregion Journal Entry
 
+        #region Stock Journal Entry
+
+        public static string TRN_Stock_Journal_Save = "TRN_Stock_Journal_Save";
+
+        #endregion Journal Entry        
+
         #endregion
 
         #region "Reports"

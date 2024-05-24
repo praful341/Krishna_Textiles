@@ -1437,7 +1437,6 @@ namespace Account_Management.Transaction
                         objJangedEntryProperty.pcs = Val.ToDecimal(drw["pcs"]);
                         objJangedEntryProperty.rate = Val.ToDecimal(drw["rate"]);
                         objJangedEntryProperty.amount = Val.ToDecimal(drw["amount"]);
-
                         objJangedEntryProperty.old_pcs = Val.ToDecimal(drw["old_pcs"]);
                         objJangedEntryProperty.flag = Val.ToInt(drw["flag"]);
 
