@@ -79,16 +79,11 @@ namespace Account_Management.Transaction
                 RepMethod.Items.Add("Adjustment");
                 RepMethod.Items.Add("New Ref.");
 
-                //GrdDet.FocusedRowHandle = GrdDet.DataRowCount - 1;
                 GrdDet.PostEditor();
                 GrdDet.FocusedRowHandle = 1;
                 GrdDet.FocusedColumn = GrdDet.Columns["method"];
                 GrdDet.ShowEditor();
-
-                //GrdDet.PostEditor();
-                //GrdDet.FocusedColumn = GrdDet.Columns["method"];
-                //GrdDet.ShowEditor();
-                //RepMethod.AllowFocused = true;
+                SendKeys.Send("{TAB}");
             }
             catch (Exception ex)
             {

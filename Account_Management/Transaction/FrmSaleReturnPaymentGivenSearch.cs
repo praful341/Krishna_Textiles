@@ -80,25 +80,24 @@ namespace Account_Management.Transaction
                 RepMethod.Items.Add("Adjustment");
                 RepMethod.Items.Add("New Ref.");
 
-                //if (DTab_Payment_Receipt_Data.Rows.Count > 0)
-                //{
-                DataTable DtPaymentGiven = new DataTable();
-                DtPaymentGiven = new DataTable();
-                DtPaymentGiven.Columns.Add("sr_no", typeof(int));
-                DtPaymentGiven.Columns.Add("method", typeof(string));
-                DtPaymentGiven.Columns.Add("order_no", typeof(string));
-                DtPaymentGiven.Columns.Add("amount", typeof(decimal));
-                DtPaymentGiven.Columns.Add("invoice_id", typeof(Int64));
-                DtPaymentGiven.Columns.Add("payment_date", typeof(string));
-                DtPaymentGiven.Columns.Add("payment_id", typeof(Int64));
-                DtPaymentGiven.Rows.Add(1, "", "", 0, 0, "");
+                //DataTable DtPaymentGiven = new DataTable();
+                DTab = new DataTable();
+                DTab.Columns.Add("sr_no", typeof(int));
+                DTab.Columns.Add("method", typeof(string));
+                DTab.Columns.Add("order_no", typeof(string));
+                DTab.Columns.Add("amount", typeof(decimal));
+                DTab.Columns.Add("invoice_id", typeof(Int64));
+                DTab.Columns.Add("payment_date", typeof(string));
+                DTab.Columns.Add("payment_id", typeof(Int64));
+                DTab.Rows.Add(1, "", "", 0, 0, "");
 
-                MainGrid.DataSource = DtPaymentGiven;
-                //}
-                //else
-                //{
-                //    MainGrid.DataSource = DTab;
-                //}
+                MainGrid.DataSource = DTab;
+
+                GrdDet.PostEditor();
+                GrdDet.FocusedRowHandle = 1;
+                GrdDet.FocusedColumn = GrdDet.Columns["method"];
+                GrdDet.ShowEditor();
+                SendKeys.Send("{TAB}");
             }
             catch (Exception ex)
             {

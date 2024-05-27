@@ -78,6 +78,12 @@ namespace Account_Management.Transaction
                 {
                     MainGrid.DataSource = DTab;
                 }
+
+                GrdDet.PostEditor();
+                GrdDet.FocusedRowHandle = 1;
+                GrdDet.FocusedColumn = GrdDet.Columns["method"];
+                GrdDet.ShowEditor();
+                SendKeys.Send("{TAB}");
             }
             catch (Exception ex)
             {
