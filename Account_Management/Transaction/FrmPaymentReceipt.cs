@@ -648,7 +648,6 @@ namespace Account_Management.Transaction
                 Global.Message(ex.ToString());
             }
         }
-
         private void FrmPaymentReceipt_Load(object sender, EventArgs e)
         {
             Global.LOOKUPCashBankLedger(LueCashBank);
@@ -669,7 +668,6 @@ namespace Account_Management.Transaction
             }
             Form_Clear = "";
         }
-
         private void FrmPaymentReceipt_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F1)
