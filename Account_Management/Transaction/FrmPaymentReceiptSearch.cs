@@ -304,9 +304,16 @@ namespace Account_Management.Transaction
                         {
                             GrdDet.SetFocusedRowCellValue("ref_order_no", Val.ToString(FrmSearchNew.DRow["order_no"]));
                             GrdDet.SetFocusedRowCellValue("due_date", Val.ToString(FrmSearchNew.DRow["due_date"]));
+                            GrdDet.SetFocusedRowCellValue("amount", Val.ToDecimal(0));
+
+                            DataTable DTab = (DataTable)MainGrid.DataSource;
+                            object sumObject;
+                            sumObject = DTab.Compute("Sum(amount)", string.Empty);
+                            decimal Total_Amt = Val.ToDecimal(sumObject);
+
                             if (Val.ToDecimal(lblAmount.Text) < Val.ToDecimal(FrmSearchNew.DRow["os_amount"]))
                             {
-                                GrdDet.SetFocusedRowCellValue("amount", Val.ToDecimal(lblAmount.Text));
+                                GrdDet.SetFocusedRowCellValue("amount", Val.ToDecimal(lblAmount.Text) - Total_Amt);
                             }
                             else
                             {
