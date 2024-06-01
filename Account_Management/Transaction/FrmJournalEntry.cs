@@ -460,7 +460,7 @@ namespace Account_Management.Transaction
         }
         private void RepRemarks_KeyDown(object sender, KeyEventArgs e)
         {
-            if ((e.KeyCode == Keys.Enter && GrdDet.IsLastRow) && Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "dc")) != "" && Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "ledger_id")) != "")
+            if ((e.KeyCode == Keys.Enter) && Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "dc")) != "" && Val.ToString(GrdDet.GetRowCellValue(GrdDet.FocusedRowHandle, "ledger_id")) != "")
             {
                 DataRow dtRow = DtJournalEntry.NewRow();
                 e.Handled = true;
