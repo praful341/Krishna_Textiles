@@ -1250,7 +1250,7 @@ namespace Account_Management.Transaction
             DateTime datToDate = DateTime.MinValue;
             try
             {
-                m_dtbDetails = objSaleInvoice.GetData(Val.DBDate(dtpFromDate.Text), Val.DBDate(dtpToDate.Text), Val.ToInt64(txtSearchOrderNo.Text), Val.ToInt32(lueJangedLedger.EditValue));
+                m_dtbDetails = objSaleInvoice.GetData(Val.DBDate(dtpFromDate.Text), Val.DBDate(dtpToDate.Text), Val.ToInt64(txtSearchOrderNo.Text), Val.ToInt32(lueJangedLedger.EditValue), Val.ToString(GlobalDec.gEmployeeProperty.role_name));
 
                 grdSaleEntry.DataSource = m_dtbDetails;
                 dgvSaleEntry.BestFitColumns();

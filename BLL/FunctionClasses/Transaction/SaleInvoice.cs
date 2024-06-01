@@ -176,7 +176,7 @@ namespace BLL.FunctionClasses.Transaction
                 throw ex;
             }
         }
-        public DataTable GetData(string p_dtpFromDate, string p_dtpToDate, Int64 order_no, int Ledger_ID)
+        public DataTable GetData(string p_dtpFromDate, string p_dtpToDate, Int64 order_no, int Ledger_ID, string Role_Name)
         {
             DataTable DTab = new DataTable();
             Request Request = new Request();
@@ -190,6 +190,7 @@ namespace BLL.FunctionClasses.Transaction
             Request.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int32);
             Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int32);
             Request.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int32);
+            Request.AddParams("@role_name", Role_Name, DbType.String);
 
             Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
             return DTab;
