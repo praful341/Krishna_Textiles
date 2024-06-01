@@ -71,6 +71,9 @@ namespace Account_Management.Transaction
                 }
                 else
                 {
+
+                }
+                {
                     MainGrid.DataSource = DTab;
                     //GrdDet.FocusedColumn = GrdDet.Columns["method"];
                     //GrdDet.ShowEditor();
@@ -386,6 +389,36 @@ namespace Account_Management.Transaction
                 GrdDet.DeleteRow(GrdDet.GetRowHandle(GrdDet.FocusedRowHandle));
                 DTab.AcceptChanges();
             }
+
+            //if (Global.Confirm("Are you sure delete selected row?", "Textile Project", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            //{
+            //    PaymentReceipt_Property PaymentReceiptProperty = new PaymentReceipt_Property();
+            //    PaymentReceipt objPaymentReceipt = new PaymentReceipt();
+            //    Int64 IntRes = 0;
+            //    PaymentReceiptProperty.payment_id = Val.ToInt64(GrdDet.GetFocusedRowCellValue("payment_id").ToString());
+
+            //    if (PaymentReceiptProperty.payment_id == 0)
+            //    {
+            //        GrdDet.DeleteRow(GrdDet.GetRowHandle(GrdDet.FocusedRowHandle));
+            //        DTab.AcceptChanges();
+            //    }
+            //    else
+            //    {
+            //        IntRes = objPaymentReceipt.PaymentReceipt_Delete_Data(PaymentReceiptProperty);
+            //        GrdDet.DeleteRow(GrdDet.GetRowHandle(GrdDet.FocusedRowHandle));
+            //    }
+
+            //    if (IntRes == -1)
+            //    {
+            //        Global.Confirm("Error in Payment Receipt Deleted Data.");
+            //        PaymentReceiptProperty = null;
+            //    }
+            //    else
+            //    {
+            //        Global.Confirm("Payment Receipt Deleted successfully...");
+            //        PaymentReceiptProperty = null;
+            //    }
+            //}
         }
     }
 }

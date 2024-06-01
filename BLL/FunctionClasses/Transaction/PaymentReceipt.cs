@@ -144,7 +144,64 @@ namespace BLL.FunctionClasses.Account
                     IntRes = Conn.Inter1.ExecuteNonQuery(DBConnections.ConnectionString, DBConnections.ProviderName, Request, pEnum);
                 else
                     IntRes = Ope.ExecuteNonQuery(DBConnections.ConnectionString, DBConnections.ProviderName, Request);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return IntRes;
+        }
+        public Int64 Ref_PaymentReceipt_Delete(PaymentReceipt_Property pClsProperty, DLL.GlobalDec.EnumTran pEnum = DLL.GlobalDec.EnumTran.WithCommit, BeginTranConnection Conn = null)
+        {
+            Int64 IntRes = 0;
+            try
+            {
+                Request Request = new Request();
 
+                Request.AddParams("@voucher_no", pClsProperty.voucher_no, DbType.Int64);
+                Request.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int64);
+                Request.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int64);
+                Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int64);
+                Request.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int64);
+
+                Request.CommandText = BLL.TPV.SProc.TRN_Referance_Payment_Delete;
+                Request.CommandType = CommandType.StoredProcedure;
+                DataTable p_dtbUnionId = new DataTable();
+
+                if (Conn != null)
+                    IntRes = Conn.Inter1.ExecuteNonQuery(DBConnections.ConnectionString, DBConnections.ProviderName, Request, pEnum);
+                else
+                    IntRes = Ope.ExecuteNonQuery(DBConnections.ConnectionString, DBConnections.ProviderName, Request);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return IntRes;
+        }
+        public Int64 Ref_PaymentReceipt_UpdateData(PaymentReceipt_Property pClsProperty, DLL.GlobalDec.EnumTran pEnum = DLL.GlobalDec.EnumTran.WithCommit, BeginTranConnection Conn = null)
+        {
+            Int64 IntRes = 0;
+            try
+            {
+                Request Request = new Request();
+
+                Request.AddParams("@voucher_no", pClsProperty.voucher_no, DbType.Int64);
+                Request.AddParams("@against_ledger_id", pClsProperty.against_ledger_id, DbType.Int64);
+                Request.AddParams("@ledger_id", pClsProperty.ledger_id, DbType.Int64);
+                Request.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int64);
+                Request.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int64);
+                Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int64);
+                Request.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int64);
+
+                Request.CommandText = BLL.TPV.SProc.TRN_Referance_Payment_UpdateData;
+                Request.CommandType = CommandType.StoredProcedure;
+                DataTable p_dtbUnionId = new DataTable();
+
+                if (Conn != null)
+                    IntRes = Conn.Inter1.ExecuteNonQuery(DBConnections.ConnectionString, DBConnections.ProviderName, Request, pEnum);
+                else
+                    IntRes = Ope.ExecuteNonQuery(DBConnections.ConnectionString, DBConnections.ProviderName, Request);
             }
             catch (Exception ex)
             {
@@ -167,6 +224,33 @@ namespace BLL.FunctionClasses.Account
             Ope.GetDataSet(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, "", Request);
             return DTab;
         }
+
+        public Int64 PaymentReceipt_Delete_Data(PaymentReceipt_Property pClsProperty)
+        {
+            Int64 IntRes = 0;
+            try
+            {
+                Request Request = new Request();
+
+                Request.AddParams("@payment_id", pClsProperty.payment_id, DbType.Int64);
+                Request.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int64);
+                Request.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int64);
+                Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int64);
+                Request.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int64);
+
+                Request.CommandText = BLL.TPV.SProc.TRN_Payment_Receipt_Data_Delete;
+                Request.CommandType = CommandType.StoredProcedure;
+                DataTable p_dtbUnionId = new DataTable();
+
+                IntRes = Ope.ExecuteNonQuery(DBConnections.ConnectionString, DBConnections.ProviderName, Request);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return IntRes;
+        }
+
         #endregion
     }
 }

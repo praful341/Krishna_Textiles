@@ -91,6 +91,9 @@ namespace Account_Management.Transaction
             _tabControls = _tabControls.OrderBy(x => x.TabIndex).ToList();
 
             Form_Clear = "Account Ledger";
+            BtnSave.Visible = true;
+            BtnDelete.Visible = true;
+            txtAmount.Enabled = false;
 
             DataSet DTab = objPaymentReceipt.Account_Ledger_GetData(Union_ID);
 
@@ -134,6 +137,9 @@ namespace Account_Management.Transaction
             LueCashBank.EditValue = null;
             txtRemark.Text = "";
             txtAmount.Text = "";
+            BtnSave.Visible = false;
+            BtnDelete.Visible = false;
+            txtAmount.Enabled = true;
             CmbTransactionType.SelectedIndex = 0;
             DTPEntryDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
             DTPEntryDate.Properties.Mask.EditMask = "dd-MM-yyyy";
@@ -675,6 +681,88 @@ namespace Account_Management.Transaction
                 FrmLedgerMaster frmCnt = new FrmLedgerMaster();
                 frmCnt.ShowDialog();
                 Global.LOOKUPLedger(LueLedger);
+            }
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show("Do you want to Delete Payment Receipt data?", "Confirmation", MessageBoxButtons.YesNoCancel);
+                if (result != DialogResult.Yes)
+                {
+                    return;
+                }
+
+                Conn = new BeginTranConnection(true, false);
+                IntRes = 0;
+                PaymentReceipt_Property PaymentReceiptProperty = new PaymentReceipt_Property();
+
+                DataTable Payment_Receipt_Data = (DataTable)MainGrid.DataSource;
+
+                PaymentReceiptProperty.voucher_no = Val.ToInt64(txtVoucherNo.Text);
+                IntRes = objPaymentReceipt.Ref_PaymentReceipt_Delete(PaymentReceiptProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
+
+                Conn.Inter1.Commit();
+                if (IntRes == -1)
+                {
+                    Global.Confirm("Error In Payment Receipt Delete Data");
+                    DTPEntryDate.Focus();
+                }
+                else
+                {
+                    Global.Confirm("Data Deleted Successfully");
+                    MainGrid.DataSource = null;
+                    MainGrid.Visible = false;
+                    BtnUpdate.Visible = false;
+                    btnClear_Click(null, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                Global.Message(ex.ToString());
+            }
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show("Do you want to Update Payment Receipt data?", "Confirmation", MessageBoxButtons.YesNoCancel);
+                if (result != DialogResult.Yes)
+                {
+                    return;
+                }
+
+                Conn = new BeginTranConnection(true, false);
+                IntRes = 0;
+                PaymentReceipt_Property PaymentReceiptProperty = new PaymentReceipt_Property();
+
+                DataTable Payment_Receipt_Data = (DataTable)MainGrid.DataSource;
+
+                PaymentReceiptProperty.voucher_no = Val.ToInt64(txtVoucherNo.Text);
+                PaymentReceiptProperty.against_ledger_id = Val.ToInt64(LueCashBank.EditValue);
+                PaymentReceiptProperty.ledger_id = Val.ToInt64(LueLedger.EditValue);
+
+                IntRes = objPaymentReceipt.Ref_PaymentReceipt_UpdateData(PaymentReceiptProperty, DLL.GlobalDec.EnumTran.Continue, Conn);
+                Conn.Inter1.Commit();
+                if (IntRes == -1)
+                {
+                    Global.Confirm("Error In Payment Receipt Update Data");
+                    DTPEntryDate.Focus();
+                }
+                else
+                {
+                    Global.Confirm("Data Updated Successfully");
+                    MainGrid.DataSource = null;
+                    MainGrid.Visible = false;
+                    BtnUpdate.Visible = false;
+                    btnClear_Click(null, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                Global.Message(ex.ToString());
             }
         }
     }

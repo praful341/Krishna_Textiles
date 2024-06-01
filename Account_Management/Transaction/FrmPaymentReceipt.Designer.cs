@@ -79,6 +79,8 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.backgroundWorker_PaymentReceipt = new System.ComponentModel.BackgroundWorker();
+            this.BtnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.BtnDelete = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.PnlSaerchData)).BeginInit();
             this.PnlSaerchData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LueCashBank.Properties)).BeginInit();
@@ -431,6 +433,8 @@
             // 
             // panelControl6
             // 
+            this.panelControl6.Controls.Add(this.BtnDelete);
+            this.panelControl6.Controls.Add(this.BtnSave);
             this.panelControl6.Controls.Add(this.btnExit);
             this.panelControl6.Controls.Add(this.btnClear);
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -760,6 +764,34 @@
             this.panelControl1.Size = new System.Drawing.Size(852, 19);
             this.panelControl1.TabIndex = 13;
             // 
+            // BtnSave
+            // 
+            this.BtnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnSave.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSave.Appearance.Options.UseFont = true;
+            this.BtnSave.ImageOptions.Image = global::Account_Management.Properties.Resources.Save;
+            this.BtnSave.Location = new System.Drawing.Point(235, 5);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(102, 32);
+            this.BtnSave.TabIndex = 2;
+            this.BtnSave.Text = "&Save";
+            this.BtnSave.Visible = false;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            // 
+            // BtnDelete
+            // 
+            this.BtnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnDelete.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDelete.Appearance.Options.UseFont = true;
+            this.BtnDelete.ImageOptions.Image = global::Account_Management.Properties.Resources.Close;
+            this.BtnDelete.Location = new System.Drawing.Point(343, 5);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(102, 32);
+            this.BtnDelete.TabIndex = 3;
+            this.BtnDelete.Text = "&Delete";
+            this.BtnDelete.Visible = false;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
             // FrmPaymentReceipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -860,5 +892,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit RepOrderNo;
         private DevExpress.XtraEditors.LookUpEdit LueCashBank;
+        private DevExpress.XtraEditors.SimpleButton BtnDelete;
+        private DevExpress.XtraEditors.SimpleButton BtnSave;
     }
 }

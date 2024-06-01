@@ -61,24 +61,15 @@ namespace Account_Management.Transaction
         {
             try
             {
-                //objPaymentGiven = new PaymentGiven();
-                //DataTable DTab_Payment_Receipt_Data = objPaymentGiven.PaymentGiven_Search_GetData(Val.ToInt64(lblLedgerID.Text), Val.ToString(""));
-
-                //GrdDet.PostEditor();
-                //GrdDet.FocusedRowHandle = GrdDet.DataRowCount - 1;
-                //GrdDet.FocusedColumn = GrdDet.Columns["method"];
-                //RepMethod.AllowFocused = true;
-
                 RepMethod.Items.Add("Adjustment");
 
-                //if (DTab_Payment_Receipt_Data.Rows.Count > 0)
-                //{
-                //    MainGrid.DataSource = DTab_Payment_Receipt_Data;
-                //}
-                //else
-                //{
                 MainGrid.DataSource = DTab;
-                //}
+
+                GrdDet.PostEditor();
+                GrdDet.FocusedRowHandle = 1;
+                GrdDet.FocusedColumn = GrdDet.Columns["method"];
+                GrdDet.ShowEditor();
+                SendKeys.Send("{TAB}");
             }
             catch (Exception ex)
             {

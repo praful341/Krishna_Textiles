@@ -230,6 +230,9 @@
         public static string TRN_Referance_Payment_SearchData = "TRN_Referance_Payment_SearchData";
         public static string TRN_Referance_Payment_Update = "TRN_Referance_Payment_Update";
         public static string TRN_Payment_GivenFillData = "TRN_Payment_GivenFillData";
+        public static string TRN_Referance_Payment_Delete = "TRN_Referance_Payment_Delete";
+        public static string TRN_Referance_Payment_UpdateData = "TRN_Referance_Payment_UpdateData";
+        public static string TRN_Payment_Receipt_Data_Delete = "TRN_Payment_Receipt_Data_Delete";
 
         #endregion Payment Receipt Entry
 
