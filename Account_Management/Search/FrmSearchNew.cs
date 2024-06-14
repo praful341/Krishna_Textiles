@@ -46,37 +46,40 @@ namespace Account_Management.Search
                 MainGrid.DataSource = DTab;
                 MainGrid.Refresh();
 
-                if (DTab.Columns[2].ToString().Contains("order_no"))
+                if (DTab.Columns.Count > 2)
                 {
-                    GrdDet.Columns["order_no"].Caption = "Order No";
-                }
-                if (DTab.Columns[0].ToString().Contains("invoice_id"))
-                {
-                    GrdDet.Columns["invoice_id"].Caption = "Invoice ID";
-                }
-                if (DTab.Columns[1].ToString().Contains("os_amount"))
-                {
-                    GrdDet.Columns["os_amount"].Caption = "OS Amount";
-                }
-                if (DTab.Columns[3].ToString().Contains("details"))
-                {
-                    GrdDet.Columns["details"].Caption = "Details";
-                }
-                if (DTab.Columns[4].ToString().Contains("due_date"))
-                {
-                    GrdDet.Columns["due_date"].Caption = "Due Date";
-                }
-                if (DTab.Columns[0].ToString().Contains("purchase_id"))
-                {
-                    GrdDet.Columns["purchase_id"].Caption = "Purchase ID";
-                }
-                if (DTab.Columns[2].ToString().Contains("purchase_bill_no"))
-                {
-                    GrdDet.Columns["purchase_bill_no"].Caption = "Purchase Bill No";
-                }
-                if (DTab.Columns[4].ToString().Contains("payment_date"))
-                {
-                    GrdDet.Columns["payment_date"].Caption = "Payment Date";
+                    if (DTab.Columns[2].ToString().Contains("order_no"))
+                    {
+                        GrdDet.Columns["order_no"].Caption = "Order No";
+                    }
+                    if (DTab.Columns[0].ToString().Contains("invoice_id"))
+                    {
+                        GrdDet.Columns["invoice_id"].Caption = "Invoice ID";
+                    }
+                    if (DTab.Columns[1].ToString().Contains("os_amount"))
+                    {
+                        GrdDet.Columns["os_amount"].Caption = "OS Amount";
+                    }
+                    if (DTab.Columns[3].ToString().Contains("details"))
+                    {
+                        GrdDet.Columns["details"].Caption = "Details";
+                    }
+                    if (DTab.Columns[4].ToString().Contains("due_date"))
+                    {
+                        GrdDet.Columns["due_date"].Caption = "Due Date";
+                    }
+                    if (DTab.Columns[0].ToString().Contains("purchase_id"))
+                    {
+                        GrdDet.Columns["purchase_id"].Caption = "Purchase ID";
+                    }
+                    if (DTab.Columns[2].ToString().Contains("purchase_bill_no"))
+                    {
+                        GrdDet.Columns["purchase_bill_no"].Caption = "Purchase Bill No";
+                    }
+                    if (DTab.Columns[4].ToString().Contains("payment_date"))
+                    {
+                        GrdDet.Columns["payment_date"].Caption = "Payment Date";
+                    }
                 }
 
                 foreach (DevExpress.XtraGrid.Columns.GridColumn Col in GrdDet.Columns)

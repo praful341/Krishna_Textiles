@@ -43,6 +43,7 @@ namespace Account_Management.Transaction
         DataTable m_dtbSaleDetails = new DataTable();
         DataTable m_dtbDetails = new DataTable();
         DataSet m_dtbVoucher_JangedDetail = new DataSet();
+        DataTable m_dtbBarcode;
 
         int m_invoice_detail_id;
         int m_srno;
@@ -2158,7 +2159,6 @@ namespace Account_Management.Transaction
             {
             }
         }
-
         private void LueSaleType_EditValueChanged(object sender, EventArgs e)
         {
             try
@@ -2182,12 +2182,64 @@ namespace Account_Management.Transaction
                 return;
             }
         }
-
         private void txtMobile_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
                 e.Handled = true;
+            }
+        }
+        private void txtBarcode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBarcode_Validated(object sender, EventArgs e)
+        {
+            try
+            {
+                m_dtbBarcode = new DataTable();
+                m_dtbBarcode.AcceptChanges();
+
+                if (txtbarcode.Text.Length == 0)
+                {
+                    return;
+                }
+                SaleInvoice objSaleInvoice = new SaleInvoice();
+
+                m_dtbBarcode = objSaleInvoice.Sale_Invocie_Barcode_GetData(Val.ToInt64(txtbarcode.Text));
+
+                if (m_dtbBarcode.Rows.Count > 0)
+                {
+                    lueItem.EditValue = Val.ToInt64(m_dtbBarcode.Rows[0]["item_id"]);
+                    LueColor.EditValue = Val.ToInt64(m_dtbBarcode.Rows[0]["color_id"]);
+                    LueSize.EditValue = Val.ToInt64(m_dtbBarcode.Rows[0]["size_id"]);
+                    txtPcs.Text = Val.ToString(m_dtbBarcode.Rows[0]["balance_pcs"]);
+                    LueUnit.EditValue = Val.ToInt64(m_dtbBarcode.Rows[0]["unit_id"]);
+                    txtbarcode.Text = "";
+                    txtPcs.Focus();
+                }
+                else
+                {
+                    Global.Message("Barcode Not Found In Stock");
+                    txtbarcode.Text = "";
+                    lueItem.EditValue = System.DBNull.Value;
+                    LueColor.EditValue = System.DBNull.Value;
+                    LueSize.EditValue = System.DBNull.Value;
+                    LueUnit.EditValue = System.DBNull.Value;
+                    txtPcs.Text = string.Empty;
+                    txtbarcode.Focus();
+                    return;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                BLL.General.ShowErrors(ex);
+                return;
             }
         }
     }

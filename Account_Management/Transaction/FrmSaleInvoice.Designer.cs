@@ -117,6 +117,7 @@
             this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmMobileNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmSaleType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.lueJangedLedger = new DevExpress.XtraEditors.LookUpEdit();
             this.label33 = new System.Windows.Forms.Label();
@@ -262,7 +263,8 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.backgroundWorker_SaleInvoice = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker_SaleInvoiceDelete = new System.ComponentModel.BackgroundWorker();
-            this.clmSaleType = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtbarcode = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).BeginInit();
@@ -335,6 +337,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.LueSaleType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtbarcode.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl3
@@ -1372,6 +1375,14 @@
             this.clmMobileNo.Visible = true;
             this.clmMobileNo.VisibleIndex = 11;
             // 
+            // clmSaleType
+            // 
+            this.clmSaleType.Caption = "Sale Type";
+            this.clmSaleType.FieldName = "sale_type";
+            this.clmSaleType.Name = "clmSaleType";
+            this.clmSaleType.Visible = true;
+            this.clmSaleType.VisibleIndex = 1;
+            // 
             // panelControl2
             // 
             this.panelControl2.Controls.Add(this.lueJangedLedger);
@@ -2340,6 +2351,8 @@
             // 
             // panelControl4
             // 
+            this.panelControl4.Controls.Add(this.txtbarcode);
+            this.panelControl4.Controls.Add(this.labelControl1);
             this.panelControl4.Controls.Add(this.txtMobile);
             this.panelControl4.Controls.Add(this.labelControl12);
             this.panelControl4.Controls.Add(this.luePurchaseFirm);
@@ -3331,13 +3344,30 @@
             this.backgroundWorker_SaleInvoiceDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_SaleInvoiceDelete_DoWork);
             this.backgroundWorker_SaleInvoiceDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_SaleInvoiceDelete_RunWorkerCompleted);
             // 
-            // clmSaleType
+            // txtbarcode
             // 
-            this.clmSaleType.Caption = "Sale Type";
-            this.clmSaleType.FieldName = "sale_type";
-            this.clmSaleType.Name = "clmSaleType";
-            this.clmSaleType.Visible = true;
-            this.clmSaleType.VisibleIndex = 1;
+            this.txtbarcode.EnterMoveNextControl = true;
+            this.txtbarcode.Location = new System.Drawing.Point(73, 72);
+            this.txtbarcode.Name = "txtbarcode";
+            this.txtbarcode.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbarcode.Properties.Appearance.Options.UseFont = true;
+            this.txtbarcode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtbarcode.Size = new System.Drawing.Size(118, 20);
+            this.txtbarcode.TabIndex = 532;
+            this.txtbarcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBarcode_KeyPress);
+            this.txtbarcode.Validated += new System.EventHandler(this.txtBarcode_Validated);
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Appearance.Options.UseForeColor = true;
+            this.labelControl1.Location = new System.Drawing.Point(7, 75);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(60, 16);
+            this.labelControl1.TabIndex = 533;
+            this.labelControl1.Text = "Barcode";
             // 
             // FrmSaleInvoice
             // 
@@ -3431,6 +3461,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.LueSaleType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtbarcode.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3670,5 +3701,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl12;
         private DevExpress.XtraGrid.Columns.GridColumn clmMobileNo;
         private DevExpress.XtraGrid.Columns.GridColumn clmSaleType;
+        private DevExpress.XtraEditors.TextEdit txtbarcode;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

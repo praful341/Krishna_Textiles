@@ -263,7 +263,13 @@
 
         public static string TRN_Stock_Journal_Save = "TRN_Stock_Journal_Save";
 
-        #endregion Journal Entry        
+        #endregion Journal Entry    
+
+        #region Barcode Stock Data
+
+        public static string TRN_Barcode_Stock_GetData = "TRN_Barcode_Stock_GetData";
+
+        #endregion Barcode Stock Data        
 
         #endregion
 
