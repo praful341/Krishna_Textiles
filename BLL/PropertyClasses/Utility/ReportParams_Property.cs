@@ -8,6 +8,7 @@ namespace BLL.PropertyClasses.Report
         public string branch_id { get; set; }
         public string location_id { get; set; }
         public string department_id { get; set; }
+        public string employee_id { get; set; }
         public string cut_id { get; set; }
         public string kapan_id { get; set; }
         public bool IsCurrent { get; set; }

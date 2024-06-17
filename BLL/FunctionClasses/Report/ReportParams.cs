@@ -26,6 +26,25 @@ namespace BLL.FunctionClasses.Report
             Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
             return DTab;
         }
+
+        public DataTable GetEmployeeWise_Report(ReportParams_Property ReportParams_Property, string pStrSPName)
+        {
+            DataTable DTab = new DataTable();
+            Request Request = new Request();
+            Request.CommandText = pStrSPName;
+            Request.AddParams("@Group_By", ReportParams_Property.Group_By_Tag, DbType.String);
+            Request.AddParams("@company_id", ReportParams_Property.company_id, DbType.String);
+            Request.AddParams("@branch_id", ReportParams_Property.branch_id, DbType.String);
+            Request.AddParams("@location_id", ReportParams_Property.location_id, DbType.String);
+            Request.AddParams("@employee_id", ReportParams_Property.employee_id, DbType.String);
+            Request.AddParams("@department_id", ReportParams_Property.department_id, DbType.String);
+            Request.AddParams("@datFromDate", ReportParams_Property.From_Date, DbType.Date);
+            Request.AddParams("@datToDate", ReportParams_Property.To_Date, DbType.Date);
+
+            Request.CommandType = CommandType.StoredProcedure;
+            Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
+            return DTab;
+        }
         public DataTable Get_Transaction_View_Report(ReportParams_Property pClsProperty, string pStrSPName)
         {
             DataTable DTab = new DataTable();

@@ -653,11 +653,6 @@ namespace Account_Management.Transaction
                 Global.LOOKUPFirm(luePurchaseFirm);
                 Global.LOOKUPCashBankWithoutLedger(lueJangedLedger);
 
-
-
-
-
-
                 dtpFromDate.Properties.Mask.Culture = new System.Globalization.CultureInfo("en-US");
                 dtpFromDate.Properties.Mask.EditMask = "dd-MM-yyyy";
                 dtpFromDate.Properties.Mask.UseMaskAsDisplayFormat = true;
