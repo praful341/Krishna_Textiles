@@ -260,6 +260,8 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.backgroundWorker_SaleReturn = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker_SaleReturnDelete = new System.ComponentModel.BackgroundWorker();
+            this.txtbarcode = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).BeginInit();
@@ -332,6 +334,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CmbSaleType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtbarcode.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl3
@@ -2329,6 +2332,8 @@
             // 
             // panelControl4
             // 
+            this.panelControl4.Controls.Add(this.txtbarcode);
+            this.panelControl4.Controls.Add(this.labelControl12);
             this.panelControl4.Controls.Add(this.luePurchaseFirm);
             this.panelControl4.Controls.Add(this.label20);
             this.panelControl4.Controls.Add(this.lueInvoiceNo);
@@ -2442,7 +2447,7 @@
             this.btnAdd.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Appearance.Options.UseFont = true;
             this.btnAdd.ImageOptions.Image = global::Account_Management.Properties.Resources.Add_final;
-            this.btnAdd.Location = new System.Drawing.Point(953, 37);
+            this.btnAdd.Location = new System.Drawing.Point(953, 56);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(92, 32);
             this.btnAdd.TabIndex = 12;
@@ -2640,7 +2645,7 @@
             // LueUnit
             // 
             this.LueUnit.EnterMoveNextControl = true;
-            this.LueUnit.Location = new System.Drawing.Point(513, 44);
+            this.LueUnit.Location = new System.Drawing.Point(513, 63);
             this.LueUnit.Name = "LueUnit";
             this.LueUnit.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LueUnit.Properties.Appearance.Options.UseFont = true;
@@ -2663,7 +2668,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(472, 46);
+            this.label15.Location = new System.Drawing.Point(472, 65);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(37, 16);
             this.label15.TabIndex = 512;
@@ -2672,7 +2677,7 @@
             // LueSize
             // 
             this.LueSize.EnterMoveNextControl = true;
-            this.LueSize.Location = new System.Drawing.Point(386, 44);
+            this.LueSize.Location = new System.Drawing.Point(386, 63);
             this.LueSize.Name = "LueSize";
             this.LueSize.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LueSize.Properties.Appearance.Options.UseFont = true;
@@ -2695,7 +2700,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(344, 46);
+            this.label8.Location = new System.Drawing.Point(344, 65);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 16);
             this.label8.TabIndex = 510;
@@ -2704,7 +2709,7 @@
             // LueColor
             // 
             this.LueColor.EnterMoveNextControl = true;
-            this.LueColor.Location = new System.Drawing.Point(258, 44);
+            this.LueColor.Location = new System.Drawing.Point(258, 63);
             this.LueColor.Name = "LueColor";
             this.LueColor.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LueColor.Properties.Appearance.Options.UseFont = true;
@@ -2727,7 +2732,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(206, 46);
+            this.label6.Location = new System.Drawing.Point(206, 65);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 16);
             this.label6.TabIndex = 508;
@@ -2773,7 +2778,7 @@
             // txtPcs
             // 
             this.txtPcs.EnterMoveNextControl = true;
-            this.txtPcs.Location = new System.Drawing.Point(635, 44);
+            this.txtPcs.Location = new System.Drawing.Point(635, 63);
             this.txtPcs.Name = "txtPcs";
             this.txtPcs.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPcs.Properties.Appearance.Options.UseFont = true;
@@ -2788,7 +2793,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(599, 46);
+            this.label3.Location = new System.Drawing.Point(599, 65);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 16);
             this.label3.TabIndex = 4;
@@ -2798,7 +2803,7 @@
             // 
             this.txtSaleAmount.Enabled = false;
             this.txtSaleAmount.EnterMoveNextControl = true;
-            this.txtSaleAmount.Location = new System.Drawing.Point(870, 44);
+            this.txtSaleAmount.Location = new System.Drawing.Point(870, 63);
             this.txtSaleAmount.Name = "txtSaleAmount";
             this.txtSaleAmount.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSaleAmount.Properties.Appearance.Options.UseFont = true;
@@ -2815,7 +2820,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(825, 46);
+            this.label18.Location = new System.Drawing.Point(825, 65);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(43, 16);
             this.label18.TabIndex = 10;
@@ -2839,7 +2844,7 @@
             // txtSaleRate
             // 
             this.txtSaleRate.EnterMoveNextControl = true;
-            this.txtSaleRate.Location = new System.Drawing.Point(745, 44);
+            this.txtSaleRate.Location = new System.Drawing.Point(745, 63);
             this.txtSaleRate.Name = "txtSaleRate";
             this.txtSaleRate.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSaleRate.Properties.Appearance.Options.UseFont = true;
@@ -2857,7 +2862,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label17.Location = new System.Drawing.Point(701, 46);
+            this.label17.Location = new System.Drawing.Point(701, 65);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(41, 16);
             this.label17.TabIndex = 8;
@@ -2905,7 +2910,7 @@
             // lueItem
             // 
             this.lueItem.EnterMoveNextControl = true;
-            this.lueItem.Location = new System.Drawing.Point(50, 44);
+            this.lueItem.Location = new System.Drawing.Point(50, 63);
             this.lueItem.Name = "lueItem";
             this.lueItem.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueItem.Properties.Appearance.Options.UseFont = true;
@@ -2938,7 +2943,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(4, 46);
+            this.label14.Location = new System.Drawing.Point(4, 65);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(43, 16);
             this.label14.TabIndex = 0;
@@ -3311,6 +3316,31 @@
             this.backgroundWorker_SaleReturnDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_SaleReturnDelete_DoWork);
             this.backgroundWorker_SaleReturnDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_SaleReturnDelete_RunWorkerCompleted);
             // 
+            // txtbarcode
+            // 
+            this.txtbarcode.EnterMoveNextControl = true;
+            this.txtbarcode.Location = new System.Drawing.Point(73, 38);
+            this.txtbarcode.Name = "txtbarcode";
+            this.txtbarcode.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbarcode.Properties.Appearance.Options.UseFont = true;
+            this.txtbarcode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtbarcode.Size = new System.Drawing.Size(118, 20);
+            this.txtbarcode.TabIndex = 536;
+            this.txtbarcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbarcode_KeyPress);
+            this.txtbarcode.Validated += new System.EventHandler(this.txtbarcode_Validated);
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl12.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl12.Appearance.Options.UseFont = true;
+            this.labelControl12.Appearance.Options.UseForeColor = true;
+            this.labelControl12.Location = new System.Drawing.Point(7, 40);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(60, 16);
+            this.labelControl12.TabIndex = 537;
+            this.labelControl12.Text = "Barcode";
+            // 
             // FrmSaleReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3403,6 +3433,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CmbSaleType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtbarcode.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3639,5 +3670,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
         private DevExpress.XtraEditors.LookUpEdit luePurchaseFirm;
         private DevExpress.XtraEditors.SimpleButton btnPrint;
+        private DevExpress.XtraEditors.TextEdit txtbarcode;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
     }
 }

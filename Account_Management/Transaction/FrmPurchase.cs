@@ -50,6 +50,7 @@ namespace Account_Management.Transaction
         bool m_blncheckevents;
         bool m_IsUpdate;
         string Form_Clear = string.Empty;
+        DataTable m_dtbBarcode;
 
         #endregion
 
@@ -1861,6 +1862,59 @@ namespace Account_Management.Transaction
             if (e.KeyChar == '.' && (sender as DevExpress.XtraEditors.TextEdit).Text.IndexOf('.') > -1)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void txtbarcode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtbarcode_Validated(object sender, EventArgs e)
+        {
+            try
+            {
+                m_dtbBarcode = new DataTable();
+                m_dtbBarcode.AcceptChanges();
+
+                if (txtbarcode.Text.Length == 0)
+                {
+                    return;
+                }
+                SaleInvoice objSaleInvoice = new SaleInvoice();
+
+                m_dtbBarcode = objSaleInvoice.Sale_Invocie_Barcode_GetData(Val.ToInt64(txtbarcode.Text));
+
+                if (m_dtbBarcode.Rows.Count > 0)
+                {
+                    lueItem.EditValue = Val.ToInt64(m_dtbBarcode.Rows[0]["item_id"]);
+                    LueColor.EditValue = Val.ToInt64(m_dtbBarcode.Rows[0]["color_id"]);
+                    LueSize.EditValue = Val.ToInt64(m_dtbBarcode.Rows[0]["size_id"]);
+                    txtPcs.Text = Val.ToString(m_dtbBarcode.Rows[0]["balance_pcs"]);
+                    LueUnit.EditValue = Val.ToInt64(m_dtbBarcode.Rows[0]["unit_id"]);
+                    txtbarcode.Text = "";
+                    txtPcs.Focus();
+                }
+                else
+                {
+                    Global.Message("Barcode Not Found In Stock");
+                    txtbarcode.Text = "";
+                    lueItem.EditValue = System.DBNull.Value;
+                    LueColor.EditValue = System.DBNull.Value;
+                    LueSize.EditValue = System.DBNull.Value;
+                    LueUnit.EditValue = System.DBNull.Value;
+                    txtPcs.Text = string.Empty;
+                    txtbarcode.Focus();
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                BLL.General.ShowErrors(ex);
+                return;
             }
         }
     }
