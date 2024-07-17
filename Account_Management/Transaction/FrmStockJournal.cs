@@ -1286,5 +1286,14 @@ namespace Account_Management.Transaction
                 return;
             }
         }
+
+        private void FrmStockJournal_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Alt && e.KeyCode == Keys.F1)
+            {
+                FrmLedgerMaster frmCnt = new FrmLedgerMaster();
+                frmCnt.ShowDialog();
+            }
+        }
     }
 }

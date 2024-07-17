@@ -631,6 +631,7 @@
             this.Name = "FrmDispatchEntry";
             this.Text = "Dispatch Entry";
             this.Load += new System.EventHandler(this.FrmDispatchEntry_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmDispatchEntry_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();

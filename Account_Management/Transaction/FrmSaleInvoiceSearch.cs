@@ -195,5 +195,14 @@ namespace Account_Management.Transaction
                 this.Close();
             }
         }
+
+        private void FrmSaleInvoiceSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Alt && e.KeyCode == Keys.F1)
+            {
+                FrmLedgerMaster frmCnt = new FrmLedgerMaster();
+                frmCnt.ShowDialog();
+            }
+        }
     }
 }

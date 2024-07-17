@@ -410,6 +410,7 @@
             this.Text = "Opening Stock";
             this.Load += new System.EventHandler(this.FrmOpeningStock_Load);
             this.Shown += new System.EventHandler(this.FrmOpeningStock_Shown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmOpeningStock_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.PanelSave)).EndInit();
             this.PanelSave.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdOpeningStock)).EndInit();

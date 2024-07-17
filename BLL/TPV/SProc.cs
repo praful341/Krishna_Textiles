@@ -268,6 +268,8 @@
         #region Barcode Stock Data
 
         public static string TRN_Barcode_Stock_GetData = "TRN_Barcode_Stock_GetData";
+        public static string RPT_TRN_Payment_Receipt_Print = "RPT_TRN_Payment_Receipt_Print";
+        public static string TRN_Payment_Receipt_Vch_GetData = "TRN_Payment_Receipt_Vch_GetData";
 
         #endregion Barcode Stock Data        
 

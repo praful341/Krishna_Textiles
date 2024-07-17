@@ -462,6 +462,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sale Return Payment Given";
             this.Load += new System.EventHandler(this.FrmPaymentGiven_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmSaleReturnPaymentGiven_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.PnlSaerchData)).EndInit();
             this.PnlSaerchData.ResumeLayout(false);
             this.PnlSaerchData.PerformLayout();

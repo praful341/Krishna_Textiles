@@ -56,6 +56,10 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.label1 = new System.Windows.Forms.Label();
             this.lblUnionID = new DevExpress.XtraEditors.LabelControl();
@@ -66,10 +70,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.backgroundWorker_JournalEntry = new System.ComponentModel.BackgroundWorker();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).BeginInit();
             this.ContextMNExport.SuspendLayout();
@@ -187,47 +187,47 @@
             this.MNExportRTF,
             this.MNExportCSV});
             this.ContextMNExport.Name = "ContextExport";
-            this.ContextMNExport.Size = new System.Drawing.Size(130, 136);
+            this.ContextMNExport.Size = new System.Drawing.Size(181, 158);
             // 
             // MNExportExcel
             // 
             this.MNExportExcel.Name = "MNExportExcel";
-            this.MNExportExcel.Size = new System.Drawing.Size(129, 22);
+            this.MNExportExcel.Size = new System.Drawing.Size(180, 22);
             this.MNExportExcel.Text = "To Excel";
             this.MNExportExcel.Click += new System.EventHandler(this.MNExportExcel_Click);
             // 
             // MNExportPDF
             // 
             this.MNExportPDF.Name = "MNExportPDF";
-            this.MNExportPDF.Size = new System.Drawing.Size(129, 22);
+            this.MNExportPDF.Size = new System.Drawing.Size(180, 22);
             this.MNExportPDF.Text = "To PDF";
             this.MNExportPDF.Click += new System.EventHandler(this.MNExportPDF_Click);
             // 
             // MNExportTEXT
             // 
             this.MNExportTEXT.Name = "MNExportTEXT";
-            this.MNExportTEXT.Size = new System.Drawing.Size(129, 22);
+            this.MNExportTEXT.Size = new System.Drawing.Size(180, 22);
             this.MNExportTEXT.Text = "To TEXT";
             this.MNExportTEXT.Click += new System.EventHandler(this.MNExportTEXT_Click);
             // 
             // MNExportHTML
             // 
             this.MNExportHTML.Name = "MNExportHTML";
-            this.MNExportHTML.Size = new System.Drawing.Size(129, 22);
+            this.MNExportHTML.Size = new System.Drawing.Size(180, 22);
             this.MNExportHTML.Text = "To HTML";
             this.MNExportHTML.Click += new System.EventHandler(this.MNExportHTML_Click);
             // 
             // MNExportRTF
             // 
             this.MNExportRTF.Name = "MNExportRTF";
-            this.MNExportRTF.Size = new System.Drawing.Size(129, 22);
+            this.MNExportRTF.Size = new System.Drawing.Size(180, 22);
             this.MNExportRTF.Text = "To RTF";
             this.MNExportRTF.Click += new System.EventHandler(this.MNExportRTF_Click);
             // 
             // MNExportCSV
             // 
             this.MNExportCSV.Name = "MNExportCSV";
-            this.MNExportCSV.Size = new System.Drawing.Size(129, 22);
+            this.MNExportCSV.Size = new System.Drawing.Size(180, 22);
             this.MNExportCSV.Text = "To CSV";
             this.MNExportCSV.Click += new System.EventHandler(this.MNExportCSV_Click);
             // 
@@ -435,6 +435,36 @@
             this.gridColumn4.FieldName = "payment_id";
             this.gridColumn4.Name = "gridColumn4";
             // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "ID";
+            this.gridColumn5.FieldName = "id";
+            this.gridColumn5.Name = "gridColumn5";
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Type";
+            this.gridColumn6.FieldName = "type";
+            this.gridColumn6.Name = "gridColumn6";
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "ID";
+            this.gridColumn7.FieldName = "id";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.AllowEdit = false;
+            this.gridColumn7.OptionsColumn.AllowFocus = false;
+            this.gridColumn7.OptionsColumn.AllowMove = false;
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "Type";
+            this.gridColumn8.FieldName = "type";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.OptionsColumn.AllowEdit = false;
+            this.gridColumn8.OptionsColumn.AllowFocus = false;
+            this.gridColumn8.OptionsColumn.AllowMove = false;
+            // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.label1);
@@ -546,36 +576,6 @@
             this.backgroundWorker_JournalEntry.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_JournalEntry_DoWork);
             this.backgroundWorker_JournalEntry.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_JournalEntry_RunWorkerCompleted);
             // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "ID";
-            this.gridColumn5.FieldName = "id";
-            this.gridColumn5.Name = "gridColumn5";
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "Type";
-            this.gridColumn6.FieldName = "type";
-            this.gridColumn6.Name = "gridColumn6";
-            // 
-            // gridColumn7
-            // 
-            this.gridColumn7.Caption = "ID";
-            this.gridColumn7.FieldName = "id";
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.OptionsColumn.AllowEdit = false;
-            this.gridColumn7.OptionsColumn.AllowFocus = false;
-            this.gridColumn7.OptionsColumn.AllowMove = false;
-            // 
-            // gridColumn8
-            // 
-            this.gridColumn8.Caption = "Type";
-            this.gridColumn8.FieldName = "type";
-            this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.OptionsColumn.AllowEdit = false;
-            this.gridColumn8.OptionsColumn.AllowFocus = false;
-            this.gridColumn8.OptionsColumn.AllowMove = false;
-            // 
             // FrmJournalEntry
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
@@ -595,6 +595,7 @@
             this.Text = "Journal Entry";
             this.Load += new System.EventHandler(this.FrmJournalEntry_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmJournalEntry_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmJournalEntry_KeyUp);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).EndInit();
             this.ContextMNExport.ResumeLayout(false);

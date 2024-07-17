@@ -407,6 +407,12 @@ namespace Account_Management.Transaction
             }
             btnDelete.Enabled = false;
 
+            if (Val.ToInt(lblMode.Tag) == 0)
+            {
+                Global.Message("Deleted Data Not Found..");
+                btnDelete.Enabled = true;
+                return;
+            }
 
             DialogResult result = MessageBox.Show("Do you want to Delete data?", "Confirmation", MessageBoxButtons.YesNoCancel);
             if (result != DialogResult.Yes)
@@ -1763,7 +1769,6 @@ namespace Account_Management.Transaction
                 e.Handled = true;
             }
         }
-
         private void txtPcs_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
@@ -1777,7 +1782,6 @@ namespace Account_Management.Transaction
                 e.Handled = true;
             }
         }
-
         private void FrmJangedEntry_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.Shift && e.Alt && e.KeyCode == Keys.X)
@@ -1787,6 +1791,19 @@ namespace Account_Management.Transaction
                 btnAdd.ForeColor = Color.Blue;
                 btnSave.ForeColor = Color.Blue;
                 btnSave.ForeColor = Color.Blue;
+            }
+        }
+        private void FrmJangedEntry_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Alt && e.KeyCode == Keys.F1)
+            {
+                FrmLedgerMaster frmCnt = new FrmLedgerMaster();
+                frmCnt.ShowDialog();
+                Global.LOOKUPCashBankWithoutLedger(lueParty);
+            }
+            else if (e.KeyCode == Keys.F8)
+            {
+                btnDelete_Click(null, null);
             }
         }
     }

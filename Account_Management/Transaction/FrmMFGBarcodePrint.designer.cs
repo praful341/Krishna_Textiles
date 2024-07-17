@@ -56,6 +56,8 @@
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ChkAll = new DevExpress.XtraEditors.CheckEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.txtBarcodeCount = new DevExpress.XtraEditors.TextEdit();
+            this.label1 = new System.Windows.Forms.Label();
             this.BtnReset = new DevExpress.XtraEditors.SimpleButton();
             this.BtnShow = new DevExpress.XtraEditors.SimpleButton();
             this.LueSize = new DevExpress.XtraEditors.CheckedComboBoxEdit();
@@ -65,8 +67,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtBarcodeCount = new DevExpress.XtraEditors.TextEdit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSelPcs.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSelLot.Properties)).BeginInit();
@@ -76,12 +76,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.ChkAll.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBarcodeCount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LueSize.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LueColor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LueItem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBarcodeCount.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
@@ -518,6 +518,30 @@
             this.panelControl1.Size = new System.Drawing.Size(964, 48);
             this.panelControl1.TabIndex = 0;
             // 
+            // txtBarcodeCount
+            // 
+            this.txtBarcodeCount.EditValue = "";
+            this.txtBarcodeCount.EnterMoveNextControl = true;
+            this.txtBarcodeCount.Location = new System.Drawing.Point(705, 14);
+            this.txtBarcodeCount.Name = "txtBarcodeCount";
+            this.txtBarcodeCount.Properties.AccessibleName = "EMPLOYEE";
+            this.txtBarcodeCount.Properties.Appearance.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBarcodeCount.Properties.Appearance.Options.UseFont = true;
+            this.txtBarcodeCount.Size = new System.Drawing.Size(83, 22);
+            this.txtBarcodeCount.TabIndex = 3;
+            this.txtBarcodeCount.ToolTip = "Enter Employee Name";
+            this.txtBarcodeCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBarcodeCount_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(648, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 16);
+            this.label1.TabIndex = 514;
+            this.label1.Text = "Count";
+            // 
             // BtnReset
             // 
             this.BtnReset.Appearance.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -638,30 +662,6 @@
             this.panelControl2.Size = new System.Drawing.Size(964, 330);
             this.panelControl2.TabIndex = 16;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(648, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 16);
-            this.label1.TabIndex = 514;
-            this.label1.Text = "Count";
-            // 
-            // txtBarcodeCount
-            // 
-            this.txtBarcodeCount.EditValue = "";
-            this.txtBarcodeCount.EnterMoveNextControl = true;
-            this.txtBarcodeCount.Location = new System.Drawing.Point(705, 14);
-            this.txtBarcodeCount.Name = "txtBarcodeCount";
-            this.txtBarcodeCount.Properties.AccessibleName = "EMPLOYEE";
-            this.txtBarcodeCount.Properties.Appearance.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBarcodeCount.Properties.Appearance.Options.UseFont = true;
-            this.txtBarcodeCount.Size = new System.Drawing.Size(83, 22);
-            this.txtBarcodeCount.TabIndex = 3;
-            this.txtBarcodeCount.ToolTip = "Enter Employee Name";
-            this.txtBarcodeCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBarcodeCount_KeyPress);
-            // 
             // FrmMFGBarcodePrint
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
@@ -681,6 +681,7 @@
             this.Text = "Barcode Print";
             this.Load += new System.EventHandler(this.FrmMFGBarcodePrint_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmMFGBarcodePrint_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmMFGBarcodePrint_KeyUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSelPcs.Properties)).EndInit();
@@ -692,12 +693,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBarcodeCount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LueSize.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LueColor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LueItem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtBarcodeCount.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

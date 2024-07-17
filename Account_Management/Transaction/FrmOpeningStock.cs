@@ -597,5 +597,14 @@ namespace Account_Management.Transaction
             Export("csv", "Export Report to CSVB", "csv (*.csv)|*.csv");
         }
         #endregion
+
+        private void FrmOpeningStock_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Alt && e.KeyCode == Keys.F1)
+            {
+                FrmLedgerMaster frmCnt = new FrmLedgerMaster();
+                frmCnt.ShowDialog();
+            }
+        }
     }
 }

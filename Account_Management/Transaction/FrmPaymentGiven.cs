@@ -628,7 +628,7 @@ namespace Account_Management.Transaction
 
         private void FrmPaymentGiven_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F1)
+            if (e.Alt && e.KeyCode == Keys.F1)
             {
                 FrmLedgerMaster frmCnt = new FrmLedgerMaster();
                 frmCnt.ShowDialog();

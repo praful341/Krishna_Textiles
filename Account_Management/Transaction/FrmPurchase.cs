@@ -482,6 +482,12 @@ namespace Account_Management.Transaction
             }
             btnDelete.Enabled = false;
 
+            if (Val.ToInt(lblMode.Tag) == 0)
+            {
+                Global.Message("Deleted Data Not Found..");
+                btnDelete.Enabled = true;
+                return;
+            }
 
             DialogResult result = MessageBox.Show("Do you want to Delete data?", "Confirmation", MessageBoxButtons.YesNoCancel);
             if (result != DialogResult.Yes)
@@ -1915,6 +1921,20 @@ namespace Account_Management.Transaction
             {
                 BLL.General.ShowErrors(ex);
                 return;
+            }
+        }
+
+        private void FrmPurchase_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Alt && e.KeyCode == Keys.F1)
+            {
+                FrmLedgerMaster frmCnt = new FrmLedgerMaster();
+                frmCnt.ShowDialog();
+                Global.LOOKUPCashBankWithoutLedger(lueParty);
+            }
+            else if (e.KeyCode == Keys.F8)
+            {
+                btnDelete_Click(null, null);
             }
         }
     }

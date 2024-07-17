@@ -490,7 +490,7 @@
             this.grdBankMaster.Location = new System.Drawing.Point(0, 0);
             this.grdBankMaster.MainView = this.dgvBankMaster;
             this.grdBankMaster.Name = "grdBankMaster";
-            this.grdBankMaster.Size = new System.Drawing.Size(268, 487);
+            this.grdBankMaster.Size = new System.Drawing.Size(270, 482);
             this.grdBankMaster.TabIndex = 14;
             this.grdBankMaster.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvBankMaster});
@@ -545,9 +545,9 @@
             // dockPanel1_Container
             // 
             this.dockPanel1_Container.Controls.Add(this.grdBankMaster);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(3, 29);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(268, 487);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(270, 482);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // panelControl1

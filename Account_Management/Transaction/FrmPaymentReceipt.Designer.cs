@@ -30,8 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.PnlSaerchData = new DevExpress.XtraEditors.PanelControl();
+            this.BtnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.LueCashBank = new DevExpress.XtraEditors.LookUpEdit();
-            this.BtnSearch = new DevExpress.XtraEditors.SimpleButton();
+            this.BtnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.BtnSearch1 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
@@ -51,6 +53,7 @@
             this.txtRemark = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
+            this.BtnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             this.PnlSearchData = new DevExpress.XtraEditors.PanelControl();
@@ -79,8 +82,6 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.backgroundWorker_PaymentReceipt = new System.ComponentModel.BackgroundWorker();
-            this.BtnSave = new DevExpress.XtraEditors.SimpleButton();
-            this.BtnDelete = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.PnlSaerchData)).BeginInit();
             this.PnlSaerchData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LueCashBank.Properties)).BeginInit();
@@ -111,8 +112,10 @@
             // 
             // PnlSaerchData
             // 
+            this.PnlSaerchData.Controls.Add(this.BtnDelete);
             this.PnlSaerchData.Controls.Add(this.LueCashBank);
-            this.PnlSaerchData.Controls.Add(this.BtnSearch);
+            this.PnlSaerchData.Controls.Add(this.BtnSave);
+            this.PnlSaerchData.Controls.Add(this.BtnSearch1);
             this.PnlSaerchData.Controls.Add(this.labelControl2);
             this.PnlSaerchData.Controls.Add(this.labelControl18);
             this.PnlSaerchData.Controls.Add(this.labelControl7);
@@ -138,6 +141,20 @@
             this.PnlSaerchData.Size = new System.Drawing.Size(491, 511);
             this.PnlSaerchData.TabIndex = 0;
             // 
+            // BtnDelete
+            // 
+            this.BtnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnDelete.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDelete.Appearance.Options.UseFont = true;
+            this.BtnDelete.ImageOptions.Image = global::Account_Management.Properties.Resources.Close;
+            this.BtnDelete.Location = new System.Drawing.Point(355, 412);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(102, 32);
+            this.BtnDelete.TabIndex = 3;
+            this.BtnDelete.Text = "&Delete";
+            this.BtnDelete.Visible = false;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
             // LueCashBank
             // 
             this.LueCashBank.EnterMoveNextControl = true;
@@ -160,18 +177,32 @@
             this.LueCashBank.Size = new System.Drawing.Size(229, 22);
             this.LueCashBank.TabIndex = 2;
             // 
-            // BtnSearch
+            // BtnSave
             // 
-            this.BtnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnSearch.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSearch.Appearance.Options.UseFont = true;
-            this.BtnSearch.ImageOptions.Image = global::Account_Management.Properties.Resources.Search;
-            this.BtnSearch.Location = new System.Drawing.Point(307, 152);
-            this.BtnSearch.Name = "BtnSearch";
-            this.BtnSearch.Size = new System.Drawing.Size(42, 39);
-            this.BtnSearch.TabIndex = 43;
-            this.BtnSearch.Visible = false;
-            this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
+            this.BtnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnSave.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSave.Appearance.Options.UseFont = true;
+            this.BtnSave.ImageOptions.Image = global::Account_Management.Properties.Resources.Save;
+            this.BtnSave.Location = new System.Drawing.Point(247, 412);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(102, 32);
+            this.BtnSave.TabIndex = 2;
+            this.BtnSave.Text = "&Save";
+            this.BtnSave.Visible = false;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            // 
+            // BtnSearch1
+            // 
+            this.BtnSearch1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnSearch1.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSearch1.Appearance.Options.UseFont = true;
+            this.BtnSearch1.ImageOptions.Image = global::Account_Management.Properties.Resources.Search;
+            this.BtnSearch1.Location = new System.Drawing.Point(307, 152);
+            this.BtnSearch1.Name = "BtnSearch1";
+            this.BtnSearch1.Size = new System.Drawing.Size(42, 39);
+            this.BtnSearch1.TabIndex = 43;
+            this.BtnSearch1.Visible = false;
+            this.BtnSearch1.Click += new System.EventHandler(this.BtnSearch1_Click);
             // 
             // labelControl2
             // 
@@ -433,8 +464,7 @@
             // 
             // panelControl6
             // 
-            this.panelControl6.Controls.Add(this.BtnDelete);
-            this.panelControl6.Controls.Add(this.BtnSave);
+            this.panelControl6.Controls.Add(this.BtnSearch);
             this.panelControl6.Controls.Add(this.btnExit);
             this.panelControl6.Controls.Add(this.btnClear);
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -442,6 +472,18 @@
             this.panelControl6.Name = "panelControl6";
             this.panelControl6.Size = new System.Drawing.Size(487, 44);
             this.panelControl6.TabIndex = 6;
+            // 
+            // BtnSearch
+            // 
+            this.BtnSearch.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSearch.Appearance.Options.UseFont = true;
+            this.BtnSearch.ImageOptions.Image = global::Account_Management.Properties.Resources.Search;
+            this.BtnSearch.Location = new System.Drawing.Point(235, 5);
+            this.BtnSearch.Name = "BtnSearch";
+            this.BtnSearch.Size = new System.Drawing.Size(102, 32);
+            this.BtnSearch.TabIndex = 5;
+            this.BtnSearch.Text = "S&earch";
+            this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // btnExit
             // 
@@ -764,34 +806,6 @@
             this.panelControl1.Size = new System.Drawing.Size(852, 19);
             this.panelControl1.TabIndex = 13;
             // 
-            // BtnSave
-            // 
-            this.BtnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.BtnSave.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSave.Appearance.Options.UseFont = true;
-            this.BtnSave.ImageOptions.Image = global::Account_Management.Properties.Resources.Save;
-            this.BtnSave.Location = new System.Drawing.Point(235, 5);
-            this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(102, 32);
-            this.BtnSave.TabIndex = 2;
-            this.BtnSave.Text = "&Save";
-            this.BtnSave.Visible = false;
-            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
-            // 
-            // BtnDelete
-            // 
-            this.BtnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.BtnDelete.Appearance.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDelete.Appearance.Options.UseFont = true;
-            this.BtnDelete.ImageOptions.Image = global::Account_Management.Properties.Resources.Close;
-            this.BtnDelete.Location = new System.Drawing.Point(343, 5);
-            this.BtnDelete.Name = "BtnDelete";
-            this.BtnDelete.Size = new System.Drawing.Size(102, 32);
-            this.BtnDelete.TabIndex = 3;
-            this.BtnDelete.Text = "&Delete";
-            this.BtnDelete.Visible = false;
-            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
-            // 
             // FrmPaymentReceipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -877,7 +891,7 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker_PaymentReceipt;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.PanelControl PnlSearchData;
-        private DevExpress.XtraEditors.SimpleButton BtnSearch;
+        private DevExpress.XtraEditors.SimpleButton BtnSearch1;
         private DevExpress.XtraGrid.GridControl MainGrid;
         private DevExpress.XtraGrid.Views.Grid.GridView GrdDet;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
@@ -894,5 +908,6 @@
         private DevExpress.XtraEditors.LookUpEdit LueCashBank;
         private DevExpress.XtraEditors.SimpleButton BtnDelete;
         private DevExpress.XtraEditors.SimpleButton BtnSave;
+        private DevExpress.XtraEditors.SimpleButton BtnSearch;
     }
 }

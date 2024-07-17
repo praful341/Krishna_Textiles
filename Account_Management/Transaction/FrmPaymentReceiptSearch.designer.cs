@@ -500,6 +500,7 @@
             this.Text = "Bill-By-bill Adjustment of Amount";
             this.Load += new System.EventHandler(this.FrmPaymentReceiptSearch_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPaymentReceiptSearch_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmPaymentReceiptSearch_KeyUp);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).EndInit();
             this.ContextMNExport.ResumeLayout(false);

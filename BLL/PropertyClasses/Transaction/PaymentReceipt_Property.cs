@@ -6,11 +6,14 @@ namespace BLL.PropertyClasses.Transaction
     {
         public Int64 payment_id { get; set; }
         public Int64 voucher_no { get; set; }
+        public string voucher_no_trim { get; set; }
         public Int64 company_id { get; set; }
         public Int64 branch_id { get; set; }
         public Int64 location_id { get; set; }
         public Int64 department_id { get; set; }
         public Int64 union_id { get; set; }
+        public string from_date { get; set; }
+        public string to_date { get; set; }
         public string payment_date { get; set; }
         public string payment_type { get; set; }
         public Int64 sr_no { get; set; }

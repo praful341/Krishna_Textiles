@@ -2151,6 +2151,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock Journal";
             this.Load += new System.EventHandler(this.FrmStockJournal_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmStockJournal_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).EndInit();

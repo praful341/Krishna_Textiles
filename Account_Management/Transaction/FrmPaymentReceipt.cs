@@ -571,48 +571,6 @@ namespace Account_Management.Transaction
                 }
             }
         }
-        private void BtnSearch_Click(object sender, EventArgs e)
-        {
-            if (LueLedger.ItemIndex < 0)
-            {
-                Global.Message("Please Select Ledger");
-                LueLedger.Focus();
-                return;
-            }
-            RepMethod.Items.Clear();
-            RepMethod.Items.Add("Adjustment");
-            RepMethod.Items.Add("New Ref.");
-
-            DataTable DTab_Invoice_Data = objPaymentReceipt.PaymentReceipt_Search_GetData(Val.ToInt64(LueLedger.EditValue), Val.ToString("Invoice"));
-
-            RepOrderNo.DataSource = DTab_Invoice_Data;
-            RepOrderNo.ValueMember = "invoice_id";
-            RepOrderNo.DisplayMember = "order_no";
-
-            objPaymentReceipt = new PaymentReceipt();
-            DataTable DTab_Payment_Receipt_Data = objPaymentReceipt.PaymentReceipt_Search_GetData(Val.ToInt64(LueLedger.EditValue), Val.ToString(""));
-
-            if (DTab_Payment_Receipt_Data.Rows.Count > 0)
-            {
-                PnlSearchData.Visible = true;
-                MainGrid.Visible = true;
-                BtnUpdate.Visible = true;
-                MainGrid.DataSource = DTab_Payment_Receipt_Data;
-
-                GrdDet.PostEditor();
-                GrdDet.FocusedRowHandle = GrdDet.DataRowCount;
-                GrdDet.FocusedColumn = GrdDet.Columns["method"];
-                RepMethod.AllowFocused = true;
-            }
-            else
-            {
-                Global.Message("Ledger New Ref. Data Not Found");
-                MainGrid.DataSource = null;
-                MainGrid.Visible = false;
-                BtnUpdate.Visible = false;
-                PnlSearchData.Visible = false;
-            }
-        }
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -676,7 +634,7 @@ namespace Account_Management.Transaction
         }
         private void FrmPaymentReceipt_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F1)
+            if (e.Alt && e.KeyCode == Keys.F1)
             {
                 FrmLedgerMaster frmCnt = new FrmLedgerMaster();
                 frmCnt.ShowDialog();
@@ -764,6 +722,54 @@ namespace Account_Management.Transaction
             {
                 Global.Message(ex.ToString());
             }
+        }
+        private void BtnSearch1_Click(object sender, EventArgs e)
+        {
+            if (LueLedger.ItemIndex < 0)
+            {
+                Global.Message("Please Select Ledger");
+                LueLedger.Focus();
+                return;
+            }
+            RepMethod.Items.Clear();
+            RepMethod.Items.Add("Adjustment");
+            RepMethod.Items.Add("New Ref.");
+
+            DataTable DTab_Invoice_Data = objPaymentReceipt.PaymentReceipt_Search_GetData(Val.ToInt64(LueLedger.EditValue), Val.ToString("Invoice"));
+
+            RepOrderNo.DataSource = DTab_Invoice_Data;
+            RepOrderNo.ValueMember = "invoice_id";
+            RepOrderNo.DisplayMember = "order_no";
+
+            objPaymentReceipt = new PaymentReceipt();
+            DataTable DTab_Payment_Receipt_Data = objPaymentReceipt.PaymentReceipt_Search_GetData(Val.ToInt64(LueLedger.EditValue), Val.ToString(""));
+
+            if (DTab_Payment_Receipt_Data.Rows.Count > 0)
+            {
+                PnlSearchData.Visible = true;
+                MainGrid.Visible = true;
+                BtnUpdate.Visible = true;
+                MainGrid.DataSource = DTab_Payment_Receipt_Data;
+
+                GrdDet.PostEditor();
+                GrdDet.FocusedRowHandle = GrdDet.DataRowCount;
+                GrdDet.FocusedColumn = GrdDet.Columns["method"];
+                RepMethod.AllowFocused = true;
+            }
+            else
+            {
+                Global.Message("Ledger New Ref. Data Not Found");
+                MainGrid.DataSource = null;
+                MainGrid.Visible = false;
+                BtnUpdate.Visible = false;
+                PnlSearchData.Visible = false;
+            }
+        }
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            FrmPaymentReceiptPrintSearch FrmPaymentReceiptPrintSearch = new FrmPaymentReceiptPrintSearch();
+            FrmPaymentReceiptPrintSearch.FrmPaymentReceipt = this;
+            FrmPaymentReceiptPrintSearch.ShowForm(this, Val.ToString("Sales_Invoice"));
         }
     }
 }

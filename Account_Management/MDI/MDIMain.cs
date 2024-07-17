@@ -1,4 +1,5 @@
 ﻿using Account_Management.Class;
+using Account_Management.Master;
 using Account_Management.Search;
 using BLL;
 using BLL.FunctionClasses.Utility;
@@ -822,6 +823,282 @@ namespace Account_Management.MDI
             }
             catch
             { }
+        }
+
+        private void MDIMain_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Alt && e.KeyCode == Keys.F1)
+            {
+                FrmLedgerMaster frmCnt = new FrmLedgerMaster();
+                frmCnt.ShowDialog();
+            }
+            else if (e.Control && e.KeyCode == Keys.F2)
+            {
+                FrmItemMaster frmCnt = new FrmItemMaster();
+                frmCnt.ShowDialog();
+            }
+            else if (e.Control && e.KeyCode == Keys.F5)
+            {
+                Boolean Flag = false;
+                string ref_form_name = "";
+                Form k = Application.OpenForms["FRMPAYMENTGIVEN"];
+
+                if (k == null)
+                {
+                    Assembly frmAssembly = Assembly.LoadFile(Application.ExecutablePath);
+                    foreach (Type type in frmAssembly.GetTypes())
+                    {
+                        if (Flag)
+                        {
+                            break;
+                        }
+                        if (type.BaseType == typeof(DevExpress.XtraEditors.XtraForm))
+                        {
+                            if (type.Name.ToString().ToUpper() == "FRMPAYMENTGIVEN")
+                            {
+                                Form frmShow = (Form)frmAssembly.CreateInstance(type.ToString());
+                                frmShow.MdiParent = this;
+                                if (ref_form_name.Length > 0)
+                                    frmShow.Name = ref_form_name.ToUpper();
+                                if (DTForm.Select("form_name='FRMPAYMENTGIVEN' AND caption = 'Payment Given'").CopyToDataTable().Rows[0]["param"].ToString().Length > 0)
+                                {
+                                    string param = DTForm.Select("form_name='FRMPAYMENTGIVEN' AND caption = 'Payment Given'").CopyToDataTable().Rows[0]["param"].ToString();
+                                    object[] obj1 = param.Split(',');
+                                    frmShow.GetType().GetMethod("ShowForm").Invoke(frmShow, obj1);
+                                    Flag = true;
+                                }
+                                else
+                                {
+                                    frmShow.GetType().GetMethod("ShowForm").Invoke(frmShow, null);
+                                    Flag = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (e.Control && e.KeyCode == Keys.F6)
+            {
+                Boolean Flag = false;
+                string ref_form_name = "";
+                Form k = Application.OpenForms["FRMPAYMENTRECEIPT"];
+
+                if (k == null)
+                {
+                    Assembly frmAssembly = Assembly.LoadFile(Application.ExecutablePath);
+                    foreach (Type type in frmAssembly.GetTypes())
+                    {
+                        if (Flag)
+                        {
+                            break;
+                        }
+                        if (type.BaseType == typeof(DevExpress.XtraEditors.XtraForm))
+                        {
+                            if (type.Name.ToString().ToUpper() == "FRMPAYMENTRECEIPT")
+                            {
+                                Form frmShow = (Form)frmAssembly.CreateInstance(type.ToString());
+                                frmShow.MdiParent = this;
+                                if (ref_form_name.Length > 0)
+                                    frmShow.Name = ref_form_name.ToUpper();
+                                if (DTForm.Select("form_name='FRMPAYMENTRECEIPT' AND caption = 'Payment Receipt'").CopyToDataTable().Rows[0]["param"].ToString().Length > 0)
+                                {
+                                    string param = DTForm.Select("form_name='FRMPAYMENTRECEIPT' AND caption = 'Payment Receipt'").CopyToDataTable().Rows[0]["param"].ToString();
+                                    object[] obj1 = param.Split(',');
+                                    frmShow.GetType().GetMethod("ShowForm").Invoke(frmShow, obj1);
+                                    Flag = true;
+                                }
+                                else
+                                {
+                                    frmShow.GetType().GetMethod("ShowForm").Invoke(frmShow, null);
+                                    Flag = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (e.Control && e.KeyCode == Keys.F7)
+            {
+                Boolean Flag = false;
+                string ref_form_name = "";
+                Form k = Application.OpenForms["FRMJOURNALENTRY"];
+
+                if (k == null)
+                {
+                    Assembly frmAssembly = Assembly.LoadFile(Application.ExecutablePath);
+                    foreach (Type type in frmAssembly.GetTypes())
+                    {
+                        if (Flag)
+                        {
+                            break;
+                        }
+                        if (type.BaseType == typeof(DevExpress.XtraEditors.XtraForm))
+                        {
+                            if (type.Name.ToString().ToUpper() == "FRMJOURNALENTRY")
+                            {
+                                Form frmShow = (Form)frmAssembly.CreateInstance(type.ToString());
+                                frmShow.MdiParent = this;
+                                if (ref_form_name.Length > 0)
+                                    frmShow.Name = ref_form_name.ToUpper();
+                                if (DTForm.Select("form_name='FRMJOURNALENTRY' AND caption = 'Journal Entry'").CopyToDataTable().Rows[0]["param"].ToString().Length > 0)
+                                {
+                                    string param = DTForm.Select("form_name='FRMJOURNALENTRY' AND caption = 'Journal Entry'").CopyToDataTable().Rows[0]["param"].ToString();
+                                    object[] obj1 = param.Split(',');
+                                    frmShow.GetType().GetMethod("ShowForm").Invoke(frmShow, obj1);
+                                    Flag = true;
+                                }
+                                else
+                                {
+                                    frmShow.GetType().GetMethod("ShowForm").Invoke(frmShow, null);
+                                    Flag = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (e.Control && e.KeyCode == Keys.F8)
+            {
+                Boolean Flag = false;
+                string ref_form_name = "";
+                Form k = Application.OpenForms["FRMSALEINVOICE"];
+
+                if (k == null)
+                {
+                    Assembly frmAssembly = Assembly.LoadFile(Application.ExecutablePath);
+                    foreach (Type type in frmAssembly.GetTypes())
+                    {
+                        if (Flag)
+                        {
+                            break;
+                        }
+                        if (type.BaseType == typeof(DevExpress.XtraEditors.XtraForm))
+                        {
+                            if (type.Name.ToString().ToUpper() == "FRMSALEINVOICE")
+                            {
+                                Form frmShow = (Form)frmAssembly.CreateInstance(type.ToString());
+                                frmShow.MdiParent = this;
+                                if (ref_form_name.Length > 0)
+                                    frmShow.Name = ref_form_name.ToUpper();
+                                if (DTForm.Select("form_name='FRMSALEINVOICE' AND caption = 'Sale Invoice'").CopyToDataTable().Rows[0]["param"].ToString().Length > 0)
+                                {
+                                    string param = DTForm.Select("form_name='FRMSALEINVOICE' AND caption = 'Sale Invoice'").CopyToDataTable().Rows[0]["param"].ToString();
+                                    object[] obj1 = param.Split(',');
+                                    frmShow.GetType().GetMethod("ShowForm").Invoke(frmShow, obj1);
+                                    Flag = true;
+                                }
+                                else
+                                {
+                                    frmShow.GetType().GetMethod("ShowForm").Invoke(frmShow, null);
+                                    Flag = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (e.Control && e.KeyCode == Keys.F9)
+            {
+                Boolean Flag = false;
+                string ref_form_name = "";
+                Form k = Application.OpenForms["FRMPURCHASE"];
+
+                if (k == null)
+                {
+                    Assembly frmAssembly = Assembly.LoadFile(Application.ExecutablePath);
+                    foreach (Type type in frmAssembly.GetTypes())
+                    {
+                        if (Flag)
+                        {
+                            break;
+                        }
+                        if (type.BaseType == typeof(DevExpress.XtraEditors.XtraForm))
+                        {
+                            if (type.Name.ToString().ToUpper() == "FRMPURCHASE")
+                            {
+                                Form frmShow = (Form)frmAssembly.CreateInstance(type.ToString());
+                                frmShow.MdiParent = this;
+                                if (ref_form_name.Length > 0)
+                                    frmShow.Name = ref_form_name.ToUpper();
+                                if (DTForm.Select("form_name='FRMPURCHASE' AND caption = 'Purchase'").CopyToDataTable().Rows[0]["param"].ToString().Length > 0)
+                                {
+                                    string param = DTForm.Select("form_name='FRMPURCHASE' AND caption = 'Purchase'").CopyToDataTable().Rows[0]["param"].ToString();
+                                    object[] obj1 = param.Split(',');
+                                    frmShow.GetType().GetMethod("ShowForm").Invoke(frmShow, obj1);
+                                    Flag = true;
+                                }
+                                else
+                                {
+                                    frmShow.GetType().GetMethod("ShowForm").Invoke(frmShow, null);
+                                    Flag = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (e.Alt && e.KeyCode == Keys.L)
+            {
+                Boolean Flag = false;
+                string ref_form_name = "";
+                Form k = Application.OpenForms["FRMACCOUNTLEDGER"];
+
+                if (k == null)
+                {
+                    Assembly frmAssembly = Assembly.LoadFile(Application.ExecutablePath);
+                    foreach (Type type in frmAssembly.GetTypes())
+                    {
+                        if (Flag)
+                        {
+                            break;
+                        }
+                        if (type.BaseType == typeof(DevExpress.XtraEditors.XtraForm))
+                        {
+                            if (type.Name.ToString().ToUpper() == "FRMACCOUNTLEDGER")
+                            {
+                                Form frmShow = (Form)frmAssembly.CreateInstance(type.ToString());
+                                frmShow.MdiParent = this;
+                                if (ref_form_name.Length > 0)
+                                    frmShow.Name = ref_form_name.ToUpper();
+                                if (DTForm.Select("form_name='FRMACCOUNTLEDGER' AND caption = 'Account Ledger'").CopyToDataTable().Rows[0]["param"].ToString().Length > 0)
+                                {
+                                    string param = DTForm.Select("form_name='FRMACCOUNTLEDGER' AND caption = 'Account Ledger'").CopyToDataTable().Rows[0]["param"].ToString();
+                                    object[] obj1 = param.Split(',');
+                                    frmShow.GetType().GetMethod("ShowForm").Invoke(frmShow, obj1);
+                                    Flag = true;
+                                }
+                                else
+                                {
+                                    frmShow.GetType().GetMethod("ShowForm").Invoke(frmShow, null);
+                                    Flag = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (e.Control && e.KeyCode == Keys.U)
+            {
+                FrmLogin FrmLogin = new FrmLogin();
+                isManual = true;
+                this.Hide();
+
+                this.Close();
+                this.Dispose();
+                this.Cursor = Cursors.WaitCursor;
+                foreach (System.Windows.Forms.Form Frm in this.MdiChildren)
+                {
+                    if (Frm.Name.ToUpper() != "FrmMainHome".ToUpper())
+                    {
+                        Frm.Focus();
+                        Frm.Hide();
+                        Frm.Close();
+                        Frm.Dispose();
+                    }
+                }
+                FrmLogin.ShowDialog();
+                isManual = true;
+            }
         }
     }
 }

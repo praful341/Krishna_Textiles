@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -50,7 +50,10 @@
             this.GrdDet = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.RepMethod = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clmRSAmount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.RepAmount = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.RepOrderNo = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.ClmLotSrNo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -60,9 +63,8 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ClmDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.RepDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.lblCreditAmount = new DevExpress.XtraEditors.LabelControl();
             this.lblType = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.lblLedgerID = new DevExpress.XtraEditors.LabelControl();
@@ -71,13 +73,12 @@
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.lblCreditAmount = new DevExpress.XtraEditors.LabelControl();
-            this.RepAmount = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).BeginInit();
             this.ContextMNExport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrdDet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepMethod)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepOrderNo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepDueDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepDueDate.CalendarTimeProperties)).BeginInit();
@@ -86,7 +87,6 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RepAmount)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
@@ -285,6 +285,24 @@
             this.RepMethod.Name = "RepMethod";
             this.RepMethod.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "id";
+            this.gridColumn4.FieldName = "id";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
+            this.gridColumn4.OptionsColumn.AllowFocus = false;
+            this.gridColumn4.OptionsColumn.AllowMove = false;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Type";
+            this.gridColumn5.FieldName = "type";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
+            this.gridColumn5.OptionsColumn.AllowFocus = false;
+            this.gridColumn5.OptionsColumn.AllowMove = false;
+            // 
             // clmRSAmount
             // 
             this.clmRSAmount.Caption = "Amount";
@@ -296,6 +314,12 @@
             this.clmRSAmount.Visible = true;
             this.clmRSAmount.VisibleIndex = 4;
             this.clmRSAmount.Width = 94;
+            // 
+            // RepAmount
+            // 
+            this.RepAmount.AutoHeight = false;
+            this.RepAmount.Name = "RepAmount";
+            this.RepAmount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RepAmount_KeyDown);
             // 
             // gridColumn8
             // 
@@ -385,30 +409,12 @@
             // RepDelete
             // 
             this.RepDelete.AutoHeight = false;
-            editorButtonImageOptions2.ImageUri.Uri = "Cancel;Size16x16;Colored";
+            editorButtonImageOptions1.ImageUri.Uri = "Cancel;Size16x16;Colored";
             this.RepDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "Delete This Row", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "Delete This Row", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.RepDelete.Name = "RepDelete";
             this.RepDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.RepDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.RepDelete_ButtonClick);
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "id";
-            this.gridColumn4.FieldName = "id";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.OptionsColumn.AllowEdit = false;
-            this.gridColumn4.OptionsColumn.AllowFocus = false;
-            this.gridColumn4.OptionsColumn.AllowMove = false;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "Type";
-            this.gridColumn5.FieldName = "type";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.OptionsColumn.AllowEdit = false;
-            this.gridColumn5.OptionsColumn.AllowFocus = false;
-            this.gridColumn5.OptionsColumn.AllowMove = false;
             // 
             // panelControl1
             // 
@@ -425,6 +431,19 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(549, 37);
             this.panelControl1.TabIndex = 15;
+            // 
+            // lblCreditAmount
+            // 
+            this.lblCreditAmount.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreditAmount.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lblCreditAmount.Appearance.Options.UseFont = true;
+            this.lblCreditAmount.Appearance.Options.UseForeColor = true;
+            this.lblCreditAmount.Location = new System.Drawing.Point(267, 9);
+            this.lblCreditAmount.Name = "lblCreditAmount";
+            this.lblCreditAmount.Size = new System.Drawing.Size(57, 16);
+            this.lblCreditAmount.TabIndex = 526;
+            this.lblCreditAmount.Text = "Amount";
+            this.lblCreditAmount.Visible = false;
             // 
             // lblType
             // 
@@ -526,25 +545,6 @@
             this.panelControl2.Size = new System.Drawing.Size(549, 301);
             this.panelControl2.TabIndex = 16;
             // 
-            // lblCreditAmount
-            // 
-            this.lblCreditAmount.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreditAmount.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lblCreditAmount.Appearance.Options.UseFont = true;
-            this.lblCreditAmount.Appearance.Options.UseForeColor = true;
-            this.lblCreditAmount.Location = new System.Drawing.Point(267, 9);
-            this.lblCreditAmount.Name = "lblCreditAmount";
-            this.lblCreditAmount.Size = new System.Drawing.Size(57, 16);
-            this.lblCreditAmount.TabIndex = 526;
-            this.lblCreditAmount.Text = "Amount";
-            this.lblCreditAmount.Visible = false;
-            // 
-            // RepAmount
-            // 
-            this.RepAmount.AutoHeight = false;
-            this.RepAmount.Name = "RepAmount";
-            this.RepAmount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RepAmount_KeyDown);
-            // 
             // FrmJVSearch
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
@@ -564,11 +564,13 @@
             this.Text = "Bill-By-bill Adjustment of Amount";
             this.Load += new System.EventHandler(this.FrmPaymentReceiptSearch_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPaymentReceiptSearch_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmJVSearch_KeyUp);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).EndInit();
             this.ContextMNExport.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GrdDet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepMethod)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RepAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepOrderNo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepDueDate.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepDueDate)).EndInit();
@@ -578,7 +580,6 @@
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.RepAmount)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -578,5 +578,15 @@ namespace Account_Management.Transaction
             DTPEntryDate.EditValue = DateTime.Now;
             btnClear_Click(btnClear, null);
         }
+
+        private void FrmSaleReturnPaymentGiven_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Alt && e.KeyCode == Keys.F1)
+            {
+                FrmLedgerMaster frmCnt = new FrmLedgerMaster();
+                frmCnt.ShowDialog();
+                Global.LOOKUPLedger(LueLedger);
+            }
+        }
     }
 }

@@ -250,6 +250,40 @@ namespace BLL.FunctionClasses.Account
             }
             return IntRes;
         }
+        public DataTable Payment_Receipt_Print_GetData(PaymentReceipt_Property pClsProperty)
+        {
+            DataTable DTab = new DataTable();
+            Request Request = new Request();
+            Request.CommandText = BLL.TPV.SProc.RPT_TRN_Payment_Receipt_Print;
+            Request.CommandType = CommandType.StoredProcedure;
+            Request.AddParams("@datFromDate", pClsProperty.from_date, DbType.Date);
+            Request.AddParams("@datToDate", pClsProperty.to_date, DbType.Date);
+            Request.AddParams("@party_id", pClsProperty.ledger_id, DbType.Int64);
+            Request.AddParams("@vchNo", pClsProperty.voucher_no_trim, DbType.String);
+            Request.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int64);
+            Request.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int64);
+            Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int64);
+            Request.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int64);
+
+            Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
+            return DTab;
+        }
+        public DataTable Payment_Receipt_Voucher_No_GetData(Int64 Party_id, string Type)
+        {
+            DataTable DTab = new DataTable();
+            Request Request = new Request();
+            Request.CommandText = BLL.TPV.SProc.TRN_Payment_Receipt_Vch_GetData;
+            Request.CommandType = CommandType.StoredProcedure;
+            Request.AddParams("@party_id", Party_id, DbType.Int64);
+            Request.AddParams("@type", Type, DbType.String);
+            Request.AddParams("@company_id", GlobalDec.gEmployeeProperty.company_id, DbType.Int64);
+            Request.AddParams("@branch_id", GlobalDec.gEmployeeProperty.branch_id, DbType.Int64);
+            Request.AddParams("@location_id", GlobalDec.gEmployeeProperty.location_id, DbType.Int64);
+            Request.AddParams("@department_id", GlobalDec.gEmployeeProperty.department_id, DbType.Int64);
+
+            Ope.GetDataTable(BLL.DBConnections.ConnectionString, BLL.DBConnections.ProviderName, DTab, Request);
+            return DTab;
+        }
 
         #endregion
     }

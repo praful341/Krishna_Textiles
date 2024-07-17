@@ -721,6 +721,7 @@
             this.Text = "ACCOUNT LEDGER";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmAccountLedger_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmAccountLedger_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.PrintingSystem1)).EndInit();
             this.GridMenuStrip.ResumeLayout(false);
             this.GridMenuStrip.PerformLayout();

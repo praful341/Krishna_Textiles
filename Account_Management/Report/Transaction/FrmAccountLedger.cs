@@ -48,6 +48,8 @@ namespace Account_Management.Report
         BLL.FormEvents objBOFormEvents = new BLL.FormEvents();
         BLL.Validation Val = new BLL.Validation();
         BLL.FormPer ObjPer = new BLL.FormPer();
+        string Account_Payable = string.Empty;
+        string Account_Receivable = string.Empty;
 
         string MergeOnStr = string.Empty;
         string MergeOn = string.Empty;
@@ -1332,7 +1334,15 @@ namespace Account_Management.Report
             ReportParams_Property.From_Date = Val.DBDate(dtpFromDate.Text);
             ReportParams_Property.To_Date = Val.DBDate(dtpToDate.Text);
             ReportParams_Property.ledger_id = Val.ToInt64(lueLedger.EditValue);
-            ReportParams_Property.account_type = Val.ToString(CmbAccountLedgerType.Text);
+            if (Account_Receivable == "RECEIVABLE" || Account_Receivable == "PAYABLE")
+            {
+                ReportParams_Property.account_type = Val.ToString(Account_Receivable);
+            }
+            else
+            {
+                ReportParams_Property.account_type = Val.ToString(CmbAccountLedgerType.Text);
+            }
+
             ReportParams_Property.is_deleted = Val.ToBoolean(GlobalDec.gEmployeeProperty.is_deleted);
 
             if (this.backgroundWorker_AccountLedger.IsBusy)
@@ -1486,6 +1496,7 @@ namespace Account_Management.Report
         }
         private void backgroundWorker_AccountLedger_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
+            Account_Receivable = "";
             FrmAccountLedger FrmGReportViewer = new Report.FrmAccountLedger();
 
             FrmGReportViewer.ObjReportDetailProperty = ObjReportDetailProperty;
@@ -1529,6 +1540,7 @@ namespace Account_Management.Report
             }
             GrdAccountLedger.DataSource = DTab;
             FooterSummary();
+            Account_Receivable = "";
         }
 
         private void FrmAccountLedger_Load(object sender, EventArgs e)
@@ -1548,6 +1560,22 @@ namespace Account_Management.Report
             dtpToDate.EditValue = DateTime.Now;
 
             Global.LOOKUPLedger(lueLedger);
+        }
+
+        private void FrmAccountLedger_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.O)
+            {
+                Account_Receivable = "RECEIVABLE";
+                CmbAccountLedgerType.Text = "RECEIVABLE";
+                BtnGenerateReport_Click(null, null);
+            }
+            else if (e.Control && e.KeyCode == Keys.P)
+            {
+                Account_Receivable = "PAYABLE";
+                CmbAccountLedgerType.Text = "PAYABLE";
+                BtnGenerateReport_Click(null, null);
+            }
         }
     }
 }

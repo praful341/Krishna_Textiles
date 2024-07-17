@@ -241,6 +241,7 @@
             this.Text = "SALE INVOICE SEARCH";
             this.Load += new System.EventHandler(this.FrmSaleInvoiceSearch_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmSaleInvoiceSearch_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmSaleInvoiceSearch_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).EndInit();
             this.ContextMNExport.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GrdDet)).EndInit();
